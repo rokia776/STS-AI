@@ -7,7 +7,10 @@ authors = [
     { name = "rokia776", email = "rookaislam81@gmail.com" }
 ]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "google-genai>=2.31.0",
+    "python-dotenv>=1.2.4",
+]
 
 [project.scripts]
 ai-sts = "ai_sts:main"
