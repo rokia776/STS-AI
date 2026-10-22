@@ -1,4 +1,4 @@
-# STS-AI
+##   Gemini summarizer
 
 A simple command-line text summarizer powered by the Google Gemini API.
 Paste any text, and the model returns a clear, concise summary.
