@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GlowDerma Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app">
+    <div class="band"></div>
+    <header class="top">
+      <div class="brand">GlowDerma Skincare</div>
+      <div class="meta">Assistant&nbsp; |&nbsp; Knowledge Base v1.0&nbsp; |&nbsp; Fictional company</div>
+    </header>
+
+    <div class="intro">
+      <h1>GlowDerma Skincare Product, Ingredient and Policy Assistant</h1>
+      <p class="docline">Ask about products, ingredients, routines, orders and returns. Answers come from the knowledge base document and show the pages they were taken from.</p>
+      <div class="notice"><strong>FICTIONAL COMPANY DISCLAIMER.</strong> GlowDerma Skincare is a fictional company. Products, prices and policies are invented for demonstration. This assistant does not give medical advice.</div>
+    </div>
+
+    <main id="thread" class="thread" aria-live="polite">
+      <section id="empty" class="empty">
+        <h2>Suggested questions</h2>
+        <div class="chips">
+          <button type="button" class="chip">Which moisturizer is suitable for dry skin?</button>
+          <button type="button" class="chip">Can I use vitamin C and retinol together?</button>
+          <button type="button" class="chip">Which sunscreen suits sensitive skin?</button>
+          <button type="button" class="chip">How long does delivery to Alexandria take?</button>
+        </div>
+      </section>
+    </main>
+
+    <form id="form" class="composer" autocomplete="off">
+      <label for="q" class="sr">Your question</label>
+      <textarea id="q" rows="1" placeholder="Type your question" maxlength="1000"></textarea>
+      <button id="send" type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const thread = document.getElementById("thread");
+    const empty = document.getElementById("empty");
+    const form = document.getElementById("form");
+    const input = document.getElementById("q");
+    const sendBtn = document.getElementById("send");
+    let busy = false;
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+    function format(text) {
+      return escapeHtml(text).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    }
+    function scrollDown() {
+      window.scrollTo({ top: document.body.scrollHeight });
+    }
+    function addUser(text) {
+      const m = document.createElement("div");
+      m.className = "msg user";
+      const b = document.createElement("div");
+      b.className = "bubble";
+      b.textContent = text;
+      m.appendChild(b);
+      thread.appendChild(m);
+      scrollDown();
+    }
+    function addPending() {
+      const m = document.createElement("div");
+      m.className = "msg bot";
+      m.innerHTML = '<div class="bubble pending">Searching the knowledge base<span class="dot"></span></div>';
+      thread.appendChild(m);
+      scrollDown();
+      return m;
+    }
+    function fillBot(m, data) {
+      m.innerHTML = "";
+      const b = document.createElement("div");
+      b.className = "bubble";
+      b.innerHTML = format(data.answer);
+      m.appendChild(b);
+
+      if (data.pages && data.pages.length) {
+        const src = document.createElement("div");
+        src.className = "sources";
+        const label = document.createElement("span");
+        label.textContent = "From";
+        src.appendChild(label);
+        data.pages.forEach(p => {
+          const c = document.createElement("span");
+          c.className = "page";
+          c.textContent = "page " + p;
+          src.appendChild(c);
+        });
+        m.appendChild(src);
+      }
+      if (data.passages && data.passages.length) {
+        const d = document.createElement("details");
+        d.className = "passages";
+        const s = document.createElement("summary");
+        s.textContent = "Show the passages used";
+        d.appendChild(s);
+        data.passages.forEach(p => {
+          const item = document.createElement("div");
+          item.className = "passage";
+          const h = document.createElement("strong");
+          h.textContent = "Page " + p.page;
+          const t = document.createElement("p");
+          t.textContent = p.text;
+          item.appendChild(h);
+          item.appendChild(t);
+          d.appendChild(item);
+        });
+        m.appendChild(d);
+      }
+      scrollDown();
+    }
+    function fillError(m, message) {
+      m.innerHTML = "";
+      const b = document.createElement("div");
+      b.className = "bubble error";
+      b.textContent = message;
+      m.appendChild(b);
+    }
+
+    async function ask(question) {
+      if (busy || !question.trim()) return;
+      busy = true;
+      sendBtn.disabled = true;
+      empty.hidden = true;
+      addUser(question);
+      input.value = "";
+      input.style.height = "auto";
+      const pending = addPending();
+      try {
+        const res = await fetch("/api/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question })
+        });
+        const data = await res.json();
+        if (!res.ok) fillError(pending, data.error || "Something went wrong. Try again.");
+        else fillBot(pending, data);
+      } catch (e) {
+        fillError(pending, "Can't reach the server. Check that app.py is still running.");
+      } finally {
+        busy = false;
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    }
+
+    form.addEventListener("submit", e => { e.preventDefault(); ask(input.value); });
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(input.value); }
+    });
+    input.addEventListener("input", () => {
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 160) + "px";
+    });
+    document.querySelectorAll(".chip").forEach(c =>
+      c.addEventListener("click", () => ask(c.textContent))
+    );
+  </script>
+</body>
+</html>

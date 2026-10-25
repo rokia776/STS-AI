@@ -1,0 +1,443 @@
+[
+  {
+    "id": 0,
+    "page": 1,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 1 of 10\nGlowDerma Skincare Product, Ingredient and Policy\nKnowledge Base\nDocument ID: GD-KB-2026-01 | Version 1.0 | Published: October 2026 | Language: English | Currency: Egyptian pound (EGP) | Purpose: RAG\nchatbot testing\n FICTIONAL COMPANY DISCLAIMER. GlowDerma Skincare is a fictional company. All products, product IDs, prices, ingredient concentrations, SPF\nvalues, contact details, policies and timelines in this document are invented for software demonstration and testing only. No real products are sold. This\ndocument is not medical advice and does not describe treatments for any medical condition.\n1. Company Overview\n1.1 Company introduction and mission"
+  },
+  {
+    "id": 1,
+    "page": 1,
+    "overlap_with_previous": 147,
+    "overlap_text": "document is not medical advice and does not describe treatments for any medical condition.\n1. Company Overview\n1.1 Company introduction and mission",
+    "text": "document is not medical advice and does not describe treatments for any medical condition.\n1. Company Overview\n1.1 Company introduction and mission\nGlowDerma Skincare is a fictional skincare brand based in Cairo, Egypt, imagined as founded in 2019. The brand sells 14 products in four\ncategories: 3 cleansers (GD-CL-101 to GD-CL-103), 4 moisturizers (GD-MO-201 to GD-MO-204), 4 serums and targeted treatments\n(GD-SE-301 to GD-SE-304) and 3 sunscreens (GD-SU-401 to GD-SU-403). Mission: to make clear, gentle and realistic daily skincare\naccessible to customers in Egypt, with honest labelling and no exaggerated promises.\n1.2 Brand values and product philosophy\nBrand values: (1) Honesty: products make cosmetic claims only. (2) Gentleness: all 14 products are described as fragrance-free and"
+  },
+  {
+    "id": 2,
+    "page": 1,
+    "overlap_with_previous": 170,
+    "overlap_text": "1.2 Brand values and product philosophy\nBrand values: (1) Honesty: products make cosmetic claims only. (2) Gentleness: all 14 products are described as fragrance-free and",
+    "text": "1.2 Brand values and product philosophy\nBrand values: (1) Honesty: products make cosmetic claims only. (2) Gentleness: all 14 products are described as fragrance-free and\nessential-oil-free. (3) Simplicity: short routines that customers can follow every day. (4) Sun awareness: daily sunscreen is treated as the\nfoundation of every routine. (5) Transparency: concentrations of key active ingredients are stated.\nProduct philosophy: GlowDerma builds routines around four steps: cleanse, treat (optional), moisturize and protect. Active ingredients such\nas retinol, vitamin C and salicylic acid are offered at moderate strengths and introduced gradually. Products are cosmetics intended to care for\nthe appearance and comfort of healthy skin.\n1.3 Target audience\nGlowDerma products are intended for adults in Egypt, including (a) beginners who want a simple first routine, (b) customers with oily or"
+  },
+  {
+    "id": 3,
+    "page": 1,
+    "overlap_with_previous": 156,
+    "overlap_text": "1.3 Target audience\nGlowDerma products are intended for adults in Egypt, including (a) beginners who want a simple first routine, (b) customers with oily or",
+    "text": "1.3 Target audience\nGlowDerma products are intended for adults in Egypt, including (a) beginners who want a simple first routine, (b) customers with oily or\ncombination skin who live in hot weather, (c) customers with dry or sensitive-feeling skin who want gentle products, and (d) customers who\nwant reliable daily sun protection. Teenagers should use the products with the guidance of a parent or guardian.\n1.4 Customer support channels and business hours (fictional)\n Channel\nContact (fictional)\nHours (Cairo local time)\nTypical response\nEmail\nsupport@glowderma.example\nSunday to Thursday, 09:00 to 18:00\nWithin 1 business day\nPhone\n+20 2 5555 0123\nSunday to Thursday, 09:00 to 18:00\nAnswered live\nWhatsApp\n+20 100 555 0123\nSunday to Thursday, 09:00 to 21:00\nWithin 2 hours in hours\nLive chat\nWebsite chat widget\nSunday to Thursday, 09:00 to 21:00\nWithin 10 minutes\nWebsite orders"
+  },
+  {
+    "id": 4,
+    "page": 1,
+    "overlap_with_previous": 196,
+    "overlap_text": "Answered live\nWhatsApp\n+20 100 555 0123\nSunday to Thursday, 09:00 to 21:00\nWithin 2 hours in hours\nLive chat\nWebsite chat widget\nSunday to Thursday, 09:00 to 21:00\nWithin 10 minutes\nWebsite orders",
+    "text": "Answered live\nWhatsApp\n+20 100 555 0123\nSunday to Thursday, 09:00 to 21:00\nWithin 2 hours in hours\nLive chat\nWebsite chat widget\nSunday to Thursday, 09:00 to 21:00\nWithin 10 minutes\nWebsite orders\nwww.glowderma.example\n24 hours a day, every day\nInstant confirmation\nCustomer support is closed on Fridays, Saturdays and Egyptian public holidays. A business day in this document means Sunday to Thursday excluding\npublic holidays.\n1.5 Frequently asked general questions\nIs GlowDerma Skincare a real company? No. It is fictional, and its products cannot be bought.\nWhat is a product ID? A unique code in the format GD-XX-NNN. CL means cleanser, MO moisturizer, SE serum or targeted treatment, SU sunscreen.\nExample: GD-SE-301 is the Niacinamide 5% Serum."
+  },
+  {
+    "id": 5,
+    "page": 1,
+    "overlap_with_previous": 189,
+    "overlap_text": "What is a product ID? A unique code in the format GD-XX-NNN. CL means cleanser, MO moisturizer, SE serum or targeted treatment, SU sunscreen.\nExample: GD-SE-301 is the Niacinamide 5% Serum.",
+    "text": "What is a product ID? A unique code in the format GD-XX-NNN. CL means cleanser, MO moisturizer, SE serum or targeted treatment, SU sunscreen.\nExample: GD-SE-301 is the Niacinamide 5% Serum.\nWhere are the full ingredient lists? This document lists key ingredients and stated concentrations only, not complete INCI lists. For a complete list a\ncustomer should contact customer support.\nAre the products medical treatments? No. They are cosmetic products. Questions about skin conditions should go to a qualified dermatologist (see\nSection 10).\n1.6 Frequently used terminology\n Term\nMeaning in this document\nProduct ID\nUnique code for each product, for example GD-CL-101. Always use the ID to avoid confusing similar product names.\nKey ingredient\nAn ingredient highlighted for its cosmetic role. Not a complete ingredient list.\nSkin type"
+  },
+  {
+    "id": 6,
+    "page": 1,
+    "overlap_with_previous": 105,
+    "overlap_text": "Key ingredient\nAn ingredient highlighted for its cosmetic role. Not a complete ingredient list.\nSkin type",
+    "text": "Key ingredient\nAn ingredient highlighted for its cosmetic role. Not a complete ingredient list.\nSkin type\nOily, dry, combination, normal or sensitive. Used to guide product choice, not to diagnose.\nSPF / PA\nSPF is Sun Protection Factor, mainly about UVB. PA (PA+ to PA++++) is a rating of UVA protection; more plus signs mean higher\nUVA protection.\nBroad-spectrum\nProtects against both UVA and UVB radiation. All three GlowDerma sunscreens are described as broad-spectrum.\nPatch test\nApplying a small amount of a new product to the inner forearm and observing for 24 hours before using it on the face.\nEGP\nEgyptian pound. All prices include fictional VAT."
+  },
+  {
+    "id": 7,
+    "page": 2,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 2 of 10\nSECTION 2 OF 10 | PRODUCT CATALOG: CLEANSERS\n2. Skincare Product Catalog: Cleansers\nGlowDerma offers three cleansers: GD-CL-101 Gentle Cream Cleanser, GD-CL-102 Clarifying Gel Cleanser and GD-CL-103 Micellar\nCleansing Water. A cleanser removes dirt, excess oil, sunscreen and makeup residue. The right choice depends mainly on skin type and on\nwhether the customer wears sunscreen or makeup.\n GD-CL-101 | Gentle Cream Cleanser | Cleanser\nProduct ID and size\nGD-CL-101, 150 ml, price 245 EGP\nSkin types\nDry, normal and sensitive skin\nKey ingredients\nGlycerin, Ceramide NP, Panthenol, Allantoin\nDescription"
+  },
+  {
+    "id": 8,
+    "page": 2,
+    "overlap_with_previous": 166,
+    "overlap_text": "Product ID and size\nGD-CL-101, 150 ml, price 245 EGP\nSkin types\nDry, normal and sensitive skin\nKey ingredients\nGlycerin, Ceramide NP, Panthenol, Allantoin\nDescription",
+    "text": "Product ID and size\nGD-CL-101, 150 ml, price 245 EGP\nSkin types\nDry, normal and sensitive skin\nKey ingredients\nGlycerin, Ceramide NP, Panthenol, Allantoin\nDescription\nA soft, non-foaming cream cleanser that removes dirt and light sunscreen residue without leaving skin feeling tight. Contains\nglycerin to attract water and ceramide NP to support the skin barrier.\nUsage instructions\nMassage onto damp skin for 30 seconds and rinse with lukewarm water. Use morning and evening.\nWarnings\nFor external use only. Avoid contact with eyes; if contact occurs, rinse with water. Stop use if irritation develops.\nGD-CL-102 | Clarifying Gel Cleanser | Cleanser\nProduct ID and size\nGD-CL-102, 200 ml, price 265 EGP\nSkin types\nOily and combination skin\nKey ingredients\nSalicylic Acid 0.5%, Glycerin, Zinc PCA, Green Tea Extract\nDescription"
+  },
+  {
+    "id": 9,
+    "page": 2,
+    "overlap_with_previous": 176,
+    "overlap_text": "Product ID and size\nGD-CL-102, 200 ml, price 265 EGP\nSkin types\nOily and combination skin\nKey ingredients\nSalicylic Acid 0.5%, Glycerin, Zinc PCA, Green Tea Extract\nDescription",
+    "text": "Product ID and size\nGD-CL-102, 200 ml, price 265 EGP\nSkin types\nOily and combination skin\nKey ingredients\nSalicylic Acid 0.5%, Glycerin, Zinc PCA, Green Tea Extract\nDescription\nA light gel cleanser that removes excess surface oil and daily buildup. Contains low-strength salicylic acid (0.5%), a beta hydroxy\nacid (BHA) used in cosmetics for cleansing and smoothing the look of skin, plus zinc PCA and green tea extract.\nUsage instructions\nUse once daily for the first 2 weeks, then up to twice daily if skin stays comfortable. Massage onto damp skin for 30 seconds,\nthen rinse thoroughly. Do not leave on the skin.\nWarnings\nContains salicylic acid. May cause dryness or stinging. Avoid eyes and lips. Use sunscreen the next morning. Do not use\ntogether with GD-SE-304 on the same night during the first 4 weeks. Customers sensitive to salicylates should consult a\nprofessional first."
+  },
+  {
+    "id": 10,
+    "page": 2,
+    "overlap_with_previous": 139,
+    "overlap_text": "together with GD-SE-304 on the same night during the first 4 weeks. Customers sensitive to salicylates should consult a\nprofessional first.",
+    "text": "together with GD-SE-304 on the same night during the first 4 weeks. Customers sensitive to salicylates should consult a\nprofessional first.\nGD-CL-103 | Micellar Cleansing Water | Cleanser\nProduct ID and size\nGD-CL-103, 250 ml, price 290 EGP\nSkin types\nAll skin types, including sensitive skin\nKey ingredients\nGlycerin, Panthenol, Cucumber Extract, Micellar Surfactant Blend\nDescription\nA no-rinse cleansing water that lifts makeup, sunscreen and surface impurities. Designed as the first step of an evening double\ncleanse, followed by GD-CL-101 or GD-CL-102.\nUsage instructions\nSoak a cotton pad, press on the face for 10 seconds, then wipe gently without rubbing. Follow with a rinse-off cleanser in the\nevening.\nWarnings\nFor external use. Close eyes while wiping and avoid direct eye contact. Stop use if irritation develops.\nDifferences between the cleanser products\n Feature\nGD-CL-101\nGD-CL-102"
+  },
+  {
+    "id": 11,
+    "page": 2,
+    "overlap_with_previous": 193,
+    "overlap_text": "evening.\nWarnings\nFor external use. Close eyes while wiping and avoid direct eye contact. Stop use if irritation develops.\nDifferences between the cleanser products\n Feature\nGD-CL-101\nGD-CL-102",
+    "text": "evening.\nWarnings\nFor external use. Close eyes while wiping and avoid direct eye contact. Stop use if irritation develops.\nDifferences between the cleanser products\n Feature\nGD-CL-101\nGD-CL-102\nGD-CL-103\nName\nGentle Cream Cleanser\nClarifying Gel Cleanser\nMicellar Cleansing Water\nFormat\nCream, rinse-off\nGel, rinse-off\nWater, no-rinse (wipe with cotton pad)\nBest for\nDry, normal, sensitive\nOily, combination\nAll skin types, makeup and sunscreen\nremoval\nSpecial ingredient\nCeramide NP\nSalicylic Acid 0.5%\nCucumber Extract, micellar surfactant blend\nSize / price\n150 ml / 245 EGP\n200 ml / 265 EGP\n250 ml / 290 EGP\nPrice per 100 ml\n163 EGP\n133 EGP\n116 EGP\nTypical use\nMorning and evening\nOnce daily, then up to twice daily\nEvening first cleanse\nIn short: GD-CL-101 is the gentlest choice for dry or sensitive skin, GD-CL-102 is the only cleanser containing an active ingredient (salicylic"
+  },
+  {
+    "id": 12,
+    "page": 2,
+    "overlap_with_previous": 165,
+    "overlap_text": "Evening first cleanse\nIn short: GD-CL-101 is the gentlest choice for dry or sensitive skin, GD-CL-102 is the only cleanser containing an active ingredient (salicylic",
+    "text": "Evening first cleanse\nIn short: GD-CL-101 is the gentlest choice for dry or sensitive skin, GD-CL-102 is the only cleanser containing an active ingredient (salicylic\nacid 0.5%), and GD-CL-103 is the only no-rinse option and the best first step for removing sunscreen such as GD-SU-402."
+  },
+  {
+    "id": 13,
+    "page": 3,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 3 of 10\nSECTION 3 OF 10 | PRODUCT CATALOG: MOISTURIZERS\n3. Skincare Product Catalog: Moisturizers\nGlowDerma offers four moisturizers: GD-MO-201, GD-MO-202, GD-MO-203 and GD-MO-204. A moisturizer helps reduce water loss from the\nskin surface and keeps skin feeling comfortable. Three are everyday products; GD-MO-204 is a night-only product containing retinol 0.2%.\n GD-MO-201 | Barrier Repair Cream | Moisturizer\nProduct ID and size\nGD-MO-201, 50 ml, price 420 EGP\nSkin types\nDry, very dry and sensitive skin\nKey ingredients\nCeramide NP, Ceramide AP, Ceramide EOP, Glycerin 5%, Squalane, Shea Butter\nBenefits"
+  },
+  {
+    "id": 14,
+    "page": 3,
+    "overlap_with_previous": 195,
+    "overlap_text": "Product ID and size\nGD-MO-201, 50 ml, price 420 EGP\nSkin types\nDry, very dry and sensitive skin\nKey ingredients\nCeramide NP, Ceramide AP, Ceramide EOP, Glycerin 5%, Squalane, Shea Butter\nBenefits",
+    "text": "Product ID and size\nGD-MO-201, 50 ml, price 420 EGP\nSkin types\nDry, very dry and sensitive skin\nKey ingredients\nCeramide NP, Ceramide AP, Ceramide EOP, Glycerin 5%, Squalane, Shea Butter\nBenefits\nA rich cream that supports the skin barrier by helping reduce water loss. Combines three ceramides (NP, AP, EOP) with glycerin\n5%, squalane and shea butter for dry or tight-feeling skin.\nDirections\nApply a pea-sized to almond-sized amount to face and neck, morning and evening, after serum.\nPrecautions\nExternal use only. Contains shea butter; customers with known shea or tree-nut sensitivity should consult a professional before\nuse. Stop use if rash or irritation develops.\nGD-MO-202 | Oil-Free Gel Moisturizer | Moisturizer\nProduct ID and size\nGD-MO-202, 50 ml, price 380 EGP\nSkin types\nOily, combination and normal skin\nKey ingredients"
+  },
+  {
+    "id": 15,
+    "page": 3,
+    "overlap_with_previous": 163,
+    "overlap_text": "GD-MO-202 | Oil-Free Gel Moisturizer | Moisturizer\nProduct ID and size\nGD-MO-202, 50 ml, price 380 EGP\nSkin types\nOily, combination and normal skin\nKey ingredients",
+    "text": "GD-MO-202 | Oil-Free Gel Moisturizer | Moisturizer\nProduct ID and size\nGD-MO-202, 50 ml, price 380 EGP\nSkin types\nOily, combination and normal skin\nKey ingredients\nSodium Hyaluronate 0.5%, Niacinamide 2%, Glycerin 3%, Panthenol\nBenefits\nA lightweight, oil-free, water-based gel that absorbs quickly with no greasy finish. Combines sodium hyaluronate 0.5% and\nglycerin 3% for hydration with niacinamide 2% for a balanced-looking skin surface.\nDirections\nApply a pea-sized amount to face and neck morning and evening, after serum and before sunscreen in the morning.\nPrecautions\nExternal use only. Avoid eyes. Perform a patch test if skin is reactive to niacinamide.\nGD-MO-203 | Daily Light Lotion | Moisturizer\nProduct ID and size\nGD-MO-203, 100 ml, price 340 EGP\nSkin types\nNormal, combination and mildly dry skin\nKey ingredients\nGlycerin 4%, Squalane, Panthenol, Tocopherol (Vitamin E)\nBenefits"
+  },
+  {
+    "id": 16,
+    "page": 3,
+    "overlap_with_previous": 185,
+    "overlap_text": "Product ID and size\nGD-MO-203, 100 ml, price 340 EGP\nSkin types\nNormal, combination and mildly dry skin\nKey ingredients\nGlycerin 4%, Squalane, Panthenol, Tocopherol (Vitamin E)\nBenefits",
+    "text": "Product ID and size\nGD-MO-203, 100 ml, price 340 EGP\nSkin types\nNormal, combination and mildly dry skin\nKey ingredients\nGlycerin 4%, Squalane, Panthenol, Tocopherol (Vitamin E)\nBenefits\nA fast-absorbing everyday lotion in a larger 100 ml size. Glycerin 4%, squalane and panthenol provide light, comfortable\nmoisture; tocopherol (vitamin E) acts as an antioxidant ingredient in the formula.\nDirections\nApply to face, neck and hands morning and evening. Suitable as a simple one-step moisturizer.\nPrecautions\nExternal use only. Avoid eyes. Stop use if irritation develops.\nGD-MO-204 | Night Renewal Cream (Retinol 0.2%) | Moisturizer\nProduct ID and size\nGD-MO-204, 30 ml, price 520 EGP\nSkin types\nNormal, dry and combination skin (not a first product for sensitive skin)\nKey ingredients\nRetinol 0.2%, Ceramide NP, Squalane, Glycerin 3%\nBenefits"
+  },
+  {
+    "id": 17,
+    "page": 3,
+    "overlap_with_previous": 190,
+    "overlap_text": "GD-MO-204, 30 ml, price 520 EGP\nSkin types\nNormal, dry and combination skin (not a first product for sensitive skin)\nKey ingredients\nRetinol 0.2%, Ceramide NP, Squalane, Glycerin 3%\nBenefits",
+    "text": "GD-MO-204, 30 ml, price 520 EGP\nSkin types\nNormal, dry and combination skin (not a first product for sensitive skin)\nKey ingredients\nRetinol 0.2%, Ceramide NP, Squalane, Glycerin 3%\nBenefits\nA night cream with retinol 0.2% for a smoother-looking skin texture over time, combined with ceramide NP, squalane and\nglycerin 3% to keep skin comfortable. Cosmetic use only.\nDirections\nEvening only. Use a pea-sized amount on dry skin after cleansing. Start with 2 nights per week for 2 weeks, then every other\nnight, then nightly only if skin stays comfortable. Use sunscreen every morning.\nPrecautions\nMay cause temporary dryness, tingling or peeling. Do not use on the same night as GD-SE-304 or in the same routine as\nGD-SE-303. Avoid eyes and broken skin. Customers who are pregnant, planning pregnancy or breastfeeding should consult a\nhealthcare professional before use.\nHow the moisturizers differ"
+  },
+  {
+    "id": 18,
+    "page": 3,
+    "overlap_with_previous": 183,
+    "overlap_text": "GD-SE-303. Avoid eyes and broken skin. Customers who are pregnant, planning pregnancy or breastfeeding should consult a\nhealthcare professional before use.\nHow the moisturizers differ",
+    "text": "GD-SE-303. Avoid eyes and broken skin. Customers who are pregnant, planning pregnancy or breastfeeding should consult a\nhealthcare professional before use.\nHow the moisturizers differ\n Feature\nGD-MO-201\nGD-MO-202\nGD-MO-203\nGD-MO-204\nName\nBarrier Repair Cream\nOil-Free Gel Moisturizer\nDaily Light Lotion\nNight Renewal Cream\nTexture\nRich cream\nLight gel\nLight lotion\nCream\nBest for\nDry, sensitive\nOily, combination\nNormal, combination\nNormal, dry, combination\nTime of use\nMorning and evening\nMorning and evening\nMorning and evening\nEvening only\nSize / price\n50 ml / 420 EGP\n50 ml / 380 EGP\n100 ml / 340 EGP\n30 ml / 520 EGP\nPrice per 10 ml\n84 EGP\n76 EGP\n34 EGP\n173 EGP\nGD-MO-201 is the richest and the best match for dry skin; GD-MO-202 is the only oil-free moisturizer; GD-MO-203 is the best value per ml; GD-MO-204 is the"
+  },
+  {
+    "id": 19,
+    "page": 3,
+    "overlap_with_previous": 199,
+    "overlap_text": "Price per 10 ml\n84 EGP\n76 EGP\n34 EGP\n173 EGP\nGD-MO-201 is the richest and the best match for dry skin; GD-MO-202 is the only oil-free moisturizer; GD-MO-203 is the best value per ml; GD-MO-204 is the",
+    "text": "Price per 10 ml\n84 EGP\n76 EGP\n34 EGP\n173 EGP\nGD-MO-201 is the richest and the best match for dry skin; GD-MO-202 is the only oil-free moisturizer; GD-MO-203 is the best value per ml; GD-MO-204 is the\nonly moisturizer with an active (retinol) and the only one restricted to evening use."
+  },
+  {
+    "id": 20,
+    "page": 4,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 4 of 10\nSECTION 4 OF 10 | SERUMS AND TARGETED TREATMENTS\n4. Serums and Targeted Treatments\nGlowDerma offers four serums and targeted treatments: GD-SE-301 (niacinamide), GD-SE-302 (hyaluronic acid), GD-SE-303 (vitamin C) and\nGD-SE-304 (salicylic acid). Serums are applied after cleansing and before moisturizer. All benefits below are cosmetic and describe the\nappearance and feel of skin; none of these products treats a medical condition.\n GD-SE-301 | Niacinamide 5% Serum | Serum\nProduct ID and size\nGD-SE-301, 30 ml, price 360 EGP\nSkin types\nAll skin types, especially oily and combination skin\nKey ingredients\nNiacinamide 5%, Glycerin, Panthenol\nCosmetic benefits"
+  },
+  {
+    "id": 21,
+    "page": 4,
+    "overlap_with_previous": 185,
+    "overlap_text": "Product ID and size\nGD-SE-301, 30 ml, price 360 EGP\nSkin types\nAll skin types, especially oily and combination skin\nKey ingredients\nNiacinamide 5%, Glycerin, Panthenol\nCosmetic benefits",
+    "text": "Product ID and size\nGD-SE-301, 30 ml, price 360 EGP\nSkin types\nAll skin types, especially oily and combination skin\nKey ingredients\nNiacinamide 5%, Glycerin, Panthenol\nCosmetic benefits\nHelps improve the look of visible pores and uneven texture, helps balance the look of oiliness, and supports a smoother-looking\nskin tone.\nRecommended usage\nMorning or evening after cleansing, before moisturizer. Use 3 to 4 drops on face and neck. Start once daily.\nCompatibility\nPairs with GD-SE-302 and all moisturizers. Can be used with GD-SE-303 in one routine; if tingling occurs, use GD-SE-303 in the\nmorning and GD-SE-301 in the evening.\nPrecautions\nPerform a patch test. Stop use if flushing, itching or stinging persists.\nGD-SE-302 | Hyaluronic Acid Hydrating Serum | Serum\nProduct ID and size\nGD-SE-302, 30 ml, price 340 EGP\nSkin types\nAll skin types, including dry and sensitive skin\nKey ingredients"
+  },
+  {
+    "id": 22,
+    "page": 4,
+    "overlap_with_previous": 179,
+    "overlap_text": "GD-SE-302 | Hyaluronic Acid Hydrating Serum | Serum\nProduct ID and size\nGD-SE-302, 30 ml, price 340 EGP\nSkin types\nAll skin types, including dry and sensitive skin\nKey ingredients",
+    "text": "GD-SE-302 | Hyaluronic Acid Hydrating Serum | Serum\nProduct ID and size\nGD-SE-302, 30 ml, price 340 EGP\nSkin types\nAll skin types, including dry and sensitive skin\nKey ingredients\nSodium Hyaluronate 1%, Glycerin, Panthenol\nCosmetic benefits\nAdds temporary surface hydration and a plumper-looking, smoother feel through sodium hyaluronate 1% and glycerin.\nRecommended usage\nMorning and evening on slightly damp skin, before moisturizer. Use 2 to 3 drops.\nCompatibility\nCan be layered under any other GlowDerma product. Always follow with a moisturizer (GD-MO-201, GD-MO-202, GD-MO-203\nor GD-MO-204 at night) to seal in moisture.\nPrecautions\nExternal use only. Stop use if irritation develops.\nGD-SE-303 | Vitamin C Brightening Serum | Serum\nProduct ID and size\nGD-SE-303, 30 ml, price 450 EGP\nSkin types\nNormal, oily, combination and dry skin (not a first product for very sensitive skin)"
+  },
+  {
+    "id": 23,
+    "page": 4,
+    "overlap_with_previous": 195,
+    "overlap_text": "GD-SE-303 | Vitamin C Brightening Serum | Serum\nProduct ID and size\nGD-SE-303, 30 ml, price 450 EGP\nSkin types\nNormal, oily, combination and dry skin (not a first product for very sensitive skin)",
+    "text": "GD-SE-303 | Vitamin C Brightening Serum | Serum\nProduct ID and size\nGD-SE-303, 30 ml, price 450 EGP\nSkin types\nNormal, oily, combination and dry skin (not a first product for very sensitive skin)\nKey ingredients\nL-Ascorbic Acid (Vitamin C) 10%, Tocopherol (Vitamin E) 0.5%, Glycerin\nCosmetic benefits\nSupports a brighter-looking complexion and an even-looking tone. L-ascorbic acid (vitamin C) 10% is paired with tocopherol\n(vitamin E) 0.5%, both antioxidant ingredients.\nRecommended usage\nMorning only, after cleansing and before moisturizer and sunscreen. Use 3 to 4 drops. Start every other morning in the first\nweek.\nCompatibility\nPairs with GD-SU-401, GD-SU-402 and GD-SU-403. Do not use in the same routine as GD-MO-204 (retinol) or GD-SE-304\n(salicylic acid).\nPrecautions"
+  },
+  {
+    "id": 24,
+    "page": 4,
+    "overlap_with_previous": 163,
+    "overlap_text": "week.\nCompatibility\nPairs with GD-SU-401, GD-SU-402 and GD-SU-403. Do not use in the same routine as GD-MO-204 (retinol) or GD-SE-304\n(salicylic acid).\nPrecautions",
+    "text": "week.\nCompatibility\nPairs with GD-SU-401, GD-SU-402 and GD-SU-403. Do not use in the same routine as GD-MO-204 (retinol) or GD-SE-304\n(salicylic acid).\nPrecautions\nMild tingling can occur. Store tightly closed in a cool, dark place and use within 3 months of opening. A slight yellow tint is\nnormal; a deep orange or brown color means the product has oxidized and should not be used.\nGD-SE-304 | Salicylic Acid 2% Clarifying Treatment | Targeted treatment\nProduct ID and size\nGD-SE-304, 30 ml, price 395 EGP\nSkin types\nOily and combination skin\nKey ingredients\nSalicylic Acid 2%, Panthenol, Green Tea Extract\nCosmetic benefits\nHelps keep pores looking clearer and smooths the look of surface texture through salicylic acid 2%, with panthenol and green\ntea extract for comfort.\nRecommended usage"
+  },
+  {
+    "id": 25,
+    "page": 4,
+    "overlap_with_previous": 185,
+    "overlap_text": "Cosmetic benefits\nHelps keep pores looking clearer and smooths the look of surface texture through salicylic acid 2%, with panthenol and green\ntea extract for comfort.\nRecommended usage",
+    "text": "Cosmetic benefits\nHelps keep pores looking clearer and smooths the look of surface texture through salicylic acid 2%, with panthenol and green\ntea extract for comfort.\nRecommended usage\nEvening only. Apply a thin layer after cleansing. Start 2 nights per week, then every other night if skin stays comfortable. On\nGD-SE-304 nights during the first 4 weeks use GD-CL-101 or GD-CL-103 instead of GD-CL-102.\nCompatibility\nDo not use on the same night as GD-MO-204. Do not use in the same routine as GD-SE-303. Avoid combining with other\nexfoliating acids.\nPrecautions\nSalicylic acid (BHA) can cause dryness and stinging. Avoid eyes and lips. Use sunscreen daily. Customers sensitive to\nsalicylates, or who are pregnant or breastfeeding, should consult a professional before use."
+  },
+  {
+    "id": 26,
+    "page": 4,
+    "overlap_with_previous": 92,
+    "overlap_text": "salicylates, or who are pregnant or breastfeeding, should consult a professional before use.",
+    "text": "salicylates, or who are pregnant or breastfeeding, should consult a professional before use.\nQuick comparison: GD-SE-301 (360 EGP) and GD-SE-302 (340 EGP) are gentle daily serums; GD-SE-303 (450 EGP) is morning-only; GD-SE-304 (395\nEGP) is evening-only and the strongest exfoliating product in the range. All four are 30 ml."
+  },
+  {
+    "id": 27,
+    "page": 5,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 5 of 10\nSECTION 5 OF 10 | SUNSCREEN AND DAILY PROTECTION\n5. Sunscreen and Daily Protection\nGlowDerma offers three sunscreens: GD-SU-401 Daily Fluid SPF 50 PA++++, GD-SU-402 Mineral Sensitive SPF 30 PA+++ and\nGD-SU-403 Hydrating Cream SPF 50 PA+++. All three are described as broad-spectrum, all are 50 ml, and none is labelled water-resistant.\nSunscreen is the last skincare step in the morning routine.\n Feature\nGD-SU-401\nGD-SU-402\nGD-SU-403\nName\nDaily Fluid SPF 50 PA++++\nMineral Sensitive SPF 30 PA+++\nHydrating Cream SPF 50 PA+++\nSPF / PA rating\nSPF 50 / PA++++\nSPF 30 / PA+++\nSPF 50 / PA+++\nBroad-spectrum\nYes (UVA and UVB)\nYes (UVA and UVB)\nYes (UVA and UVB)\nFilter type"
+  },
+  {
+    "id": 28,
+    "page": 5,
+    "overlap_with_previous": 171,
+    "overlap_text": "Hydrating Cream SPF 50 PA+++\nSPF / PA rating\nSPF 50 / PA++++\nSPF 30 / PA+++\nSPF 50 / PA+++\nBroad-spectrum\nYes (UVA and UVB)\nYes (UVA and UVB)\nYes (UVA and UVB)\nFilter type",
+    "text": "Hydrating Cream SPF 50 PA+++\nSPF / PA rating\nSPF 50 / PA++++\nSPF 30 / PA+++\nSPF 50 / PA+++\nBroad-spectrum\nYes (UVA and UVB)\nYes (UVA and UVB)\nYes (UVA and UVB)\nFilter type\nOrganic (chemical) UV filter blend\nMineral filters: zinc oxide, titanium dioxide\nOrganic (chemical) UV filter blend\nKey ingredients\nOrganic (chemical) UV Filter Blend,\nTocopherol (Vitamin E), Glycerin\nZinc Oxide, Titanium Dioxide, Panthenol,\nSqualane\nOrganic (chemical) UV Filter Blend,\nCeramide NP, Glycerin, Squalane\nSkin types\nAll, especially oily and combination\nSensitive, normal, dry\nDry and normal\nTexture and finish\nUltra-light fluid, no white cast, natural\nmatte finish\nCreamy mineral lotion; may leave a slight\nwhite cast, especially on deeper skin tones\nRich cream, dewy finish\nSize / price\n50 ml / 330 EGP\n50 ml / 360 EGP\n50 ml / 350 EGP\nApplication instructions"
+  },
+  {
+    "id": 29,
+    "page": 5,
+    "overlap_with_previous": 195,
+    "overlap_text": "Creamy mineral lotion; may leave a slight\nwhite cast, especially on deeper skin tones\nRich cream, dewy finish\nSize / price\n50 ml / 330 EGP\n50 ml / 360 EGP\n50 ml / 350 EGP\nApplication instructions",
+    "text": "Creamy mineral lotion; may leave a slight\nwhite cast, especially on deeper skin tones\nRich cream, dewy finish\nSize / price\n50 ml / 330 EGP\n50 ml / 360 EGP\n50 ml / 350 EGP\nApplication instructions\nApply sunscreen as the final step of the morning routine, after moisturizer. Use about a quarter of a teaspoon for the face and neck, or two\nfinger-lengths of product. Apply about 15 minutes before going outdoors. Do not skip the neck and ears. Apply an even layer; a thin layer gives\nlower protection than the labelled SPF.\nReapplication guidance\nWhen outdoors, reapply every 2 hours, and also after swimming, heavy sweating or towel drying, because none of the three products is\nlabelled water-resistant. If the customer is mostly indoors, one morning application is usually enough. When wearing makeup, reapply by"
+  },
+  {
+    "id": 30,
+    "page": 5,
+    "overlap_with_previous": 135,
+    "overlap_text": "labelled water-resistant. If the customer is mostly indoors, one morning application is usually enough. When wearing makeup, reapply by",
+    "text": "labelled water-resistant. If the customer is mostly indoors, one morning application is usually enough. When wearing makeup, reapply by\npatting a small amount of sunscreen over the skin. Sunscreen does not give complete protection; combine it with shade, a hat and clothing,\nespecially around midday.\nDifferences between the sunscreen options\nGD-SU-401 has the highest ratings (SPF 50 and PA++++) and the lightest feel, which suits oily and combination skin and hot weather.\nGD-SU-402 uses mineral filters (zinc oxide and titanium dioxide) rather than chemical filters, which some customers with sensitive skin prefer;\nits rating is lower (SPF 30, PA+++) and it can leave a slight white cast. GD-SU-403 has SPF 50 with PA+++ and adds ceramide NP, glycerin\nand squalane in a richer cream, which suits dry skin. GD-SU-401 is the cheapest at 330 EGP; GD-SU-403 costs 350 EGP; GD-SU-402 costs\n360 EGP."
+  },
+  {
+    "id": 31,
+    "page": 5,
+    "overlap_with_previous": 141,
+    "overlap_text": "and squalane in a richer cream, which suits dry skin. GD-SU-401 is the cheapest at 330 EGP; GD-SU-403 costs 350 EGP; GD-SU-402 costs\n360 EGP.",
+    "text": "and squalane in a richer cream, which suits dry skin. GD-SU-401 is the cheapest at 330 EGP; GD-SU-403 costs 350 EGP; GD-SU-402 costs\n360 EGP.\nRemoving sunscreen in the evening\nRemove sunscreen in the evening with a first cleanse using GD-CL-103 Micellar Cleansing Water, then a second cleanse with GD-CL-101\n(dry, normal or sensitive skin) or GD-CL-102 (oily or combination skin). Mineral sunscreen such as GD-SU-402 benefits especially from a\ndouble cleanse.\nPrecautions\nFor external use only. Avoid the eyes; rinse with water if contact occurs. Stop use if a rash develops. Customers using retinol (GD-MO-204),\nsalicylic acid (GD-SE-304, GD-CL-102) or vitamin C (GD-SE-303) should use sunscreen every day, because these products are part of\nroutines in which daily sun protection is recommended."
+  },
+  {
+    "id": 32,
+    "page": 6,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 6 of 10\nSECTION 6 OF 10 | INGREDIENTS KNOWLEDGE BASE\n6. Ingredients Knowledge Base\nHow to read this page. The columns on general purpose, categories and precautions give general cosmetic information about each\ningredient as commonly used across the skincare industry. They are not performance claims about GlowDerma products. The last column is\nthe only brand-specific data: it lists which GlowDerma product IDs contain the ingredient and at what stated concentration. Where no\npercentage is shown, the ingredient is present but its concentration is not specified in this document.\n Ingredient\nGeneral cosmetic purpose\nTypical product\ncategories\nCommon precautions"
+  },
+  {
+    "id": 33,
+    "page": 6,
+    "overlap_with_previous": 186,
+    "overlap_text": "percentage is shown, the ingredient is present but its concentration is not specified in this document.\n Ingredient\nGeneral cosmetic purpose\nTypical product\ncategories\nCommon precautions",
+    "text": "percentage is shown, the ingredient is present but its concentration is not specified in this document.\n Ingredient\nGeneral cosmetic purpose\nTypical product\ncategories\nCommon precautions\nGlowDerma product IDs\nNiacinamide\n(vitamin B3)\nSupports a smoother-looking,\nmore even-looking skin surface;\nhelps balance the look of\noiliness.\nSerums,\nmoisturizers\nCan cause flushing or tingling\nin some people; patch test.\nGD-MO-202 (2%); GD-SE-301 (5%)\nHyaluronic acid (as\nsodium\nhyaluronate)\nHumectant that attracts and\nholds water on the skin surface\nfor a hydrated, plump feel.\nSerums,\nmoisturizers\nGenerally well tolerated; apply\non damp skin and seal with a\nmoisturizer.\nGD-MO-202 (0.5%); GD-SE-302 (1%)\nVitamin C\n(L-ascorbic acid)\nAntioxidant ingredient used for\nbrighter-looking, even-looking\nskin.\nMorning serums\nCan tingle; unstable in light and\nair; use sunscreen daily; avoid"
+  },
+  {
+    "id": 34,
+    "page": 6,
+    "overlap_with_previous": 177,
+    "overlap_text": "Vitamin C\n(L-ascorbic acid)\nAntioxidant ingredient used for\nbrighter-looking, even-looking\nskin.\nMorning serums\nCan tingle; unstable in light and\nair; use sunscreen daily; avoid",
+    "text": "Vitamin C\n(L-ascorbic acid)\nAntioxidant ingredient used for\nbrighter-looking, even-looking\nskin.\nMorning serums\nCan tingle; unstable in light and\nair; use sunscreen daily; avoid\nsame routine as retinol or\nsalicylic acid.\nGD-SE-303 (10%)\nSalicylic acid\n(BHA)\nOil-soluble exfoliating acid used\nto cleanse pores and smooth\nthe look of skin texture.\nCleansers,\ntargeted\ntreatments\nDryness, stinging; avoid eyes;\nsunscreen daily; consult if\nsalicylate-sensitive or\npregnant.\nGD-CL-102 (0.5%); GD-SE-304 (2%)\nCeramides\nSkin-identical lipids that help\nsupport the skin barrier and\nreduce water loss.\nCleansers,\nmoisturizers,\nsunscreens\nGenerally well tolerated.\nGD-CL-101 (NP); GD-MO-201 (NP, AP,\nEOP); GD-MO-204 (NP); GD-SU-403 (NP)\nRetinol (vitamin A)\nUsed in night products for\nsmoother-looking texture over\ntime.\nNight creams and\nserums\nDryness, tingling, peeling; start\nslowly; sunscreen daily; not in"
+  },
+  {
+    "id": 35,
+    "page": 6,
+    "overlap_with_previous": 172,
+    "overlap_text": "Retinol (vitamin A)\nUsed in night products for\nsmoother-looking texture over\ntime.\nNight creams and\nserums\nDryness, tingling, peeling; start\nslowly; sunscreen daily; not in",
+    "text": "Retinol (vitamin A)\nUsed in night products for\nsmoother-looking texture over\ntime.\nNight creams and\nserums\nDryness, tingling, peeling; start\nslowly; sunscreen daily; not in\nsame routine as vitamin C;\nconsult a professional if\npregnant.\nGD-MO-204 (0.2%)\nGlycerin\nHumectant that draws water to\nthe skin and keeps it feeling\nsoft.\nAll categories\nVery well tolerated; best sealed\nwith a moisturizer in dry air.\nGD-CL-101; GD-CL-102; GD-CL-103;\nGD-MO-201 (5%); GD-MO-202 (3%);\nGD-MO-203 (4%); GD-MO-204 (3%);\nGD-SE-301; GD-SE-302; GD-SE-303;\nGD-SU-401; GD-SU-403\nSupporting ingredients that appear in the catalog\n Ingredient\nGeneral cosmetic purpose\nGlowDerma product IDs\nPanthenol (provitamin B5)\nSoothing, moisturizing ingredient.\nGD-CL-101; GD-CL-103; GD-MO-202; GD-MO-203;\nGD-SE-301; GD-SE-302; GD-SE-304; GD-SU-402\nSqualane\nLightweight emollient that softens skin."
+  },
+  {
+    "id": 36,
+    "page": 6,
+    "overlap_with_previous": 197,
+    "overlap_text": "Panthenol (provitamin B5)\nSoothing, moisturizing ingredient.\nGD-CL-101; GD-CL-103; GD-MO-202; GD-MO-203;\nGD-SE-301; GD-SE-302; GD-SE-304; GD-SU-402\nSqualane\nLightweight emollient that softens skin.",
+    "text": "Panthenol (provitamin B5)\nSoothing, moisturizing ingredient.\nGD-CL-101; GD-CL-103; GD-MO-202; GD-MO-203;\nGD-SE-301; GD-SE-302; GD-SE-304; GD-SU-402\nSqualane\nLightweight emollient that softens skin.\nGD-MO-201; GD-MO-203; GD-MO-204; GD-SU-402;\nGD-SU-403\nTocopherol (vitamin E)\nAntioxidant ingredient; also supports the formula.\nGD-MO-203; GD-SE-303 (0.5%); GD-SU-401\nZinc PCA\nUsed in cosmetics for oily-looking skin.\nGD-CL-102\nZinc oxide and titanium dioxide\nMineral (physical) UV filters.\nGD-SU-402 (zinc oxide and titanium dioxide)\nGlossary of ingredient terms\n Term\nDefinition\nHumectant\nAn ingredient that attracts water. Examples: glycerin, hyaluronic acid.\nEmollient\nAn ingredient that softens and smooths skin. Example: squalane.\nAntioxidant\nAn ingredient used to help protect the formula and the look of skin from environmental stress. Examples: vitamin C, vitamin E.\nExfoliant"
+  },
+  {
+    "id": 37,
+    "page": 6,
+    "overlap_with_previous": 148,
+    "overlap_text": "Antioxidant\nAn ingredient used to help protect the formula and the look of skin from environmental stress. Examples: vitamin C, vitamin E.\nExfoliant",
+    "text": "Antioxidant\nAn ingredient used to help protect the formula and the look of skin from environmental stress. Examples: vitamin C, vitamin E.\nExfoliant\nAn ingredient that helps loosen dead surface cells. Examples: salicylic acid (BHA).\nSkin barrier\nThe outer layer of skin that limits water loss and keeps irritants out.\nIngredient-to-product shortcuts: the retinol product is GD-MO-204; the vitamin C product is GD-SE-303; the niacinamide serum is GD-SE-301; the hyaluronic\nacid serum is GD-SE-302; the salicylic acid products are GD-SE-304 (2%) and GD-CL-102 (0.5%)."
+  },
+  {
+    "id": 38,
+    "page": 7,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 7 of 10\nSECTION 7 OF 10 | SKINCARE ROUTINES\n7. Skincare Routines\nEach routine lists product IDs in application order. Routines are general cosmetic guidance and are not a treatment plan. Totals are the\ncombined price of the listed products in EGP.\n7.1 Morning routine for oily skin\n Step\nProduct ID\nProduct name\nPrice (EGP)\n1. Cleanse\nGD-CL-102\nClarifying Gel Cleanser\n265\n2. Niacinamide serum\nGD-SE-301\nNiacinamide 5% Serum\n360\n3. Moisturize\nGD-MO-202\nOil-Free Gel Moisturizer\n380\n4. Sunscreen\nGD-SU-401\nDaily Fluid SPF 50 PA++++\n330"
+  },
+  {
+    "id": 39,
+    "page": 7,
+    "overlap_with_previous": 199,
+    "overlap_text": "GD-CL-102\nClarifying Gel Cleanser\n265\n2. Niacinamide serum\nGD-SE-301\nNiacinamide 5% Serum\n360\n3. Moisturize\nGD-MO-202\nOil-Free Gel Moisturizer\n380\n4. Sunscreen\nGD-SU-401\nDaily Fluid SPF 50 PA++++\n330",
+    "text": "GD-CL-102\nClarifying Gel Cleanser\n265\n2. Niacinamide serum\nGD-SE-301\nNiacinamide 5% Serum\n360\n3. Moisturize\nGD-MO-202\nOil-Free Gel Moisturizer\n380\n4. Sunscreen\nGD-SU-401\nDaily Fluid SPF 50 PA++++\n330\nTotal: 1335 EGP. Precautions: use GD-CL-102 once daily at first; if skin feels tight, switch to GD-CL-101 on alternate mornings. Sunscreen is essential\nbecause GD-CL-102 contains salicylic acid.\n7.2 Morning routine for dry skin\n Step\nProduct ID\nProduct name\nPrice (EGP)\n1. Cleanse\nGD-CL-101\nGentle Cream Cleanser\n245\n2. Hyaluronic acid serum\nGD-SE-302\nHyaluronic Acid Hydrating Serum\n340\n3. Moisturize\nGD-MO-201\nBarrier Repair Cream\n420\n4. Sunscreen\nGD-SU-403\nHydrating Cream SPF 50 PA+++\n350\nTotal: 1355 EGP. Precautions: apply GD-SE-302 to slightly damp skin and seal it with GD-MO-201; avoid very hot water when washing.\n7.3 Evening routine for combination skin\n Step\nNon-retinol nights"
+  },
+  {
+    "id": 40,
+    "page": 7,
+    "overlap_with_previous": 196,
+    "overlap_text": "Total: 1355 EGP. Precautions: apply GD-SE-302 to slightly damp skin and seal it with GD-MO-201; avoid very hot water when washing.\n7.3 Evening routine for combination skin\n Step\nNon-retinol nights",
+    "text": "Total: 1355 EGP. Precautions: apply GD-SE-302 to slightly damp skin and seal it with GD-MO-201; avoid very hot water when washing.\n7.3 Evening routine for combination skin\n Step\nNon-retinol nights\nRetinol nights (2 nights per week at first)\n1. First cleanse\nGD-CL-103 Micellar Cleansing Water\nGD-CL-103 Micellar Cleansing Water\n2. Second cleanse\nGD-CL-102 Clarifying Gel Cleanser\nGD-CL-101 Gentle Cream Cleanser\n3. Serum\nGD-SE-302 Hyaluronic Acid Hydrating Serum\nGD-SE-302 Hyaluronic Acid Hydrating Serum\n4. Moisturize\nGD-MO-203 Daily Light Lotion\nGD-MO-204 Night Renewal Cream (Retinol 0.2%)\nTotal\n1235 EGP\n1395 EGP\nPrecautions: on retinol nights use GD-CL-101 instead of GD-CL-102 to avoid combining salicylic acid with retinol. Buying every product in this routine\n(GD-CL-103, GD-CL-102, GD-CL-101, GD-SE-302, GD-MO-203, GD-MO-204) costs 2000 EGP.\n7.4 Beginner-friendly routine for sensitive skin"
+  },
+  {
+    "id": 41,
+    "page": 7,
+    "overlap_with_previous": 131,
+    "overlap_text": "(GD-CL-103, GD-CL-102, GD-CL-101, GD-SE-302, GD-MO-203, GD-MO-204) costs 2000 EGP.\n7.4 Beginner-friendly routine for sensitive skin",
+    "text": "(GD-CL-103, GD-CL-102, GD-CL-101, GD-SE-302, GD-MO-203, GD-MO-204) costs 2000 EGP.\n7.4 Beginner-friendly routine for sensitive skin\n Time\nProduct IDs in order\nNotes\nMorning\nGD-CL-101, then GD-MO-201, then GD-SU-402\nCore 3-product routine. Total 1025 EGP.\nEvening\nGD-CL-103 (to remove mineral sunscreen), then GD-CL-101,\nthen GD-MO-201\nGD-CL-103 adds 290 EGP if purchased separately.\nFrom week 3\nAdd GD-SE-302 after cleansing\nHydration only; adds 340 EGP.\nFrom week 5\n(optional)\nAdd GD-SE-301 on alternate days\nAdds 360 EGP. Patch test first.\nSensitive-skin precautions: avoid GD-CL-102, GD-SE-303, GD-SE-304 and GD-MO-204 until the base routine has been comfortable for at least 6 to 8 weeks,\nand consult a professional if skin often stings or reddens.\n7.5 How to introduce new products gradually\n Stage\nWhat to do\nWhy\nBefore use\nPatch test on the inner forearm for 24 hours."
+  },
+  {
+    "id": 42,
+    "page": 7,
+    "overlap_with_previous": 182,
+    "overlap_text": "and consult a professional if skin often stings or reddens.\n7.5 How to introduce new products gradually\n Stage\nWhat to do\nWhy\nBefore use\nPatch test on the inner forearm for 24 hours.",
+    "text": "and consult a professional if skin often stings or reddens.\n7.5 How to introduce new products gradually\n Stage\nWhat to do\nWhy\nBefore use\nPatch test on the inner forearm for 24 hours.\nDetects obvious reactions before facial use.\nWeeks 1 to 2\nUse only cleanser, moisturizer and sunscreen.\nGives a stable baseline.\nOne new product at a time\nAdd a single new product and wait 7 to 14 days before adding\nanother.\nMakes the cause of any irritation clear.\nActives (GD-MO-204,\nGD-SE-304, GD-SE-303)\nStart 2 nights per week (GD-SE-303: every other morning), then\nincrease slowly.\nReduces dryness, tingling and peeling.\nIf irritation occurs\nStop the newest product, simplify to cleanser, moisturizer and\nsunscreen.\nLets skin settle. Seek professional advice if it\npersists."
+  },
+  {
+    "id": 43,
+    "page": 8,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 8 of 10\nSECTION 8 OF 10 | PRODUCT SELECTION AND COMPATIBILITY\n8. Product Selection and Compatibility\n8.1 Choosing products by skin type\n Skin type\nSuitable product IDs\nSelection notes\nOily\nGD-CL-102, GD-SE-301, GD-SE-304, GD-MO-202, GD-SU-401\nPrefer gel and fluid textures. Add GD-SE-304 only after the basic\nroutine is comfortable.\nDry\nGD-CL-101, GD-SE-302, GD-MO-201, GD-SU-403\nPrefer cream textures. GD-MO-204 can be added at night once\ncomfortable.\nCombination\nGD-CL-102, GD-CL-103, GD-SE-301, GD-SE-302, GD-MO-202,\nGD-MO-203, GD-SU-401\nMix textures if needed. GD-MO-204 is possible at night.\nNormal\nGD-CL-101, GD-CL-103, GD-SE-301, GD-SE-302, GD-SE-303,"
+  },
+  {
+    "id": 44,
+    "page": 8,
+    "overlap_with_previous": 193,
+    "overlap_text": "GD-CL-102, GD-CL-103, GD-SE-301, GD-SE-302, GD-MO-202,\nGD-MO-203, GD-SU-401\nMix textures if needed. GD-MO-204 is possible at night.\nNormal\nGD-CL-101, GD-CL-103, GD-SE-301, GD-SE-302, GD-SE-303,",
+    "text": "GD-CL-102, GD-CL-103, GD-SE-301, GD-SE-302, GD-MO-202,\nGD-MO-203, GD-SU-401\nMix textures if needed. GD-MO-204 is possible at night.\nNormal\nGD-CL-101, GD-CL-103, GD-SE-301, GD-SE-302, GD-SE-303,\nGD-MO-203, GD-SU-401, GD-SU-403\nMost products are suitable; start actives gradually.\nSensitive\nGD-CL-101, GD-CL-103, GD-SE-302, GD-MO-201, GD-SU-402\nKeep routines short and fragrance-free; patch test everything.\n8.2 Frequently asked selection questions\nI have oily skin. Which moisturizer should I use? GD-MO-202 Oil-Free Gel Moisturizer (380 EGP). Oily skin still needs moisturizer, and this one is\noil-free.\nWhich sunscreen suits sensitive skin? GD-SU-402 Mineral Sensitive SPF 30 PA+++ (360 EGP), with mineral filters; note its lower SPF and possible\nslight white cast."
+  },
+  {
+    "id": 45,
+    "page": 8,
+    "overlap_with_previous": 172,
+    "overlap_text": "oil-free.\nWhich sunscreen suits sensitive skin? GD-SU-402 Mineral Sensitive SPF 30 PA+++ (360 EGP), with mineral filters; note its lower SPF and possible\nslight white cast.",
+    "text": "oil-free.\nWhich sunscreen suits sensitive skin? GD-SU-402 Mineral Sensitive SPF 30 PA+++ (360 EGP), with mineral filters; note its lower SPF and possible\nslight white cast.\nWhich serum should a beginner start with? GD-SE-302 Hyaluronic Acid Hydrating Serum (340 EGP), which has no exfoliating or retinoid ingredients.\n8.3 Compatibility of common active ingredients\n Combination\nGuidance\nReason\nNiacinamide + vitamin C (GD-SE-301 +\nGD-SE-303)\nUsually compatible\nIf tingling occurs, use vitamin C in the morning and niacinamide\nin the evening.\nVitamin C + retinol (GD-SE-303 + GD-MO-204)\nCaution: do not use in the same\nroutine\nUse vitamin C in the morning and retinol at night to limit\nirritation.\nRetinol + salicylic acid (GD-MO-204 +\nGD-SE-304 or GD-CL-102)\nCaution: avoid on the same night\nBoth can dry and irritate skin; alternate nights.\nSalicylic acid + vitamin C (GD-SE-304 or"
+  },
+  {
+    "id": 46,
+    "page": 8,
+    "overlap_with_previous": 197,
+    "overlap_text": "irritation.\nRetinol + salicylic acid (GD-MO-204 +\nGD-SE-304 or GD-CL-102)\nCaution: avoid on the same night\nBoth can dry and irritate skin; alternate nights.\nSalicylic acid + vitamin C (GD-SE-304 or",
+    "text": "irritation.\nRetinol + salicylic acid (GD-MO-204 +\nGD-SE-304 or GD-CL-102)\nCaution: avoid on the same night\nBoth can dry and irritate skin; alternate nights.\nSalicylic acid + vitamin C (GD-SE-304 or\nGD-CL-102 + GD-SE-303)\nCaution at the start\nBoth are acidic and can sting; separate morning and evening.\nNiacinamide + retinol (GD-SE-301 +\nGD-MO-204)\nGenerally compatible\nApply niacinamide first; separate if irritation occurs.\nNiacinamide + salicylic acid (GD-SE-301 +\nGD-SE-304)\nCompatible\nBest separated: GD-SE-301 in the morning, GD-SE-304 in the\nevening.\nHyaluronic acid or ceramides + any active\nCompatible\nThey support hydration and the skin barrier and can be layered\nwith most products.\nTwo exfoliating products (GD-SE-304 +\nGD-CL-102)\nCaution\nCumulative salicylic acid; use GD-CL-101 or GD-CL-103 on\nGD-SE-304 nights.\n8.4 Customer scenarios and suitable recommendations\n Scenario"
+  },
+  {
+    "id": 47,
+    "page": 8,
+    "overlap_with_previous": 193,
+    "overlap_text": "Two exfoliating products (GD-SE-304 +\nGD-CL-102)\nCaution\nCumulative salicylic acid; use GD-CL-101 or GD-CL-103 on\nGD-SE-304 nights.\n8.4 Customer scenarios and suitable recommendations\n Scenario",
+    "text": "Two exfoliating products (GD-SE-304 +\nGD-CL-102)\nCaution\nCumulative salicylic acid; use GD-CL-101 or GD-CL-103 on\nGD-SE-304 nights.\n8.4 Customer scenarios and suitable recommendations\n Scenario\nSuitable products\nReason\nOily skin in hot weather, wants a simple\nmorning routine under 1,400 EGP\nGD-CL-102, GD-SE-301, GD-MO-202, GD-SU-401 (total\n1335 EGP)\nLight textures and the highest-rated\nsunscreen.\nDry, tight-feeling skin after washing\nGD-CL-101, GD-SE-302, GD-MO-201, GD-SU-403 (total\n1355 EGP)\nCream cleanser, hydration serum,\nceramide-rich cream, hydrating sunscreen.\nNormal skin, wants a brighter-looking\ncomplexion\nGD-SE-303 in the morning, with GD-MO-203 and\nGD-SU-401 (total 1120 EGP)\nVitamin C is for mornings and needs daily\nsunscreen.\nSensitive skin, never used actives\nGD-CL-101, GD-MO-201, GD-SU-402 (total 1025 EGP)\nShort, gentle routine with a mineral\nsunscreen."
+  },
+  {
+    "id": 48,
+    "page": 8,
+    "overlap_with_previous": 184,
+    "overlap_text": "Vitamin C is for mornings and needs daily\nsunscreen.\nSensitive skin, never used actives\nGD-CL-101, GD-MO-201, GD-SU-402 (total 1025 EGP)\nShort, gentle routine with a mineral\nsunscreen.",
+    "text": "Vitamin C is for mornings and needs daily\nsunscreen.\nSensitive skin, never used actives\nGD-CL-101, GD-MO-201, GD-SU-402 (total 1025 EGP)\nShort, gentle routine with a mineral\nsunscreen.\nCombination skin, wants to try retinol\nGD-MO-204 at night with GD-CL-101 and GD-SU-401 in\nthe morning\nStart 2 nights per week; avoid GD-SE-303\nand GD-SE-304 initially.\nMedical boundary. GlowDerma products are cosmetics. If a customer describes persistent redness, itchy or painful patches, bleeding,\nswelling, spreading rashes or any condition they want to treat, the chatbot should not recommend a product as a treatment and should suggest\nconsulting a qualified dermatologist."
+  },
+  {
+    "id": 49,
+    "page": 9,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 9 of 10\nSECTION 9 OF 10 | ORDERS, SHIPPING, RETURNS, CUSTOMER SERVICE\n9. Orders, Shipping, Returns and Customer Service\n FICTIONAL POLICIES. Every policy on this page is an invented example created for demonstration. They do not represent any real company. All prices\nare in EGP.\n9.1 Order placement and payment methods\nOrders are placed on www.glowderma.example (fictional) or by WhatsApp. After checkout the customer receives a confirmation email with an\norder number in the format GD-ORD-12345. An order can be edited or cancelled free of charge before it is dispatched. Orders are processed\nwithin 1 business day; delivery estimates below start after dispatch.\n Payment method"
+  },
+  {
+    "id": 50,
+    "page": 9,
+    "overlap_with_previous": 85,
+    "overlap_text": "within 1 business day; delivery estimates below start after dispatch.\n Payment method",
+    "text": "within 1 business day; delivery estimates below start after dispatch.\n Payment method\nDetails\nCredit or debit card (Visa, Mastercard)\nCharged at checkout; order confirmed immediately.\nMobile wallet\nPayment request sent to the customer's wallet; order confirmed on payment.\nCash on delivery (COD)\nPay the courier. A COD fee of 20 EGP applies. Available for orders up to 3,000 EGP.\n9.2 Shipping policy within Egypt\n Service / zone\nEstimated delivery after dispatch\nFee\nStandard: Greater Cairo and Giza\n1 to 3 business days\n50 EGP\nStandard: Alexandria and Delta governorates\n2 to 4 business days\n60 EGP\nStandard: Upper Egypt and other governorates\n3 to 6 business days\n75 EGP\nExpress: Greater Cairo and Giza (order before 14:00 on a business\nday)\nNext business day\n90 EGP"
+  },
+  {
+    "id": 51,
+    "page": 9,
+    "overlap_with_previous": 196,
+    "overlap_text": "2 to 4 business days\n60 EGP\nStandard: Upper Egypt and other governorates\n3 to 6 business days\n75 EGP\nExpress: Greater Cairo and Giza (order before 14:00 on a business\nday)\nNext business day\n90 EGP",
+    "text": "2 to 4 business days\n60 EGP\nStandard: Upper Egypt and other governorates\n3 to 6 business days\n75 EGP\nExpress: Greater Cairo and Giza (order before 14:00 on a business\nday)\nNext business day\n90 EGP\nStandard shipping is free for orders of 800 EGP or more. Free shipping does not apply to express shipping. Delivery attempts are made twice; after two failed\nattempts the parcel returns to the warehouse.\n9.3 Returns and exchanges\nEligibility: unopened, sealed and unused products can be returned or exchanged within 14 days of delivery, in original packaging with the\norder number. Opened products can be returned only if they are damaged, defective or the wrong item, and this must be reported within 7\ndays of delivery. Exchanges are subject to stock availability. Return shipping is free when the error is GlowDerma's (damaged, defective or"
+  },
+  {
+    "id": 52,
+    "page": 9,
+    "overlap_with_previous": 139,
+    "overlap_text": "days of delivery. Exchanges are subject to stock availability. Return shipping is free when the error is GlowDerma's (damaged, defective or",
+    "text": "days of delivery. Exchanges are subject to stock availability. Return shipping is free when the error is GlowDerma's (damaged, defective or\nwrong item); otherwise the customer pays a 50 EGP return fee. Products purchased as final sale cannot be returned.\n9.4 Refund timelines\n Original payment\nRefund method\nTimeline\nCredit or debit card\nBack to the same card\n5 to 7 business days after the returned item is inspected\nMobile wallet\nBack to the same wallet\n5 to 7 business days after inspection\nCash on delivery\nBank transfer or mobile wallet\n7 to 10 business days after inspection. The 20 EGP COD fee is not\nrefunded.\n9.5 Damaged, defective or missing orders\nIf an order arrives damaged, leaks, or contains the wrong or missing items, report it within 48 hours of delivery to"
+  },
+  {
+    "id": 53,
+    "page": 9,
+    "overlap_with_previous": 167,
+    "overlap_text": "refunded.\n9.5 Damaged, defective or missing orders\nIf an order arrives damaged, leaks, or contains the wrong or missing items, report it within 48 hours of delivery to",
+    "text": "refunded.\n9.5 Damaged, defective or missing orders\nIf an order arrives damaged, leaks, or contains the wrong or missing items, report it within 48 hours of delivery to\nsupport@glowderma.example or WhatsApp +20 100 555 0123 with the order number and clear photos of the parcel and the product. The\ncustomer can choose a replacement or a full refund, subject to stock. If a parcel has not arrived 7 business days after dispatch, support opens\na courier investigation and resends or refunds the order.\n9.6 Customer service FAQ\nCan I cancel my order? Yes, free of charge before dispatch. Contact support during business hours (Sunday to Thursday).\nDo I qualify for free shipping? Yes if the order is 800 EGP or more. For example, the oily-skin morning routine of 1335 EGP qualifies for free standard\nshipping; a single GD-SU-401 (330 EGP) does not."
+  },
+  {
+    "id": 54,
+    "page": 9,
+    "overlap_with_previous": 48,
+    "overlap_text": "shipping; a single GD-SU-401 (330 EGP) does not.",
+    "text": "shipping; a single GD-SU-401 (330 EGP) does not.\nCan I return an opened serum because it did not suit me? No, unless it is damaged, defective or the wrong item. Opened products are not returnable for\nchange of mind.\nHow do I reach support on a Friday? Support is closed on Fridays and Saturdays. Website orders and email submissions are accepted; replies come on\nthe next business day."
+  },
+  {
+    "id": 55,
+    "page": 10,
+    "overlap_with_previous": 0,
+    "overlap_text": "",
+    "text": "GlowDerma Skincare\nProduct, Ingredient and Policy Knowledge Base  |  Version 1.0  |  Fictional company\nGlowDerma Skincare is fictional. Products, prices and policies are for demonstration only. Not medical advice.\nPage 10 of 10\nSECTION 10 OF 10 | COMPREHENSIVE FAQ AND TROUBLESHOOTING\n10. Comprehensive FAQ and Troubleshooting\nAnswers below reuse facts from Sections 1 to 9. Questions marked (multi-section) combine information from more than one section.\nQ1. Which cleanser is best for dry, sensitive skin? GD-CL-101 Gentle Cream Cleanser (150 ml, 245 EGP), with glycerin, ceramide NP, panthenol and\nallantoin. It is also the cheapest GlowDerma product.\nQ2. Which product contains retinol and how much does it cost? GD-MO-204 Night Renewal Cream (Retinol 0.2%), 30 ml, 520 EGP. It is for evening\nuse only."
+  },
+  {
+    "id": 56,
+    "page": 10,
+    "overlap_with_previous": 151,
+    "overlap_text": "Q2. Which product contains retinol and how much does it cost? GD-MO-204 Night Renewal Cream (Retinol 0.2%), 30 ml, 520 EGP. It is for evening\nuse only.",
+    "text": "Q2. Which product contains retinol and how much does it cost? GD-MO-204 Night Renewal Cream (Retinol 0.2%), 30 ml, 520 EGP. It is for evening\nuse only.\nQ3. Which products contain salicylic acid? GD-CL-102 Clarifying Gel Cleanser (0.5%, 265 EGP) and GD-SE-304 Salicylic Acid 2% Clarifying Treatment\n(2%, 395 EGP).\nQ4. Which products contain niacinamide? GD-SE-301 Niacinamide 5% Serum (5%, 360 EGP) and GD-MO-202 Oil-Free Gel Moisturizer (2%, 380 EGP).\nQ5. Which products contain ceramides? GD-CL-101, GD-MO-201 (ceramide NP, AP and EOP), GD-MO-204 and GD-SU-403, each with ceramide NP.\nQ6. What is the cheapest sunscreen and what are its ratings? GD-SU-401 Daily Fluid at 330 EGP, rated SPF 50 and PA++++, broad-spectrum, 50 ml.\nQ7. Which sunscreen uses mineral filters? GD-SU-402 Mineral Sensitive SPF 30 PA+++ (360 EGP), with zinc oxide and titanium dioxide. It may leave a\nslight white cast."
+  },
+  {
+    "id": 57,
+    "page": 10,
+    "overlap_with_previous": 165,
+    "overlap_text": "Q7. Which sunscreen uses mineral filters? GD-SU-402 Mineral Sensitive SPF 30 PA+++ (360 EGP), with zinc oxide and titanium dioxide. It may leave a\nslight white cast.",
+    "text": "Q7. Which sunscreen uses mineral filters? GD-SU-402 Mineral Sensitive SPF 30 PA+++ (360 EGP), with zinc oxide and titanium dioxide. It may leave a\nslight white cast.\nQ8. How often should I reapply sunscreen? (multi-section) Every 2 hours when outdoors and after swimming or sweating, since none of GD-SU-401,\nGD-SU-402 or GD-SU-403 is water-resistant. Remove it in the evening with GD-CL-103 first.\nQ9. Which products suit oily skin? GD-CL-102, GD-SE-301, GD-SE-304, GD-MO-202 and GD-SU-401.\nQ10. What is the difference between GD-MO-201 and GD-MO-203? GD-MO-201 is a rich 50 ml ceramide cream for dry skin (420 EGP); GD-MO-203 is a\nlight 100 ml lotion for normal to combination skin (340 EGP).\nQ11. Can I use vitamin C and retinol together? (multi-section) Not in the same routine. Use GD-SE-303 in the morning and GD-MO-204 in the evening,\nalways with daily sunscreen."
+  },
+  {
+    "id": 58,
+    "page": 10,
+    "overlap_with_previous": 175,
+    "overlap_text": "Q11. Can I use vitamin C and retinol together? (multi-section) Not in the same routine. Use GD-SE-303 in the morning and GD-MO-204 in the evening,\nalways with daily sunscreen.",
+    "text": "Q11. Can I use vitamin C and retinol together? (multi-section) Not in the same routine. Use GD-SE-303 in the morning and GD-MO-204 in the evening,\nalways with daily sunscreen.\nQ12. Can I use GD-SE-304 and GD-MO-204 on the same night? No. Alternate nights, and on GD-SE-304 nights use GD-CL-101 or GD-CL-103 instead\nof GD-CL-102 for the first 4 weeks.\nQ13. How should I start retinol? (multi-section) Patch test, then use GD-MO-204 2 nights per week for 2 weeks, move to every other night, and use\nsunscreen every morning.\nQ14. What does the beginner sensitive-skin routine cost? (multi-section) GD-CL-101 + GD-MO-201 + GD-SU-402 = 1025 EGP, which qualifies for\nfree standard shipping (800 EGP or more).\nQ15. What is the total of the dry-skin morning routine? GD-CL-101, GD-SE-302, GD-MO-201 and GD-SU-403 total 1355 EGP."
+  },
+  {
+    "id": 59,
+    "page": 10,
+    "overlap_with_previous": 159,
+    "overlap_text": "free standard shipping (800 EGP or more).\nQ15. What is the total of the dry-skin morning routine? GD-CL-101, GD-SE-302, GD-MO-201 and GD-SU-403 total 1355 EGP.",
+    "text": "free standard shipping (800 EGP or more).\nQ15. What is the total of the dry-skin morning routine? GD-CL-101, GD-SE-302, GD-MO-201 and GD-SU-403 total 1355 EGP.\nQ16. How long does delivery to Alexandria take and what does it cost? (multi-section) 2 to 4 business days after dispatch plus 1 business day\nprocessing, 60 EGP standard, free if the order is 800 EGP or more.\nQ17. What payment methods are accepted? Credit or debit card, mobile wallet, and cash on delivery (20 EGP fee, up to 3,000 EGP).\nQ18. Can I return an unopened GD-SE-301 bought 10 days ago? Yes. Unopened products can be returned within 14 days of delivery. Card refunds take\n5 to 7 business days after inspection.\nQ19. My GD-MO-201 arrived leaking. What do I do? Report within 48 hours to support with the order number and photos. You can choose a replacement\nor a full refund."
+  },
+  {
+    "id": 60,
+    "page": 10,
+    "overlap_with_previous": 163,
+    "overlap_text": "Q19. My GD-MO-201 arrived leaking. What do I do? Report within 48 hours to support with the order number and photos. You can choose a replacement\nor a full refund.",
+    "text": "Q19. My GD-MO-201 arrived leaking. What do I do? Report within 48 hours to support with the order number and photos. You can choose a replacement\nor a full refund.\nQ20. What are the support hours? (multi-section) Sunday to Thursday, 09:00 to 18:00 for email and phone, and 09:00 to 21:00 for WhatsApp and live\nchat. Closed Friday and Saturday.\nQ21. Are GlowDerma products treatments for acne, eczema or rosacea? No. They are cosmetics. Anyone with such a condition should see a qualified\ndermatologist.\nQ22. Is GlowDerma a real company? No. The company and all details in this document are fictional and used for demonstration only.\nTroubleshooting guide\n Situation\nRecommended response\nMissing information: the question is not answered\nin this document (for example a full ingredient list,\nexpiry date or stock level)."
+  },
+  {
+    "id": 61,
+    "page": 10,
+    "overlap_with_previous": 186,
+    "overlap_text": "Troubleshooting guide\n Situation\nRecommended response\nMissing information: the question is not answered\nin this document (for example a full ingredient list,\nexpiry date or stock level).",
+    "text": "Troubleshooting guide\n Situation\nRecommended response\nMissing information: the question is not answered\nin this document (for example a full ingredient list,\nexpiry date or stock level).\nSay clearly that the document does not contain the answer; do not guess. Suggest contacting\nsupport at support@glowderma.example or WhatsApp +20 100 555 0123 (Sunday to Thursday).\nIngredient sensitivity: a customer reports stinging,\nredness or itching after using a product, or has a\nknown allergy.\nAdvise stopping the newest product, rinsing with water and returning to a simple routine.\nRecommend a patch test for future products and consulting a qualified professional if symptoms\npersist. Note that only key ingredients are listed here, so check the full ingredient list with support\nbefore purchase.\nDermatologist referral: persistent redness, itchy or\npainful patches, bleeding, swelling, suspected"
+  },
+  {
+    "id": 62,
+    "page": 10,
+    "overlap_with_previous": 116,
+    "overlap_text": "before purchase.\nDermatologist referral: persistent redness, itchy or\npainful patches, bleeding, swelling, suspected",
+    "text": "before purchase.\nDermatologist referral: persistent redness, itchy or\npainful patches, bleeding, swelling, suspected\ninfection, pregnancy or breastfeeding questions\nabout GD-MO-204, GD-SE-303 or GD-SE-304, or any\nrequest to treat a medical condition.\nDo not recommend products as treatments or diagnose. Advise consultation with a qualified\ndermatologist or healthcare professional."
+  }
+]
