@@ -7,7 +7,7 @@ response = chat(
     messages=[
         {
             'role': 'system',
-            'content': 'Summarize the following text in exactly three sentences. Reply in English only.',
+            'content': 'Summarize the following text in exactly three sentences.',
         },
         {'role': 'user', 'content': text},
     ],
