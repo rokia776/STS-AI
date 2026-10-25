@@ -5,10 +5,17 @@ text = input(" Write here : ")
 response = chat(
     model='llama3.2:1b',
     messages=[
-        {'role': 'system', 'content': 'Summarize the following text in a few simple and clear sentences.'},
+        {
+            'role': 'system',
+            'content': 'Summarize the following text in exactly three sentences. Reply in English only.',
+        },
         {'role': 'user', 'content': text},
     ],
+    options={
+        'temperature': 0.3,
+        'num_predict': 150,
+    },
 )
 
-print("/n Summary:")
+print("\n Summary:")
 print(response.message.content)
