@@ -1,4 +1,5 @@
 import os
+import requests
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
@@ -10,7 +11,9 @@ DB_DIR = "chroma_db"
 API_KEY = os.getenv("OPENROUTER_API_KEY")
 BASE_URL = "https://openrouter.ai/api/v1"
 CHAT_MODEL = "openai/gpt-4o-mini"
-TOP_K = 4
+RERANK_MODEL = "cohere/rerank-v3.5"
+FETCH_K = 20
+TOP_K = 6
 
 if not API_KEY:
     raise SystemExit("OPENROUTER_API_KEY is missing. Add it to your .env file.")
@@ -31,6 +34,58 @@ llm = ChatOpenAI(
     base_url=BASE_URL,
     temperature=0,
 )
+
+
+RERANK_BACKEND = "local"   # "local" = free, runs on your PC | "openrouter" = paid API call
+LOCAL_RERANK_MODEL = "ms-marco-MiniLM-L-12-v2"   # English. For Arabic questions use "ms-marco-MultiBERT-L-12"
+
+_local_ranker = None
+
+
+def rerank_local(question, docs, top_n):
+    """Free reranking on your own machine with FlashRank (no API call)."""
+    global _local_ranker
+    from flashrank import Ranker, RerankRequest
+
+    if _local_ranker is None:
+        _local_ranker = Ranker(model_name=LOCAL_RERANK_MODEL, cache_dir="flashrank_cache")
+    passages = [{"id": i, "text": d.page_content} for i, d in enumerate(docs)]
+    results = _local_ranker.rerank(RerankRequest(query=question, passages=passages))
+    results = sorted(results, key=lambda r: r["score"], reverse=True)
+    return [docs[r["id"]] for r in results[:top_n]]
+
+
+def rerank_openrouter(question, docs, top_n):
+    """Reranking through the OpenRouter API (costs a little per question)."""
+    res = requests.post(
+        f"{BASE_URL}/rerank",
+        headers={
+            "Authorization": f"Bearer {API_KEY}",
+            "Content-Type": "application/json",
+        },
+        json={
+            "model": RERANK_MODEL,
+            "query": question,
+            "documents": [d.page_content for d in docs],
+        },
+        timeout=30,
+    )
+    res.raise_for_status()
+    results = res.json()["results"]
+    ranked = sorted(results, key=lambda r: r["relevance_score"], reverse=True)
+    return [docs[r["index"]] for r in ranked[:top_n]]
+
+
+def rerank(question, docs, top_n=TOP_K):
+    """Reorder the candidate chunks by relevance and keep the best top_n."""
+    try:
+        if RERANK_BACKEND == "local":
+            return rerank_local(question, docs, top_n)
+        return rerank_openrouter(question, docs, top_n)
+    except Exception as e:
+        print(f"(rerank failed, using vector-search order: {e})")
+        return docs[:top_n]
+
 
 SYSTEM_PROMPT = (
     "You are a GlowDerma skincare assistant. Answer ONLY using the context below. "
@@ -54,7 +109,8 @@ def ask():
         return jsonify(error="Type a question first."), 400
 
     try:
-        docs = vectorstore.similarity_search(question, k=TOP_K)
+        candidates = vectorstore.similarity_search(question, k=FETCH_K)
+        docs = rerank(question, candidates)
         context = "\n\n---\n\n".join(
             f"[page {d.metadata['page'] + 1}]\n{d.page_content}" for d in docs
         )
