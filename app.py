@@ -20,13 +20,13 @@ load_dotenv(override=True)
 
 # Settings
 DB_DIR = "chroma_db"
-EMBED_MODEL = "baai/bge-m3"          # must be the same model used in task.py
-CHAT_MODEL = "openai/gpt-4o-mini"    # must support tool calling
+EMBED_MODEL = "baai/bge-m3"         
+CHAT_MODEL = "openai/gpt-4o-mini"   
 BASE_URL = "https://openrouter.ai/api/v1"
-TOP_K = 4                            # chunks returned by each search
-MAX_STEPS = 5                        # max tool calls rounds before the agent must answer
+TOP_K = 4                         
+MAX_STEPS = 5                       
 MAX_TOKENS = 600
-SKIP_FILES_CONTAINING = "SUPERSEDED" # old documents the agent should never see
+SKIP_FILES_CONTAINING = "SUPERSEDED"
 
 api_key = os.getenv("OPENROUTER_API_KEY")
 if not api_key:
