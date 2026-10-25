@@ -1,0 +1,65 @@
+HORIZON DELTA UNIVERSITY: STUDENT FREQUENTLY ASKED QUESTIONS 2026-2027
+Document ID: HDU-FAQ-2026-01 | Version 1.0 | Language: English | Purpose: RAG chatbot testing
+
+FICTIONAL UNIVERSITY DISCLAIMER: Horizon Delta University (HDU) is fictional. All answers, fees and contact details are invented for software demonstration and testing only.
+
+=== REGISTRATION AND COURSES ===
+
+Q: How do I add or drop a course?
+A: Use the student portal during the add/drop period, which is the first two weeks of Fall and Spring. A course dropped in this period does not appear on the transcript. The exact deadlines are in the Academic Calendar of the Student Handbook.
+
+Q: What if I want to leave a course after the add/drop deadline?
+A: You can withdraw until the withdrawal deadline (the end of week 10 in Fall and Spring) and receive the grade W. See the Student Handbook for the calendar dates.
+
+Q: Does a W grade lower my GPA?
+A: No. A W appears on the transcript but is not used in the GPA. The credit hours of the course do not count as earned.
+
+Q: How many credit hours can I register for?
+A: A normal load is 12 to 18 credit hours. Students on academic probation can register for at most 12. Overload rules are in the Student Handbook.
+
+Q: Can I repeat a course I failed?
+A: Yes, up to 2 repeats. The highest grade counts in the CGPA, and all attempts stay on the transcript.
+
+Q: Is the Summer semester compulsory?
+A: No. Summer is optional, the maximum load is 7 credit hours, and only four courses are offered (CAI-101, MAT-101, GEN-101 and BUS-101).
+
+Q: Can I change my faculty (major)?
+A: Yes, after completing at least 24 credit hours with a CGPA of at least 2.5. Apply in the student portal during the add/drop period of Fall or Spring. The tuition rate of the new faculty applies from the semester after the one in which the change is approved. The head of the new department decides which completed courses are transferred.
+
+=== GRADES AND EXAMS ===
+
+Q: What happens if I miss more than 25% of the classes of a course?
+A: You receive the grade DN, you cannot sit the final exam, and DN counts as F.
+
+Q: How do I request a make-up exam?
+A: Submit a request with documents within 3 working days of the missed exam. The head of the department decides. The make-up exam fee is 300 EGP per exam. The fee is waived when the head of the department approves hospital documentation.
+
+Q: How do I appeal a grade?
+A: Send a written appeal to the head of the department within 7 calendar days after grades are published. You receive a decision within 10 working days.
+
+=== DOCUMENTS AND CARDS ===
+
+Q: How do I get a transcript?
+A: An unofficial transcript is free in the student portal. An official stamped transcript costs 100 EGP and takes 3 working days. Each extra copy of the same transcript costs 50 EGP.
+
+Q: How much is an enrollment certificate?
+A: 50 EGP, ready within 1 working day.
+
+Q: I lost my student ID card. What should I do?
+A: Request a replacement at the Registrar's Office. The fee is 200 EGP and it takes 2 working days. Remember that an ID card is required to enter exams.
+
+=== MONEY ===
+
+Q: When is the tuition payment deadline?
+A: The deadlines are in the Tuition, Fees and Scholarships document: Thursday 10 September 2026 for Fall 2026 and Thursday 4 February 2027 for Spring 2027.
+
+Q: Do I keep my scholarship if I am on academic probation?
+A: Merit-based scholarships (Entry Excellence and Merit) are suspended while you are on probation. The Sibling Discount and the Need-Based Grant continue. See the Tuition, Fees and Scholarships document.
+
+Q: Where can I find the university housing and transport prices?
+A: In the Student Services guide, which is written in Arabic.
+
+=== CONTACT ===
+
+Q: How can I contact the Registrar's Office?
+A: Email registrar@hdu.example or call +20 2 5555 0200, Sunday to Thursday, 09:00 to 15:00. The office is closed on Fridays, Saturdays and Egyptian public holidays.

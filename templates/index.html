@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HDU Catalog Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app">
+
+    <header class="header">
+      <div>
+        <h1>HDU Catalog Chatbot</h1>
+        <p class="model">Model: {{ model }}</p>
+      </div>
+      <button id="clear-btn" class="clear-btn">Clear chat</button>
+    </header>
+
+    <main id="chat" class="chat">
+      <div class="message bot">
+        <div class="bubble">
+          Hi! Ask me anything about the Horizon Delta University course catalog.
+        </div>
+      </div>
+
+      <div id="suggestions" class="suggestions">
+        <button class="chip">Which courses have a lab?</button>
+        <button class="chip">What does (3+1) credit hours mean?</button>
+        <button class="chip">What are the prerequisites for CAI-201?</button>
+        <button class="chip">Who teaches GEN-101?</button>
+      </div>
+    </main>
+
+    <form id="chat-form" class="input-bar">
+      <input id="question" type="text" placeholder="Type your question..." autocomplete="off">
+      <button id="send-btn" type="submit">Send</button>
+    </form>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
