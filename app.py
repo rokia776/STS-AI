@@ -1,257 +1,196 @@
-"""Agentic RAG chatbot.
-
-Instead of searching once, the LLM works like a small agent:
-it decides when to search the documents, can search several times with
-different queries, uses a calculator for math, and answers only when it
-has enough information."""
-
-import os
-import ast
 import json
-import operator
+import logging
+from functools import lru_cache
+from pathlib import Path
 
-from dotenv import load_dotenv
-from flask import Flask, render_template, request, jsonify
-from openai import OpenAI
-from langchain_core.embeddings import Embeddings
+from flask import Flask, jsonify, render_template, request
 from langchain_chroma import Chroma
 
-load_dotenv(override=True)
+import config
+from embeddings import OpenRouterEmbeddings, get_client
 
-# Settings
-DB_DIR = "chroma_db"
-EMBED_MODEL = "baai/bge-m3"         
-CHAT_MODEL = "openai/gpt-4o-mini"   
-BASE_URL = "https://openrouter.ai/api/v1"
-TOP_K = 4                         
-MAX_STEPS = 5                       
-MAX_TOKENS = 600
-SKIP_FILES_CONTAINING = "SUPERSEDED"
+logger = logging.getLogger(__name__)
 
-api_key = os.getenv("OPENROUTER_API_KEY")
-if not api_key:
-    raise SystemExit("OPENROUTER_API_KEY is missing. Add it to your .env file.")
-if not os.path.isdir(DB_DIR):
-    raise SystemExit(f"'{DB_DIR}' not found. Run task.py first to build the database.")
+HISTORY_LIMIT = 6  # how many old messages the bot remembers
 
-client = OpenAI(api_key=api_key, base_url=BASE_URL)
+SYSTEM_PROMPT = """You are an assistant for Horizon Delta University. You have one tool: search_documents.
+
+1. Always search before answering a university question. Never answer from memory.
+2. If the question needs several facts, search for each fact separately with a short query.
+3. For money questions (tuition, fees, discounts, scholarships, installments, refunds), first search for:
+   a) the tuition rate and the fees,
+   b) the rules of every scholarship, discount, installment plan or refund in the question,
+   c) any limit or condition that could apply, like the maximum total discount.
+4. Never answer a payment plan, discount or scholarship question after only one search. Apply every limit and condition you found.
+5. For calculations, write each step and double-check the arithmetic.
+6. Use only what the search results say. If you can't find the answer, say so. Never guess.
+7. Reply in the same language as the question.
+8. No markdown formatting. Keep answers short and clear."""
+
+SEARCH_TOOL = {
+    "type": "function",
+    "function": {
+        "name": "search_documents",
+        "description": "Search the university documents: course catalog, student handbook, "
+                       "tuition and scholarships, FAQ and student services.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "A short search query about one topic.",
+                }
+            },
+            "required": ["query"],
+        },
+    },
+}
 
 
-class OpenRouterEmbeddings(Embeddings):
-    def embed_documents(self, texts):
-        response = client.embeddings.create(model=EMBED_MODEL, input=texts)
-        return [item.embedding for item in response.data]
-
-    def embed_query(self, text):
-        return self.embed_documents([text])[0]
-
-
-db = Chroma(persist_directory=DB_DIR, embedding_function=OpenRouterEmbeddings())
-
+@lru_cache(maxsize=1)
+def get_db():
+    if not config.DB_DIR.is_dir():
+        raise RuntimeError(
+            f"Database not found at {config.DB_DIR}. Run 'uv run python task.py' first."
+        )
+    return Chroma(
+        persist_directory=str(config.DB_DIR),
+        embedding_function=OpenRouterEmbeddings(),
+    )
 
 
 def search_documents(query, sources):
-    """Search Chroma and return the chunks as text for the LLM.
-    Every chunk found is also added to `sources` so the page can show it."""
-    results = db.similarity_search(query, k=TOP_K + 2)
+    """Search the database. Returns the chunks as text for the LLM and
+    adds them to `sources` so the page can show them."""
+    results = get_db().similarity_search(query, k=config.TOP_K + 2)
 
-    # leave out files that are marked as old
-    results = [
-        doc for doc in results
-        if SKIP_FILES_CONTAINING not in doc.metadata.get("source", "")
-    ][:TOP_K]
+    # hide old documents, like the superseded tuition policy
+    skip = config.SKIP_FILES_CONTAINING
+    if skip:
+        results = [r for r in results if skip not in r.metadata.get("source", "")]
+    results = results[:config.TOP_K]
 
     if not results:
         return "No results found."
 
-    parts = []
+    texts = []
     for doc in results:
-        file = os.path.basename(doc.metadata.get("source", ""))
+        file = Path(doc.metadata.get("source", "")).name
         page = doc.metadata.get("page")
-        label = f"{file}, page {page + 1}" if page is not None else file
-        parts.append(f"[{label}]\n{doc.page_content}")
+        page = page + 1 if page is not None else None
 
-        text = " ".join(doc.page_content.split())[:300]
-        if not any(s["file"] == file and s["text"] == text for s in sources):
-            sources.append({
-                "file": file,
-                "page": page + 1 if page is not None else None,
-                "text": text,
-            })
+        label = f"{file}, page {page}" if page else file
+        texts.append(f"[{label}]\n{doc.page_content}")
 
-    return "\n\n---\n\n".join(parts)
+        source = {
+            "file": file,
+            "page": page,
+            "text": " ".join(doc.page_content.split())[:300],
+        }
+        if source not in sources:
+            sources.append(source)
 
-
-
-OPERATORS = {
-    ast.Add: operator.add,
-    ast.Sub: operator.sub,
-    ast.Mult: operator.mul,
-    ast.Div: operator.truediv,
-    ast.USub: operator.neg,
-}
+    return "\n\n---\n\n".join(texts)
 
 
-def evaluate(node):
-    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
-        return node.value
-    if isinstance(node, ast.BinOp) and type(node.op) in OPERATORS:
-        return OPERATORS[type(node.op)](evaluate(node.left), evaluate(node.right))
-    if isinstance(node, ast.UnaryOp) and type(node.op) in OPERATORS:
-        return OPERATORS[type(node.op)](evaluate(node.operand))
-    raise ValueError("unsupported expression")
+def ask_llm(client, messages, use_tools):
+    options = {
+        "model": config.CHAT_MODEL,
+        "messages": messages,
+        "temperature": 0,
+        "max_tokens": config.MAX_TOKENS,
+    }
+    if use_tools:
+        options["tools"] = [SEARCH_TOOL]
+    return client.chat.completions.create(**options).choices[0].message
 
 
-def calculate(expression):
+def run_tool(call, steps, sources):
+    if call.function.name != "search_documents":
+        return f"Unknown tool: {call.function.name}"
+
     try:
-        result = evaluate(ast.parse(expression, mode="eval").body)
-        return str(round(result, 2))
-    except Exception:
-        return "Error: could not calculate that expression."
+        query = json.loads(call.function.arguments or "{}").get("query", "")
+    except json.JSONDecodeError:
+        return "The tool arguments were not valid JSON."
 
+    steps.append({"action": "Searched", "input": query})
+    return search_documents(query, sources)
 
-# Description of the tools for the LLM
-TOOLS = [
-    {
-        "type": "function",
-        "function": {
-            "name": "search_documents",
-            "description": "Search the Horizon Delta University documents "
-                           "(course catalog, student handbook, tuition and scholarships, FAQ, student services).",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "query": {
-                        "type": "string",
-                        "description": "A short, specific search query about one topic.",
-                    }
-                },
-                "required": ["query"],
-            },
-        },
-    },
-    {
-        "type": "function",
-        "function": {
-            "name": "calculate",
-            "description": "Calculate a math expression, for example '14 * 4200 * 0.75 + 1900'.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "expression": {"type": "string", "description": "The math expression."}
-                },
-                "required": ["expression"],
-            },
-        },
-    },
-]
-
-SYSTEM_PROMPT = (
-    "You are an assistant for Horizon Delta University. You have two tools: "
-    "search_documents and calculate.\n"
-    "How to work:\n"
-    "1. Always search before answering a university question. Never answer from memory.\n"
-    "2. If the question needs several facts, search separately for each fact "
-    "with a short, specific query.\n"
-    "3. For any question about money (tuition, fees, discounts, scholarships, installments, refunds), "
-    "you MUST do all of these before answering:\n"
-    "   a) search for the tuition rate and the fees,\n"
-    "   b) search for the rules of every scholarship, discount, installment plan or refund mentioned in the question,\n"
-    "   c) search for 'maximum total discount' or any other limit or condition that could apply.\n"
-    "4. Never answer after only one search when the question mentions a payment plan, discount or scholarship. "
-    "Apply every limit, cap and condition you found.\n"
-    "5. Use calculate for every calculation. Do not do math in your head.\n"
-    "6. Use only information from the search results. If you cannot find it, say you could not find it. Never guess.\n"
-    "7. Reply in the same language as the question.\n"
-    "8. Do not use markdown formatting. Keep the answer short and clear."
-)
 
 def run_agent(question, history):
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
-    messages += history
+    """Returns (answer, steps, sources)."""
+    client = get_client()
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}] + history
     messages.append({"role": "user", "content": question})
 
-    steps = []     # what the agent did, shown in the page
-    sources = []   # chunks the agent found
+    steps = []    # what the agent did, shown on the page
+    sources = []  # chunks it found
 
-    for _ in range(MAX_STEPS):
-        response = client.chat.completions.create(
-            model=CHAT_MODEL,
-            messages=messages,
-            tools=TOOLS,
-            temperature=0,
-            max_tokens=MAX_TOKENS,
-        )
-        message = response.choices[0].message
+    for _ in range(config.MAX_STEPS):
+        reply = ask_llm(client, messages, use_tools=True)
 
-        # no tool requested -> this is the final answer
-        if not message.tool_calls:
-            return message.content, steps, sources
+        # no tool call means the LLM is ready to answer
+        if not reply.tool_calls:
+            return reply.content or "", steps, sources
 
-        messages.append(message.model_dump(exclude_none=True))
+        messages.append(reply.model_dump(exclude_none=True))
+        for call in reply.tool_calls:
+            result = run_tool(call, steps, sources)
+            messages.append({"role": "tool", "tool_call_id": call.id, "content": result})
 
-        # run every tool the LLM asked for and give the results back
-        for call in message.tool_calls:
-            args = json.loads(call.function.arguments)
-
-            if call.function.name == "search_documents":
-                result = search_documents(args.get("query", ""), sources)
-                steps.append({"action": "Searched", "input": args.get("query", "")})
-            elif call.function.name == "calculate":
-                result = calculate(args.get("expression", ""))
-                steps.append({"action": "Calculated", "input": f"{args.get('expression', '')} = {result}"})
-            else:
-                result = "Unknown tool."
-
-            messages.append({
-                "role": "tool",
-                "tool_call_id": call.id,
-                "content": result,
-            })
-
-    # too many steps: ask for an answer with what it has
+    # too many searches, so make it answer with what it has
     messages.append({
         "role": "user",
-        "content": "Answer now using only the information you already found.",
+        "content": "Answer now using only what you already found.",
     })
-    response = client.chat.completions.create(
-        model=CHAT_MODEL,
-        messages=messages,
-        temperature=0,
-        max_tokens=MAX_TOKENS,
-    )
-    return response.choices[0].message.content, steps, sources
+    reply = ask_llm(client, messages, use_tools=False)
+    return reply.content or "", steps, sources
 
 
-app = Flask(__name__)
+def clean_history(raw):
+    """Keep only real user/assistant messages from what the browser sent."""
+    history = []
+    for m in raw:
+        if isinstance(m, dict) and m.get("role") in ("user", "assistant") and m.get("content"):
+            history.append({"role": m["role"], "content": str(m["content"])})
+    return history[-HISTORY_LIMIT:]
 
 
-@app.route("/")
-def home():
-    return render_template("index.html", model=CHAT_MODEL)
+def create_app():
+    app = Flask(__name__)
 
+    @app.route("/")
+    def home():
+        return render_template("index.html", model=config.CHAT_MODEL)
 
-@app.route("/chat", methods=["POST"])
-def chat():
-    data = request.get_json() or {}
-    question = (data.get("question") or "").strip()
-    if not question:
-        return jsonify({"error": "Please type a question."}), 400
+    @app.route("/health")
+    def health():
+        return jsonify({"status": "ok"})
 
-    # keep only the last few messages of the conversation
-    history = [
-        {"role": m["role"], "content": m["content"]}
-        for m in data.get("history", [])
-        if m.get("role") in ("user", "assistant")
-    ][-6:]
+    @app.route("/chat", methods=["POST"])
+    def chat():
+        data = request.get_json(silent=True) or {}
+        question = (data.get("question") or "").strip()
+        if not question:
+            return jsonify({"error": "Please type a question."}), 400
 
-    try:
-        answer, steps, sources = run_agent(question, history)
-    except Exception as e:
-        return jsonify({"error": f"Request failed: {e}"}), 500
+        history = clean_history(data.get("history", []))
 
-    return jsonify({"answer": answer, "steps": steps, "sources": sources})
+        try:
+            answer, steps, sources = run_agent(question, history)
+        except RuntimeError as error:  # no API key or no database
+            return jsonify({"error": str(error)}), 500
+        except Exception as error:
+            logger.exception("Agent failed")
+            return jsonify({"error": f"Request failed: {error}"}), 500
+
+        return jsonify({"answer": answer, "steps": steps, "sources": sources})
+
+    return app
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    logging.basicConfig(level=logging.INFO)
+    create_app().run(host=config.HOST, port=config.PORT, debug=config.DEBUG)
+    

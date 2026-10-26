@@ -2,42 +2,42 @@
   {
     "id": 0,
     "source": "HDU_Course_Catalog_2026-27.pdf",
-    "page": 0,
+    "page": 1,
     "overlap_with_previous": "",
     "text": "HDU Course Catalog 2026-2027 | Horizon Delta University is fictional. For demonstration only.\nPage 1\nHorizon Delta University Course Catalog\n2026-2027\nDocument ID: HDU-CC-2026-01 | Version 1.0 | Academic year: 2026-2027 | Language: English | Purpose: RAG chatbot\ntesting\nFICTIONAL UNIVERSITY DISCLAIMER. Horizon Delta University (HDU) is fictional. All courses, codes, instructors,\nschedules and rules are invented for software demonstration and testing only.\n1. How to Read This Catalog\nItem\nMeaning\nCourse code\nFaculty prefix and number: CAI (Computing and AI), BUS (Business), ENG (Engineering), MAT\n(Mathematics), GEN (General education). Example: CAI-301.\nCredits\nCredit hours. The notation (3+1) means 3 lecture credit hours plus 1 lab credit hour, for 4 in total.\nCourses with a lab are CAI-301 and ENG-102.\nOffered\nF = Fall, S = Spring, Su = Summer.\nPrerequisites\nA prerequisite counts only if the student earned C or higher in it. Prerequisite overrides are described in\nthe Student Handbook.\nSchedule\nWeekly meeting days and times, Cairo time. HDU classes run Sunday to Thursday. Sun = Sunday,\nMon = Monday, Tue = Tuesday, Wed = Wednesday, Thu = Thursday.\n2. Common Courses (all faculties)\nMAT-101 Calculus I | Credit hours: 3 | Prerequisites: None | Offered: Fall, Spring, Summer | Instructor: Dr. Omar\nFarid | Schedule: Sun and Tue 08:00 to 09:30\nGEN-101 Academic Writing | Credit hours: 2 | Prerequisites: None | Offered: Fall, Spring, Summer | Instructor: Ms."
   },
   {
     "id": 1,
     "source": "HDU_Course_Catalog_2026-27.pdf",
-    "page": 0,
+    "page": 1,
     "overlap_with_previous": "MAT-101 Calculus I | Credit hours: 3 | Prerequisites: None | Offered: Fall, Spring, Summer | Instructor: Dr. Omar\nFarid | Schedule: Sun and Tue 08:00 to 09:30\nGEN-101 Academic Writing | Credit hours: 2 | Prerequisites: None | Offered: Fall, Spring, Summer | Instructor: Ms.",
     "text": "MAT-101 Calculus I | Credit hours: 3 | Prerequisites: None | Offered: Fall, Spring, Summer | Instructor: Dr. Omar\nFarid | Schedule: Sun and Tue 08:00 to 09:30\nGEN-101 Academic Writing | Credit hours: 2 | Prerequisites: None | Offered: Fall, Spring, Summer | Instructor: Ms.\nDina Ragab | Schedule: Thu 12:00 to 14:00\nGEN-110 Arabic Communication Skills | Credit hours: 2 | Prerequisites: None | Offered: Fall, Spring | Instructor:\nMs. Dina Ragab | Schedule: Wed 15:00 to 17:00\nGEN-120 Ethics and Society | Credit hours: 2 | Prerequisites: GEN-101 | Offered: Spring | Instructor: Ms. Dina\nRagab | Schedule: Sun 15:00 to 17:00\n3. Faculty of Computing and AI (CAI)\nCAI-101 Introduction to Programming | Credit hours: 3 | Prerequisites: None | Offered: Fall, Spring, Summer |\nInstructor: Dr. Layla Hassan | Schedule: Sun and Tue 10:00 to 11:30\nCAI-102 Discrete Mathematics | Credit hours: 3 | Prerequisites: None | Offered: Fall | Instructor: Dr. Omar Farid |\nSchedule: Mon and Wed 09:00 to 10:30\nCAI-201 Data Structures | Credit hours: 3 | Prerequisites: CAI-101 | Offered: Fall, Spring | Instructor: Dr. Layla\nHassan | Schedule: Sun and Tue 12:00 to 13:30\nCAI-202 Databases | Credit hours: 3 | Prerequisites: CAI-101 | Offered: Spring | Instructor: Dr. Mona Saleh |\nSchedule: Mon and Wed 11:00 to 12:30\nCAI-250 Statistics for Data Science | Credit hours: 3 | Prerequisites: CAI-102 | Offered: Fall, Spring | Instructor:\nDr. Mona Saleh | Schedule: Tue and Thu 09:00 to 10:30"
   },
   {
     "id": 2,
     "source": "HDU_Course_Catalog_2026-27.pdf",
-    "page": 0,
+    "page": 1,
     "overlap_with_previous": "Schedule: Mon and Wed 11:00 to 12:30\nCAI-250 Statistics for Data Science | Credit hours: 3 | Prerequisites: CAI-102 | Offered: Fall, Spring | Instructor:\nDr. Mona Saleh | Schedule: Tue and Thu 09:00 to 10:30",
     "text": "Schedule: Mon and Wed 11:00 to 12:30\nCAI-250 Statistics for Data Science | Credit hours: 3 | Prerequisites: CAI-102 | Offered: Fall, Spring | Instructor:\nDr. Mona Saleh | Schedule: Tue and Thu 09:00 to 10:30\nCAI-301 Machine Learning (3+1) | Credit hours: 4 | Prerequisites: CAI-201 and CAI-250 | Offered: Fall | Instructor:\nDr. Karim Nabil | Schedule: Mon and Wed 13:00 to 14:30, lab Thu 10:00 to 12:00\nCAI-310 Natural Language Processing | Credit hours: 3 | Prerequisites: CAI-301 | Offered: Spring | Instructor: Dr.\nKarim Nabil | Schedule: Mon and Wed 13:00 to 14:30"
   },
   {
     "id": 3,
     "source": "HDU_Course_Catalog_2026-27.pdf",
-    "page": 1,
+    "page": 2,
     "overlap_with_previous": "",
     "text": "HDU Course Catalog 2026-2027 | Horizon Delta University is fictional. For demonstration only.\nPage 2\nCAI-320 Computer Networks | Credit hours: 3 | Prerequisites: CAI-201 | Offered: Spring | Instructor: Dr. Salma\nAdel | Schedule: Tue and Thu 12:00 to 13:30\nCAI-401 Capstone Project I | Credit hours: 3 | Prerequisites: CAI-301 and 90 completed credit hours | Offered: Fall\n| Instructor: Dr. Salma Adel | Schedule: Weekly supervision, Thu 13:00 to 14:00\nCAI-402 Capstone Project II | Credit hours: 3 | Prerequisites: CAI-401 | Offered: Spring | Instructor: Dr. Salma Adel\n| Schedule: Weekly supervision, Thu 13:00 to 14:00\n4. Faculty of Business (BUS)\nBUS-101 Principles of Management | Credit hours: 3 | Prerequisites: None | Offered: Fall, Spring, Summer |\nInstructor: Prof. Tarek Mansour | Schedule: Sun and Tue 09:00 to 10:30\nBUS-110 Financial Accounting | Credit hours: 3 | Prerequisites: None | Offered: Fall, Spring | Instructor: Dr. Heba\nYounes | Schedule: Mon and Wed 09:00 to 10:30\nBUS-210 Marketing Fundamentals | Credit hours: 3 | Prerequisites: BUS-101 | Offered: Spring | Instructor: Prof.\nTarek Mansour | Schedule: Sun and Tue 11:00 to 12:30\nBUS-220 Business Statistics | Credit hours: 3 | Prerequisites: MAT-101 | Offered: Fall | Instructor: Dr. Heba\nYounes | Schedule: Tue and Thu 10:30 to 12:00\nBUS-310 Corporate Finance | Credit hours: 3 | Prerequisites: BUS-110 and BUS-220 | Offered: Spring | Instructor:\nDr. Heba Younes | Schedule: Mon and Wed 12:00 to 13:30"
   },
   {
     "id": 4,
     "source": "HDU_Course_Catalog_2026-27.pdf",
-    "page": 1,
+    "page": 2,
     "overlap_with_previous": "Younes | Schedule: Tue and Thu 10:30 to 12:00\nBUS-310 Corporate Finance | Credit hours: 3 | Prerequisites: BUS-110 and BUS-220 | Offered: Spring | Instructor:\nDr. Heba Younes | Schedule: Mon and Wed 12:00 to 13:30",
     "text": "Younes | Schedule: Tue and Thu 10:30 to 12:00\nBUS-310 Corporate Finance | Credit hours: 3 | Prerequisites: BUS-110 and BUS-220 | Offered: Spring | Instructor:\nDr. Heba Younes | Schedule: Mon and Wed 12:00 to 13:30\n5. Faculty of Engineering (ENG)\nENG-101 Engineering Mathematics I | Credit hours: 3 | Prerequisites: MAT-101 | Offered: Spring | Instructor: Prof.\nAmr Zaki | Schedule: Mon and Wed 09:00 to 10:30\nENG-102 Physics for Engineers (3+1) | Credit hours: 4 | Prerequisites: None | Offered: Fall, Spring | Instructor: Dr.\nNour El-Din | Schedule: Sun and Tue 11:00 to 12:30, lab Wed 14:00 to 16:00\nENG-201 Circuits I | Credit hours: 3 | Prerequisites: ENG-101 and ENG-102 | Offered: Fall | Instructor: Dr. Nour\nEl-Din | Schedule: Mon and Wed 10:30 to 12:00\nENG-210 Engineering Mechanics | Credit hours: 3 | Prerequisites: ENG-102 | Offered: Spring | Instructor: Prof.\nAmr Zaki | Schedule: Tue and Thu 13:00 to 14:30\n6. Summer Courses\nOnly four courses are offered in the Summer semester: CAI-101, MAT-101, GEN-101 and BUS-101. The\nSummer credit hour limit is stated in the Student Handbook.\n7. Recommended First-Semester Plans (Fall)\nFaculty\nRecommended courses\nTotal credit hours\nComputing and AI\nCAI-101 (3), CAI-102 (3), MAT-101 (3), GEN-101 (2), GEN-110 (2)\n13\nBusiness\nBUS-101 (3), BUS-110 (3), MAT-101 (3), GEN-101 (2), GEN-110 (2)\n13\nEngineering\nENG-102 (4), MAT-101 (3), CAI-101 (3), GEN-101 (2), GEN-110 (2)\n14\n8. Notes"
   },
   {
     "id": 5,
     "source": "HDU_Course_Catalog_2026-27.pdf",
-    "page": 1,
+    "page": 2,
     "overlap_with_previous": "Faculty\nRecommended courses\nTotal credit hours\nComputing and AI\nCAI-101 (3), CAI-102 (3), MAT-101 (3), GEN-101 (2), GEN-110 (2)\n13\nBusiness\nBUS-101 (3), BUS-110 (3), MAT-101 (3), GEN-101 (2), GEN-110 (2)\n13\nEngineering\nENG-102 (4), MAT-101 (3), CAI-101 (3), GEN-101 (2), GEN-110 (2)\n14\n8. Notes",
     "text": "Faculty\nRecommended courses\nTotal credit hours\nComputing and AI\nCAI-101 (3), CAI-102 (3), MAT-101 (3), GEN-101 (2), GEN-110 (2)\n13\nBusiness\nBUS-101 (3), BUS-110 (3), MAT-101 (3), GEN-101 (2), GEN-110 (2)\n13\nEngineering\nENG-102 (4), MAT-101 (3), CAI-101 (3), GEN-101 (2), GEN-110 (2)\n14\n8. Notes\nCourses with a lab carry an extra lab fee, which is listed in the Tuition and Scholarships document. The number\nof credit hours required for each degree is stated in the Student Handbook. CAI-401 Capstone Project I\nrequires a student to have completed at least 90 credit hours and to have passed CAI-301 with C or higher."
   },
@@ -72,70 +72,70 @@
   {
     "id": 10,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 0,
+    "page": 1,
     "overlap_with_previous": "",
     "text": "HDU Student Handbook 2026-2027 | Horizon Delta University is fictional. For demonstration only.\nPage 1\nHorizon Delta University Student Handbook\n2026-2027\nDocument ID: HDU-SH-2026-01 | Version 1.0 | Academic year: 2026-2027 | Language: English | Currency: Egyptian pound\n(EGP) | Purpose: RAG chatbot testing\nFICTIONAL UNIVERSITY DISCLAIMER. Horizon Delta University (HDU) is a fictional institution. All rules, dates, fees,\nnames and contact details in this document are invented for software demonstration and testing only. No real university or\nstudent is described.\n1. About the University\n1.1 Overview\nHorizon Delta University (HDU) is a fictional private university in New Cairo, Egypt, imagined as founded in\n2012. It has three faculties: the Faculty of Computing and AI (code CAI), the Faculty of Business (code BUS)\nand the Faculty of Engineering (code ENG). The language of instruction is English. The academic year has two\nregular semesters, Fall and Spring, and an optional Summer semester.\n1.2 Registrar's Office contact details (fictional)\nItem\nDetails\nEmail\nregistrar@hdu.example\nPhone\n+20 2 5555 0200\nOffice hours (Cairo time)\nSunday to Thursday, 09:00 to 15:00. Closed on Fridays, Saturdays and Egyptian public\nholidays.\nWorking day\nIn this handbook a working day means Sunday to Thursday, excluding public holidays.\n1.3 Terminology\nTerm\nMeaning\nCredit hour\nThe unit of course workload. Tuition is charged per credit hour.\nGPA"
   },
   {
     "id": 11,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 0,
+    "page": 1,
     "overlap_with_previous": "holidays.\nWorking day\nIn this handbook a working day means Sunday to Thursday, excluding public holidays.\n1.3 Terminology\nTerm\nMeaning\nCredit hour\nThe unit of course workload. Tuition is charged per credit hour.\nGPA",
     "text": "holidays.\nWorking day\nIn this handbook a working day means Sunday to Thursday, excluding public holidays.\n1.3 Terminology\nTerm\nMeaning\nCredit hour\nThe unit of course workload. Tuition is charged per credit hour.\nGPA\nSemester grade point average, calculated from the courses of one semester.\nCGPA\nCumulative grade point average, calculated from all courses taken at HDU.\nAdd/drop period\nThe first two weeks of Fall and Spring (the first week of Summer), when courses can be added or\ndropped.\nW\nWithdrawal grade. Shown on the transcript but not used in GPA.\nDN\nDenied entry to the final exam because of excessive absence. Counts as F.\nAcademic probation\nA warning status for students whose CGPA is below 2.0.\nAcademic advisor\nA faculty member assigned to guide each student on course selection and standing.\n2. Academic Calendar 2026-2027\nSemester\nClasses start\nAdd/drop deadline\nWithdrawal (W)\ndeadline\nFinal exams\nSemester\nends\nFall 2026\nSunday 20\nSeptember 2026\nThursday 1 October\n2026\nThursday 26\nNovember 2026\nSunday 3 January to\nThursday 14 January\n2027\nThursday 14\nJanuary 2027\nSpring 2027\nSunday 14\nFebruary 2027\nThursday 25\nFebruary 2027\nThursday 22 April\n2027\nSunday 30 May to\nThursday 10 June 2027\nThursday 10\nJune 2027"
   },
   {
     "id": 12,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 1,
+    "page": 2,
     "overlap_with_previous": "",
     "text": "HDU Student Handbook 2026-2027 | Horizon Delta University is fictional. For demonstration only.\nPage 2\nSemester\nClasses start\nAdd/drop deadline\nWithdrawal (W)\ndeadline\nFinal exams\nSemester\nends\nSummer 2027\n(optional)\nSunday 4 July 2027\nThursday 8 July\n2027\nThursday 29 July\n2027\nSunday 8 August to\nThursday 12 August\n2027\nThursday 12\nAugust 2027\nFall 2026: classes start on Sunday 20 September 2026. The add/drop deadline is Thursday 1 October 2026.\nThe withdrawal (W) deadline is Thursday 26 November 2026. Final exams run from Sunday 3 January 2027 to\nThursday 14 January 2027, and the semester ends on Thursday 14 January 2027.\nSpring 2027: classes start on Sunday 14 February 2027. The add/drop deadline is Thursday 25 February\n2027. The withdrawal (W) deadline is Thursday 22 April 2027. Final exams run from Sunday 30 May 2027 to\nThursday 10 June 2027, and the semester ends on Thursday 10 June 2027.\nSummer 2027 (optional): classes start on Sunday 4 July 2027. The add/drop deadline is Thursday 8 July 2027.\nThe withdrawal (W) deadline is Thursday 29 July 2027. Final exams run from Sunday 8 August 2027 to\nThursday 12 August 2027, and the semester ends on Thursday 12 August 2027.\nThe add/drop period is the first two weeks of Fall and Spring, and the first week of Summer. Students may\nwithdraw from a course until the end of week 10 of Fall and Spring, or the end of week 4 of Summer. Tuition\npayment deadlines are published in the Tuition and Scholarships document, not in this handbook."
   },
   {
     "id": 13,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 1,
+    "page": 2,
     "overlap_with_previous": "withdraw from a course until the end of week 10 of Fall and Spring, or the end of week 4 of Summer. Tuition\npayment deadlines are published in the Tuition and Scholarships document, not in this handbook.",
     "text": "withdraw from a course until the end of week 10 of Fall and Spring, or the end of week 4 of Summer. Tuition\npayment deadlines are published in the Tuition and Scholarships document, not in this handbook.\n3. Registration and Credit Load\n3.1 Credit hour limits\nSituation\nCredit hour limit\nNormal load in Fall or Spring\n12 to 18 credit hours. A student registered for at least 12 credit hours is full-time.\nOverload\nUp to 21 credit hours, only with written approval from the academic advisor and a CGPA\nof at least 3.3.\nStudent on academic probation\nMaximum 12 credit hours per semester.\nSummer semester\nMaximum 7 credit hours.\n3.2 Prerequisites\nPrerequisites are enforced by the registration system. A prerequisite counts as satisfied only if the student\nearned a grade of C or higher in it. A grade of D does not satisfy a prerequisite. A student may ask for a\nprerequisite override; it needs the written approval of the head of the department that offers the course.\n3.3 Adding, dropping and withdrawing\nDuring the add/drop period a student can add or drop courses in the student portal. A course dropped in this\nperiod does not appear on the transcript. After the add/drop deadline and until the withdrawal deadline, a\nstudent may withdraw from a course and receives the grade W. A W appears on the transcript, does not affect\nthe GPA, and the credit hours of that course do not count as earned. After the withdrawal deadline a student"
   },
   {
     "id": 14,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 1,
+    "page": 2,
     "overlap_with_previous": "student may withdraw from a course and receives the grade W. A W appears on the transcript, does not affect\nthe GPA, and the credit hours of that course do not count as earned. After the withdrawal deadline a student",
     "text": "student may withdraw from a course and receives the grade W. A W appears on the transcript, does not affect\nthe GPA, and the credit hours of that course do not count as earned. After the withdrawal deadline a student\ncannot withdraw and receives the grade actually earned, normally F, unless the Dean approves an exception\nfor a documented emergency.\n4. Grading and GPA\n4.1 Grading scale\nGrade\nPercentage\nGrade points\nGrade\nPercentage\nGrade points\nA\n93 to 100\n4.0\nC\n73 to 76\n2.0\nA-\n90 to 92\n3.7\nC-\n70 to 72\n1.7\nB+\n87 to 89\n3.3\nD+\n67 to 69\n1.3\nB\n83 to 86\n3.0\nD\n60 to 66\n1.0"
   },
   {
     "id": 15,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 2,
+    "page": 3,
     "overlap_with_previous": "",
     "text": "HDU Student Handbook 2026-2027 | Horizon Delta University is fictional. For demonstration only.\nPage 3\nGrade\nPercentage\nGrade points\nGrade\nPercentage\nGrade points\nB-\n80 to 82\n2.7\nF\nBelow 60\n0.0\nC+\n77 to 79\n2.3\n4.2 How GPA is calculated\nGPA is the sum of (grade points multiplied by credit hours) for every course of the semester, divided by the\ntotal credit hours of those courses. CGPA is calculated in the same way using all courses taken at HDU, with\nrepeated courses counted once using the highest grade.\n4.3 Passing grades\nThe minimum passing grade in any course is D (60 percent). However, every major core course must be\npassed with a grade of C (2.0) or higher to count toward graduation; otherwise the student must repeat it.\n4.4 Repeating courses\nA course may be repeated up to 2 times, so a student has at most 3 attempts. All attempts appear on the\ntranscript, but only the highest grade counts in the CGPA.\n4.5 Incomplete grade\nAn Incomplete (I) may be granted for a documented reason. The missing work must be finished within 4 weeks\nafter the semester ends, otherwise the I becomes an F.\n5. Academic Standing\n5.1 Good standing\nA student is in good standing when the CGPA is 2.0 or above.\n5.2 Academic probation\nA student whose CGPA is below 2.0 at the end of a Fall or Spring semester is placed on academic probation.\nWhile on probation: (a) the student may register for a maximum of 12 credit hours per semester; (b) the student"
   },
   {
     "id": 16,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 2,
+    "page": 3,
     "overlap_with_previous": "5.2 Academic probation\nA student whose CGPA is below 2.0 at the end of a Fall or Spring semester is placed on academic probation.\nWhile on probation: (a) the student may register for a maximum of 12 credit hours per semester; (b) the student",
     "text": "5.2 Academic probation\nA student whose CGPA is below 2.0 at the end of a Fall or Spring semester is placed on academic probation.\nWhile on probation: (a) the student may register for a maximum of 12 credit hours per semester; (b) the student\nmust meet the academic advisor at least once per semester; (c) merit-based scholarships are suspended, as\nexplained in the Tuition and Scholarships document. The student returns to good standing when the CGPA\nreaches 2.0, and a suspended scholarship can be reinstated from the following semester.\n5.3 Academic dismissal\nA student is dismissed if the CGPA is below 2.0 at the end of two consecutive regular semesters (Fall and\nSpring; Summer is not counted). A dismissed student may appeal in writing to the Academic Standing\nCommittee within 10 calendar days of the notification. The committee decides within 10 working days.\n5.4 Dean's List\nA student is placed on the Dean's List for a semester if the semester GPA is 3.5 or above, the student\ncompleted at least 12 credit hours in that semester, and received no grade below C. The list is announced\nwithin 2 weeks after final grades are published.\n6. Attendance, Exams and Appeals\n6.1 Attendance\nA student who is absent from more than 25 percent of the sessions of a course receives the grade DN and\ncannot sit the final exam. DN counts as F in the GPA.\n6.2 Exam rules\nA valid HDU student ID card is required in every exam. A student arriving more than 30 minutes after the exam\nstarts is not admitted."
   },
   {
     "id": 17,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 2,
+    "page": 3,
     "overlap_with_previous": "cannot sit the final exam. DN counts as F in the GPA.\n6.2 Exam rules\nA valid HDU student ID card is required in every exam. A student arriving more than 30 minutes after the exam\nstarts is not admitted.",
     "text": "cannot sit the final exam. DN counts as F in the GPA.\n6.2 Exam rules\nA valid HDU student ID card is required in every exam. A student arriving more than 30 minutes after the exam\nstarts is not admitted.\n6.3 Make-up exams"
   },
   {
     "id": 18,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 3,
+    "page": 4,
     "overlap_with_previous": "",
     "text": "HDU Student Handbook 2026-2027 | Horizon Delta University is fictional. For demonstration only.\nPage 4\nA student who missed an exam for a documented reason must submit a request within 3 working days of the\nmissed exam. The head of the department approves or rejects the request. A make-up exam fee applies; the\namount is listed in the Student FAQ.\n6.4 Grade appeals\nA student may appeal a final grade in writing to the head of the department within 7 calendar days after grades\nare published. The decision is given within 10 working days. A final appeal can be made to the Dean within 5\nworking days after that decision.\n7. Academic Integrity\nOffense\nConsequence\nFirst offense (for example copying an\nassignment)\nZero for the work and a written warning in the student file.\nSecond offense\nGrade F in the course.\nThird offense, or cheating in an exam by\nimpersonation\nReferral to the Disciplinary Committee, which may dismiss the student.\nAI tools may be used in a course only if the course syllabus explicitly allows it.\n8. Graduation\n8.1 Credit hours required by program\nFaculty\nDegree\nCredit hours required\nComputing and AI (CAI)\nBSc in Computing and AI\n132\nBusiness (BUS)\nBachelor of Business Administration (BBA)\n126\nEngineering (ENG)\nBachelor of Engineering (BEng)\n160\n8.2 Graduation requirements\nTo graduate a student must: complete all required credit hours of the program; have a CGPA of at least 2.0;"
   },
   {
     "id": 19,
     "source": "HDU_Student_Handbook_2026-27.pdf",
-    "page": 3,
+    "page": 4,
     "overlap_with_previous": "BSc in Computing and AI\n132\nBusiness (BUS)\nBachelor of Business Administration (BBA)\n126\nEngineering (ENG)\nBachelor of Engineering (BEng)\n160\n8.2 Graduation requirements\nTo graduate a student must: complete all required credit hours of the program; have a CGPA of at least 2.0;",
     "text": "BSc in Computing and AI\n132\nBusiness (BUS)\nBachelor of Business Administration (BBA)\n126\nEngineering (ENG)\nBachelor of Engineering (BEng)\n160\n8.2 Graduation requirements\nTo graduate a student must: complete all required credit hours of the program; have a CGPA of at least 2.0;\nearn C or higher in every major core course; have no unpaid fees; and submit the graduation clearance form in\nthe final semester. The maximum study duration is 1.5 times the normal length of the program.\n8.3 Graduation honors\nGraduates with a CGPA from 3.5 to 3.79 receive Honors, and graduates with a CGPA of 3.8 or above receive\nHigh Honors, provided they have no disciplinary record."
   },
@@ -162,37 +162,37 @@
   },
   {
     "id": 23,
-    "source": "HDU_Tuition_Policy_2025-26_SUPERSEDED.txt",
-    "page": null,
-    "overlap_with_previous": "",
-    "text": "HORIZON DELTA UNIVERSITY: TUITION AND FEES POLICY 2025-2026 (ARCHIVED)\nDocument ID: HDU-TS-2025-01 | Version 1.0 | Currency: Egyptian pound (EGP)\n\n*** SUPERSEDED. THIS POLICY WAS VALID ONLY FOR THE 2025-2026 ACADEMIC YEAR. ***\n*** It was replaced by the Tuition, Fees and Scholarships 2026-2027 document (Version 2.0) from Fall 2026. ***\n*** Do not use these figures for any semester from Fall 2026 onward. ***\n\nFICTIONAL UNIVERSITY DISCLAIMER: Horizon Delta University is fictional. All figures are invented for demonstration and testing only.\n\n1. Tuition per credit hour (2025-2026 only)\n   - Computing and AI (CAI): 3,800 EGP\n   - Business (BUS): 3,300 EGP\n   - Engineering (ENG): 4,400 EGP\n\n2. Fees (2025-2026 only)\n   - Registration fee: 1,200 EGP per Fall or Spring semester\n   - Student activities fee: 350 EGP per Fall or Spring semester\n   - Lab fee: 500 EGP per course with a lab\n   - Late payment fee: 300 EGP\n\n3. Refunds for complete withdrawal (2025-2026 only)\n   - Before the semester starts: 100% of tuition\n   - Weeks 1 and 2: 70% of tuition\n   - Weeks 3 and 4: 40% of tuition\n   - Week 5 or later: 0%\n\n4. Scholarships (2025-2026 only)\n   - Merit Scholarship: 25% for students with a CGPA of at least 3.8.\n   - Entry Excellence Scholarship: 50% for admission scores of 96% or above.\n   - Sibling Discount: 5%.\n\n5. Installments (2025-2026 only)\n   - Available for tuition of at least 25,000 EGP, with a 5% administrative charge."
-  },
-  {
-    "id": 24,
     "source": "HDU_Tuition_and_Scholarships_2026-27.md",
     "page": null,
     "overlap_with_previous": "",
     "text": "# Horizon Delta University: Tuition, Fees and Scholarships 2026-2027\n\nDocument ID: HDU-TS-2026-01 | Version 2.0 | Effective: Fall 2026 | Currency: Egyptian pound (EGP) | Purpose: RAG chatbot testing\n\n> **FICTIONAL UNIVERSITY DISCLAIMER.** Horizon Delta University (HDU) is fictional. All amounts, dates and rules below are invented for software demonstration and testing only.\n\n**This document replaces the 2025-2026 tuition policy (Version 1.0) for all semesters from Fall 2026 onward.** The 2025-2026 policy is archived and must not be used for 2026-2027 questions.\n\n## 1. Tuition per credit hour\n\nTuition depends on the student's faculty and is charged per registered credit hour.\n\n| Faculty | Tuition per credit hour |\n|---|---|\n| Computing and AI (CAI) | 4,200 EGP |\n| Business (BUS) | 3,600 EGP |\n| Engineering (ENG) | 4,800 EGP |\n\nTuition for a semester = registered credit hours multiplied by the tuition per credit hour of the student's faculty. The number of credit hours of each course is listed in the Course Catalog.\n\n## 2. Fees (not discounted by any scholarship)"
   },
   {
-    "id": 25,
+    "id": 24,
     "source": "HDU_Tuition_and_Scholarships_2026-27.md",
     "page": null,
     "overlap_with_previous": "Tuition for a semester = registered credit hours multiplied by the tuition per credit hour of the student's faculty. The number of credit hours of each course is listed in the Course Catalog.\n\n## 2. Fees (not discounted by any scholarship)",
     "text": "Tuition for a semester = registered credit hours multiplied by the tuition per credit hour of the student's faculty. The number of credit hours of each course is listed in the Course Catalog.\n\n## 2. Fees (not discounted by any scholarship)\n\n| Fee | Amount | Notes |\n|---|---|---|\n| Registration fee | 1,500 EGP per Fall or Spring semester | 750 EGP for the Summer semester. Never refunded. |\n| Student activities fee | 400 EGP per Fall or Spring semester | Not charged in Summer. Never refunded. |\n| Lab fee | 600 EGP per course that has a lab | Courses with a lab are CAI-301 and ENG-102. |\n| Late payment fee | 500 EGP | Charged when the payment deadline is missed. |\n\nHousing and transport are not part of tuition or fees; they are described in the Student Services guide.\n\n## 3. Payment deadlines\n\n| Semester | Payment deadline |\n|---|---|\n| Fall 2026 | Thursday 10 September 2026 |\n| Spring 2027 | Thursday 4 February 2027 |\n| Summer 2027 | Thursday 24 June 2027 |\n\n## 4. Installment plan\n\nAn installment plan is available when the semester tuition is at least 20,000 EGP.\n\n- A 3% administrative charge is added to the tuition.\n- The tuition plus the 3% charge is split into two equal installments.\n- The first installment, together with **all fees**, is due on the payment deadline.\n- The second installment is due at the end of week 6 of the semester (Thursday 29 October 2026 for Fall 2026, Thursday 25 March 2027 for Spring 2027).\n\n## 5. Scholarships and discounts"
   },
   {
-    "id": 26,
+    "id": 25,
     "source": "HDU_Tuition_and_Scholarships_2026-27.md",
     "page": null,
     "overlap_with_previous": "## 5. Scholarships and discounts",
     "text": "## 5. Scholarships and discounts\n\n| Scholarship | Discount on tuition | Conditions |\n|---|---|---|\n| Entry Excellence Scholarship | 50% | Admission score of 95% or above. Applies to the first two semesters. Renewed each year while the CGPA is at least 3.5 and the student is full-time (at least 12 credit hours). |\n| Merit Scholarship | 25% | For the next semester when the CGPA is at least 3.7 at the end of the previous semester and at least 12 credit hours were completed in it. |\n| Sibling Discount | 10% | For the second and any further sibling who is enrolled at HDU at the same time. |\n| Need-Based Grant | 10% to 30% | Apply with family income documents by 15 August (for Fall) or 15 January (for Spring). |\n\nRules:\n\n1. Discounts apply to **tuition only**, never to fees, housing or transport.\n2. The Entry Excellence Scholarship and the Merit Scholarship cannot be combined; the larger one applies.\n3. All other discounts can be combined, but the **total discount can never exceed 60% of tuition**.\n4. **Academic probation:** merit-based scholarships (Entry Excellence and Merit) are suspended while the student is on academic probation, as defined in the Student Handbook. The Sibling Discount and the Need-Based Grant are not affected. A suspended scholarship can be reinstated from the semester after the student returns to good standing.\n\n### Worked example"
   },
   {
-    "id": 27,
+    "id": 26,
     "source": "HDU_Tuition_and_Scholarships_2026-27.md",
     "page": null,
     "overlap_with_previous": "### Worked example",
     "text": "### Worked example\n\nA Computing and AI student registers for 12 credit hours with no lab course and holds the Entry Excellence Scholarship. Tuition is 12 x 4,200 = 50,400 EGP. The 50% scholarship reduces it to 25,200 EGP. Fees are 1,500 + 400 = 1,900 EGP. The total to pay is 27,100 EGP.\n\n## 6. Refunds\n\n### 6.1 Complete withdrawal from the university\n\n| When the student withdraws | Tuition refund |\n|---|---|\n| Before the semester starts | 100% |\n| Weeks 1 and 2 | 80% |\n| Weeks 3 and 4 | 50% |\n| Week 5 or later | 0% |\n\nFees are never refunded. Approved refunds are paid by bank transfer within 15 working days.\n\n### 6.2 Dropping a single course\n\nIf a student drops one course during the add/drop period, the tuition of that course is removed in full (credit hours of the course multiplied by the tuition per credit hour). After the add/drop deadline there is no tuition refund for a single course; a withdrawal (W) gives no refund."
+  },
+  {
+    "id": 27,
+    "source": "HDU_Tuition_Policy_2025-26_SUPERSEDED.txt",
+    "page": null,
+    "overlap_with_previous": "",
+    "text": "HORIZON DELTA UNIVERSITY: TUITION AND FEES POLICY 2025-2026 (ARCHIVED)\nDocument ID: HDU-TS-2025-01 | Version 1.0 | Currency: Egyptian pound (EGP)\n\n*** SUPERSEDED. THIS POLICY WAS VALID ONLY FOR THE 2025-2026 ACADEMIC YEAR. ***\n*** It was replaced by the Tuition, Fees and Scholarships 2026-2027 document (Version 2.0) from Fall 2026. ***\n*** Do not use these figures for any semester from Fall 2026 onward. ***\n\nFICTIONAL UNIVERSITY DISCLAIMER: Horizon Delta University is fictional. All figures are invented for demonstration and testing only.\n\n1. Tuition per credit hour (2025-2026 only)\n   - Computing and AI (CAI): 3,800 EGP\n   - Business (BUS): 3,300 EGP\n   - Engineering (ENG): 4,400 EGP\n\n2. Fees (2025-2026 only)\n   - Registration fee: 1,200 EGP per Fall or Spring semester\n   - Student activities fee: 350 EGP per Fall or Spring semester\n   - Lab fee: 500 EGP per course with a lab\n   - Late payment fee: 300 EGP\n\n3. Refunds for complete withdrawal (2025-2026 only)\n   - Before the semester starts: 100% of tuition\n   - Weeks 1 and 2: 70% of tuition\n   - Weeks 3 and 4: 40% of tuition\n   - Week 5 or later: 0%\n\n4. Scholarships (2025-2026 only)\n   - Merit Scholarship: 25% for students with a CGPA of at least 3.8.\n   - Entry Excellence Scholarship: 50% for admission scores of 96% or above.\n   - Sibling Discount: 5%.\n\n5. Installments (2025-2026 only)\n   - Available for tuition of at least 25,000 EGP, with a 5% administrative charge."
   }
 ]

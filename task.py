@@ -1,132 +1,136 @@
-"""Reads files from data/, splits them into chunks (showing the overlap),
-embeds them with OpenRouter, stores them in Chroma and runs a test search."""
+"""Builds the vector database.
 
-import os
+read files -> split into chunks -> embed -> store in Chroma.
+Run it with:  uv run python task.py"""
+
 import json
 import shutil
+from pathlib import Path
 
-from dotenv import load_dotenv
-from openai import OpenAI
-from langchain_core.embeddings import Embeddings
+from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_chroma import Chroma
 
-load_dotenv(override=True)
-# Settings
-DATA_DIR = "data"
-DB_DIR = "chroma_db"
-OUTPUT_DIR = "output"
-CHUNK_SIZE = 1500
-CHUNK_OVERLAP =300
-EMBED_MODEL = "baai/bge-m3"
-BASE_URL = "https://openrouter.ai/api/v1"
-BATCH_SIZE = 64
+import config
+from embeddings import OpenRouterEmbeddings
 
-api_key = os.getenv("OPENROUTER_API_KEY")
-if not api_key:
-    raise SystemExit("OPENROUTER_API_KEY is missing. Add it to your .env file.")
-if not os.path.isdir(DATA_DIR):
-    raise SystemExit(f"Folder '{DATA_DIR}' not found.")
-
-
-class OpenRouterEmbeddings(Embeddings):
-    """Small wrapper that sends the texts to OpenRouter."""
-
-    def __init__(self):
-        self.client = OpenAI(api_key=api_key, base_url=BASE_URL)
-
-    def embed_documents(self, texts):
-        response = self.client.embeddings.create(model=EMBED_MODEL, input=texts)
-        return [item.embedding for item in response.data]
-
-    def embed_query(self, text):
-        return self.embed_documents([text])[0]
+SUPPORTED_EXTENSIONS = {".pdf", ".txt", ".md"}
+BATCH_SIZE = 64  # chunks sent to the embedding model at once
 
 
 def load_documents(folder):
-    """Load every PDF, TXT and MD file in the folder."""
+    """Load every PDF, TXT and MD file in the folder (and its subfolders)."""
     docs = []
-    for root, _, files in os.walk(folder):
-        for name in sorted(files):
-            path = os.path.join(root, name)
-            ext = os.path.splitext(name)[1].lower()
+    for path in sorted(Path(folder).rglob("*")):
+        extension = path.suffix.lower()
+        if extension not in SUPPORTED_EXTENSIONS:
+            continue
 
-            if ext == ".pdf":
-                pages = PyPDFLoader(path).load()
-            elif ext in (".txt", ".md"):
-                pages = TextLoader(path, encoding="utf-8").load()
-            else:
-                continue
+        if extension == ".pdf":
+            pages = PyPDFLoader(str(path)).load()
+        else:
+            pages = TextLoader(str(path), encoding="utf-8").load()
 
-            # skip empty pages
-            pages = [p for p in pages if p.page_content.strip()]
-            docs.extend(pages)
-            print(f"  {name}: {len(pages)} page(s)")
+        pages = [page for page in pages if page.page_content.strip()]  # skip empty pages
+        docs.extend(pages)
+        print(f"  {path.name}: {len(pages)} page(s)")
     return docs
 
 
-def get_overlap(prev_text, current_text):
-    """Return the text at the end of the previous chunk
-    that is repeated at the start of the current chunk."""
-    for size in range(min(len(prev_text), len(current_text)), 9, -1):
-        if prev_text.endswith(current_text[:size]):
+def split_documents(docs):
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=config.CHUNK_SIZE,
+        chunk_overlap=config.CHUNK_OVERLAP,
+    )
+    return splitter.split_documents(docs)
+
+
+def get_overlap(previous_text, current_text, min_length=10):
+    """Return the text at the end of the previous chunk that is repeated
+    at the start of the current chunk (empty string if there is none)."""
+    longest = min(len(previous_text), len(current_text))
+    for size in range(longest, min_length - 1, -1):
+        if previous_text.endswith(current_text[:size]):
             return current_text[:size]
     return ""
 
 
-# 1. Load files
-print("Loading files...")
-docs = load_documents(DATA_DIR)
-if not docs:
-    raise SystemExit("No PDF, TXT or MD files found in the data folder.")
+def find_overlaps(chunks):
+    """One overlap string per chunk. The first chunk of a page has none,
+    because the splitter works inside one page at a time."""
+    overlaps = [""]
+    for i in range(1, len(chunks)):
+        if chunks[i - 1].metadata == chunks[i].metadata:
+            overlaps.append(get_overlap(chunks[i - 1].page_content, chunks[i].page_content))
+        else:
+            overlaps.append("")
+    return overlaps[: len(chunks)]
 
-# 2. Split into chunks
-print("\nSplitting into chunks...")
-splitter = RecursiveCharacterTextSplitter(
-    chunk_size=CHUNK_SIZE,
-    chunk_overlap=CHUNK_OVERLAP,
-)
-chunks = splitter.split_documents(docs)
-print(f"  {len(chunks)} chunks created")
 
-# 3. Find the overlap between each chunk and the one before it
-overlaps = [""]  # the first chunk has no previous chunk
-for i in range(1, len(chunks)):
-    # chunks are only split inside the same page, so compare same page only
-    if chunks[i - 1].metadata == chunks[i].metadata:
-        overlaps.append(get_overlap(chunks[i - 1].page_content, chunks[i].page_content))
-    else:
-        overlaps.append("")
+def save_chunks(chunks, overlaps):
+    """Save every chunk (and its overlap) to a JSON file so it can be inspected."""
+    config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    data = []
+    for i, chunk in enumerate(chunks):
+        page = chunk.metadata.get("page")
+        data.append({
+            "id": i,
+            "source": Path(chunk.metadata["source"]).name,
+            "page": page + 1 if page is not None else None,
+            "overlap_with_previous": overlaps[i],
+            "text": chunk.page_content,
+        })
+    output_file = config.OUTPUT_DIR / "chunks.json"
+    output_file.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    return output_file
 
-print("\nOverlap between chunks:")
-for i, overlap in enumerate(overlaps):
-    if overlap:
-        print(f"\n  Chunk {i - 1} -> Chunk {i} ({len(overlap)} chars)")
-        print(f"  {overlap!r}")
 
-# Save the chunks (with their overlap) so they can be inspected later
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-chunk_data = []
-for i, chunk in enumerate(chunks):
-    chunk_data.append({
-        "id": i,
-        "source": os.path.basename(chunk.metadata["source"]),
-        "page": chunk.metadata.get("page"),
-        "overlap_with_previous": overlaps[i],
-        "text": chunk.page_content,
-    })
-with open(os.path.join(OUTPUT_DIR, "chunks.json"), "w", encoding="utf-8") as f:
-    json.dump(chunk_data, f, ensure_ascii=False, indent=2)
+def build_database(chunks):
+    """Create a fresh Chroma database from the chunks."""
+    if config.DB_DIR.exists():
+        try:
+            shutil.rmtree(config.DB_DIR)
+        except PermissionError:
+            raise SystemExit(
+                f"Cannot delete {config.DB_DIR}. Stop the chatbot (app.py) and try again."
+            )
 
-# 4. Store in Chroma (start fresh each run)
-print("\nEmbedding chunks and saving to Chroma...")
-embeddings = OpenRouterEmbeddings()
+    db = Chroma(
+        persist_directory=str(config.DB_DIR),
+        embedding_function=OpenRouterEmbeddings(),
+    )
+    for start in range(0, len(chunks), BATCH_SIZE):
+        db.add_documents(chunks[start:start + BATCH_SIZE])
+        print(f"  {min(start + BATCH_SIZE, len(chunks))}/{len(chunks)}")
 
-if os.path.exists(DB_DIR):
-    shutil.rmtree(DB_DIR)
 
-db = Chroma(persist_directory=DB_DIR, embedding_function=embeddings)
-for i in range(0, len(chunks), BATCH_SIZE):
-    db.add_documents(chunks[i:i + BATCH_SIZE])
-    print(f"  {min(i + BATCH_SIZE, len(chunks))}/{len(chunks)}")
+def main():
+    try:
+        config.require_api_key()
+    except RuntimeError as error:
+        raise SystemExit(str(error))
+
+    if not config.DATA_DIR.is_dir():
+        raise SystemExit(f"Folder not found: {config.DATA_DIR}")
+
+    print("Loading files...")
+    docs = load_documents(config.DATA_DIR)
+    if not docs:
+        raise SystemExit(f"No PDF, TXT or MD files found in {config.DATA_DIR}")
+
+    print("Splitting into chunks...")
+    chunks = split_documents(docs)
+    overlaps = find_overlaps(chunks)
+    output_file = save_chunks(chunks, overlaps)
+    print(f"  {len(chunks)} chunks ({sum(1 for o in overlaps if o)} with overlap)")
+    print(f"  saved to {output_file}")
+
+    print("Embedding chunks and saving to Chroma...")
+    build_database(chunks)
+
+    print(f"Done. Database saved in {config.DB_DIR}")
+    print("Restart the chatbot if it is running.")
+
+
+if __name__ == "__main__":
+    main()

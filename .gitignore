@@ -1,5 +1,10 @@
 .env
+
 chroma_db/
+output/
+
 __pycache__/
 *.pyc
 .venv/
+*.egg-info/
+.pytest_cache/
