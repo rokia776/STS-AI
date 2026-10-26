@@ -1,6 +1,6 @@
 """Builds the vector database.
 
-read files -> split into chunks -> embed -> store in Chroma.
+read files then  split into chunks then embed then store in Chroma.
 Run it with:  uv run python task.py"""
 
 import json
