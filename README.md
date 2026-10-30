@@ -1,4 +1,4 @@
-# Research Papers GraphRAG — SQLite Edition
+GraphRAG — SQLite Edition
 
 A local-first GraphRAG system for research papers. No database server and no cloud vector service are needed: everything is stored in one SQLite file. Embeddings can run on your own machine (free) or through an API, and the chat model can be any OpenAI-compatible endpoint.
 
