@@ -1,0 +1,793 @@
+{
+  "paper_id": "2e7d8338-7d94-4847-9de7-ca46336c01f4",
+  "filename": "055_Computer_Vision_ResizeMix_Mixing_Data_with_Preserved_Object_Information_and_True_Labels.pdf",
+  "title": "ResizeMix: Mixing Data with Preserved Object Information and True Labels",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 46,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "ance of CutMix, a series of works explore to use the saliency in- formation of the image to guide the mixing. We system- atically study the importance of the saliency information f",
+      "text": "[Page 1] ResizeMix: Mixing Data with Preserved Object Information and True Labels Jie Qin1,2*, Jiemin Fang3,4*, Qian Zhang5, Wenyu Liu4, Xingang Wang2†, Xinggang Wang4 1School of Artiﬁcial Intelligence, University of Chinese Academy of Sciences 2Institute of Automation, Chinese Academy of Sciences 3Institute of Artiﬁcial Intelligence, Huazhong University of Science and Technology 4School of EIC, Huazhong University of Science and Technology 5Horizon Robotics {qinjie2019, xingang.wang}@ia.ac.cn qian01.zhang@horizon.ai {jaminfong, liuwy, xgwang }@hust.edu.cn Abstract Data augmentation is a powerful technique to increase the diversity of data, which can effectively improve the gen- eralization ability of neural networks in image recognition tasks. Recent data mixing based augmentation strategies have achieved great success. Especially, CutMix uses a simple but effective method to improve the classiﬁers by randomly cropping a patch from one image and pasting it on another image. To further promote the performance of CutMix, a series of works explore to use the saliency in- formation of the image to guide the mixing. We system- atically study the importance of the saliency information f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06514,
+        -0.00156,
+        -0.02337,
+        -0.02853,
+        -0.01941
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "ance of CutMix, a series of works explore to use the saliency in- formation of the image to guide the mixing. We system- atically study the importance of the saliency information f",
+      "overlap_with_next": "methods. 1. Introduction Deep convolutional neural networks (CNN) have achieved great success in a wide range of computer vi- *Equal contribution. The work was performed during the",
+      "text": "ance of CutMix, a series of works explore to use the saliency in- formation of the image to guide the mixing. We system- atically study the importance of the saliency information for mixing data, and ﬁnd that the saliency information is not so necessary for promoting the augmentation perfor- mance. Furthermore, we ﬁnd that the cutting based data mixing methods carry two problems of label misallocation and object information missing , which cannot be resolved simultaneously. We propose a more effective but very easily implemented method, namely ResizeMix. We mix the data by directly resizing the source image to a small patch and paste it on another image. The obtained patch preserves more substantial object information compared with con- ventional cut-based methods. ResizeMix shows evident ad- vantages over CutMix and the saliency-guided methods on both image classiﬁcation and object detection tasks without additional computation cost, which even outperforms most costly search-based automatic augmentation methods. 1. Introduction Deep convolutional neural networks (CNN) have achieved great success in a wide range of computer vi- *Equal contribution. The work was performed during the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04674,
+        0.01523,
+        -0.03431,
+        0.03227,
+        -0.00288
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "methods. 1. Introduction Deep convolutional neural networks (CNN) have achieved great success in a wide range of computer vi- *Equal contribution. The work was performed during the",
+      "overlap_with_next": " sion applications, e.g., image classiﬁcation [24, 44], object detection [36, 41], and semantic segmentation [6, 42] etc. Recent optimization techniques have further promoted the C",
+      "text": "methods. 1. Introduction Deep convolutional neural networks (CNN) have achieved great success in a wide range of computer vi- *Equal contribution. The work was performed during the internship of J. Qin and J. Fang at Horizon Robotics. †Corresponding author. \"greyhound\" Target image It Mixed image Im Source image Is Source patch P Random patch Pr Corresponding region \"coucal\" Mixed label = \"greyhound\"+\"coucal\" object information missing! (a) CutMix with Object Information Missing and Label Misallocation How to obtain? Where to paste? Salient region Non-salient region Random region Source image Is Source patch P Target image It Resize (b) Possible Choices of Data Mixing Figure 1. (a) illustrates that in CutMix [51], there exist two is- sues of object information missing and label misallocation. (b) represents different cropping manners from the source image and different pasting manners to the target image. We systematically check the two problems of “how to obtain the patch” and “where to paste the patch”. sion applications, e.g., image classiﬁcation [24, 44], object detection [36, 41], and semantic segmentation [6, 42] etc. Recent optimization techniques have further promoted the C",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.10606,
+        -0.04639,
+        -0.02809,
+        -0.00168,
+        0.00014
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": " sion applications, e.g., image classiﬁcation [24, 44], object detection [36, 41], and semantic segmentation [6, 42] etc. Recent optimization techniques have further promoted the C",
+      "overlap_with_next": "cially, as shown in Fig. 1(a), CutMix [51] achieves very promis- ing results on image classiﬁcation by randomly cutting a source patch from a source image and pasting it on the tar",
+      "text": " sion applications, e.g., image classiﬁcation [24, 44], object detection [36, 41], and semantic segmentation [6, 42] etc. Recent optimization techniques have further promoted the CNN performance to a new level, including data augmen- tation [8, 51], optimizer design [1, 30], learning rate sched- 1 arXiv:2012.11101v1 [cs.CV] 21 Dec 2020 [Page 2] ule [39], and hyper-parameter optimizing [3, 12] etc. No- tably, the strategy of data augmentation plays a critically important role in broadening the distribution of data, which facilitates the generalization ability of the trained CNN, and effectively promotes the ﬁnal performance. Advanced data augmentation methods have been widely explored for train- ing stronger neural networks. A series of data augmentation methods [48,51,53] aim at mixing data to increase the data diversity. Meanwhile, the mixed data forces the network to pay attention to multiple objects and locations in the input image, which strengthens the feature extraction ability of the networks. Especially, as shown in Fig. 1(a), CutMix [51] achieves very promis- ing results on image classiﬁcation by randomly cutting a source patch from a source image and pasting it on the tar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05875,
+        -0.01204,
+        -0.03478,
+        0.01167,
+        -0.01472
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "cially, as shown in Fig. 1(a), CutMix [51] achieves very promis- ing results on image classiﬁcation by randomly cutting a source patch from a source image and pasting it on the tar",
+      "overlap_with_next": "on of the image always requires a complicated module and in- troduces additional computation cost during training, e.g., PuzzleMix [29] proposes to optimize the mixing mask and the",
+      "text": "cially, as shown in Fig. 1(a), CutMix [51] achieves very promis- ing results on image classiﬁcation by randomly cutting a source patch from a source image and pasting it on the tar- get image at the same location. The ground truth labels are accordingly mixed proportionally to the patch area, which leads to a multi-label training style. However, the mixing strategy with a random manner may mislead the training, as the cropped patch usually does not conform to the la- bel of the whole image. Subsequent researches [22, 29, 50] make efforts to mix the data more precisely, most of which take full advantages of the saliency information and use the location of the salient regions in the image to guide the mixing. The saliency-guided method facilitates the con- sistency of the mixed data and the allocated ground truth labels. This alleviates the misleading caused by the random mixing strategy during training, and further promotes the neural network performance. However, the procedure of locating the salient region of the image always requires a complicated module and in- troduces additional computation cost during training, e.g., PuzzleMix [29] proposes to optimize the mixing mask and the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06606,
+        -0.00448,
+        -0.03836,
+        -0.00607,
+        0.00081
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "on of the image always requires a complicated module and in- troduces additional computation cost during training, e.g., PuzzleMix [29] proposes to optimize the mixing mask and the",
+      "overlap_with_next": " while randomly determining the pasting location fur- ther surpasses the saliency-guided location. This indicates that the saliency information indeed facilitates the pasting locat",
+      "text": "on of the image always requires a complicated module and in- troduces additional computation cost during training, e.g., PuzzleMix [29] proposes to optimize the mixing mask and the saliency discounted transportation, and Salien- cyMix [50] uses a saliency detection module to select the saliency source patch for mixing. In this paper, we system- atically check the importance of the image saliency infor- mation for data mixing during network training. As shown in Fig. 1(b), the checking is performed mainly from two as- pects, i.e. whether the saliency information is necessary for determining (i) where to paste the source patchand (ii) how to obtain the source patch. For evaluating the two questions, we employ a Grad- CAM [45] module to locate the salient region in the im- age, and perform a series of studies about the saliency in- formation for mixing. As a consequence, for (i), we ﬁnd that the saliency-guided location surpasses that in CutMix, which keeps the location consistent in the two mixing im- ages; while randomly determining the pasting location fur- ther surpasses the saliency-guided location. This indicates that the saliency information indeed facilitates the pasting locat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00029,
+        -0.00118,
+        -0.06609,
+        0.0064,
+        0.01612
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": " while randomly determining the pasting location fur- ther surpasses the saliency-guided location. This indicates that the saliency information indeed facilitates the pasting locat",
+      "overlap_with_next": "or mixing. The proposed ResizeMix consistently outperforms CutMix [51] and lat- ter saliency-guided methods [22, 29, 50] on both CIFAR and ImageNet classiﬁcation tasks. When transf",
+      "text": " while randomly determining the pasting location fur- ther surpasses the saliency-guided location. This indicates that the saliency information indeed facilitates the pasting location determining, but is defeated by the random loca- tion in terms of the data diversity. For (ii), the cropped patch from the salient region only achieves similar performance with the randomly cropped patch. How to obtain a better image patch for mixing still remains an unsolved question. As shown in Fig. 1(a), we deduce the cutting manner for obtaining the image patch is easy to cause label misalloca- tion due to the semantic inconsistency between the cropped patch and the whole source image, and object information missing which is veriﬁed in our experiment. Based on the above clues, we propose a novel and effective data mix- ing method, namely ResizeMix, which directly resizes the image and pastes the resized patch on another image. Re- sizeMix eliminates the label misallocation issue and pre- serves substantial information for mixing. The proposed ResizeMix consistently outperforms CutMix [51] and lat- ter saliency-guided methods [22, 29, 50] on both CIFAR and ImageNet classiﬁcation tasks. When transf",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06959,
+        -0.0058,
+        -0.02454,
+        0.01935,
+        0.00455
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "or mixing. The proposed ResizeMix consistently outperforms CutMix [51] and lat- ter saliency-guided methods [22, 29, 50] on both CIFAR and ImageNet classiﬁcation tasks. When transf",
+      "overlap_with_next": "t, which even outper- forms most costly search-based automatic augmenta- tion methods. 2. Related Work Cutting- and Mixing- based Data Augmentation The goal of cutting augmentation",
+      "text": "or mixing. The proposed ResizeMix consistently outperforms CutMix [51] and lat- ter saliency-guided methods [22, 29, 50] on both CIFAR and ImageNet classiﬁcation tasks. When transferred to the MS-COCO object detection task, the model trained on Ima- geNet with ResizeMix shows evident advantages over Cut- Mix. We summarize our contributions as follows. 1. Considering saliency information is widely used in re- cent mixing-based augmentation methods, we system- atically check the importance of the saliency informa- tion, and ﬁnd that saliency information is not so neces- sary for mixing data. 2. We verify that cropping the patch for mixing is easy to cause label misallocation and object information miss- ing, and propose a new mixing method ResizeMix, which resolves the two issues by directly resizing the image for mixing. 3. The proposed ResizeMix shows evident advantages over CutMix and the saliency-guided methods on both image classiﬁcation and object detection tasks without any additional computation cost, which even outper- forms most costly search-based automatic augmenta- tion methods. 2. Related Work Cutting- and Mixing- based Data Augmentation The goal of cutting augmentation",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02083,
+        -0.01487,
+        -0.04475,
+        0.02692,
+        0.00584
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "t, which even outper- forms most costly search-based automatic augmenta- tion methods. 2. Related Work Cutting- and Mixing- based Data Augmentation The goal of cutting augmentation",
+      "overlap_with_next": "ge, which signiﬁcantly improves the test accuracy and exceeds most augmentation methods on various datasets. Saliency Guided Data Augmentation Recently, mixing- based augmentation ",
+      "text": "t, which even outper- forms most costly search-based automatic augmenta- tion methods. 2. Related Work Cutting- and Mixing- based Data Augmentation The goal of cutting augmentations is to make a network pay attention to the entire data like the dropout regulariza- tion [7, 18, 20, 46, 47]. Random erasing [55] selects a patch of an image and masks it out. The width and height of the patch need to be designed manually. Beyond this, Cutout [11] proposes to mask a region with a ﬁxed-size square. Another type of augmentation methods are based on mixing data. Mixup [53] attempts to produce an element- wise convex combination of two images. Augmix [26] mixes up the images augmented by operations sampled from the spaces like AutoAugment [8] deﬁned ones. Rather than mixing the element-wise convex, RICAP [49] ran- domly gets four patches from different images and com- bines them to a new sample. CutMix [51] randomly crops 2 [Page 3] a patch from one image and pastes it into the corresponding position of another image, which signiﬁcantly improves the test accuracy and exceeds most augmentation methods on various datasets. Saliency Guided Data Augmentation Recently, mixing- based augmentation ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03436,
+        -0.0071,
+        -0.028,
+        0.01737,
+        -0.01711
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ge, which signiﬁcantly improves the test accuracy and exceeds most augmentation methods on various datasets. Saliency Guided Data Augmentation Recently, mixing- based augmentation ",
+      "overlap_with_next": " threshold for the low-frequency parts in the image to get the saliency masks for mixing images. Salien- cyMix [50] uses a saliency detection module to select the saliency source p",
+      "text": "ge, which signiﬁcantly improves the test accuracy and exceeds most augmentation methods on various datasets. Saliency Guided Data Augmentation Recently, mixing- based augmentation methods are widely used to augment images because they do not require extra searching or train- ing cost while bringing signiﬁcant performance improve- ment of networks. For example, CutMix [51] signiﬁcantly improves the test accuracy and exceeds the most automatic augmentation methods [8, 9, 33]. However, the cropping and pasting method may cause label misallocation when the cropped patch is from the background of the image. Some studies further improve the performance of CutMix by reserving patches with more saliency information when cropping and pasting the patch between two images. Puz- zleMix [29], which proposes to optimize the position of the mixing mask and the saliency discounted transporta- tion. SuperMix [10] uses the knowledge of a teacher to mix images on their salient regions. Somewhat differently, FMix [22] sets a threshold for the low-frequency parts in the image to get the saliency masks for mixing images. Salien- cyMix [50] uses a saliency detection module to select the saliency source p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04251,
+        0.00536,
+        -0.03835,
+        0.00998,
+        0.00055
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": " threshold for the low-frequency parts in the image to get the saliency masks for mixing images. Salien- cyMix [50] uses a saliency detection module to select the saliency source p",
+      "overlap_with_next": " probability distribution of augmentations, while Faster AA [23] and DADA [32] use the differentiable optimization directly to search the combinations and mag- nitudes of augmentat",
+      "text": " threshold for the low-frequency parts in the image to get the saliency masks for mixing images. Salien- cyMix [50] uses a saliency detection module to select the saliency source patch for mixing. However, they all need extra cost to ﬁnd the saliency regions. Compared to these methods, we propose a convenient and effective approach that can preserve the object information of images. Automated Data Augmentation Parallel with the suc- cess of neural architecture search [4, 15–17, 37, 57], auto- mated augmentation methods start to develop rapidly. Au- toAugment [8] attempts to search for better combinations of augmentation operations and their magnitudes. Due to its expensive search cost when implemented with reinforce- ment learning, PBA [27] with population evolution strat- egy and FastAA [33] with matching density are proposed to speed up training without reducing the performance. The augmentation combinations can be treated as a hyper- parameter optimization formulation. OHL-AA [34] tries to optimize the probability distribution of augmentations, while Faster AA [23] and DADA [32] use the differentiable optimization directly to search the combinations and mag- nitudes of augmentat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00382,
+        0.00564,
+        -0.05319,
+        0.0244,
+        -0.00345
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": " probability distribution of augmentations, while Faster AA [23] and DADA [32] use the differentiable optimization directly to search the combinations and mag- nitudes of augmentat",
+      "overlap_with_next": "Re- gion” column indicates the region in the source image to generate the source patch. The “Pasting Region” column indicates the lo- cation in the target image to paste the source",
+      "text": " probability distribution of augmentations, while Faster AA [23] and DADA [32] use the differentiable optimization directly to search the combinations and mag- nitudes of augmentations, which can save lots of searching cost. Integrated with adversarial training [2, 21, 40], Ad- vAA [54] makes networks learn more hard data samples, in which the domain of dataset becomes more widespread. Different from the search or optimization strategies, Ran- dAugment [9] reaches identical performance only set up two parameters with the same augmentation spaces. Over- all, most of the automated augmentation methods need extra search or training cost to obtain better performance, while our proposed ResizeMix can promote the network perfor- mance without any additional cost. Table 1. Checking results on CIFAR-100 with WideResNet-28-10 about different manners of obtaining and the locations to paste the source patch. The column of “Type” means how the source patch is obtained, cutting or resizing from the source image. The “Re- gion” column indicates the region in the source image to generate the source patch. The “Pasting Region” column indicates the lo- cation in the target image to paste the source",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02961,
+        0.00038,
+        -0.04963,
+        0.00722,
+        -0.02578
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "Re- gion” column indicates the region in the source image to generate the source patch. The “Pasting Region” column indicates the lo- cation in the target image to paste the source",
+      "overlap_with_next": " the source and target image respectively. We denote the source patch obtained from the source image as P ∈ RWP ×HP , while the patch cropped from the salient region asPs, from the",
+      "text": "Re- gion” column indicates the region in the source image to generate the source patch. The “Pasting Region” column indicates the lo- cation in the target image to paste the source patch. Row Source Patch Pasting Region Top-1Acc(%) Type Region (1) Baseline - - - 81.20 (2) CutMix [51] Cut Random Corresponding 83.40 (3) Cut Random Non-salient 83.93 (4) Cut Random Salient 83.97 (5) Cut Random Random 84.14 (6) Cut Non-salient Random 83.93 (7) Cut Salient Random 84.07 (8) Cut Random Random 84.14 (9) ResizeMix Resize Whole Random 84.31 3. Checking the Importance of Saliency Infor- mation for Mixing Data In this section, we systematically check whether the saliency information is necessary for mixing data. First, we introduce the preliminaries for our checking process in Sec. 3.1. Then we check the importance of saliency infor- mation from two perspectives,i.e. where to paste the source patch in Sec. 3.2 and how to obtain the source patch in Sec. 3.3. 3.1. Preliminaries We use Is ∈ RW ×H and It ∈ RW ×H to denote the source and target image respectively. We denote the source patch obtained from the source image as P ∈ RWP ×HP , while the patch cropped from the salient region asPs, from the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02666,
+        -0.01596,
+        -0.03475,
+        0.01882,
+        -0.00155
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " the source and target image respectively. We denote the source patch obtained from the source image as P ∈ RWP ×HP , while the patch cropped from the salient region asPs, from the",
+      "overlap_with_next": "ge 4] (2) Salient region Rs (1) Non-salient region Rns (3) Random region Rr Source patch P Target image It （1） （3） （2） Figure 2. Three different regions to paste the source patch, ",
+      "text": " the source and target image respectively. We denote the source patch obtained from the source image as P ∈ RWP ×HP , while the patch cropped from the salient region asPs, from the non-salient region asPns, and from a random region as Pr. We employ a Grad-CAM [45] module to obtain the salient and non-salient pixels in the image by calculating the heatmap. The Grad-CAM module is connected to the end of the backbone network. Speciﬁcally, Cs represents a set of salient pixel coordinates where the activation value of the heatmap is greater than a certain upper threshold tu; on the contrary,Cns represents a non-salient coordinate set where the activation value is under a lower threshold tl. They are deﬁned as Cs ={(x,y )|A(x,y )≥tu}, Cns ={(x,y )|A(x,y )≤tl}, (1) where (x,y ) denotes the coordinate of a pixel in the image, andA(x,y ) denotes the activation value at the position of (x,y ). We useR(xl,x r,y b,y t) to denote a region of the image, and xl,x r,y b,y t represent the left, right, bottom and top 3 [Page 4] (2) Salient region Rs (1) Non-salient region Rns (3) Random region Rr Source patch P Target image It （1） （3） （2） Figure 2. Three different regions to paste the source patch, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04433,
+        -0.02544,
+        -0.05204,
+        0.00764,
+        -0.0092
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ge 4] (2) Salient region Rs (1) Non-salient region Rns (3) Random region Rr Source patch P Target image It （1） （3） （2） Figure 2. Three different regions to paste the source patch, ",
+      "overlap_with_next": "lt, (4) whereRr = (xl,x r,y b,y t) denotes a random region where to crop the source patch and to paste on the target image. The regionRr is the same in the source and target image.",
+      "text": "ge 4] (2) Salient region Rs (1) Non-salient region Rns (3) Random region Rr Source patch P Target image It （1） （3） （2） Figure 2. Three different regions to paste the source patch, includ- ing the non-salient, salient, and random region. boundaries of the region. A salient region is denoted asRs, whose geometric center is a salient pixel sampled fromCs. A non-salient region is denoted as Rns, whose center is a non-salient pixel sampled from Cns. And we use Rr to denote a random region whose center is randomly sampled from the whole image. The relationship of the geometric center (xc,y c) and the region boundaries is as follows, xc = xl +xr2 , yc = yd +yu2 . (2) We deﬁne the operation of pasting the source patch P to the region R(xl,x r,y b,y t) in the target image It as Paste (P,I t,R ), Paste (P,I t,R ) : It[R] = It[xl :xr,y b :yt] = P . (3) CutMix [51] randomly crops a patch from the source image and pastes it to the target image. It can be formulated as: P =Is[Rr], Im =Paste (P,I t,R r), lm =λls + (1−λ)lt, (4) whereRr = (xl,x r,y b,y t) denotes a random region where to crop the source patch and to paste on the target image. The regionRr is the same in the source and target image.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04947,
+        0.02437,
+        -0.02532,
+        0.0219,
+        -0.00403
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "lt, (4) whereRr = (xl,x r,y b,y t) denotes a random region where to crop the source patch and to paste on the target image. The regionRr is the same in the source and target image.",
+      "overlap_with_next": "ners of obtaining the source patch. 3.2. Checking Saliency Information for “Where to Paste the Source Patch” To study the location for pasting the source patch, we crop the source ",
+      "text": "lt, (4) whereRr = (xl,x r,y b,y t) denotes a random region where to crop the source patch and to paste on the target image. The regionRr is the same in the source and target image.ls, lt andlm denote the ground truth labels of the source, target and mixed image respectively.λ is computed as the ratio of the source patch and the target image, which is formulated as, λ = WP∗HP W∗H . (5) Since the random cropping manner proposed in CutMix may obtain the patch from the background of the image, which leads to label misallocation. To alleviate the short- coming, some works [22, 29, 50] make use of the image saliency information to guide the mixing process. Consid- ering the saliency information obtaining is usually compli- cated and costly, we systematically check the importance of the saliency information for mixing-based data augmenta- tion from the following two aspects. (1) Non-salient patch Pns (2) Salient patch Ps (3) Random patch Pr Source image It Source patch P （1） （3） （2） Figure 3. Three different manners of obtaining the source patch. 3.2. Checking Saliency Information for “Where to Paste the Source Patch” To study the location for pasting the source patch, we crop the source ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07421,
+        0.00884,
+        -0.02594,
+        0.01188,
+        -0.00748
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ners of obtaining the source patch. 3.2. Checking Saliency Information for “Where to Paste the Source Patch” To study the location for pasting the source patch, we crop the source ",
+      "overlap_with_next": " This indicates the network can always extract a part of information from the target image. There- fore, the saliency information for where to paste the source patch is not so nece",
+      "text": "ners of obtaining the source patch. 3.2. Checking Saliency Information for “Where to Paste the Source Patch” To study the location for pasting the source patch, we crop the source patch from a random region of the source image as Pr, and paste it on various regions in the target image. Fig. 2 shows three different kinds of locations: (1) non-salient region Rns, (2) salient region Rs, and (3) ran- dom regionRr. The results of mixing data with three different patch pasting locations are shown in Row (3)-(5) of Tab. 1. We observe that the results of pasting the source patch to the non-salient region in Row (3) and the salient region in Row (4) both surpass the result of CutMix [51] in Row (2). The source patch is paste to the corresponding location of the target image in CutMix. The salient or non-salient region are both more diverse than the unique corresponding loca- tion, which leads to more various mixed images. It is no- table that the settings of the salient and non-salient region show similar results. This indicates the network can always extract a part of information from the target image. There- fore, the saliency information for where to paste the source patch is not so nece",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03246,
+        -0.00314,
+        -0.04338,
+        0.01896,
+        -0.00071
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": " This indicates the network can always extract a part of information from the target image. There- fore, the saliency information for where to paste the source patch is not so nece",
+      "overlap_with_next": " patch in Row (7) surpasses the non-salient 4 [Page 5] Mix Resize Source image Is Target imageI t Source patch P Mixed image Im Im Figure 4. Process of ResizeMix. The source image ",
+      "text": " This indicates the network can always extract a part of information from the target image. There- fore, the saliency information for where to paste the source patch is not so necessary. Row (5) is the result of past- ing the random patch to a random region in the target im- age, which further surpasses both the salient and non-salient region guided ones. This indicates the random region has more diversity for mixing the images, which contains both the salient and non-salient regions. 3.3. Checking Saliency Information for “How to Obtain the Source Patch” In this section, we check whether saliency information is necessary for obtaining the source patch from the source image. As shown in Fig. 3, we crop patches from three different regions of the source image, i.e. the salient, non- salient and random region. The source patch is paste to a random regionRr of the target image. Row (6)-(8) in Tab. 1 show the results of three different types of the source patch obtaining. We ﬁnd that the result of the salient patch in Row (7) surpasses the non-salient 4 [Page 5] Mix Resize Source image Is Target imageI t Source patch P Mixed image Im Im Figure 4. Process of ResizeMix. The source image ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00144,
+        -0.00869,
+        -0.05464,
+        -0.00857,
+        0.00998
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " patch in Row (7) surpasses the non-salient 4 [Page 5] Mix Resize Source image Is Target imageI t Source patch P Mixed image Im Im Figure 4. Process of ResizeMix. The source image ",
+      "overlap_with_next": "er result. However, the random cropping strategy still carries the issue of label misallocation, how to better obtain the source patch remains an unsolved problem. 4. ResizeMix Bas",
+      "text": " patch in Row (7) surpasses the non-salient 4 [Page 5] Mix Resize Source image Is Target imageI t Source patch P Mixed image Im Im Figure 4. Process of ResizeMix. The source image is resized to a smaller patch and the patch is pasted to the target image, which generates the mixed image. patch in Row (6). This is because the salient patch con- tains more information of the object corresponding to the allocated label than the non-salient patch. And if the non- salient patch contains too little information of the labeled object, this patch will lead to the problem of label misallo- cation. The salient patch is less possible to cause the mis- allocation. However, the result in Row (8) with the source patch cropped from a random region further outperforms the salient patch setting. This illustrates the random crop- ping manner can cover more regions with the labeled object preserved, while the salient patch only focuses on a smaller region; thus the random patch leads to more data diversity and achieves a better result. However, the random cropping strategy still carries the issue of label misallocation, how to better obtain the source patch remains an unsolved problem. 4. ResizeMix Bas",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04893,
+        -0.0127,
+        -0.03991,
+        -0.0029,
+        0.00166
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "er result. However, the random cropping strategy still carries the issue of label misallocation, how to better obtain the source patch remains an unsolved problem. 4. ResizeMix Bas",
+      "overlap_with_next": " source patch instead of cropping a patch from a local region. Then the source patch is pasted to a random region of the target image. ResizeMix can avoid the problem of label misa",
+      "text": "er result. However, the random cropping strategy still carries the issue of label misallocation, how to better obtain the source patch remains an unsolved problem. 4. ResizeMix Based on the checking results in Sec. 3, we observe that pasting the source patch in a random region of the target image leads to the best performance. For the cutting-based strategy of obtaining the source patch, when the cutting lo- cation covers more parts of a image, the label misalloca- tion is aggravated as some patches contain no labeled ob- ject; when the cutting location focuses on the salient region to avoid label misallocation, the diversity of the mixed im- age decreases and some information of the source image is lost. The two issues of label misallocation and object infor- mation missing cannot be solved simultaneously under the cutting-based strategy. To tackle the above two problems, we propose a new data mixing method ResizeMix. As shown in Fig. 4, we directly resize the whole source image to a smaller scale as the source patch instead of cropping a patch from a local region. Then the source patch is pasted to a random region of the target image. ResizeMix can avoid the problem of label misa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07069,
+        0.00376,
+        -0.01905,
+        0.00347,
+        -0.01286
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " source patch instead of cropping a patch from a local region. Then the source patch is pasted to a random region of the target image. ResizeMix can avoid the problem of label misa",
+      "overlap_with_next": "he patch and the target image, i.e. λ = WP ∗HPW ∗H . W , H and WP , HP de- note the width and height of the target image and the source patch respectively. As P is resized from the",
+      "text": " source patch instead of cropping a patch from a local region. Then the source patch is pasted to a random region of the target image. ResizeMix can avoid the problem of label misallocation while the complete object information of the source image is preserved. Speciﬁcally, we ﬁrst resize the source image Is to a smaller sized patchP by a scale rate ofτ, which is deﬁned as P =T (Is), (6) whereT () denotes the resizing operation and the scale rate τ is sampled from the uniform distribution τ ∼ U (α,β ), where α and β denote the lower and upper bound of the range respectively. Then we paste the resized patch P into a random regionRr in the target image. This mixing opera- tion introduces no additional computation cost, as the scale rate and the pasting region are both obtained randomly. The image mixing is formulated as Im =Paste (P,I t,R r). (7) We mix the source image label ls and the target image labellt according to the image mixing ratioλ, lm =λls + (1−λ)lt, (8) where λ is deﬁned by the size ratio of the patch and the target image, i.e. λ = WP ∗HPW ∗H . W , H and WP , HP de- note the width and height of the target image and the source patch respectively. As P is resized from the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02502,
+        0.01463,
+        -0.01501,
+        0.01828,
+        -0.00196
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "he patch and the target image, i.e. λ = WP ∗HPW ∗H . W , H and WP , HP de- note the width and height of the target image and the source patch respectively. As P is resized from the",
+      "overlap_with_next": "on two neural netowrks, i.e. WideResNet-28- 10 [52] and Shake-Shake (26 2x96d) [19]. We train the 5 [Page 6] Table 2. Top-1 test accuracy rate (%) on CIFAR-10 classiﬁca- tion with ",
+      "text": "he patch and the target image, i.e. λ = WP ∗HPW ∗H . W , H and WP , HP de- note the width and height of the target image and the source patch respectively. As P is resized from the source image with the scale rate of τ, the relationship of W and WP is WP =τ∗W ; the same as H andHP . Therefore, λ andτ satisfy: λ =τ 2. (9) 5. Experiments In this section, we ﬁrst study the effect of ResizeMix on image classiﬁcation in Sec. 5.1. Then, we evaluate the generalization ability of the model pre-trained on Im- ageNet with ResizeMix by applying it on object detection in Sec. 5.2. Finally, we conduct some ablation studies and analysis in Sec. 5.3. 5.1. Evaluation on Image Classiﬁcation We evaluate the performance of ResizeMix on image classiﬁcation dataset including CIFAR-10 [31], CIFAR- 100 [31] and ImageNet [43]. 5.1.1 Experiments on CIFAR-10 The CIFAR-10 dataset contains 60,000 color images of 32×32 size with 10 classes. There are 50,000 images for training and 10,000 images for validation. We implement ResizeMix on two neural netowrks, i.e. WideResNet-28- 10 [52] and Shake-Shake (26 2x96d) [19]. We train the 5 [Page 6] Table 2. Top-1 test accuracy rate (%) on CIFAR-10 classiﬁca- tion with ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02137,
+        -0.04629,
+        -0.02968,
+        -0.00388,
+        0.00392
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "on two neural netowrks, i.e. WideResNet-28- 10 [52] and Shake-Shake (26 2x96d) [19]. We train the 5 [Page 6] Table 2. Top-1 test accuracy rate (%) on CIFAR-10 classiﬁca- tion with ",
+      "overlap_with_next": "ient descent (SGD) op- timizer. We use the Nesterov momentum [13] of 0.9, and the weight decay of 5×10−4. The initial learning rate is 0.1 and decays with the cosine annealing sche",
+      "text": "on two neural netowrks, i.e. WideResNet-28- 10 [52] and Shake-Shake (26 2x96d) [19]. We train the 5 [Page 6] Table 2. Top-1 test accuracy rate (%) on CIFAR-10 classiﬁca- tion with WideResNet-28-10 [52] (WRS28-10) and Shake-Shake (26 2x96d) [19] (SS-2×96d). “ResizeMix+” denotes ResizeMix equipped with RandAugment [9]. “Cost” represents the additional computation cost introduced by searching or adjusting augmenta- tion strategies, and † denotes the cost estimated according to the description in the original paper. “GHs”: GPU Hours. Method Cost (GHs) WRS28-10 SS-2 ×96d Baseline 0 96.13 97.14 AA [8] 5000 97.32 98.00 Fast AA [33] 3.5 97.30 98.00 PBA [27] 5 97.42 97.97 OHL-AA [34] 83.4 † 97.39 - RA [9] 0 97.30 98.00 Faster AA [23] 0.23 97.40 98.00 DADA [32] 0.1 97.30 98.00 Cutout [11] 0 96.90 97.14 CutMix [51] 0 97.10 97.62 FMix [22] 6 † 96.38 - SaliencyMix [50] 6 † 97.24 - ResizeMix 0 97.60 97.93 ResizeMix+ 6 98.10 98.47 WideResNet-28-10 network for 200 epochs with a batch size of 256 using the stochastic gradient descent (SGD) op- timizer. We use the Nesterov momentum [13] of 0.9, and the weight decay of 5×10−4. The initial learning rate is 0.1 and decays with the cosine annealing sche",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0049,
+        -0.03691,
+        -0.04638,
+        0.00444,
+        0.01533
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "ient descent (SGD) op- timizer. We use the Nesterov momentum [13] of 0.9, and the weight decay of 5×10−4. The initial learning rate is 0.1 and decays with the cosine annealing sche",
+      "overlap_with_next": "ot introduce any additional computation cost, while most saliency-guided or automated augmentation methods take additional cost to promote the performance. 5.1.2 Experiments on CIF",
+      "text": "ient descent (SGD) op- timizer. We use the Nesterov momentum [13] of 0.9, and the weight decay of 5×10−4. The initial learning rate is 0.1 and decays with the cosine annealing schedule [39]. When training the Shake-Shake (26 2x96d) network, we set the to- tal epochs as 1,800 and the batch size as 256 using the SGD optimizer. The initial learning rate is 0.01 and the weight decay is 1× 10−3. We set the parameters of α,β for lim- iting the resizing scale ratios deﬁned in Sec. 4 as 0.1 and 0.8, which are used for determining the range of the patch resizing scale. The top-1 test accuracy comparisons are shown in Tab. 2. We compare the results of our method with CutMix [51], and some saliency-guided mixing augmentations [22, 29, 50], as well as some automated augmentation methods [8, 9, 23, 33]. Our proposed ResizeMix augmentation outper- forms CutMix [51] by 0.5% and it even outperforms the au- tomated augmentation method AutoAugment [8] by 0.28% with WideResNet-28-10. It is worth noting that ResizeMix does not introduce any additional computation cost, while most saliency-guided or automated augmentation methods take additional cost to promote the performance. 5.1.2 Experiments on CIF",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01347,
+        -0.02382,
+        -0.04316,
+        -0.03212,
+        0.00891
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "ot introduce any additional computation cost, while most saliency-guided or automated augmentation methods take additional cost to promote the performance. 5.1.2 Experiments on CIF",
+      "overlap_with_next": "s) ResNet-50 ResNet-101 Baseline - 76.31 78.13 AA [8] 15,000 77.63 - FastAA [33] 450 77.60 - OHL-AA [34] 625 † 78.93 - RA [9] 0 77.60 - Faster AA [23] 2.3 76.50 - DADA [32] 1.3 77.",
+      "text": "ot introduce any additional computation cost, while most saliency-guided or automated augmentation methods take additional cost to promote the performance. 5.1.2 Experiments on CIFAR-100 The CIFAR-100 dataset has the same number of images as CIFAR-10 but it contains 100 classes. We apply our method ResizeMix on the WideResNet-28-10 and Shake- Shake (26 2x96d) network. We use the same settings Table 3. Top-1 test accuracy rate (%) on CIFAR-100 classiﬁcation with WideResNet-28-10 and Shake-Shake (26 2x96d). Method Cost (GHs) WRS28-10 SS-2 ×96d Baseline - 81.20 82.95 AA [8] 5000 82.91 85.72 Fast AA [33] 3.5 82.70 85.40 PBA [27] 5 83.27 84.69 RA [9] 0 83.30 - Faster AA [23] 0.23 82.20 84.40 DADA [32] 0.2 82.50 84.70 Cutout [11] 0 81.59 84.0 CutMix [51] 0 83.40 85.0 FMix [22] 6 † 82.03 - SaliencyMix [50] 6 † 83.44 - Puzzle Mix [29] 12 † 84.05 - ResizeMix 0 84.31 85.26 ResizeMix+ 6 85.23 85.60 Table 4. Top-1 test accuracy rate (%) on ImageNet classiﬁcation with ResNet-50 and ResNet-101 networks. Method Cost (GHs) ResNet-50 ResNet-101 Baseline - 76.31 78.13 AA [8] 15,000 77.63 - FastAA [33] 450 77.60 - OHL-AA [34] 625 † 78.93 - RA [9] 0 77.60 - Faster AA [23] 2.3 76.50 - DADA [32] 1.3 77.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02336,
+        -0.04327,
+        -0.06452,
+        -0.00436,
+        0.01949
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "s) ResNet-50 ResNet-101 Baseline - 76.31 78.13 AA [8] 15,000 77.63 - FastAA [33] 450 77.60 - OHL-AA [34] 625 † 78.93 - RA [9] 0 77.60 - Faster AA [23] 2.3 76.50 - DADA [32] 1.3 77.",
+      "overlap_with_next": "ResNet-50 and ResNet-101 [25] for 300 epochs. We set the batch size as 512, the initial learning rate as 0.5, and the weight decay as 4× 10−5. The learn- 6 [Page 7] Table 5. Genera",
+      "text": "s) ResNet-50 ResNet-101 Baseline - 76.31 78.13 AA [8] 15,000 77.63 - FastAA [33] 450 77.60 - OHL-AA [34] 625 † 78.93 - RA [9] 0 77.60 - Faster AA [23] 2.3 76.50 - DADA [32] 1.3 77.50 - Cutmix [51] 0 78.60 79.83 SaliencyMix [50] 280 † 78.74 79.91 Puzzle Mix [29] 576 † 77.51 - ResizeMix 0 79.00 80.54 and hyper-parameters as the CIFAR-10 dataset to train WideResNet-28-10 and Shake-Shake (26 2x96d). Tab. 3 shows the CIFAR-100 performance comparisons of our pro- posed ResizeMix with other cutting method [11], mixing method [29, 50, 51] and automated augmentations. We ob- serve that ResizeMix outperforms CutMix [51] by 0.87%. Compared to the automated augmentations, it surpasses Au- toAugment [8] by 1.40% and RandAugment [9] by 1.01%. 5.1.3 Experiments on ImageNet ImageNet [43] is a challenging and widely used dataset for image classiﬁcation. It contains 1.2 million training images and 50,000 validation images with 1,000 classes. The input image size is set as 224× 224. We train our method with the networks of ResNet-50 and ResNet-101 [25] for 300 epochs. We set the batch size as 512, the initial learning rate as 0.5, and the weight decay as 4× 10−5. The learn- 6 [Page 7] Table 5. Genera",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02501,
+        -0.01826,
+        -0.06678,
+        -0.02847,
+        0.00261
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "ResNet-50 and ResNet-101 [25] for 300 epochs. We set the batch size as 512, the initial learning rate as 0.5, and the weight decay as 4× 10−5. The learn- 6 [Page 7] Table 5. Genera",
+      "overlap_with_next": " GPU hours while ResizeMix does not introduce any additional cost. For ResNet-101, the performance of ResizeMix ex- ceeds the performance of CutMix by 0.71%, which achieves the top",
+      "text": "ResNet-50 and ResNet-101 [25] for 300 epochs. We set the batch size as 512, the initial learning rate as 0.5, and the weight decay as 4× 10−5. The learn- 6 [Page 7] Table 5. Generalization ability comparisons on object detection between ResizeMix and CutMix [51]. The experiments are performed on two frameworks of SSD [38] and Faster-RCNN [41] on both MS-COCO [35] and Pascal VOC [14] datasets. Backbone ImageNet-ClsTop-1 ACC(%) MS-COCO Detection Pascal VOC DetectionSSD Faster-RCNN SSD Faster-RCNNmAP(%) mAP(%) mAP(%) mAP(%) ResNet-50 76.1 25.1 38.1 75.6 81.0 Cutmix [51] 78.6 24.9 38.2 76.1 81.9 ResizeMix 79.0 25.5 38.4 77.3 82.0 ing rate decays with the cosine annealing schedule. The ImageNet results are shown in Tab. 4. With the ResNet- 50 network, the performance of ResizeMix surpasses Cut- Mix [51] by 0.4% and Puzzle Mix [29] by 1.49%. It out- performs the automated ones, AutoAugment [8] by 1.37%, Faster AA [23] by 2.5%. It is worth noting that AutoAug- ment needs the additional computation cost of 15,000 GPU hours while ResizeMix does not introduce any additional cost. For ResNet-101, the performance of ResizeMix ex- ceeds the performance of CutMix by 0.71%, which achieves the top",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00702,
+        -0.00868,
+        -0.04794,
+        -0.01017,
+        -0.00876
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": " GPU hours while ResizeMix does not introduce any additional cost. For ResNet-101, the performance of ResizeMix ex- ceeds the performance of CutMix by 0.71%, which achieves the top",
+      "overlap_with_next": "and 4 epochs for Pascal VOC respectively. For all the other train- ing hyper-parameters, we just follow the default settings de- ﬁned in MMDetection. As shown in Tab. 5, our Resize",
+      "text": " GPU hours while ResizeMix does not introduce any additional cost. For ResNet-101, the performance of ResizeMix ex- ceeds the performance of CutMix by 0.71%, which achieves the top-1 accuracy rate of 80.54%. 5.2. Evaluation on Object Detection For evaluating the generalization ability of our method, we use the ResizeMix pre-trained ResNet-50 [25] model as the backbone network of two object detection frameworks, i.e. Faster RCNN [41] and SSD [38]. We perform the ex- periments on both MS-COCO [35] and Pascal VOC [14] datasets. All the experiments are based on the object detec- tion toolkit MMDetection [5]. For SSD training, the input image is resized to 300× 300. The batch size is set as 64 for two datasets. It takes 24 epochs in total. Both VOC2007 and VOC2012 trainval (VOC07+12) are used for train- ing, and the models are evaluated on the VOC 2007 bench- mark. For Faser-RCNN training, the image scale is set as (1333, 800) for MS-COCO and (1000, 600) for Pascal VOC. It takes 12 epochs in total for MS-COCO and 4 epochs for Pascal VOC respectively. For all the other train- ing hyper-parameters, we just follow the default settings de- ﬁned in MMDetection. As shown in Tab. 5, our Resize",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02605,
+        -0.04054,
+        -0.04511,
+        -0.00067,
+        -0.0055
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "and 4 epochs for Pascal VOC respectively. For all the other train- ing hyper-parameters, we just follow the default settings de- ﬁned in MMDetection. As shown in Tab. 5, our Resize",
+      "overlap_with_next": "ate the strategies of obtaining half-resolution input images for training and validation respectively. “RandCrop” means randomly cropping a patch from the image and “Resize” means ",
+      "text": "and 4 epochs for Pascal VOC respectively. For all the other train- ing hyper-parameters, we just follow the default settings de- ﬁned in MMDetection. As shown in Tab. 5, our ResizeMix shows great general- ization ability under several object detection evaluation set- tings. Especially on the lightweight framework SSD, Re- sizeMix shows notable mAP promotion over the baseline network, 0.4% mAP on MS-COCO and 1.7% mAP on Pas- cal VOC. 5.3. Ablation Study and Analysis In this section, we perform a series of ablation stud- ies and analysis about ResizeMix and other mixing-based augmentations. We ﬁrst study the advantage of resizing over cutting on preserving the source image information in Sec. 5.3.1. Then we combine RandAugment [9] with Re- sizeMix and further promote the performance in Sec. 5.3.2. Table 6. Comparisons of the effects between resizing and cropping on the half input resolution training. The shown results are all the top-1 accuracies (%) on the validation set. The “Train” and “Val” column indicate the strategies of obtaining half-resolution input images for training and validation respectively. “RandCrop” means randomly cropping a patch from the image and “Resize” means ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00569,
+        -0.00729,
+        -0.02957,
+        0.03806,
+        -0.00185
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "ate the strategies of obtaining half-resolution input images for training and validation respectively. “RandCrop” means randomly cropping a patch from the image and “Resize” means ",
+      "overlap_with_next": "resolution settings. Speciﬁcally, during training, the input image is processed to a half-resolution one by randomly cropping a patch from the image or resizing the image to a half",
+      "text": "ate the strategies of obtaining half-resolution input images for training and validation respectively. “RandCrop” means randomly cropping a patch from the image and “Resize” means resizing the whole image to a smaller patch. “CenterCrop” means cropping a patch at the center of the testing image. Row Train Val CIFAR-10 CIFAR-100 ImageNetWRS28-10 WRS28-10 ResNet-50 Baseline - - 96.13 81.20 76.31 (1) RandCrop Resize 71.80 35.84 63.59 (2) RandCrop CenterCrop 90.10 66.70 58.58 (3) Resize Resize 92.06 71.90 63.85 Next, we explore several settings of resizing scale rates in Sec. 5.3.3. Finally, we analyze the differences be- tween ResizeMix and other mixing-based augmentations in Sec. 5.3.4. 5.3.1 Cutting vs. Resizing on Information Preserving We get the conclusion from Sec. 3.3 that cutting a patch from the source image may cause the problem of object in- formation missing. To further verify the different effects of cutting and resizing on data mixing, we implement the com- parison experiments under half input resolution settings. Speciﬁcally, during training, the input image is processed to a half-resolution one by randomly cropping a patch from the image or resizing the image to a half",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03208,
+        -0.0048,
+        -0.02218,
+        0.00657,
+        -0.01797
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "resolution settings. Speciﬁcally, during training, the input image is processed to a half-resolution one by randomly cropping a patch from the image or resizing the image to a half",
+      "overlap_with_next": "Re- 7 [Page 8] Table 7. The results of different RandAugment placing positions on CIFAR-100 with WideResNet-28-10. “Before” means placing RandAugment operations before ResizeMix, a",
+      "text": "resolution settings. Speciﬁcally, during training, the input image is processed to a half-resolution one by randomly cropping a patch from the image or resizing the image to a half size. The images for validation are processed to the half sizes as well. The half-resolution experiments aim at comparing the informa- tion preserving abilities between cutting and resizing. As shown in Tab. 6, processing the training images into the half-resolution ones by resizing shows evident advan- tages over cutting. When the training images are processed by cutting, no matter the testing images are processed by re- sizing or cutting at the image center, the ﬁnal performance cannot surpass that with resizing the training images. This further demonstrates that for obtaining a patch from the im- age, the manner of resizing preserves more effective infor- mation than cutting. 5.3.2 Effect of RandAugment on ResizeMix We are the ﬁrst to study the effect of automated data aug- mentation on mixing data augmentation by combining Re- 7 [Page 8] Table 7. The results of different RandAugment placing positions on CIFAR-100 with WideResNet-28-10. “Before” means placing RandAugment operations before ResizeMix, a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.025,
+        0.00498,
+        -0.04586,
+        0.02704,
+        -0.02857
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "Re- 7 [Page 8] Table 7. The results of different RandAugment placing positions on CIFAR-100 with WideResNet-28-10. “Before” means placing RandAugment operations before ResizeMix, a",
+      "overlap_with_next": "gment is per- formed after the images are mixed, the performance of Re- sizeMix obtains further improvement. It can be concluded that adding RandAugment after ResizeMix is a strong",
+      "text": "Re- 7 [Page 8] Table 7. The results of different RandAugment placing positions on CIFAR-100 with WideResNet-28-10. “Before” means placing RandAugment operations before ResizeMix, and “After” means placing RandAugment after ResizeMix. Position Baseline ResizeMix Before After Top-1(%) 81.2 84.31 83.47 84.59 sizeMix with RandAugment. To verify the impact of the position relationship between ResizeMix and RandAug- ment on the training performance, we place the RandAug- ment operations before and after ResizeMixrespectively. We perform the experiment on the CIFAR-100 dataset with WideResNet-28-10, and all the hyperparameter settings are the same as that in Sec. 5.1.2. As shown in Tab. 7, the performance of putting RandAugment before ResizeMix is worse than using ResizeMix individually. This indicates that performing RandAugment on two images indepen- dently before mixing leads the two images to different pat- terns, which destroys the naturality of the mixed image and hinders the network learning. While RandAugment is per- formed after the images are mixed, the performance of Re- sizeMix obtains further improvement. It can be concluded that adding RandAugment after ResizeMix is a strong",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00968,
+        -0.00601,
+        -0.07101,
+        -0.01271,
+        -0.0162
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "gment is per- formed after the images are mixed, the performance of Re- sizeMix obtains further improvement. It can be concluded that adding RandAugment after ResizeMix is a strong",
+      "overlap_with_next": " the scale ratio τ is randomly sampled from the uniform distribution U (α,β ), we set different α and β to limit the range of ratio τ. Tab. 8 shows the results of dif- ferentα andβ",
+      "text": "gment is per- formed after the images are mixed, the performance of Re- sizeMix obtains further improvement. It can be concluded that adding RandAugment after ResizeMix is a stronger augmentation pipeline to obtain better performance. It is worth noting that both ResizeMix and RandAugment do not introduce any additional computation cost. When equipped with RandAugment [9] and the batch augmentation strategy [28,34,54] (the enlarging scale is set as 2 in our experiments), ResizeMix+ achieves top-1 accu- racy rates of 98.10% with WideResNet-28-10 and 98.47% with Shake-Shake (26 2x96d) on CIFAR-10 in Tab. 2. And ResizeMix+ also achieves the new state-of-the-art perfor- mance of 85.23% on CIFAR-100 with WideResNet-28-10 in Tab. 3. Table 8. Comparison with different resizing scale ranges on CIFAR-100 with WideResnet-28-10. Range Baseline 0.1-0.9 0.1-0.8 0.1-0.7 0.2-0.8 Top-1(%) 81.20 83.91 84.31 83.72 83.70 5.3.3 Studying Resizing Scales In this section, we study the settings of the resizing scale ratio. Since the scale ratio τ is randomly sampled from the uniform distribution U (α,β ), we set different α and β to limit the range of ratio τ. Tab. 8 shows the results of dif- ferentα andβ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03056,
+        0.01266,
+        -0.0626,
+        -0.01092,
+        -0.00297
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " the scale ratio τ is randomly sampled from the uniform distribution U (α,β ), we set different α and β to limit the range of ratio τ. Tab. 8 shows the results of dif- ferentα andβ",
+      "overlap_with_next": "n alligator” and ”dingo” respectively. We observe that though the Mixup-generated image con- tains the informations of both categories, the mixed image in unnatural campared with r",
+      "text": " the scale ratio τ is randomly sampled from the uniform distribution U (α,β ), we set different α and β to limit the range of ratio τ. Tab. 8 shows the results of dif- ferentα andβ settings. All the experiments are performed on CIFAR-100 with WideResNet-28-10, and all the settings are the same as that in Sec. 5.1.2. We observe that when settingα as 0.1 and β as 0.8 obtains the best performance, which is adopted to all the experiments with ResizeMix. MixupCutMixResizeMix Augmented image CAM for \"dingo\" CAM for \"American alligator\" Original image Figure 5. CAM visualization on ”American alligator” and ”dingo” using different augmentations. 5.3.4 Analysis on Different Mixing Methods We visualize the CAM [56] heatmaps of images mixed with different methods. As shown in Fig. 5, the ﬁrst row are the original images, and the ﬁrst column on the left are the mixed images of various mixing methods including Mixup [53], CutMix [51], and ResizeMix. And the next two columns show the CAM heatmaps of categories ”American alligator” and ”dingo” respectively. We observe that though the Mixup-generated image con- tains the informations of both categories, the mixed image in unnatural campared with r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0339,
+        -0.05005,
+        -0.05945,
+        0.00182,
+        -0.00782
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "n alligator” and ”dingo” respectively. We observe that though the Mixup-generated image con- tains the informations of both categories, the mixed image in unnatural campared with r",
+      "overlap_with_next": "se an effective method, namely ResizeMix, which 8 [Page 9] directly resizes the image to a small patch and mixes it with another image. The proposed method shows evident advan- tag",
+      "text": "n alligator” and ”dingo” respectively. We observe that though the Mixup-generated image con- tains the informations of both categories, the mixed image in unnatural campared with real-life images. CutMix pastes a random patch of the source image into another image, but the patch is more likely to contain no information of ”dingo”, which leads to the problem of label misallocation. The network cannot locate the region corresponding to the label ”dingo” and this will mislead the network learning. However, ResizeMix obtains the patch preserving all the information of the source image ”dingo”, which effectively eliminates label misallocation. 6. Conclusion In this paper, we systematically study the CutMix-based data augmentation methods, and ﬁnd that the saliency in- formation of mixing data is not so necessary. Moreover, we conclude that the cutting-based data mixing strategies can- not avoid label misallocation and object information miss- ing simultaneously. To tackle the two intractable problems, we propose an effective method, namely ResizeMix, which 8 [Page 9] directly resizes the image to a small patch and mixes it with another image. The proposed method shows evident advan- tag",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0847,
+        -0.02703,
+        -0.0184,
+        0.01349,
+        -0.01664
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "se an effective method, namely ResizeMix, which 8 [Page 9] directly resizes the image to a small patch and mixes it with another image. The proposed method shows evident advan- tag",
+      "overlap_with_next": "iarui Xu, Zheng Zhang, Dazhi Cheng, Chenchen Zhu, Tian- heng Cheng, Qijie Zhao, Buyu Li, Xin Lu, Rui Zhu, Yue Wu, and Dahua Lin. Mmdetection: Open mmlab detection toolbox and bench",
+      "text": "se an effective method, namely ResizeMix, which 8 [Page 9] directly resizes the image to a small patch and mixes it with another image. The proposed method shows evident advan- tages over previous methods on various image classiﬁcation and object detection benchmarks. Acknowledgement We thank Liangchen Song for the discussion and assis- tance. References [1] Dan Alistarh, Jerry Li, Ryota Tomioka, and Milan V o- jnovic. QSGD: randomized quantization for communication- optimal stochastic gradient descent. arXiv:1610.02132, 2016. 1 [2] Antreas Antoniou, Amos Storkey, and Harrison Ed- wards. Data augmentation generative adversarial networks. arXiv:1711.04340, 2017. 3 [3] James Bergstra and Yoshua Bengio. Random search for hyper-parameter optimization. JMLR, 2012. 2 [4] Han Cai, Ligeng Zhu, and Song Han. ProxylessNAS: Direct neural architecture search on target task and hardware. In ICLR, 2019. 3 [5] Kai Chen, Jiaqi Wang, Jiangmiao Pang, Yuhang Cao, Yu Xiong, Xiaoxiao Li, Shuyang Sun, Wansen Feng, Ziwei Liu, Jiarui Xu, Zheng Zhang, Dazhi Cheng, Chenchen Zhu, Tian- heng Cheng, Qijie Zhao, Buyu Li, Xin Lu, Rui Zhu, Yue Wu, and Dahua Lin. Mmdetection: Open mmlab detection toolbox and bench",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05163,
+        0.02192,
+        -0.02386,
+        -0.01604,
+        0.01009
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "iarui Xu, Zheng Zhang, Dazhi Cheng, Chenchen Zhu, Tian- heng Cheng, Qijie Zhao, Buyu Li, Xin Lu, Rui Zhu, Yue Wu, and Dahua Lin. Mmdetection: Open mmlab detection toolbox and bench",
+      "overlap_with_next": "ugmentation. arXiv:2003.05034, 2020. 3 [11] Terrance DeVries and Graham W Taylor. Improved reg- ularization of convolutional neural networks with cutout. arXiv:1708.04552, 2017. 2,",
+      "text": "iarui Xu, Zheng Zhang, Dazhi Cheng, Chenchen Zhu, Tian- heng Cheng, Qijie Zhao, Buyu Li, Xin Lu, Rui Zhu, Yue Wu, and Dahua Lin. Mmdetection: Open mmlab detection toolbox and benchmark. arXiv:1906.07155, 2019. 7 [6] Liang-Chieh Chen, George Papandreou, Iasonas Kokkinos, Kevin Murphy, and Alan L Yuille. Deeplab: Semantic image segmentation with deep convolutional nets, atrous convolu- tion, and fully connected crfs. TPAMI, 2017. 1 [7] Junsuk Choe and Hyunjung Shim. Attention-based dropout layer for weakly supervised object localization. In CVPR, 2019. 2 [8] Ekin D Cubuk, Barret Zoph, Dandelion Mane, Vijay Vasude- van, and Quoc V Le. Autoaugment: Learning augmentation policies from data. CVPR, 2018. 1, 2, 3, 6, 7 [9] Ekin D Cubuk, Barret Zoph, Jonathon Shlens, and Quoc V Le. Randaugment: Practical automated data augmentation with a reduced search space. In CVPR Workshops, 2020. 3, 6, 7, 8 [10] Ali Dabouei, Sobhan Soleymani, Fariborz Taherkhani, and Nasser M Nasrabadi. Supermix: Supervising the mixing data augmentation. arXiv:2003.05034, 2020. 3 [11] Terrance DeVries and Graham W Taylor. Improved reg- ularization of convolutional neural networks with cutout. arXiv:1708.04552, 2017. 2,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04171,
+        -0.03704,
+        -0.0318,
+        -0.01775,
+        0.00167
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "ugmentation. arXiv:2003.05034, 2020. 3 [11] Terrance DeVries and Graham W Taylor. Improved reg- ularization of convolutional neural networks with cutout. arXiv:1708.04552, 2017. 2,",
+      "overlap_with_next": "n Peng, Yuan Li, Wenyu Liu, and Xinggang Wang. Fna++: Fast network adaptation via parameter remapping and architecture search. TPAMI, 2020. 3 [18] RCNN Faster. Towards real-time ob",
+      "text": "ugmentation. arXiv:2003.05034, 2020. 3 [11] Terrance DeVries and Graham W Taylor. Improved reg- ularization of convolutional neural networks with cutout. arXiv:1708.04552, 2017. 2, 6 [12] Tobias Domhan, Jost Tobias Springenberg, and Frank Hut- ter. Speeding up automatic hyperparameter optimization of deep neural networks by extrapolation of learning curves. In IJCAI, 2015. 2 [13] Timothy Dozat. Incorporating nesterov momentum into adam. 2016. 6 [14] Mark Everingham, Luc Van Gool, Christopher KI Williams, John Winn, and Andrew Zisserman. The pascal visual object classes (voc) challenge. IJCV, 2010. 7 [15] Jiemin Fang, Yuzhu Sun, Kangjian Peng, Qian Zhang, Yuan Li, Wenyu Liu, and Xinggang Wang. Fast neural network adaptation via parameter remapping and architecture search. In ICLR, 2020. 3 [16] Jiemin Fang, Yuzhu Sun, Qian Zhang, Yuan Li, Wenyu Liu, and Xinggang Wang. Densely connected search space for more ﬂexible neural architecture search. In CVPR, 2020. 3 [17] Jiemin Fang, Yuzhu Sun, Qian Zhang, Kangjian Peng, Yuan Li, Wenyu Liu, and Xinggang Wang. Fna++: Fast network adaptation via parameter remapping and architecture search. TPAMI, 2020. 3 [18] RCNN Faster. Towards real-time ob",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03769,
+        -0.01344,
+        0.01487,
+        0.03328,
+        -0.02975
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "n Peng, Yuan Li, Wenyu Liu, and Xinggang Wang. Fna++: Fast network adaptation via parameter remapping and architecture search. TPAMI, 2020. 3 [18] RCNN Faster. Towards real-time ob",
+      "overlap_with_next": "angyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In CVPR, 2016. 1 [25] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual le",
+      "text": "n Peng, Yuan Li, Wenyu Liu, and Xinggang Wang. Fna++: Fast network adaptation via parameter remapping and architecture search. TPAMI, 2020. 3 [18] RCNN Faster. Towards real-time object detection with re- gion proposal networks. NeurIPS, 2015. 2 [19] Xavier Gastaldi. Shake-shake regularization. arXiv:1705.07485, 2017. 5, 6 [20] Golnaz Ghiasi, Tsung-Yi Lin, and Quoc V Le. Dropblock: A regularization method for convolutional networks. In NeurIPS, 2018. 2 [21] Swaminathan Gurumurthy, Ravi Kiran Sarvadevabhatla, and R Venkatesh Babu. Deligan: Generative adversarial net- works for diverse and limited data. In CVPR, 2017. 3 [22] Ethan Harris, Antonia Marcu, Matthew Painter, Mahe- san Niranjan, and Adam Pr ¨ugel-Bennett Jonathon Hare. Fmix: Enhancing mixed sample data augmentation. arXiv:2002.12047, 2020. 2, 3, 4, 6 [23] Ryuichiro Hataya, Jan Zdenek, Kazuki Yoshizoe, and Hideki Nakayama. Faster autoaugment: Learning augmentation strategies using backpropagation. arXiv:1911.06987, 2019. 3, 6, 7 [24] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In CVPR, 2016. 1 [25] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual le",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0509,
+        -0.00927,
+        0.00133,
+        0.01881,
+        -0.01578
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "angyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In CVPR, 2016. 1 [25] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual le",
+      "overlap_with_next": "zhevsky, Geoffrey Hinton, et al. Learning multiple layers of features from tiny images. 2009. 5 [32] Yonggang Li, Guosheng Hu, Yongtao Wang, Tim- othy Hospedales, Neil M Robertson,",
+      "text": "angyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In CVPR, 2016. 1 [25] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In CVPR, 2016. 6, 7 [26] Dan Hendrycks, Norman Mu, Ekin D Cubuk, Barret Zoph, Justin Gilmer, and Balaji Lakshminarayanan. Augmix: A simple data processing method to improve robustness and uncertainty. ICLR, 2020. 2 [27] Daniel Ho, Eric Liang, Xi Chen, Ion Stoica, and Pieter Abbeel. Population based augmentation: Efﬁcient learning of augmentation policy schedules. In ICML, 2019. 3, 6 [28] Elad Hoffer, Tal Ben-Nun, Itay Hubara, Niv Giladi, Torsten Hoeﬂer, and Daniel Soudry. Augment your batch: better training with larger batches. CVPR, 2020. 8 [29] Jang-Hyun Kim, Wonho Choo, and Hyun Oh Song. Puz- zle mix: Exploiting saliency and local statistics for optimal mixup. ICML, 2020. 2, 3, 4, 6, 7 [30] Diederik P. Kingma and Jimmy Ba. Adam: A method for stochastic optimization. In ICLR, 2015. 1 [31] Alex Krizhevsky, Geoffrey Hinton, et al. Learning multiple layers of features from tiny images. 2009. 5 [32] Yonggang Li, Guosheng Hu, Yongtao Wang, Tim- othy Hospedales, Neil M Robertson,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03961,
+        -0.01309,
+        -0.04351,
+        -0.00786,
+        -0.02288
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "zhevsky, Geoffrey Hinton, et al. Learning multiple layers of features from tiny images. 2009. 5 [32] Yonggang Li, Guosheng Hu, Yongtao Wang, Tim- othy Hospedales, Neil M Robertson,",
+      "overlap_with_next": "LR, 2019. 3 [38] Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed, Cheng-Yang Fu, and Alexander C Berg. Ssd: Single shot multibox detector. In ECCV, 2016. 7",
+      "text": "zhevsky, Geoffrey Hinton, et al. Learning multiple layers of features from tiny images. 2009. 5 [32] Yonggang Li, Guosheng Hu, Yongtao Wang, Tim- othy Hospedales, Neil M Robertson, and Yongxing 9 [Page 10] Yang. Dada: Differentiable automatic data augmentation. arXiv:2003.03780, 2020. 3, 6 [33] Sungbin Lim, Ildoo Kim, Taesup Kim, Chiheon Kim, and Sungwoong Kim. Fast autoaugment. In NeurIPS, 2019. 3, 6 [34] Chen Lin, Minghao Guo, Chuming Li, Xin Yuan, Wei Wu, Junjie Yan, Dahua Lin, and Wanli Ouyang. Online hyper- parameter learning for auto-augmentation strategy. In ICCV, 2019. 3, 6, 8 [35] Tsung-Yi Lin, Michael Maire, Serge J. Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Doll ´ar, and C. Lawrence Zitnick. Microsoft COCO: common objects in context. In ECCV, 2014. 7 [36] Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, and Piotr Doll´ar. Focal loss for dense object detection. In ICCV, 2017. 1 [37] Hanxiao Liu, Karen Simonyan, and Yiming Yang. DARTS: Differentiable architecture search. In ICLR, 2019. 3 [38] Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed, Cheng-Yang Fu, and Alexander C Berg. Ssd: Single shot multibox detector. In ECCV, 2016. 7",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0594,
+        0.00388,
+        -0.01522,
+        0.00571,
+        0.00201
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "LR, 2019. 3 [38] Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed, Cheng-Yang Fu, and Alexander C Berg. Ssd: Single shot multibox detector. In ECCV, 2016. 7",
+      "overlap_with_next": " 2015. 5, 6 [44] Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zh- moginov, and Liang-Chieh Chen. Mobilenetv2: Inverted residuals and linear bottlenecks. In CVPR, 2018. 1 [45] ",
+      "text": "LR, 2019. 3 [38] Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed, Cheng-Yang Fu, and Alexander C Berg. Ssd: Single shot multibox detector. In ECCV, 2016. 7 [39] Ilya Loshchilov and Frank Hutter. SGDR: stochastic gradient descent with warm restarts. In ICLR, 2017. 2, 6 [40] Xi Peng, Zhiqiang Tang, Fei Yang, Rogerio S Feris, and Dimitris Metaxas. Jointly optimize data augmentation and network training: Adversarial data augmentation in human pose estimation. In CVPR, 2018. 3 [41] Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun. Faster r-cnn: Towards real-time object detection with region proposal networks. In NeurIPS, 2015. 1, 7 [42] Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U-net: Convolutional networks for biomedical image segmentation. In LNCS, 2015. 1 [43] Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, San- jeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, et al. Imagenet large scale visual recognition challenge. IJCV, 2015. 5, 6 [44] Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zh- moginov, and Liang-Chieh Chen. Mobilenetv2: Inverted residuals and linear bottlenecks. In CVPR, 2018. 1 [45] ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09109,
+        -0.01806,
+        -0.03469,
+        -0.02658,
+        0.00782
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": " 2015. 5, 6 [44] Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zh- moginov, and Liang-Chieh Chen. Mobilenetv2: Inverted residuals and linear bottlenecks. In CVPR, 2018. 1 [45] ",
+      "overlap_with_next": "nira, Wheemyung Shin, TaeChoong Chung, Sung-Ho Bae, et al. Saliencymix: A saliency guided data augmentation strategy for better regularization. arXiv:2006.01791, 2020. 2, 3, 4, 6 [",
+      "text": " 2015. 5, 6 [44] Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zh- moginov, and Liang-Chieh Chen. Mobilenetv2: Inverted residuals and linear bottlenecks. In CVPR, 2018. 1 [45] Ramprasaath R Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv Batra. Grad-cam: Visual explanations from deep networks via gradient-based localization. In ICCV, 2017. 2, 3, 10 [46] Krishna Kumar Singh and Yong Jae Lee. Hide-and-seek: Forcing a network to be meticulous for weakly-supervised object and action localization. In ICCV, 2017. 2 [47] Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: a simple way to prevent neural networks from overﬁtting. JMLR, 2014. 2 [48] Cecilia Summers and Michael J Dinneen. Improved mixed- example data augmentation. In WACV, 2019. 2 [49] Ryo Takahashi, Takashi Matsubara, and Kuniaki Uehara. Ri- cap: Random image cropping and patching data augmenta- tion for deep cnns. In ACML, 2018. 2 [50] AFM Uddin, Mst Monira, Wheemyung Shin, TaeChoong Chung, Sung-Ho Bae, et al. Saliencymix: A saliency guided data augmentation strategy for better regularization. arXiv:2006.01791, 2020. 2, 3, 4, 6 [",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0619,
+        -0.03034,
+        -0.00094,
+        -0.01357,
+        -0.00809
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "nira, Wheemyung Shin, TaeChoong Chung, Sung-Ho Bae, et al. Saliencymix: A saliency guided data augmentation strategy for better regularization. arXiv:2006.01791, 2020. 2, 3, 4, 6 [",
+      "overlap_with_next": "athon Shlens, and Quoc V Le. Learning transferable architectures for scalable image recognition. In CVPR, 2018. 3 A. Appendix A.1. Details of Obtaining Salient and Non-salient Regi",
+      "text": "nira, Wheemyung Shin, TaeChoong Chung, Sung-Ho Bae, et al. Saliencymix: A saliency guided data augmentation strategy for better regularization. arXiv:2006.01791, 2020. 2, 3, 4, 6 [51] Sangdoo Yun, Dongyoon Han, Seong Joon Oh, Sanghyuk Chun, Junsuk Choe, and Youngjoon Yoo. Cutmix: Regu- larization strategy to train strong classiﬁers with localizable features. In ICCV, 2019. 1, 2, 3, 4, 6, 7, 8 [52] Sergey Zagoruyko and Nikos Komodakis. Wide residual net- works. arXiv:1605.07146, 2016. 5, 6 [53] H Zhang, M Cisse, Y Dauphin, and D Lopez-Paz. mixup: Beyond empirical risk minimization. ICLR, 2018. 2, 8 [54] Xinyu Zhang, Qiang Wang, Jian Zhang, and Zhao Zhong. Adversarial autoaugment. ICLR, 2020. 3, 8 [55] Zhun Zhong, Liang Zheng, Guoliang Kang, Shaozi Li, and Yi Yang. Random erasing data augmentation. InAAAI, 2020. 2 [56] Bolei Zhou, Aditya Khosla, Agata Lapedriza, Aude Oliva, and Antonio Torralba. Learning deep features for discrimi- native localization. In CVPR, 2016. 8 [57] Barret Zoph, Vijay Vasudevan, Jonathon Shlens, and Quoc V Le. Learning transferable architectures for scalable image recognition. In CVPR, 2018. 3 A. Appendix A.1. Details of Obtaining Salient and Non-salient Regi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04984,
+        -0.00033,
+        -0.03314,
+        -0.01361,
+        -0.00816
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "athon Shlens, and Quoc V Le. Learning transferable architectures for scalable image recognition. In CVPR, 2018. 3 A. Appendix A.1. Details of Obtaining Salient and Non-salient Regi",
+      "overlap_with_next": "ere xl, xr, yb, yt denote the left, right, bottom and top boundary of the salient region Rs. Finally, we adjust these boundaries to guarantee the whole region is within the im- 10 ",
+      "text": "athon Shlens, and Quoc V Le. Learning transferable architectures for scalable image recognition. In CVPR, 2018. 3 A. Appendix A.1. Details of Obtaining Salient and Non-salient Regions We ﬁrst obtain the heatmap of the input image by using the Grad-CAM [45] module. We denote the activation val- ues of the heatmap asA. Two thresholdstu andtl are set as the maximum and minimum activation values ofA, tu =max(A), tl =min(A). (10) As there are many pixels which hold the activation values of the maximum or minimum values, we get the sets of salient and non-salient pixel coordinatesCs andCns as Cs ={(x,y )|A(x,y )≥tu}, Cns ={(x,y )|A(x,y )≤tl}, (11) whereA(x,y ) denotes the activation value of the heatmap at the coordinate of (x,y ). We obtain the salient region WP×HP of a image as follows. We ﬁrst randomly sample a coordinate (xc,y c) as the geometry center of the region from Cs, i.e., (xc,y c)∈ Cs. Then we calculate the boundaries ofRs as xl =⌈xc− WP2 ⌉, xr =⌊xc + WP2 ⌋, yb =⌈yc− HP2 ⌉, yt =⌊yc + HP2 ⌋, (12) where xl, xr, yb, yt denote the left, right, bottom and top boundary of the salient region Rs. Finally, we adjust these boundaries to guarantee the whole region is within the im- 10 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03254,
+        0.0004,
+        -0.0445,
+        0.01514,
+        -0.00329
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 46758,
+      "length": 858,
+      "overlap_with_previous": "ere xl, xr, yb, yt denote the left, right, bottom and top boundary of the salient region Rs. Finally, we adjust these boundaries to guarantee the whole region is within the im- 10 ",
+      "overlap_with_next": "",
+      "text": "ere xl, xr, yb, yt denote the left, right, bottom and top boundary of the salient region Rs. Finally, we adjust these boundaries to guarantee the whole region is within the im- 10 [Page 11] Original image Augmented image CAM for source image CAM for target image ResizeMix CutMix ResizeMix ResizeMixCutMix CutMix Source image Source image Source imageTarget image Target image Target image Source imageTarget image ResizeMix CutMix Original image Augmented image CAM for source image CAM for target image Figure 6. More visualization comparisons between CutMix and ResizeMix. age. Forxl andxr, if xl≤ 0, { xl = 0, xr =WP , if xr≥W , { xl =W−WP , xr =W ; (13) Foryb andyt, if yb≤ 0, { yb = 0, yt =HP , if yt≥H, { yb =H−HP , yt =H, (14) whereW andH denote the width and height of the target image. The non-salient region Rns can be obtained in the same way. 11",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03884,
+        -0.00664,
+        -0.02302,
+        -0.00422,
+        -0.02142
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[project]
+name = "research-papers-graphrag"
+version = "0.1.0"
+description = "GraphRAG for research papers using MongoDB Atlas and OpenRouter"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-multipart>=0.0.9",
+    "python-dotenv>=1.0",
+    "openai>=1.50",
+    "pypdf>=4.0",
+    "numpy>=2.4.6",
+    "httpx>=0.28.1",
+    "anthropic>=2.3.0",
+]

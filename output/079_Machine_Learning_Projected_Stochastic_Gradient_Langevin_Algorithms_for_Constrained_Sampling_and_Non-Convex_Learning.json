@@ -1,0 +1,1473 @@
+{
+  "paper_id": "c98124b8-5f2c-4d88-943a-e5830144ecec",
+  "filename": "079_Machine_Learning_Projected_Stochastic_Gradient_Langevin_Algorithms_for_Constrained_Sampling_and_Non-Convex_Learning.pdf",
+  "title": "079_Machine_Learning_Projected_Stochastic_Gradient_Langevin_Algorithms_for_Constrained_Sampling_and_Non-Convex_Learning.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 86,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "e show the algorithm achieves a deviation ofO(T −1/4(logT )1/2) from its target distribution in 1-Wasserstein distance. For optimization and learning, we show that the al gorithm a",
+      "text": "[Page 1] arXiv:2012.12137v1 [cs.LG] 22 Dec 2020 Projected Stochastic Gradient Langevin Algorithms for Con strained Sampling and Non-Convex Learning Andrew Lamperski ALAMPERS @UMN .EDU 200 Union St. Se, Keller Hall 4-174, Minneapolis, MN 55455, U SA Abstract Langevin algorithms are gradient descent methods with addi tive noise. They have been used for decades in Markov Chain Monte Carlo (MCMC) sampling, optimi zation, and learning. Their con- vergence properties for unconstrained non-convex optimiz ation and learning problems have been studied widely in the last few years. Other work has examined projected Langevin algorithms for sampling from log-concave distributions restricted to con vex compact sets. For learning and opti- mization, log-concave distributions correspond to convex losses. In this paper, we analyze the case of non-convex losses with compact convex constraint sets an d IID external data variables. We term the resulting method the projected stochastic gradient Lan gevin algorithm (PSGLA). We show the algorithm achieves a deviation ofO(T −1/4(logT )1/2) from its target distribution in 1-Wasserstein distance. For optimization and learning, we show that the al gorithm a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02731,
+        -0.02157,
+        -0.04122,
+        -0.00787,
+        0.01512
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "e show the algorithm achieves a deviation ofO(T −1/4(logT )1/2) from its target distribution in 1-Wasserstein distance. For optimization and learning, we show that the al gorithm a",
+      "overlap_with_next": "arning, this enables the alg orithms to ﬁnd near optimal solutions even when the losses are non-convex. For sampling, Langevin algorithms give a simple approach to produce samples ",
+      "text": "e show the algorithm achieves a deviation ofO(T −1/4(logT )1/2) from its target distribution in 1-Wasserstein distance. For optimization and learning, we show that the al gorithm achieves ǫ-suboptimal solu- tions, on average, provided that it is run for a time that is po lynomial in ǫ−1 and slightly super- exponential in the problem dimension. Keywords: Langevin Methods, Stochastic Gradient Algorithms, Non-Co nvex Learning, Non- Asymptotic Analysis, Markov Chain Monte Carlo Sampling 1. Introduction Langevin dynamics originate in the study of statistical phy sics Coffey and Kalmykov (2012), and have a long history of applications to Markov Chain Monte Car lo (MCMC) sampling Roberts et al. (1996), non-convex optimization Gelfand and Mitter (1991); Borkar and Mitter (1999), and ma- chine learning Welling and Teh (2011). Langevin algorithms amount to gradient descent augmente d with additive Gaussian noise. This additive noise enables t he algorithms to escape saddles and local minima. For optimization and learning, this enables the alg orithms to ﬁnd near optimal solutions even when the losses are non-convex. For sampling, Langevin algorithms give a simple approach to produce samples ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03062,
+        -0.03987,
+        -0.04062,
+        -0.00117,
+        0.0217
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "arning, this enables the alg orithms to ﬁnd near optimal solutions even when the losses are non-convex. For sampling, Langevin algorithms give a simple approach to produce samples ",
+      "overlap_with_next": "le, zk are external random variables, wk is Gaussian noise, and η andβ are parameters. In a learning context, zk correspond to data, xk are parameters of a model, andf (x,z ) is a ",
+      "text": "arning, this enables the alg orithms to ﬁnd near optimal solutions even when the losses are non-convex. For sampling, Langevin algorithms give a simple approach to produce samples that converge to target distributions whic h are not log-concave. Related Work. A large amount of progress on the non-asymptotic analysis of Langevin algo- rithms has been reported in recent years. This work has two ma in streams: 1) unconstrained non- convex problems and 2) constrained convex problems. These w orks will be reviewed below. The bulk of the recent work on non-asymptotic analysis of Lan gevin algorithms has exam- ined unconstrained problems Raginsky et al. (2017); Majka et al. (2020); Fehrman et al. (2020); Chen et al. (2020); Erdogdu et al. (2018); Durmus et al. (2017); Chau et al. (2019); Xu et al. (2018); Cheng et al. (2018); Ma et al. (2019). The basic algorithm in the unconstrained case has the form : xk+1 = xk −η∇xf (xk, zk) + √ 2η β wk, [Page 2] PSGLA FOR SAMPLING AND LEARNING where xk is the decision variable, zk are external random variables, wk is Gaussian noise, and η andβ are parameters. In a learning context, zk correspond to data, xk are parameters of a model, andf (x,z ) is a ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04271,
+        -0.00695,
+        -0.03346,
+        0.00339,
+        0.00104
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "le, zk are external random variables, wk is Gaussian noise, and η andβ are parameters. In a learning context, zk correspond to data, xk are parameters of a model, andf (x,z ) is a ",
+      "overlap_with_next": "pact convex constraint sets with no external variables zk. Most closely related to our work is that of Bubeck et al. (2015, 2018) which augments the Langevin algorithm with a proje",
+      "text": "le, zk are external random variables, wk is Gaussian noise, and η andβ are parameters. In a learning context, zk correspond to data, xk are parameters of a model, andf (x,z ) is a loss function that describes how well the model paramete rs ﬁt the data. With no Gaussian noise, wk, this algorithm reduces to stochastic gradient descent. A breakthrough was achieved in Raginsky et al. (2017), which gave non-asymptotic bounds in the case thatf (x,z ) is non-convex inx and zk are independent identically distributed (IID). A wide number of improvements and variations on these results have since been obtained in works such as Majka et al. (2020); Fehrman et al. (2020); Chen et al. (2020); Erdogdu et al. (2018); Durmus et al. (2017); Chau et al. (2019); Xu et al. (2018); Cheng et al. (2018); Ma et al. (2019). In particular, Chau et al. (2019) achieves tighter performance guarantees and extends to th e case that zk is a mixing process. For problems with constraints, most existing work focuses c onvex losses over compact convex constraint sets with no external variables zk. Most closely related to our work is that of Bubeck et al. (2015, 2018) which augments the Langevin algorithm with a proje",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04073,
+        -0.0029,
+        -0.04003,
+        -0.02393,
+        0.00274
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "pact convex constraint sets with no external variables zk. Most closely related to our work is that of Bubeck et al. (2015, 2018) which augments the Langevin algorithm with a proje",
+      "overlap_with_next": "the initialization is feasible for the cons traints. Contributions. This paper gives non-asymptotic convergence bounds for Lan gevin algorithms for problems that are constrained to",
+      "text": "pact convex constraint sets with no external variables zk. Most closely related to our work is that of Bubeck et al. (2015, 2018) which augments the Langevin algorithm with a projection on to the constraint set. Proximal-type algorithms were examined Brosse et al. (2017). V ariations on mirror descent were examined in Ahn and Chewi (2020); Hsieh et al. (2018); Zhang et al. (2020); Krichene and Bartlett (2017). Recent work of Wang et al. (2020) examines Langevin dynamics on Riemannian manifolds. In this case, the losses may be non-convex, but still there ar e no external variables, zk. It utilizes results from diffusion theory to give convergence with respect to Kullback-Liebler (KL) divergence. Many of the ideas in that paper could likely be translated to t he current setting. However, such KL divergence bounds become degenerate if the algorithm is initialized as a constant value, e.g. x0 = 0. In contrast, our work focuses on bounds in the 1-Wasserstien distance, which gives well-deﬁned bounds as long as the initialization is feasible for the cons traints. Contributions. This paper gives non-asymptotic convergence bounds for Lan gevin algorithms for problems that are constrained to",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07966,
+        0.01135,
+        -0.03417,
+        0.00844,
+        -0.01872
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "the initialization is feasible for the cons traints. Contributions. This paper gives non-asymptotic convergence bounds for Lan gevin algorithms for problems that are constrained to",
+      "overlap_with_next": "ed stochastic differential equations is derived. 2. Setup 2.1. Notation and Terminology. R denotes the set of real numbers while N denotes the set of non-negative integers. The Euc",
+      "text": "the initialization is feasible for the cons traints. Contributions. This paper gives non-asymptotic convergence bounds for Lan gevin algorithms for problems that are constrained to a compact convex set. In particular, we examine a general- ized version of the algorithm examined in Bubeck et al. (2018, 2015). As discussed above, the existing works on constrained Langevin methods (aside from the Riemannian manifold results of Wang et al. (2020)) focus on convex loss functions, and none consider externa l random variables. This paper examines the case of non-convex losses with IID ex ternal randomness. For the pur- pose of sampling, it is shown that after T steps, the error from the target in the 1-Wasserstein is of O(T −1/4(logT )1/2). For optimization and learning, this bound is used to show th at the algorithm can achieve a suboptimality of ǫ in a number of steps that is polynomial in ǫ and slightly superex- ponential in the dimension of xk. To derive the bounds, a novel result on contractions for reﬂ ected stochastic differential equations is derived. 2. Setup 2.1. Notation and Terminology. R denotes the set of real numbers while N denotes the set of non-negative integers. The Euc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04254,
+        0.01506,
+        -0.03759,
+        0.00797,
+        -0.00465
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ed stochastic differential equations is derived. 2. Setup 2.1. Notation and Terminology. R denotes the set of real numbers while N denotes the set of non-negative integers. The Euc",
+      "overlap_with_next": " be IID Gaussian random variables and let zk be IID random variables whose properties will be described later. Assume that zi and ˆwj are independent for all i,j ∈ N. Assume that t",
+      "text": "ed stochastic differential equations is derived. 2. Setup 2.1. Notation and Terminology. R denotes the set of real numbers while N denotes the set of non-negative integers. The Euclidean norm over Rn is denoted by ‖ · ‖. Random variables will be denoted in bold. If x is a random variable, then E[x] denotes its expected value and L(x) denotes its law. IID stands for independent, identically di stributed. The 2 [Page 3] PSGLA FOR SAMPLING AND LEARNING indicator function is denoted by /BD . If P and Q are two probability measures over Rn, then the 1-Wasserstein distance between them with respect the Euclid ean norm is denoted by W1(P,Q ). Throughout the paper, K will denote a compact convex subset of Rn of diameter D such that a ball of radius r> 0 around the origin is contained in K. The boundary of K is denoted by ∂K. The normal cone of K at a point x is denoted by NK(x). The convex projection onto K is denoted by ΠK. 2.2. The Project Stochastic Gradient Langevin Algorithm For integers k let ˆwk ∼ N (0,I ) be IID Gaussian random variables and let zk be IID random variables whose properties will be described later. Assume that zi and ˆwj are independent for all i,j ∈ N. Assume that t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05155,
+        0.01146,
+        -0.03383,
+        -0.0088,
+        -0.00474
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": " be IID Gaussian random variables and let zk be IID random variables whose properties will be described later. Assume that zi and ˆwj are independent for all i,j ∈ N. Assume that t",
+      "overlap_with_next": "me−U (z) with ∇2U (z) ≽κI for allz. Hereκ> 0 and the inequality is with respect to the positive semideﬁnite partial order. (See The orem 5.2.15 of V ershynin(2018).) • Convex Gradi",
+      "text": " be IID Gaussian random variables and let zk be IID random variables whose properties will be described later. Assume that zi and ˆwj are independent for all i,j ∈ N. Assume that the initial value of x0 ∈ K is independent of zi and ˆwj. Then the projected stochastic gradient Langevin algorithm has the form: xk+1 = Π K ( xk −η∇xf (xk, zk) + √ 2η β ˆwk ) , (1) withk an integer. Here η >0 is the step size parameter and β >0 is a noise parameter. Let ¯f (x) = E[f (x, z)], where the expectation is over z, which has the same distribution as zk. We will assume that ∇xf (x, z) − ∇x ¯f (x) are uniformly sub-Gaussian for each x ∈ Rn. That is, there is a number σ >0 such that for all α ∈ Rn, the following bound holds: E [ exp ( α⊤(∇xf (x, z) − ∇x ¯f (x)))] ≤eσ2‖α‖2/2. (2) The uniform sub-Gaussian property holds under the followin g conditions: • Gradient Noise: ∇xf (x, z) = ∇x ¯f (x) + z with z sub-Gaussian. • Lipschitz Gradients and Strongly Log-Concave z: ∇xf (x,z ) is Lipschitz in z and z has a density of the forme−U (z) with ∇2U (z) ≽κI for allz. Hereκ> 0 and the inequality is with respect to the positive semideﬁnite partial order. (See The orem 5.2.15 of V ershynin(2018).) • Convex Gradi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07117,
+        0.02056,
+        -0.02405,
+        -0.02581,
+        0.01425
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "me−U (z) with ∇2U (z) ≽κI for allz. Hereκ> 0 and the inequality is with respect to the positive semideﬁnite partial order. (See The orem 5.2.15 of V ershynin(2018).) • Convex Gradi",
+      "overlap_with_next": "o beu-smooth, so that ‖∇x ¯f (x)‖ ≤ u for allx ∈ K. The assumptions on ¯f imply that we can have u ≤ ‖∇ x ¯f (0)‖ +ℓD and that ¯f isu-Lipschitz. In Bubeck et al. (2018), the case w",
+      "text": "me−U (z) with ∇2U (z) ≽κI for allz. Hereκ> 0 and the inequality is with respect to the positive semideﬁnite partial order. (See The orem 5.2.15 of V ershynin(2018).) • Convex Gradients and Bounded z: Each component ∂f (x,z)∂xi is convex inz and z is boundedwith independent components. (See Theorem 3.24 of Wainwright (2019).) For learning, the last two conditions are the most useful, si nce they give general classes of losses and variables for which the method can be applied. In particu lar, the second case applies to many common scenarios. It includes Gaussian z as a special case, and it can be applied to neural networks with smooth activation functions. A variety of more special ized cases in which the sub-Gaussian condition holds are presented in Chapter 5 of V ershynin(2018). Future work will relax the uniform sub-Gaussian assumption and the requirement of IID zk. We assume that for each z, ∇xf (x,z ) isℓ-Lipschitz in x, i.e. ‖∇xf (x1,z ) − ∇xf (x2,z )‖ ≤ ℓ‖x1 −x2‖. The mean function, ¯f , is assumed to beu-smooth, so that ‖∇x ¯f (x)‖ ≤ u for allx ∈ K. The assumptions on ¯f imply that we can have u ≤ ‖∇ x ¯f (0)‖ +ℓD and that ¯f isu-Lipschitz. In Bubeck et al. (2018), the case w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05373,
+        -0.00113,
+        -0.02753,
+        -0.0363,
+        0.0277
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "o beu-smooth, so that ‖∇x ¯f (x)‖ ≤ u for allx ∈ K. The assumptions on ¯f imply that we can have u ≤ ‖∇ x ¯f (0)‖ +ℓD and that ¯f isu-Lipschitz. In Bubeck et al. (2018), the case w",
+      "overlap_with_next": "n the dimension of xk,n, the noise parameter,β, the Lipschitz constant, ℓ, the diameter, D, the size of the inscribed ball r, and the smoothness constant, u. The speciﬁc form of th",
+      "text": "o beu-smooth, so that ‖∇x ¯f (x)‖ ≤ u for allx ∈ K. The assumptions on ¯f imply that we can have u ≤ ‖∇ x ¯f (0)‖ +ℓD and that ¯f isu-Lipschitz. In Bubeck et al. (2018), the case with ¯f is convex and no zk variables is studied. It is shown that by choosing the step size, η, appropriately, the law of xk is given approximately given by πβ ¯f , 3 [Page 4] PSGLA FOR SAMPLING AND LEARNING which is deﬁned by πβ ¯f (A) = ∫ Ae−β ¯f (x)dx∫ Ke−β ¯f (x)dx. (3) In this paper, we will bound the convergence of ( 1) to ( 3) in the case of non-convex f with external random variables zk. 3. Main Results 3.1. Convergence of the Law of the Iterates The following is the main result of the paper. It is proved in S ubsection 3.4. Theorem 1 Assume that η ≤ 1/2. There are positive constants a, c1 and c2 such that for all integersk ≥ 4, the following bound holds: W1(L(xk),π β ¯f ) ≤c1e−ηak +c2(η logk)1/4 In particular , ifη = log T4aT andT ≥ 4, then W1(L(xT ),π β ¯f ) ≤ ( c1 + c2(4a)1/4 ) T −1/4(logT )1/2. The constants depend on the dimension of xk,n, the noise parameter,β, the Lipschitz constant, ℓ, the diameter, D, the size of the inscribed ball r, and the smoothness constant, u. The speciﬁc form of th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0515,
+        0.04176,
+        -0.02974,
+        -0.03179,
+        0.01572
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "n the dimension of xk,n, the noise parameter,β, the Lipschitz constant, ℓ, the diameter, D, the size of the inscribed ball r, and the smoothness constant, u. The speciﬁc form of th",
+      "overlap_with_next": " but the required time may be slightly super-exponential with respect to problem dimension,n. It is proved in Appendix D. 4 [Page 5] PSGLA FOR SAMPLING AND LEARNING Proposition 3 A",
+      "text": "n the dimension of xk,n, the noise parameter,β, the Lipschitz constant, ℓ, the diameter, D, the size of the inscribed ball r, and the smoothness constant, u. The speciﬁc form of the constants will be derived in the proof. For applic ations, it is useful to know how the constants depend on the dimension, n, and the noise parameter, β. The result below indicates that the algorithm exhibits two distinct regimes in which conver gence is fast and slow, respectively. It is proved in Appendix C. Proposition 2 The constants c1 and c2 grow linearly with n. If D2ℓβ < 8, then we can set a = 4D2β ≥ ℓ2 , while c1 andc2 grow polynomially with respect to (1 − D2ℓβ8 )−2 andβ−1/4. In general, we have a positive constant c3 and a monotonically increasing polynomial p (independent ofη andβ) such that for all β >0, the following bounds hold: a ≥c3β exp ( −D2ℓβ4 ) max {c1,c 2} ≤ p(β−1/4) exp ( 3D2ℓβ 4 ) . 3.2. Application to Optimization and Learning The following result shows that the xk can be made arbitrarily near optimal, but the required time may be slightly super-exponential with respect to problem dimension,n. It is proved in Appendix D. 4 [Page 5] PSGLA FOR SAMPLING AND LEARNING Proposition 3 A",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02213,
+        0.02324,
+        -0.06915,
+        -0.01651,
+        -0.02198
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": " but the required time may be slightly super-exponential with respect to problem dimension,n. It is proved in Appendix D. 4 [Page 5] PSGLA FOR SAMPLING AND LEARNING Proposition 3 A",
+      "overlap_with_next": " of the algorithm into continuous t ime by setting xAt = x⌊t⌋. The A superscript is used to highlight the connection between this process and the algorithm. The Gaussian variables ",
+      "text": " but the required time may be slightly super-exponential with respect to problem dimension,n. It is proved in Appendix D. 4 [Page 5] PSGLA FOR SAMPLING AND LEARNING Proposition 3 Assume that η ≤ 1/2. There is a positive constant, c5 such that for all k ≥ 4, the following bound holds: E[ ¯f (xk)] ≤ minx∈K ¯f (x) +uW1(L(xk),π β ¯f ) + n log(c5 max{1,β })β . In particular , given anyρ> 4 and anyζ >1, there are choices of η,β, and T , along with positive numbersm(ρ,ζ ) andα(ρ,ζ ), such that for any suboptimality level,ǫ> 0, the following implication holds: T ≥ m(ρ,ζ )ǫρ exp(α(ρ,ζ )nζ) =⇒ E[ ¯f (xT )] ≤ minx∈K ¯f (x) +ǫ. 3.3. The Auxiliary Processes Used for the Main Bound Similar to other analyses of Langevin methods, e.g. Raginsky et al. (2017); Bubeck et al. (2018); Chau et al. (2019), the proof of Theorem 1 utilizes a collection of auxiliary stochastic processes th at ﬁt between the algorithm iterates from ( 1) and a stationary Markov process with state distribution given by (3). We will embed the iterates of the algorithm into continuous t ime by setting xAt = x⌊t⌋. The A superscript is used to highlight the connection between this process and the algorithm. The Gaussian variables ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04989,
+        -0.00248,
+        -0.05495,
+        0.03392,
+        0.00393
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " of the algorithm into continuous t ime by setting xAt = x⌊t⌋. The A superscript is used to highlight the connection between this process and the algorithm. The Gaussian variables ",
+      "overlap_with_next": "nd vCs ∈NK(xCs ) whereNK(x) is the normal cone of K atx. Under these conditions, the reﬂection process is uniquely deﬁned and xC is the unique solution to the Skorokhod problem for",
+      "text": " of the algorithm into continuous t ime by setting xAt = x⌊t⌋. The A superscript is used to highlight the connection between this process and the algorithm. The Gaussian variables ˆwk can be realized as ˆwk = wk+1 − wk where wt is a Brownian motion. We will let xCt be a continuous approximation of xAt and we will let xMt be a variation on the process xCt in which averages out the effect of the zk variables. The proof will proceed by showing that the law of xMt converges exponentially to (3), that xCt has a similar law to xMt , and that xAt has a similar law to xCt . Below we make these statements more precise. The continuous approximation of the algorithm is deﬁned by t he following reﬂected stochastic differential equation (RSDE): dxCt = −η∇xf (xCt , z⌊t⌋)dt + √ 2η β dwt − vCt dµC(t). (4) Here − ∫ t 0 vCsdµC(s) is a bounded variation reﬂection process that ensures that xCt ∈ K for allt ≥ 0, as long as xC0 ∈ K . In particular, the measure µC is such that µC([0,t ]) is ﬁnite, µC supported on {s|xCs ∈∂K}, and vCs ∈NK(xCs ) whereNK(x) is the normal cone of K atx. Under these conditions, the reﬂection process is uniquely deﬁned and xC is the unique solution to the Skorokhod problem for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02817,
+        0.00347,
+        -0.0409,
+        0.0152,
+        -0.00935
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "nd vCs ∈NK(xCs ) whereNK(x) is the normal cone of K atx. Under these conditions, the reﬂection process is uniquely deﬁned and xC is the unique solution to the Skorokhod problem for",
+      "overlap_with_next": "llowing lemmas describe the relationships between th e laws all of these processes. They are proved in Sections 4, 6, 7 respectively. Lemma 4 There are positive constants c1 anda s",
+      "text": "nd vCs ∈NK(xCs ) whereNK(x) is the normal cone of K atx. Under these conditions, the reﬂection process is uniquely deﬁned and xC is the unique solution to the Skorokhod problem for the process deﬁned by: yCt = xC0 + √ 2η β wt −η ∫ t 0 ∇xf (xCs, z⌊s⌋)ds See Appendix E for more details on the Skorokhod problem. For compact notation, we denote the Skorkohod solution for g iven trajectory, y, by S(y). So, the fact that xC is the solution to the Skorokhod problem for yC will be denoted succinctly by xC = S(yC ). The averaged version of xCt , denoted by xMt , where the M corresponds to “mean”, is deﬁned by: dxMt = −η∇x ¯f (xMt )dt + √ 2η β dwt − vMt dµM (t). (5) 5 [Page 6] PSGLA FOR SAMPLING AND LEARNING Again − ∫ t 0 vMs dµM (s) is the unique reﬂection process that ensures that xMt ∈ K for allt whenever xM0 ∈ K. By construction, xMt satisﬁes the Skorokhod problem for the continuous process d eﬁned by yMt = xM0 + √ 2η β wt −η ∫ t 0 ∇x ¯f (xMs )ds. See Appendix E for more details on the Skorokhod problem. The following lemmas describe the relationships between th e laws all of these processes. They are proved in Sections 4, 6, 7 respectively. Lemma 4 There are positive constants c1 anda s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03415,
+        -0.01696,
+        -0.06533,
+        -0.0065,
+        -0.00044
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "llowing lemmas describe the relationships between th e laws all of these processes. They are proved in Sections 4, 6, 7 respectively. Lemma 4 There are positive constants c1 anda s",
+      "overlap_with_next": "+c7. The speciﬁc bound whenη = log T4aT arises from direct computation. ■ 4. Contractions for the Reﬂected SDEs In this section, we will show how the laws of the processes xCt and ",
+      "text": "llowing lemmas describe the relationships between th e laws all of these processes. They are proved in Sections 4, 6, 7 respectively. Lemma 4 There are positive constants c1 anda such that for all t ≥ 0 W1(L(xMt ),π β ¯f ) ≤c1e−ηat. Lemma 5 Assume that xA0 = xC0 ∈ K andη ≤ 1/2. There is a positive constant, c6, such that for allt ≥ 4, W1(L(xAt ), L(xCt )) ≤c6 (η logt)1/4. Lemma 6 Assume that xM0 = xC0 ∈ K andη ≤ 1/2. There is a positive constant, c7 such that for allt ≥ 0, W1(L(xMt ), L(xCt )) ≤c7η1/4. Most of the rest of the paper focuses on proving these lemmas. Assuming that these lemmas hold, the main result now has a short proof, which we describe next. 3.4. Proof of Theorem 1 Recall that xAk = xk for all integers k ∈ N. Assume that x0 = xA0 = xC0 = xM0 . The triangle inequality followed by Lemmas 4, 5, and 6 shows that W1(L(xk),π βf ) ≤W1(L(xAk ), L(xCk )) +W1(L(xCk ), L(xMk )) +W1(L(xMk ),π βf ) ≤c1e−ηak +c6 (η logk)1/4 +c7η1/4. The result now follows by noting that logk ≥ 1 fork ≥ 4 settingc2 =c6 +c7. The speciﬁc bound whenη = log T4aT arises from direct computation. ■ 4. Contractions for the Reﬂected SDEs In this section, we will show how the laws of the processes xCt and ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06498,
+        0.06173,
+        -0.03557,
+        -0.00604,
+        -0.00485
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "+c7. The speciﬁc bound whenη = log T4aT arises from direct computation. ■ 4. Contractions for the Reﬂected SDEs In this section, we will show how the laws of the processes xCt and ",
+      "overlap_with_next": "stants can always be set to a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) c8 = eDωN ξcosh(DωN√ξ2 − 1) − ξ√ξ2−1 sinh(DωN√1 −ξ2) WhenD2ℓβ <8, a larger decay constant, a, can be deﬁned by setting a",
+      "text": "+c7. The speciﬁc bound whenη = log T4aT arises from direct computation. ■ 4. Contractions for the Reﬂected SDEs In this section, we will show how the laws of the processes xCt and xMt are contractive with respect to a specially constructed Wasserstein distance. By relati ng this specially constructed distance with W1 we will prove Lemma 4 which states that L(xMt ) converges toπβf exponentially with respect to W1. The contraction will be derived by an extension of the reﬂec tion coupling argument of Eberle (2016) to the case of reﬂected SDEs with external randomness (from zk). This result may be of independent interest. 6 [Page 7] PSGLA FOR SAMPLING AND LEARNING Proposition 7 There are positive constantsa andc8 such that for any two solutions, xC,1t and xC,2t to the continuous-time RSDE, (4), their laws converge according to W1(L(xC,1t ), L(xC,2t )) ≤c8e−ηatW1(L(xC,10 ), L(xC,20 )) (6) To deﬁne the constants, let the natural frequency and dampin g ratio be given by ωN = √aβ 2 and ξ = Dℓ4 √ β a. (7) The constants can always be set to a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) c8 = eDωN ξcosh(DωN√ξ2 − 1) − ξ√ξ2−1 sinh(DωN√1 −ξ2) WhenD2ℓβ <8, a larger decay constant, a, can be deﬁned by setting a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04425,
+        0.05715,
+        -0.02131,
+        0.00891,
+        0.01049
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "stants can always be set to a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) c8 = eDωN ξcosh(DωN√ξ2 − 1) − ξ√ξ2−1 sinh(DωN√1 −ξ2) WhenD2ℓβ <8, a larger decay constant, a, can be deﬁned by setting a",
+      "overlap_with_next": "s dµC,2(s) are the unique projection processes that ensure that respec tive Skorkhod problem solutions, xC,1t and xC,2t , remain in K. The processes from ( 8) deﬁne a valid couplin",
+      "text": "stants can always be set to a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) c8 = eDωN ξcosh(DωN√ξ2 − 1) − ξ√ξ2−1 sinh(DωN√1 −ξ2) WhenD2ℓβ <8, a larger decay constant, a, can be deﬁned by setting a = 4D2β c8 = eDωN ξcos(DωN√1 −ξ2) − ξ√1−ξ2 sin(DωN√1 −ξ2). Proof We will follow the main idea behind Eberle (2016). We will correlate the solutions using reﬂection coupling, and then construct a distance function,h, from the coupling. Thenh will be used to construct a Wasserstein distance for which the laws L(xC,1t ) and L(xC,2t ) converge exponentially. The desired bound is found by comparing this auxiliary dista nce to the classical W1 distance. Let ρt = xC,1t − xC,2t , ut = ρt/‖ρt‖ and τ = inf {t|xC,1t = xC,2t }. Note that τ . The reﬂection coupling between xC,1t and xC,2t is deﬁned by: dxC,1t = −η∇xf (xC,1t , z⌊t⌋) + √ 2η β dwt − vC,1t dµC,1(t) (8a) dxC,2t = −η∇xf (xC,2t , z⌊t⌋) + √ 2η β (I − 2utu⊤t /BD (t< τ ))dwt − vC,2t dµC,2(t). (8b) HereI is the n ×n identity matrix. Also, ϕ1t = −∫ t0 vC,1s dµC,1(s) and ϕ2t = −∫ t0 vC,2s dµC,2(s) are the unique projection processes that ensure that respec tive Skorkhod problem solutions, xC,1t and xC,2t , remain in K. The processes from ( 8) deﬁne a valid couplin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01318,
+        0.00915,
+        -0.04531,
+        -0.01082,
+        0.00552
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "s dµC,2(s) are the unique projection processes that ensure that respec tive Skorkhod problem solutions, xC,1t and xC,2t , remain in K. The processes from ( 8) deﬁne a valid couplin",
+      "overlap_with_next": "serstein distance corresponding to the function d(x,y ) = h(‖x −y‖) forx,y ∈ K . In other words, if P andQ are probability distributions on K andC(P,Q ) is the set of couplings bet",
+      "text": "s dµC,2(s) are the unique projection processes that ensure that respec tive Skorkhod problem solutions, xC,1t and xC,2t , remain in K. The processes from ( 8) deﬁne a valid coupling because ∫ T 0 (I − 2usu⊤s /BD (s < τ ))dws is a Brownian motion. Furthermore, for t ≥ τ , we have that xC,1t = xC,2t . Analogous to Eberle (2016), we aim to construct a function h : [0,D ] → R such thath(0) = 0 , h′(0) = 1 ,h′(x)> 0, and h′′(x)< 0 and a constant a> 0 such thateηath(‖zt‖) is a supermartin- gale. One simplifying assumption for the construction is th at we only need to deﬁne h over the compact set [0,D ], while Eberle (2016) requiresh to be deﬁned over [0, ∞). This is due to the fact 7 [Page 8] PSGLA FOR SAMPLING AND LEARNING that our solutions will be contained in K which has diameterD, while in Eberle (2016) the solutions are unconstrained. Now we will describe why the construction of such anh proves the lemma. The supermartingale property will ensure that E[h(‖ρt‖)] ≤e−ηatE[h(‖ρ0‖)] (9) LetWh denote that 1-Wasserstein distance corresponding to the function d(x,y ) = h(‖x −y‖) forx,y ∈ K . In other words, if P andQ are probability distributions on K andC(P,Q ) is the set of couplings bet",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05149,
+        0.01673,
+        -0.04297,
+        0.02768,
+        0.01732
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "serstein distance corresponding to the function d(x,y ) = h(‖x −y‖) forx,y ∈ K . In other words, if P andQ are probability distributions on K andC(P,Q ) is the set of couplings bet",
+      "overlap_with_next": "h andW1 that for all probability measures P andQ over K that h′(D)W1(P,Q ) ≤Wh(P,Q ) ≤W1(P,Q ). Combining these inequalities with ( 10) gives (6) withc8 =h′(D)−1. Now we will const",
+      "text": "serstein distance corresponding to the function d(x,y ) = h(‖x −y‖) forx,y ∈ K . In other words, if P andQ are probability distributions on K andC(P,Q ) is the set of couplings between P andQ, then Wh(P,Q ) = infΓ∈C(P,Q) ∫ K×K h(‖x −y‖)dΓ(x,y ). By the hypotheses on h,d(x,y ) = d(y,x ) ≥ 0 andd(x,y ) = 0 if and only if x =y. Thus, Wh is a valid Wasserstein distance. Assume that Γ0 is an optimal coupling of the initial laws C(L(xC,10 ), L(xC,20 )) so that Wh(L(xC,10 ), L(xC,20 )) = ∫ K×K h(‖x −y‖)dΓ0(x,y ). Such a coupling exists by Theorem 4.1 of Villani (2008). Then using this initial coupling on the right of (9) and minimizing over all couplings of the dynamics on the lef t shows that Wh(L(xC,1t ), L(xC,2t )) ≤ E[h(‖ρt‖)] ≤e−ηatWh(L(xC,10 ), L(xC,10 )). (10) In other words, the law of the continuous-time RSDE is contra ctive with respect to Wh. By the assumptions that h(0) = 0 ,h′(0) = 1 ,h′(x) > 0, and h′′(x) < 0, we have that for all x ∈ [0,D ]: h′(D)x ≤h(x) ≤x. It then follows from the deﬁnition of Wh andW1 that for all probability measures P andQ over K that h′(D)W1(P,Q ) ≤Wh(P,Q ) ≤W1(P,Q ). Combining these inequalities with ( 10) gives (6) withc8 =h′(D)−1. Now we will const",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01284,
+        0.03803,
+        -0.03616,
+        -0.01262,
+        -0.00649
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "h andW1 that for all probability measures P andQ over K that h′(D)W1(P,Q ) ≤Wh(P,Q ) ≤W1(P,Q ). Combining these inequalities with ( 10) gives (6) withc8 =h′(D)−1. Now we will const",
+      "overlap_with_next": "derive these terms. 8 [Page 9] PSGLA FOR SAMPLING AND LEARNING Let bt be the one-dimensional Brownian motion deﬁned by dbt = u⊤t dwt. Then for t < τ , dρt can be expressed as dρt =",
+      "text": "h andW1 that for all probability measures P andQ over K that h′(D)W1(P,Q ) ≤Wh(P,Q ) ≤W1(P,Q ). Combining these inequalities with ( 10) gives (6) withc8 =h′(D)−1. Now we will construct h. The restriction of h to the domain of [0,D ], along with the Lipschitz bound on ∇xf will enable an explicit construction of h as the solution to a simple harmonic oscil- lator problem. This is in contrast to the more abstract const ruction in terms of integrals from Eberle (2016). To ensure that eηath(‖ρt‖) is a supermartingale, we must ensure that this process is non - increasing on average. Recall that τ is the coupling time so that eηath(‖ρt‖) = 0 for t ≥ τ . So, it sufﬁces to bound the behavior of the process for all t < τ . In this case, we require that non-martingale terms of d ( eηath(‖ρt‖)) are non-positive. By Itˆ o’s formula we have that d(eηath(‖ρt‖)) = eηatηah(‖ρt‖)dt +eηath′(‖ρt‖)d‖ρt‖ + 12eηath′′(‖ρt‖)(d‖ρt‖)2. (11) Thus, the desired differential is computed from d‖ρt‖ and (d‖ρt‖)2. So, our next goal is to derive these terms. 8 [Page 9] PSGLA FOR SAMPLING AND LEARNING Let bt be the one-dimensional Brownian motion deﬁned by dbt = u⊤t dwt. Then for t < τ , dρt can be expressed as dρt =",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05362,
+        0.01696,
+        -0.01422,
+        0.00511,
+        -0.00813
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "derive these terms. 8 [Page 9] PSGLA FOR SAMPLING AND LEARNING Let bt be the one-dimensional Brownian motion deﬁned by dbt = u⊤t dwt. Then for t < τ , dρt can be expressed as dρt =",
+      "overlap_with_next": "v2t ∈ NK(xC,2t ) implies that (xC,1t − xC,2t )⊤v2t ≤ 0. Likewise, v1t ∈ NK(xC,1t ) implies that −(xC,1t − xC,2t )⊤v1t ≤ 0. Then since µ1 and µ2 are non-negative measures, the corre",
+      "text": "derive these terms. 8 [Page 9] PSGLA FOR SAMPLING AND LEARNING Let bt be the one-dimensional Brownian motion deﬁned by dbt = u⊤t dwt. Then for t < τ , dρt can be expressed as dρt =η(∇xf (xC,2t , z⌊t⌋) − ∇xf (xC,1t , z⌊t⌋))dt+√ 8η β utdbt + vC,2t dµC,2(t) − vC,1t dµC,1(t). (12) Since ϕ1t and ϕ2t are bounded variation processes, the quadratic terms are gi ven by (dρt)(dρt)⊤ = 8ηβ utu⊤t dt. (13) Ifu =ρ/‖ρ‖ andρ ⁄= 0, then the gradient and Hessian of ‖ρ‖ are given by ∇‖ρ‖ = ‖ρ‖−1ρ =u and ∇2‖ρ‖ = ‖ρ‖−1I − ‖ρ‖−1uu⊤. (14) Plugging (12), (13), and (14) into Itˆ o’s formula and simplifying gives d‖ρt‖ =ηu⊤t (∇xf (xC,2t , z⌊t⌋) − ∇xf (xC,1t , z⌊t⌋))dt + √ 8η β dbt + u⊤t vC,2t dµC,2(t) − u⊤t vC,1t dµC,1(t) ≤ηℓDdt + √ 8η β dbt. (15) The simpliﬁcation in the equality arises because (dρt)⊤(∇2‖ρt‖)(dρt) = 0 . The inequality uses two simpliﬁcations. The ﬁrst term on the right arises due to t he Lipschitz bound on ∇xf and the diameter bound on K. The other terms can be removed since xC,1t and xC,2t are both in K, so that v2t ∈ NK(xC,2t ) implies that (xC,1t − xC,2t )⊤v2t ≤ 0. Likewise, v1t ∈ NK(xC,1t ) implies that −(xC,1t − xC,2t )⊤v1t ≤ 0. Then since µ1 and µ2 are non-negative measures, the corre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05895,
+        0.02233,
+        -0.02726,
+        0.00861,
+        0.01235
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "v2t ∈ NK(xC,2t ) implies that (xC,1t − xC,2t )⊤v2t ≤ 0. Likewise, v1t ∈ NK(xC,1t ) implies that −(xC,1t − xC,2t )⊤v1t ≤ 0. Then since µ1 and µ2 are non-negative measures, the corre",
+      "overlap_with_next": " follows by plugging in these values. Note that the function ¯f (x) satisﬁes all of the same assumptions that f (x,z ) does, with the further property that it is independent of z. ",
+      "text": "v2t ∈ NK(xC,2t ) implies that (xC,1t − xC,2t )⊤v2t ≤ 0. Likewise, v1t ∈ NK(xC,1t ) implies that −(xC,1t − xC,2t )⊤v1t ≤ 0. Then since µ1 and µ2 are non-negative measures, the corresponding terms are non-positive. Note that we also have that (d‖ρt‖)2 = 8ηβdt. Plugging the bounds for d‖ρt‖ and (d‖ρt‖)2 into (11) gives d(eηath(‖ρt‖)) ≤ 4ηβ eηat (aβ 4 h(‖ρt‖) + Dℓβ4 h′(‖ρt‖) +h′′(‖ρt‖))dt+√ 8η β eηath′(‖ρt‖)dbt. (16) Thus, we see that a sufﬁcient condition for eηath(‖ρt‖) to be a supermartingale is that aβ 4 h(x) + Dℓβ4 h′(x) +h′′(x) = 0 (17) for all x ∈ [0,D ]. This is precisely the simple harmonic oscillator equation for natural frequency and damping ratio deﬁned by: ω2N = aβ4 and 2ξωN = Dℓβ4 . 9 [Page 10] PSGLA FOR SAMPLING AND LEARNING For any positivea, the simple harmonic oscillator has a solution with h(0) = 0 , andh′(0) = 1 . Lemma 13 from Appendix A gives explicit values ofa that lead toh withh′(x)> 0 andh′′(x)< 0 for allx ∈D, and gives explicit expressions for c8 = (h′(D)) in these cases. The result follows by plugging in these values. Note that the function ¯f (x) satisﬁes all of the same assumptions that f (x,z ) does, with the further property that it is independent of z. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07712,
+        0.01374,
+        -0.05554,
+        -0.01689,
+        0.01586
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " follows by plugging in these values. Note that the function ¯f (x) satisﬁes all of the same assumptions that f (x,z ) does, with the further property that it is independent of z. ",
+      "overlap_with_next": " 1/2. Let ˆx be a process such that for all 0 ≤s ≤t, if ˆxs = xCs then W1(L(ˆxt), L(xCt )) ≤ g(t −s), where g is a monotonically increasing function. If ˆx0 = xC0 , then for allt ≥",
+      "text": " follows by plugging in these values. Note that the function ¯f (x) satisﬁes all of the same assumptions that f (x,z ) does, with the further property that it is independent of z. As a result, Proposition 7 applies to xMt as well. We can use this fact to prove the exponential convergence with resp ect toW1 result from 4. Proof of Lemma 4. Lemma 18 from Appendix F implies thatπβ ¯f is invariant with respect to the dynamics of the process xM . Now, apply Proposition 7 to xM = xM,1 and xM,2 such that L(xM,20 ) = πβ ¯f to give W1(L(xMt ),π β ¯f ) ≤c8e−ηatW1(L(xM0 ),π β ¯f ) ≤c8De−ηat. The speciﬁc form from the lemma arises because in this case L(xM,2t ) = πβ ¯f for allt ≥ 0, and also thatW1(L(xM0 ),π β ¯f ) ≤D, since K has diameterD. Setting c1 =c8D gives the result. ■ 5. A Switching Argument for Uniform Bounds The following lemma, which is based on a method from Chau et al. (2019), is useful for deriving W1 bounds from L(xCt ) that hold uniformly over time. It is proved in Appendix B. Lemma 8 Assume that η ≤ 1/2. Let ˆx be a process such that for all 0 ≤s ≤t, if ˆxs = xCs then W1(L(ˆxt), L(xCt )) ≤ g(t −s), where g is a monotonically increasing function. If ˆx0 = xC0 , then for allt ≥",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05806,
+        0.0637,
+        -0.04517,
+        -0.0039,
+        0.00755
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " 1/2. Let ˆx be a process such that for all 0 ≤s ≤t, if ˆxs = xCs then W1(L(ˆxt), L(xCt )) ≤ g(t −s), where g is a monotonically increasing function. If ˆx0 = xC0 , then for allt ≥",
+      "overlap_with_next": "s- cretization operator that sets D(x)t = x⌊t⌋ for any continuous-time trajectory, xt. Then, provided that xD0 = xC0 , we have that xD = S(D(yC )). Recall that S corresponds to the",
+      "text": " 1/2. Let ˆx be a process such that for all 0 ≤s ≤t, if ˆxs = xCs then W1(L(ˆxt), L(xCt )) ≤ g(t −s), where g is a monotonically increasing function. If ˆx0 = xC0 , then for allt ≥ 0, we have that W (L(ˆxt), L(xCt )) ≤g(η−1) ( 1 + c81 −e−a/2 ) We will refer to this as the “switching lemma”, as the proof fo llows by constructing a sequence of processes that switch from the dynamics of ˆx to the dynamics of xC . 6. Bounding the Algorithm from the Continuous RSDE The goal of this section is to prove Lemma 5, which states that the law of the algorithm, xAt , is close to the law of the continuous reﬂected SDE, xCt . To derive this bound, we introduce an intermediate process xD, and show that its law is close to that of both xC and xA. Recall the process yC deﬁned in Subsection 3.3. For any initial xD0 ∈ K, we deﬁne the following iteration on the integers: xDk+1 = Π K(xDk + yCk+1 − yCk ), and set xDt = xD⌊t⌋ for allt ∈ R. The process, xD, can also be interpreted as a Skorokhod solution. Indeed, le t D be the dis- cretization operator that sets D(x)t = x⌊t⌋ for any continuous-time trajectory, xt. Then, provided that xD0 = xC0 , we have that xD = S(D(yC )). Recall that S corresponds to the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06568,
+        0.03173,
+        -0.04633,
+        0.00161,
+        -0.01295
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "s- cretization operator that sets D(x)t = x⌊t⌋ for any continuous-time trajectory, xt. Then, provided that xD0 = xC0 , we have that xD = S(D(yC )). Recall that S corresponds to the",
+      "overlap_with_next": " by combining Lemmas 8, 9, and 10. Proof of Lemma 5 Using the triangle inequality and Lemmas 9 and 10 gives W1(L(xAt ), L(xCt )) ≤W1(L(xAt ), L(xDt )) +W (L(xDt ), L(xCt )) ≤ (η lo",
+      "text": "s- cretization operator that sets D(x)t = x⌊t⌋ for any continuous-time trajectory, xt. Then, provided that xD0 = xC0 , we have that xD = S(D(yC )). Recall that S corresponds to the Skorokhod solution. See Appendix E for a more detailed explanation of this construction. 10 [Page 11] PSGLA FOR SAMPLING AND LEARNING The following lemmas give the speciﬁc bounds on the differen ces between L(xCt ) and L(xDt ), and between L(xAt ) and L(xDt ), respectively. They are proved in Appendix B. Lemma 9 Assume that xD0 = xC0 andη ≤ 1. There are constants, c9 andc10 such that for all t ≥ 0, the following bound holds: W1(L(xCt ), L(xDt )) ≤ E[‖xCt − xDt ‖] ≤ (η log(4 max{1,t }))1/4(c9√ηt +c10) The constants are given by: c9 = /radicaltp/radicalvertex/radicalvertex√2(u +ℓD2r + nσ√2r + 2n√2r√β )(nβ +Du + 2Dnσ) c10 = √ 2 ( Du + 2nσ + nβ) +D√u +ℓD2r + nσ√2r + 2n√2r√β Lemma 10 Assume that xA0 = xD0 andη ≤ 1. Then for all t ≥ 0: W1(L(xAt ), L(xDt )) ≤ (η log(4 max{1,t }))1/4(c9√ηt +c10) ((1 +ηℓ)t − 1) Now Lemma 5 can be proved by combining Lemmas 8, 9, and 10. Proof of Lemma 5 Using the triangle inequality and Lemmas 9 and 10 gives W1(L(xAt ), L(xCt )) ≤W1(L(xAt ), L(xDt )) +W (L(xDt ), L(xCt )) ≤ (η lo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03831,
+        0.01594,
+        -0.05653,
+        -7e-05,
+        -0.01354
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": " by combining Lemmas 8, 9, and 10. Proof of Lemma 5 Using the triangle inequality and Lemmas 9 and 10 gives W1(L(xAt ), L(xCt )) ≤W1(L(xAt ), L(xDt )) +W (L(xDt ), L(xCt )) ≤ (η lo",
+      "overlap_with_next": "tinuous reﬂected SDE, xC , and its averaged version, xM , have similar laws. In particular, we will prove Lemma 6. The general strategy is similar to that of Section 6. Namely, we ",
+      "text": " by combining Lemmas 8, 9, and 10. Proof of Lemma 5 Using the triangle inequality and Lemmas 9 and 10 gives W1(L(xAt ), L(xCt )) ≤W1(L(xAt ), L(xDt )) +W (L(xDt ), L(xCt )) ≤ (η log(4 max{1,t }))1/4(c9√ηt +c10) (1 +ηℓ)t. Now we will utilize the switching trick from Lemma 8 to simplify the bound. Deﬁne g : [0,t ] → R byg(s) = (η log(4 max{1,t }))1/4(c9√ηs +c10) (1 +ηℓ)s. Then applying Lemma 8 using the bound fromg gives the desired bound: W1(L(xAt ), L(xCt )) ≤ (η log(4 max{1,t }))1/4 (c9 +c10) (1 +ηℓ)1/η ( 1 + c81 −e−a/2 ) ≤ (η log(4 max{1,t }))1/4 (c9 +c10)eℓ ( 1 + c81 −e−a/2 ) The second inequality uses the fact that for all η >0, (1 +ηℓ)1/η ≤eℓ ⇐ ⇒ log(1 +ηℓ)η ≤ℓ where the right inequality holds due to concavity of the loga rithm. Now, fort ≥ 4 we have log(4t) ≤ 2 log(t). So, setting c6 = 2 1/4 (c9 +c10)eℓ ( 1 + c81 −e−a/2 ) gives the boundW1(L(xAt ), L(xCt )) ≤c6(η logt)1/4. ■ 11 [Page 12] PSGLA FOR SAMPLING AND LEARNING 7. A veraging Out the External Variables Now we show that the dynamics of the continuous reﬂected SDE, xC , and its averaged version, xM , have similar laws. In particular, we will prove Lemma 6. The general strategy is similar to that of Section 6. Namely, we ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0457,
+        0.06153,
+        -0.06719,
+        -0.0158,
+        -0.01446
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "tinuous reﬂected SDE, xC , and its averaged version, xM , have similar laws. In particular, we will prove Lemma 6. The general strategy is similar to that of Section 6. Namely, we ",
+      "overlap_with_next": "≤ 1. Then for all t ≥ 0, W1(L(xBt ), L(xCt )) ≤(c11ηt1/2 +c12η1/2t1/4 +c13ηt3/4) (eηℓt − 1). Proof of Lemma 6 Using the triangle inequality along with Lemmas 11 and 12 shows that W",
+      "text": "tinuous reﬂected SDE, xC , and its averaged version, xM , have similar laws. In particular, we will prove Lemma 6. The general strategy is similar to that of Section 6. Namely, we devise a new process, xB that ﬁts “between” xC and xM . Then the desired bound is given by showing that L(xMt ) is close to L(xBt ) and that L(xBt ) is close to L(xCt ). The new process is deﬁned by xB = S(yB) where yBt = xB0 + √ 2η β wt −η ∫ t 0 ∇xf (xMs , z⌊s⌋)ds. (18) So, we see that xB has similar dynamics to xC , but xM is used in place of xC in the drift term. The lemmas describing the relations between L(xMt ) and L(xBt ) and between L(xCt ) and L(xBt ) are stated below. They are proved in Appendix B. Lemma 11 Assume that xM0 = xB0 and that η ≤ 1. Then is a positive constants, c11,c12, abd c13 such that for all t ≥ 0, W1(L(xBt ), L(xMt )) ≤ E[‖xBt − xMt ‖] ≤c11ηt1/2 +c12η1/2t1/4 +c13ηt3/4 The constants are given by: c11 = 2σ√n c12 = √ 64nσD √ 2π r c13 = √ 128nσ √ 2π r (n β +Du + 2Dnσ ) Lemma 12 Assume that xC0 = xB0 andη ≤ 1. Then for all t ≥ 0, W1(L(xBt ), L(xCt )) ≤(c11ηt1/2 +c12η1/2t1/4 +c13ηt3/4) (eηℓt − 1). Proof of Lemma 6 Using the triangle inequality along with Lemmas 11 and 12 shows that W",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06041,
+        0.02146,
+        -0.04704,
+        -0.0331,
+        -0.00611
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "≤ 1. Then for all t ≥ 0, W1(L(xBt ), L(xCt )) ≤(c11ηt1/2 +c12η1/2t1/4 +c13ηt3/4) (eηℓt − 1). Proof of Lemma 6 Using the triangle inequality along with Lemmas 11 and 12 shows that W",
+      "overlap_with_next": "ator problems to ge t explicit contraction rate bounds. Fu- ture work will include a variety of extensions. The assumpti on of a compact convex domain, K, can likely be relaxed to ",
+      "text": "≤ 1. Then for all t ≥ 0, W1(L(xBt ), L(xCt )) ≤(c11ηt1/2 +c12η1/2t1/4 +c13ηt3/4) (eηℓt − 1). Proof of Lemma 6 Using the triangle inequality along with Lemmas 11 and 12 shows that W1(L(xMt ), L(xCt )) ≤W1(L(xMt ), L(xBt )) +W1(L(xBt ), L(xCt )) ≤ ( c11ηt1/2 +c12η1/2t1/4 +c13ηt3/4 ) eηℓt Using Lemma 8 along with the fact that η1/2 ≤η1/4 givesW1(L(xMt ), L(xCt )) ≤c7η1/4 with c7 = (c11 +c12 +c13)eℓ ( 1 + c81 −e−a/2 ) . ■ 12 [Page 13] PSGLA FOR SAMPLING AND LEARNING 8. Conclusions and Future Work In this paper, we have given non-asymptotic bounds for a proj ected stochastic gradient Langevin algorithm applied to non-convex functions with IID externa l random variables. In particular, we demonstrated convergence of sampling methods with respect to the 1-Wasserstein distance and showed how the sampling results can be utilized for non-conv ex learning. The results were derived using a novel approach contraction analysis for reﬂected SD Es. The contraction analysis utilizes connections with simple harmonic oscillator problems to ge t explicit contraction rate bounds. Fu- ture work will include a variety of extensions. The assumpti on of a compact convex domain, K, can likely be relaxed to ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0579,
+        0.03777,
+        -0.04505,
+        -0.00483,
+        0.01259
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "ator problems to ge t explicit contraction rate bounds. Fu- ture work will include a variety of extensions. The assumpti on of a compact convex domain, K, can likely be relaxed to ",
+      "overlap_with_next": "0.16212, 2020. Vivek S Borkar and Sanjoy K Mitter. A strong approximation th eorem for stochastic recursive algorithms. Journal of optimization theory and applications , 100(3):499",
+      "text": "ator problems to ge t explicit contraction rate bounds. Fu- ture work will include a variety of extensions. The assumpti on of a compact convex domain, K, can likely be relaxed to a general class of non-convex non-compa ct domains. This would require use of more general analysis of Skorokhod problems as in Lions and Sznitman (1984) along with a dissi- pativity condition to ensure that the reﬂected SDEs remain c ontractive. The assumptions that zk are IID and that ∇xf (x, zk) is sub-Gaussian will also be relaxed in future work. The even tual goal will be to use the method for problems in time-series analysis, co ntrol, and reinforcement learning. Acknowledgments The author would like to thank Tyler Lekang, Jonah Roux, Sune el Sheikh, Chuck Hisamoto, and Michael Schmit for helpful discussions. The author acknowl edges funding from NASA STTR 19- 1-T4.03-3451 and NSF CMMI 1727096 References Kwangjun Ahn and Sinho Chewi. Efﬁcient constrained samplin g via the mirror-langevin algorithm. arXiv preprint arXiv:2010.16212, 2020. Vivek S Borkar and Sanjoy K Mitter. A strong approximation th eorem for stochastic recursive algorithms. Journal of optimization theory and applications , 100(3):499",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07153,
+        0.00024,
+        -0.02909,
+        -0.00706,
+        0.0147
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "0.16212, 2020. Vivek S Borkar and Sanjoy K Mitter. A strong approximation th eorem for stochastic recursive algorithms. Journal of optimization theory and applications , 100(3):499",
+      "overlap_with_next": "n stationary-point hitti ng time and ergodicity of stochastic gradient langevin dynamics. Journal of Machine Learning Research, 21(68):1–41, 2020. Xiang Cheng, Niladri S Chatterji,",
+      "text": "0.16212, 2020. Vivek S Borkar and Sanjoy K Mitter. A strong approximation th eorem for stochastic recursive algorithms. Journal of optimization theory and applications , 100(3):499–513, 1999. Nicolas Brosse, Alain Durmus, ´Eric Moulines, and Marcelo Pereyra. Sampling from a log- concave distribution with compact support with proximal la ngevin monte carlo. arXiv preprint arXiv:1705.08964, 2017. Sebastien Bubeck, Ronen Eldan, and Joseph Lehec. Finite-ti me analysis of projected langevin monte carlo. Advances in Neural Information Processing Systems , 28:1243–1251, 2015. S´ ebastien Bubeck, Ronen Eldan, and Joseph Lehec. Samplingfrom a log-concave distribution with projected langevin monte carlo. Discrete & Computational Geometry, 59(4):757–783, 2018. Ngoc Huy Chau, ´Eric Moulines, Miklos R´ asonyi, Sotirios Sabanis, and Ying Zhang. On stochas- tic gradient langevin dynamics with dependent data streams : the fully non-convex case. arXiv preprint arXiv:1905.13142, 2019. Xi Chen, Simon S Du, and Xin T Tong. On stationary-point hitti ng time and ergodicity of stochastic gradient langevin dynamics. Journal of Machine Learning Research, 21(68):1–41, 2020. Xiang Cheng, Niladri S Chatterji,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05357,
+        -0.00681,
+        -0.02189,
+        -0.00078,
+        0.00739
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "n stationary-point hitti ng time and ergodicity of stochastic gradient langevin dynamics. Journal of Machine Learning Research, 21(68):1–41, 2020. Xiang Cheng, Niladri S Chatterji,",
+      "overlap_with_next": "and Ohad Shamir. Global non- convex optimization with dis- cretized diffusions. In Advances in Neural Information Processing Systems , pages 9671–9680, 2018. Benjamin Fehrman, Benj",
+      "text": "n stationary-point hitti ng time and ergodicity of stochastic gradient langevin dynamics. Journal of Machine Learning Research, 21(68):1–41, 2020. Xiang Cheng, Niladri S Chatterji, Y asin Abbasi-Yadkori, Pe ter L Bartlett, and Michael I Jor- dan. Sharp convergence rates for langevin dynamics in the no nconvex setting. arXiv preprint arXiv:1805.01648, 2018. 13 [Page 14] PSGLA FOR SAMPLING AND LEARNING William Coffey and Y u P Kalmykov. The Langevin equation: with applications to stochastic pro b- lems in physics, chemistry and electrical engineering , volume 27. World Scientiﬁc, 2012. Thomas M Cover and Joy A Thomas. Elements of information theory . John Wiley & Sons, 2012. Alain Durmus, Eric Moulines, et al. Nonasymptotic converge nce analysis for the unadjusted langevin algorithm. The Annals of Applied Probability , 27(3):1551–1587, 2017. Andreas Eberle. Reﬂection couplings and contraction rates for diffusions. Probability theory and related ﬁelds, 166(3-4):851–886, 2016. Murat A Erdogdu, Lester Mackey, and Ohad Shamir. Global non- convex optimization with dis- cretized diffusions. In Advances in Neural Information Processing Systems , pages 9671–9680, 2018. Benjamin Fehrman, Benj",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03179,
+        -0.01169,
+        -0.00602,
+        0.00169,
+        0.00622
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "and Ohad Shamir. Global non- convex optimization with dis- cretized diffusions. In Advances in Neural Information Processing Systems , pages 9671–9680, 2018. Benjamin Fehrman, Benj",
+      "overlap_with_next": "81–309, 2001. Y a-Ping Hsieh, Ali Kavis, Paul Rolland, and V olkan Cevher. Mirrored langevin dynamics. Advances in Neural Information Processing Systems , 31:2878–2887, 2018. Olav ",
+      "text": "and Ohad Shamir. Global non- convex optimization with dis- cretized diffusions. In Advances in Neural Information Processing Systems , pages 9671–9680, 2018. Benjamin Fehrman, Benjamin Gess, and Arnulf Jentzen. Conve rgence rates for the stochastic gradi- ent descent method for non-convex objective functions. Journal of Machine Learning Research , 21, 2020. Saul B Gelfand and Sanjoy K Mitter. Recursive stochastic alg orithms for global optimization in rˆd. SIAM Journal on Control and Optimization , 29(5):999–1018, 1991. David Gilbarg and Neil S Trudinger. Elliptic partial differential equations of second order. Springer, 1998. Robert M Gray. Entropy and information theory. Springer Science & Business Media, 2011. J Michael Harrison and Ruth J Williams. Multidimensional re ﬂected brownian motions having exponential stationary distributions. The Annals of Probability, pages 115–137, 1987. Mark Herbster and Manfred K Warmuth. Tracking the best linea r predictor. Journal of Machine Learning Research, 1(Sep):281–309, 2001. Y a-Ping Hsieh, Ali Kavis, Paul Rolland, and V olkan Cevher. Mirrored langevin dynamics. Advances in Neural Information Processing Systems , 31:2878–2887, 2018. Olav ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04382,
+        -0.01406,
+        -0.02099,
+        0.0181,
+        0.004
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "81–309, 2001. Y a-Ping Hsieh, Ali Kavis, Paul Rolland, and V olkan Cevher. Mirrored langevin dynamics. Advances in Neural Information Processing Systems , 31:2878–2887, 2018. Olav ",
+      "overlap_with_next": "a, Aleksandar Mijatovi´ c, Łukasz Szpruch, et al. Nonasymptotic bounds for sam- pling algorithms without log-concavity. Annals of Applied Probability, 30(4):1534–1581, 2020. Y urii",
+      "text": "81–309, 2001. Y a-Ping Hsieh, Ali Kavis, Paul Rolland, and V olkan Cevher. Mirrored langevin dynamics. Advances in Neural Information Processing Systems , 31:2878–2887, 2018. Olav Kallenberg. F oundations of Modern Probability. Springer Science & Business Media, 2002. Walid Krichene and Peter L Bartlett. Acceleration and avera ging in stochastic mirror descent dy- namics. arXiv preprint arXiv:1707.06219, 2017. Tor Lattimore and Csaba Szepesv´ ari. Bandit algorithms. Cambridge University Press (preprint) , 2019. John M Lee. Introduction to Smooth Manifolds. Springer, 2013. Pierre-Louis Lions and Alain-Sol Sznitman. Stochastic dif ferential equations with reﬂecting bound- ary conditions. Communications on Pure and Applied Mathematics , 37(4):511–537, 1984. Yi-An Ma, Y uansi Chen, Chi Jin, Nicolas Flammarion, and Mich ael I Jordan. Sampling can be faster than optimization. Proceedings of the National Academy of Sciences , 116(42):20881– 20885, 2019. 14 [Page 15] PSGLA FOR SAMPLING AND LEARNING Mateusz B Majka, Aleksandar Mijatovi´ c, Łukasz Szpruch, et al. Nonasymptotic bounds for sam- pling algorithms without log-concavity. Annals of Applied Probability, 30(4):1534–1581, 2020. Y urii",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07274,
+        0.00477,
+        -0.01833,
+        -0.00018,
+        0.00192
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "a, Aleksandar Mijatovi´ c, Łukasz Szpruch, et al. Nonasymptotic bounds for sam- pling algorithms without log-concavity. Annals of Applied Probability, 30(4):1534–1581, 2020. Y urii",
+      "overlap_with_next": "(1):163–177, 1979. Roman V ershynin. High-dimensional probability: An introduction with appli cations in data sci- ence, volume 47. Cambridge university press, 2018. C´ edric Villa",
+      "text": "a, Aleksandar Mijatovi´ c, Łukasz Szpruch, et al. Nonasymptotic bounds for sam- pling algorithms without log-concavity. Annals of Applied Probability, 30(4):1534–1581, 2020. Y urii Nesterov and Arkadii Nemirovskii. Interior-point polynomial algorithms in convex program- ming. SIAM, 1994. Maxim Raginsky, Alexander Rakhlin, and Matus Telgarsky. No n-convex learning via stochastic gradient langevin dynamics: a nonasymptotic analysis. arXiv preprint arXiv:1702.03849, 2017. Gareth O Roberts, Richard L Tweedie, et al. Exponential conv ergence of langevin distributions and their discrete approximations. Bernoulli, 2(4):341–363, 1996. Ralph Tyrell Rockafellar. Convex Analysis, volume 36. Princeton University Press, 2015. Leszek Słomi´ nski. Euler’s approximations of solutions ofsdes with reﬂecting boundary. Stochastic processes and their applications, 94(2):317–337, 2001. Hiroshi Tanaka et al. Stochastic differential equations wi th reﬂecting boundary condition in convex regions. Hiroshima Mathematical Journal, 9(1):163–177, 1979. Roman V ershynin. High-dimensional probability: An introduction with appli cations in data sci- ence, volume 47. Cambridge university press, 2018. C´ edric Villa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04974,
+        -0.01068,
+        -0.02057,
+        0.01483,
+        -0.0147
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "(1):163–177, 1979. Roman V ershynin. High-dimensional probability: An introduction with appli cations in data sci- ence, volume 47. Cambridge university press, 2018. C´ edric Villa",
+      "overlap_with_next": "Peyr´ e, Jalal Fadili, andMarcelo Pereyra. Wasserstein control of mirror langevin monte carlo. arXiv preprint arXiv:2002.04363, 2020. Appendix A. Bounds on Simple Harmonic Oscillat",
+      "text": "(1):163–177, 1979. Roman V ershynin. High-dimensional probability: An introduction with appli cations in data sci- ence, volume 47. Cambridge university press, 2018. C´ edric Villani.Optimal transport: old and new , volume 338. Springer Science & Business Media, 2008. Martin J Wainwright. High-dimensional statistics: A non-asymptotic viewpoint , volume 48. Cam- bridge University Press, 2019. Xiao Wang, Qi Lei, and Ioannis Panageas. Fast convergence of langevin dynamics on manifold: Geodesics meet log-sobolev. Advances in Neural Information Processing Systems , 33, 2020. Max Welling and Y ee W Teh. Bayesian learning via stochastic g radient langevin dynamics. In Proceedings of the 28th international conference on machin e learning (ICML-11) , pages 681– 688, 2011. Pan Xu, Jinghui Chen, Difan Zou, and Quanquan Gu. Global conv ergence of langevin dynamics based algorithms for nonconvex optimization. In Advances in Neural Information Processing Systems, pages 3126–3137, 2018. Kelvin Shuangjian Zhang, Gabriel Peyr´ e, Jalal Fadili, andMarcelo Pereyra. Wasserstein control of mirror langevin monte carlo. arXiv preprint arXiv:2002.04363, 2020. Appendix A. Bounds on Simple Harmonic Oscillat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06302,
+        -0.03299,
+        0.00924,
+        -0.00268,
+        0.01194
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "Peyr´ e, Jalal Fadili, andMarcelo Pereyra. Wasserstein control of mirror langevin monte carlo. arXiv preprint arXiv:2002.04363, 2020. Appendix A. Bounds on Simple Harmonic Oscillat",
+      "overlap_with_next": "se with ξ >1. We will see that for any collection of parameters, a can be chosen to give an overdamped solution with the desired properties. However, when D2ℓβ <8, a larger a can b",
+      "text": "Peyr´ e, Jalal Fadili, andMarcelo Pereyra. Wasserstein control of mirror langevin monte carlo. arXiv preprint arXiv:2002.04363, 2020. Appendix A. Bounds on Simple Harmonic Oscillator Coefﬁcien ts. Lemma 13 Consider the simple harmonic oscillator ω2Nh(x) + 2ξωNh′(x) +h′′(x) = 0 15 [Page 16] PSGLA FOR SAMPLING AND LEARNING with ωN = √aβ 2 and ξ = Dℓ4 √ β a. and boundary condition h(0) = 0 andh′(0) = 1 . F or any positive values ofD,ℓ, andβ ifa is set to a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) thenh′(x)> 0 andh′′(x)< 0 for allx ∈ [0,D ] and (h′(D))−1 = eDωN ξ cosh(DωN √ ξ2 − 1) − ξ√ ξ2−1 sinh(DωN √ 1 −ξ2) IfD2ℓβ <8, then a can be set to a = 4D2β and in this case h′(x) > 0 andh′′(x) < 0 for all x ∈ [0,D ] and (h′(D))−1 = eDωN ξ cos(DωN √ 1 −ξ2) − ξ√ 1−ξ2 sin(DωN √ 1 −ξ2). Proof We will tune a to ensure that h′(x) > 0 for all x ∈ [0,D ]. Then since h(x) ≥ 0 for x ∈ [0,D ], the simple harmonic oscillator equation implies that h′′(x)< 0 forx ∈ [0,D ]. We will consider the underdamped case with ξ <1 and the overdamped case with ξ >1. We will see that for any collection of parameters, a can be chosen to give an overdamped solution with the desired properties. However, when D2ℓβ <8, a larger a can b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.041,
+        0.0286,
+        -0.03513,
+        -0.02751,
+        0.04684
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "se with ξ >1. We will see that for any collection of parameters, a can be chosen to give an overdamped solution with the desired properties. However, when D2ℓβ <8, a larger a can b",
+      "overlap_with_next": "or ωN from (7) shows that a must satisfy a ≤ 4D2β. (20) Comparing (19) and ( 20) shows that a suitable a can only be chosen when D2ℓβ <8. The a from the lemma statement is chosen b",
+      "text": "se with ξ >1. We will see that for any collection of parameters, a can be chosen to give an overdamped solution with the desired properties. However, when D2ℓβ <8, a larger a can be chosen which gives rise to an underdamped solution with the desired properties. First we consider the underdamped case. The expression for ξ from (7) shows that ξ2< 1 ⇐ ⇒D2ℓ2β16 <a. (19) Now we will try to maximize a while ensuring that h′(x) > 0. Standard methods from linear differential equations show that h and its derivative are given by: h(x) = e−xωN ξ sin(xωN √ 1 −ξ2) ωN √ 1 −ξ2 h′(x) = e−xωN ξ√ 1 −ξ2 ( √ 1 −ξ2 cos(xωN √ 1 −ξ2) −ξ sin(xωN √ 1 −ξ2)). The smallestx> 0 such thath′(x) = 0 is the smallest x> 0 such that (cos(xωN √ 1 −ξ2), sin(xωN √ 1 −ξ2)) = (ξ,√1 −ξ2). Using the fact that sin′(θ)< 1 forθ ⁄= 2πk, we have that sin(DωN √ 1 −ξ2)<Dω N √ 1 −ξ2. 16 [Page 17] PSGLA FOR SAMPLING AND LEARNING So, if we choose ωN ≤D−1 we will have sin(xωN√1 −ξ2)<√1 −ξ2 and thus h′′(x) > 0 for allx ∈ [0,D ]. Plugging in the expression for ωN from (7) shows that a must satisfy a ≤ 4D2β. (20) Comparing (19) and ( 20) shows that a suitable a can only be chosen when D2ℓβ <8. The a from the lemma statement is chosen b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03128,
+        0.01652,
+        -0.02442,
+        -0.01789,
+        -0.01704
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "or ωN from (7) shows that a must satisfy a ≤ 4D2β. (20) Comparing (19) and ( 20) shows that a suitable a can only be chosen when D2ℓβ <8. The a from the lemma statement is chosen b",
+      "overlap_with_next": "fter some algebra we ﬁnd t hat a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 ))> 0. Plugging this expression into the deﬁnition of ξ shows that ξ2 > 1, and so the oscillator is indeed overdamped. T",
+      "text": "or ωN from (7) shows that a must satisfy a ≤ 4D2β. (20) Comparing (19) and ( 20) shows that a suitable a can only be chosen when D2ℓβ <8. The a from the lemma statement is chosen by taking the largest possible value. Note that by construction, a satisﬁes (19) and so ξ <1 in this case. Now we consider the overdamped case, so that ξ2 > 1. In this case, standard methods from linear differential equations show that h and its derivative are given by: h(x) = e−xωN ξ sinh(xωN √ ξ2 − 1) ωN √ ξ2 − 1 h′(x) = e−xωN ξ√ ξ2 − 1 ( √ ξ2 − 1 cosh(xωN √ ξ2 − 1) −ξ sinh(xωN √ ξ2 − 1)) Thus h′(x) = 0 precisely when tanh(xωN√ξ2 − 1) = √ξ2−1ξ . Since tanh is monotonically increasing, if tanh(DωN √ ξ2 − 1)< √ ξ2−1 ξ , then we will have that h′(x)> 0 for allx ∈ [0,D ]. Plugging in the expressions for ωN andξ gives for alla> 0 tanh(DωN √ ξ2 − 1) = tanh ( D 2 √ D2ℓ2β2 16 −aβ ) < tanh (D2ℓβ 8 ) . So to ensure that h′(x) > 0 for all x ∈ [0,D ], it sufﬁces to choose a so that √ ξ2−1 ξ achieves the bound on the right. In particular, after some algebra we ﬁnd t hat a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 ))> 0. Plugging this expression into the deﬁnition of ξ shows that ξ2 > 1, and so the oscillator is indeed overdamped. T",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0455,
+        -0.00892,
+        -0.03219,
+        -0.02219,
+        -0.00669
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "fter some algebra we ﬁnd t hat a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 ))> 0. Plugging this expression into the deﬁnition of ξ shows that ξ2 > 1, and so the oscillator is indeed overdamped. T",
+      "overlap_with_next": "tion 7, followed by the hypothesis gives W1(L(ˆxCiH,t), L(ˆxC(i+1)H,t)) ≤c8e−ηa(t−(i+1)H)W (L(ˆxCiH,(i+1)H ), L(ˆx(i+1)H )) ≤c8e−ηa(t−(i+1)H)g(H) ≤c8e−a(k−i−1)/2g(η−1) The ﬁnal ine",
+      "text": "fter some algebra we ﬁnd t hat a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 ))> 0. Plugging this expression into the deﬁnition of ξ shows that ξ2 > 1, and so the oscillator is indeed overdamped. Thus, h is well-deﬁned and has all the desired properties, so the pro of is complete. Appendix B. Proofs of Supporting Lemmas The proofs below use the following notation from Rockafellar (2015). Let γ(x|K) denote the gauge function: γ(x|K) = inf {t> 0|x ∈tK} and letγ∗(x|K) be the support function: δ⋆(x|K) = sup {y⊤x|y ∈ K}. By the assumption on K, it follows that γ(x|K) ≤r−1‖x‖. 17 [Page 18] PSGLA FOR SAMPLING AND LEARNING Proof of Lemma 8 Consider the family of switching processes ˆxCs,t be the process such that ˆxCs,t = ˆxt fort ≤s and then for t ≥s, the dynamics of ˆxCs,t follow (4), the deﬁnition of xCt . LetH = ⌊1/η⌋ and assume thatt ∈ [kH, (k + 1)H). It follows that ˆxC0,t = xCt and ˆxC(k+1)H,t = ˆxt. The triangle inequality then implies that W1(L(xCt ), L(ˆxt)) ≤ k∑ i=0 W1(L(ˆxCiH,t), L(ˆxC(i+1)H,t)) Fori<k , using Proposition 7, followed by the hypothesis gives W1(L(ˆxCiH,t), L(ˆxC(i+1)H,t)) ≤c8e−ηa(t−(i+1)H)W (L(ˆxCiH,(i+1)H ), L(ˆx(i+1)H )) ≤c8e−ηa(t−(i+1)H)g(H) ≤c8e−a(k−i−1)/2g(η−1) The ﬁnal ine",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05278,
+        0.02302,
+        -0.05871,
+        -0.00377,
+        0.02686
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "tion 7, followed by the hypothesis gives W1(L(ˆxCiH,t), L(ˆxC(i+1)H,t)) ≤c8e−ηa(t−(i+1)H)W (L(ˆxCiH,(i+1)H ), L(ˆx(i+1)H )) ≤c8e−ηa(t−(i+1)H)g(H) ≤c8e−a(k−i−1)/2g(η−1) The ﬁnal ine",
+      "overlap_with_next": " =k. The ﬁrst term can be estimated directly via Itˆ o’s rule: d‖xCt − xCk ‖2 = 2(xCt − xCk )⊤ ( −η∇xf (xCt , z⌊t⌋)dt − vsdµ(s) + √ 2η β dwt ) + 2ηnβ dt. (23) 18 [Page 19] PSGLA FO",
+      "text": "tion 7, followed by the hypothesis gives W1(L(ˆxCiH,t), L(ˆxC(i+1)H,t)) ≤c8e−ηa(t−(i+1)H)W (L(ˆxCiH,(i+1)H ), L(ˆx(i+1)H )) ≤c8e−ηa(t−(i+1)H)g(H) ≤c8e−a(k−i−1)/2g(η−1) The ﬁnal inequality uses the facts that 12 ≤ηH ≤ 1 along with monotonicity ofg. The lower bound onηH arises becauseH ≥η−1 − 1 and soηH ≥ 1 −η ≥ 1/2, sinceη ≤ 1/2. It follows that the ﬁrst k terms of the sum can be bounded by: k−1∑ i=0 W1(L(ˆxCiH,t), L(ˆxC(i+1)H,t)) ≤ k−1∑ i=0 c8e−a(k−i−1)/2g(1) ≤ c8g(1)1 −e−a/2 Fori =k the hypothesis gives W1(L(ˆxCiH,t), L(ˆxC(i+1)H,t)) = W1(L(ˆxCkH,t), L(ˆxt)) ≤g(t −kH ) ≤g(η−1) Adding this to the bound from the ﬁrst k terms gives the result. ■ Proof of Lemma 9 The basic idea follows arguments from Bubeck et al. (2018). However, we must deviate from the method to account for the extra randomn ess due to zi. First note that since xDt = xD⌊t⌋, we get the following triangle inequality bound: ‖xCt − xDt ‖ = ‖xCt − xC⌊t⌋ + xC⌊t⌋ − xD⌊t⌋‖ (21) ≤ ‖xCt − xC⌊t⌋‖ + ‖xC⌊t⌋ − xD⌊t⌋‖. (22) For simpler notation, set ⌊t⌋ =k. The ﬁrst term can be estimated directly via Itˆ o’s rule: d‖xCt − xCk ‖2 = 2(xCt − xCk )⊤ ( −η∇xf (xCt , z⌊t⌋)dt − vsdµ(s) + √ 2η β dwt ) + 2ηnβ dt. (23) 18 [Page 19] PSGLA FO",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04709,
+        0.04296,
+        -0.03909,
+        -0.03737,
+        0.00553
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": " =k. The ﬁrst term can be estimated directly via Itˆ o’s rule: d‖xCt − xCk ‖2 = 2(xCt − xCk )⊤ ( −η∇xf (xCt , z⌊t⌋)dt − vsdµ(s) + √ 2η β dwt ) + 2ηnβ dt. (23) 18 [Page 19] PSGLA FO",
+      "overlap_with_next": " noting that t −k ≤ 1, we can conclude that E [ ‖xCt − xCk ‖2] ≤ 2η(nβ +uD + 2nσ) Thus, an elementary Cauchy-Schwarz bound gives that E [ ‖xCt − xCk ‖] ≤√E[‖xCt − xCk ‖2] ≤√2η(Du +",
+      "text": " =k. The ﬁrst term can be estimated directly via Itˆ o’s rule: d‖xCt − xCk ‖2 = 2(xCt − xCk )⊤ ( −η∇xf (xCt , z⌊t⌋)dt − vsdµ(s) + √ 2η β dwt ) + 2ηnβ dt. (23) 18 [Page 19] PSGLA FOR SAMPLING AND LEARNING Note that the inner products between the state difference an d gradient terms can be bounded by: (xCt − xCk )⊤∇x ¯f (xCt ) + (xCt − xCk )⊤(∇xf (xCt , z⌊t⌋) − ∇x ¯f (xCt )) ≤Du +D‖∇xf (xCt , z⌊t⌋) − ∇x ¯f (xCt )‖ (24) The uniform sub-Gaussian assumption implies that the mean o f the term on the right is bounded above by 2nσ. Indeed, if g is a sub-Gaussian vector in Rn with sub-gaussian parameter σ, then E [‖g‖] ≤ n∑ i=1 E[|e⊤i g|] = n∑ i=1 E[max{e⊤i g, −e⊤i g}] ≤nσ√2 log(2) ≤ 2nσ. Hereei are the standard basis vectors of Rn. The third inequality is based on a standard bounding method for sub-Gaussian variables. See exercise 2.21 of Wainwright (2019). Additionally, we will work out these details for bounding a different maximum of su b-Gaussian variables. Thus, by integrating ( 23), taking expectations, and noting that t −k ≤ 1, we can conclude that E [ ‖xCt − xCk ‖2] ≤ 2η(nβ +uD + 2nσ) Thus, an elementary Cauchy-Schwarz bound gives that E [ ‖xCt − xCk ‖] ≤√E[‖xCt − xCk ‖2] ≤√2η(Du +",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06028,
+        0.01813,
+        -0.03386,
+        -0.0189,
+        -0.00387
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": " noting that t −k ≤ 1, we can conclude that E [ ‖xCt − xCk ‖2] ≤ 2η(nβ +uD + 2nσ) Thus, an elementary Cauchy-Schwarz bound gives that E [ ‖xCt − xCk ‖] ≤√E[‖xCt − xCk ‖2] ≤√2η(Du +",
+      "overlap_with_next": " older’s inequality gives: ‖xCk − xDk ‖2 ≤ 2 ∫ k 0 γ(yCs − yC⌊s⌋|K)δ⋆(vs|K)dµ(s) ≤ 2 ( sup s∈[0,k] γ(yCs − yC⌊s⌋|K) )∫ k 0 δ⋆(vs|K)dµ(s) 19 [Page 20] PSGLA FOR SAMPLING AND LEARNIN",
+      "text": " noting that t −k ≤ 1, we can conclude that E [ ‖xCt − xCk ‖2] ≤ 2η(nβ +uD + 2nσ) Thus, an elementary Cauchy-Schwarz bound gives that E [ ‖xCt − xCk ‖] ≤√E[‖xCt − xCk ‖2] ≤√2η(Du + 2nσ + nβ). (25) The rest of the proof bounds E[‖xCk − xDk ‖]. When k = 0 , this term is 0, so we focus on the k ≥ 1 case. Recall that xCt solves the Skorokhod problem for yCt and xDt solves the Skorkhod problem for D(yC)t = yC⌊t⌋. Let ϕDt = −∫ t0 vDt dµD(t) be the unique projection process such that xDt = yC⌊t⌋ + ϕDt . Then, Lemma 2.2 of Tanaka et al. (1979) implies that ‖xCk − xDk ‖2 ≤ ‖yCk − yCk ‖2 + 2 ∫ k 0 (yCk − yCk − yCs + yC⌊s⌋)⊤(vDs dµD(s) − vCsdµC(s)) = 2 ∫ k 0 (yC⌊s⌋ − yCs )⊤(vDs dµD(s) − vsdµ(s)) Note that for any integer, i, yC⌊s⌋ is constant for s ∈ (i,i + 1). It follows that the measure, µD is supported on the integers. However, the integrand is zero on the integers, so we arrive at the simpliﬁed bound: ‖xCk − xDk ‖2 ≤ 2 ∫ k 0 (yCs − yC⌊s⌋)⊤vCsdµC(s). Now, the elementary inequalityx⊤y ≤γ(x|K)δ∗(x|K) followed by H¨ older’s inequality gives: ‖xCk − xDk ‖2 ≤ 2 ∫ k 0 γ(yCs − yC⌊s⌋|K)δ⋆(vs|K)dµ(s) ≤ 2 ( sup s∈[0,k] γ(yCs − yC⌊s⌋|K) )∫ k 0 δ⋆(vs|K)dµ(s) 19 [Page 20] PSGLA FOR SAMPLING AND LEARNIN",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07199,
+        -0.00769,
+        -0.0336,
+        -0.02497,
+        0.00859
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": " older’s inequality gives: ‖xCk − xDk ‖2 ≤ 2 ∫ k 0 γ(yCs − yC⌊s⌋|K)δ⋆(vs|K)dµ(s) ≤ 2 ( sup s∈[0,k] γ(yCs − yC⌊s⌋|K) )∫ k 0 δ⋆(vs|K)dµ(s) 19 [Page 20] PSGLA FOR SAMPLING AND LEARNIN",
+      "overlap_with_next": "integral term, note that ‖∇xf (xCτ, z⌊s⌋)‖ = ‖∇x ¯f (xCτ ) + (gτ − gi) + gi‖ ≤u +ℓD + ‖gi‖. (27) The inequality arises because of the bound on ‖∇x ¯f ‖ and the Lipschitz property o",
+      "text": " older’s inequality gives: ‖xCk − xDk ‖2 ≤ 2 ∫ k 0 γ(yCs − yC⌊s⌋|K)δ⋆(vs|K)dµ(s) ≤ 2 ( sup s∈[0,k] γ(yCs − yC⌊s⌋|K) )∫ k 0 δ⋆(vs|K)dµ(s) 19 [Page 20] PSGLA FOR SAMPLING AND LEARNING Taking square-roots, then followed by expectations, and th en employing the Cauchy-Schwarz inequality gives: E [ ‖xCk − xDk ‖] ≤ √2E   √ sup s∈[0,k] γ(yCs − yC⌊s⌋|K) √∫ k 0 δ⋆(vs|K)dµ(s)   ≤ /radicaltp/radicalvertex/radicalvertex√2E[ sup s∈[0,k] γ(yCs − yC⌊s⌋|K) ] E [∫ k 0 δ⋆(vs|K)dµ(s) ] . (26) So, now it sufﬁces to bound both terms on the right of ( 26). We ﬁrst bound the γ term. The methodology deviates from that of Bubeck et al. (2018), as this term is now a bit more complicated. First note that γ(x|K) ≤r−1‖x‖ because K contains a ball of radiusr around the origin. Thus, plugging in the deﬁtion for yCt and using the triangle inequality gives: γ(yCs − yC⌊s⌋|K) ≤r−1‖yCs − yC⌊s⌋‖ ≤r−1η ∫ s ⌊s⌋ ‖∇xf (xCτ, z⌊s⌋)‖dτ +r−1 √ 2η β ‖ws − w⌊s⌋‖ For compact notation, set i = ⌊s⌋ and gτ = ∇xf (xCτ, zi) − ∇x ¯f (xCτ ). To bound the integral term, note that ‖∇xf (xCτ, z⌊s⌋)‖ = ‖∇x ¯f (xCτ ) + (gτ − gi) + gi‖ ≤u +ℓD + ‖gi‖. (27) The inequality arises because of the bound on ‖∇x ¯f ‖ and the Lipschitz property o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06173,
+        0.02369,
+        -0.04628,
+        -0.02815,
+        0.00075
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "integral term, note that ‖∇xf (xCτ, z⌊s⌋)‖ = ‖∇x ¯f (xCτ ) + (gτ − gi) + gi‖ ≤u +ℓD + ‖gi‖. (27) The inequality arises because of the bound on ‖∇x ¯f ‖ and the Lipschitz property o",
+      "overlap_with_next": "⊤j gi )  . Taking expectations and using Jensen’s inequality, followed by the sub-Gaussian property of gi gives E [ max i=0,...,k−1 ‖gi‖ ] ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1",
+      "text": "integral term, note that ‖∇xf (xCτ, z⌊s⌋)‖ = ‖∇x ¯f (xCτ ) + (gτ − gi) + gi‖ ≤u +ℓD + ‖gi‖. (27) The inequality arises because of the bound on ‖∇x ¯f ‖ and the Lipschitz property of ∇xf . It follows that γ(yCs − yC⌊s⌋|K) ≤ η(u +ℓD)2r + η2r ‖gi‖ +r−1 √ 2η β ‖ws − w⌊s⌋‖. (28) Thus, to bound the ﬁrst term on the right of ( 26), it sufﬁces to bound maxi=0,...,k−1 ‖gi‖ and sups∈[0,k] ‖ws − w⌊s⌋‖. The ‖gi‖ terms can be bounded using a modiﬁcation of a standard sub- Gaussian bounding method from exercise 2.21 of Wainwright (2019). We show it explicitly, as the method will be generalized when bounding the ‖ws − w⌊s⌋‖ terms. Letej be the standard basis vectors of Rn. Then the following bound follows from the triangle inequality: ‖gi‖ ≤ n∑ j=1 |e⊤j gi| = n∑ j=1 max ε∈{−1,1} εe⊤j gi. 20 [Page 21] PSGLA FOR SAMPLING AND LEARNING Then for any λ> 0 we have that max i=0,...,k−1 ‖gi‖ ≤ maxi=0,...,k−1 n∑ j=1 max ε∈{−1,1} εe⊤j gi ≤ n∑ j=1 max i∈{0,...,k−1},ε∈{−1,1} εe⊤j gi ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1} exp ( λεe⊤j gi )  . Taking expectations and using Jensen’s inequality, followed by the sub-Gaussian property of gi gives E [ max i=0,...,k−1 ‖gi‖ ] ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06183,
+        0.02911,
+        0.00632,
+        -0.02561,
+        0.01588
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "⊤j gi )  . Taking expectations and using Jensen’s inequality, followed by the sub-Gaussian property of gi gives E [ max i=0,...,k−1 ‖gi‖ ] ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1",
+      "overlap_with_next": "  k−1∑ i=0 ∑ ε∈{−1,1} sup s∈[i,i+1] eλεe⊤j (ws−wi)     ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1} E [ sup s∈[i,i+1] eλεe⊤j (ws−wi) ]  (32) Now we bound the expectation of each",
+      "text": "⊤j gi )  . Taking expectations and using Jensen’s inequality, followed by the sub-Gaussian property of gi gives E [ max i=0,...,k−1 ‖gi‖ ] ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1} E [ exp ( λεe⊤j gi )]   ≤ nλ log(2keλ2σ2/2) (29) = n log(2k)λ + nλσ22 . (30) Optimizing overλ gives: E [ max i=0,...,k−1 ‖gi‖ ] ≤nσ √ 2 log(2k). (31) Now we will bound E [ sups∈[0,k] ‖ws − w⌊s⌋‖ ] using an extension of the argument just used. Note that E [ sup s∈[0,k] ‖ws − w⌊s⌋‖ ] = E [ max i=0,...,k−1 sup s∈[i,i+1] ‖ws − wi‖ ] Then the triangle inequality implies that ‖ws − wi‖ ≤ n∑ j=1 |e⊤j (ws − wi)| = n∑ j=1 max ε∈{−1,1} εe⊤j (ws − wi). It follows that for all λ> 0, we get: max i=0,...,k−1 sup s∈[i,i+1] ‖ws − wi‖ ≤ n∑ j=1 max i∈{0,...,k},ε∈{−1,1} sup s∈[i,i+1] εe⊤j (ws − wi) ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1} sup s∈[i,i+1] eλεe⊤j (ws−wi)   21 [Page 22] PSGLA FOR SAMPLING AND LEARNING So, taking expectations and using Jensen’s inequality give s: E [ max i=0,...,k−1 sup s∈[i,i+1] ‖ws − wi‖ ] ≤ n∑ j=1 λ−1E  log   k−1∑ i=0 ∑ ε∈{−1,1} sup s∈[i,i+1] eλεe⊤j (ws−wi)     ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1} E [ sup s∈[i,i+1] eλεe⊤j (ws−wi) ]  (32) Now we bound the expectation of each",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07457,
+        0.0196,
+        -0.04716,
+        -0.0205,
+        -0.01678
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "  k−1∑ i=0 ∑ ε∈{−1,1} sup s∈[i,i+1] eλεe⊤j (ws−wi)     ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1} E [ sup s∈[i,i+1] eλεe⊤j (ws−wi) ]  (32) Now we bound the expectation of each",
+      "overlap_with_next": "log(4k) β ≤ √ η log(4k) ( u +ℓD 2r + nσ√2r + 2n √ 2 r√β ) . (33) The second inequality used the assumption that η ≤ 1 so thatη ≤ √η, and the fact that log(4k) ≥ 1 fork ≥ 1. 22 [Pag",
+      "text": "  k−1∑ i=0 ∑ ε∈{−1,1} sup s∈[i,i+1] eλεe⊤j (ws−wi)     ≤ n∑ j=1 λ−1 log   k−1∑ i=0 ∑ ε∈{−1,1} E [ sup s∈[i,i+1] eλεe⊤j (ws−wi) ]  (32) Now we bound the expectation of each term on the right of (32). For simple notation, letα =εej correspond to one of the terms in the sum. Note that α is a unit vector and that eλα⊤(ws−wi) is con- vex with respect to ws. Now since, ws is martingale, it follows thateλα⊤(ws−wi) is a submartingale fors ∈ [i,i + 1]. So, a Cauchy-Schwarz bound followed by Doob’s maximal ineq uality, and then direct computation gives: E [ sup s∈[i,i+1] eλα⊤(ws−wi) ] ≤ /radicaltp/radicalvertex/radicalvertex√E[ sup s∈[i,i+1] e2λα⊤(ws−wi) ] ≤ 2 √ E [ e2λα⊤(wi+1−wi)] = 2eλ2 Combining this result with ( 32) shows that E [ sup s∈[0,k] ‖ws − w⌊s⌋‖ ] ≤ nλ log(4keλ2 ) = n log(4k)λ +nλ for allλ> 0. Optimizing overλ shows that E [ sup s∈[0,k] ‖ws − w⌊s⌋‖ ] ≤ 2n √ log(4k) Combining this result with ( 28) and (31) shows that E [ sup s∈[0,k] γ(yCs − yC⌊s⌋|K) ] ≤ η(u +ℓD +nσ √ 2 log(2k)) 2r + 2nr √ 2η log(4k) β ≤ √ η log(4k) ( u +ℓD 2r + nσ√2r + 2n √ 2 r√β ) . (33) The second inequality used the assumption that η ≤ 1 so thatη ≤ √η, and the fact that log(4k) ≥ 1 fork ≥ 1. 22 [Pag",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03898,
+        0.02627,
+        -0.02566,
+        -0.02715,
+        -0.01468
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "log(4k) β ≤ √ η log(4k) ( u +ℓD 2r + nσ√2r + 2n √ 2 r√β ) . (33) The second inequality used the assumption that η ≤ 1 so thatη ≤ √η, and the fact that log(4k) ≥ 1 fork ≥ 1. 22 [Pag",
+      "overlap_with_next": "σ ) + D2 2 Combining this result with ( 21) and (25) ﬁnishes the proof. ■ Proof of Lemma 10 Recall that xAt and xDt are discretized processes: xAt = xA⌊t⌋ and xDt = xD⌊t⌋. Furtherm",
+      "text": "log(4k) β ≤ √ η log(4k) ( u +ℓD 2r + nσ√2r + 2n √ 2 r√β ) . (33) The second inequality used the assumption that η ≤ 1 so thatη ≤ √η, and the fact that log(4k) ≥ 1 fork ≥ 1. 22 [Page 23] PSGLA FOR SAMPLING AND LEARNING Now we bound the second term on the right of (26). Note that xCt is a continuous semimartingale and the process ∫ t 0 vsdµ(s) has bounded variation. Thus, from Itˆ o’s formula, Kallenberg (2002), we have that d‖xCt ‖2 = 2(xCt )⊤ ( −η∇xf (xCt , z⌊t⌋) + √ 2η β dwt − vtdµ(t) ) + 2ηnβ dt (34) Reasoning as in ( 24) shows that E [ |(xCt )⊤∇fx(xCt , z⌊t⌋)|] ≤Du +DE [‖gt‖] ≤Du + 2Dnσ. By construction, (xCt )⊤vt = sup {x⊤vt|x ∈ K} = δ⋆(vt|K). Thus, re-arranging, integrating, and taking expectations gives the bound: E [∫ t 0 δ⋆(vs|K)dµ(s) ] = ηntβ −ηE[∫ t0 (xCs )⊤∇xf (xCs, z⌊s⌋)ds] + 12 E[‖xC0 ‖2 − ‖xCt ‖2] ≤ηt (n β +Du + 2Dnσ ) +D2 2 (35) Combining (26), (33), and (35) shows that E [ ‖xCk − xDk ‖] ≤ √2 /radicaltp/radicalvertex/radicalvertex√√η log(4k)(u +ℓD2r + nσ√2r + 2n√2r√β ) · √ ηk (n β +Du + 2Dnσ ) + D2 2 Combining this result with ( 21) and (25) ﬁnishes the proof. ■ Proof of Lemma 10 Recall that xAt and xDt are discretized processes: xAt = xA⌊t⌋ and xDt = xD⌊t⌋. Furtherm",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02606,
+        0.02507,
+        -0.04523,
+        -0.00138,
+        -0.0006
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "σ ) + D2 2 Combining this result with ( 21) and (25) ﬁnishes the proof. ■ Proof of Lemma 10 Recall that xAt and xDt are discretized processes: xAt = xA⌊t⌋ and xDt = xD⌊t⌋. Furtherm",
+      "overlap_with_next": "chy-Schwarz inequality, the Lipshitz property of ∇xf , and the triangle inequality: d‖ρt‖ = ( ρt ‖ρt‖ )⊤ η(∇xf (xCt , z⌊t⌋) − ∇xf (xAt , z⌊t⌋))dt ≤ηℓ‖xCt − xAt ‖dt (37) ≤ηℓ(‖xCt − ",
+      "text": "σ ) + D2 2 Combining this result with ( 21) and (25) ﬁnishes the proof. ■ Proof of Lemma 10 Recall that xAt and xDt are discretized processes: xAt = xA⌊t⌋ and xDt = xD⌊t⌋. Furthermore, if we set yAt as yAt = xA0 +η ∫ t 0 ∇xf (xA⌊s⌋, z⌊s⌋)ds + √ 2η β wt, then we have xA = S(D(yA)) and xD = S(D(yC )), where D is the discretization operator and S is the Skorokhod solution operator. In particular xAk+1 = Π K(xAk + yAk+1 − yAk ). Deﬁne a difference process, ρt, by: ρt = (xAt + yAt − yA⌊t⌋) − (xDt + yCt − yC⌊t⌋) Note that for integers k, ρk = xAk − xDk . While ρt can jump at the integers, non-expansiveness of convex projections implies that ‖ρk‖ = ‖xAk − xDk ‖ ≤ limt↑k ‖ρt‖ (36) 23 [Page 24] PSGLA FOR SAMPLING AND LEARNING Letk ≥ 0 be an integer. For t ∈ [k,k + 1) we have that dρt =d(yAt − yCt ) = η(∇xf (xCt , z⌊t⌋) − ∇xf (xAt , z⌊t⌋))dt It follows that ρt is a continuous bounded variation process on the interval [k,k + 1). When ρt ⁄= 0 , we can bound the growth of ‖ρt‖ using the chain rule, followed by the Cauchy-Schwarz inequality, the Lipshitz property of ∇xf , and the triangle inequality: d‖ρt‖ = ( ρt ‖ρt‖ )⊤ η(∇xf (xCt , z⌊t⌋) − ∇xf (xAt , z⌊t⌋))dt ≤ηℓ‖xCt − xAt ‖dt (37) ≤ηℓ(‖xCt − ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05369,
+        0.02626,
+        -0.03826,
+        -0.0002,
+        -0.01569
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "chy-Schwarz inequality, the Lipshitz property of ∇xf , and the triangle inequality: d‖ρt‖ = ( ρt ‖ρt‖ )⊤ η(∇xf (xCt , z⌊t⌋) − ∇xf (xAt , z⌊t⌋))dt ≤ηℓ‖xCt − xAt ‖dt (37) ≤ηℓ(‖xCt − ",
+      "overlap_with_next": "+c10 ) k−1∑ i=1 (1 +ηℓ)k−i−1 ≤ (η log(4 max{1,k }))1/4 ( c9 √ ηk +c10 ) ((1 +ηℓ)k − 1) The result now follows because xAt and xDt are constant for t ∈ [k,k + 1) and the bound above",
+      "text": "chy-Schwarz inequality, the Lipshitz property of ∇xf , and the triangle inequality: d‖ρt‖ = ( ρt ‖ρt‖ )⊤ η(∇xf (xCt , z⌊t⌋) − ∇xf (xAt , z⌊t⌋))dt ≤ηℓ‖xCt − xAt ‖dt (37) ≤ηℓ(‖xCt − xDt ‖ + ‖xDt − xAt ‖)dt. (38) While we have not characterized the behavior when ρt = 0 , the Lemma 19 from Appendix G can be used to show that this behavior does not cause problems . Speciﬁcally for t ∈ [k,k + 1) ‖ρt‖ = ‖ρk‖ + ∫ t k d‖ρs‖ Lem. 19= ‖ρk‖ + limǫ↓0 ∫ t k /BD (‖ρs‖ ≥ ǫ)d‖ρs‖ (38) ≤ ‖ ρk‖ + limǫ↓0 ∫ t k /BD (‖ρs‖ ≥ ǫ)ηℓ(‖xCs − xDs ‖ + ‖xDs − xAs ‖)ds ≤ (1 +ηℓ)‖ρk‖ +ηℓ ∫ t k ‖xCs − xDs ‖ds The ﬁnal inequality used the fact that ρk = xAs − xDs for alls ∈ [k,k + 1). Now using (36) we see that ‖ρk+1‖ ≤ (1 +ηℓ)‖ρk‖ +ηℓ ∫ k+1 k ‖xCs − xDs ‖ds Then using the assumption that ρ0 = xA0 − xD0 = 0, we have that ‖ρk‖ ≤ k−1∑ i=0 ηℓ(1 +ηℓ)k−i−1 ∫ i+1 i ‖xCs − xDs ‖ds Taking expectations and using Lemma 9 gives that E[‖ρk‖] ≤ηℓ k−1∑ i=1 (1 +ηℓ)k−i−1 ∫ i+1 i (η log(4 max{1,s }))1/4 (c9√ηs +c10)ds ≤ηℓ (η log(4 max{1,k }))1/4 ( c9 √ ηk +c10 ) k−1∑ i=1 (1 +ηℓ)k−i−1 ≤ (η log(4 max{1,k }))1/4 ( c9 √ ηk +c10 ) ((1 +ηℓ)k − 1) The result now follows because xAt and xDt are constant for t ∈ [k,k + 1) and the bound above",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03493,
+        0.04031,
+        -0.03373,
+        -0.0471,
+        -0.02112
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "+c10 ) k−1∑ i=1 (1 +ηℓ)k−i−1 ≤ (η log(4 max{1,k }))1/4 ( c9 √ ηk +c10 ) ((1 +ηℓ)k − 1) The result now follows because xAt and xDt are constant for t ∈ [k,k + 1) and the bound above",
+      "overlap_with_next": " the effects of zt. Note that the initial condition assumption and the deﬁnition of yBt from (18) imply that yMt = E[yBt |F∞]. In other words, yBt − yMt is a zero-mean function of ",
+      "text": "+c10 ) k−1∑ i=1 (1 +ηℓ)k−i−1 ≤ (η log(4 max{1,k }))1/4 ( c9 √ ηk +c10 ) ((1 +ηℓ)k − 1) The result now follows because xAt and xDt are constant for t ∈ [k,k + 1) and the bound above is monotinically increasing in k. ■ 24 [Page 25] PSGLA FOR SAMPLING AND LEARNING Proof of Lemma 11 Let − ∫ t 0 vBsdµB(s) be the unique ﬁnite-variation process that enforces that xBt ∈ K in the Skorokhod solution. Lemma 2.2 of Tanaka et al. (1979) implies that ‖xBt − xMt ‖2 ≤ ‖yBt − yMt ‖2 + 2 ∫ t 0 ( yBt − yMt − yBs + yMs )⊤(vMs dµM (s) − vBs dµB(s)) Thus, taking square roots and using the triangle inequality gives ‖xBt − xMt ‖ ≤ ‖ yBt − yMt ‖ + √ 2 ⏐⏐⏐⏐∫ t0 (yBt − yMt − yBs + yMs )⊤ vMs dµM (s)⏐⏐⏐⏐ + √ 2 ⏐⏐⏐⏐∫ t0 (yBt − yMt − yBs + yMs )⊤ vBs dµB(s)⏐⏐⏐⏐ (39) Now we analyze the various terms of this equation. First we will bound E[‖yBt − yMt ‖] ≤√E[‖yBt − yMt ‖2]. Let F∞ be the σ-algebra generated by the Brownian motion. In the following discussion, we will assume that the realization of the Brownian motion is ﬁx ed and examine the effects of zt. Note that the initial condition assumption and the deﬁnition of yBt from (18) imply that yMt = E[yBt |F∞]. In other words, yBt − yMt is a zero-mean function of ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04046,
+        0.00652,
+        -0.072,
+        -0.01025,
+        0.01371
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": " the effects of zt. Note that the initial condition assumption and the deﬁnition of yBt from (18) imply that yMt = E[yBt |F∞]. In other words, yBt − yMt is a zero-mean function of ",
+      "overlap_with_next": "sen+F ubini= ∫ i+1 i E [ exp ( ληα⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi)))⏐⏐⏐F∞]ds sub−Gaussian ≤ ∫ i+1 i exp (1 2λ2η2σ2 ) ds = exp ( 1 2λ2η2σ2 ) . Now consider the case that i = ⌊t⌋. Whe",
+      "text": " the effects of zt. Note that the initial condition assumption and the deﬁnition of yBt from (18) imply that yMt = E[yBt |F∞]. In other words, yBt − yMt is a zero-mean function of the random variables z0, z1,... . To bound E [ ‖yBt − yMt ‖2|F∞], it sufﬁces to bound the individual coordinates. Each coord i- nate can be represented as e⊤j (yBt − yMt ), where ej is a corresponding unit basis vector. Thus, it sufﬁces to bound E [( α⊤(yBt − yMt ))2 |F∞] for an arbitrary unit vector, α. With the realization of the Brownian motion ﬁxed, vt :=α⊤(yBt − yMt ) can be decomposed as a sum of independent, sub-Gaussian random variables: vt =α⊤(yBt − yMt ) = η ⌊t⌋−1∑ i=0 ∫ i+1 i α⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi))ds +η ∫ t ⌊t⌋ α⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi))ds =: ⌊t⌋∑ i=0 ρi 25 [Page 26] PSGLA FOR SAMPLING AND LEARNING Recall that ∇x ¯f (xMs ) − ∇xf (xMs , zi) is sub-Gaussian for all xMs . In particular, for i< ⌊t⌋, we have for allλ ∈ R, E[exp(λρi)|F∞] = E [ exp (∫ i+1 i ληα⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi))ds)⏐⏐⏐⏐F∞] J ensen+F ubini= ∫ i+1 i E [ exp ( ληα⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi)))⏐⏐⏐F∞]ds sub−Gaussian ≤ ∫ i+1 i exp (1 2λ2η2σ2 ) ds = exp ( 1 2λ2η2σ2 ) . Now consider the case that i = ⌊t⌋. Whe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04834,
+        -0.00204,
+        -0.03412,
+        0.00178,
+        0.01006
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "sen+F ubini= ∫ i+1 i E [ exp ( ληα⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi)))⏐⏐⏐F∞]ds sub−Gaussian ≤ ∫ i+1 i exp (1 2λ2η2σ2 ) ds = exp ( 1 2λ2η2σ2 ) . Now consider the case that i = ⌊t⌋. Whe",
+      "overlap_with_next": "nce by: E [( α⊤(yBt − yMt ))2 |F∞] =∫ ∞ 0 P(|vt|2 >ǫ |F∞)dǫ ≤ 2 ∫ ∞ 0 e−ǫ/(2ˆσ2)dǫ = 4ˆσ2 = 4η2σ2t. (40) Applying (40) toα =ej for all of the standard basis vectors, then summing a",
+      "text": "sen+F ubini= ∫ i+1 i E [ exp ( ληα⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi)))⏐⏐⏐F∞]ds sub−Gaussian ≤ ∫ i+1 i exp (1 2λ2η2σ2 ) ds = exp ( 1 2λ2η2σ2 ) . Now consider the case that i = ⌊t⌋. When t = ⌊t⌋ = i, we have that ρi = 0 and so E[exp(λρi)|F∞] = 1 . When t> ⌊t⌋, a similar argument as above gives: E[exp(λρi)|F∞] = E [ exp ( 1 t − ⌊t⌋ ∫ t ⌊t⌋ λη(t − ⌊t⌋)α⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi))ds )⏐⏐⏐⏐⏐F∞] J+F= 1t − ⌊t⌋∫ t⌊t⌋ E[exp(λη(t − ⌊t⌋)α⊤(∇x ¯f (xMs ) − ∇xf (xMs , zi)))⏐⏐⏐F∞]ds sub−Gaussian ≤ 1t − ⌊t⌋∫ t⌊t⌋ exp( 12λ2η2(t − ⌊t⌋)2σ2)ds ≤ exp ( 1 2λ2σ2η2(t − ⌊t⌋) ) . The ﬁnal inequality used the fact that (t − ⌊t⌋)2 ≤t − ⌊t⌋. Now using the fact that ρi are independent, conditioned on F∞, we have that E [exp (λvt) |F∞] = ⌊t⌋∏ i=0 E [ eλρi|F∞ ] ≤e(λησ)2 (t−⌊t⌋))/2 ⌊t⌋−1∏ i=0 e(λησ)2 /2 ≤eλ2η2σ2t/2. Thus we have shown that vt is sub-Gaussian with parameter ˆσ2 = η2σ2t. Then a standard Chernoff bound argument shows that P(|vt|2 > ǫ|F∞) ≤ 2e−ǫ/(2ˆσ2). Then we can bound the 26 [Page 27] PSGLA FOR SAMPLING AND LEARNING variance by: E [( α⊤(yBt − yMt ))2 |F∞] =∫ ∞ 0 P(|vt|2 >ǫ |F∞)dǫ ≤ 2 ∫ ∞ 0 e−ǫ/(2ˆσ2)dǫ = 4ˆσ2 = 4η2σ2t. (40) Applying (40) toα =ej for all of the standard basis vectors, then summing a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0887,
+        0.00522,
+        -0.0322,
+        -0.00419,
+        -0.01679
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "nce by: E [( α⊤(yBt − yMt ))2 |F∞] =∫ ∞ 0 P(|vt|2 >ǫ |F∞)dǫ ≤ 2 ∫ ∞ 0 e−ǫ/(2ˆσ2)dǫ = 4ˆσ2 = 4η2σ2t. (40) Applying (40) toα =ej for all of the standard basis vectors, then summing a",
+      "overlap_with_next": " 2Dnσ ) + D2 2 (44) Bounding the supremum will take more work. The eventual plan is to bound the individual components using the Dudley entropy integral. To this end, w e ﬁrst note",
+      "text": "nce by: E [( α⊤(yBt − yMt ))2 |F∞] =∫ ∞ 0 P(|vt|2 >ǫ |F∞)dǫ ≤ 2 ∫ ∞ 0 e−ǫ/(2ˆσ2)dǫ = 4ˆσ2 = 4η2σ2t. (40) Applying (40) toα =ej for all of the standard basis vectors, then summing and using the tower property gives: E [ ‖yBt − yMt ‖2] ≤ 4nη2σ2t. Taking square roots gives E [ ‖yBt − yMt ‖] ≤√E[‖yBt − yMt ‖2] ≤ 2ση√nt. (41) Bounding the integral terms from ( 39) is more complex. First we consider the integral with rerspect to µM . The integral with respect to µB is similar. As in the proof of Lemma 9 we will use a H¨ older inequality bound, followed by a Cauchy-Schwarz bound: E   √⏐⏐⏐⏐∫ t0 (yBt − yMt − yBs + yMs )⊤ vMs dµM (s)⏐⏐⏐⏐ ≤ E   √∫ t 0 γ(yBt − yMt − yBs + yMs |K)δ⋆(vMs |K)dµM (s)   ≤ E   √ sup s∈[0,t] γ(yBt − yMt − yBs + yMs |K) √∫ t 0 δ⋆(vMs |K)dµM (s)   (42) ≤ /radicaltp/radicalvertex/radicalvertex√E[ sup s∈[0,t] γ(yBt − yMt − yBs + yMs |K) ]√ E [∫ t 0 δ⋆(vMs |K)dµM (s) ] (43) The integral bound follows from ( 35) applied to ¯f in place of f : E [∫ t 0 δ⋆(vMs |K)dµM (s) ] ≤ηt (n β +Du + 2Dnσ ) + D2 2 (44) Bounding the supremum will take more work. The eventual plan is to bound the individual components using the Dudley entropy integral. To this end, w e ﬁrst note",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00869,
+        0.03277,
+        0.00302,
+        0.01161,
+        0.01036
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": " 2Dnσ ) + D2 2 (44) Bounding the supremum will take more work. The eventual plan is to bound the individual components using the Dudley entropy integral. To this end, w e ﬁrst note",
+      "overlap_with_next": "s⌋∑ i=⌈s⌉−1 ρi Then, similar to the case above, ρi are independent sub-Gaussian random variables with the fol low- ing bounds for all λ ∈ R: E[eλρi|F∞] ≤    e(ησλ)2(⌈s⌉−s)/2 i",
+      "text": " 2Dnσ ) + D2 2 (44) Bounding the supremum will take more work. The eventual plan is to bound the individual components using the Dudley entropy integral. To this end, w e ﬁrst note that for any vector in x ∈ Rn, we have that γ(x|K) ≤r−1‖x‖ ≤ r−1 n∑ i=1 |xi|. (45) 27 [Page 28] PSGLA FOR SAMPLING AND LEARNING Thus, it sufﬁces to bound E[sups∈[0,t] |vt − vs||F∞], where vs =α⊤(yBs − yMs ). andα is an arbitrary unit vector. Also note that sup s∈[0,t] |vt − vs| ≤ sup s,ˆs∈[0,t] (vs − vˆs). The expectation of the expression on the right will now be bou nded via the Dudley entropy integral. To derive the bound, we must show that vs has sub-Gaussian increments. A mild extension of the argument that vt is sub-Guassian will sufﬁce. Without loss of generality, assume that ˆs ≥s. Then vˆs − vs =η ∫ ˆs s α⊤(∇x ¯f (xMτ ) − ∇x ¯f (xMτ , z⌊τ ⌋))dτ =η ∫ ⌈s⌉ s α⊤(∇x ¯f (xMτ ) − ∇x ¯f (xMτ , z⌊τ ⌋))dτ + η ⌊ˆs⌋−1∑ i=⌈s⌉ ∫ i+1 i α⊤(∇x ¯f (xMτ ) − ∇x ¯f (xMτ , z⌊τ ⌋))dτ + = ∫ s ⌊s⌋ α⊤(∇x ¯f (xMτ ) − ∇x ¯f (xMτ , z⌊τ ⌋))dτ =: ⌊ˆs⌋∑ i=⌈s⌉−1 ρi Then, similar to the case above, ρi are independent sub-Gaussian random variables with the fol low- ing bounds for all λ ∈ R: E[eλρi|F∞] ≤    e(ησλ)2(⌈s⌉−s)/2 i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06373,
+        0.02304,
+        0.00638,
+        0.01342,
+        -0.03585
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "s⌋∑ i=⌈s⌉−1 ρi Then, similar to the case above, ρi are independent sub-Gaussian random variables with the fol low- ing bounds for all λ ∈ R: E[eλρi|F∞] ≤    e(ησλ)2(⌈s⌉−s)/2 i",
+      "overlap_with_next": " (2019). By the deﬁnition of d, a ball of radius ǫ in the d metric corresponds to a ball of radius ( ǫ ησ )2 in the absolute value metric. And so, when ǫ ≥ησ √ t 2 , we have that N",
+      "text": "s⌋∑ i=⌈s⌉−1 ρi Then, similar to the case above, ρi are independent sub-Gaussian random variables with the fol low- ing bounds for all λ ∈ R: E[eλρi|F∞] ≤    e(ησλ)2(⌈s⌉−s)/2 ifi = ⌈s⌉ − 1 e(ησλ2)/2 ifi = ⌈s⌉,..., ⌊ˆs⌋ − 1 e(ησλ)2(ˆs−⌊s⌋)/2 ifi = ⌊ˆs⌋ Then independence implies that for all λ ∈ R, the following bound holds: E[eλ(vs−vˆs)|F∞] ≤ exp  λ2η2σ2 2  (⌊s⌋ −s)2 + ⌊ˆs⌋−1∑ i=⌈s⌉ 1 + (ˆs − ⌊ˆs⌋)2     ≤ exp (λ2η2σ2|s − ˆs| 2 ) . It follows that vs is sub-Guassian with respect to the metric deﬁned by d(s, ˆs) = ησ √ |s − ˆs|. See Deﬁnition 5.16 of Wainwright (2019). LetN ([0,t ],d,ǫ ) be the covering number of the interval [0,t ] via closed balls of radius ǫ under the metricd, and similarlyN ([0,t ], | · |,ǫ ) is the corresponding covering number with respect to the 28 [Page 29] PSGLA FOR SAMPLING AND LEARNING absolute value metric. A standard argument shows that N ([0,t ], | · |,ǫ ) = 1 whenǫ ≥t/2 and when ǫ ≤t/2, we have that N ([0,t ], | · |,ǫ ) ≤ t2ǫ + 1 ≤t/ǫ. See Example 5.2 of Wainwright (2019). By the deﬁnition of d, a ball of radius ǫ in the d metric corresponds to a ball of radius ( ǫ ησ )2 in the absolute value metric. And so, when ǫ ≥ησ √ t 2 , we have that N",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07001,
+        0.01664,
+        -0.03292,
+        0.00873,
+        -0.00065
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": " (2019). By the deﬁnition of d, a ball of radius ǫ in the d metric corresponds to a ball of radius ( ǫ ησ )2 in the absolute value metric. And so, when ǫ ≥ησ √ t 2 , we have that N",
+      "overlap_with_next": " √ 8 and adding it to ( 41) shows that W1(L(xBt ), L(xMt )) ≤ E [ ‖xBt − xMt ‖] ≤ 2ση √ nt + √ 128nησ √ 2πt r ( ηt (n β +Du + 2Dnσ ) + 12D2 ) . 29 [Page 30] PSGLA FOR SAMPLING AND ",
+      "text": " (2019). By the deﬁnition of d, a ball of radius ǫ in the d metric corresponds to a ball of radius ( ǫ ησ )2 in the absolute value metric. And so, when ǫ ≥ησ √ t 2 , we have that N ([0,t ],d,ǫ ) = 1 and when ǫ ≤ησ √ t 2 the following bound holds: N ([0,t ],d,ǫ ) ≤ tη2σ2 ǫ2 Thus, the Dudley entropy integral bound (see Theorem 5.22 of Wainwright (2019)) implies that E[ sup s,ˆs∈[0,t] (vs − vˆs)|F∞] ≤ 32 ∫ ησ√ t2 0 √ logN ([0,t ],d,ǫ )dǫ ≤ 32 ∫ ησ√t 0 √ log (tη2σ2 ǫ2 ) dǫ = 32ησ √ 2t ∫ ∞ 0 x1/2e−xdx ( using 2x = log (tη2σ2 ǫ2 )) = 16ησ √ 2πt (46) Thus, applying ( 46) for all of the standard basis vectors and plugging the bound into (45) and using the tower property gives E [ sup s∈[0,t] γ(yBt − yMt − yBs + yMs |K) ] ≤ 16nησ √ 2πt r (47) Combining (43), (44), and (47) shows that E   √⏐⏐⏐⏐∫ t0 (yBt − yMt − yBs + yMs )⊤ vMs dµM (s)⏐⏐⏐⏐ ≤ √ 16nηu √ 2πt r ( ηt (n β +Du + 2Dnσ ) + 12D2.) (48) An identical argument holds for the integral with respect to vBsdµM (s). So, multiplying the bound from (48) by 2 √ 2 = √ 8 and adding it to ( 41) shows that W1(L(xBt ), L(xMt )) ≤ E [ ‖xBt − xMt ‖] ≤ 2ση √ nt + √ 128nησ √ 2πt r ( ηt (n β +Du + 2Dnσ ) + 12D2 ) . 29 [Page 30] PSGLA FOR SAMPLING AND ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03389,
+        0.05776,
+        -0.00999,
+        0.0056,
+        -0.01535
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": " √ 8 and adding it to ( 41) shows that W1(L(xBt ), L(xMt )) ≤ E [ ‖xBt − xMt ‖] ≤ 2ση √ nt + √ 128nησ √ 2πt r ( ηt (n β +Du + 2Dnσ ) + 12D2 ) . 29 [Page 30] PSGLA FOR SAMPLING AND ",
+      "overlap_with_next": "e dynamics when xCt = xBt . Indeed, using Lemma 19 from Appendix G shows that ‖xCt − xBt ‖ = ∫ t 0 d‖xCs − xBs ‖ = lim ǫ↓0 ∫ t 0 /BD (‖xCs − xBs ‖ ≥ ǫ)d‖xCs − xBs ‖ ≤ lim ǫ↓0 ∫ t 0",
+      "text": " √ 8 and adding it to ( 41) shows that W1(L(xBt ), L(xMt )) ≤ E [ ‖xBt − xMt ‖] ≤ 2ση √ nt + √ 128nησ √ 2πt r ( ηt (n β +Du + 2Dnσ ) + 12D2 ) . 29 [Page 30] PSGLA FOR SAMPLING AND LEARNING The result follows by factoring out the terms depending on η andt. ■ Proof of Lemma 12 Note that d(xCt − xBt ) = η(∇xf (xMt , z⌊t⌋) − ∇xf (xCt , z⌊t⌋))dt + vBt dµB(t) − vCt dµC(t) so that xCt − xBt is a continuous bounded-variation process. Thus, whenever xCt ⁄= xBt , we have that: d‖xCt − xBt ‖ = ( xCt − xBt ‖xCt − xBt ‖ )⊤ η ( ∇xf (xMt , z⌊t⌋) − ∇xf (xCt , z⌊t⌋))dt + ( xCt − xBt ‖xCt − xBt ‖ )⊤( vBt dµB(t) − vCt dµC(t)) ≤ηℓ‖xMt − xCt ‖dt ≤ηℓ(‖xMt − xBt ‖ + ‖xCt − xBt ‖)dt. The ﬁrst inequality uses the deﬁnitions of vBt and vCt to imply that the corresponding terms are non-positive. It also simpliﬁes the inner product with the g radients via the Lipschitz property and the Cauchy-Schwarz inequality. The second inequality uses the triangle inequality. Now we will use an argument to rule out any expected behavior f rom the dynamics when xCt = xBt . Indeed, using Lemma 19 from Appendix G shows that ‖xCt − xBt ‖ = ∫ t 0 d‖xCs − xBs ‖ = lim ǫ↓0 ∫ t 0 /BD (‖xCs − xBs ‖ ≥ ǫ)d‖xCs − xBs ‖ ≤ lim ǫ↓0 ∫ t 0",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07792,
+        0.03223,
+        -0.0551,
+        0.00332,
+        -0.01092
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": "e dynamics when xCt = xBt . Indeed, using Lemma 19 from Appendix G shows that ‖xCt − xBt ‖ = ∫ t 0 d‖xCs − xBs ‖ = lim ǫ↓0 ∫ t 0 /BD (‖xCs − xBs ‖ ≥ ǫ)d‖xCs − xBs ‖ ≤ lim ǫ↓0 ∫ t 0",
+      "overlap_with_next": "ise, ifa = D2ℓ2β16 (1 − tanh2( D2ℓβ8 )), then a ≥ D2ℓ2β16 exp(−D2ℓβ4 ) and c8 ≤ 4D2ℓβ exp(D2ℓβ2 ). Proof For consider the case that D2ℓβ < 8 anda = 4D2β . The lower bound on a is d",
+      "text": "e dynamics when xCt = xBt . Indeed, using Lemma 19 from Appendix G shows that ‖xCt − xBt ‖ = ∫ t 0 d‖xCs − xBs ‖ = lim ǫ↓0 ∫ t 0 /BD (‖xCs − xBs ‖ ≥ ǫ)d‖xCs − xBs ‖ ≤ lim ǫ↓0 ∫ t 0 ηℓ /BD (‖xCs − xBs ‖ ≥ ǫ)(‖xMs − xBs ‖ + ‖xCs − xBs ‖)ds ≤ ∫ t 0 ηℓ(‖xMs − xBs ‖ + ‖xCs − xBs ‖)ds. Thus Gronwall’s inequality implies that ‖xCt − xBt ‖ ≤ ηℓ ∫ t 0 eηℓ(t−s)‖xMs − xBs ‖ds Taking expectations and using Lemma 11 gives the desired bound: E[‖xCt − xBt ‖] ≤ηℓ ∫ t 0 eηℓ(t−s) ( c11ηs1/2 +c12η1/2s1/4 +c13ηs3/4 ) ds ≤ηℓ ( c11ηt1/2 +c12η1/2t1/4 +c13ηt3/4 )∫ t 0 eηℓ(t−s)ds = ( c11ηt1/2 +c12η1/2t1/4 +c13ηt3/4 ) (eηℓt − 1). ■ 30 [Page 31] PSGLA FOR SAMPLING AND LEARNING Appendix C. Bounding the Constants In this expression, we bound the size of the constants based o n the problem data. First we get simpliﬁed bounds on the constants from Proposition 7. Then we use this result prove Proposition 2, which bounds the overall constants for the algorithm. Lemma 14 IfD2ℓβ <8 anda = 4D2β , then a ≥ ℓ2 and c8 ≤ 2e(1 − D2ℓβ8 )2. Otherwise, ifa = D2ℓ2β16 (1 − tanh2( D2ℓβ8 )), then a ≥ D2ℓ2β16 exp(−D2ℓβ4 ) and c8 ≤ 4D2ℓβ exp(D2ℓβ2 ). Proof For consider the case that D2ℓβ < 8 anda = 4D2β . The lower bound on a is d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04613,
+        0.02782,
+        -0.04083,
+        -0.0287,
+        -0.01823
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": "ise, ifa = D2ℓ2β16 (1 − tanh2( D2ℓβ8 )), then a ≥ D2ℓ2β16 exp(−D2ℓβ4 ) and c8 ≤ 4D2ℓβ exp(D2ℓβ2 ). Proof For consider the case that D2ℓβ < 8 anda = 4D2β . The lower bound on a is d",
+      "overlap_with_next": "ential decay factor can be bounded using the fact that: x ( 1 − tanh2(x)) = 4x (ex +e−x)2 ≥xe−2x. 31 [Page 32] PSGLA FOR SAMPLING AND LEARNING Now we bound c8. Using the deﬁnition ",
+      "text": "ise, ifa = D2ℓ2β16 (1 − tanh2( D2ℓβ8 )), then a ≥ D2ℓ2β16 exp(−D2ℓβ4 ) and c8 ≤ 4D2ℓβ exp(D2ℓβ2 ). Proof For consider the case that D2ℓβ < 8 anda = 4D2β . The lower bound on a is derived by combining the inequality D2ℓβ < 8 with the expression for a. To derive the upper bound on c8, ﬁrst note that DωNξ = D2ℓβ8 < 1 and so the numerator is bounded by eDωN ξ ≤e. Now we compute a lower bound on the denominator. By the choice ofa, we have thatDωN = 1 andξ = D2ℓβ8 < 1. We use the fact that sin(√1 −ξ2)<√1 −ξ2 to give cos (√ 1 −ξ2 ) − ξ√ 1 −ξ2 sin (√ 1 −ξ2 ) ≥ cos (√ 1 −ξ2 ) −ξ Then we use the elementary bound cos(θ) = cos(0) − ∫ θ 0 sin(t)dt ≥ 1 − ∫ θ 0 tdt = 1 − θ2 2 to give cos (√ 1 −ξ2 ) − ξ√ 1 −ξ2 sin (√ 1 −ξ2 ) ≥ 1 − 12(1 −ξ2) −ξ = 12 (1 −ξ)2. Combining the bounds for the numerator and the denominator, along with the fact that ξ = D2ℓβ8 gives the desired bound on c8. Now consider the case that a = D2ℓ2β16 (1 − tanh2( D2ℓβ8 )). For simpler notation, set x = D2ℓβ 8 so thata = ℓ2x(1 − tanh2(x)). Then the exponential decay factor can be bounded using the fact that: x ( 1 − tanh2(x)) = 4x (ex +e−x)2 ≥xe−2x. 31 [Page 32] PSGLA FOR SAMPLING AND LEARNING Now we bound c8. Using the deﬁnition ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01855,
+        0.03178,
+        -0.03892,
+        -0.00828,
+        -0.01551
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "ential decay factor can be bounded using the fact that: x ( 1 − tanh2(x)) = 4x (ex +e−x)2 ≥xe−2x. 31 [Page 32] PSGLA FOR SAMPLING AND LEARNING Now we bound c8. Using the deﬁnition ",
+      "overlap_with_next": "−x)2 (ex −e−x) ≥ 2xe−5x. Combining the numerator and denominator bounds shows that c8 ≤ e4x2x. Plugging in the expression for x gives the result. 32 [Page 33] PSGLA FOR SAMPLING AN",
+      "text": "ential decay factor can be bounded using the fact that: x ( 1 − tanh2(x)) = 4x (ex +e−x)2 ≥xe−2x. 31 [Page 32] PSGLA FOR SAMPLING AND LEARNING Now we bound c8. Using the deﬁnition of x, the numerator is given by ex. Now we derive a lower bound on the denominator of c8. Let y = DωN √ ξ2 − 1. Plugging in the expressions for ξ,a, andx shows that y =DωN √ ξ2 − 1 = x tanh(x) and √ ξ2 − 1 ξ = tanh(x). Then the denominator of c8 can be expressed as cosh(y) − sinh(y)tanh(x) = cosh(y)tanh(x) (tanh(x) − tanh(y)) ≥ tanh(x) − tanh(y)tanh(x) , (49) where the inequality follows from the fact that cosh(y) ≥ 1. Using the fact that ddx tanh(x) = 1 − tanh2(x) and that tanh is monotonically increasing gives the bound: tanh(x) − tanh(y) = ∫ x y ( 1 − tanh2(z))dz ≥ (x −y)(1 − tanh2(x)) =x(1 − tanh(x))2(1 + tanh(x)) = 8xe−2x (ex +e−x)3. (50) The second-to-last line uses the fact that y = x tanh(x), while the last line uses that tanh(x) = ex−e−x ex+e−x . Combining (49) and (50) shows that cosh(y) − sinh(y)tanh(x) ≥ 8xe−2x(ex +e−x)2 (ex −e−x) ≥ 2xe−5x. Combining the numerator and denominator bounds shows that c8 ≤ e4x2x. Plugging in the expression for x gives the result. 32 [Page 33] PSGLA FOR SAMPLING AN",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01193,
+        -0.00412,
+        -0.03048,
+        -0.00558,
+        -0.02813
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 62400,
+      "length": 1200,
+      "overlap_with_previous": "−x)2 (ex −e−x) ≥ 2xe−5x. Combining the numerator and denominator bounds shows that c8 ≤ e4x2x. Plugging in the expression for x gives the result. 32 [Page 33] PSGLA FOR SAMPLING AN",
+      "overlap_with_next": "d(1 − D2ℓβ8 )−2 in this case. Now consider the case that a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) c8 = eDωN ξcosh(DωN√ξ2 − 1) − ξ√ξ2−1 sinh(DωN√1 −ξ2). The general lower bound on a is taken",
+      "text": "−x)2 (ex −e−x) ≥ 2xe−5x. Combining the numerator and denominator bounds shows that c8 ≤ e4x2x. Plugging in the expression for x gives the result. 32 [Page 33] PSGLA FOR SAMPLING AND LEARNING Proof of Proposition 2 Collecting the constant deﬁnitions from the proofs above gi ves the fol- lowing relations, in addition to the deﬁnitions of c8 anda: c1 =c8D c2 =c6 +c7 c6 = 2 1/4 (c9 +c10)eℓ ( 1 + c81 −e−a/2 ) c7 = (c11 +c12 +c13)eℓ ( 1 + c81 −e−a/2 ) c9 = /radicaltp/radicalvertex/radicalvertex√2(u +ℓD2r + nσ√2r + 2n√2r√β )(nβ +Du + 2Dnσ) c10 = √ 2 ( Du + 2nσ + nβ) +D√u +ℓD2r + nσ√2r + 2n√2r√β c11 = 2σ√n c12 = √ 64nσD √ 2π r c13 = √ 128nσ √ 2π r (n β +Du + 2Dnσ ) Since neither c8 nor a depend on the state dimension, n, we can see that the constants grow linearly withn. In the case of D2ℓβ <8 anda = 4D2β , Lemma 14 implies that (1 −e−a/2)−1 ≤ (1 −e−ℓ/4)−1. So, the only way for the constants to become large as β varies is for β−1 or(1 − D2ℓβ8 )−1 to approach ∞. In particular the terms that can go to ∞ areβ−1/4 and(1 − D2ℓβ8 )−2 in this case. Now consider the case that a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) c8 = eDωN ξcosh(DωN√ξ2 − 1) − ξ√ξ2−1 sinh(DωN√1 −ξ2). The general lower bound on a is taken",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0038,
+        0.03926,
+        -0.03842,
+        0.0028,
+        -0.01758
+      ]
+    },
+    {
+      "chunk_index": 61,
+      "start_char": 62220,
+      "end_char": 63420,
+      "length": 1200,
+      "overlap_with_previous": "d(1 − D2ℓβ8 )−2 in this case. Now consider the case that a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) c8 = eDωN ξcosh(DωN√ξ2 − 1) − ξ√ξ2−1 sinh(DωN√1 −ξ2). The general lower bound on a is taken",
+      "overlap_with_next": "nd with the various expression s for the constants shows that there is a polynomial p suchc1 andc2 can be bounded by ci ≤p(β−1/4) exp ( 3D2ℓβ 4 ) ■ Appendix D. Near-Optimality of G",
+      "text": "d(1 − D2ℓβ8 )−2 in this case. Now consider the case that a = D2ℓ2β16 (1 − tanh2(D2ℓβ8 )) c8 = eDωN ξcosh(DωN√ξ2 − 1) − ξ√ξ2−1 sinh(DωN√1 −ξ2). The general lower bound on a is taken directly from Lemma 14. The main term that remains to be bounded is 11−e−a/2 . To perform this bound, we ﬁrst note that for ally >0, 1 1 −e−y ≤ max { 2 y, 11 −e−1 } . (51) Indeed, the left side is monotonically decreasing, and so fo r ally ≥ 1, the bound 1 1 −e−y ≤ 11 −e−1 33 [Page 34] PSGLA FOR SAMPLING AND LEARNING holds. Now, we use the elementary bound that for all y ≥ 0, e−y ≤ 1 −y + 12y2. This inequal- ity appears in Lattimore and Szepesv´ ari(2019) without proof, but can be proved by showing that ey(1 −y + 12y2) is monotonically increasing. In particular, when 0<y ≤ 1, we have that 1 1 −e−y ≤ 1y(1 − 12y) ≤ 2y. Combining the bounds for y ≥ 1 an 0<y ≤ 1 gives (51). So, now combining ( 51) with the results of Lemma 14 shows that c8 1 −e−a/2 ≤ 4D2ℓβ exp(D2ℓβ2 ) max{ 32D2ℓ2β exp(D2ℓβ4 ), 11 −e−1} Then combining this above bound with the various expression s for the constants shows that there is a polynomial p suchc1 andc2 can be bounded by ci ≤p(β−1/4) exp ( 3D2ℓβ 4 ) ■ Appendix D. Near-Optimality of G",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00903,
+        0.02558,
+        -0.04574,
+        -0.04284,
+        -0.00425
+      ]
+    },
+    {
+      "chunk_index": 62,
+      "start_char": 63240,
+      "end_char": 64440,
+      "length": 1200,
+      "overlap_with_previous": "nd with the various expression s for the constants shows that there is a polynomial p suchc1 andc2 can be bounded by ci ≤p(β−1/4) exp ( 3D2ℓβ 4 ) ■ Appendix D. Near-Optimality of G",
+      "overlap_with_next": " K is compact. Multiplying the numerator and denominator of the deﬁnition ofπg byeg(x⋆) gives πg(A) = ∫ Aeg(x⋆)−g(x)dx∫ Keg(x⋆)−g(y)dy. Note thatπ0(dx) = dxvol(K) . Thus, the deﬁni",
+      "text": "nd with the various expression s for the constants shows that there is a polynomial p suchc1 andc2 can be bounded by ci ≤p(β−1/4) exp ( 3D2ℓβ 4 ) ■ Appendix D. Near-Optimality of Gibbs Distributions In this appendix, we prove Proposition 5, which states that the algorithm can produce near-optimal samples, provided that β is sufﬁciently large. This proposition depends on an elemen tary result on the properties of Gibbs distributions constrained to K, shown next. Lemma 15 F or any functiong : K → R, let πg be the probability measure deﬁned by πg(A) =∫ A e−g(x)dx∫ K e−g(y)dy . In particular , π0 corresponds to the uniform measure. If g isℓ-lipschitz, then the KLdivergence ofπg from the uniform measure is bounded by: 0 ≤ KL(πg,π 0) ≤ min x∈K g(x) − Eπg[g(x)] +n log ( max { 2 r, (r + √ r2 +D2)ℓ r log 2 }) + log(2Dn). Proof The lower-bound on the KL divergence is standard Cover and Thomas (2012); Gray (2011). Now we prove the upper bound. Sayx⋆ minimizesg(x) over K. A minimizer exists because g is Lipschitz and K is compact. Multiplying the numerator and denominator of the deﬁnition ofπg byeg(x⋆) gives πg(A) = ∫ Aeg(x⋆)−g(x)dx∫ Keg(x⋆)−g(y)dy. Note thatπ0(dx) = dxvol(K) . Thus, the deﬁni",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07137,
+        0.00791,
+        -0.03817,
+        -0.00771,
+        0.00549
+      ]
+    },
+    {
+      "chunk_index": 63,
+      "start_char": 64260,
+      "end_char": 65460,
+      "length": 1200,
+      "overlap_with_previous": " K is compact. Multiplying the numerator and denominator of the deﬁnition ofπg byeg(x⋆) gives πg(A) = ∫ Aeg(x⋆)−g(x)dx∫ Keg(x⋆)−g(y)dy. Note thatπ0(dx) = dxvol(K) . Thus, the deﬁni",
+      "overlap_with_next": "nd. To ﬁnd the desired ball, we consider three cases: 1) 0 /∈ B x⋆(ǫ), 2) 0 ∈ B x⋆(ǫ) andǫ ≤r, and 3) 0 ∈ B x⋆(ǫ) andǫ>r . When 0 /∈ B x⋆(ǫ), we construct the desired ball from the",
+      "text": " K is compact. Multiplying the numerator and denominator of the deﬁnition ofπg byeg(x⋆) gives πg(A) = ∫ Aeg(x⋆)−g(x)dx∫ Keg(x⋆)−g(y)dy. Note thatπ0(dx) = dxvol(K) . Thus, the deﬁnition of KL divergence gives: KL(πg,π 0) = Eπg[g(x⋆) −g(x)] + log (vol(K)) − log (∫ K eg(x⋆)−g(x)dx) 34 [Page 35] PSGLA FOR SAMPLING AND LEARNING Note that K is contained in a ball of radius D, so that vol(K) ≤Dn π n 2 Γ( n2 +1) . So, the desired upper bound is obtained by providing a lower b ound on ∫ Keg(x⋆)−g(x)dx. Note that 0 ≥g(x⋆) −g(x) ≥ −ℓ‖x −x⋆‖ Also, note that e−ℓ‖x−x⋆‖ ≥ 12 if and only if ‖x −x⋆‖ ≤ log 2ℓ . Setǫ = log 2ℓ and let Bx⋆(ǫ) be the ball of radius ǫ centered atx⋆. Then for any S ⊂ K ∩ B x⋆(ǫ) we have that ∫ K eg(x⋆)−g(x)dx ≥ 12 vol (K ∩ Bx⋆(ǫ)) ≥ 12 vol(S) We will show that K ∩ B x⋆(ǫ) always contains a ball of radius min{ r2, rǫr+√r2+D2 }. The lemma then follows by using the fact that a ball of radius ρ has volume given by π n 2 Γ( n2 +1)ρn. Note that the constant factors of π n 2 Γ( n2 +1) cancel in the bound. To ﬁnd the desired ball, we consider three cases: 1) 0 /∈ B x⋆(ǫ), 2) 0 ∈ B x⋆(ǫ) andǫ ≤r, and 3) 0 ∈ B x⋆(ǫ) andǫ>r . When 0 /∈ B x⋆(ǫ), we construct the desired ball from the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04045,
+        0.01822,
+        -0.03722,
+        0.00305,
+        0.02374
+      ]
+    },
+    {
+      "chunk_index": 64,
+      "start_char": 65280,
+      "end_char": 66480,
+      "length": 1200,
+      "overlap_with_previous": "nd. To ﬁnd the desired ball, we consider three cases: 1) 0 /∈ B x⋆(ǫ), 2) 0 ∈ B x⋆(ǫ) andǫ ≤r, and 3) 0 ∈ B x⋆(ǫ) andǫ>r . When 0 /∈ B x⋆(ǫ), we construct the desired ball from the",
+      "overlap_with_next": " that 0 ∈ B x⋆(ǫ) andǫ ≤r. It follows that x⋆ ∈ B 0(r). Then applications of the triangle inequality show that Bx⋆/2(ǫ/2) ⊂ B 0(r) ∩ Bx⋆(ǫ) ⊂ K ∩ B x⋆(ǫ). Thus, a ball of radiusǫ/2",
+      "text": "nd. To ﬁnd the desired ball, we consider three cases: 1) 0 /∈ B x⋆(ǫ), 2) 0 ∈ B x⋆(ǫ) andǫ ≤r, and 3) 0 ∈ B x⋆(ǫ) andǫ>r . When 0 /∈ B x⋆(ǫ), we construct the desired ball from the geometry of Fig. 1. Without loss of generality, we can assume thatx⋆ = −‖x⋆‖e1, wheree1 is the ﬁrst standard unit vector. Also, since 0 /∈ B x⋆(ǫ), we must have that ‖x⋆‖> 0. Consider the convex set deﬁned by: ‖x −x⋆‖ ≤ ǫ (52a) −‖x⋆‖ ≤ x1 ≤ 0 (52b)/radicaltp/radicalvertex/radicalvertex√ n∑ i=2 x2i ≤r + r‖x⋆‖x1 (52c) The set deﬁned by ( 52) is a subset of K ∩ Bx⋆(ǫ). The angle between the x⋆ and the conic constraint boundary, from ( 52c), is given by θ = tan −1 r‖x⋆‖ . For any d > 0, the largest ball centered at (−‖x⋆‖ +d)e1 which ﬁts into the conic set from ( 52c) has radius d sinθ. The largest such ball that is also contained in Bx⋆(ǫ) is found by setting d +d sinθ =ǫ. Plugging the deﬁnitions of d andθ shows that the corresponding ball has radius ρ, which satiﬁes rǫ r + √ r2 +D2 ≤ρ = rǫr +√r + ‖x⋆‖2 < ǫ2. Now consider the case that 0 ∈ B x⋆(ǫ) andǫ ≤r. It follows that x⋆ ∈ B 0(r). Then applications of the triangle inequality show that Bx⋆/2(ǫ/2) ⊂ B 0(r) ∩ Bx⋆(ǫ) ⊂ K ∩ B x⋆(ǫ). Thus, a ball of radiusǫ/2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00495,
+        0.04945,
+        -0.06311,
+        0.02233,
+        0.00653
+      ]
+    },
+    {
+      "chunk_index": 65,
+      "start_char": 66300,
+      "end_char": 67500,
+      "length": 1200,
+      "overlap_with_previous": " that 0 ∈ B x⋆(ǫ) andǫ ≤r. It follows that x⋆ ∈ B 0(r). Then applications of the triangle inequality show that Bx⋆/2(ǫ/2) ⊂ B 0(r) ∩ Bx⋆(ǫ) ⊂ K ∩ B x⋆(ǫ). Thus, a ball of radiusǫ/2",
+      "overlap_with_next": "¯f [ ¯f (x)] +uW1(L(xk),π β ¯f ) (53) ≤ min x∈K ¯f (x) +uW1(L(xk),π β ¯f ) + n log(c5 max{1,β })β , wherec5 = 2D max { 2 r, (r+ √ r2+D2)u r log 2 } . Now we will show how to tune t",
+      "text": " that 0 ∈ B x⋆(ǫ) andǫ ≤r. It follows that x⋆ ∈ B 0(r). Then applications of the triangle inequality show that Bx⋆/2(ǫ/2) ⊂ B 0(r) ∩ Bx⋆(ǫ) ⊂ K ∩ B x⋆(ǫ). Thus, a ball of radiusǫ/2> rǫr+√r+D2 has been constructed in K ∩ Bx⋆(ǫ). Finally, consider the case that 0 ∈ B x⋆(ǫ) and ǫ > r. If ‖x⋆‖ ≥ r/2, then B rx⋆ 2‖x⋆‖ (r/2) ⊂ B0(r) ∩ B x⋆(ǫ) ⊂ K ∩ B x⋆(ǫ). Otherwise, if ‖x⋆‖ < r/2, then B0(r/2) ⊂ B 0(r) ∩ B x⋆(ǫ) ⊂ K ∩ Bx⋆(ǫ). In either case, a ball of radius r/2 has been constructed in K ∩ Bx⋆(ǫ). 35 [Page 36] PSGLA FOR SAMPLING AND LEARNING 0 x⋆ r ǫ Figure 1: Case of 0 /∈ B x⋆(ǫ). Using elementary trigonometry the largest inscribed circl e can be calculated. Proof of Proposition 5 Recall that ¯f isu-Lipschitz, so that β ¯f isβu-Lipschitz. Assume that ˜x is drawn according to πβ ¯f . So, applying Lemma 15 toβ ¯f and dividing by β implies that E[ ¯f (˜x)] ≤ min x∈K ¯f (x) + nβ log ( 2D max { 2 r, (r + √ r2 +D2)uβ r log 2 }) . (53) Let xk be thek-th iterate of the algorithm. E[f (xk)] Kantorovich Duality ≤ Eπβ ¯f [ ¯f (x)] +uW1(L(xk),π β ¯f ) (53) ≤ min x∈K ¯f (x) +uW1(L(xk),π β ¯f ) + n log(c5 max{1,β })β , wherec5 = 2D max { 2 r, (r+ √ r2+D2)u r log 2 } . Now we will show how to tune t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05727,
+        0.06581,
+        -0.03026,
+        0.03206,
+        0.02129
+      ]
+    },
+    {
+      "chunk_index": 66,
+      "start_char": 67320,
+      "end_char": 68520,
+      "length": 1200,
+      "overlap_with_previous": "¯f [ ¯f (x)] +uW1(L(xk),π β ¯f ) (53) ≤ min x∈K ¯f (x) +uW1(L(xk),π β ¯f ) + n log(c5 max{1,β })β , wherec5 = 2D max { 2 r, (r+ √ r2+D2)u r log 2 } . Now we will show how to tune t",
+      "overlap_with_next": " )1/2 Similar to the derivation of ( 54) we have for all δ ∈ (0, 1/2) and allT >0: T −1/4(logT )1/2 ≤ √ T − 12 +δ eδ Thus, to haveuW1(L(xk),π β ¯f ) ≤ ǫ2 , it sufﬁces to have T − 1",
+      "text": "¯f [ ¯f (x)] +uW1(L(xk),π β ¯f ) (53) ≤ min x∈K ¯f (x) +uW1(L(xk),π β ¯f ) + n log(c5 max{1,β })β , wherec5 = 2D max { 2 r, (r+ √ r2+D2)u r log 2 } . Now we will show how to tune the parameters to achieve an avera ge suboptimality of ǫ. First, we chooseβ so that n log(c5 max{1,β}) β ≤ ǫ2. Without loss of generality, assume that β ≥ 1. Setx = log(c5β), so that β =c−15 ex and the required bound becomes: xe−x ≤ c5ǫ2n Fix anyλ ∈ (0, 1). Then the maximum value of xe−(1−λ)x occurs atx = (1 −λ)−1, so that for allx ∈ R: xe−x ≤ 1(1 −λ)ee−λx. (54) So, it sufﬁces to set e−λx ≤ c5ǫ(1−λ)e2n . Plugging in the deﬁnition of x and re-arranging shows that a sufﬁcient condition for n log(c5β) β ≤ ǫ2 is given by: β ≥c−15 ( 2n c5(1 −λ)ǫe )1/λ . (55) 36 [Page 37] PSGLA FOR SAMPLING AND LEARNING Now, for ﬁxedβ ≥ 1, the bounds from Theorem 1 and Proposition 2 to give that W1(L(xk),π β ¯f ) ( c1 + c2(4a)1/4 ) T −1/4(logT )1/2 ≤p(1)e 3D2ℓβ 4  1 + e D2ℓβ 16 41/4c3  T −1/4(logT )1/2 ≤p(1) ( 1 + 141/4c3) exp(13D2ℓβ16 )T −1/4(logT )1/2 Similar to the derivation of ( 54) we have for all δ ∈ (0, 1/2) and allT >0: T −1/4(logT )1/2 ≤ √ T − 12 +δ eδ Thus, to haveuW1(L(xk),π β ¯f ) ≤ ǫ2 , it sufﬁces to have T − 1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03541,
+        0.0167,
+        -0.07116,
+        -0.00416,
+        -0.00776
+      ]
+    },
+    {
+      "chunk_index": 67,
+      "start_char": 68340,
+      "end_char": 69540,
+      "length": 1200,
+      "overlap_with_previous": " )1/2 Similar to the derivation of ( 54) we have for all δ ∈ (0, 1/2) and allT >0: T −1/4(logT )1/2 ≤ √ T − 12 +δ eδ Thus, to haveuW1(L(xk),π β ¯f ) ≤ ǫ2 , it sufﬁces to have T − 1",
+      "overlap_with_next": "sed on the Skorokhod problem, which we describe below. This will be use ful, in particular, for analyzing projected gradient algorithms in continuous time. Let K be a convex subset",
+      "text": " )1/2 Similar to the derivation of ( 54) we have for all δ ∈ (0, 1/2) and allT >0: T −1/4(logT )1/2 ≤ √ T − 12 +δ eδ Thus, to haveuW1(L(xk),π β ¯f ) ≤ ǫ2 , it sufﬁces to have T − 12 +δ ≤eδ(ǫ2)2(p(1)(1 + 141/4c3) exp( 13D2ℓβ16 ))−2 =: ˆǫ, which occurs whenever T ≥ 1 ˆǫ 2 1−2δ In particular, there is a constant, c14, independent of η,β,ǫ,λ, and δ, such that the bound above holds whenever T ≥ c 2 1−2δ 14 ǫ 4 1−2δ exp ( 13D2ℓβ 4(1 − 2δ) ) . (56) The result now follows by combining ( 55) and ( 56), noting that 41−2δ can take any value ρ> 4 and 1/λ can take any value ζ >1. ■ Appendix E. The Skorokhod Problem This appendix describes basic results on the Skorokhod prob lem, which is used to construct solu- tions to reﬂected SDEs. First we describe some existing theo ry. Then we present limiting argument that is used to translate results on compact convex sets with smooth boundaries general compact convex sets. E.1. Background A classical construction for constraining stochastic proc esses to remain in a set is based on the Skorokhod problem, which we describe below. This will be use ful, in particular, for analyzing projected gradient algorithms in continuous time. Let K be a convex subset",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03666,
+        0.03944,
+        -0.03675,
+        -0.00179,
+        0.0043
+      ]
+    },
+    {
+      "chunk_index": 68,
+      "start_char": 69360,
+      "end_char": 70560,
+      "length": 1200,
+      "overlap_with_previous": "sed on the Skorokhod problem, which we describe below. This will be use ful, in particular, for analyzing projected gradient algorithms in continuous time. Let K be a convex subset",
+      "overlap_with_next": "e solution of the Skorokhod problem corresponding towt. By existence and uniqueness, we can view the Skorokhod prob lem solution as a mapping: x = S(w). The connection between Skor",
+      "text": "sed on the Skorokhod problem, which we describe below. This will be use ful, in particular, for analyzing projected gradient algorithms in continuous time. Let K be a convex subset of Rn with non-empty interior. Let w : [0, ∞) → Rn be a piecewise- continuous function with w0 ∈ K . For each x ∈ Rn, let NK(x) be the normal cone at x. Then the functionsxt andφt solve the Skorokhod problem forwt if the following conditions hold: 37 [Page 38] PSGLA FOR SAMPLING AND LEARNING • xt =wt +φt ∈ K for allt ∈ [0,T ) • The function φ has the formφ(t) = − ∫ t 0vsdµ(s), where ‖vs‖ ∈ { 0, 1} andvs ∈NK(xs) for alls ∈ [0,T ), while the measure, µ, satisﬁesµ([0,T ))< ∞ for anyT >0. For each w, the corresponding functions xt and φt exist and are unique Tanaka et al. (1979). Note that if xt ∈ int(K), then NK(xt) = {0}, and so vt = 0 . Thus, without loss of generality, we can assume that µ is supported entirely on the times in which xt ∈ ∂K. In many cases, we are primarily interested in xt and so we will often refer to xt as the solution of the Skorokhod problem corresponding towt. By existence and uniqueness, we can view the Skorokhod prob lem solution as a mapping: x = S(w). The connection between Skor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03676,
+        0.01823,
+        -0.02568,
+        -0.00943,
+        -0.00107
+      ]
+    },
+    {
+      "chunk_index": 69,
+      "start_char": 70380,
+      "end_char": 71580,
+      "length": 1200,
+      "overlap_with_previous": "e solution of the Skorokhod problem corresponding towt. By existence and uniqueness, we can view the Skorokhod prob lem solution as a mapping: x = S(w). The connection between Skor",
+      "overlap_with_next": "hen the Skorokhod problems are solved for these discretized trajectories and shown to converge to a unique solution for t he original Skorokhod problem for w. The existence of a so",
+      "text": "e solution of the Skorokhod problem corresponding towt. By existence and uniqueness, we can view the Skorokhod prob lem solution as a mapping: x = S(w). The connection between Skorokhod problems and projection algorithms becomes more concrete whenwt is piecewise constant. Speciﬁcally, assume that 0 = t0 < t1 < · · ·< tM −1 ≤ T are the jump points of wt, and let Sk = [tk,t k+1) fork <M − 1 andSM −1 = [tM −1,T ]. Then wt can be represented as wt = M −1∑ k=0 wtk /BD Sk (t). Then the solution of the Skorokhod problem has the form xt = M −1∑ k=0 xtk /BD Sk (t), φ t = − ∫ t 0 M −1∑ k=0 vtkdk+1δ(s −tk)ds, wherex0 =w0,v0 = 0, and xtk+1 = Π K(xtk +wtk+1 −wtk ) dk+1 = ‖(xtk +wtk+1 −wtk ) −xtk+1‖ vtk+1 = { 0 xtk +wtk+1 −wtk ∈ K (xtk +wtk+1 −wtk )−xtk+1 dk+1 xtk +wtk+1 −wtk /∈ K. In Tanaka et al. (1979), a construction for the Skorokhod solution for a continuou s trajectory,w, proceeds as follows. The continuous trajectory is approximated by piecewise constant trajectories of the formw⌊ti⌋/i for positive integersi. Then the Skorokhod problems are solved for these discretized trajectories and shown to converge to a unique solution for t he original Skorokhod problem for w. The existence of a so",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01896,
+        -0.00542,
+        -0.02597,
+        0.00615,
+        0.01526
+      ]
+    },
+    {
+      "chunk_index": 70,
+      "start_char": 71400,
+      "end_char": 72600,
+      "length": 1200,
+      "overlap_with_previous": "hen the Skorokhod problems are solved for these discretized trajectories and shown to converge to a unique solution for t he original Skorokhod problem for w. The existence of a so",
+      "overlap_with_next": "xmt = ¯xmk/m. Corollary 3.3 of Słomi´ nski(2001) shows that ¯xm converges uniformly to x on compact subsets of [0, ∞). E.2. Approximating the Domain In Appendix F we show that the ",
+      "text": "hen the Skorokhod problems are solved for these discretized trajectories and shown to converge to a unique solution for t he original Skorokhod problem for w. The existence of a solution to the Skorokhod problem for arbi trary continuous trajectories can be used to construct unique solutions to reﬂected stochasti c differential equations. In particular, the integrated form of a reﬂected SDE can be expressed as: xt = x0 + ∫ t 0 f (s, xs)ds + ∫ t 0 σ(s, xs)dws − ∫ t 0 vsdµ(s), (57) where x0 ∈ K, − ∫ t 0 vsdµ(s) is the reﬂection process that ensures that x(t) ∈ K for allt ≥ 0. Note that x is the Skorokhod solution to the process: yt = x0 + ∫ t 0 f (xs)ds + ∫ t 0 σ(xs)dws. 38 [Page 39] PSGLA FOR SAMPLING AND LEARNING A construction for xt based on Picard iteration was given in Tanaka et al. (1979). The paper Słomi´ nski(2001), examines the Euler scheme deﬁned by: ¯xm0 = x0 and for integers k ≥ 0: ¯xm(k+1)/m = Π K ( ¯xmk/m + 1mf (¯xmk/m) +σ(¯xmk/m)(w(k+1)/m − wk/m)). (58) Then fort ∈ [k/m, (k + 1)/m), we set ¯xmt = ¯xmk/m. Corollary 3.3 of Słomi´ nski(2001) shows that ¯xm converges uniformly to x on compact subsets of [0, ∞). E.2. Approximating the Domain In Appendix F we show that the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00942,
+        -0.01496,
+        -0.03351,
+        0.01453,
+        0.001
+      ]
+    },
+    {
+      "chunk_index": 71,
+      "start_char": 72420,
+      "end_char": 73620,
+      "length": 1200,
+      "overlap_with_previous": "xmt = ¯xmk/m. Corollary 3.3 of Słomi´ nski(2001) shows that ¯xm converges uniformly to x on compact subsets of [0, ∞). E.2. Approximating the Domain In Appendix F we show that the ",
+      "overlap_with_next": "ΠK(x)‖ ≤ ǫ for all x ∈ Rn with ‖x‖ ≤ R. By the monotonicity of Ki, the result then holds for all j ≥i. Note that if x ∈ K i, then ΠKi(x) = Π K(x) = x, so we only need to analyze th",
+      "text": "xmt = ¯xmk/m. Corollary 3.3 of Słomi´ nski(2001) shows that ¯xm converges uniformly to x on compact subsets of [0, ∞). E.2. Approximating the Domain In Appendix F we show that the distributionπβ ¯f from (3) is invariant for the process xM . However, many of the arguments are easier when K has a smooth boundary. To handle the general case, we ex- amine Skorokhod solutions on smooth approximations of K and then use a limiting argument. Here we build the approximation results needed for this argument . The basic idea for this approximation is discussed in Section 2 of Lions and Sznitman (1984), but not proved explicitly. Let K1 ⊂ K 2 ⊂ · · · ⊂ K be an increasing family of convex compact sets such that if S is any compact subset of int(K), thenS ⊂ K i for all sufﬁciently large i. The approximation results are proved using the following fa ct about projections. Lemma 16 The functions ΠKi converge uniformly to ΠK on compact subsets of Rn. Proof We will show that for any ǫ > 0, there is an i such that ‖ΠKi(x) − ΠK(x)‖ ≤ ǫ for all x ∈ Rn with ‖x‖ ≤ R. By the monotonicity of Ki, the result then holds for all j ≥i. Note that if x ∈ K i, then ΠKi(x) = Π K(x) = x, so we only need to analyze th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03846,
+        0.02994,
+        -0.06418,
+        -0.03389,
+        -0.01969
+      ]
+    },
+    {
+      "chunk_index": 72,
+      "start_char": 73440,
+      "end_char": 74640,
+      "length": 1200,
+      "overlap_with_previous": "ΠK(x)‖ ≤ ǫ for all x ∈ Rn with ‖x‖ ≤ R. By the monotonicity of Ki, the result then holds for all j ≥i. Note that if x ∈ K i, then ΠKi(x) = Π K(x) = x, so we only need to analyze th",
+      "overlap_with_next": "gging the upper and lower bounds into ( 59) shows that δ2 + 2δ‖x − ΠK(x)‖ + ‖x − ΠK(x)‖2 ≥ ‖y − ΠKi(x)‖2 + ‖x − ΠK(x)‖2. Using the fact that 0 ∈ K and ‖x‖ ≤ R shows that ‖x−ΠK(x)‖ ",
+      "text": "ΠK(x)‖ ≤ ǫ for all x ∈ Rn with ‖x‖ ≤ R. By the monotonicity of Ki, the result then holds for all j ≥i. Note that if x ∈ K i, then ΠKi(x) = Π K(x) = x, so we only need to analyze the case that x /∈ K i. Let δ > 0 and let S be a compact subset of int(K) such that dist(x,S ) ≤ δ for all x ∈ K . Here dist(x,S ) is the distance function. Such an S can be chosen as S = λK for λ ∈ (0, 1) sufﬁciently close to 1. Take Ki such that S ⊂ K i. This implies, in particular that for any x ∈ K , that dist(x, Ki) ≤δ. Consider anyx /∈ K i. By the distance assumption, there is a pointy ∈ K i such that ‖y − ΠK(x)‖ ≤ δ. The generalized Pythagorean inequality applied to ‖ · ‖2 and Ki implies that ‖y −x‖2 ≥ ‖y − ΠKi(x)‖2 + ‖x − ΠKi(x)‖2. (59) (See Herbster and Warmuth (2001) for more on the generalized Pythagorean inequality.) Note that ‖x − ΠKi(x)‖ ≥ ‖x − ΠK(x)‖, since ΠKi(x) ∈ K. Furthermore, the triangle inequal- ity, followed by the distance assumption on y imply that: ‖y −x‖ ≤ ‖y − ΠK(x)‖ + ‖x − ΠK(x)‖ ≤ δ + ‖x − ΠK(x)‖ Plugging the upper and lower bounds into ( 59) shows that δ2 + 2δ‖x − ΠK(x)‖ + ‖x − ΠK(x)‖2 ≥ ‖y − ΠKi(x)‖2 + ‖x − ΠK(x)‖2. Using the fact that 0 ∈ K and ‖x‖ ≤ R shows that ‖x−ΠK(x)‖ ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03793,
+        0.02615,
+        -0.05931,
+        -0.03406,
+        -0.01185
+      ]
+    },
+    {
+      "chunk_index": 73,
+      "start_char": 74460,
+      "end_char": 75660,
+      "length": 1200,
+      "overlap_with_previous": "gging the upper and lower bounds into ( 59) shows that δ2 + 2δ‖x − ΠK(x)‖ + ‖x − ΠK(x)‖2 ≥ ‖y − ΠKi(x)‖2 + ‖x − ΠK(x)‖2. Using the fact that 0 ∈ K and ‖x‖ ≤ R shows that ‖x−ΠK(x)‖ ",
+      "overlap_with_next": "o- tion, the resulting solution converges uniformly on compac ts to x. Similarly, for each Ki, the corresponding Euler scheme converges uniformly on compact s to xi for almost all ",
+      "text": "gging the upper and lower bounds into ( 59) shows that δ2 + 2δ‖x − ΠK(x)‖ + ‖x − ΠK(x)‖2 ≥ ‖y − ΠKi(x)‖2 + ‖x − ΠK(x)‖2. Using the fact that 0 ∈ K and ‖x‖ ≤ R shows that ‖x−ΠK(x)‖ ≤ R. So, rearranging the inequality above and plugging in this bound shows that: ‖y − ΠKi(x)‖ ≤ √ δ2 + 2δR. 39 [Page 40] PSGLA FOR SAMPLING AND LEARNING Also, note that by the triangle inequality, the assumption o ny, and the inequality above: ‖ΠK(x) − ΠKi(x)‖ ≤ ‖ ΠK(x) −y‖ + ‖y − ΠKi(x)‖ ≤ δ + √ δ2 + 2δR. So the result holds by choosing δ such thatδ + √ δ2 + 2δR ≤ǫ. Lemma 17 Let x and xi be solutions of the reﬂected SDE from ( 57) over domains K and Ki respectively, with f (x) andσ(x) both Lipschitz in x. F or almost all realizations of the Brownian motion, xi converges uniformly to x on compact subsets of [0, ∞). Proof In the proof we denote the trajectories like x(t) and xi(t) to reduce the complexity of the subscripts and superscripts. Consider the Euler approximation from ( 58). For almost all realizations of the Brownian mo- tion, the resulting solution converges uniformly on compac ts to x. Similarly, for each Ki, the corresponding Euler scheme converges uniformly on compact s to xi for almost all ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07616,
+        0.00571,
+        -0.0564,
+        -0.00919,
+        -0.01272
+      ]
+    },
+    {
+      "chunk_index": 74,
+      "start_char": 75480,
+      "end_char": 76680,
+      "length": 1200,
+      "overlap_with_previous": "o- tion, the resulting solution converges uniformly on compac ts to x. Similarly, for each Ki, the corresponding Euler scheme converges uniformly on compact s to xi for almost all ",
+      "overlap_with_next": "(t) − xm(t)‖ ≤ ǫ. If we can show this, the result will follow by the triangle inequality. Let d = sup s,t∈[0,T ] ‖ws − wt‖. Since f and σ are continuous, they are bounded on K. It ",
+      "text": "o- tion, the resulting solution converges uniformly on compac ts to x. Similarly, for each Ki, the corresponding Euler scheme converges uniformly on compact s to xi for almost all Brownian mo- tion realizations. Now since the intersection of a countabl e collection of almost sure events is again an almost sure event, we have for almost all Brownian motion r ealizations, all of the corresponding Euler schemes converge uniformly on compacts. Let w be a realization for which all of the corresponding Euler sch emes converge uniformly on compacts. Fix T > 0 and let ¯xmi be the Euler approximations of xi. Corollary 3.3 of Słomi´ nski (2001) gives a convergence rate for the Euler scheme which implies that there is a constant c >0 such that ∀i, sup t∈[0,T ] ‖¯xmi (t) − xi(t)‖ ≤ cm−1/5 and sup t∈[0,T ] ‖¯xm(t) − x(t)‖ ≤ cm−1/5. So ﬁxǫ> 0 and choosem sufﬁciently large so that ∀i, sup t∈[0,T ] ‖¯xmi (t) − xi(t)‖ ≤ ǫ and sup t∈[0,T ] ‖¯xm(t) − x(t)‖ ≤ ǫ. Now we will show thati can be chosen so that supt∈[0,T ] ‖¯xmi (t) − xm(t)‖ ≤ ǫ. If we can show this, the result will follow by the triangle inequality. Let d = sup s,t∈[0,T ] ‖ws − wt‖. Since f and σ are continuous, they are bounded on K. It ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03998,
+        -0.00041,
+        -0.05484,
+        0.01455,
+        -0.01936
+      ]
+    },
+    {
+      "chunk_index": 75,
+      "start_char": 76500,
+      "end_char": 77700,
+      "length": 1200,
+      "overlap_with_previous": "(t) − xm(t)‖ ≤ ǫ. If we can show this, the result will follow by the triangle inequality. Let d = sup s,t∈[0,T ] ‖ws − wt‖. Since f and σ are continuous, they are bounded on K. It ",
+      "overlap_with_next": "general compact convex set. The basic idea follows throu gh in the more general case in which ¯f is only assumed to be differentiable. Lemma 18 The measureπβ ¯f is a stationary dis",
+      "text": "(t) − xm(t)‖ ≤ ǫ. If we can show this, the result will follow by the triangle inequality. Let d = sup s,t∈[0,T ] ‖ws − wt‖. Since f and σ are continuous, they are bounded on K. It follows that all of the arguments of the projection used in th e Euler schemes are bounded in norm by: D + sup x∈K ‖f (x)‖ + sup x∈K ‖σ(x)‖2d. Here ‖ · ‖2 is the matrix 2-norm. Thus, for any ﬁxed m, Lemma 16 implies that all of the projections converge uniformly as i → ∞ , which in turn implies that ¯xmi converges to ¯xm uniformly on [0,T ]. In particular, we can choosem such that supt∈[0,T ] ‖x(t) − ¯xm(t)‖ ≤ ǫ, and the proof is complete. 40 [Page 41] PSGLA FOR SAMPLING AND LEARNING Appendix F . Invariance of the Gibbs Distribution Here we prove a basic result that πβ ¯f is invariant for xM . Our proof extends the methodology from Lemma 2.1 of Harrison and Williams (1987), which examines the case that ¯f is afﬁne and the boundary is smooth. Bubeck et al. (2018) gives a brief outline of the analysis when ¯f is convex and K is a general compact convex set. The basic idea follows throu gh in the more general case in which ¯f is only assumed to be differentiable. Lemma 18 The measureπβ ¯f is a stationary dis",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07199,
+        0.00086,
+        -0.0457,
+        -0.02901,
+        0.01288
+      ]
+    },
+    {
+      "chunk_index": 76,
+      "start_char": 77520,
+      "end_char": 78720,
+      "length": 1200,
+      "overlap_with_previous": "general compact convex set. The basic idea follows throu gh in the more general case in which ¯f is only assumed to be differentiable. Lemma 18 The measureπβ ¯f is a stationary dis",
+      "overlap_with_next": " Trudinger (1998) shows that there is a unique twice-differentiable h such that (Lh)(x) −λh(x) = −g(x) ∀x ∈ int(K) (61a) ∇h(x)⊤v = 0 ∀x ∈∂K and ∀v ∈NK(x). (61b) Note that since ∂K ",
+      "text": "general compact convex set. The basic idea follows throu gh in the more general case in which ¯f is only assumed to be differentiable. Lemma 18 The measureπβ ¯f is a stationary distribution for ( 5). Proof We ﬁrst assume that K has a smooth boundary. Later, we will use a limiting argument to show that the result still holds for general compact convex K. The generator associated with xM on the interior of K is given by: Lg(x) = −η∇ ¯f (x)⊤∇g(x) + ηβ (∆g)(x), where ∆ is the Laplacian operator. (In this proof we will drop the sub script of x from the gradient operators, since zk does not inﬂuence xM .) Deﬁne the diffusion operator Pt by: (Ptg)(x) = E[g(xMt )|x0 =x]. To show invariance, it sufﬁces to show that for all g ∈L2(πβ ¯f ) and allt> 0 the follow holds: ∫ K g(x)dπβ ¯f (x) = ∫ K (Ptg)(x)dπβ ¯f (x) (60) Now, since the set of differentiable functions is dense in L2(πβ ¯f ), we can assume without loss of generality that g is differentiable. In the case that g is differentiable, Theorem 6.31 of Gilbarg and Trudinger (1998) shows that there is a unique twice-differentiable h such that (Lh)(x) −λh(x) = −g(x) ∀x ∈ int(K) (61a) ∇h(x)⊤v = 0 ∀x ∈∂K and ∀v ∈NK(x). (61b) Note that since ∂K ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04416,
+        0.00135,
+        -0.03496,
+        -0.01232,
+        0.02504
+      ]
+    },
+    {
+      "chunk_index": 77,
+      "start_char": 78540,
+      "end_char": 79740,
+      "length": 1200,
+      "overlap_with_previous": " Trudinger (1998) shows that there is a unique twice-differentiable h such that (Lh)(x) −λh(x) = −g(x) ∀x ∈ int(K) (61a) ∇h(x)⊤v = 0 ∀x ∈∂K and ∀v ∈NK(x). (61b) Note that since ∂K ",
+      "overlap_with_next": ", uniqueness of Laplace transforms implies that ( 60) holds for all t >0 if and only if ( 63) holds for allλ> 0. Using (61a), the left side of ( 63) becomes: λ−1 ∫ K g(x)dπβ ¯f (x)",
+      "text": " Trudinger (1998) shows that there is a unique twice-differentiable h such that (Lh)(x) −λh(x) = −g(x) ∀x ∈ int(K) (61a) ∇h(x)⊤v = 0 ∀x ∈∂K and ∀v ∈NK(x). (61b) Note that since ∂K is smooth,NK(x) is a half-line for all x ∈∂K. Let qt =e−λth(xMt ) + ∫ t 0 e−λsg(xMs )ds. Then Itˆ o’s formula combined with (61b) followed by ( 61a) gives: dqt =e−λt(−λh(xMt ) −η∇ ¯f (xMt )⊤∇h(xMt ) + ηβ ∆h(xMt ) +g(xMt ))dt +√ 2ηβ ∇g(xMt )⊤dwt = √ 2η β ∇g(xMt )⊤dwt. So, in particular, qt is a martingale. 41 [Page 42] PSGLA FOR SAMPLING AND LEARNING Ifx = xM0 , then h(x) = q0 = lim t→∞ E[qt|x0 =x] = E [∫ ∞ 0 e−λtg(xMt )dt ⏐⏐⏐⏐xM0 =x] = ∫ ∞ 0 e−λt(Ptg)(x)dt. (62) The last equality follows from Fubini’s theorem, which is justiﬁed by the fact thatg is differentiable, and so the integrand is bounded on K. Taking the Laplace transform of both sides of ( 60) gives the condition: λ−1 ∫ K g(x)dπβ ¯f (x) = ∫ K ∫ ∞ 0 e−λt(Ptg)(x)dtdπβ ¯f (x). (63) Note that Fubini’s theorem was again used to switch the order of integrals on the right. Now, uniqueness of Laplace transforms implies that ( 60) holds for all t >0 if and only if ( 63) holds for allλ> 0. Using (61a), the left side of ( 63) becomes: λ−1 ∫ K g(x)dπβ ¯f (x)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06994,
+        0.03524,
+        -0.02048,
+        -0.00358,
+        -0.00376
+      ]
+    },
+    {
+      "chunk_index": 78,
+      "start_char": 79560,
+      "end_char": 80760,
+      "length": 1200,
+      "overlap_with_previous": ", uniqueness of Laplace transforms implies that ( 60) holds for all t >0 if and only if ( 63) holds for allλ> 0. Using (61a), the left side of ( 63) becomes: λ−1 ∫ K g(x)dπβ ¯f (x)",
+      "overlap_with_next": "tegral, we follow a typical construction from the integration of differential forms from Lee (2013). Choose a ﬁnite open cover of K in the subspace topolgy,U 1,...,U m, with corres",
+      "text": ", uniqueness of Laplace transforms implies that ( 60) holds for all t >0 if and only if ( 63) holds for allλ> 0. Using (61a), the left side of ( 63) becomes: λ−1 ∫ K g(x)dπβ ¯f (x) = λ−1 ∫ K (λh(x) −Lh(x))dπβ ¯f (x) Using (62), the right side of ( 63) becomes: ∫ K ∫ ∞ 0 e−λt(Ptg)(x)dtdπβ ¯f (x) = ∫ K h(x)dπβ ¯f (x). Thus, we see that ( 63) holds if and only if ∫ K Lh(x)dπβ ¯f (x) = 0. (64) Using the speciﬁc form of L andπβ ¯f , we see that ( 64) holds if and only if ∫ K ( −η∇ ¯f (x)⊤∇h(x) + ηβ ∆h(x))e−β ¯f (x)dx = 0 (65) We will prove (65) via Stokes theorem, which states that ∫ Kdω(x) = ∫ ∂Kω(x) for a differential n − 1 form. Consider the (n − 1)-form deﬁned by: ω(x) = n∑ i=1 (−1)i+1 (∂h(x) ∂xi e−β ¯f (x) )⋀ j⁄=i dxj Here the wedge product follows the standard ordering over th e integers. By construction, we have dω(x) = ( −η∇ ¯f (x)⊤∇h(x) + ηβ ∆h(x))e−β ¯f (x)dx1 ∧ · · · ∧dxn. 42 [Page 43] PSGLA FOR SAMPLING AND LEARNING Thus, Stokes theorem implies ( 65) if and only if ∫ ∂K ω(x) = 0 To evaluate this integral, we follow a typical construction from the integration of differential forms from Lee (2013). Choose a ﬁnite open cover of K in the subspace topolgy,U 1,...,U m, with corres",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01782,
+        0.05247,
+        -0.01302,
+        -0.01856,
+        -0.00354
+      ]
+    },
+    {
+      "chunk_index": 79,
+      "start_char": 80580,
+      "end_char": 81780,
+      "length": 1200,
+      "overlap_with_previous": "tegral, we follow a typical construction from the integration of differential forms from Lee (2013). Choose a ﬁnite open cover of K in the subspace topolgy,U 1,...,U m, with corres",
+      "overlap_with_next": "rt φ and partition of unity element ψ. For compact notation, set αi(x) = ψ(x)∂h(x)∂xi e−β ¯f (x) so that ψ(x)ω(x) = n∑ i=1 (−1)i+1αi(x)⋀ j⁄=i dxj. LetJ(y) be the Jacobian matrix of",
+      "text": "tegral, we follow a typical construction from the integration of differential forms from Lee (2013). Choose a ﬁnite open cover of K in the subspace topolgy,U 1,...,U m, with corresponding smooth charts, φ1,...,φ m, and a corresponding partition of unity ψ1,...,ψ m. The partition of unity has the property that ψi is supported in U i. Without loss of generality, we assume that φi preserve the orientation of K. Furthermore, since ∂K is smooth, the neighborhoods and charts can be chosen such that if U i ∩∂K ⁄= ∅, thenφi mapsU i to a half-space, H: φi(U i) ⊂ {y ∈ Rn|yn ≥ 0} φi(U i ∩∂K) ⊂ {y ∈ Rn|yn = 0}. As in Lee (2013), the desired integral can be evaluated as ∫ ∂K ω(x) = M∑ i=1 ∫ ∂K ψi(x)ω(x) = M∑ i=1 ∫ ∂Hn (((φi)−1)⋆(ψiω))(y), where ((φi)−1)⋆ denotes the pullback operation. To evaluate ∫ Kω(x), it sufﬁces to evaluate this integral over elements of the co ver that intersect ∂K. We will show that each of these elements integrates to zero. To this end, let U be a set in the cover withU ∩∂K with associated chart φ and partition of unity element ψ. For compact notation, set αi(x) = ψ(x)∂h(x)∂xi e−β ¯f (x) so that ψ(x)ω(x) = n∑ i=1 (−1)i+1αi(x)⋀ j⁄=i dxj. LetJ(y) be the Jacobian matrix of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06233,
+        0.01724,
+        -0.02674,
+        -0.01724,
+        0.02396
+      ]
+    },
+    {
+      "chunk_index": 80,
+      "start_char": 81600,
+      "end_char": 82800,
+      "length": 1200,
+      "overlap_with_previous": "rt φ and partition of unity element ψ. For compact notation, set αi(x) = ψ(x)∂h(x)∂xi e−β ¯f (x) so that ψ(x)ω(x) = n∑ i=1 (−1)i+1αi(x)⋀ j⁄=i dxj. LetJ(y) be the Jacobian matrix of",
+      "overlap_with_next": "−1)i+nMin(y). Lettingx =φ−1(y), it follows that the integrand on the right of ( 66) is given by n∑ i=1 (−1)i+1αi(φ−1(y))Min(y) = det(J(y))(−1)1−nψ(x)e−β ¯f (x)∇h(x)⊤∇φn(x). Note he",
+      "text": "rt φ and partition of unity element ψ. For compact notation, set αi(x) = ψ(x)∂h(x)∂xi e−β ¯f (x) so that ψ(x)ω(x) = n∑ i=1 (−1)i+1αi(x)⋀ j⁄=i dxj. LetJ(y) be the Jacobian matrix of φ−1(y) and let Mij(y) be the associated minors. Then the deﬁnition of the pullback followed by Proposition 14.11 of Lee (2013) shows that: (φ⋆(ψω))(y) = n∑ i=1 (−1)i+1αi(φ−1(y))⋀ j⁄=i ( n∑ k=1 Jjk (y)dyk ) = n∑ i=1 (−1)i+1αi(φ−1(y)) n∑ k=1 Mik(y) ⋀ ℓ⁄=k dyℓ. As in the proof of Stokes theorem from Lee (2013), all of the terms of the pullback that include dyn integrate to zero. This is because the yn is ﬁxed at 0 on the boundary, so the integrals over yn must be zero. Thus, the integral simpliﬁes to: ∫ ∂Hn ((φ−1)⋆(ψω))(y) = ∫ ∂Hn n∑ i=1 (−1)i+1αi(ψ−1(y))Min(y)⋀ j⁄=n dyj (66) 43 [Page 44] PSGLA FOR SAMPLING AND LEARNING To show that the right side is zero, it sufﬁces to show that the integrand on the right is zero. The inverse function theorem, followed by Cramer’s rule shows t hat ∂φn ∂xi ⏐⏐⏐⏐ x=φ−1(y) = (J(y)−1)ni = 1det(J(y)) (−1)i+nMin(y). Lettingx =φ−1(y), it follows that the integrand on the right of ( 66) is given by n∑ i=1 (−1)i+1αi(φ−1(y))Min(y) = det(J(y))(−1)1−nψ(x)e−β ¯f (x)∇h(x)⊤∇φn(x). Note he",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02919,
+        0.01231,
+        -0.04426,
+        0.00707,
+        0.02483
+      ]
+    },
+    {
+      "chunk_index": 81,
+      "start_char": 82620,
+      "end_char": 83820,
+      "length": 1200,
+      "overlap_with_previous": "−1)i+nMin(y). Lettingx =φ−1(y), it follows that the integrand on the right of ( 66) is given by n∑ i=1 (−1)i+1αi(φ−1(y))Min(y) = det(J(y))(−1)1−nψ(x)e−β ¯f (x)∇h(x)⊤∇φn(x). Note he",
+      "overlap_with_next": "ufﬁciently large i. Let xM,i be the Skorokhod solutions corresponding to the sets Ki. LetZi = ∫ Kie−β ¯f (x)dx. Then Zi ↑ Z =:∫Ke−β ¯f (x)dx by monotone convergence. Let xM,i be th",
+      "text": "−1)i+nMin(y). Lettingx =φ−1(y), it follows that the integrand on the right of ( 66) is given by n∑ i=1 (−1)i+1αi(φ−1(y))Min(y) = det(J(y))(−1)1−nψ(x)e−β ¯f (x)∇h(x)⊤∇φn(x). Note here that if y ∈∂Hn, thenx ∈∂K. So, ( 61b) implies that the integrand is zero if −∇φn(x) ∈ NK(x). This follows because for all z ∈ K and allt> 0 sufﬁciently small, we have that x +t(z − x) ∈ K and 0 ≤φn(x +t(z −x)) = φn(x) +t∇φn(x)⊤(z −x) +o(t) = t∇φn(x)⊤(z −x) +o(t). Thus ∇φn(x)⊤x ≤ ∇φn(x)⊤z and so −∇φn(x) ∈NK(x). Thus, ( 65) has been proved and so the lemma has been proved for K with smooth boundaries. Now we cover the general case. Let b be a self-concordant barrier function for K such that for any sequencexi ∈ int withxi →∂K, we haveb(xi) → ∞. By Theorem 2.5.1 of Nesterov and Nemirovskii (1994), such a barrier function exists. Let Ki = {x|b(x) ≤i}. For all sufﬁciently large i, we have that Ki is non-empty. Whenever Ki is nonempty, it has a smooth boundary. Furthermore, if S is a compact subset of int(K), then S ⊂ K i for all sufﬁciently large i. Let xM,i be the Skorokhod solutions corresponding to the sets Ki. LetZi = ∫ Kie−β ¯f (x)dx. Then Zi ↑ Z =:∫Ke−β ¯f (x)dx by monotone convergence. Let xM,i be th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02034,
+        0.04524,
+        -0.04464,
+        -0.02735,
+        0.01035
+      ]
+    },
+    {
+      "chunk_index": 82,
+      "start_char": 83640,
+      "end_char": 84840,
+      "length": 1200,
+      "overlap_with_previous": "ufﬁciently large i. Let xM,i be the Skorokhod solutions corresponding to the sets Ki. LetZi = ∫ Kie−β ¯f (x)dx. Then Zi ↑ Z =:∫Ke−β ¯f (x)dx by monotone convergence. Let xM,i be th",
+      "overlap_with_next": "t for allt ≥ 0. (In fact it converges uniformly on compacts.) As a result the integrand on the righ t converges pointwise almost surely to the integrand on the right side of ( 60).",
+      "text": "ufﬁciently large i. Let xM,i be the Skorokhod solutions corresponding to the sets Ki. LetZi = ∫ Kie−β ¯f (x)dx. Then Zi ↑ Z =:∫Ke−β ¯f (x)dx by monotone convergence. Let xM,i be the solution from ( 5) in which the Skorokhod problem is solved over Ki in place of K. Let P it be the diffusion operator corresponding to xM,it . Then, for each non-empty Ki, the corresponding version of (60) can be written as 1 Zi ∫ Ki g(x)e−β ¯f (x)dx = 1Zi ∫ Ki (P itg)(x)e−β ¯f (x)dx (67) Using the fact that g is bounded on K, dominated convergence implies that lim i→∞ 1 Zi ∫ Ki g(x)e−β ¯f (x)dx = 1Z∫Kg(x)e−β ¯f (x)dx =∫Kg(x)dπβ ¯f (x). The proof will be completed if we can show that the right side o f (67) converges to the right side of (60). Note that the right side of ( 67) can be expressed as 1 Zi ∫ Ki (P itg)(x)e−β ¯f (x)dx = 1Zi ∫ Ki E[g(xM,it )|xM,i0 =x]e−β ¯f (x)dx Now, Lemma 17 from Appendix E shows that for almost all realizations of the Brownian motion, w, the Skorokhod solution converges pointwise limi→∞ xM,it = xMt for allt ≥ 0. (In fact it converges uniformly on compacts.) As a result the integrand on the righ t converges pointwise almost surely to the integrand on the right side of ( 60).",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00507,
+        -0.00686,
+        -0.02674,
+        -0.04296,
+        -0.02865
+      ]
+    },
+    {
+      "chunk_index": 83,
+      "start_char": 84660,
+      "end_char": 85860,
+      "length": 1200,
+      "overlap_with_previous": "t for allt ≥ 0. (In fact it converges uniformly on compacts.) As a result the integrand on the righ t converges pointwise almost surely to the integrand on the right side of ( 60).",
+      "overlap_with_next": "riation, there are numbers 0 = s0 <s 1 < · · ·< sN =t such that⏐⏐⏐⏐⏐∫ t0 /BD (x(s)<ǫ )dx(s) − N −1∑i=0 /BD (x(¯si)<ǫ )(x(si+1) −x(si))⏐⏐⏐⏐⏐ ≤δ, where ¯si = 12 (si+1 +si). Continuit",
+      "text": "t for allt ≥ 0. (In fact it converges uniformly on compacts.) As a result the integrand on the righ t converges pointwise almost surely to the integrand on the right side of ( 60). Thus, the integrals on the right of ( 67) converge to the integral on the right of ( 60) via dominated convergence. 44 [Page 45] PSGLA FOR SAMPLING AND LEARNING Appendix G. An Elementary Result on Stieltjes Integration The following basic result is used a few times to examine boun ded variation functions, x(t) whose differentialsdx(t) are only known when x(t) ⁄= 0. Lemma 19 Letx(t) be a continuous non-negative function with bounded variati on. Then x(t) −x(0) = lim ǫ↓0 ∫ t 0 /BD (x(s) ≥ǫ)dx(s) (68) Proof Fix anyǫ> 0. Then we have the Stieltjes integral representation: x(t) −x(0) = ∫ t 0 dx(s) = ∫ t 0 /BD (x(s) ≥ǫ)dx(s) + ∫ t 0 /BD (x(s)<ǫ )dx(s). We will show that the second integral on the right goes to 0 asǫ → 0. This would imply the desired result by re-arranging and taking limits. Fix anyδ >0. Then since x(t) has bounded variation, there are numbers 0 = s0 <s 1 < · · ·< sN =t such that⏐⏐⏐⏐⏐∫ t0 /BD (x(s)<ǫ )dx(s) − N −1∑i=0 /BD (x(¯si)<ǫ )(x(si+1) −x(si))⏐⏐⏐⏐⏐ ≤δ, where ¯si = 12 (si+1 +si). Continuit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04519,
+        0.05329,
+        -0.02062,
+        0.00164,
+        -0.01203
+      ]
+    },
+    {
+      "chunk_index": 84,
+      "start_char": 85680,
+      "end_char": 86827,
+      "length": 1147,
+      "overlap_with_previous": "riation, there are numbers 0 = s0 <s 1 < · · ·< sN =t such that⏐⏐⏐⏐⏐∫ t0 /BD (x(s)<ǫ )dx(s) − N −1∑i=0 /BD (x(¯si)<ǫ )(x(si+1) −x(si))⏐⏐⏐⏐⏐ ≤δ, where ¯si = 12 (si+1 +si). Continuit",
+      "overlap_with_next": "d as: ⏐⏐⏐⏐⏐N −1∑i=0 /BD (x(¯si)<ǫ )(x(si+1) −x(si))⏐⏐⏐⏐⏐ ≤ 2ǫ Using the fact that δ is arbtrary and using the triangle inequality shows that ⏐⏐⏐⏐∫ t0 /BD (x(s)<ǫ )dx(s)⏐⏐⏐⏐ ≤ 2ǫ 45",
+      "text": "riation, there are numbers 0 = s0 <s 1 < · · ·< sN =t such that⏐⏐⏐⏐⏐∫ t0 /BD (x(s)<ǫ )dx(s) − N −1∑i=0 /BD (x(¯si)<ǫ )(x(si+1) −x(si))⏐⏐⏐⏐⏐ ≤δ, where ¯si = 12 (si+1 +si). Continuity of x(t) implies that the si can be chosen such that if x(¯si) < ǫthenx(si) ≤ ǫ and x(si+1) ≤ǫ. Ifx(¯sˆi)< ǫfor some ˆi, then let I = {j,j + 1,...,k } be the largest sequence of integers such that 0 ≤j ≤ ˆi ≤k ≤N − 1 andx(¯si)<ǫ fori =j,...,k . Then k∑ i=j /BD (x(¯si)<ǫ )(x(si+1) −x(si)) = x(sk+1) −x(sj) (69) Maximality of the interval and our choice of si imply that either j = 0 or x(sj) = ǫ and either k + 1 = N orx(sk+1) = ǫ. Note that in all cases |x(sk+1) −x(sj)| ≤ ǫ. If x(sj) = x(sk+1) = ǫ then the sum from ( 69) is zero. So the sum can only be non-zero if j = 0 ork + 1 = N (or both). Since every term such that x(¯si)<ǫ can be included in one of the intervals constructed above, and a most two of them can give rise to a non-zero sum, we see tha t the Riemann sum is bounded as: ⏐⏐⏐⏐⏐N −1∑i=0 /BD (x(¯si)<ǫ )(x(si+1) −x(si))⏐⏐⏐⏐⏐ ≤ 2ǫ Using the fact that δ is arbtrary and using the triangle inequality shows that ⏐⏐⏐⏐∫ t0 /BD (x(s)<ǫ )dx(s)⏐⏐⏐⏐ ≤ 2ǫ 45",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03065,
+        0.03763,
+        -0.05826,
+        -0.0063,
+        -0.01704
+      ]
+    },
+    {
+      "chunk_index": 85,
+      "start_char": 86700,
+      "end_char": 86827,
+      "length": 127,
+      "overlap_with_previous": "⏐⏐⏐ ≤ 2ǫ Using the fact that δ is arbtrary and using the triangle inequality shows that ⏐⏐⏐⏐∫ t0 /BD (x(s)<ǫ )dx(s)⏐⏐⏐⏐ ≤ 2ǫ 45",
+      "overlap_with_next": "",
+      "text": "⏐⏐⏐ ≤ 2ǫ Using the fact that δ is arbtrary and using the triangle inequality shows that ⏐⏐⏐⏐∫ t0 /BD (x(s)<ǫ )dx(s)⏐⏐⏐⏐ ≤ 2ǫ 45",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05007,
+        0.04255,
+        -0.07735,
+        -0.0236,
+        -0.02482
+      ]
+    }
+  ]
+}

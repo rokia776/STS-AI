@@ -1,0 +1,827 @@
+{
+  "paper_id": "af822086-a209-4c4a-a73a-d88c03d25591",
+  "filename": "061_Computer_Vision_Action_Recognition_with_Kernel-based_Graph_Convolutional_Networks.pdf",
+  "title": "Action Recognition with Kernel-based Graph Convolutional Networks",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 48,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "mber of training parameters. The particularity of our GCN model also resides in its ability to achieve convolutions without explicitly realigning nodes in the receptive ﬁelds of th",
+      "text": "[Page 1] 1 Action Recognition with Kernel-based Graph Convolutional Networks Hichem Sahbi Sorbonne University, CNRS, LIP6 F-75005, Paris, France ! Abstract Learning graph convolutional networks (GCNs) is an emerging ﬁeld which aims at generalizing deep learning to arbitrary non-regular domains. Most of the existing GCNs follow a neighborhood aggregation scheme, where the representation of a node is recursively obtained by aggregating its neighboring node representations using averaging or sorting operations. However, these operations are either ill-posed or weak to be discriminant or increase the number of training parameters and thereby the computational complexity and the risk of overﬁtting. In this paper, we introduce a novel GCN framework that achieves spatial graph convolution in a reproducing kernel Hilbert space (RKHS). The latter makes it possible to design, via implicit kernel representations, convolutional graph ﬁlters in a high dimensional and more discriminating space without increasing the number of training parameters. The particularity of our GCN model also resides in its ability to achieve convolutions without explicitly realigning nodes in the receptive ﬁelds of th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05177,
+        -0.02349,
+        -0.00209,
+        0.00038,
+        -0.00586
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "mber of training parameters. The particularity of our GCN model also resides in its ability to achieve convolutions without explicitly realigning nodes in the receptive ﬁelds of th",
+      "overlap_with_next": "ion of these models to non-regular domains, such as graphs, remains a major challenge even though interesting solutions are currently emerging [4], [16], [17], [28], [29], [31], [4",
+      "text": "mber of training parameters. The particularity of our GCN model also resides in its ability to achieve convolutions without explicitly realigning nodes in the receptive ﬁelds of the learned graph ﬁlters with those of the input graphs, thereby making convolutions permutation agnostic and well deﬁned. Experiments conducted on the challenging task of skeleton-based action recognition show the superiority of the proposed method against different baselines as well as the related work. 1 I NTRODUCTION There is an increasing interest in deep learning for different pattern classiﬁcation and recognition tasks [1], [2], [15]. These parametric models rely on deep neural networks, composed of several convolutional, pooling and fully connected layers, that capture different levels of abstractions in the analyzed patterns [54]. These models have been popular in the analysis of vectorial data; i.e., those sitting on top of regular domains such as images [47], [53], [55], [56], [58], [59], [61], [62]. However, the extension of these models to non-regular domains, such as graphs, remains a major challenge even though interesting solutions are currently emerging [4], [16], [17], [28], [29], [31], [4",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00916,
+        -0.04966,
+        -0.02771,
+        0.00918,
+        0.00232
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "ion of these models to non-regular domains, such as graphs, remains a major challenge even though interesting solutions are currently emerging [4], [16], [17], [28], [29], [31], [4",
+      "overlap_with_next": " stationary point is reached. These spatial methods also include recurrent gaited networks [14], [37], [48] that share the same convolutional parameters through layers, and composi",
+      "text": "ion of these models to non-regular domains, such as graphs, remains a major challenge even though interesting solutions are currently emerging [4], [16], [17], [28], [29], [31], [43]. Indeed, the difﬁculty in analyzing non-vectorial data stems from the ambiguity in deﬁning usual operations namely convolutions. Whereas achieving convolution using sliding windows in regular domains, such as images, is a well deﬁned operation, there is no clear deﬁnition of sliding windows in general graphs [43]; besides, the number and the order of nodes that intervene in the receptive ﬁelds of convolutions may change dramatically across different graph instances. Early graph convolutional network (GCN) methods [22], [42], [48], [51] and their variants (see for instance [14], [37], [92], [94], [95], [97], [98]) are rather spatial and seek to learn graph representations by iteratively propagating node features (a.k.a representations, descriptions or signals) through their neighbors using recurrent neural architectures till a stationary point is reached. These spatial methods also include recurrent gaited networks [14], [37], [48] that share the same convolutional parameters through layers, and composi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06295,
+        -0.00652,
+        -0.01849,
+        0.00217,
+        0.01709
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": " stationary point is reached. These spatial methods also include recurrent gaited networks [14], [37], [48] that share the same convolutional parameters through layers, and composi",
+      "overlap_with_next": "convolutions well deﬁned [4], [16], [27], [31], [34], [36], [90]. These methods rely on the Fourier transform that projects the signal of a given graph using the spectral decomposi",
+      "text": " stationary point is reached. These spatial methods also include recurrent gaited networks [14], [37], [48] that share the same convolutional parameters through layers, and composition-based convolutional networks [25] that consider different parameters. However, on highly irregular graphs, convolutions are ill-posed as the notion of translation and ﬁlter support (i.e., receptive ﬁeld) cannot be consistently deﬁned. Existing attempts, to address these issues, achieve node sorting and efﬁcient sampling of neighboring nodes in order to deﬁne the receptive ﬁeld during graph convolutions [7] and to arXiv:2012.14186v1 [cs.CV] 28 Dec 2020 [Page 2] 2 make it similar to regular (grid-like) domains [3], [17], [44]. Other solutions operate differently [17], [25], [43], [44], [52]; ﬁrst, they describe nodes by aggregating their neighbors into ﬁxed length features prior to apply convolution (based on inner product) on the aggregated features. On another hand, spectral methods provide interesting alternatives to make convolutions well deﬁned [4], [16], [27], [31], [34], [36], [90]. These methods rely on the Fourier transform that projects the signal of a given graph using the spectral decomposi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01022,
+        -0.01039,
+        -0.05043,
+        -0.00891,
+        -0.00862
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "convolutions well deﬁned [4], [16], [27], [31], [34], [36], [90]. These methods rely on the Fourier transform that projects the signal of a given graph using the spectral decomposi",
+      "overlap_with_next": "ing for a lower layer is conditioned on a top one. Nonetheless, most of these spectral methods suffer from several drawbacks; the eigen decomposition of the Laplacian, besides bein",
+      "text": "convolutions well deﬁned [4], [16], [27], [31], [34], [36], [90]. These methods rely on the Fourier transform that projects the signal of a given graph using the spectral decomposition of its Laplacian prior to perform convolution in the Fourier domain, and then back-project the result in the input domain; in particular, the method in [16] makes it possible to project graph signals using an orthogonal Chebyshev basis prior to achieve convolution. An extension, in [31], allows to reduce the Chebychev polynomial using a ﬁrst order approximation which provides a spatially localized convolution, that is equivalent to spatial methods. A variant in [9] interprets the graph convolutions in [31] as integral transforms of embedding functions under probability measures and uses Monte Carlo sampling to efﬁciently and consistently estimate the integrals. Huang et al. [28] propose an adaptive layer-wise sampling approach, based on variance reduction in order to accelerate the training of ChebyshevNet [31], where sampling for a lower layer is conditioned on a top one. Nonetheless, most of these spectral methods suffer from several drawbacks; the eigen decomposition of the Laplacian, besides bein",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01407,
+        -0.01578,
+        -0.04059,
+        0.0231,
+        0.00196
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ing for a lower layer is conditioned on a top one. Nonetheless, most of these spectral methods suffer from several drawbacks; the eigen decomposition of the Laplacian, besides bein",
+      "overlap_with_next": "licit expansion of the input node representations may enhance the discrimination power but comes at the expense of a substantial increase in the number of training parameters (ther",
+      "text": "ing for a lower layer is conditioned on a top one. Nonetheless, most of these spectral methods suffer from several drawbacks; the eigen decomposition of the Laplacian, besides being computationally expensive, is sensitive to any small perturbation of input graphs (that may result from the intra-class variability). Moreover, the learned ﬁlters are domain dependent and cannot be transferred to graphs with high topological variations. Besides the aforementioned issues, the accuracy of both spatial and spectral GCNs also relies on the discrimination power of the input graph signal. For highly nonlinear graph signals, relying on convolutions in the input space may limit the discrimination power of the learned convolutional representations and may result into limited accuracy. Furthermore, sorting using automorphisms is not always consistent through different graph instances while aggregation based on averaging (when achieved in the input space) may dilute input node representations prior to convolution. An explicit expansion of the input node representations may enhance the discrimination power but comes at the expense of a substantial increase in the number of training parameters (ther",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05028,
+        -0.00627,
+        -0.01013,
+        0.01616,
+        0.00755
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "licit expansion of the input node representations may enhance the discrimination power but comes at the expense of a substantial increase in the number of training parameters (ther",
+      "overlap_with_next": "maps graph signals from an input space into a high dimensional Hilbert space. This mapping is implicitly deﬁned using positive semi-deﬁnite kernels that enhance the discrimination ",
+      "text": "licit expansion of the input node representations may enhance the discrimination power but comes at the expense of a substantial increase in the number of training parameters (thereby the risk of overﬁtting) and also an increase in the computational complexity both in space and time. Therefore, one should consider, instead, an implicit mapping of the input graph signal in a (high or possibly inﬁnite dimensional) reproducing kernel Hilbert space ( RKHS) [104] and achieve an averaging aggregation and convolution in that space, in order to enhance the representational power of nodes and also the learned graph representations while being permutation agnostic. This mapping scheme has been proven to be effective in kernel methods, and particularly in support vector machines (SVMs) (see for instance [8], [32], [63], [64], [75], [81], [85], [93], [96], [100], [103]) and it is extended, in our paper, to GCNs. Considering these challenges, we introduce in this paper a dual formulation of GCN based on kernels which maps graph signals from an input space into a high dimensional Hilbert space. This mapping is implicitly deﬁned using positive semi-deﬁnite kernels that enhance the discrimination ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08004,
+        -0.00536,
+        0.00049,
+        0.03779,
+        -0.00655
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "maps graph signals from an input space into a high dimensional Hilbert space. This mapping is implicitly deﬁned using positive semi-deﬁnite kernels that enhance the discrimination ",
+      "overlap_with_next": "cheme of learning the support vectors (as a part of kernel design) is conceptually different from the two major families of kernel learning techniques, 1. In contrast to [13], [24]",
+      "text": "maps graph signals from an input space into a high dimensional Hilbert space. This mapping is implicitly deﬁned using positive semi-deﬁnite kernels that enhance the discrimination power of the learned graph representations, without explicitly increasing the dimensionality of the input graph signals nor the number of training parameters 1. This is beneﬁcial when handling low dimensional raw signals, such as 3D skeleton graphs in action recognition [65], [66]; indeed the low dimensionality of these data makes the Bayes risk of the underlying classiﬁcation task intrinsically high, and this requires increasing the dimensionality of the input raw signal. Moreover, our GCN achieves convolutions without explicitly realigning nodes in the receptive ﬁelds of the learned graph ﬁlters with those of the input graphs, thereby making convolutions permutation agnostic. We cast the problem of ﬁlter design as kernel learning with the particularity of using standard kernels while training only their support vectors; this scheme of learning the support vectors (as a part of kernel design) is conceptually different from the two major families of kernel learning techniques, 1. In contrast to [13], [24]",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04469,
+        -0.02311,
+        0.00014,
+        0.04495,
+        0.02205
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "cheme of learning the support vectors (as a part of kernel design) is conceptually different from the two major families of kernel learning techniques, 1. In contrast to [13], [24]",
+      "overlap_with_next": "lassiﬁcation ofG. 2.1 Standard graph convolutional networks ConsiderG = (V,E), gθ = (Vθ,Gθ) as two graphs with |Vθ|≪|V| and|Eθ|≪|E| . Following standard GCNs (see for instance [43]",
+      "text": "cheme of learning the support vectors (as a part of kernel design) is conceptually different from the two major families of kernel learning techniques, 1. In contrast to [13], [24], [30], [33], [46], [49] which may increase the number of parameters in the model and the risk of overﬁtting. [Page 3] 3 namely non-parametric [18], [50] and parametric ones [12], [21], [60] 2. Finally, extensive experiments on the challenging task of action recognition show the high gain of our kernel-based GCNs w.r.t standard baselines as well as the related work. 2 G RAPH CONVOLUTIONAL NETWORKS LetS ={Gi = (Vi,Ei)}i denote a collection of graphs withVi,Ei being respectively the nodes and the edges ofGi. Each graphGi (denoted for short asG = (V,E)) is endowed with (i) a signal {s(u)∈X : u∈V} (withX = RD being an input space) and (ii) a row-stochastic adjacency matrix A with each entry Auu′ > 0 iff (u,u ′)∈E and 0 otherwise. Our goal is to design a novel graph convolutional network that returns both the representation and the classiﬁcation ofG. 2.1 Standard graph convolutional networks ConsiderG = (V,E), gθ = (Vθ,Gθ) as two graphs with |Vθ|≪|V| and|Eθ|≪|E| . Following standard GCNs (see for instance [43]",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0171,
+        -0.05134,
+        -0.01175,
+        -0.00166,
+        0.0051
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "lassiﬁcation ofG. 2.1 Standard graph convolutional networks ConsiderG = (V,E), gθ = (Vθ,Gθ) as two graphs with |Vθ|≪|V| and|Eθ|≪|E| . Following standard GCNs (see for instance [43]",
+      "overlap_with_next": "kernels, that overcomes this limitation and provides more discriminating convolutional representations while still being agnostic to any arbitrary permutation of nodes in graphs. 2",
+      "text": "lassiﬁcation ofG. 2.1 Standard graph convolutional networks ConsiderG = (V,E), gθ = (Vθ,Gθ) as two graphs with |Vθ|≪|V| and|Eθ|≪|E| . Following standard GCNs (see for instance [43]), the spatial convolution ofG with a graph gθ at a given node u∈V is deﬁned as (G⋆gθ)u =σ(Kθ(u)), (1) with Kθ(u) = ⟨∑ u′ s(u′).[Ar]uu′,wθ ⟩ , (2) hereσ(.) is a nonlinear activation (taken in practice as ReLU), wθ∈X corresponds to the ﬁlter parameters of the graph gθ (also referred to as graphlet) and [Ar]uu′ is the u′th column of the uth row of the r-hop adjacency matrix Ar. In this deﬁnition, the left-hand side term of the inner product in Eq. 2, aggregates the neighbors ofu into a single vector prior to multiply this vector by wθ. In spite of being agnostic to any arbitrary permutation of nodes in G, the above deﬁnition suffers from limited discrimination power, as the signal informations in the neighborhood system {Nr(u)}u ofG are mixed during convolution. In what follows, we consider a dual convolutional operator, based on kernels, that overcomes this limitation and provides more discriminating convolutional representations while still being agnostic to any arbitrary permutation of nodes in graphs. 2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04628,
+        -0.02538,
+        -0.01346,
+        -0.01353,
+        0.0341
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "kernels, that overcomes this limitation and provides more discriminating convolutional representations while still being agnostic to any arbitrary permutation of nodes in graphs. 2",
+      "overlap_with_next": "raining, the number of parameters follows exactly the size of training data (e.g., nonlinear SVMs) while in ”parametric” training, this number is ﬁxed independently (e.g., linear S",
+      "text": "kernels, that overcomes this limitation and provides more discriminating convolutional representations while still being agnostic to any arbitrary permutation of nodes in graphs. 2.2 Our kernel-based graph convolutional networks Considering κ as a symmetric positive deﬁnite function (i.e., ∃ψ :X →H, with ψ being an implicit mapping that takes graph signals from an input space X to a high dimensional Hilbert space H, s.t., κ(s(u′),s (v)) = ⟨ψ(s(u′)),ψ (s(v))⟩) and for a particular setting of wθ as 1|Vθ|∑Ni=1αθiψ(s(vθi ))3, with {vθi}i⊂V θ,{αθi}i⊂ R; the convolutional operator deﬁned in Eq. 2 can be rewritten as Kθ(u) = 1|Nr(u)|.|Vθ| ∑u′∈Nr(u)( N∑i=1 αθi κ(u′,vθi )), (3) hereNr(u) is the set of r-hop neighbors of u andκ(s(.),s (.)),ψ(s(.)) are written for short as κ(.,. ) and ψ(.) respectively. In the above deﬁnition,{vθi}i,θ are referred to as support vectors and α ={αθi}i,θ as the underlying mixing parameters. SinceKθ(u) is deﬁned as the sum of all of the kernel values between all 2. In ”non-parametric” training, the number of parameters follows exactly the size of training data (e.g., nonlinear SVMs) while in ”parametric” training, this number is ﬁxed independently (e.g., linear S",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02335,
+        -0.0018,
+        -0.04544,
+        0.00342,
+        0.01342
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "raining, the number of parameters follows exactly the size of training data (e.g., nonlinear SVMs) while in ”parametric” training, this number is ﬁxed independently (e.g., linear S",
+      "overlap_with_next": "a as node representations are mapped into a high dimensional (and more discriminating) space H = RH. For instance, when using the polynomial kernel κ(s(u),s (v)) =⟨s(u),s (v)⟩p, it",
+      "text": "raining, the number of parameters follows exactly the size of training data (e.g., nonlinear SVMs) while in ”parametric” training, this number is ﬁxed independently (e.g., linear SVMs). In ”semi-parametric” training, only a fraction of the parameters follows proportionally the size of training data. 3. This setting is related to the representer theorem widely used in kernel methods [101], [102]. The latter states that many problems have optimal solutions that live in a ﬁnite dimensional span of training data mapped into a high dimensional Hilbert space, and this makes it possible to deﬁne kernel-based algorithms independently of the (high or inﬁnite) dimensionality of these Hilbert spaces. [Page 4] 4 of the possible signal pairs taken fromNr(u)×Vθ, its evaluation does not require any explicit alignment between these pairs and it is thereby still invariant to any arbitrary permutation (including rotations) of nodes inV andVθ. The strength of this kernel trick resides in its capacity to handle nonlinear data as node representations are mapped into a high dimensional (and more discriminating) space H = RH. For instance, when using the polynomial kernel κ(s(u),s (v)) =⟨s(u),s (v)⟩p, it",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02094,
+        0.00825,
+        -0.03935,
+        0.02209,
+        -0.00977
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "a as node representations are mapped into a high dimensional (and more discriminating) space H = RH. For instance, when using the polynomial kernel κ(s(u),s (v)) =⟨s(u),s (v)⟩p, it",
+      "overlap_with_next": "ining problems with a large number of nodes in∪V j, this complexity becomes clearly intractable. One question that arises is how to make this approach parametric (or at least semi-",
+      "text": "a as node representations are mapped into a high dimensional (and more discriminating) space H = RH. For instance, when using the polynomial kernel κ(s(u),s (v)) =⟨s(u),s (v)⟩p, its underlying mapping is explicitly deﬁned as ψ(s(u)) = s(u)⊗···⊗ s(u) (with⊗ being the Kronecker tensor product applied p− 1 times); see also [40], [41], [49]. As the dimensionality H of this explicit map grows exponentially w.r.tp and polynomially w.r.tD, the kernel form is rather computationally more efﬁcient. Indeed, considering a non-parametric setting with a ﬁxed set of support vectors {vθi}i taken from the training set (i.e., ∪V j); when only{αθi}i are allowed to vary in wθ = 1|Vθ|∑iαθiψ(vθi ), and when H≫|{ αθi}i|, the kernel trick presented earlierprovides a computational and a generalization advantage (i.e., the convolution in Eq. 3 has fewer parameters compared to the one in Eq. 2). However, this may still come at the expense of a quadratic complexity when naively evaluating{κ(.,. )}; for mid (and even small) scale training problems with a large number of nodes in∪V j, this complexity becomes clearly intractable. One question that arises is how to make this approach parametric (or at least semi-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00491,
+        0.01934,
+        -0.04248,
+        0.01182,
+        -0.0008
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ining problems with a large number of nodes in∪V j, this complexity becomes clearly intractable. One question that arises is how to make this approach parametric (or at least semi-",
+      "overlap_with_next": "ﬁlters {wθ} that better ﬁt the classiﬁcation task at hand (see later experiments). Note that one may consider a kernel approximation ˆψ(.) s.t.κ(.,. )≈⟨ ˆψ(.), ˆψ(.)⟩ (as done in [",
+      "text": "ining problems with a large number of nodes in∪V j, this complexity becomes clearly intractable. One question that arises is how to make this approach parametric (or at least semi-parametric); in other words, how to maintain the kernel trick advantage (in Eq. 3) without signiﬁcantly increasing the computational cost w.r.t the total number of nodes in∪V j. Solutions such as sampling and reduced set technique [6] are both limited; on the one hand, sampling may generate a smaller ﬁxed set of support vectors {vθi}i but biased (i.e., very limited to comprehensively make wθ a universal ﬁlter approximator). On the other hand, the reduced set technique requires ﬁrst building an initial expensive model wθ before reducing its complexity by solving a difﬁcult pre-image optimization problem [6], [23], [57]. Our alternative, in this work, is to control the size of{vθi}i while allowing entries in{vθi}i to vary as a part of the end-to-end GCN (and also kernel) learning; this makes it possible to model a larger class of ﬁlters {wθ} that better ﬁt the classiﬁcation task at hand (see later experiments). Note that one may consider a kernel approximation ˆψ(.) s.t.κ(.,. )≈⟨ ˆψ(.), ˆψ(.)⟩ (as done in [",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04313,
+        0.00531,
+        -0.01167,
+        0.02185,
+        0.01686
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ﬁlters {wθ} that better ﬁt the classiﬁcation task at hand (see later experiments). Note that one may consider a kernel approximation ˆψ(.) s.t.κ(.,. )≈⟨ ˆψ(.), ˆψ(.)⟩ (as done in [",
+      "overlap_with_next": "tting by allowing the support vectors of these kernels to be learned (instead of being taken from training data) and this is also conceptually very different from multiple kernel l",
+      "text": "ﬁlters {wθ} that better ﬁt the classiﬁcation task at hand (see later experiments). Note that one may consider a kernel approximation ˆψ(.) s.t.κ(.,. )≈⟨ ˆψ(.), ˆψ(.)⟩ (as done in [10], [13], [24], [30], [33], [39], [45], [46], [49] which seek to handcraft or learn shallow/deep explicit maps whose inner products approximate the original kernel values) and use instead Eq. 2. However, this approximation usually results into very high dimensional mappings (and hence into a lot of training parameters in wθ), especially when considering highly nonlinear (and also discriminative) kernels such as gaussian, histogram intersection and triangular [20], [26]. Put differently, even when learning both {vθi}i and{αθi}i, the dual formulation in Eq. 3 is computationally more efﬁcient and less subject to overﬁtting, as the dimensionality H of ˆψ is often≫|V θ|× D for the widely used kernels including gaussian and histogram intersection. In sum, our method is rather targeted to learn kernels following a (semi-)parametric setting by allowing the support vectors of these kernels to be learned (instead of being taken from training data) and this is also conceptually very different from multiple kernel l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03361,
+        -0.00491,
+        -0.01984,
+        -0.00734,
+        -0.00991
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "tting by allowing the support vectors of these kernels to be learned (instead of being taken from training data) and this is also conceptually very different from multiple kernel l",
+      "overlap_with_next": " σ1(t) σ2(t) σ3(t) σ4(t) Inner product based Linear ⟨u,v⟩ t t t t Polynomial ⟨u,v⟩p t t t p t Sigmoid 11+exp(−β⟨u,v⟩) t t 11+exp(−βt) t tanh tanh(a⟨u,v⟩ +b) t t tanh(at +b) t Dista",
+      "text": "tting by allowing the support vectors of these kernels to be learned (instead of being taken from training data) and this is also conceptually very different from multiple kernel learning [21]. 2.3 Neural consistency and architecture design In contrast to usual convolutional operators on graphs (including Eq. 2), the one in Eq. 3 cannot be straightforwardly evaluated using standard neural units4 as kernels may have general forms. Hence, modeling Eq. 3 requires a careful design; our goal in this paper, is not to change the deﬁnition of neural units, but instead to adapt Eq. 3 in order to make it consistent with the usual deﬁnition of neural units. In what follows, we introduce the overall architecture associated toKθ(.) (and the whole GCN) for different kernels including linear, polynomial, gaussian and histogram intersection as well as a more general class of shift invariant kernels. 4. i.e., those based on standard perceptron (inner product operators) followed by nonlinear activations. [Page 5] 5 κ(u,v ) σ1(t) σ2(t) σ3(t) σ4(t) Inner product based Linear ⟨u,v⟩ t t t t Polynomial ⟨u,v⟩p t t t p t Sigmoid 11+exp(−β⟨u,v⟩) t t 11+exp(−βt) t tanh tanh(a⟨u,v⟩ +b) t t tanh(at +b) t Dista",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0205,
+        -0.00555,
+        -0.03589,
+        0.01212,
+        0.0061
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " σ1(t) σ2(t) σ3(t) σ4(t) Inner product based Linear ⟨u,v⟩ t t t t Polynomial ⟨u,v⟩p t t t p t Sigmoid 11+exp(−β⟨u,v⟩) t t 11+exp(−βt) t tanh tanh(a⟨u,v⟩ +b) t t tanh(at +b) t Dista",
+      "overlap_with_next": "vation functions. Considering the above deﬁnition, the following kernels are neural consistent: linear⟨u,v⟩, polynomial ⟨u,v⟩p, and tanh(a⟨u,v⟩ +b). Neural consistency is straightf",
+      "text": " σ1(t) σ2(t) σ3(t) σ4(t) Inner product based Linear ⟨u,v⟩ t t t t Polynomial ⟨u,v⟩p t t t p t Sigmoid 11+exp(−β⟨u,v⟩) t t 11+exp(−βt) t tanh tanh(a⟨u,v⟩ +b) t t tanh(at +b) t Distance based Gaussian exp(−β‖u−v‖2) exp(t) log( t)2 exp(−βt) exp( −t) Laplacian exp(−β‖u−v‖) exp(t) log( t)2 exp(−β√t) exp( −t) Power −‖u−v‖p exp(t) log( t)2 −tp/2 exp(−t) Inverse Multi-quadric 1√ ‖u−v‖2+b2 exp(t) log( t)2 1√t+b2 exp(−t) Log − log(‖u−v‖p + 1) exp(t) log( t)2 − log(tp/2 + 1) exp( −t) Cauchy 1 1+‖u−v‖2σ2 exp(t) log( t)2 11+ tσ2 exp(−t) Histogram intersection ∑d min(u.,d,v.,d) exp(exp(β(1−t))) − 1β log(log(t)) + 1 t σ 1(t) TABLE 1: This table shows the setting of σ1,σ2,σ3,σ4 for different kernel functions. Deﬁnition 1 (Neural consistency). Let u.,d (resp. v.,d) denote the dth dimension of the signal in a given nodeu (resp.v). For a given (ﬁxed or learned) v, a kernel κ is referred to as “neural-consistent” if κ(u,v ) = σ3 (∑ d σ2(σ1(u.,d).ωd) ) , (4) withωd =σ4(v.,d) and beingσ1,σ2,σ3,σ4 any arbitrary real-valued activation functions. Considering the above deﬁnition, the following kernels are neural consistent: linear⟨u,v⟩, polynomial ⟨u,v⟩p, and tanh(a⟨u,v⟩ +b). Neural consistency is straightf",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00956,
+        -0.0023,
+        -0.04698,
+        -0.0249,
+        0.00315
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "vation functions. Considering the above deﬁnition, the following kernels are neural consistent: linear⟨u,v⟩, polynomial ⟨u,v⟩p, and tanh(a⟨u,v⟩ +b). Neural consistency is straightf",
+      "overlap_with_next": " neural consistent kernels. Implementation Fig. 1 shows the architecture of our deep net including kernel evaluation and the weighted convolution blocks. The former block is fed wi",
+      "text": "vation functions. Considering the above deﬁnition, the following kernels are neural consistent: linear⟨u,v⟩, polynomial ⟨u,v⟩p, and tanh(a⟨u,v⟩ +b). Neural consistency is straightforward for inner product-based kernels (namely linear, polynomial and tanh) while for shift-invariant ones such as the gaussian, one may obtain neural consistency by rewriting exp(−β‖u−v‖22) = σ3(∑dσ2(σ1(u.,d).ωd)) withσ1(.) = exp(.),σ2(.) = log(.)2, σ3(.) = exp(−β(.)) andωd = exp(−v.,d). Other kernels (including Laplacian, inverse multiquadric, power, log, Cauchy5) are also neural consistent (see table 1 for the setting of their σ1,σ2,σ3,σ4). For the histogram intersection kernel, ∑d min(u.,d,v.,d) = ∑d 1− max(1−u.,d, 1−v.,d) and one may easily obtain∑d 1− max(1−u.,d, 1−v.,d)≈σ3(∑dσ2(σ1(u.,d).ωd)) usingσ1(.) = exp(exp(β(1− (.)))), σ2(.) =− 1β log(log(.)) + 1,σ3(.) = (.) andωd =σ1(v.,d) (for a sufﬁciently largeβ). In the following section, we discuss the implementation details of our global GCN architecture built on top of these neural consistent kernels. Implementation Fig. 1 shows the architecture of our deep net including kernel evaluation and the weighted convolution blocks. The former block is fed wi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01455,
+        -0.03754,
+        -0.02192,
+        -0.02141,
+        -0.00731
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " neural consistent kernels. Implementation Fig. 1 shows the architecture of our deep net including kernel evaluation and the weighted convolution blocks. The former block is fed wi",
+      "overlap_with_next": "ate their weighted linear combinations, in the fourth layer, resulting into K pooled kernel values per node (see again Eqs. 3, 4). These pooled kernel values are crossed, in the ﬁf",
+      "text": " neural consistent kernels. Implementation Fig. 1 shows the architecture of our deep net including kernel evaluation and the weighted convolution blocks. The former block is fed with the input graph signal s(V) (denoted for short asV) and the adjacency matrix A following the same arbitrary order both in V and A. In the ﬁrst layer, the σ1 activation is ﬁrst applied to all the dimensions of the signal V, then each dimension of the resulting activated signal σ1(V) is multiplied, in the second layer, by the K×N (reparameterized) weights of the node ﬁlters{σ4(Vθ)}θ (as shown in Eqs. 3, 4) prior to apply the σ2 activation; hereK corresponds to the number of ﬁlters and N the number of nodes in the expansion of each ﬁlter. Note that these weights are shared through different nodes inV. In the third layer, the results of the previous one are pooled across dimensions resulting into N×K kernel values per node inV. These kernel values are activated by σ3() and fed to the weighted convolutional block in order to evaluate their weighted linear combinations, in the fourth layer, resulting into K pooled kernel values per node (see again Eqs. 3, 4). These pooled kernel values are crossed, in the ﬁf",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.0159,
+        -0.01263,
+        -0.02848,
+        0.01393,
+        -0.00032
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "ate their weighted linear combinations, in the fourth layer, resulting into K pooled kernel values per node (see again Eqs. 3, 4). These pooled kernel values are crossed, in the ﬁf",
+      "overlap_with_next": "u′ exp( log Auu′ + log N∑i=1αθi κ(u′,vθi )), (5) which corresponds to the neural consistent form shown in Eq. 4. The results of this ﬁfth layer are pooled, in the sixth layer, thro",
+      "text": "ate their weighted linear combinations, in the fourth layer, resulting into K pooled kernel values per node (see again Eqs. 3, 4). These pooled kernel values are crossed, in the ﬁfth layer, with the nonzero entries of the adjacency matrix A in order to make the receptive ﬁeld of the convolutional 5. See for instance [19] for a taxonomy of the widely used functions in kernel machines. [Page 6] 6 n A V 1’s 1’sα1’s n n n n n n C D (K×N)×D K×N K K×n K n σ1() σ2() σ3()1/γ γ log() exp() γ-weighted convolutionKernel evaluation ReLU log() Wθ =σ4(Vθ) Pooling and Softmax Fig. 1: This ﬁgure shows the architecture of our kernel-based graph convolutional network; see a detailed description of this architecture in the “Implementation Part” of section 2.3 (better to zoom the PDF version). operation local. Note also that the activation functions log() and exp() are successively applied in the fourth and ﬁfth layers in order to make this crossing operation neural consistent. Indeed, one may rewrite Eq. 3 as Kθ(u) = 1|Vθ|∑u′ exp( log Auu′ + log N∑i=1αθi κ(u′,vθi )), (5) which corresponds to the neural consistent form shown in Eq. 4. The results of this ﬁfth layer are pooled, in the sixth layer, thro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01515,
+        -0.00514,
+        -0.0419,
+        -0.01286,
+        0.00097
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "u′ exp( log Auu′ + log N∑i=1αθi κ(u′,vθi )), (5) which corresponds to the neural consistent form shown in Eq. 4. The results of this ﬁfth layer are pooled, in the sixth layer, thro",
+      "overlap_with_next": "nd we report the average accuracy over all the classes of actions. 3.1 Video skeleton description Given a videoV in SBU as a sequence of skeletons, each keypoint in these skeletons",
+      "text": "u′ exp( log Auu′ + log N∑i=1αθi κ(u′,vθi )), (5) which corresponds to the neural consistent form shown in Eq. 4. The results of this ﬁfth layer are pooled, in the sixth layer, through the neighborhood systems{Nr(u)}u and fed to the ReLU activation resulting into K features per node inV. Finally, these node features are used for ﬁnal pooling and softmax classiﬁcation. 3 E XPERIMENTAL VALIDATION We evaluate the performance of our kernel-based GCN (KGCN) on the challenging task of action recognition, using the SBU kinect dataset [66]. The latter is an interaction dataset acquired using the Microsoft kinect sensor; it includes in total 282 video sequences 6 belonging to C = 8 categories: “approaching”, “departing”, “pushing”, “kicking”, “punching”, “exchanging objects”, “hugging”, and “hand shaking” with variable duration, viewpoint changes and interacting individuals (see examples in Fig. 2). In all these experiments, we use the same evaluation protocol as the one suggested in [66] (i.e., train-test split) and we report the average accuracy over all the classes of actions. 3.1 Video skeleton description Given a videoV in SBU as a sequence of skeletons, each keypoint in these skeletons",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00201,
+        -0.02693,
+        -0.03417,
+        -0.0154,
+        0.01776
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "nd we report the average accuracy over all the classes of actions. 3.1 Video skeleton description Given a videoV in SBU as a sequence of skeletons, each keypoint in these skeletons",
+      "overlap_with_next": "nt coordinates but arranged differently in time, will be considered as very different when using temporal chunking. Note also that beside being compact and discriminant, this tempo",
+      "text": "nd we report the average accuracy over all the classes of actions. 3.1 Video skeleton description Given a videoV in SBU as a sequence of skeletons, each keypoint in these skeletons deﬁnes a labeled trajectory through successive frames (see Fig. 2). Considering a ﬁnite collection of trajectories {vj}j in 6. In contrast to other visual analysis tasks (e.g.,[5], [35], [38], [71], [79], [83], [87], [91], [96]), images/videos are already processed and skeleton data are available. [Page 7] 7 V, we process each trajectory using temporal chunking: ﬁrst we split the total duration of a video into M equally-sized temporal chunks (M = 8 in practice), then we assign the keypoint coordinates of a given trajectoryvj to theM chunks (depending on their time stamps) prior to concatenate the averages of these chunks and this produces the description of vj (again denoted ass(vj)∈ RD withD = 3×M) and{s(vj)}j constitutes the raw description of nodes in a given video V. Note that two trajectories vj and vk, with similar keypoint coordinates but arranged differently in time, will be considered as very different when using temporal chunking. Note also that beside being compact and discriminant, this tempo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00672,
+        -0.03473,
+        -0.03616,
+        0.04165,
+        -0.01507
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "nt coordinates but arranged differently in time, will be considered as very different when using temporal chunking. Note also that beside being compact and discriminant, this tempo",
+      "overlap_with_next": " network; when this speed increases (resp. decreases), ν decreases asν←ν× 0.99 (resp. increases as ν←ν/0.99). All these experiments are run on a GeForce GTX 1070 GPU device (with 8",
+      "text": "nt coordinates but arranged differently in time, will be considered as very different when using temporal chunking. Note also that beside being compact and discriminant, this temporal chunking gathers advantages – while discarding drawbacks – of two widely used families of techniques mainly global averaging techniques (invariant but less discriminant) and frame resampling techniques (discriminant but less invariant). Put differently, temporal chunking produces discriminant raw descriptions that preserve the temporal structure of trajectories while being frame-rate and duration agnostic. (raw coordinates) Temporal Chunking s(v) Motion trajectory (v) Fig. 2: This ﬁgure shows the whole keypoint tracking and description process. 3.2 Performances and comparison We trained our kernel-based GCN end-to-end for 3000 epochs with a batch size equal to 50, a momentum of 0.9 and we set the learning rate (denoted as ν) iteratively inversely proportional to the speed of change of the cross entropy loss used to train our network; when this speed increases (resp. decreases), ν decreases asν←ν× 0.99 (resp. increases as ν←ν/0.99). All these experiments are run on a GeForce GTX 1070 GPU device (with 8",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05723,
+        -0.03512,
+        -0.01589,
+        0.00682,
+        -0.02012
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " network; when this speed increases (resp. decreases), ν decreases asν←ν× 0.99 (resp. increases as ν←ν/0.99). All these experiments are run on a GeForce GTX 1070 GPU device (with 8",
+      "overlap_with_next": " H) is sufﬁciently large (without being able to overtake KGCN for most of the kernels) and performances decrease again as the underlying number of training parameters follows H and",
+      "text": " network; when this speed increases (resp. decreases), ν decreases asν←ν× 0.99 (resp. increases as ν←ν/0.99). All these experiments are run on a GeForce GTX 1070 GPU device (with 8 GB memory) and no data augmentation is achieved. Table 2 shows a comparison of action recognition performances (and also runtime per epoch during training), using our KGCN (with different kernels) against standard GCN (referred to as SGCN), shown in section 2.1, with precomputed node representations based on kernel principal component analysis (KPCA) achieved on {s(u) : u∈∪V i} using different kernels; in these results, we consider different numbers of eigenvectors (projection axes) corresponding to the largest eigenvalues of KPCA. From all these results in table 2, we observe a clear and a consistent gain of KGCN w.r.t the linear version (i.e., KGCN with linear kernel), as well as SGCN combined with different KPCA features; we observe an increase of the accuracy of the SGCN baseline when the dimension of KPCA (again denoted as H) is sufﬁciently large (without being able to overtake KGCN for most of the kernels) and performances decrease again as the underlying number of training parameters follows H and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0187,
+        -0.00191,
+        -0.0305,
+        -0.02301,
+        -0.02436
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " H) is sufﬁciently large (without being able to overtake KGCN for most of the kernels) and performances decrease again as the underlying number of training parameters follows H and",
+      "overlap_with_next": "96.9231 sigmoid 93.8462 90.7692 93.8462 92.3077 92.3077 92.3077 92.3077 96.9231 93.8462 92.3077 95.3846 Gaussian 92.3077 92.3077 92.3077 92.3077 96.9231 93.8462 93.8462 93.8462 93.",
+      "text": " H) is sufﬁciently large (without being able to overtake KGCN for most of the kernels) and performances decrease again as the underlying number of training parameters follows H and this may lead to overﬁtting. Besides, the average runtime per epoch, with SGCN, increases substantially when H grows, as the number of training parameters in the underlying network (equal to H×K +C×K) depends on H while in KGCN the number of training parameters (equal to (D + 1)×N×K +C×K) depends only on the dimension D of the original signal despite being implicitly mapped into a high dimensional space H = RH. In particular, [Page 8] 8 XXXXXXXXXkernels GCNs Standard GCN with different # of KPCA dimensions (H) Our KGCN 10 50 100 200 300 400 500 1000 2000 3000 Linear 92.3077 overdim overdim overdim overdim overdim overdim overdim overdim overdim 90.7692 Poly 89.2308 95.3846 92.3077 93.8462 93.8462 93.8462 93.8462 overdim overdim overdim 93.8462 tanh 89.2308 93.8462 90.7692 93.8462 90.7692 92.3077 93.8462 92.3077 93.8462 92.3077 96.9231 sigmoid 93.8462 90.7692 93.8462 92.3077 92.3077 92.3077 92.3077 96.9231 93.8462 92.3077 95.3846 Gaussian 92.3077 92.3077 92.3077 92.3077 96.9231 93.8462 93.8462 93.8462 93.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05581,
+        0.00607,
+        -0.03645,
+        -0.03505,
+        -0.01111
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "96.9231 sigmoid 93.8462 90.7692 93.8462 92.3077 92.3077 92.3077 92.3077 96.9231 93.8462 92.3077 95.3846 Gaussian 92.3077 92.3077 92.3077 92.3077 96.9231 93.8462 93.8462 93.8462 93.",
+      "overlap_with_next": " indeed, while more dimensions capture more statistical variance, this also increases the number of training parameters and hence the risk of overﬁtting. Note that for linear and p",
+      "text": "96.9231 sigmoid 93.8462 90.7692 93.8462 92.3077 92.3077 92.3077 92.3077 96.9231 93.8462 92.3077 95.3846 Gaussian 92.3077 92.3077 92.3077 92.3077 96.9231 93.8462 93.8462 93.8462 93.8462 93.8462 98.4615 Laplacian 92.3077 93.8462 95.3846 92.3077 90.7692 90.7692 95.3846 93.8462 90.7692 90.7692 98.4615 Power 90.7692 92.3077 95.3846 92.3077 92.3077 95.3846 95.3846 93.8462 93.8462 92.3077 96.9231 IMQ 87.6923 92.3077 95.3846 95.3846 93.8462 93.8462 90.7692 95.3846 93.8462 93.8462 95.3846 Log 93.8462 92.3077 92.3077 95.3846 93.8462 93.8462 95.3846 90.7692 95.3846 90.7692 96.9231 Cauchy 93.8462 95.3846 95.3846 92.3077 96.9231 93.8462 92.3077 95.3846 92.3077 93.8462 98.4615 HI 93.8462 92.3077 89.2308 90.7692 92.3077 92.3077 87.6923 87.6923 90.7692 87.6923 96.9231 time/epoch (s) 0.032 0.057 0.072 0.113 0.150 0.190 0.229 0.440 0.840 1.252 0.210 TABLE 2: This table shows a comparison of our KGCN against SGCN (with different numbers of KPCA dimensions). Note that SGCN performances are not necessarily increasing w.r.t H; indeed, while more dimensions capture more statistical variance, this also increases the number of training parameters and hence the risk of overﬁtting. Note that for linear and p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06901,
+        0.02712,
+        -0.03834,
+        -0.04721,
+        -0.01565
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": " indeed, while more dimensions capture more statistical variance, this also increases the number of training parameters and hence the risk of overﬁtting. Note that for linear and p",
+      "overlap_with_next": "sentational power of the maps of these kernels. Moreover, the ablation study in table 4 shows that KGCN with learned support vectors capture better the nodes in graph data while KG",
+      "text": " indeed, while more dimensions capture more statistical variance, this also increases the number of training parameters and hence the risk of overﬁtting. Note that for linear and polynomial kernels, the number of dimensions ( H) cannot exceedD andD2 respectively with D = 24 in practice (the Kronecker tensor product deﬁning the map of –order 2– polynomial kernel has D2 dimensions while the map of the linear kernel has obviously D dimensions.) H≫N× (D + 1) makes KGCN clearly more efﬁcient and still more effective compared to SGCN (see again table 2 and also table 3 and Fig. 3); this performance improves further as N (the number of learned support vectors{vθi}i per ﬁlter in Eq. 3) and K (the number of convolutional ﬁlters) reach reasonably (but not very) large values, and this results from the ﬂexibility of the ﬁlters which learn — with few support vectors — relevant representatives of nodes in training data. These performances consistently improve for all the kernels and this is again explained by the representational power of the maps of these kernels. Moreover, the ablation study in table 4 shows that KGCN with learned support vectors capture better the nodes in graph data while KG",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0363,
+        -0.00325,
+        -0.05835,
+        -0.00553,
+        -0.03424
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "sentational power of the maps of these kernels. Moreover, the ablation study in table 4 shows that KGCN with learned support vectors capture better the nodes in graph data while KG",
+      "overlap_with_next": "ly, we compare the classiﬁcation performances of our KGCN against other related methods in action recognition ranging from sequence based such as LSTM and GRU [67], [68], [70] to d",
+      "text": "sentational power of the maps of these kernels. Moreover, the ablation study in table 4 shows that KGCN with learned support vectors capture better the nodes in graph data while KGCN is clearly limited when the support vectors are ﬁxed (and thereby biased i.e., not sufﬁciently representative of the actual distribution of the nodes, see again table 4); hence, learning the KGCN parameters (i.e., with learned α and ﬁxed support vectors) is not enough in order to recover from this bias. In sum, the gain of our KGCN results from the complementary aspects of the used (implicit) kernel maps and also the modeling capacity of our KGCN when the support vectors of these kernels (that deﬁne the convolutional ﬁlters) are also allowed to vary. hhhhhhhhhhhhhh# of Filters (K) # of SVs (N) 1 4 8 1 84.6154 84.7552 85.1748 5 93.1469 95.3846 92.8671 10 92.1678 95.1049 95.1049 TABLE 3: Average accuracy (w.r.t all the used kernels in KGCN) for different numbers (K) and sizes (N) of ﬁlters. SVs stands for support vectors. Finally, we compare the classiﬁcation performances of our KGCN against other related methods in action recognition ranging from sequence based such as LSTM and GRU [67], [68], [70] to d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02572,
+        -0.01112,
+        -0.03042,
+        -0.01316,
+        -0.00916
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "ly, we compare the classiﬁcation performances of our KGCN against other related methods in action recognition ranging from sequence based such as LSTM and GRU [67], [68], [70] to d",
+      "overlap_with_next": "his table shows an ablation study; F-SV , F-α stand respectively for ﬁxed support vectors and ﬁxed mixing parameters α while L-SV , L-α stand for learned ones. Note that the result",
+      "text": "ly, we compare the classiﬁcation performances of our KGCN against other related methods in action recognition ranging from sequence based such as LSTM and GRU [67], [68], [70] to deep graph (non- vectorial) methods based on spatial and spectral convolution [72]–[74]. From the results in table 5, our KGCN brings a substantial gain w.r.t state of the art methods, and provides comparable results with the best vectorial methods. [Page 9] 9 Fig. 3: Accuracy of KGCN w.r.t ﬁve examples of kernels and ﬁlter sizesN. Top ﬁgure corresponds toK = 5 ﬁlters while bottom one to K = 10. (Best viewed in color) . XXXXXXXXXkernels KGCNs F-SV / L-α L-SV / F-α L-SV / L-α Linear 89.2308 90.7692 90.7692 Polynomial 84.6154 90.7692 93.8462 tanh 87.6923 90.7692 96.9231 Sigmoid 95.3846 95.3846 95.3846 Gaussian 84.6154 93.8462 98.4615 Laplacian 84.6154 93.8462 98.4615 Power 92.3077 95.3846 96.9231 I. Multi-quadric 81.5385 93.8462 95.3846 Log 84.6154 90.7692 96.9231 Cauchy 86.1538 92.3077 98.4615 HI 86.1538 95.3846 96.9231 TABLE 4: This table shows an ablation study; F-SV , F-α stand respectively for ﬁxed support vectors and ﬁxed mixing parameters α while L-SV , L-α stand for learned ones. Note that the result",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03216,
+        -0.02756,
+        -0.01761,
+        -0.0549,
+        0.00754
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "his table shows an ablation study; F-SV , F-α stand respectively for ﬁxed support vectors and ﬁxed mixing parameters α while L-SV , L-α stand for learned ones. Note that the result",
+      "overlap_with_next": "rs in the span of nodes in a (high or potentially inﬁnite dimensional) reproducing kernel Hilbert space ( RKHS), with the particularity that node representations, in the RKHS, are ",
+      "text": "his table shows an ablation study; F-SV , F-α stand respectively for ﬁxed support vectors and ﬁxed mixing parameters α while L-SV , L-α stand for learned ones. Note that the results, when learning the support vectors using the linear kernel, are identical (both with ﬁxed and learned α) as one may include the multiplicative factorsα in the learned support vectors (the converse is not true). [Page 10] 10 Perfs 90.00 96.00 94.00 96.00 49.7 80.3 86.9 83.9 80.35 90.41 93.3 90.5 91.51 94.9 97.2 95.7 93.7 98.46 Methods GCNConv [72] ArmaConv [76] SGCConv [74] ChebyNet [73] Raw coordinates [66] Joint features [66] Interact Pose [77] CHARM [78] HBRNN-L [80] Co-occurrence LSTM [82] ST-LSTM [84] Topological pose ordering[89] STA-LSTM [70] GCA-LSTM [68] V A-LSTM [86] DeepGRU [67] Riemannian manifold trajectory[88] Our best KGCN model TABLE 5: Comparison against state of the art methods. 4 C ONCLUSION We introduce in this paper a novel GCN formulation based on kernel machines. The method deﬁnes convolutional graph ﬁlters in the span of nodes in a (high or potentially inﬁnite dimensional) reproducing kernel Hilbert space ( RKHS), with the particularity that node representations, in the RKHS, are ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02828,
+        -0.02088,
+        -0.01411,
+        -0.02301,
+        0.00973
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "rs in the span of nodes in a (high or potentially inﬁnite dimensional) reproducing kernel Hilbert space ( RKHS), with the particularity that node representations, in the RKHS, are ",
+      "overlap_with_next": "ASSP). IEEE, 2019. [2] M. Jiu and H. Sahbi. ”Semi supervised deep kernel design for image annotation.” 2015 IEEE International Conference on Acoustics, Speech and Signal Processing",
+      "text": "rs in the span of nodes in a (high or potentially inﬁnite dimensional) reproducing kernel Hilbert space ( RKHS), with the particularity that node representations, in the RKHS, are learned instead of being taken from training data. This makes the proposed approach (semi-)parametric and tractable while also being effective and less subject to overﬁtting. Indeed, the proposed GCN formulation is dual and requires few parameters, it also provides an effective way to enhance the discrimination power of the learned graph representations and it overtakes standard (primal) GCN approaches as well as the related work. As a future work, we are currently investigating the combination of explicit node expansion with implicit kernel mapping, in order to further enhance the generalization performances of other pattern recognition tasks. REFERENCES [1] A. Mazari and H. Sahbi. ”Deep Temporal Pyramid Design for Action Recognition.” ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2019. [2] M. Jiu and H. Sahbi. ”Semi supervised deep kernel design for image annotation.” 2015 IEEE International Conference on Acoustics, Speech and Signal Processing",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05221,
+        0.01815,
+        -0.00312,
+        0.04266,
+        -0.01072
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "ASSP). IEEE, 2019. [2] M. Jiu and H. Sahbi. ”Semi supervised deep kernel design for image annotation.” 2015 IEEE International Conference on Acoustics, Speech and Signal Processing",
+      "overlap_with_next": " January). Visual content extraction for automatic semantic annotation of video news. In the proceedings of the SPIE Conference, San Jose, CA (V ol. 6). [Page 11] 11 [9] Chen, J., ",
+      "text": "ASSP). IEEE, 2019. [2] M. Jiu and H. Sahbi. ”Semi supervised deep kernel design for image annotation.” 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2015. [3] Atwood, J., Towsley, D.: Diffusion-convolutional neural networks. In: Advances in Neural Information Processing Systems. pp. 1993–2001 (2016) [4] Bruna, J., Zaremba, W., Szlam, A., LeCun, Y .: Spectral networks and locally connected networks on graphs. arXiv preprint arXiv:1312.6203 (2013) [5] H. Sahbi and N. Boujemaa. ”Accurate face detection based on coarse segmentation and ﬁne skin color adaption.” ICISP, Agadir-Morocco (2001). [6] Burges, C.J., Sch ¨olkopf, B.: Improving the accuracy and speed of support vector machines. In: Advances in neural information processing systems. pp. 375–381 (1997) [7] Chen, J., Zhu, J., Song, L.: Stochastic training of graph convolutional networks with variance reduction. arXiv preprint arXiv:1710.10568 (2017) [8] N. Boujemaa, F. Fleuret, V . Gouet, and H. Sahbi (2004, January). Visual content extraction for automatic semantic annotation of video news. In the proceedings of the SPIE Conference, San Jose, CA (V ol. 6). [Page 11] 11 [9] Chen, J., ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05382,
+        -0.02651,
+        -0.002,
+        0.03998,
+        -0.0041
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " January). Visual content extraction for automatic semantic annotation of video news. In the proceedings of the SPIE Conference, San Jose, CA (V ol. 6). [Page 11] 11 [9] Chen, J., ",
+      "overlap_with_next": ", Z., Dai, B., Smola, A., Song, L.: Learning steady-states of iterative algorithms over graphs. In: International Conference on Machine Learning. pp. 1114–1122 (2018) [15] H. Sahbi",
+      "text": " January). Visual content extraction for automatic semantic annotation of video news. In the proceedings of the SPIE Conference, San Jose, CA (V ol. 6). [Page 11] 11 [9] Chen, J., Ma, T., Xiao, C.: Fastgcn: fast learning with graph convolutional networks via importance sampling. arXiv preprint arXiv:1801.10247 (2018) [10] Cho, Y ., Saul, L.K.: Kernel methods for deep learning. In: Advances in neural information processing systems. pp. 342–350 (2009) [11] F. Yuan, H. Sahbi, and Veronique Prinet. ”Spatio-temporal context kernel for activity recognition.” The First Asian Conference on Pattern Recognition. IEEE, 2011. [12] Cortes, C., Mohri, M., Rostamizadeh, A.: Learning non-linear combinations of kernels. In: Advances in neural information processing systems. pp. 396–404 (2009) [13] Dai, B., Xie, B., He, N., Liang, Y ., Raj, A., Balcan, M.F.F., Song, L.: Scalable kernel methods via doubly stochastic gradients. In: Advances in Neural Information Processing Systems. pp. 3041–3049 (2014) [14] Dai, H., Kozareva, Z., Dai, B., Smola, A., Song, L.: Learning steady-states of iterative algorithms over graphs. In: International Conference on Machine Learning. pp. 1114–1122 (2018) [15] H. Sahbi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02974,
+        -0.02153,
+        -0.01559,
+        0.00375,
+        -0.0046
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": ", Z., Dai, B., Smola, A., Song, L.: Learning steady-states of iterative algorithms over graphs. In: International Conference on Machine Learning. pp. 1114–1122 (2018) [15] H. Sahbi",
+      "overlap_with_next": "2001) [20] H. Sahbi, D. Geman, and N. Boujemaa. ”Face detection using coarse-to-ﬁne support vector classiﬁers.” Proceedings. International Conference on Image Processing. V ol. 3. ",
+      "text": ", Z., Dai, B., Smola, A., Song, L.: Learning steady-states of iterative algorithms over graphs. In: International Conference on Machine Learning. pp. 1114–1122 (2018) [15] H. Sahbi and N. Boujemaa. ”From coarse to ﬁne skin and face detection.” Proceedings of the eighth ACM international conference on Multimedia. 2000. [16] Defferrard, M., Bresson, X., Vandergheynst, P.: Convolutional neural networks on graphs with fast localized spectral ﬁltering. In: Advances in neural information processing systems. pp. 3844–3852 (2016) [17] Gao, H., Wang, Z., Ji, S.: Large-scale learnable graph convolutional networks. In: Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. pp. 1416–1424. ACM (2018) [18] F. Yuan et al. ”Mid-level features and spatio-temporal context for activity recognition.” Pattern Recognition 45.12 (2012): 4182-4191. [19] Genton, M.G.: Classes of kernels for machine learning: a statistics perspective. Journal of machine learning research 2(Dec), 299–312 (2001) [20] H. Sahbi, D. Geman, and N. Boujemaa. ”Face detection using coarse-to-ﬁne support vector classiﬁers.” Proceedings. International Conference on Image Processing. V ol. 3. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01908,
+        -0.02698,
+        -0.01803,
+        -0.01736,
+        0.01125
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "2001) [20] H. Sahbi, D. Geman, and N. Boujemaa. ”Face detection using coarse-to-ﬁne support vector classiﬁers.” Proceedings. International Conference on Image Processing. V ol. 3. ",
+      "overlap_with_next": "nd H. Sahbi. ”Scale-invariance of support vector machines based on the triangular kernel.” 3rd International Workshop on Statistical and Computational Theories of Vision. 2003. [27",
+      "text": "2001) [20] H. Sahbi, D. Geman, and N. Boujemaa. ”Face detection using coarse-to-ﬁne support vector classiﬁers.” Proceedings. International Conference on Image Processing. V ol. 3. IEEE, 2002. [21] G ¨onen, M., Alpaydın, E.: Multiple kernel learning algorithms. Journal of machine learning research 12(Jul), 2211–2268 (2011) [22] Gori, M., Monfardini, G., Scarselli, F.: A new model for learning in graph domains. In: Proceedings. 2005 IEEE International Joint Conference on Neural Networks, 2005. vol. 2, pp. 729–734. IEEE (2005) [23] H. Sahbi and D. Geman. ”A hierarchy of support vector machines for pattern detection.” Journal of Machine Learning Research 7.Oct (2006): 2087-2123. [24] Hamid, R., Xiao, Y ., Gittens, A., DeCoste, D.: Compact random feature maps. In: International Conference on Machine Learning. pp. 19–27 (2014) [25] Hamilton, W., Ying, Z., Leskovec, J.: Inductive representation learning on large graphs. In: Advances in Neural Information Processing Systems. pp. 1024–1034 (2017) [26] F. Fleuret and H. Sahbi. ”Scale-invariance of support vector machines based on the triangular kernel.” 3rd International Workshop on Statistical and Computational Theories of Vision. 2003. [27",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03577,
+        -0.02094,
+        -0.01308,
+        -0.00545,
+        0.00825
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "nd H. Sahbi. ”Scale-invariance of support vector machines based on the triangular kernel.” 3rd International Workshop on Statistical and Computational Theories of Vision. 2003. [27",
+      "overlap_with_next": "arl ´os, T., Smola, A.: Fastfood-approximating kernel expansions in loglinear time. In: Proceedings of the international conference on machine learning. vol. 85 (2013) [34] Levie, ",
+      "text": "nd H. Sahbi. ”Scale-invariance of support vector machines based on the triangular kernel.” 3rd International Workshop on Statistical and Computational Theories of Vision. 2003. [27] Henaff, M., Bruna, J., LeCun, Y .: Deep convolutional networks on graph-structured data. arXiv preprint arXiv:1506.05163 (2015) [28] Huang, W., Zhang, T., Rong, Y ., Huang, J.: Adaptive sampling towards fast graph representation learning. In: Advances in Neural Information Processing Systems. pp. 4558–4567 (2018) [29] A. Mazari and H. Sahbi. ”MLGCN: Multi-Laplacian Graph Convolutional Networks for Human Action Recognition.” BMVC. 2019. [30] Kar, P., Karnick, H.: Random feature maps for dot product kernels. In: Artiﬁcial Intelligence and Statistics. pp. 583–591 (2012) [31] Kipf, T.N., Welling, M.: Semi-supervised classiﬁcation with graph convolutional networks. arXiv preprint arXiv:1609.02907 (2016) [32] H. Sahbi and F. Fleuret. ”Scale-invariance of support vector machines based on the triangular kernel.” (2002). [33] Le, Q., Sarl ´os, T., Smola, A.: Fastfood-approximating kernel expansions in loglinear time. In: Proceedings of the international conference on machine learning. vol. 85 (2013) [34] Levie, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05951,
+        -0.03298,
+        -0.02775,
+        0.02285,
+        0.00233
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "arl ´os, T., Smola, A.: Fastfood-approximating kernel expansions in loglinear time. In: Proceedings of the international conference on machine learning. vol. 85 (2013) [34] Levie, ",
+      "overlap_with_next": " 1. IEEE, 2001. [39] Lu, Z., May, A., Liu, K., Garakani, A.B., Guo, D., Bellet, A., Fan, L., Collins, M., Kingsbury, B., Picheny, M., et al.: How to scale up kernel methods to be a",
+      "text": "arl ´os, T., Smola, A.: Fastfood-approximating kernel expansions in loglinear time. In: Proceedings of the international conference on machine learning. vol. 85 (2013) [34] Levie, R., Monti, F., Bresson, X., Bronstein, M.M.: Cayleynets: Graph convolutional neural networks with complex rational spectral ﬁlters. IEEE Transactions on Signal Processing 67(1), 97–109 (2018) [35] H. Sahbi, L. Ballan, G. Serra and A. Del Bimbo (2012). Context-dependent logo matching and recognition. IEEE Transactions on Image Processing, 22(3), 1018-1031. [36] Li, R., Wang, S., Zhu, F., Huang, J.: Adaptive graph convolutional neural networks. In: Thirty-Second AAAI Conference on Artiﬁcial Intelligence (2018) [37] Li, Y ., Tarlow, D., Brockschmidt, M., Zemel, R.: Gated graph sequence neural networks. arXiv preprint arXiv:1511.05493 (2015) [38] H. Sahbi and N. Boujemaa. ”Robust matching by dynamic space warping for accurate face recognition.” Proceedings 2001 International Conference on Image Processing (Cat. No. 01CH37205). V ol. 1. IEEE, 2001. [39] Lu, Z., May, A., Liu, K., Garakani, A.B., Guo, D., Bellet, A., Fan, L., Collins, M., Kingsbury, B., Picheny, M., et al.: How to scale up kernel methods to be a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04008,
+        -0.01039,
+        -0.03238,
+        0.01115,
+        -0.01478
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": " 1. IEEE, 2001. [39] Lu, Z., May, A., Liu, K., Garakani, A.B., Guo, D., Bellet, A., Fan, L., Collins, M., Kingsbury, B., Picheny, M., et al.: How to scale up kernel methods to be a",
+      "overlap_with_next": "rning convolutional neural networks for graphs. In: International conference on machine learning. pp. 2014–2023 (2016) [45] M. Jiu and H. Sahbi. ”Deep kernel map networks for image",
+      "text": " 1. IEEE, 2001. [39] Lu, Z., May, A., Liu, K., Garakani, A.B., Guo, D., Bellet, A., Fan, L., Collins, M., Kingsbury, B., Picheny, M., et al.: How to scale up kernel methods to be as good as deep neural nets. arXiv preprint arXiv:1411.4000 (2014) [40] H. Sahbi. ”Imageclef annotation with explicit context-aware kernel maps.” International Journal of Multimedia Information Retrieval 4.2 (2015): 113-128. [41] Maji, S., Berg, A.C., Malik, J.: Efﬁcient classiﬁcation for additive kernel svms. IEEE transactions on pattern analysis and machine intelligence 35(1), 66–77 (2012) [42] Micheli, A.: Neural network for graphs: A contextual constructive approach. IEEE Transactions on Neural Networks 20(3), 498–511 (2009) [43] Monti, F., Boscaini, D., Masci, J., Rodola, E., Svoboda, J., Bronstein, M.M.: Geometric deep learning on graphs and manifolds using mixture model cnns. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. pp. 5115–5124 (2017) [44] Niepert, M., Ahmed, M., Kutzkov, K.: Learning convolutional neural networks for graphs. In: International conference on machine learning. pp. 2014–2023 (2016) [45] M. Jiu and H. Sahbi. ”Deep kernel map networks for image",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05593,
+        -0.00827,
+        -0.01473,
+        -0.00176,
+        -0.00595
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "rning convolutional neural networks for graphs. In: International conference on machine learning. pp. 2014–2023 (2016) [45] M. Jiu and H. Sahbi. ”Deep kernel map networks for image",
+      "overlap_with_next": "l map learning and its application to image annotation. In: BMVC. pp. 1–12 (2012) [51] Wu, Z., Pan, S., Chen, F., Long, G., Zhang, C., Yu, P.S.: A comprehensive survey on graph neu",
+      "text": "rning convolutional neural networks for graphs. In: International conference on machine learning. pp. 2014–2023 (2016) [45] M. Jiu and H. Sahbi. ”Deep kernel map networks for image annotation.” 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2016. [Page 12] 12 [46] Rahimi, A., Recht, B.: Random features for large-scale kernel machines. In: Advances in neural information processing systems. pp. 1177–1184 (2008) [47] M. Jiu and H. Sahbi. ”Laplacian deep kernel learning for image annotation.” 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2016. [48] Scarselli, F., Gori, M., Tsoi, A.C., Hagenbuchner, M., Monfardini, G.: The graph neural network model. IEEE Transactions on Neural Networks 20(1), 61–80 (2008) [49] Vedaldi, A., Zisserman, A.: Efﬁcient additive kernels via explicit feature maps. IEEE transactions on pattern analysis and machine intelligence 34(3), 480–492 (2012) [50] V o, P., Sahbi, H.: Transductive kernel map learning and its application to image annotation. In: BMVC. pp. 1–12 (2012) [51] Wu, Z., Pan, S., Chen, F., Long, G., Zhang, C., Yu, P.S.: A comprehensive survey on graph neu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06345,
+        -0.00976,
+        -0.0151,
+        0.02438,
+        -0.00682
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "l map learning and its application to image annotation. In: BMVC. pp. 1–12 (2012) [51] Wu, Z., Pan, S., Chen, F., Long, G., Zhang, C., Yu, P.S.: A comprehensive survey on graph neu",
+      "overlap_with_next": "upport vector machines for hierarchical face detection, Ph.D. thesis, PhD thesis, Versailles University, 2003. [58] Howard, Andrew G., et al. ”Mobilenets: Efﬁcient convolutional ne",
+      "text": "l map learning and its application to image annotation. In: BMVC. pp. 1–12 (2012) [51] Wu, Z., Pan, S., Chen, F., Long, G., Zhang, C., Yu, P.S.: A comprehensive survey on graph neural networks. arXiv preprint arXiv:1901.00596 (2019) [52] Zhang, J., Shi, X., Xie, J., Ma, H., King, I., Yeung, D.Y .: Gaan: Gated attention networks for learning on large and spatiotemporal graphs. arXiv preprint arXiv:1803.07294 (2018) [53] H. Sahbi. ”Coarse-to-ﬁne deep kernel networks.” Proceedings of the IEEE International Conference on Computer Vision Workshops. 2017. [54] Goodfellow, Ian, Yoshua Bengio, and Aaron Courville. Deep learning. MIT press, 2016. [55] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. ”Imagenet classiﬁcation with deep convolutional neural networks.” Advances in neural information processing systems. 2012. [56] He, Kaiming, et al. ”Deep residual learning for image recognition.” Proceedings of the IEEE conference on computer vision and pattern recognition. 2016. [57] H. Sahbi, Coarse to ﬁne support vector machines for hierarchical face detection, Ph.D. thesis, PhD thesis, Versailles University, 2003. [58] Howard, Andrew G., et al. ”Mobilenets: Efﬁcient convolutional ne",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04554,
+        -0.01748,
+        -0.0087,
+        -0.00091,
+        -0.00113
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "upport vector machines for hierarchical face detection, Ph.D. thesis, PhD thesis, Versailles University, 2003. [58] Howard, Andrew G., et al. ”Mobilenets: Efﬁcient convolutional ne",
+      "overlap_with_next": "variance using the triangular kernel.” (2004). [65] Shahroudy, Amir, et al. ”Ntu rgb+ d: A large scale dataset for 3d human activity analysis.” Proceedings of the IEEE conference o",
+      "text": "upport vector machines for hierarchical face detection, Ph.D. thesis, PhD thesis, Versailles University, 2003. [58] Howard, Andrew G., et al. ”Mobilenets: Efﬁcient convolutional neural networks for mobile vision applications.” arXiv preprint arXiv:1704.04861 (2017). [59] Iandola, Forrest N., et al. ”SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and¡ 0.5 MB model size.” arXiv preprint arXiv:1602.07360 (2016). [60] M. Jiu and H. Sahbi. ”Nonlinear deep kernel learning for image annotation.” IEEE Transactions on Image Processing 26.4 (2017): 1820-1832. [61] M. Jiu and H. Sahbi. ”Deep representation design from deep kernel networks.” Pattern Recognition 88 (2019): 447-457. [62] Szegedy, Christian, et al. ”Going deeper with convolutions.” Proceedings of the IEEE conference on computer vision and pattern recognition. 2015. [63] Shawe-Taylor, John, and Nello Cristianini. Kernel methods for pattern analysis. Cambridge university press, 2004. [64] H. Sahbi and F. Fleuret. ”Kernel methods and scale invariance using the triangular kernel.” (2004). [65] Shahroudy, Amir, et al. ”Ntu rgb+ d: A large scale dataset for 3d human activity analysis.” Proceedings of the IEEE conference o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02824,
+        -0.02289,
+        -0.0323,
+        -0.01523,
+        -0.0029
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "variance using the triangular kernel.” (2004). [65] Shahroudy, Amir, et al. ”Ntu rgb+ d: A large scale dataset for 3d human activity analysis.” Proceedings of the IEEE conference o",
+      "overlap_with_next": ", J. Xing, W. Zeng, and J. Liu. An end-to end spatio-temporal attention model for human action recognition from skeleton data. In Association for the Advancement of Artiﬁcial Intel",
+      "text": "variance using the triangular kernel.” (2004). [65] Shahroudy, Amir, et al. ”Ntu rgb+ d: A large scale dataset for 3d human activity analysis.” Proceedings of the IEEE conference on computer vision and pattern recognition. 2016. [66] Kiwon Yun, Jean Honorio, Debaleena Chattopadhyay, Tamara L. Berg, and Dimitris Samaras, The 2nd International Workshop on Human Activity Understanding from 3D Data at Conference on Computer Vision and Pattern Recognition (HAU3D-CVPRW), CVPR 2012 [67] M. Maghoumi, JJ. LaViola Jr. DeepGRU: Deep Gesture Recognition Utility. In arXiv preprint arXiv:1810.12514, 2018 [68] J. Liu, G. Wang, L. Duan, K. Abdiyeva, and A. C. Kot. Skeleton-based human action recognition with global context-aware attention lstm networks. IEEE Transactions on Image Processing, 27(4):1586–1599, April 2018 [69] N. Bourdis, D. Marraud, and H. Sahbi. ”Spatio-temporal interaction for aerial video change detection.” 2012 IEEE International Geoscience and Remote Sensing Symposium. IEEE, 2012. [70] S. Song, C. Lan, J. Xing, W. Zeng, and J. Liu. An end-to end spatio-temporal attention model for human action recognition from skeleton data. In Association for the Advancement of Artiﬁcial Intel",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01819,
+        -0.01753,
+        -0.03052,
+        0.01014,
+        -0.00548
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": ", J. Xing, W. Zeng, and J. Liu. An end-to end spatio-temporal attention model for human action recognition from skeleton data. In Association for the Advancement of Artiﬁcial Intel",
+      "overlap_with_next": "arXiv:1702.00156 (2017). [76] F-M. Bianchi, D. Grattarola, C. Alippi, L. Livi. Graph Neural Networks with Convolutional ARMA Filters. In arXiv:1901.01343, 2019 [77] Y . Ji, G. Ye, ",
+      "text": ", J. Xing, W. Zeng, and J. Liu. An end-to end spatio-temporal attention model for human action recognition from skeleton data. In Association for the Advancement of Artiﬁcial Intelligence (AAAI), 2017 [71] N. Bourdis, D. Marraud, and H. Sahbi. ”Camera pose estimation using visual servoing for aerial video change detection.” 2012 IEEE International Geoscience and Remote Sensing Symposium. IEEE, 2012. [72] TN. Kipf, M. Welling. Semi-supervised classiﬁcation with graph convolutional networks. In International Conference on Learning Representations (ICLR), 2017 [73] M. Defferrard, X. Bresson, P. Vandergheynst. Convolutional Neural Networks on graphs with Fast Localized Spectral Filtering. In Neural Information Processing Systems (NIPS), 2016 [74] F. Wu, T. Zhang, A. Holanda de Souza Jr., C. Fifty, T. Yu, K-Q. Weinberger. Simplifying Graph Convolutional Networks. In arXiv:1902.07153, 2019 [75] A. Dutta and H. Sahbi. ”High order stochastic graphlet embedding for graph-based pattern recognition.” arXiv preprint arXiv:1702.00156 (2017). [76] F-M. Bianchi, D. Grattarola, C. Alippi, L. Livi. Graph Neural Networks with Convolutional ARMA Filters. In arXiv:1901.01343, 2019 [77] Y . Ji, G. Ye, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04136,
+        -0.03209,
+        -0.02032,
+        0.03298,
+        0.00862
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "arXiv:1702.00156 (2017). [76] F-M. Bianchi, D. Grattarola, C. Alippi, L. Livi. Graph Neural Networks with Convolutional ARMA Filters. In arXiv:1901.01343, 2019 [77] Y . Ji, G. Ye, ",
+      "overlap_with_next": "82] W. Zhu, C. Lan, J. Xing, W. Zeng, Y . Li, L. Shen, and X. Xie. Co-occurrence feature learning for skeleton based action recognition using regularized deep LSTM networks. In Ass",
+      "text": "arXiv:1702.00156 (2017). [76] F-M. Bianchi, D. Grattarola, C. Alippi, L. Livi. Graph Neural Networks with Convolutional ARMA Filters. In arXiv:1901.01343, 2019 [77] Y . Ji, G. Ye, and H. Cheng. Interactive body part contrast mining for human interaction recognition. In International Conference on Multimedia and Expo Workshops (ICMEW), 2014 [78] W. Li, L. Wen, M. Choo Chuah, and S. Lyu. Category-blind human action recognition: A practical recognition system. In International Conference on Computer Vision, 2015 [79] M. Ferecatu and H. Sahbi. ”Multi-view object matching and tracking using canonical correlation analysis.” 2009 16th IEEE International Conference on Image Processing (ICIP). IEEE, 2009. [80] Y . Du, W. Wang, and L. Wang. Hierarchical recurrent neural network for skeleton based action recognition. In Computer Vision and Pattern Recognition (CVPR), 2015 [81] H. Sahbi. ”A particular Gaussian mixture model for clustering and its application to image retrieval.” Soft Computing 12.7 (2008): 667-676. [82] W. Zhu, C. Lan, J. Xing, W. Zeng, Y . Li, L. Shen, and X. Xie. Co-occurrence feature learning for skeleton based action recognition using regularized deep LSTM networks. In Ass",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00998,
+        -0.01962,
+        0.00046,
+        0.0363,
+        -0.0031
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "82] W. Zhu, C. Lan, J. Xing, W. Zeng, Y . Li, L. Shen, and X. Xie. Co-occurrence feature learning for skeleton based action recognition using regularized deep LSTM networks. In Ass",
+      "overlap_with_next": "te. ”Designing relevant features for visual speech recognition.” 2013 IEEE International Conference on Acoustics, Speech and Signal Processing. IEEE, 2013. [88] A. Kacem, M. Daoudi",
+      "text": "82] W. Zhu, C. Lan, J. Xing, W. Zeng, Y . Li, L. Shen, and X. Xie. Co-occurrence feature learning for skeleton based action recognition using regularized deep LSTM networks. In Association for the Advancement of Artiﬁcial Intelligence (AAAI), 2016 [83] L. Wang and H. Sahbi. ”Nonlinear cross-view sample enrichment for action recognition.” European Conference on Computer Vision. Springer, Cham, 2014. [Page 13] 13 [84] J. Liu, A. Shahroudy, D. Xu, and G. Wang. Spatio-temporal LSTM with trust gates for 3D human action recognition. In European Conference on Computer Vision (ECCV), 2016 [85] L. Wang and H. Sahbi. ”Directed acyclic graph kernels for action recognition.” Proceedings of the IEEE International Conference on Computer Vision. 2013. [86] P. Zhang, C. Lan, J. Xing, W. Zeng, J. Xue, and N. Zheng. View adaptive recurrent neural networks for high performance human action recognition from skeleton data. In International Conference on Computer Vision (ICCV), 2017 [87] E. Benhaim, H. Sahbi, and Guillaume Vitte. ”Designing relevant features for visual speech recognition.” 2013 IEEE International Conference on Acoustics, Speech and Signal Processing. IEEE, 2013. [88] A. Kacem, M. Daoudi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01425,
+        -0.02704,
+        -0.02271,
+        0.01016,
+        0.01207
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "te. ”Designing relevant features for visual speech recognition.” 2013 IEEE International Conference on Acoustics, Speech and Signal Processing. IEEE, 2013. [88] A. Kacem, M. Daoudi",
+      "overlap_with_next": "raph processing.” arXiv preprint arXiv:1805.10636 (2018). [93] Q. Oliveau and H. Sahbi. ”Learning attribute representations for remote sensing ship category classiﬁcation.” IEEE Jo",
+      "text": "te. ”Designing relevant features for visual speech recognition.” 2013 IEEE International Conference on Acoustics, Speech and Signal Processing. IEEE, 2013. [88] A. Kacem, M. Daoudi, B. Ben Amor, S. Berretti, J-Carlos. Alvarez-Paiva. A Novel Geometric Framework on Gram Matrix Trajectories for Human Behavior Understanding. IEEE Transactions on Pattern Analysis and Machine Intelligence, 28 September 2018 [89] F. Baradel, C. Wolf, J. Mille. Pose-conditioned Spatio-Temporal Attention for Human Action Recognition. In arXiv preprint, 2017 [90] Zhuang, Chenyi, and Qiang Ma. ”Dual graph convolutional networks for graph-based semi-supervised classiﬁcation.” Proceedings of the 2018 World Wide Web Conference. 2018. [91] N. Bourdis, D. Marraud, and H. Sahbi. ”Constrained optical ﬂow for aerial image change detection.” 2011 IEEE International Geoscience and Remote Sensing Symposium. IEEE, 2011. [92] Bacciu, Davide, Federico Errica, and Alessio Micheli. ”Contextual graph markov model: A deep and generative approach to graph processing.” arXiv preprint arXiv:1805.10636 (2018). [93] Q. Oliveau and H. Sahbi. ”Learning attribute representations for remote sensing ship category classiﬁcation.” IEEE Jo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05076,
+        -0.01833,
+        -0.00898,
+        -0.00584,
+        0.01485
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "raph processing.” arXiv preprint arXiv:1805.10636 (2018). [93] Q. Oliveau and H. Sahbi. ”Learning attribute representations for remote sensing ship category classiﬁcation.” IEEE Jo",
+      "overlap_with_next": "v:1810.00826. [99] Kipf, Thomas N., and Max Welling. ”Variational graph auto-encoders.” arXiv preprint arXiv:1611.07308 (2016). [100] H. Sahbi, J-Y . Audibert and R. Keriven. ”Cont",
+      "text": "raph processing.” arXiv preprint arXiv:1805.10636 (2018). [93] Q. Oliveau and H. Sahbi. ”Learning attribute representations for remote sensing ship category classiﬁcation.” IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing 10.6 (2017): 2830-2840. [94] Zhang, Muhan, et al. ”An end-to-end deep learning architecture for graph classiﬁcation.” Thirty-Second AAAI Conference on Artiﬁcial Intelligence. 2018. [95] Ying, Zhitao, et al. ”Hierarchical graph representation learning with differentiable pooling.” Advances in neural information processing systems. 2018. [96] L. Wang and H. Sahbi. ”Bags-of-daglets for action recognition.” 2014 IEEE International Conference on Image Processing (ICIP). IEEE, 2014. [97] Liu, Ziqi, et al. ”Geniepath: Graph neural networks with adaptive receptive paths.” Proceedings of the AAAI Conference on Artiﬁcial Intelligence. V ol. 33. 2019. [98] Xu, K., Hu, W., Leskovec, J., & Jegelka, S. (2018). How powerful are graph neural networks?. arXiv preprint arXiv:1810.00826. [99] Kipf, Thomas N., and Max Welling. ”Variational graph auto-encoders.” arXiv preprint arXiv:1611.07308 (2016). [100] H. Sahbi, J-Y . Audibert and R. Keriven. ”Cont",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06029,
+        -0.04091,
+        0.00578,
+        0.01706,
+        -0.01426
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 48877,
+      "length": 937,
+      "overlap_with_previous": "v:1810.00826. [99] Kipf, Thomas N., and Max Welling. ”Variational graph auto-encoders.” arXiv preprint arXiv:1611.07308 (2016). [100] H. Sahbi, J-Y . Audibert and R. Keriven. ”Cont",
+      "overlap_with_next": "",
+      "text": "v:1810.00826. [99] Kipf, Thomas N., and Max Welling. ”Variational graph auto-encoders.” arXiv preprint arXiv:1611.07308 (2016). [100] H. Sahbi, J-Y . Audibert and R. Keriven. ”Context-dependent kernels for object classiﬁcation.” IEEE transactions on pattern analysis and machine intelligence 33.4 (2010): 699-708. [101] Sch¨olkopf, Bernhard, Ralf Herbrich, and Alex J. Smola. ”A generalized representer theorem.” International conference on computational learning theory. Springer, Berlin, Heidelberg, 2001. [102] G.S. Kimeldorf and G. Wahba. A correspondence between Bayesian estimation on stochastic processes and smoothing by splines. Annals of Mathematical Statistics, 41:495–502, 1970. [103] H. Sahbi. ”Kernel PCA for similarity invariant shape recognition.” Neurocomputing 70.16-18 (2007): 3034-3045. [104] Vapnik, Vladimir N. ”An overview of statistical learning theory.” IEEE transactions on neural networks 10.5 (1999): 988-999.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05708,
+        -0.01645,
+        -0.02991,
+        0.02143,
+        -0.00181
+      ]
+    }
+  ]
+}

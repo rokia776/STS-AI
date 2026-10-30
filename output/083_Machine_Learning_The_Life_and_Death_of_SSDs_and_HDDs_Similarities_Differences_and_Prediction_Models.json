@@ -1,0 +1,1371 @@
+{
+  "paper_id": "2d4d009d-93d3-4be1-ab6d-f4ece4402b9b",
+  "filename": "083_Machine_Learning_The_Life_and_Death_of_SSDs_and_HDDs_Similarities_Differences_and_Prediction_Models.pdf",
+  "title": "The Life and Death of SSDs and HDDs: Similarities, Differences, and Prediction Models",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 80,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " head positioning. For SSDs, we observe high levels of infant mortality and characterize the differences between infant and non-infant failures. We develop several machine learning",
+      "text": "[Page 1] 1 The Life and Death of SSDs and HDDs: Similarities, Differences, and Prediction Models Riccardo Pinciroli, Lishan Y ang, Jacob Alter, and Evgenia Smirni Abstract—Data center downtime typically centers around IT equipment failure. Storage devices are the most frequently failing components in data centers. We present a comparative study of hard disk drives (HDDs) and solid state drives (SSDs) that constitute the typical storage in data centers. Using a six-year ﬁeld data of 100,000 HDDs of different models from the same manufacturer from the BackBlaze dataset and a six-year ﬁeld data of 30,000 SSDs of three models from a Google data center, we characterize the workload conditions that lead to failures and illustrate that their root causes differ from common expectation but remain difﬁcult to discern. For the case of HDDs we observe that young and old drives do not present many differences in their failures. Instead, failures may be distinguished by discriminating drives based on the time spent for head positioning. For SSDs, we observe high levels of infant mortality and characterize the differences between infant and non-infant failures. We develop several machine learning",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02101,
+        -0.04901,
+        -0.07201,
+        0.00701,
+        -0.01751
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " head positioning. For SSDs, we observe high levels of infant mortality and characterize the differences between infant and non-infant failures. We develop several machine learning",
+      "overlap_with_next": " HDDs and SSDs are different due to their distinct physical mechanics, it follows that observations from HDD analysis cannot be generalized to SSDs and vice-versa. Existing studies",
+      "text": " head positioning. For SSDs, we observe high levels of infant mortality and characterize the differences between infant and non-infant failures. We develop several machine learning failure prediction models that are shown to be surprisingly accurate, achieving high recall and low false positive rates. These models are used beyond simple prediction as they aid us to untangle the complex interaction of workload characteristics that lead to failures and identify failure root causes from monitored symptoms. Index Terms—Supervised learning, Classiﬁcation, Data centers, Storage devices, SSD, HDD ! 1 I NTRODUCTION Storage devices, such as hard disk drives (HDDs) and solid state drives (SSDs), are among the components that affect the data center dependability the most [6, 9, 14, 17], contributing to the 28% of data center failure events [43]. Accurate prediction of storage component failures enables on-time mitigation actions that avoid data loss and increases data center dependability. Failure events observed in HDDs and SSDs are different due to their distinct physical mechanics, it follows that observations from HDD analysis cannot be generalized to SSDs and vice-versa. Existing studies",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00964,
+        -0.02966,
+        -0.0447,
+        0.00682,
+        -0.0108
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " HDDs and SSDs are different due to their distinct physical mechanics, it follows that observations from HDD analysis cannot be generalized to SSDs and vice-versa. Existing studies",
+      "overlap_with_next": "r they are done manually or automatically, or the replace- ment policies in place), we are able to discover key correlations and patterns of failure, as well as generate useful for",
+      "text": " HDDs and SSDs are different due to their distinct physical mechanics, it follows that observations from HDD analysis cannot be generalized to SSDs and vice-versa. Existing studies of HDD dependability in the literature generally focus on a few disk models that are analyzed using disk traces of collected disk data during a period of up to two years [27, 42]. Most of the SSD studies in the literature are done on a simulated or controlled environment [8, 15, 21, 25, 36] or focus on speciﬁc error types [24, 31, 34]. In this paper, we focus on failures of HDDs and SSDs by analyzing disk logs collected from real-world data centers over a period of six years. We analyze Self-Monitoring, Analysis and Reporting Technology (SMART) traces from ﬁve different HDD models from the Backblaze data center [49] and the logs of three multi-level cell (MLC) models of SSDs collected at a Google data center. Though we are unaware of the data centers’ exact workﬂows for drive repairs, replacements, and retirements (e.g., whether they are done manually or automatically, or the replace- ment policies in place), we are able to discover key correlations and patterns of failure, as well as generate useful for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00133,
+        -0.01673,
+        -0.04181,
+        0.00807,
+        -0.00203
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "r they are done manually or automatically, or the replace- ment policies in place), we are able to discover key correlations and patterns of failure, as well as generate useful for",
+      "overlap_with_next": " we ﬁnd no evidence that the failure/repair process is triggered by any deterministic decision rule. Since the complexity of the data does not allow for a typical treatment of pred",
+      "text": "r they are done manually or automatically, or the replace- ment policies in place), we are able to discover key correlations and patterns of failure, as well as generate useful forecasts of future failures. Being able to predict an upcoming drive retirement could allow early action: for example, early replacement before • R. Pinciroli, L. Yang, E. Smirni are with the Computer Science Department, William and Mary, Williamsburg, VA 23185. E-mail: {rpinciro,lyang11,esmirni}@cs.wm.edu J. Alter is with Ipsos North America. E-mail: jralter@email.wm.edu failure happens, migration of data and VMs to other resources, or even allocation of VMs to disks that are not prone to failure [39]. In this paper, we study the various error types accounted by the logs to determine their roles in triggering, or otherwise portending, future drive failures. It is interesting to note that although both the Backblaze and the Google logs have ample data, simple statistical methods are not able to achieve highly accurate predictions: we ﬁnd no evidence that the failure/repair process is triggered by any deterministic decision rule. Since the complexity of the data does not allow for a typical treatment of pred",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04177,
+        -0.019,
+        -0.0272,
+        0.02312,
+        -0.03613
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": " we ﬁnd no evidence that the failure/repair process is triggered by any deterministic decision rule. Since the complexity of the data does not allow for a typical treatment of pred",
+      "overlap_with_next": "cant, the datasets in hand are highly imbalanced (the healthy-faulty ratio is 10,000:1). This is a common problem in classiﬁcation, and makes achieving simultaneously high true pos",
+      "text": " we ﬁnd no evidence that the failure/repair process is triggered by any deterministic decision rule. Since the complexity of the data does not allow for a typical treatment of prediction based on straightforward statistical analysis, we resort to machine learning predictors to help us detect which quantitative measures provide strong indications of upcoming failures. We show that machine learning models that are trained from monitoring logs achieve failure prediction that is both remarkably accurate and timely, both in the HDD and SSD domains. The models conﬁrm that drive replacements are not triggered by naive thresholding of predictors. Beyond prediction, the models are interpreted to provide valuable insights on which errors and workload characteristics are most indicative of future catastrophic failures. The models are able to anticipate failure events with rea- sonable accuracy up to several days in advance, despite some inherent methodological challenges. Although the frequency of failures is signiﬁcant, the datasets in hand are highly imbalanced (the healthy-faulty ratio is 10,000:1). This is a common problem in classiﬁcation, and makes achieving simultaneously high true pos",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04124,
+        -0.03067,
+        -0.04511,
+        0.01388,
+        -0.02729
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "cant, the datasets in hand are highly imbalanced (the healthy-faulty ratio is 10,000:1). This is a common problem in classiﬁcation, and makes achieving simultaneously high true pos",
+      "overlap_with_next": "s (dashed). The HDD maximum age is shorter than the SSD one. management policies. Our ﬁndings are summarized as follows: • Although a consistent number of drives fail during the ob",
+      "text": "cant, the datasets in hand are highly imbalanced (the healthy-faulty ratio is 10,000:1). This is a common problem in classiﬁcation, and makes achieving simultaneously high true positive rates and low false positive ones very difﬁcult. Here, we illustrate that there exist different ways to partition the HDD and SSD datasets to increase model accuracy. This partitioning is based on workload analysis that was ﬁrst developed in [40] for SSDs and focuses on the discovery of certain drive attributes. We saw that similar partitioning can be also successfully applied for the case of HDDs. We focus on the interpretability of the machine learning models and derive insights that can be used to drive proactive disk arXiv:2012.12373v1 [cs.LG] 22 Dec 2020 [Page 2] 2 0 2 4 6 Time (years) 0.00 0.25 0.50 0.75 1.00CDF Max Age Data Count (a) SSD 0 2 4 6 Time (years) 0.00 0.25 0.50 0.75 1.00CDF Max Age Data count (b) HDD Fig. 1: CDFs of maximum observed drive age (solid) and number of observed drive days within the error logs (dashed). The HDD maximum age is shorter than the SSD one. management policies. Our ﬁndings are summarized as follows: • Although a consistent number of drives fail during the ob",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01837,
+        -0.02989,
+        -0.06496,
+        0.00883,
+        -0.02853
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "s (dashed). The HDD maximum age is shorter than the SSD one. management policies. Our ﬁndings are summarized as follows: • Although a consistent number of drives fail during the ob",
+      "overlap_with_next": "ning SSDs on the Drive age attribute and HDDs on head ﬂying hours (i.e., SMART 240) increases model accuracy. This is enabled by training a distinct classiﬁer for each partition of",
+      "text": "s (dashed). The HDD maximum age is shorter than the SSD one. management policies. Our ﬁndings are summarized as follows: • Although a consistent number of drives fail during the ob- served six years (i.e., 14% of SSDs and 7% of HDDs), only a few of them are repaired and put back into production (i.e., 50% of failed SSDs and 7% of failed HDDs). The percentage of failed SSDs that are put back into production within a month after the failure event is 8%, while almost all the repaired HDDs are back in the data center within a day from the failure. • Drive failures are triggered by a set of attributes and different drive features must be monitored to accurately predict a failure event. There is no single metric that triggers a drive failure after it reaches a certain threshold. • Several machine learning predictors are quite successful for failure prediction. Random forests are found to be the most successful for SSDs and HDDs. • Datasets may be partitioned to improve the performance of the classiﬁer. Partitioning SSDs on the Drive age attribute and HDDs on head ﬂying hours (i.e., SMART 240) increases model accuracy. This is enabled by training a distinct classiﬁer for each partition of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02061,
+        -0.01046,
+        -0.05123,
+        -0.01599,
+        -0.03939
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ning SSDs on the Drive age attribute and HDDs on head ﬂying hours (i.e., SMART 240) increases model accuracy. This is enabled by training a distinct classiﬁer for each partition of",
+      "overlap_with_next": "DD D ATASET We ﬁrst describe the two datasets and the provided drive features. SSD dataset: The data consists of daily performance logs for three MLC SSD models collected at a Goog",
+      "text": "ning SSDs on the Drive age attribute and HDDs on head ﬂying hours (i.e., SMART 240) increases model accuracy. This is enabled by training a distinct classiﬁer for each partition of the dataset. • The attributes that are most useful for failure prediction differ depending on the dataset split (i.e., split based on age for SSDs and on head ﬂying hours for HDDs). • No relationship between SSD program-erase (P/E) cycles and failures are observed, suggesting that that write opera- tions do not affect the state of SSDs as much as previously thought. The remainder of the paper is organized as follows. Sections 2 describes the datasets analyzed in this paper and Section 3 characterizes the data and summarizes observations. Section 4 investigates main reasons causing SSD and HDD failures. Section 5 studies different classiﬁcation algorithm to predict failure events and presents a partition strategy to increase the performance of models. Section 6 presents related work and Section 7 concludes the paper. 2 SSD AND HDD D ATASET We ﬁrst describe the two datasets and the provided drive features. SSD dataset: The data consists of daily performance logs for three MLC SSD models collected at a Goog",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0368,
+        -0.0324,
+        -0.0469,
+        0.00472,
+        -0.02718
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "DD D ATASET We ﬁrst describe the two datasets and the provided drive features. SSD dataset: The data consists of daily performance logs for three MLC SSD models collected at a Goog",
+      "overlap_with_next": " drive’s lifetime. • The number of read, write, and erase operations performed by the drive over the course of the day. • The cumulative number of P/E cycles seen by the drive over",
+      "text": "DD D ATASET We ﬁrst describe the two datasets and the provided drive features. SSD dataset: The data consists of daily performance logs for three MLC SSD models collected at a Google data center over a period of six years. All three models are manufactured by the same vendor and have a 480GB capacity and a lithography on the order of 50nm. They utilize custom ﬁrmware and drivers, meaning that error reporting is done in a proprietary format rather than through standard SMART features [48]. We refer to the three models as MLC-A, MLC-B, and MLC-D in accordance with the naming in [29, 31]. We have data on over 10,000 unique drives for each drive model, totaling over 40,000,000 daily drive reports overall. The logs used in this paper report daily summaries of drive activity. Drives are uniquely identiﬁed by their drive ID, which is a hashed value of their serial number. For each day of operation, the following metrics are reported: • The timestamp of the report, given in microseconds since the beginning of the drive’s lifetime. • The number of read, write, and erase operations performed by the drive over the course of the day. • The cumulative number of P/E cycles seen by the drive over",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04158,
+        -0.03966,
+        -0.05987,
+        -0.00294,
+        -0.05249
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " drive’s lifetime. • The number of read, write, and erase operations performed by the drive over the course of the day. • The cumulative number of P/E cycles seen by the drive over",
+      "overlap_with_next": "over six years. Basic infor- mation such as serial number, model, and date is reported, as well as standard SMART features. Some SMART features are not reported for Hitachi drives ",
+      "text": " drive’s lifetime. • The number of read, write, and erase operations performed by the drive over the course of the day. • The cumulative number of P/E cycles seen by the drive over its lifetime. A program–erase cycle is the process by which a memory cell is written to and subsequently erased. The cumulative amount of these cycles is a measure of device wear. • Two status ﬂags indicating whether the drive has died and whether the drive is operating in read-only mode. • The number of bad blocks in the drive. A block is marked bad either when it is non-operational upon purchase (de- noted a factory bad block) or when a non-transparent error occurs in the block and it is subsequently removed from use. Cumulative counts of both of these bad block types are provided in the log. • The counts of different errors that have occurred over the course of the day. Table 2 lists the error types that are logged in the dataset. HDD dataset: The HDD dataset contains daily logs for HDDs collected at a Backblaze data center over six years. Basic infor- mation such as serial number, model, and date is reported, as well as standard SMART features. Some SMART features are not reported for Hitachi drives ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.0069,
+        -0.04494,
+        -0.04263,
+        0.02825,
+        -0.03514
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "over six years. Basic infor- mation such as serial number, model, and date is reported, as well as standard SMART features. Some SMART features are not reported for Hitachi drives ",
+      "overlap_with_next": "luded in the dataset, however, some of them are empty. We are interested in the non-null features, shown in Table 3. In addition to the raw features, we also consider the cumula- t",
+      "text": "over six years. Basic infor- mation such as serial number, model, and date is reported, as well as standard SMART features. Some SMART features are not reported for Hitachi drives and also for Seagate drives before 2014, for this reason we only consider Seagate drives starting from January 17, 2014, until December 31, 2019. There are over 100,000 unique HDDs in the dataset, with more than 100,000,000 daily reports in total. There are more than 17 different models in the dataset, of those we consider the 5 most popular models that constitute the HDDs are uniquely identiﬁed by their serial number. Every day, snapshot operation is performed for every operational hard drive, reporting the following metrics: • The timestamp of the snapshot, which is the date that the snapshot is taken. • The serial number and model of the hard drive. • Flag of failure, where 0 shows that the drive is functioning, while 1 means this is the last operational day before the drive fails. • SMART features: All SMART features are included in the dataset, however, some of them are empty. We are interested in the non-null features, shown in Table 3. In addition to the raw features, we also consider the cumula- t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.032,
+        -0.04504,
+        -0.0163,
+        0.01628,
+        -0.02509
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "luded in the dataset, however, some of them are empty. We are interested in the non-null features, shown in Table 3. In addition to the raw features, we also consider the cumula- t",
+      "overlap_with_next": " 0.002349 0.001309 MLC-D 0.767593 0.001552 0.000034 0.000028 0.000133 0.000002 0.000014 0.002583 0.000162 HDD Error Type uncorrectable ultraDMC CRC reallocated sector power-off ret",
+      "text": "luded in the dataset, however, some of them are empty. We are interested in the non-null features, shown in Table 3. In addition to the raw features, we also consider the cumula- tive effect of SMART 187 (Reported Uncorrectable Errors). For cumulative features (i.e., SMART 4, 5, 7, 9, 10, 12, 192, 193, 197, 198, 199, 240, 241, and 242), we also calculate their non- cumulative version (the difference with the previous observation), noted as “diff”. Drive age and data count: For a given drive, the error log may have observations spanning over a period of several days up to several years. This is depicted in the “Max Age” CDF in Fig. 1, [Page 3] 3 TABLE 1: Proportion of drive days that exhibit each error type. SSD Error Type correctable ﬁnal read ﬁnal write meta read response timeout uncorrectable writeerror error error error error error error error error MLC-A 0.828895 0.001077 0.000026 0.000014 0.000090 0.000001 0.000009 0.002176 0.000117 MLC-B 0.776308 0.001805 0.000027 0.000016 0.000103 0.000004 0.000010 0.002349 0.001309 MLC-D 0.767593 0.001552 0.000034 0.000028 0.000133 0.000002 0.000014 0.002583 0.000162 HDD Error Type uncorrectable ultraDMC CRC reallocated sector power-off ret",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05876,
+        -0.00052,
+        -0.03341,
+        -0.02858,
+        -0.02187
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " 0.002349 0.001309 MLC-D 0.767593 0.001552 0.000034 0.000028 0.000133 0.000002 0.000014 0.002583 0.000162 HDD Error Type uncorrectable ultraDMC CRC reallocated sector power-off ret",
+      "overlap_with_next": "read error Number of read operations that fail, even after (drive-initiated) retries timeout error Number of operations that timed out after some wait period ﬁnal write error Numbe",
+      "text": " 0.002349 0.001309 MLC-D 0.767593 0.001552 0.000034 0.000028 0.000133 0.000002 0.000014 0.002583 0.000162 HDD Error Type uncorrectable ultraDMC CRC reallocated sector power-off retract uncorrectable sectorerror error count count count ST12000NM0007 0.004301 0.007232 0.014590 0.330956 0.003755 ST3000DM001 0.216522 0.303442 0.092016 0.001818 0.074695 ST4000DM000 0.014837 0.022238 0.004435 0.000549 0.006698 ST8000DM002 0.005044 0.007391 0.022137 0.010971 0.00377 ST8000NM0055 0.004534 0.007392 0.020378 0.020668 0.003742 TABLE 2: Name and description of different error types logged in the dataset. Name Description Name Description correctable error Number of bits that were found corruptedand corrected using drive-internal error correction codes (ECC) during read operations during that day read error Number of read operations that experienced an error but succeeded on retry (initiated drive-internally) erase error Number of erase operations that failed response error Number of bad responses from the drive ﬁnal read error Number of read operations that fail, even after (drive-initiated) retries timeout error Number of operations that timed out after some wait period ﬁnal write error Numbe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04661,
+        -0.00561,
+        -0.04153,
+        0.02383,
+        -0.01753
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "read error Number of read operations that fail, even after (drive-initiated) retries timeout error Number of operations that timed out after some wait period ﬁnal write error Numbe",
+      "overlap_with_next": " cycles 193 Load/Unload Cycle Count Number of load/unload cycles 5 Reallocated Sectors Count Number of reallocated sectors 194 Temperature Temperature of the hard drive 7 Seek Erro",
+      "text": "read error Number of read operations that fail, even after (drive-initiated) retries timeout error Number of operations that timed out after some wait period ﬁnal write error Number of write operations that fail, even after (drive-initiated) retries uncorrectable error Number of uncorrectable ECC errors encountered during read operations during that day meta error Number of errors encountered while reading drive-internal metadata write error Number of write operations that experienced an error but succeeded on retry (initiated drive-internally) TABLE 3: ID, name, and description of considered SMART features. ID Name Description ID Name Description 1 Read Error Rate Frequency of errors whenperforming a read operation 190 Temperature Difference Difference between a manufacturer-deﬁned threshold (usually 100)and the measured temperature 3 Spin-Up Time Average time of spindlespin-up in milliseconds 192 Power-off Retract Count Number of power-offor retract cycles 4 Start-Stop Count Number of spindle start-stop cycles 193 Load/Unload Cycle Count Number of load/unload cycles 5 Reallocated Sectors Count Number of reallocated sectors 194 Temperature Temperature of the hard drive 7 Seek Erro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02955,
+        -0.01926,
+        -0.02574,
+        0.00918,
+        -0.01265
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": " cycles 193 Load/Unload Cycle Count Number of load/unload cycles 5 Reallocated Sectors Count Number of reallocated sectors 194 Temperature Temperature of the hard drive 7 Seek Erro",
+      "overlap_with_next": "ckAddressing (LBAs) read which shows the distribution over “oldest” observations we have for each drive. We show the CDF of SSDs and HDDs separately in Figs. 1(a) and (b), respecti",
+      "text": " cycles 193 Load/Unload Cycle Count Number of load/unload cycles 5 Reallocated Sectors Count Number of reallocated sectors 194 Temperature Temperature of the hard drive 7 Seek Error Rate Frequency of errors whilethe drive head is positioning 197 Current Pending Sector Count Number of sectorpending for reallocation 9 Power-On Hours Number of hours of the drivein power-on state (drive age) 198 Uncorrectable Sector Count Number of uncorrectable sector 10 Spin Retry Count Number of spin start retries 199 UltraDMA CRC Error Count Number of errors identiﬁed by the Interface Cyclic Redundancy Check (ICRC) during data transfer 12 Power Cycle Count Number of cycles when thedrive is in power-on state 240 Head Flying Hours Number of hours whenthe drive head is positioning 187 Reported Uncorrectable Errors Number of uncorrectableECC errors 241 Total LBAs Written Number of Logical BlockAddressing (LBAs) written 188 Command Timeout Number of aborted operationsdue to HDD timeout 242 Total LBAs Read Number of Logical BlockAddressing (LBAs) read which shows the distribution over “oldest” observations we have for each drive. We show the CDF of SSDs and HDDs separately in Figs. 1(a) and (b), respecti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00397,
+        -0.00338,
+        -0.05857,
+        0.01149,
+        -0.03803
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "ckAddressing (LBAs) read which shows the distribution over “oldest” observations we have for each drive. We show the CDF of SSDs and HDDs separately in Figs. 1(a) and (b), respecti",
+      "overlap_with_next": ". Errors collected in the error logs can be separated into two types: transparent and non-transparent errors. Transparent errors (i.e., correctable, read, write, and erase errors) ",
+      "text": "ckAddressing (LBAs) read which shows the distribution over “oldest” observations we have for each drive. We show the CDF of SSDs and HDDs separately in Figs. 1(a) and (b), respectively. This measure indicates the length of the observational horizons we possess. We observe that, for over 50% of drives, we have data extending over a period of 4 to 6 years for SSDs, and 2 to 5 years for HDDs, which shows that generally HDDs have a shorter lifespan. However, days of activity are not logged for all drives. Accordingly, we may ask what magnitude of data we have access to for a given drive. The accompanying “Data Count” CDF shows exactly this: the number of drive days that are recorded in the error log for each drive. “Data Count” is a measure of the volume of the log entries. Measuring them as a function of time is reasonable as there is one log entry per day per drive. Fig. 1 clearly shows that there are ample data available for both SSDs and HDDs, and therefore amenable to the analysis presented in this paper. Errors collected in the error logs can be separated into two types: transparent and non-transparent errors. Transparent errors (i.e., correctable, read, write, and erase errors) ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0223,
+        -0.02012,
+        -0.06515,
+        0.00546,
+        -0.02668
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": ". Errors collected in the error logs can be separated into two types: transparent and non-transparent errors. Transparent errors (i.e., correctable, read, write, and erase errors) ",
+      "overlap_with_next": "lated to errors [5], and power-off [Page 4] 4 TABLE 4: Matrix of Spearman correlations among different features. We calculate the features in SSDs and HDDs separately. Bolded text ",
+      "text": ". Errors collected in the error logs can be separated into two types: transparent and non-transparent errors. Transparent errors (i.e., correctable, read, write, and erase errors) may be hidden from the user while non-transparent errors (i.e., ﬁnal read, ﬁnal write, meta, response, timeout, and uncorrectable errors) may not. Incidence statistics for each of these error types are listed in Table 1. Note that meta, response, and timeout errors in the SSD dataset are very rare. The number of uncorrectable and ﬁnal read errors is at least one order of magnitude larger than other errors. For a detailed analysis of the SSD dataset that focuses on raw bit error rates, uncorrectable bit error rates, and their relationships with workload, age, and drive wear out, we direct the interested reader to [29]. For HDDs, only two types of errors are reported (i.e., uncorrectable error and ultraDMC CRC error). In addition to these two errors, we also consider reallocated and uncorrectable sector counts, which are highly related to errors [5], and power-off [Page 4] 4 TABLE 4: Matrix of Spearman correlations among different features. We calculate the features in SSDs and HDDs separately. Bolded text ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04722,
+        -0.00613,
+        -0.04977,
+        0.01242,
+        8e-05
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "lated to errors [5], and power-off [Page 4] 4 TABLE 4: Matrix of Spearman correlations among different features. We calculate the features in SSDs and HDDs separately. Bolded text ",
+      "overlap_with_next": "g sector 0.05 0.14 1.00 ultraDMC CRC 0.01 0.02 0.03 1.00 uncorrectable 0.04 0.28 0.39 0.07 1.00 power-off retract count 0.00 0.05 0.00 0.02 -0.02 1.00 timeout 0.01 0.04 0.05 0.30 0",
+      "text": "lated to errors [5], and power-off [Page 4] 4 TABLE 4: Matrix of Spearman correlations among different features. We calculate the features in SSDs and HDDs separately. Bolded text indicates a large correlation value. SSD erase ﬁnal read ﬁnal write meta read response timeout uncorrectable write P/E cycle bad block erase 1.00 ﬁnal read 0.21 1.00 ﬁnal write 0.24 0.12 1.00 meta 0.17 0.19 0.35 1.00 read 0.22 0.20 0.30 0.40 1.00 response 0.02 0.06 0.24 0.02 0.03 1.00 timeout 0.01 0.12 0.44 0.02 0.03 0.53 1.00 uncorrectable 0.20 0.97 0.06 0.16 0.15 0.03 0.03 1.00 write 0.32 0.28 0.13 0.14 0.25 0.02 0.02 0.28 1.00 P/E cycle 0.32 0.18 −0.05 −0.02 0.03 0.03 0.00 0.19 0.23 1.00 bad block count 0.38 0.37 0.19 0.19 0.18 0.01 0.01 0.37 0.34 0.16 1.00 drive age 0.20 0.36 0.06 0.05 0.06 0.04 0.05 0.36 0.14 0.73 0.18 HDD failure reallocated current pending ultraDMC uncorrect. power-off timeout power-on power temp.sector count sector count CRC retract cout hour cycle failure 1.00 reallocated sector 0.03 1.00 current pending sector 0.05 0.14 1.00 ultraDMC CRC 0.01 0.02 0.03 1.00 uncorrectable 0.04 0.28 0.39 0.07 1.00 power-off retract count 0.00 0.05 0.00 0.02 -0.02 1.00 timeout 0.01 0.04 0.05 0.30 0",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02232,
+        0.02616,
+        -0.04043,
+        -0.01567,
+        0.00139
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "g sector 0.05 0.14 1.00 ultraDMC CRC 0.01 0.02 0.03 1.00 uncorrectable 0.04 0.28 0.39 0.07 1.00 power-off retract count 0.00 0.05 0.00 0.02 -0.02 1.00 timeout 0.01 0.04 0.05 0.30 0",
+      "overlap_with_next": "nship between the pair. We calculate the Spearman correlation matrix for the SSD and HDD datasets separately. We ﬁrst discuss the correlation of P/E cycle count with other errors i",
+      "text": "g sector 0.05 0.14 1.00 ultraDMC CRC 0.01 0.02 0.03 1.00 uncorrectable 0.04 0.28 0.39 0.07 1.00 power-off retract count 0.00 0.05 0.00 0.02 -0.02 1.00 timeout 0.01 0.04 0.05 0.30 0.11 0.03 1.00 power-on hours 0.00 0.04 0.04 0.06 0.08 -0.21 0.07 1.00 power cycle 0.00 0.02 0.04 0.13 0.08 -0.07 0.21 0.54 1.00 temperature 0.00 0.03 -0.01 -0.05 -0.03 0.33 -0.06 -0.32 -0.30 1.00 retract counts. Correlation among errors and different features: Table 4 illustrates the Spearman correlation matrix across pairs of all measures, aiming to determine whether there are any strong co- incidence relationships between different error types. Spearman correlations are used as a non-parametric measure of correlation, with values ranging between −1 and +1. The Spearman correla- tion differs from the more common Pearson correlation in that it is able to detect all sorts of monotonic relationships, not just linear ones [18]. Bolded values are those with magnitude greater than or equal to 0.30, indicating a non-negligible relationship between the pair. We calculate the Spearman correlation matrix for the SSD and HDD datasets separately. We ﬁrst discuss the correlation of P/E cycle count with other errors i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04376,
+        -0.0064,
+        -0.08274,
+        0.00748,
+        0.01687
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "nship between the pair. We calculate the Spearman correlation matrix for the SSD and HDD datasets separately. We ﬁrst discuss the correlation of P/E cycle count with other errors i",
+      "overlap_with_next": "ing device wear. Another is that drives which experience more activity will simply have more opportunities for errors to occur. We are unable to detect any substantial effects even",
+      "text": "nship between the pair. We calculate the Spearman correlation matrix for the SSD and HDD datasets separately. We ﬁrst discuss the correlation of P/E cycle count with other errors in SSD dataset. Since SSDs can only experience a ﬁnite number of write operations before their cells begin to lose their ability to hold a charge, manufacturers set a limit to the number of P/E cycles a given drive model can handle. For our drive models, this limit is 3000 cycles. Due to these limits, it is believed that errors are caused in part by wear of write operations on the drive, which one can measure using either a cumulative P/E cycle count or a cumulative count of write operations. Using either measure is equivalent since they are very highly correlated. It is interesting to observe that there is little-to-no correlation of P/E cycle count with any of the other errors, except for some moderate correlation with erase errors, which contradicts common expectations. One reason for this is the aforementioned argument regarding device wear. Another is that drives which experience more activity will simply have more opportunities for errors to occur. We are unable to detect any substantial effects even",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02711,
+        -0.00443,
+        -0.09196,
+        0.00744,
+        -0.00137
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ing device wear. Another is that drives which experience more activity will simply have more opportunities for errors to occur. We are unable to detect any substantial effects even",
+      "overlap_with_next": " between certain pairs of measures that eventually show to be of use for swap prediction within the context of machine learning-based predictors, see Section 5. For the HDD dataset",
+      "text": "ing device wear. Another is that drives which experience more activity will simply have more opportunities for errors to occur. We are unable to detect any substantial effects even due to this na ¨ıve relationship. Note that the correlation value of P/E cycle count and uncorrectable error count (which reﬂects bad sectors and eventual drive swap) is mostly insigniﬁcant. The age of a drive gives a similar metric for drive wear, which correlates highly with the P/E cycle count. The drive age also has very small correlation with cumulative error counts, with the exception of uncorrectable/ﬁnal read errors. Bad blocks, another likely culprit for drive swaps, shows some mild correlation with erase errors, ﬁnal read errors, and uncorrectable errors. The high value of the correlation coefﬁcient of 0.97 between uncorrectable errors and ﬁnal read errors is not useful as the two errors represent essentially the same event: if a read fails ﬁnally, then it is uncorrectable. Yet, we see some moderate correlation values between certain pairs of measures that eventually show to be of use for swap prediction within the context of machine learning-based predictors, see Section 5. For the HDD dataset",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04025,
+        -0.00668,
+        -0.06072,
+        0.03027,
+        -0.02001
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " between certain pairs of measures that eventually show to be of use for swap prediction within the context of machine learning-based predictors, see Section 5. For the HDD dataset",
+      "overlap_with_next": "ilures. Program–erase (P/E) cycle counts, an indicator of drive wear, show very low correlations with most uncorrectable errors and mild correlation with erase errors (transparent ",
+      "text": " between certain pairs of measures that eventually show to be of use for swap prediction within the context of machine learning-based predictors, see Section 5. For the HDD dataset, we present the correlation of power-on hours (which reﬂects drive age), power cycle, and temperature with different errors and abnormal behaviors. All of them have little-to-no correlation with other drive errors and drive failures. Only temperature shows mild correlation with power-off retract count. Uncorrectable errors and current pending sector count have some correlation because the pending sector count reﬂects the number of unstable sectors in an HDD, and as more and more pending sectors appear in the drive, the more uncorrectable errors are observed. Power cycle and power-on hour are correlated, because they are both power-related metrics. Observation #1: For SSDs, there is no clear relationship between non-transparent error types and uncorrectable error counts that presumably result in bad sectors and eventual drive failures. Program–erase (P/E) cycle counts, an indicator of drive wear, show very low correlations with most uncorrectable errors and mild correlation with erase errors (transparent ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03897,
+        -0.03277,
+        -0.05907,
+        0.0341,
+        -0.00788
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "ilures. Program–erase (P/E) cycle counts, an indicator of drive wear, show very low correlations with most uncorrectable errors and mild correlation with erase errors (transparent ",
+      "overlap_with_next": "Non-Operational Period (days) 0.0 0.5 1.0CDF Fig. 4: CDF of length of non-operational period preceding a swap. This is the number of days between the swap-inducing failure and the ",
+      "text": "ilures. Program–erase (P/E) cycle counts, an indicator of drive wear, show very low correlations with most uncorrectable errors and mild correlation with erase errors (transparent errors). Drive age shows a similar pattern of correlation. Observation #2: For both datasets, correlations among all pairs of transparent and non-transparent errors show that some pairs may be mildly correlated and can be useful in prediction. Yet, there is no strong indication as to which measures are most useful for prediction. [Page 5] 5 (a) SSD (b) HDD Fig. 2: Overview of failure timeline. Different from SSD, we cannot identify non-operational period and swap operation in BackBlaze dataset for HDDs. 1 2 3 4 5 6 Time to Failure (years) 0.0 0.4 0.8CDF (a) SSD 1 2 3 4 5 Time to Failure (years) 0.0 0.3 0.6 0.9CDF (b) HDD Fig. 3: CDF of the length of the drive’s operational period. The bar indicates what proportion of operational periods are not observed to end. Failure rate of SSDs is larger than HDDs. 100 101 102 103 Length of Non-Operational Period (days) 0.0 0.5 1.0CDF Fig. 4: CDF of length of non-operational period preceding a swap. This is the number of days between the swap-inducing failure and the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05973,
+        -0.01299,
+        -0.06292,
+        0.03242,
+        0.00736
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "Non-Operational Period (days) 0.0 0.5 1.0CDF Fig. 4: CDF of length of non-operational period preceding a swap. This is the number of days between the swap-inducing failure and the ",
+      "overlap_with_next": ".89 ST4000DM000 3710 10.21 ST8000DM002 354 3.47 ST8000NM0055 435 2.91 All 7743 7.01 3 D RIVE FAILURE AND REPAIR In this section, we focus on drive failures and actions following a ",
+      "text": "Non-Operational Period (days) 0.0 0.5 1.0CDF Fig. 4: CDF of length of non-operational period preceding a swap. This is the number of days between the swap-inducing failure and the physical swap itself. There is no non-operational period reported in the BackBlaze dataset for HDDs. 100 101 102 103 Time to Repair (days) 0.0 0.2 0.4CDF (a) SSD 100 101 102 103 Time to Repair (days) 0.0 0.3 0.6 0.9CDF (b) HDD Fig. 5: CDF of time to repair, ranging from 1 day to 4.85 years for SSD, and ranging from 1 day to 1.54 years for HDD. The proportion of repairs that are not observed to terminate is depicted with the bar graph. Half of the failed SSDs get repaired, while only 6% of failed HDDs are repaired. TABLE 5: High-level failure incidence statistics. This includes, for each model, the number of failures observed and the proportion of drives that are observed to fail at least once. Model #Failures %Failed SSD MLC-A 734 6.95 MLC-B 1565 14.3 MLC-D 1580 12.5 All 3879 11.29 HDD ST12000NM0007 1448 3.76 ST3000DM001 1357 31.89 ST4000DM000 3710 10.21 ST8000DM002 354 3.47 ST8000NM0055 435 2.91 All 7743 7.01 3 D RIVE FAILURE AND REPAIR In this section, we focus on drive failures and actions following a ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04285,
+        -0.01461,
+        -0.04979,
+        0.01693,
+        -0.00769
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": ".89 ST4000DM000 3710 10.21 ST8000DM002 354 3.47 ST8000NM0055 435 2.91 All 7743 7.01 3 D RIVE FAILURE AND REPAIR In this section, we focus on drive failures and actions following a ",
+      "overlap_with_next": "ure counts. The distribution is expressed with respect to the entire population of drives and with respect to those drives which fail at least once (“failed drives”). Number of Fai",
+      "text": ".89 ST4000DM000 3710 10.21 ST8000DM002 354 3.47 ST8000NM0055 435 2.91 All 7743 7.01 3 D RIVE FAILURE AND REPAIR In this section, we focus on drive failures and actions following a failure. Table 5 shows the percentage of failures for each drive model in SSD and HDD datasets. On average, the failure rate of SSDs is higher than the one of HDDs. The largest failure rate of 31.89% is observed for ST3000DM001, an HDD model. This high frequency of failures poses a large pressure in terms of maintenance costs, since each failure requires manual intervention. Table 6 provides more insights by reporting statistics on the frequency of failures for the same drive. Unexpectedly, we ﬁnd that some SSDs have failed as many as four times over the course of their lifetime. Nonetheless 89.6% of drives with failures, fail only once. HDDs have no more than 2 failures per drive, and only 0.194% of the failed drives has 2 failures, which is very rare for HDDs comparing to 9.208% for SSDs. TABLE 6: Distribution of lifetime failure counts. The distribution is expressed with respect to the entire population of drives and with respect to those drives which fail at least once (“failed drives”). Number of Fai",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0449,
+        -0.02663,
+        -0.04289,
+        -0.01377,
+        -0.02611
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "ure counts. The distribution is expressed with respect to the entire population of drives and with respect to those drives which fail at least once (“failed drives”). Number of Fai",
+      "overlap_with_next": "not simply a swapping out for storing spare parts, or moving a healthy SSD to a storage cabinet. All swaps follow drive failures, and accordingly, each swap documented in the log c",
+      "text": "ure counts. The distribution is expressed with respect to the entire population of drives and with respect to those drives which fail at least once (“failed drives”). Number of Failures % of drives % of failed drives 0 88.71 — 1 10.10 89.60 SSD 2 1.038 9.208 3 0.133 1.180 4 0.001 0.001 0 93.35 — HDD 1 6.64 99.81 2 0.01 0.194 To better characterize the conditions of failure that lead to these repairs, we must pinpoint the failures in the timeline. For HDDs, the failure event is directly logged using thefailure feature. Fig. 2(b) shows the timeline of an HDD: 1) a failure can happen during the operational period, then the failed HDD goes into repair process. 2) The failed drive may or may not be repaired successfully. If it is repaired, it re-enters its operational period. For SSDs, in addition to daily performance metrics, special “swap” events are also reported in the data. These events indicate the time at which failed drives are extracted to be repaired. Swaps denote visits to the repairs process – and not simply a swapping out for storing spare parts, or moving a healthy SSD to a storage cabinet. All swaps follow drive failures, and accordingly, each swap documented in the log c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05565,
+        -0.01617,
+        -0.0439,
+        0.02981,
+        -0.01362
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "not simply a swapping out for storing spare parts, or moving a healthy SSD to a storage cabinet. All swaps follow drive failures, and accordingly, each swap documented in the log c",
+      "overlap_with_next": "rs to an absence of read or write operations provisioned to the drive. A period of inactivity like this is experienced prior to 36% of swaps. The length of these inactive periods i",
+      "text": "not simply a swapping out for storing spare parts, or moving a healthy SSD to a storage cabinet. All swaps follow drive failures, and accordingly, each swap documented in the log corresponds to a single, catastrophic failure. A natural way to proceed is to deﬁne failure events with respect to swap events: a failure occurs on a drive’s last day of operational activity prior to a swap. This is a natural point of [Page 6] 6 failure since, after this point in the timeline, the drive has ceased normal function and is sent soon to the repair process. We now discuss what we consider to be “operational activity.” It is often the case (roughly 80% of the time) that swaps are preceded by at least one day for which no performance summaries are documented in the SSD log. This indicates that the drive was non-operational during this period, having suffered a complete failure. Prior to this period, we also ﬁnd substantially higher rates of inactivity relatively to normal drive operation. In this case, inac- tivity refers to an absence of read or write operations provisioned to the drive. A period of inactivity like this is experienced prior to 36% of swaps. The length of these inactive periods i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01658,
+        -0.00686,
+        -0.04556,
+        0.02827,
+        -0.02443
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "rs to an absence of read or write operations provisioned to the drive. A period of inactivity like this is experienced prior to 36% of swaps. The length of these inactive periods i",
+      "overlap_with_next": " a drive may or may not be returned to the ﬁeld to resume normal operation. We will now characterize each of the stages, in turn, and at the same time, compare the behavior of SSDs",
+      "text": "rs to an absence of read or write operations provisioned to the drive. A period of inactivity like this is experienced prior to 36% of swaps. The length of these inactive periods is less than one week in a large majority of cases. The existence of such inactivity is an indication that data center maintainers no longer provision workloads onto the drive: this amounts to a “soft” removal from production before the drive is physically swapped. Accordingly, we deﬁne a failure as happening directly prior to this period of inactivity, if such a period exists. To summarize, SSD repairs undergo the following sequence of events, represented in Fig. 2(a): 1) At some point, the drive undergoes a failure, directly after which the drive may cease read/write activity, cease to report performance metrics, or both, in succession. 2) Data center maintenance takes notice of the failure and swap the faulty drive with an alternate. Such swaps are notated as special events in the data. 3) After a visit to the repairs process, a drive may or may not be returned to the ﬁeld to resume normal operation. We will now characterize each of the stages, in turn, and at the same time, compare the behavior of SSDs",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03003,
+        0.01611,
+        -0.03696,
+        0.01684,
+        -0.0237
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": " a drive may or may not be returned to the ﬁeld to resume normal operation. We will now characterize each of the stages, in turn, and at the same time, compare the behavior of SSDs",
+      "overlap_with_next": "gs. 3(a) and (b), the max- imum time to failure of HDDs is less than 5 years, while the one of SSDs is close to 6 years. Only 7% of HDDs fail after an operational period, while for",
+      "text": " a drive may or may not be returned to the ﬁeld to resume normal operation. We will now characterize each of the stages, in turn, and at the same time, compare the behavior of SSDs and HDDs. We start by examining the operational periods observed in the log. Fig. 3 presents the CDF of the length of operational periods (alternately denoted “time to failure”). The CDF includes both operational periods starting from the beginning of the drive’s lifetime and operational periods following a post-failure re-entry. It is interesting to note that more than 80% and 90% of operational periods of SSDs and HDDs, respectively, are not observed to end with failure during the 6 year sampling period; this probability mass is indicated by the bar centered at inﬁnity. The ﬁgure indicates that there is substantial variability in the drive operational time, with the majority of operating times being long. Yet, there is a non-negligible portion of operating times that are interrupted by failures. Comparing SSDs with HDDs in Figs. 3(a) and (b), the max- imum time to failure of HDDs is less than 5 years, while the one of SSDs is close to 6 years. Only 7% of HDDs fail after an operational period, while for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03235,
+        -0.01322,
+        -0.0514,
+        0.00792,
+        -0.01834
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "gs. 3(a) and (b), the max- imum time to failure of HDDs is less than 5 years, while the one of SSDs is close to 6 years. Only 7% of HDDs fail after an operational period, while for",
+      "overlap_with_next": "that these drives may simply have been forgotten in the system. Fig. 5 depicts the CDF of the length of the repair process, (i.e., time to repair ). For SSDs, time to repair is the",
+      "text": "gs. 3(a) and (b), the max- imum time to failure of HDDs is less than 5 years, while the one of SSDs is close to 6 years. Only 7% of HDDs fail after an operational period, while for SSDs it is near to 20%. This is due to 1) the lower failure rate of HDDs compared to the one of SSDs and 2) the different maximum number of failures on a single drive (i.e., 2 for HDDs and 4 for SSDs, see Table 6). Fig. 4 shows the CDF of the length of the pre-swap non- operational period (only for SSDs), i.e., the elapsed time between the drive failure and when it is swapped out of production. Roughly 20% of failed drives are removed within a day and 80% of failed drives are swapped out of the system within 7 days. However, this distribution has a very long tail (note the logarithmic scale on the x-axis). A non-negligible proportion of failed drives (roughly 8%) remain in a failed state up to 100 days before they are removed from production. Since these faulty drives can remain in limbo for upwards of a year, the data suggest that these drives may simply have been forgotten in the system. Fig. 5 depicts the CDF of the length of the repair process, (i.e., time to repair ). For SSDs, time to repair is the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03727,
+        -0.01482,
+        -0.03796,
+        0.01988,
+        0.00247
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "that these drives may simply have been forgotten in the system. Fig. 5 depicts the CDF of the length of the repair process, (i.e., time to repair ). For SSDs, time to repair is the",
+      "overlap_with_next": "nd re-enter the system after a period of n days in repair (the percentage of the successfully repaired drives as a function of all drives is also shown within the parentheses). The",
+      "text": "that these drives may simply have been forgotten in the system. Fig. 5 depicts the CDF of the length of the repair process, (i.e., time to repair ). For SSDs, time to repair is the time between a swap and the following re-entry, i.e., the time of the repair process in Fig. 2(a). For HDDs, time to repair is the time of the repair process between a failure and the following re-entry as shown in Fig. 2(b), since swap event is not reported. In Fig. 5, we observe huge difference between the time to repair of SSDs and HDDs. Half of SSDs are never observed to re-enter the ﬁeld (i.e., the time to repair is inﬁnite – their share of probability mass is again indicated by the bar), while more than 90% of HDDs are never successfully repaired. Among drives that are returned to the ﬁeld, the majority of SSDs remains in the repair process for upwards of a year,while most of the HDDs are repaired in less than one day. Restating the results in Fig. 5, Table 7 illustrates the percentage of failed drives that are repaired and re-enter the system after a period of n days in repair (the percentage of the successfully repaired drives as a function of all drives is also shown within the parentheses). The",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04848,
+        0.00081,
+        -0.04418,
+        0.0125,
+        -0.00599
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "nd re-enter the system after a period of n days in repair (the percentage of the successfully repaired drives as a function of all drives is also shown within the parentheses). The",
+      "overlap_with_next": "ssfully repaired. Observation #6: The failure rate of HDDs is lower than SSDs, and only 7% of failed HDDs are successfully repaired. 4 S YMPTOMS AND CAUSES OF FAILURES In this sect",
+      "text": "nd re-enter the system after a period of n days in repair (the percentage of the successfully repaired drives as a function of all drives is also shown within the parentheses). These metrics show that HDDs are rarely repaired, probably due to their low cost (i.e., it is cheaper to substitute an HDD than repair it). Although roughly half of SSDs return to the production environment, the repair process may take a long time to be completed. Observation #3: Failed SSDs are often swapped out of produc- tion within a week, though a small portion may remain in the system even longer than a year. Observation #4: While a signiﬁcant percentage of SSDs (up to 14.3% for MLC-B, slightly smaller percentages for other MLC types) are swapped during their lifetime, only half of failed drives are seen to successfully complete the repair process and re-enter the ﬁeld. Observation #5: Of those repairs that do complete, only a small percentage of them ﬁnish within 10 days. About half of SSDs that are swapped out are not successfully repaired. Observation #6: The failure rate of HDDs is lower than SSDs, and only 7% of failed HDDs are successfully repaired. 4 S YMPTOMS AND CAUSES OF FAILURES In this sect",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03509,
+        0.02653,
+        -0.04003,
+        0.0172,
+        -0.0046
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "ssfully repaired. Observation #6: The failure rate of HDDs is lower than SSDs, and only 7% of failed HDDs are successfully repaired. 4 S YMPTOMS AND CAUSES OF FAILURES In this sect",
+      "overlap_with_next": "30 days old and 25% occur on drives less than 90 days old. This seems to indicate that these drives have an infancy period during which drive mortality rate is particularly high. T",
+      "text": "ssfully repaired. Observation #6: The failure rate of HDDs is lower than SSDs, and only 7% of failed HDDs are successfully repaired. 4 S YMPTOMS AND CAUSES OF FAILURES In this section we make an effort to connect the statistics from the two logs, aiming to identify causes of drive failures. Since the features/information provided by the two datasets are different, here we analyze SSDs and HDDs separately. 4.1 Age and Device Wear Recall that Table 5 shows that, among the drives represented in the datasets, 11.29% of SSDs and 7.01% of HDDs fail at least once. A natural question is when do these failures (and the following swaps for SSDs) occur in the drive’s lifetime: what is the role of age in drive failure? Figure 6(a) reports the CDF of the failure age (solid line) as a function of the drive age for SSDs. The ﬁgure shows that there are many more drive failures in the ﬁrst 90 days of drive operation than at any other point in the drive lifetime. In fact, 15% of observed failures occur on drives less than 30 days old and 25% occur on drives less than 90 days old. This seems to indicate that these drives have an infancy period during which drive mortality rate is particularly high. T",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02484,
+        -0.00926,
+        -0.05586,
+        -0.00165,
+        -0.02358
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "30 days old and 25% occur on drives less than 90 days old. This seems to indicate that these drives have an infancy period during which drive mortality rate is particularly high. T",
+      "overlap_with_next": "9) 5.4 (0.61) 8.0 (0.91) 12.7 (1.43) 25.0 (2.82) 39.4 (4.45) 45.9 (5.19) 51.3 (5.79) HDD ST3000DM001 24.98 (7.97) 25.28 (8.06) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 2",
+      "text": "30 days old and 25% occur on drives less than 90 days old. This seems to indicate that these drives have an infancy period during which drive mortality rate is particularly high. This performance pattern has been noticed previously in similar studies of SSDs in the wild [24]. The slope of the CDF in Figure 6(a) gives us an estimate of the rate at which swaps occur at a given drive age. However, this [Page 7] 7 TABLE 7: Percentage of swapped drives for SSD and percentage of repaired drives for HDD that re-enter the workﬂow within n days. The percentage of repaired drives as a function of all drives is also reported within the parentheses. Model 1 day 10 days 30 days 100 days 1 year 2 years 3 years ∞ SSD MLC-A 1.2 (0.09) 3.4 (0.23) 5.0 (0.34) 6.1 (0.43) 17.4 (2.61) 37.6 (2.61) 43.6 (3.03) 53.4 (3.71) MLC-B 2.5 (0.36) 6.8 (0.98) 9.4 (1.34) 12.7 (1.81) 25.3 (3.62) 36.1 (5.16) 42.7 (6.11) 43.9 (6.28) MLC-D 1.1 (0.14) 4.9 (0.61) 8.1 (1.01) 15.8 (1.97) 28.1 (3.51) 43.5 (5.44) 50.2 (6.28) 57.6 (7.20) All 1.7 (0.19) 5.4 (0.61) 8.0 (0.91) 12.7 (1.43) 25.0 (2.82) 39.4 (4.45) 45.9 (5.19) 51.3 (5.79) HDD ST3000DM001 24.98 (7.97) 25.28 (8.06) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06914,
+        -0.0066,
+        -0.05735,
+        -0.01462,
+        -0.02753
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "9) 5.4 (0.61) 8.0 (0.91) 12.7 (1.43) 25.0 (2.82) 39.4 (4.45) 45.9 (5.19) 51.3 (5.79) HDD ST3000DM001 24.98 (7.97) 25.28 (8.06) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 2",
+      "overlap_with_next": " functioning drives that fail at a given age level, in months (dashed line). For SSDs, this guides us to consider young and old SSDs separately, such separation is not suggested fo",
+      "text": "9) 5.4 (0.61) 8.0 (0.91) 12.7 (1.43) 25.0 (2.82) 39.4 (4.45) 45.9 (5.19) 51.3 (5.79) HDD ST3000DM001 24.98 (7.97) 25.28 (8.06) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 25.42 (8.11) 74.58 (23.78) ST4000DM000 0.62 (0.06) 0.62 (0.06) 0.7 (0.07) 0.81 (0.08) 0.97 (0.1) 0.97 (0.1) 0.97 (0.1) 99.03 (10.11) ST8000NM0055 0.0 (0.0) 0.0 (0.0) 0.23 (0.01) 0.69 (0.02) 1.15 (0.03) 1.15 (0.03) 1.15 (0.03) 98.85 (2.87) ST8000DM002 0.28 (0.01) 0.28 (0.01) 0.85 (0.03) 1.69 (0.06) 2.54 (0.09) 2.82 (0.1) 2.82 (0.1) 97.18 (3.37) ST12000NM0007 0.48 (0.02) 0.55 (0.02) 0.76 (0.03) 1.04 (0.04) 1.45 (0.05) 1.45 (0.05) 1.45 (0.05) 98.55 (3.7) All 4.83 (0.32) 4.9 (0.33) 5.05 (0.34) 5.29 (0.35) 6.17 (0.41) 6.21 (0.42) 6.21 (0.42) 93.79 (6.28) 0 12 24 36 48 60 72 Drive Age (months) 0.0 0.5 1.0CDF of Failure Age 0.00 0.01 0.02 Failure Rate (a) SSD 0 12 24 36 48 60 Drive Age (Months) 0.0 0.5 1.0CDF of Failure Age 0.00 0.01 0.02 Failure Rate (b) HDD Fig. 6: The CDF of the age of failed drives (solid line) and the proportion of functioning drives that fail at a given age level, in months (dashed line). For SSDs, this guides us to consider young and old SSDs separately, such separation is not suggested fo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01028,
+        -0.00654,
+        -0.05753,
+        -0.03261,
+        -0.02721
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": " functioning drives that fail at a given age level, in months (dashed line). For SSDs, this guides us to consider young and old SSDs separately, such separation is not suggested fo",
+      "overlap_with_next": ", suggesting that, even if drives become very old, they are not more prone to failure. One potential explanation for the spike in failures for infant drives is that they are underg",
+      "text": " functioning drives that fail at a given age level, in months (dashed line). For SSDs, this guides us to consider young and old SSDs separately, such separation is not suggested for HDDs. estimate is skewed since not all drive ages are equally represented in the data. For example, the rate of failures seems to slow down following the four year mark, but this is due to the fact that drives of this age level are not as common in the data. We hence normalize the number of swaps within a month by the amount of drives represented in the data at that month to produce an unbiased failure rate for each month (dashed line in Figure 6). We see that this rate evens out after the third month, indicating that the length of this observed high-failure infancy period is approximately 90 days. Accordingly, for the remainder of this paper, we distinguish drive swaps as young versus old, i.e., those swaps occurring before vs. after the 90-day mark. Beyond the 90-day mark, we observe that the failure rate is roughly constant, suggesting that, even if drives become very old, they are not more prone to failure. One potential explanation for the spike in failures for infant drives is that they are underg",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04143,
+        -0.04173,
+        -0.05474,
+        0.00174,
+        -0.02954
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": ", suggesting that, even if drives become very old, they are not more prone to failure. One potential explanation for the spike in failures for infant drives is that they are underg",
+      "overlap_with_next": "hat the spike in failure rates is caused by manufacturing malfunctions not caught by drive testing. Beyond drive age, we are also interested in the relationship between failure and",
+      "text": ", suggesting that, even if drives become very old, they are not more prone to failure. One potential explanation for the spike in failures for infant drives is that they are undergoing a “burn-in” period. This is a common practice in data centers, wherein new drives are subjected to a series of high-intensity workloads in order to test their resilience and check for manufacturing faults. These increased workloads could stress the drive, leading to a heightened rate of failure. To test this hypothesis, we looked at the intensity of workloads over time. For each month of drive age, we examined drives of that age and how many write operations they processed per day. The distributions of these write intensities are presented in Figure 7. It is clear that younger drives do not tend to experience more write activity than usual (in fact, they tend to experience markedly fewer writes!). A similar trend is apparent for read activity (not pictured). We conclude that there is no burn-in period for these drives and that the spike in failure rates is caused by manufacturing malfunctions not caught by drive testing. Beyond drive age, we are also interested in the relationship between failure and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03316,
+        -0.03898,
+        -0.03275,
+        0.00634,
+        -0.04142
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "hat the spike in failure rates is caused by manufacturing malfunctions not caught by drive testing. Beyond drive age, we are also interested in the relationship between failure and",
+      "overlap_with_next": "mit is very small and roughly constant. The spikes at 4250 and 5250 P/E cycles are artifactual noise attributed to the fact that the number of drives that fail at these P/E levels ",
+      "text": "hat the spike in failure rates is caused by manufacturing malfunctions not caught by drive testing. Beyond drive age, we are also interested in the relationship between failure and device wear, which we measure using P/E 0 12 24 36 48 60 72 Drive Age (months) 0.0 0.5 1.0 1.5 2.0 Write Count per Day ×108 Fig. 7: Quartiles of the daily write intensity per month of drive age. The line plot shows the median write intensity for each month. The 1st and 3rd quartiles are shown as the boundaries of the shaded area. cycles, as discussed in Section 2. In the same style as Figure 6, Figure 8 illustrates the relationship of cumulative P/E cycles and probability of failure in the form of a CDF (solid line) and an accompanying failure rate (dashed line). The CDF illustrates that almost 98% of failures occur before the drive sees 1500 P/E cycles. This is surprising, considering that the manufacturer guarantees satisfactory drive performance up until 3000 P/E cycles. Con- versely, the failure rate beyond the P/E cycle limit is very small and roughly constant. The spikes at 4250 and 5250 P/E cycles are artifactual noise attributed to the fact that the number of drives that fail at these P/E levels ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04079,
+        -0.02181,
+        -0.05348,
+        -0.018,
+        -0.02583
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "mit is very small and roughly constant. The spikes at 4250 and 5250 P/E cycles are artifactual noise attributed to the fact that the number of drives that fail at these P/E levels ",
+      "overlap_with_next": "young drives and cannot be explained with P/E cycle counts. [Page 8] 8 0 1000 2000 3000 4000 5000 6000 P/E Cycle Count at Failure 0.2 0.4 0.6 0.8 1.0 CDF of P/E Count 0.000 0.025 0",
+      "text": "mit is very small and roughly constant. The spikes at 4250 and 5250 P/E cycles are artifactual noise attributed to the fact that the number of drives that fail at these P/E levels are so few in number. In the ﬁgures discussed, we observe high failures rates for both SSDs younger than three months and SSDs with fewer than 250 P/E cycles. Due to the correlation between age and P/E cycles, these two characterizations may be roughly equivalent, describing the same phenomenon. However, we do not ﬁnd this to be the case. To illustrate this, we plot two CDFs in Figure 9: one for young failures and one for old ones. It is clear that the young failures inhabit a distinct, small range of the P/E cycle distribution. Since this range is so small, the individual P/E cycle counts are not informative to young failures. Observation #7: Age plays a crucial role in the SSD fail- ure/swap incidence. In particular, drives younger than 90 days have markedly higher failure incidence rates. This phenomenon is characteristic to young drives and cannot be explained with P/E cycle counts. [Page 8] 8 0 1000 2000 3000 4000 5000 6000 P/E Cycle Count at Failure 0.2 0.4 0.6 0.8 1.0 CDF of P/E Count 0.000 0.025 0",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0333,
+        -0.02899,
+        -0.07913,
+        -0.00754,
+        -0.01123
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "young drives and cannot be explained with P/E cycle counts. [Page 8] 8 0 1000 2000 3000 4000 5000 6000 P/E Cycle Count at Failure 0.2 0.4 0.6 0.8 1.0 CDF of P/E Count 0.000 0.025 0",
+      "overlap_with_next": "ead Flying Hours in HDDs Similar to the drive age in SSDs shown in Figure 6(a), we also present a similar plot for HDDs in Figure 6(b). Differently from the high failure rate of yo",
+      "text": "young drives and cannot be explained with P/E cycle counts. [Page 8] 8 0 1000 2000 3000 4000 5000 6000 P/E Cycle Count at Failure 0.2 0.4 0.6 0.8 1.0 CDF of P/E Count 0.000 0.025 0.050 0.075 0.100 Failure Rate Fig. 8: The distribution P/E cycle counts of failed drives (solid) and the proportion of drives that fail (dashed) at a given P/E level, binned in increments of 250 cycles. 0 500 1000 1500 2000 P/E Cycle Count at Failure 0.00 0.25 0.50 0.75 1.00 CDF of P/E Count Young Old Fig. 9: The CDF in Figure 8 split across infant failures (occurring at age≤ 90 days) and mature failures (occurring at age> 90 days). Observation #8: Beyond the infancy period, age does not seem to have an important part to play in failure rate. The oldest drives seem to fail with roughly the same frequency as young, non-infant drives. Observation #9: The vast majority of drive failures happen well before the P/E cycle limit is reached. Furthermore, drives operating beyond their P/E cycle limit have very low rates of failure. 4.2 Head Flying Hours in HDDs Similar to the drive age in SSDs shown in Figure 6(a), we also present a similar plot for HDDs in Figure 6(b). Differently from the high failure rate of yo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0237,
+        -0.02474,
+        -0.06369,
+        -0.00335,
+        -0.02674
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "ead Flying Hours in HDDs Similar to the drive age in SSDs shown in Figure 6(a), we also present a similar plot for HDDs in Figure 6(b). Differently from the high failure rate of yo",
+      "overlap_with_next": " less than 3000 (the beginning of small HFH line), and 2) large HFH when threshold is larger than 40,000 (the end of large HFH line). The percentage of HDDs if we partition the 0 1",
+      "text": "ead Flying Hours in HDDs Similar to the drive age in SSDs shown in Figure 6(a), we also present a similar plot for HDDs in Figure 6(b). Differently from the high failure rate of young SSDs, the failure rate for HDDs regarding drive age is relatively small (less than 1%). Therefore, we need to ﬁnd other features which may be related to failure rate. We examine all SMART features for HDDs, and ﬁnd out that head ﬂying hours (HFH, SMART 240) is highly related to failures. Here we deﬁne two kinds of disks regarding head ﬂying hours with a certain threshold : 1) Large HFH disks are observed at least once with head ﬂying hours larger than the threshold ; 2) Small HFH disks always have head ﬂying hours smaller than or equal to the threshold . Figure 10(a) shows the failure rate of small and large HFH drives as a function of the threshold. The average faialure rate of all HDDs is also reported (baseline, see dashed line). We observe two situations with high failure rate in Figure 10: 1) small HFH when threshold is less than 3000 (the beginning of small HFH line), and 2) large HFH when threshold is larger than 40,000 (the end of large HFH line). The percentage of HDDs if we partition the 0 1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04253,
+        -0.04079,
+        -0.04481,
+        -0.01819,
+        -0.02925
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": " less than 3000 (the beginning of small HFH line), and 2) large HFH when threshold is larger than 40,000 (the end of large HFH line). The percentage of HDDs if we partition the 0 1",
+      "overlap_with_next": "en the threshold is less than 3000, the percentage of small HFH drives is less than 3%, therefore it is not representative. When the threshold is larger than 40,000, the percentage",
+      "text": " less than 3000 (the beginning of small HFH line), and 2) large HFH when threshold is larger than 40,000 (the end of large HFH line). The percentage of HDDs if we partition the 0 10K 20K 30K 40K 50K Head Flying Hours 0.1 0.2 0.3 0.4 0.5Failure Rate Small HFH Large HFH Baseline (a) Failure Rate 0 10K 20K 30K 40K 50K Head Flying Hours 0.0 0.2 0.4 0.6 0.8 1.0Pct. of HDDs (b) HDD Percentage Fig. 10: head ﬂying hours (SMART 240). Many HDDs fail when they have a large head ﬂying hours. The dashed-line in subﬁgure (a) marks the mean failure rate. 100 101 102 103 104 105 0.2 0.4 0.6 0.8 1.0CDF Young Old Not Failed (a) Cumulative Bad Block Count 100 102 104 106 0.6 0.8 1.0CDF Young Old Not Failed (b) Cumulative Uncorrectable Error Count Fig. 11: CDF of cumulative bad block counts and uncorrectable error counts of SSDs based on the age at which the swap occurred. The “Not Failed” CDF corresponds to the distribution over drives that are not observed to fail. dataset according to HFH is also shown in Figure 10(b). When the threshold is less than 3000, the percentage of small HFH drives is less than 3%, therefore it is not representative. When the threshold is larger than 40,000, the percentage",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04969,
+        -0.03957,
+        -0.05411,
+        -0.01198,
+        -0.02856
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "en the threshold is less than 3000, the percentage of small HFH drives is less than 3%, therefore it is not representative. When the threshold is larger than 40,000, the percentage",
+      "overlap_with_next": "ad blocks since they are by far the most common of these errors. Other errors occur far too rarely to give much insight. We test the validity of our intuition by comparing the cumu",
+      "text": "en the threshold is less than 3000, the percentage of small HFH drives is less than 3%, therefore it is not representative. When the threshold is larger than 40,000, the percentage of large HFH is about 20%, which is worth to be considered. The failure rate of these 20% large HFH disks is 17%, which is much higher than the 7% failure average (baseline). Balancing the failure rate and percentage of large HFH disks, we use as threshold = 40,000 to split the dataset. This observation (small and large have different resilience behavior) guides us to split the dataset for better prediction, see Section 5.3 for more details. Observation #10: HDDs with large head ﬂying hours (SMART 240) have more uncorrectable errors before failure events com- paring to drives with small head ﬂying hours. 4.3 Error Incidence for SSDs Intuitively, we would expect that catastrophic drive failure is preceded by previous lapses in drive function, indicated in our data as non-transparent errors. We focus on uncorrectable errors and bad blocks since they are by far the most common of these errors. Other errors occur far too rarely to give much insight. We test the validity of our intuition by comparing the cumu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03468,
+        -0.03819,
+        -0.04647,
+        0.0052,
+        -0.03537
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "ad blocks since they are by far the most common of these errors. Other errors occur far too rarely to give much insight. We test the validity of our intuition by comparing the cumu",
+      "overlap_with_next": "robability of UE Small HFH Large HFH Baseline (b) HDD: UE probability 0 2 4 6 Days Before Failure 104 106 UE Count 95\\% Young 95\\% Old 85\\% Young 85\\% Old 75\\% Young 75\\% Old (c) S",
+      "text": "ad blocks since they are by far the most common of these errors. Other errors occur far too rarely to give much insight. We test the validity of our intuition by comparing the cumulative counts of errors seen by failed drives to a baseline of cumulative error counts taken across drives that are not observed to experience failure. We are also particularly interested to see if there is any difference in error incidence between young failures ( ≤ 90 days) and old failures (> 90 days). This is illustrated with CDFs in Figure 11. We ﬁnd that drives that fail tend to have experienced orders of magnitude more uncorrectable errors and bad blocks than we would expect, on average. This is exempliﬁed by the fact that in roughly 80% of cases, non-failed drives are not observed to have experienced any uncorrectable errors. On the other hand, [Page 9] 9 0 1 2 3 4 5 6 7 Days Before Failure 0.0 0.1 0.2Probability of UE Young Old Baseline (a) SSD: UE probability 0 1 2 3 4 5 6 7 Days Before Failure 0.0 0.1 0.2 0.3 0.4 0.5Probability of UE Small HFH Large HFH Baseline (b) HDD: UE probability 0 2 4 6 Days Before Failure 104 106 UE Count 95\\% Young 95\\% Old 85\\% Young 85\\% Old 75\\% Young 75\\% Old (c) S",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02226,
+        -0.02014,
+        -0.04057,
+        0.00105,
+        -0.0335
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "robability of UE Small HFH Large HFH Baseline (b) HDD: UE probability 0 2 4 6 Days Before Failure 104 106 UE Count 95\\% Young 95\\% Old 85\\% Young 85\\% Old 75\\% Young 75\\% Old (c) S",
+      "overlap_with_next": ", we ﬁnd that, if errors are observed, then young failures tend to see more of them than old failures. This is most easily seen in the tail behavior of the aforementioned CDFs; for",
+      "text": "robability of UE Small HFH Large HFH Baseline (b) HDD: UE probability 0 2 4 6 Days Before Failure 104 106 UE Count 95\\% Young 95\\% Old 85\\% Young 85\\% Old 75\\% Young 75\\% Old (c) SSD: UE count 0 1 2 3 4 5 6 7 Days Before Failure 100 101 102 UE Count 95% Large HFH 85% Large HFH 75% Large HFH 95% Small HFH 85% Small HFH 75% Small HFH (d) HDD: UE count Fig. 12: (Top) Probability of uncorrectable error (UE) happening within the last n days before a swap. The baseline curve on the top graph is the probability of seeing an uncorrectable error within an arbitrary n-day period. (Bottom) Provided a UE happens, how many occur? Upper percentiles of the distribution of uncorrectable error counts preceding to failure, excluding zero counts. for failed drives, this proportion is substantially lower: 68% for young failures and 45% for old drives. In fact, broadening our scope, we ﬁnd that 26% of failures happen to drives which have experienced no non-transparent errors and which have developed no bad blocks. Furthermore, we ﬁnd that, if errors are observed, then young failures tend to see more of them than old failures. This is most easily seen in the tail behavior of the aforementioned CDFs; for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02717,
+        -0.01458,
+        -0.04463,
+        0.02902,
+        -0.03089
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": ", we ﬁnd that, if errors are observed, then young failures tend to see more of them than old failures. This is most easily seen in the tail behavior of the aforementioned CDFs; for",
+      "overlap_with_next": "ested in error incidence directly preceding the failure. This behavior is of particular importance for failure forecasting and prediction. We ask: do drives tend to be more error-p",
+      "text": ", we ﬁnd that, if errors are observed, then young failures tend to see more of them than old failures. This is most easily seen in the tail behavior of the aforementioned CDFs; for example, the 90th percentile of the uncorrectable error count distribution is two orders of magnitude larger for young failures than for old failures, in spite of the fact that the young drives have been in operation for much less time. Overall, the presence of errors is not a very good indicator for drive failure since most failures occur without having seen any uncorrectable errors. However, drives that experience failure do have a higher rate of error incidence, which means that we expect error statistics to be of some utility in failure prediction (to be discussed in Section 5). Furthermore, we ﬁnd that the patterns of error incidence are markedly different among young and old failures. In particular, young failures have a predilection toward extremely high error counts. Moving into a ﬁner temporal granularity, we are interested in error incidence directly preceding the failure. This behavior is of particular importance for failure forecasting and prediction. We ask: do drives tend to be more error-p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04886,
+        -0.0482,
+        -0.05031,
+        0.04104,
+        -0.03012
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "ested in error incidence directly preceding the failure. This behavior is of particular importance for failure forecasting and prediction. We ask: do drives tend to be more error-p",
+      "overlap_with_next": "unts tend to increase as the failure approaches. We also ﬁnd that young failed drives, if they suffer an error, tend to experience orders of magnitude more errors than older ones, ",
+      "text": "ested in error incidence directly preceding the failure. This behavior is of particular importance for failure forecasting and prediction. We ask: do drives tend to be more error-prone right before a failure occurs? How long before the drive failure is this behavior noticeable? Figure 12 shows two relevant uncorrectable error statistics in the period before a drive swap. Figure 12(a) shows the probability that a faulty drive had an error within the last N days before its failure. The baseline is the probability of seeing an uncorrectable error within an arbitrary N-day period. We see that failed drives see uncorrectable errors with a much higher than average probability and that this behavior is most noticeable in the last two days preceding the failure. However, the probability that a failed drive does not see any errors in its last 7 days is very high (about 75%). Figure 12(c) shows the distribution of those uncorrectable error counts that are nonzero on each day preceding the swap. We ﬁnd that error counts tend to increase as the failure approaches. We also ﬁnd that young failed drives, if they suffer an error, tend to experience orders of magnitude more errors than older ones, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05655,
+        -0.01676,
+        -0.02144,
+        0.04419,
+        -0.01878
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "unts tend to increase as the failure approaches. We also ﬁnd that young failed drives, if they suffer an error, tend to experience orders of magnitude more errors than older ones, ",
+      "overlap_with_next": "bservation #13: Error incidence rates increase dramatically in the two days preceding a drive failure. 4.4 Error Incidence for HDDs We also show the percentage and count of uncorre",
+      "text": "unts tend to increase as the failure approaches. We also ﬁnd that young failed drives, if they suffer an error, tend to experience orders of magnitude more errors than older ones, note the log-scale on the y-axis of the graph. To summarize, we zoom in speciﬁcally on the period directly preceding a failure. We show that error incidence rates depend on two factors: (1) the age of the drive (young vs. mature) and (2) the amount of time until the swap occurs. The resulting increase in error rate is most noticeable in the two days preceding the swap, suggesting that the lookahead window within which we can accurately forecast failure may be small. Observation #11: Incidence of non-transparent errors is not strongly predictive of catastrophic drive failure. In fact, a sub- stantial proportion of drives experience failure without having ever seen any sort of serious soft error. Observation #12: Failures of young drives are more likely to have seen higher rates of error incidence than failures of mature drives. Observation #13: Error incidence rates increase dramatically in the two days preceding a drive failure. 4.4 Error Incidence for HDDs We also show the percentage and count of uncorre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03353,
+        -0.01037,
+        -0.04541,
+        0.02829,
+        -0.02859
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "bservation #13: Error incidence rates increase dramatically in the two days preceding a drive failure. 4.4 Error Incidence for HDDs We also show the percentage and count of uncorre",
+      "overlap_with_next": "D failures that will occur within N≥ 0 days. Symptoms and causes of SSD and HDD failure investigated in Section 4 are used to improve model accuracy. Identifying feature importance",
+      "text": "bservation #13: Error incidence rates increase dramatically in the two days preceding a drive failure. 4.4 Error Incidence for HDDs We also show the percentage and count of uncorrectable errors (SMART 187) for HDDs, in Figure 12(b) and (d). For HDDs, the probability of uncorrectable errors increases when a failure ap- proaches. When a failure occurs, the probability of uncorrectable errors is around 50%. The probability of uncorrectable errors of small HFH and large HFH is essentially the same. For both cases, the probability is much higher than the baseline (probability of error). When looking into the number of uncorrectable errors, the uncorrectable error count of HDDs is several orders of magnitude lower than SSDs. For HDDs, we also observe higher uncorrectable error count for large HFH disks before failure events. Observation #14: Error incidence rates becomes extremely high in the two days before an HDD fails. 5 F AILURE PREDICTION In this section, we use machine learning models to detect SSD and HDD failures that will occur within N≥ 0 days. Symptoms and causes of SSD and HDD failure investigated in Section 4 are used to improve model accuracy. Identifying feature importance",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0254,
+        0.00077,
+        -0.02535,
+        0.03454,
+        -0.00402
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "D failures that will occur within N≥ 0 days. Symptoms and causes of SSD and HDD failure investigated in Section 4 are used to improve model accuracy. Identifying feature importance",
+      "overlap_with_next": " random strategy, i.e., observations to be removed are randomly chosen from the majority class. We observe that the model performance is not profoundly affected by considering diff",
+      "text": "D failures that will occur within N≥ 0 days. Symptoms and causes of SSD and HDD failure investigated in Section 4 are used to improve model accuracy. Identifying feature importance allows identifying those attributes that are more critical for SSD and HDD lifetimes. 5.1 Model description Input. Both SSD and HDD datasets present daily statistics and are extremely imbalanced, i.e., the number of healthy disks (majority class) is larger than the number of faulty ones (minority class). In the SSD case, the ratio of healthy and defective drives is 10,000:1, for HDDs it is 13,000:1. To deal with such imbalanced datasets, we under-sample the majority class, use cross-validation for training and testing the model, and evaluate its performance with measures that are not affected by imbalanced datasets. [Page 10] 10 Under-sampling. For both datasets, the training set is under- sampled to result in a 1:1 healthy-faulty drives ratio to avoid the classiﬁer being biased toward healthy drives. For this purpose, we use a random strategy, i.e., observations to be removed are randomly chosen from the majority class. We observe that the model performance is not profoundly affected by considering diff",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02617,
+        -0.02331,
+        -0.05018,
+        0.0165,
+        -0.01589
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": " random strategy, i.e., observations to be removed are randomly chosen from the majority class. We observe that the model performance is not profoundly affected by considering diff",
+      "overlap_with_next": "ions do not have a global timestamp attribute that would allow synchronizing the various traces across time. Four out of ﬁve folds are used for training, while the remaining one is",
+      "text": " random strategy, i.e., observations to be removed are randomly chosen from the majority class. We observe that the model performance is not profoundly affected by considering different under-sampling strategies and healthy-faulty ratios. Cross-Validation. Classiﬁers are cross-validated by splitting each dataset into ﬁve different folds. The dataset is partitioned by drive ID (i.e., all observations of a drive belong to the same fold and are not used concurrently for training and testing). If folds are created by randomly partitioning the dataset, i.e., the strategy adopted in [27, 31], it is possible that future observations of a drive are used to predict the past failure state of the same drive. This is undesirable since no future information is available in real scenarios. This is also avoided by using online prediction [39], i.e., the model is trained on observations collected before a speciﬁc date and tested on the remaining data. Unfortunately, this cannot be applied to the SSD dataset: its observations do not have a global timestamp attribute that would allow synchronizing the various traces across time. Four out of ﬁve folds are used for training, while the remaining one is",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04337,
+        -0.02452,
+        -0.04685,
+        0.01348,
+        -0.03236
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "ions do not have a global timestamp attribute that would allow synchronizing the various traces across time. Four out of ﬁve folds are used for training, while the remaining one is",
+      "overlap_with_next": "recall) against the false positive rate (FPR) of the analyzed classiﬁer by considering different values of α. TPR and FPR are deﬁned as: T PR= T PT P+ FN and FPR = FPFP + T N, wher",
+      "text": "ions do not have a global timestamp attribute that would allow synchronizing the various traces across time. Four out of ﬁve folds are used for training, while the remaining one is used for testing. Five different classiﬁers are trained (each one tested on a different testing set). Global performance is obtained by averaging the performance of each classiﬁer. Output. The model returns a continuous value in the interval (0,1), i.e., the probability that the drive fails. In real-world scenar- ios, a binary output (i.e., failure vs. non-failure) is preferred. For this purpose, we set a discrimination threshold, α, that discretizes the returned probability: if the output is larger than α, then the model predicts a failure; otherwise, the model predicts a non- failure. Due to its insensitiveness to imbalanced datasets, receiver operating characteristic (ROC) is generally used to evaluate the accuracy of binary classiﬁers [4, 31] and is adopted also in this paper. ROC curve plots the true positive rate (TPR or recall) against the false positive rate (FPR) of the analyzed classiﬁer by considering different values of α. TPR and FPR are deﬁned as: T PR= T PT P+ FN and FPR = FPFP + T N, wher",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07465,
+        -0.00733,
+        -0.05306,
+        0.03291,
+        -0.02042
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "recall) against the false positive rate (FPR) of the analyzed classiﬁer by considering different values of α. TPR and FPR are deﬁned as: T PR= T PT P+ FN and FPR = FPFP + T N, wher",
+      "overlap_with_next": "mber of estimators for the Random Forest, the number of neighbors for the k-NN, or the maximum depth for XGBoost). As observed in [40] and [31] for SSDs and HDDs, respectively, Ran",
+      "text": "recall) against the false positive rate (FPR) of the analyzed classiﬁer by considering different values of α. TPR and FPR are deﬁned as: T PR= T PT P+ FN and FPR = FPFP + T N, where TP is the number of true positives, TN is the number of true negatives, FP is the number of false positives, and FN is the number of false negatives. We also consider the area under the ROC curve (i.e., AUROC) as a further measure to determine the goodness of the proposed classiﬁer. The AUROC is always in the interval (0.5,1): it is 0.5 if the prediction is not better than the one of a random classiﬁer; its value is 1 for a perfect predictor. 5.2 Prediction Accuracy To determine which classiﬁer must be used, we investigate and report the performance of different classiﬁcation models in Table 8. It shows the AUROC of predictors for different lookahead windows and datasets (i.e., SSDs and HDDs). Although Table 8 shows only one value for each classiﬁer, we investigate their performance with different hyperparameters (e.g., the number of estimators for the Random Forest, the number of neighbors for the k-NN, or the maximum depth for XGBoost). As observed in [40] and [31] for SSDs and HDDs, respectively, Ran",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06977,
+        -0.01915,
+        -0.02424,
+        0.00178,
+        -0.01779
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": "mber of estimators for the Random Forest, the number of neighbors for the k-NN, or the maximum depth for XGBoost). As observed in [40] and [31] for SSDs and HDDs, respectively, Ran",
+      "overlap_with_next": " also shows that, independently of the considered classiﬁer, the largest AUROC is obtained when the lookahead window is smaller. Figure 13 plots the AUROC of the Random Forest pred",
+      "text": "mber of estimators for the Random Forest, the number of neighbors for the k-NN, or the maximum depth for XGBoost). As observed in [40] and [31] for SSDs and HDDs, respectively, Random Forest performs better than other predictors (except XGBoost) when applied to these datasets. That may be due to the ability of Random Forests to model non-linear effects and provide high accuracy Fig. 13: Random Forest AUROC as a function of lookahead window size, N. Error bars indicate the standard deviation of the cross-validated error across folds. (a) SSD (b) HDD Fig. 14: Performance of Random Forest models when they are trained on all drive models and tested on a single one. The lookahead window is set to N = 0 days. even when trained with a few points. Although the performance of XGBoost and Random Forest models are similar (in fact, XGBoost models may be slightly more accurate than Random Forest ones), the time required to train the latter classiﬁer is only 5% of the time required for training the former one. Table 8 also shows that, independently of the considered classiﬁer, the largest AUROC is obtained when the lookahead window is smaller. Figure 13 plots the AUROC of the Random Forest pred",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04567,
+        -0.00636,
+        -0.04932,
+        -0.03556,
+        -0.05511
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": " also shows that, independently of the considered classiﬁer, the largest AUROC is obtained when the lookahead window is smaller. Figure 13 plots the AUROC of the Random Forest pred",
+      "overlap_with_next": "t the status of the SSD independently of the drive model. Instead, in the HDD case, the predictor provides good AUROC for ST4000DM000 and ST12000NM0007, acceptable predictions for ",
+      "text": " also shows that, independently of the considered classiﬁer, the largest AUROC is obtained when the lookahead window is smaller. Figure 13 plots the AUROC of the Random Forest prediction on HDD (solid line) and SSD (dashed line) datasets against different lookahead windows. Each value, obtained by averaging the AUROC of different cross-validation folds, is plotted with its standard deviation. In both cases, the Random Forest performance decreases for longer lookahead windows and better AUROC values are observed for the HDD dataset. Figure 13 suggests that the Random Forest can efﬁciently predict SSD and HDD failures for N≤ 2 and N≤ 8 days lookahead, respectively. Besides testing the predictor on all drive models, we also evaluate the performance of the random forest when the test set is made only of one type of drive (i.e., a single model). Results, for lookahead window set to N = 0 days, are shown in Figure 14 for SSD and HDD datasets. When applied to the SSD dataset, random forests can efﬁciently predict the status of the SSD independently of the drive model. Instead, in the HDD case, the predictor provides good AUROC for ST4000DM000 and ST12000NM0007, acceptable predictions for ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03613,
+        0.02207,
+        -0.0372,
+        -0.03038,
+        -0.05124
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "t the status of the SSD independently of the drive model. Instead, in the HDD case, the predictor provides good AUROC for ST4000DM000 and ST12000NM0007, acceptable predictions for ",
+      "overlap_with_next": "029 0 .691± 0.029 SVM 0.679± 0.012 0 .689± 0.009 0 .685± 0.011 0 .684± 0.009 Neural Network 0.684± 0.065 0 .683± 0.076 0 .685± 0.077 0 .682± 0.076 Decision Tree 0.886± 0.051 0 .870",
+      "text": "t the status of the SSD independently of the drive model. Instead, in the HDD case, the predictor provides good AUROC for ST4000DM000 and ST12000NM0007, acceptable predictions for ST8000DM002 and ST8000NM0055, and mild performance for ST3000DM001. [Page 11] 11 TABLE 8: AUROC for different predictors and lookahead windows, N. The cross-validated average AUROC is provided with the standard deviation across folds. N (lookahead days) 0 1 2 7 SSD Logistic Reg. 0.796± 0.010 0 .765± 0.009 0 .745± 0.007 0 .713± 0.010 k-NN 0.816± 0.013 0 .791± 0.009 0 .772± 0.008 0 .716± 0.008 SVM 0.821± 0.014 0 .795± 0.011 0 .778± 0.011 0 .728± 0.011 Neural Network 0.857± 0.007 0 .828± 0.004 0 .803± 0.009 0 .770± 0.008 Decision Tree 0.872± 0.007 0 .840± 0.007 0 .819± 0.005 0 .780± 0.006 XGBoost 0.904± 0.001 0 .873± 0.002 0 .851± 0.001 0 .809± 0.001 Random Forest 0.905± 0.008 0 .859± 0.007 0 .839± 0.006 0 .803± 0.008 HDD Logistic Reg. 0.668± 0.001 0 .669± 0.001 0 .668± 0.001 0 .668± 0.001 k-NN 0.699± 0.022 0 .699± 0.026 0 .701± 0.029 0 .691± 0.029 SVM 0.679± 0.012 0 .689± 0.009 0 .685± 0.011 0 .684± 0.009 Neural Network 0.684± 0.065 0 .683± 0.076 0 .685± 0.077 0 .682± 0.076 Decision Tree 0.886± 0.051 0 .870",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03929,
+        -0.01207,
+        -0.04957,
+        -0.00388,
+        -0.0244
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "029 0 .691± 0.029 SVM 0.679± 0.012 0 .689± 0.009 0 .685± 0.011 0 .684± 0.009 Neural Network 0.684± 0.065 0 .683± 0.076 0 .685± 0.077 0 .682± 0.076 Decision Tree 0.886± 0.051 0 .870",
+      "overlap_with_next": "ror and failure rates for ST3000DM001 comparing to other HDD models. Training the random forest with all available models improves the performance of the classiﬁer for both SSDs an",
+      "text": "029 0 .691± 0.029 SVM 0.679± 0.012 0 .689± 0.009 0 .685± 0.011 0 .684± 0.009 Neural Network 0.684± 0.065 0 .683± 0.076 0 .685± 0.077 0 .682± 0.076 Decision Tree 0.886± 0.051 0 .870± 0.053 0 .862± 0.053 0 .837± 0.052 XGBoost 0.904± 0.001 0 .888± 0.001 0 .878± 0.001 0 .854± 0.001 Random Forest 0.903± 0.013 0 .888± 0.010 0 .878± 0.008 0 .854± 0.006 Tables 9 and 10 show the robustness of the Random Forest across HDD and SSD models, respectively. For this purpose, they report the AUROC of the predictor when it is trained with a given drive model and it is tested on a different one. While the random forest is very robust when applied to the SSD dataset, it presents some inaccuracy when trained on the HDD workload. The worst AUROC is observed for ST3000DM001, independently of the HDD model used for training. Good prediction performance for this HDD model is observed only when the random forest is trained using the same drive model. This is consistent with what is observed in Tables 1 and 5 that show different error and failure rates for ST3000DM001 comparing to other HDD models. Training the random forest with all available models improves the performance of the classiﬁer for both SSDs an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05549,
+        0.0054,
+        -0.04058,
+        -0.04583,
+        -0.03777
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": "ror and failure rates for ST3000DM001 comparing to other HDD models. Training the random forest with all available models improves the performance of the classiﬁer for both SSDs an",
+      "overlap_with_next": "false positive rate. We test different thresholds between 0.5 (the default one) and 1.0. Results are shown in Fig. 15. Fig. 15(a) shows that, independently of the chosen threshold,",
+      "text": "ror and failure rates for ST3000DM001 comparing to other HDD models. Training the random forest with all available models improves the performance of the classiﬁer for both SSDs and HDDs. 5.3 Model Improvement Section 4 shows that many SSD failures are related to the drive age, while HDD ones are affected by the head ﬂying hours (i.e., SMART 240). Here, we use those attributes to improve the performance of the model. Each dataset is split based on the value of the considered feature (i.e., drive age or head ﬂying hours). Then, the model is trained and validated on each sub- dataset and the performance of each new model is compared to the performance obtained without splitting the dataset. First, we evaluate the TPR of the model against different split- ting on drive age (for SSDs) and head ﬂying hours (for HDDs). Since Random Forest models return a prediction probability, a threshold α is set to obtain a binary prediction. A conservative threshold (i.e., α≃ 1) is practical for problems that require a low false positive rate. We test different thresholds between 0.5 (the default one) and 1.0. Results are shown in Fig. 15. Fig. 15(a) shows that, independently of the chosen threshold,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06972,
+        -0.03804,
+        -0.04777,
+        -0.04112,
+        -0.05802
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": "false positive rate. We test different thresholds between 0.5 (the default one) and 1.0. Results are shown in Fig. 15. Fig. 15(a) shows that, independently of the chosen threshold,",
+      "overlap_with_next": "SSD, Drive Age 0 12 24 36 48 SMART 240 (months) 0.0 0.2 0.4 0.6 0.8 1.0TPR (b) HDD, Head Flying Hours Fig. 15: True positive rate as a function of drive attributes for SSD and HDD.",
+      "text": "false positive rate. We test different thresholds between 0.5 (the default one) and 1.0. Results are shown in Fig. 15. Fig. 15(a) shows that, independently of the chosen threshold, the TPR for young SSDs (i.e., younger than 3 months) is substantially greater than the TPR for older drives. Fig. 15(b) depicts the effect of the time (in months) spent for positioning the disk heads (i.e., SMART 240) on the performance of the model. Especially for small values of α, the TPR increases with the time spent by the drive for positioning its heads. Fig. 16 shows the ROC curve of the model when it is trained on different sub-dataset and predicts the state of each drive in the next 24 hours. As depicted in Fig. 16(a), the prediction model works better with young SSDs (i.e., drive age smaller than 3 months) since its AUROC is signiﬁcantly larger (0.961) than the one shown in Fig. 13 (0.906). This comes at the expense of slightly reduced 0 12 24 Drive Age (months) 0.0 0.2 0.4 0.6 0.8 1.0TPR 0.50 0.60 0.70 0.80 0.90 (a) SSD, Drive Age 0 12 24 36 48 SMART 240 (months) 0.0 0.2 0.4 0.6 0.8 1.0TPR (b) HDD, Head Flying Hours Fig. 15: True positive rate as a function of drive attributes for SSD and HDD.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04731,
+        -0.03453,
+        -0.05442,
+        -0.00667,
+        -0.03007
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "SSD, Drive Age 0 12 24 36 48 SMART 240 (months) 0.0 0.2 0.4 0.6 0.8 1.0TPR (b) HDD, Head Flying Hours Fig. 15: True positive rate as a function of drive attributes for SSD and HDD.",
+      "overlap_with_next": "comparing to the default strategy (i.e., no split) when the measured AUROC is 0.902, while the performance for drives with small head ﬂying hours slightly decreases (0.890). It is ",
+      "text": "SSD, Drive Age 0 12 24 36 48 SMART 240 (months) 0.0 0.2 0.4 0.6 0.8 1.0TPR (b) HDD, Head Flying Hours Fig. 15: True positive rate as a function of drive attributes for SSD and HDD. The lookahead window is set to N=0 days and different values of the prediction threshold, α, are shown. 0.0 0.2 0.4 0.6 0.8 1.0 FPR 0.00 0.25 0.50 0.75 1.00 TPR Young (AUC=0.961) Old (AUC=0.894) (a) SSD 0.0 0.2 0.4 0.6 0.8 1.0 FPR 0.00 0.25 0.50 0.75 1.00TPR HFH < 40K (AUC=0.891) HFH 40K (AUC=0.929) (b) HDD Fig. 16: ROC curves after splitting the dataset on drive features. Prediction model is random forest with lookahead window N = 0 days. In (b), HFH is for Head Flying Hours (i.e., SMART 240). performance for older drives (0.894). Similarly, Fig. 16(b) shows the performance improvement observed by splitting the HDD dataset on the head ﬂying hours feature (i.e., 40,000 hours). The model can better predict the state of HDDs that spend a longer time in positioning their heads (0.929). Also in this case, improvements are observed comparing to the default strategy (i.e., no split) when the measured AUROC is 0.902, while the performance for drives with small head ﬂying hours slightly decreases (0.890). It is ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05819,
+        -0.02461,
+        -0.0415,
+        -0.00675,
+        -0.038
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 62400,
+      "length": 1200,
+      "overlap_with_previous": "comparing to the default strategy (i.e., no split) when the measured AUROC is 0.902, while the performance for drives with small head ﬂying hours slightly decreases (0.890). It is ",
+      "overlap_with_next": "All MLC-A 0.891 0.871 0.887 0.901 MLC-B 0.832 0.892 0.849 0.893 MLC-D 0.868 0.857 0.863 0.901 increases the model interpretability since it is possible to identify those features t",
+      "text": "comparing to the default strategy (i.e., no split) when the measured AUROC is 0.902, while the performance for drives with small head ﬂying hours slightly decreases (0.890). It is worth noting that the 20% of swap-inducing failures in the SSD dataset are young failures, while the 25% of HDDs has a large head ﬂying hours. 5.4 Model Interpretability Besides providing the best performance as shown in Table 8, Random Forest models also assign a score to each attribute based on its relevance for solving the classiﬁcation problem. This greatly [Page 12] 12 TABLE 9: Random forest on the HDD dataset for N = 0. Training Test ST4000DM000 ST12000NM0007 ST3000DM001 ST8000DM002 ST8000NM0055 All ST4000DM000 0.902 0.839 0.828 0.827 0.788 0.904 ST12000NM0007 0.872 0.901 0.828 0.878 0.848 0.903 ST3000DM001 0.745 0.694 0.863 0.664 0.654 0.834 ST8000DM002 0.809 0.822 0.774 0.844 0.832 0.852 ST8000NM0055 0.793 0.818 0.743 0.831 0.850 0.848 TABLE 10: Random forest on the SSD dataset for N = 0. Training Test MLC-A MLC-B MLC-D All MLC-A 0.891 0.871 0.887 0.901 MLC-B 0.832 0.892 0.849 0.893 MLC-D 0.868 0.857 0.863 0.901 increases the model interpretability since it is possible to identify those features t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07159,
+        -0.01196,
+        -0.04675,
+        -0.02957,
+        -0.05378
+      ]
+    },
+    {
+      "chunk_index": 61,
+      "start_char": 62220,
+      "end_char": 63420,
+      "length": 1200,
+      "overlap_with_previous": "All MLC-A 0.891 0.871 0.887 0.901 MLC-B 0.832 0.892 0.849 0.893 MLC-D 0.868 0.857 0.863 0.901 increases the model interpretability since it is possible to identify those features t",
+      "overlap_with_next": "e errors, uncorrectable sectors, and reallocated sectors are among the most important features for detecting failing drives. This is similar to what is observed in [31]. The attrib",
+      "text": "All MLC-A 0.891 0.871 0.887 0.901 MLC-B 0.832 0.892 0.849 0.893 MLC-D 0.868 0.857 0.863 0.901 increases the model interpretability since it is possible to identify those features that are more related to drive failures. Fig. 17 shows the TOP-10 features for each sub-dataset con- sidered in Section 5.3 (i.e., young and old SSDs, HDDs with short and large head ﬂying hours). Fig. 17(a) shows the feature ranking for the SSD dataset. When considering young drives, the drive age is the most important feature, followed by the read count, its cumulative value, and the cumulative number of bad blocks. For old SSDs, features counting correctable errors and read/write operations, and the cumulative number of bad blocks are in the TOP-4. It is expected that read and write counts are more relevant for the state prediction of old drives since young drives may have only a few activities at the failure time. Fig. 17(b) depicts the feature importance for the HDD dataset. The number of current pending sectors, uncorrectable errors, uncorrectable sectors, and reallocated sectors are among the most important features for detecting failing drives. This is similar to what is observed in [31]. The attrib",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0482,
+        -0.01905,
+        -0.05748,
+        -0.01112,
+        -0.028
+      ]
+    },
+    {
+      "chunk_index": 62,
+      "start_char": 63240,
+      "end_char": 64440,
+      "length": 1200,
+      "overlap_with_previous": "e errors, uncorrectable sectors, and reallocated sectors are among the most important features for detecting failing drives. This is similar to what is observed in [31]. The attrib",
+      "overlap_with_next": " components to determine the data center reliability [6, 9, 14, 43]. Storage drives, such as HDDs and SSDs, include a monitor system (originally designed by IBM and called SMART) t",
+      "text": "e errors, uncorrectable sectors, and reallocated sectors are among the most important features for detecting failing drives. This is similar to what is observed in [31]. The attribute ranking of HDDs with large head ﬂying hours provides new insights. In this case, the two most relevant features are the incremental step of written logical block addressing (LBA) and seek error rate , followed by the number of uncorrectable errors and uncorrectable sectors . The seek error rate and the uncorrectable sector count are observed to be important features also in [46]. The reallocated sector count is not in the TOP-10 important features for HDDs with large head ﬂying hours. 6 R ELATED WORK Large-scale data centers serve millions of requests every day [11, 12, 26] and their dependability is critical for services hosted on their infrastructure. Much prior work investigates the main components that affect the data center dependability [22, 23, 34, 35, 37, 32] and storage systems are pointed out as extremely important components to determine the data center reliability [6, 9, 14, 43]. Storage drives, such as HDDs and SSDs, include a monitor system (originally designed by IBM and called SMART) t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01873,
+        0.00042,
+        -0.02094,
+        0.02672,
+        -0.01515
+      ]
+    },
+    {
+      "chunk_index": 63,
+      "start_char": 64260,
+      "end_char": 65460,
+      "length": 1200,
+      "overlap_with_previous": " components to determine the data center reliability [6, 9, 14, 43]. Storage drives, such as HDDs and SSDs, include a monitor system (originally designed by IBM and called SMART) t",
+      "overlap_with_next": "istical infer- ence (i.e., Bayesian approach and Rank sum hypothesis test, respectively), while Ma et al. [23] rely on thresholds to predict component failures. Goldszmidt [13] com",
+      "text": " components to determine the data center reliability [6, 9, 14, 43]. Storage drives, such as HDDs and SSDs, include a monitor system (originally designed by IBM and called SMART) that allows logging data about the drive reliability [48]. Disk failures are investigated by Schroeder and Gibson in [6], while Pinheiro et al. [5] explore their relationship with SMART features. Meza et al. [24] conduct a large-scale reliability study of SSDs mainly focusing on hardware events. Maneas et al. [47] explore reasons for breakdown replacement and correlations among drives in the same RAID group. Jaffer et al. [41] evaluate the ability of different ﬁle systems to get through SSD faults. Hao et al. [28] empirically study HDDs and SSDs in the ﬁeld to highlight the importance of masking storage tail latencies to increase performance stability. None of these works attempts to predict the failure state of drives. Different approaches are proposed to predict drives failures. Hamerly et al. [1] and Hughes et al. [2] use statistical infer- ence (i.e., Bayesian approach and Rank sum hypothesis test, respectively), while Ma et al. [23] rely on thresholds to predict component failures. Goldszmidt [13] com",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02958,
+        -0.00356,
+        -0.03892,
+        0.00214,
+        -0.01202
+      ]
+    },
+    {
+      "chunk_index": 64,
+      "start_char": 65280,
+      "end_char": 66480,
+      "length": 1200,
+      "overlap_with_previous": "istical infer- ence (i.e., Bayesian approach and Rank sum hypothesis test, respectively), while Ma et al. [23] rely on thresholds to predict component failures. Goldszmidt [13] com",
+      "overlap_with_next": "rformance met- rics, and disk physical location. Queiroz et al. [33] propose a new method (i.e., Gaussian Mixture based Fault Detection) to build a statistical model of SMART attri",
+      "text": "istical infer- ence (i.e., Bayesian approach and Rank sum hypothesis test, respectively), while Ma et al. [23] rely on thresholds to predict component failures. Goldszmidt [13] combines statistical models and thresholds to predict disks that are soon to fail. However, machine learning prediction models are shown to be more efﬁcient than other strategies. Murray et al. [3] develop a multi-instance naive Bayes classiﬁer to reduce the number of false alarms when predicting disk failures, while Tan and Gu [10] investigates the performance of a tree augmented naive Bayesian method to predict the future drive status. Agarwal et al. [7] investigate the performance of a rule-based classiﬁer for discovering disk failures, Li et al. [20] address the same problem by using decision trees, and Zhu et al. [16] adopt neural networks and SVM. Lu et al. [46] implement a convolutional neural network with long short- term memory that predicts HDD failures with a 10-day lookahead window by considering SMART features, disk performance met- rics, and disk physical location. Queiroz et al. [33] propose a new method (i.e., Gaussian Mixture based Fault Detection) to build a statistical model of SMART attri",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02895,
+        -0.01265,
+        -0.02523,
+        0.0234,
+        -0.00837
+      ]
+    },
+    {
+      "chunk_index": 65,
+      "start_char": 66300,
+      "end_char": 67500,
+      "length": 1200,
+      "overlap_with_previous": "rformance met- rics, and disk physical location. Queiroz et al. [33] propose a new method (i.e., Gaussian Mixture based Fault Detection) to build a statistical model of SMART attri",
+      "overlap_with_next": "mples both training and test sets [30]. Similarly, also Wang et al. [42] test a deep architecture for predicting HDD failures on an undersampled dataset. However, resampling the wh",
+      "text": "rformance met- rics, and disk physical location. Queiroz et al. [33] propose a new method (i.e., Gaussian Mixture based Fault Detection) to build a statistical model of SMART attributes and predict imminent HDD failures. To fairly compare the performance of our method with other approaches, the same dataset must be used. As discussed by Yu [44], the performance may be extremely different when consid- ering different data sources. The Backblaze dataset is used in [27, 30] to train and validate their approaches for predicting disk failures while [31] uses the Backblaze and the Google datasets for investigating faulty HDDs and SSDs. The regularized greedy forest adopted by Botezatu et al. [27] shines when compared to other approaches used to predict failures in the Backblaze dataset with 98% precision and accuracy. Differently from our approach, [27] splits observations from the same drive into training and test sets not considering error and workload correlations across different drive days. It also undersamples both training and test sets [30]. Similarly, also Wang et al. [42] test a deep architecture for predicting HDD failures on an undersampled dataset. However, resampling the wh",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02867,
+        -0.0275,
+        -0.039,
+        -0.01913,
+        -0.01944
+      ]
+    },
+    {
+      "chunk_index": 66,
+      "start_char": 67320,
+      "end_char": 68520,
+      "length": 1200,
+      "overlap_with_previous": "mples both training and test sets [30]. Similarly, also Wang et al. [42] test a deep architecture for predicting HDD failures on an undersampled dataset. However, resampling the wh",
+      "overlap_with_next": "rror cum ﬁnal read error cum bad block count cum read count read count drive age Young Drives 0.00 0.05 0.10 0.15 0.20 cum write count ﬁnal read error corr err rate drive age cum r",
+      "text": "mples both training and test sets [30]. Similarly, also Wang et al. [42] test a deep architecture for predicting HDD failures on an undersampled dataset. However, resampling the whole dataset (training and test sets) generates overoptimistic results. Aussel et al. [30] train and evaluate a random forest on a small subset of the Backblaze dataset (i.e., only data from 2014). Although they show high precision and a considerable recall (i.e., 95% and 65%, respectively), they ﬁlter out observations with similar features and different failure states. We believe this is hardly doable in real scenarios since it requires an apriori knowledge of the drive state. Mahdisoltani et al. [31] investigates different prediction models to predict uncorrectable errors and bad blocks in HDDs and SSDs, and they show that random forests provide good performance for this task. Although our approach is similar to the one presented in [31], we aim to [Page 13] 13 corr error cum corr error status read only write count cum uncorr error cum ﬁnal read error cum bad block count cum read count read count drive age Young Drives 0.00 0.05 0.10 0.15 0.20 cum write count ﬁnal read error corr err rate drive age cum r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04472,
+        -0.00174,
+        -0.03327,
+        -0.02621,
+        -0.0349
+      ]
+    },
+    {
+      "chunk_index": 67,
+      "start_char": 68340,
+      "end_char": 69540,
+      "length": 1200,
+      "overlap_with_previous": "rror cum ﬁnal read error cum bad block count cum read count read count drive age Young Drives 0.00 0.05 0.10 0.15 0.20 cum write count ﬁnal read error corr err rate drive age cum r",
+      "overlap_with_next": "5] by using online random forests and extending available machine learning models with concept drift adaptation [19]. Unfortunately, the SSD dataset does not provide a global times",
+      "text": "rror cum ﬁnal read error cum bad block count cum read count read count drive age Young Drives 0.00 0.05 0.10 0.15 0.20 cum write count ﬁnal read error corr err rate drive age cum read count cum ﬁnal read error write count cum bad block count corr error read count Old Drives (a) SSD, split on drive age tot. LBAs written, diff head flying hours power-on hours tot. LBAs written realloc. sectors cum uncorr. errors, diff uncorr. errors uncorr. sectors cum uncorr. errors curr. pending sectors Head Flying Hours < 40K 0.00 0.05 0.10 0.15 tot. LBAs read, diff tot. LBAs written power-on hours curr. pending sectors cum uncorr. errors cum uncorr. errors, diff uncorr. sectors uncorr. errors seek error rate, diff tot. LBAs written, diff Head Flying Hours 40K (b) HDD, split on head ﬂying hours Fig. 17: Feature importance for Random Forest models after splitting the dataset on drive features. predict drive failures and do not try to predict errors. Approaches for online HDD failure prediction are also investigated [38, 45] by using online random forests and extending available machine learning models with concept drift adaptation [19]. Unfortunately, the SSD dataset does not provide a global times",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02439,
+        0.00589,
+        -0.01653,
+        -0.04175,
+        -0.05596
+      ]
+    },
+    {
+      "chunk_index": 68,
+      "start_char": 69360,
+      "end_char": 70560,
+      "length": 1200,
+      "overlap_with_previous": "5] by using online random forests and extending available machine learning models with concept drift adaptation [19]. Unfortunately, the SSD dataset does not provide a global times",
+      "overlap_with_next": "he available traces, we draw remarkable conclusions. Unexpectedly, we observe that features that are commonly thought to cause SSD failures (i.e., write operations and error incide",
+      "text": "5] by using online random forests and extending available machine learning models with concept drift adaptation [19]. Unfortunately, the SSD dataset does not provide a global timestamp, hence online prediction cannot be implemented here. In this paper, we explore the capability of random forests for predicting drive failures and investigate possible enhancements by statistically analyzing drive features and using different models based on observed attributes. We consider a conceivably long lookahead window and use two large and real datasets for training and validating the proposed machine learning approach. To the best of our knowledge, storage device failures have never been studied by splitting the dataset based on attribute values. 7 C ONCLUSION In this paper, we investigate SSD and HDD failures using two traces, each one six-year long, from production environments. Daily logs for 30,000 SSDs are collected at a Google data center, while 100,000 HDDs are observed at a Backblaze data center. Analyzing the available traces, we draw remarkable conclusions. Unexpectedly, we observe that features that are commonly thought to cause SSD failures (i.e., write operations and error incide",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03895,
+        -0.00885,
+        -0.02413,
+        0.00821,
+        -0.04401
+      ]
+    },
+    {
+      "chunk_index": 69,
+      "start_char": 70380,
+      "end_char": 71580,
+      "length": 1200,
+      "overlap_with_previous": "he available traces, we draw remarkable conclusions. Unexpectedly, we observe that features that are commonly thought to cause SSD failures (i.e., write operations and error incide",
+      "overlap_with_next": "rives”. In:ICML. V ol. 1. 2001, pp. 202–209. [2] Gordon F Hughes et al. “Improved disk-drive failure warn- ings”. In: IEEE transactions on reliability 51.3 (2002), pp. 350–357. [3]",
+      "text": "he available traces, we draw remarkable conclusions. Unexpectedly, we observe that features that are commonly thought to cause SSD failures (i.e., write operations and error incidence) are not highly related to faulty SSDs. We train and test different classiﬁers to predict faulty SSDs and HDDs, and note that Random Forest models provide accurate predictions with a short training time. Their high interpretability makes them the best predictor for the analyzed problem. We observe that splitting each dataset based on attribute values of its observations allows increasing the performance of random forests. The drive age is a critical attribute for predicting SSD failures; drives failing before being three months old can be detected easier than other drives. Similarly, when predicting faulty HDDs, a higer detection rate is observed for drives with head ﬂying hours (i.e., SMART 240) longer than 40,000 hours. REFERENCES [1] Greg Hamerly, Charles Elkan, et al. “Bayesian approaches to failure prediction for disk drives”. In:ICML. V ol. 1. 2001, pp. 202–209. [2] Gordon F Hughes et al. “Improved disk-drive failure warn- ings”. In: IEEE transactions on reliability 51.3 (2002), pp. 350–357. [3]",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03949,
+        -0.00283,
+        -0.04096,
+        -0.00716,
+        -0.03127
+      ]
+    },
+    {
+      "chunk_index": 70,
+      "start_char": 71400,
+      "end_char": 72600,
+      "length": 1200,
+      "overlap_with_previous": "rives”. In:ICML. V ol. 1. 2001, pp. 202–209. [2] Gordon F Hughes et al. “Improved disk-drive failure warn- ings”. In: IEEE transactions on reliability 51.3 (2002), pp. 350–357. [3]",
+      "overlap_with_next": "rd drive failures”. In: 2009 International Con- ference on Machine Learning and Applications (ICMLA) . IEEE. 2009, pp. 782–786. [8] Laura M. Grupp et al. “Characterizing ﬂash memor",
+      "text": "rives”. In:ICML. V ol. 1. 2001, pp. 202–209. [2] Gordon F Hughes et al. “Improved disk-drive failure warn- ings”. In: IEEE transactions on reliability 51.3 (2002), pp. 350–357. [3] Joseph F Murray, Gordon F Hughes, and Kenneth Kreutz- Delgado. “Machine learning methods for predicting failures in hard drives: A multiple-instance application”. In:Journal of Machine Learning Research 6 (2005), pp. 783–816. [4] Tom Fawcett. “An introduction to ROC analysis”. In: Pat- tern recognition letters 27.8 (2006), pp. 861–874. [5] Eduardo Pinheiro, Wolf-Dietrich Weber, and Luiz Andr ´e Barroso. “Failure trends in a large disk drive population”. In: 5th USENIX Conference on File and Storage Technolo- gies, FAST 2007. 2007, pp. 17–28. [6] Bianca Schroeder and Garth A Gibson. “Disk failures in the real world: What does an MTTF of 1,000,000 hours mean to you?” In: 5th USENIX Conference on File and Storage Technologies, FAST 2007. 2007, pp. 1–16. [7] Vipul Agarwal et al. “Discovering rules from disk events for predicting hard drive failures”. In: 2009 International Con- ference on Machine Learning and Applications (ICMLA) . IEEE. 2009, pp. 782–786. [8] Laura M. Grupp et al. “Characterizing ﬂash memor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04652,
+        0.01043,
+        -0.01898,
+        0.04818,
+        -0.0123
+      ]
+    },
+    {
+      "chunk_index": 71,
+      "start_char": 72420,
+      "end_char": 73620,
+      "length": 1200,
+      "overlap_with_previous": "rd drive failures”. In: 2009 International Con- ference on Machine Learning and Applications (ICMLA) . IEEE. 2009, pp. 782–786. [8] Laura M. Grupp et al. “Characterizing ﬂash memor",
+      "overlap_with_next": "derstanding network failures in data centers: measure- ment, analysis, and implications”. In: ACM SIGCOMM Computer Communication Review. V ol. 41. 4. ACM. 2011, pp. 350–361. [13] M",
+      "text": "rd drive failures”. In: 2009 International Con- ference on Machine Learning and Applications (ICMLA) . IEEE. 2009, pp. 782–786. [8] Laura M. Grupp et al. “Characterizing ﬂash memory: anomalies, observations, and applications”. In: 42st Annual IEEE/ACM International Symposium on Microarchitecture (MICRO-42 2009). 2009, pp. 24–33. [9] Bianca Schroeder, Eduardo Pinheiro, and Wolf-Dietrich Weber. “DRAM errors in the wild: a large-scale ﬁeld study”. In: ACM SIGMETRICS Performance Evaluation Review. V ol. 37. 1. ACM. 2009, pp. 193–204. [10] Yongmin Tan and Xiaohui Gu. “On predictability of system anomalies in real world”. In: 2010 IEEE International Sym- posium on Modeling, Analysis and Simulation of Computer and Telecommunication Systems. IEEE. 2010, pp. 133–140. [Page 14] 14 [11] Guohui Wang and TS Eugene Ng. “The impact of virtu- alization on network performance of Amazon EC2 data center”. In: Infocom, 2010 proceedings ieee . IEEE. 2010, pp. 1–9. [12] Phillipa Gill, Navendu Jain, and Nachiappan Nagappan. “Understanding network failures in data centers: measure- ment, analysis, and implications”. In: ACM SIGCOMM Computer Communication Review. V ol. 41. 4. ACM. 2011, pp. 350–361. [13] M",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04304,
+        -0.00998,
+        -0.01865,
+        -0.00451,
+        -0.03996
+      ]
+    },
+    {
+      "chunk_index": 72,
+      "start_char": 73440,
+      "end_char": 74640,
+      "length": 1200,
+      "overlap_with_previous": "derstanding network failures in data centers: measure- ment, analysis, and implications”. In: ACM SIGCOMM Computer Communication Review. V ol. 41. 4. ACM. 2011, pp. 350–361. [13] M",
+      "overlap_with_next": "lume, velocity, and variety in cloud datacenters”. In: Proceedings of the 12th USENIX conference on File and Storage Technologies, FAST 2014, Santa Clara, CA, USA, February 17-20, ",
+      "text": "derstanding network failures in data centers: measure- ment, analysis, and implications”. In: ACM SIGCOMM Computer Communication Review. V ol. 41. 4. ACM. 2011, pp. 350–361. [13] Mois ´es Goldszmidt. “Finding Soon-to-Fail Disks in a Haystack”. In: 4th USENIX Workshop on Hot Topics in Storage and File Systems, HotStorage’12. 2012. [14] Andy A Hwang, Ioan A Stefanovici, and Bianca Schroeder. “Cosmic rays don’t strike twice: understanding the nature of DRAM errors and the implications for system design”. In: ACM SIGPLAN Notices. V ol. 47. 4. ACM. 2012, pp. 111– 122. [15] Mai Zheng et al. “Understanding the robustness of SSDs under power fault”. In: Proceedings of the 11th USENIX conference on File and Storage Technologies, FAST 2013 . 2013, pp. 271–284. [16] Bingpeng Zhu et al. “Proactive drive failure prediction for large scale storage systems”. In: 2013 IEEE 29th sympo- sium on mass storage systems and technologies (MSST) . IEEE. 2013, pp. 1–5. [17] Robert Birke et al. “(Big)data in a virtualized world: volume, velocity, and variety in cloud datacenters”. In: Proceedings of the 12th USENIX conference on File and Storage Technologies, FAST 2014, Santa Clara, CA, USA, February 17-20, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0408,
+        0.00813,
+        -0.03147,
+        0.0012,
+        -0.01312
+      ]
+    },
+    {
+      "chunk_index": 73,
+      "start_char": 74460,
+      "end_char": 75660,
+      "length": 1200,
+      "overlap_with_previous": "lume, velocity, and variety in cloud datacenters”. In: Proceedings of the 12th USENIX conference on File and Storage Technologies, FAST 2014, Santa Clara, CA, USA, February 17-20, ",
+      "overlap_with_next": "ation Review . V ol. 45. 4. ACM. 2015, pp. 139–152. [23] Ao Ma et al. “RAIDShield: characterizing, monitoring, and proactively protecting against disk failures”. In: ACM Transactio",
+      "text": "lume, velocity, and variety in cloud datacenters”. In: Proceedings of the 12th USENIX conference on File and Storage Technologies, FAST 2014, Santa Clara, CA, USA, February 17-20, 2014. USENIX, 2014, pp. 177–189. [18] G.W. Corder and D.I. Foreman. Nonparametric Statistics: A Step-by-Step Approach. Wiley, 2014. [19] Jo ˜ao Gama et al. “A survey on concept drift adaptation”. In: ACM computing surveys (CSUR) 46.4 (2014), pp. 1–37. [20] Jing Li et al. “Hard drive failure prediction using classiﬁca- tion and regression trees”. In: 2014 44th Annual IEEE/IFIP International Conference on Dependable Systems and Net- works. IEEE. 2014, pp. 383–394. [21] Yu Cai et al. “Data retention in MLC NAND ﬂash mem- ory: Characterization, optimization, and recovery”. In: 21st IEEE International Symposium on High Performance Com- puter Architecture, HPCA 2015. 2015, pp. 551–563. [22] Chuanxiong Guo et al. “Pingmesh: A large-scale system for data center network latency measurement and analysis”. In: ACM SIGCOMM Computer Communication Review . V ol. 45. 4. ACM. 2015, pp. 139–152. [23] Ao Ma et al. “RAIDShield: characterizing, monitoring, and proactively protecting against disk failures”. In: ACM Transactio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06704,
+        -0.00227,
+        -0.02065,
+        0.00046,
+        -0.02972
+      ]
+    },
+    {
+      "chunk_index": 74,
+      "start_char": 75480,
+      "end_char": 76680,
+      "length": 1200,
+      "overlap_with_previous": "ation Review . V ol. 45. 4. ACM. 2015, pp. 139–152. [23] Ao Ma et al. “RAIDShield: characterizing, monitoring, and proactively protecting against disk failures”. In: ACM Transactio",
+      "overlap_with_next": "rence on Knowl- edge Discovery and Data Mining. 2016, pp. 39–48. [28] Mingzhe Hao et al. “The Tail at Store: A Revelation from Millions of Hours of Disk and SSD Deployments”. In: 1",
+      "text": "ation Review . V ol. 45. 4. ACM. 2015, pp. 139–152. [23] Ao Ma et al. “RAIDShield: characterizing, monitoring, and proactively protecting against disk failures”. In: ACM Transactions on Storage (TOS) 11.4 (2015), pp. 1–28. [24] Justin Meza et al. “A Large-Scale Study of Flash Memory Failures in the Field”. In: Proceedings of the 2015 ACM SIGMETRICS International Conference on Measurement and Modeling of Computer Systems. 2015, pp. 177–190. [25] Moinuddin K. Qureshi et al. “A V ATAR: A Variable- Retention-Time (VRT) Aware Refresh for DRAM Sys- tems”. In: 45th Annual IEEE/IFIP International Conference on Dependable Systems and Networks, DSN 2015 . 2015, pp. 427–437. [26] Abhishek Verma et al. “Large-scale cluster management at Google with Borg”. In: Proceedings of the Tenth European Conference on Computer Systems, EuroSys 2015 . ACM. 2015, 18:1–18:17. [27] Mirela Madalina Botezatu et al. “Predicting disk replace- ment towards reliable data centers”. In: Proceedings of the 22nd ACM SIGKDD International Conference on Knowl- edge Discovery and Data Mining. 2016, pp. 39–48. [28] Mingzhe Hao et al. “The Tail at Store: A Revelation from Millions of Hours of Disk and SSD Deployments”. In: 1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04131,
+        -0.01722,
+        -0.02077,
+        0.01735,
+        -0.0205
+      ]
+    },
+    {
+      "chunk_index": 75,
+      "start_char": 76500,
+      "end_char": 77700,
+      "length": 1200,
+      "overlap_with_previous": "rence on Knowl- edge Discovery and Data Mining. 2016, pp. 39–48. [28] Mingzhe Hao et al. “The Tail at Store: A Revelation from Millions of Hours of Disk and SSD Deployments”. In: 1",
+      "overlap_with_next": "ights, Challenges, and Opportunities”. In: 25th IEEE Interna- tional Symposium on Modeling, Analysis, and Simulation of Computer and Telecommunication Systems, MASCOTS 2017, Banff,",
+      "text": "rence on Knowl- edge Discovery and Data Mining. 2016, pp. 39–48. [28] Mingzhe Hao et al. “The Tail at Store: A Revelation from Millions of Hours of Disk and SSD Deployments”. In: 14th USENIX Conference on File and Storage Technologies (FAST 16). 2016, pp. 263–276. [29] Bianca Schroeder, Raghav Lagisetty, and Arif Merchant. “Flash Reliability in Production: the Expected and the Unexpected”. In: 14th USENIX Conference on File and Storage Technologies, FAST 2016. 2016, pp. 67–80. [30] Nicolas Aussel et al. “Predictive models of hard drive failures based on operational data”. In: 2017 16th IEEE International Conference on Machine Learning and Appli- cations (ICMLA). IEEE. 2017, pp. 619–625. [31] Farzaneh Mahdisoltani, Ioan Stefanovici, and Bianca Schroeder. “Proactive error prediction to improve storage system reliability”. In: 2017 USENIX Annual Technical Conference (USENIX ATC 17). 2017, pp. 391–402. [32] Bin Nie et al. “Characterizing Temperature, Power, and Soft-Error Behaviors in Data Center Systems: Insights, Challenges, and Opportunities”. In: 25th IEEE Interna- tional Symposium on Modeling, Analysis, and Simulation of Computer and Telecommunication Systems, MASCOTS 2017, Banff,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05152,
+        0.0086,
+        -0.04191,
+        0.04081,
+        -0.00228
+      ]
+    },
+    {
+      "chunk_index": 76,
+      "start_char": 77520,
+      "end_char": 78720,
+      "length": 1200,
+      "overlap_with_previous": "ights, Challenges, and Opportunities”. In: 25th IEEE Interna- tional Symposium on Modeling, Analysis, and Simulation of Computer and Telecommunication Systems, MASCOTS 2017, Banff,",
+      "overlap_with_next": " of the 2018 ACM International Conference on Measurement and Modeling of Computer Systems, SIGMETRICS 2018. 2018, p. 106. [37] Bin Nie et al. “Machine Learning Models for GPU Error",
+      "text": "ights, Challenges, and Opportunities”. In: 25th IEEE Interna- tional Symposium on Modeling, Analysis, and Simulation of Computer and Telecommunication Systems, MASCOTS 2017, Banff, AB, Canada, September 20-22, 2017 . IEEE Computer Society, 2017, pp. 22–31. [33] Lucas P Queiroz et al. “A fault detection method for hard disk drives based on mixture of Gaussians and non- parametric statistics”. In: IEEE Transactions on Industrial Informatics 13.2 (2017), pp. 542–550. [34] Bianca Schroeder, Arif Merchant, and Raghav Lagisetty. “Reliability of NAND-based SSDs: What ﬁeld studies tell us”. In: Proceedings of the IEEE 105.9 (2017), pp. 1751– 1769. [35] Guosai Wang, Lifei Zhang, and Wei Xu. “What Can We Learn from Four Years of Data Center Hardware Fail- ures?” In: Dependable Systems and Networks (DSN), 2017 47th Annual IEEE/IFIP International Conference on. IEEE. 2017, pp. 25–36. [36] Yixin Luo et al. “Improving 3D NAND Flash Memory Lifetime by Tolerating Early Retention Loss and Process Variation”. In: Abstracts of the 2018 ACM International Conference on Measurement and Modeling of Computer Systems, SIGMETRICS 2018. 2018, p. 106. [37] Bin Nie et al. “Machine Learning Models for GPU Error",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06058,
+        -0.00203,
+        -0.024,
+        0.00055,
+        -0.00061
+      ]
+    },
+    {
+      "chunk_index": 77,
+      "start_char": 78540,
+      "end_char": 79740,
+      "length": 1200,
+      "overlap_with_previous": " of the 2018 ACM International Conference on Measurement and Modeling of Computer Systems, SIGMETRICS 2018. 2018, p. 106. [37] Bin Nie et al. “Machine Learning Models for GPU Error",
+      "overlap_with_next": "s”. In: 2019 USENIX Annual Technical Conference (USENIX ATC 19). 2019, pp. 783–798. [42] Ji Wang et al. “An Attention-augmented Deep Architecture for Hard Drive Status Monitoring i",
+      "text": " of the 2018 ACM International Conference on Measurement and Modeling of Computer Systems, SIGMETRICS 2018. 2018, p. 106. [37] Bin Nie et al. “Machine Learning Models for GPU Error Prediction in a Large Scale HPC System”. In: Dependable Systems and Networks (DSN), 2018 48th Annual IEEE/IFIP International Conference on. IEEE. 2018, pp. 1–12. [38] Jiang Xiao et al. “Disk failure prediction in data centers via online learning”. In: Proceedings of the 47th International Conference on Parallel Processing. 2018, pp. 1–10. [39] Yong Xu et al. “Improving Service Availability of Cloud Systems by Predicting Disk Error”. In: 2018 USENIX Annual Technical Conference, (USENIX ATC 18) . 2018, pp. 481–494. [40] Jacob Alter et al. “SSD failures in the ﬁeld: symptoms, causes, and prediction models”. In: Proceedings of the In- [Page 15] 15 ternational Conference for High Performance Computing, Networking, Storage and Analysis. 2019, pp. 1–14. [41] Shehbaz Jaffer et al. “Evaluating ﬁle system reliability on solid state drives”. In: 2019 USENIX Annual Technical Conference (USENIX ATC 19). 2019, pp. 783–798. [42] Ji Wang et al. “An Attention-augmented Deep Architecture for Hard Drive Status Monitoring i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06131,
+        -0.01754,
+        -0.02813,
+        0.00704,
+        -0.00119
+      ]
+    },
+    {
+      "chunk_index": 78,
+      "start_char": 79560,
+      "end_char": 80760,
+      "length": 1200,
+      "overlap_with_previous": "s”. In: 2019 USENIX Annual Technical Conference (USENIX ATC 19). 2019, pp. 783–798. [42] Ji Wang et al. “An Attention-augmented Deep Architecture for Hard Drive Status Monitoring i",
+      "overlap_with_next": "7] Stathis Maneas et al. “A Study of SSD Reliability in Large Scale Enterprise Storage Deployments”. In: 18th USENIX Conference on File and Storage Technologies (FAST 20) . 2020, p",
+      "text": "s”. In: 2019 USENIX Annual Technical Conference (USENIX ATC 19). 2019, pp. 783–798. [42] Ji Wang et al. “An Attention-augmented Deep Architecture for Hard Drive Status Monitoring in Large-scale Storage Systems”. In: ACM Transactions on Storage (TOS) 15.3 (2019), pp. 1–26. [43] Erci Xu et al. “Lessons and actions: What we learned from 10k ssd-related storage system failures”. In: 2019 USENIX Annual Technical Conference (USENIX ATC 19) . 2019, pp. 961–976. [44] Jie Yu. “Hard disk Drive Failure Prediction Challenges in Machine Learning for Multi-variate Time Series”. In: Proceedings of the 2019 3rd International Conference on Advances in Image Processing. 2019, pp. 144–148. [45] Shujie Han et al. “Toward Adaptive Disk Failure Prediction via Stream Mining”. In: 2019 IEEE 40th International Conference on Distributed Computing Systems (ICDCS) . IEEE. 2020. [46] Sidi Lu et al. “Making Disk Failure Predictions SMARTer!” In: 18th USENIX Conference on File and Storage Technolo- gies (FAST 20). 2020, pp. 151–167. [47] Stathis Maneas et al. “A Study of SSD Reliability in Large Scale Enterprise Storage Deployments”. In: 18th USENIX Conference on File and Storage Technologies (FAST 20) . 2020, p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03286,
+        -0.00318,
+        -0.01598,
+        0.02647,
+        -0.00525
+      ]
+    },
+    {
+      "chunk_index": 79,
+      "start_char": 80580,
+      "end_char": 81155,
+      "length": 575,
+      "overlap_with_previous": "7] Stathis Maneas et al. “A Study of SSD Reliability in Large Scale Enterprise Storage Deployments”. In: 18th USENIX Conference on File and Storage Technologies (FAST 20) . 2020, p",
+      "overlap_with_next": "",
+      "text": "7] Stathis Maneas et al. “A Study of SSD Reliability in Large Scale Enterprise Storage Deployments”. In: 18th USENIX Conference on File and Storage Technologies (FAST 20) . 2020, pp. 137–149. [48] American National Standards Institute. AT attachment 8 - ATA/ATAPI command set (ATA8-ACS), 2008. http : / / www. t13 . org / documents / uploadeddocuments / docs2008 / d1699r6a-ata8-acs.pdf. [Online; accessed on 2020-04-19]. [49] Backblaze. Hard Drive Data and Stats . https : / / www . backblaze . com / b2 / hard - drive - test - data . html. [Online; accessed on 2020-04-28].",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01208,
+        0.00735,
+        -0.05132,
+        0.01421,
+        -0.02648
+      ]
+    }
+  ]
+}

@@ -1,0 +1,725 @@
+{
+  "paper_id": "71513d18-6518-41ef-8be5-9be93b5ed4d3",
+  "filename": "005_NLP_QUACKIE_A_NLP_Classification_Task_With_Ground_Truth_Explanations.pdf",
+  "title": "QUACKIE: A NLP Classification Task With Ground Truth Explanations",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 42,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " wide range of current state of the art methods. 1 Introduction In recent years, we have seen an increase in the performance of NLP models in a variety of tasks. It has, to a large",
+      "text": "[Page 1] QUACKIE: A NLP Classiﬁcation Task With Ground Truth Explanations Yves Rychener1,2, Xavier Renard2, Djam´e Seddah3, Pascal Frossard1, Marcin Detyniecki2,4,5 1EPFL, Lausanne, Switzerland 2AXA, Paris, France 3Inria, Paris, France 4Sorbonne Universit´e, Paris, France 5Polish Academy of Science, Warsaw, Poland Abstract NLP Interpretability aims to increase trust in model predictions. This makes evaluating interpretability approaches a pressing issue. There are multiple datasets for evaluating NLP interpretability, but their dependence on hu- man provided ground truths raises questions about their unbiasedness. In this work, we take a different approach and formulate a spe- ciﬁc classiﬁcation task by diverting question- answering datasets. For this custom classi- ﬁcation task, the interpretability ground-truth arises directly from the deﬁnition of the classi- ﬁcation problem. We use this method to pro- pose a benchmark and lay the groundwork for future research in NLP interpretability by eval- uating a wide range of current state of the art methods. 1 Introduction In recent years, we have seen an increase in the performance of NLP models in a variety of tasks. It has, to a large",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03167,
+        -0.01391,
+        -0.00438,
+        0.00287,
+        -0.02902
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " wide range of current state of the art methods. 1 Introduction In recent years, we have seen an increase in the performance of NLP models in a variety of tasks. It has, to a large",
+      "overlap_with_next": "of an existing classiﬁcation model is explained. How- ever, the evaluation technique could be adopted to also test the explanation performance of inherently interpretable classiﬁca",
+      "text": " wide range of current state of the art methods. 1 Introduction In recent years, we have seen an increase in the performance of NLP models in a variety of tasks. It has, to a large extent, been fuelled by the us- age of progressively complex neural network archi- tectures (Devlin et al., 2019; Brown et al., 2020). While this allows to model increasingly complex input-output relations, it is virtually impossible to understand the reasoning behind a prediction. To address this issue, algorithms have been proposed to explain the reasoning of models in the ﬁeld of interpretability. While there has been a number of interpretability approaches published which are applicable to NLP, (Simonyan et al., 2013; Smilkov et al., 2017; Sundararajan et al., 2017; Ribeiro et al., 2016; Lundberg and Lee, 2017), deﬁning what con- stitutes a good explanation and appropriate evalua- tion methods are largely unanswered problems. This work considers the case of post-hoc inter- pretability for classiﬁcation, where the reasoning of an existing classiﬁcation model is explained. How- ever, the evaluation technique could be adopted to also test the explanation performance of inherently interpretable classiﬁca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03461,
+        -0.02611,
+        0.02137,
+        0.01311,
+        -0.00952
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "of an existing classiﬁcation model is explained. How- ever, the evaluation technique could be adopted to also test the explanation performance of inherently interpretable classiﬁca",
+      "overlap_with_next": "proaches in the NLP interpretability literature may be biased towards matching human’s intuition instead of explaining the black-box model. In this work, we propose a novel evaluat",
+      "text": "of an existing classiﬁcation model is explained. How- ever, the evaluation technique could be adopted to also test the explanation performance of inherently interpretable classiﬁcation models. Interpretability and explanation are very subjec- tive terms, with different deﬁnitions for different needs (Liao et al., 2020). However, to our knowl- edge, the ﬁeld agrees that faithfulness is a desired property of a good interpretability approach. Faith- fulness means that an explanation well replicates the actual reasoning of the model to explain. How- ever, since the actual reasoning of a black-box model is unknown, the task of evaluating faith- fulness is difﬁcult. Many works proposing inter- pretability algorithms have thus resorted (often without explicitly acknowledging) to plausibility for evaluating faithfulness, evaluating how convinc- ing an explanation is to a human. Recently, Jacovi and Goldberg (2020) pointed out the drawbacks of this approach, coming to the conclusion that many current evaluation approaches in the NLP interpretability literature may be biased towards matching human’s intuition instead of explaining the black-box model. In this work, we propose a novel evaluat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06481,
+        -0.03325,
+        -0.00388,
+        0.0059,
+        -0.01534
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "proaches in the NLP interpretability literature may be biased towards matching human’s intuition instead of explaining the black-box model. In this work, we propose a novel evaluat",
+      "overlap_with_next": "020 [Page 2] tivates our approach. In Section 3, we present the classiﬁcation task, construction of ground truths and the metrics used. This is followed by apply- ing the methods t",
+      "text": "proaches in the NLP interpretability literature may be biased towards matching human’s intuition instead of explaining the black-box model. In this work, we propose a novel evaluation approach for faithfulness. It is based on the ob- servation that a good interpretability algorithm should be able to well distinguish between impor- tant and unimportant parts of the text. Our evalua- tion methodology can compare any interpretability algorithm assigning importance for parts of the in- puts. By building a classiﬁcation task on top of the NLP question-answering problem, we are able to construct a ground truth label for important and unimportant parts of the input text with respect to the classiﬁcation problem. We further show how these labels can be leveraged for more de- tailed metrics. The methodology is applied to two question-answering datasets in order to propose a new benchmark, QUACKIE, for interpretability evaluation. This work is structured as follows: Section 2 mo- arXiv:2012.13190v2 [cs.CL] 27 Dec 2020 [Page 2] tivates our approach. In Section 3, we present the classiﬁcation task, construction of ground truths and the metrics used. This is followed by apply- ing the methods t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05664,
+        -0.00939,
+        0.01116,
+        0.0178,
+        -0.03063
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "020 [Page 2] tivates our approach. In Section 3, we present the classiﬁcation task, construction of ground truths and the metrics used. This is followed by apply- ing the methods t",
+      "overlap_with_next": "n approach to assess interpretability methods’ ﬁdelity. We provide an evaluation method for a universal re- quirement of NLP interpretability: The ability to distinguish between re",
+      "text": "020 [Page 2] tivates our approach. In Section 3, we present the classiﬁcation task, construction of ground truths and the metrics used. This is followed by apply- ing the methods to propose the QUACKIE bench- mark and analysing its properties in Section 4. Sec- tion 5.1 presents a selection of interpretability al- gorithms, which aims to reﬂect the current state of post-hoc Black-Box and White-Box interpretabil- ity research. The algorithms are compared in Sec- tion 5.2 using QUACKIE. In Section 6, we discuss the work and its results.1 The main contributions of this work are the construction of interpretability ground truth values which do not need human an- notation and its application to compare state of the art post-hoc interpretability methods. 2 Evaluating Discriminative Power of Interpretability Methods No matter the explanation needs or the interpretabil- ity deﬁnition, a key property of a good interpretabil- ity method is its ﬁdelity to the model to explain. To evaluate this property, we propose an approach to assess interpretability methods’ ﬁdelity. We provide an evaluation method for a universal re- quirement of NLP interpretability: The ability to distinguish between re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02536,
+        -0.00659,
+        0.00583,
+        0.02086,
+        -0.01826
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "n approach to assess interpretability methods’ ﬁdelity. We provide an evaluation method for a universal re- quirement of NLP interpretability: The ability to distinguish between re",
+      "overlap_with_next": "hods could suffer from the disastrous problem of giving convincing explanations which do not match the reasoning of the classiﬁcation model. As noted by Jacovi and Goldberg (2020),",
+      "text": "n approach to assess interpretability methods’ ﬁdelity. We provide an evaluation method for a universal re- quirement of NLP interpretability: The ability to distinguish between relevant and irrelevant text seg- ments for the classiﬁcation. In certain applications, an even ﬁner separation may be useful, however the desideratum stated here builds a common ground. Some works exist to assess interpretability meth- ods: their quality is evaluated using datasets built on human generated ground-truths on top of com- mon classiﬁcation tasks (DeYoung et al., 2019). As stated by Jacovi and Goldberg (2020), such hu- man generated gold labels are built on assumptions about what a modelshould do according to humans. This can lead to problems, as the actual evaluation of the interpretability method shifts from creating a faithful explanation for the reasoning of the model, to giving an ”explanation” that best agrees with human reasoning for the text-prediction pair. The result is that high scoring interpretability methods could suffer from the disastrous problem of giving convincing explanations which do not match the reasoning of the classiﬁcation model. As noted by Jacovi and Goldberg (2020),",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03389,
+        -0.01701,
+        0.00022,
+        0.02758,
+        -0.00573
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "hods could suffer from the disastrous problem of giving convincing explanations which do not match the reasoning of the classiﬁcation model. As noted by Jacovi and Goldberg (2020),",
+      "overlap_with_next": " excluded for different classiﬁers, which leads to different versions of the dataset being used for different interpretability methods, calling compara- bility into question. We us",
+      "text": "hods could suffer from the disastrous problem of giving convincing explanations which do not match the reasoning of the classiﬁcation model. As noted by Jacovi and Goldberg (2020), a plausible but unfaithful explanation may be the worst-case sce- nario, promoting trust in a prediction even if it is 1The code for this work is available on GitHub and de- signed such that researchers can easily apply it to assess their own interpretability algorithms. Appendix A gives an overview of the code structure. not warranted. Further, since they do not provide a model to interpret, the benchmark results may become pol- luted: If wrong model predictions are not excluded from the benchmark, advances in classiﬁcation ac- curacy lead to advances in interpretation perfor- mance. This is because we cannot expect the ratio- nale for a faulty prediction to be the same as for a correct one, which is used as ground truth. If this problem is addressed by excluding samples with wrong model predictions, then different samples are excluded for different classiﬁers, which leads to different versions of the dataset being used for different interpretability methods, calling compara- bility into question. We us",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02365,
+        -0.03355,
+        -0.01655,
+        0.02503,
+        -0.00081
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": " excluded for different classiﬁers, which leads to different versions of the dataset being used for different interpretability methods, calling compara- bility into question. We us",
+      "overlap_with_next": "n answer span to a given question has to be identiﬁed in a text. Note that while we will later use this approach on two speciﬁc datasets for QUACKIE, the approach is general and ap",
+      "text": " excluded for different classiﬁers, which leads to different versions of the dataset being used for different interpretability methods, calling compara- bility into question. We use a different approach to combat the issue of ground truth interpretability labels. Instead of annotating ground truth interpretability labels for an existing classiﬁcation task, we develop a clas- siﬁcation task for which ground-truth importance labels arise directly from the problem deﬁnition. If the model is successful in classiﬁcation, it must base its prediction on these rationales. We also ad- dress the problem of benchmark pollution by pro- viding trained classiﬁcation models, which achieve good classiﬁcation performance and ensure a level playing ﬁeld. In the next section, we will provide an descrip- tion of how this classiﬁcation task is created as well as explain the metrics used. 3 Approach We will now present our interpretability evalua- tion approach for NLP. It is based on the question- answering (QA) task, where an answer span to a given question has to be identiﬁed in a text. Note that while we will later use this approach on two speciﬁc datasets for QUACKIE, the approach is general and ap",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04373,
+        -0.02094,
+        0.01328,
+        0.04007,
+        -0.0255
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "n answer span to a given question has to be identiﬁed in a text. Note that while we will later use this approach on two speciﬁc datasets for QUACKIE, the approach is general and ap",
+      "overlap_with_next": "ll again to Byzantine hands. Some Questions When did the Normans attack Dyrrachium? 1185 Where was Dyrrachium located? the Adriatic Who attacked Dyrrachium in the 11th century? No ",
+      "text": "n answer span to a given question has to be identiﬁed in a text. Note that while we will later use this approach on two speciﬁc datasets for QUACKIE, the approach is general and applicable for any QA dataset, pro- vided it contains the answers’ location in the text and single sentence reasoning can be assumed. 3.1 Ground Truth Construction 3.1.1 The Question-Answering Task We base our evaluation procedure on an extractive question answering task, where the answer needs not necessarily be in the context. A model is trained to extract the answer A to a question Q from a given textual contextC. However, it is also possible that there is no answer in the context, a fact which models also have to identify. In other words, the [Page 3] Context The further decline of Byzantine state-of-affairs paved the road to a third attack in 1185, when a large Norman army invaded Dyrrachium, owing to the betrayal of high Byzantine ofﬁcials. Some time later, Dyrrachium—one of the most important naval bases of the Adriatic —fell again to Byzantine hands. Some Questions When did the Normans attack Dyrrachium? 1185 Where was Dyrrachium located? the Adriatic Who attacked Dyrrachium in the 11th century? No ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02384,
+        -0.01393,
+        -0.02046,
+        -0.00998,
+        -0.0214
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ll again to Byzantine hands. Some Questions When did the Normans attack Dyrrachium? 1185 Where was Dyrrachium located? the Adriatic Who attacked Dyrrachium in the 11th century? No ",
+      "overlap_with_next": "ontaining the answer. In other words, the most important sentence for knowing that an answer is in the context is the sentence containing the answer. While this seems trivial, this",
+      "text": "ll again to Byzantine hands. Some Questions When did the Normans attack Dyrrachium? 1185 Where was Dyrrachium located? the Adriatic Who attacked Dyrrachium in the 11th century? No Answer Figure 1: An sample of questions-answers from SQuAD 2.0 (Rajpurkar et al., 2018),Normans from val- idation set QA model f is trained to predict f (Q,C) = {A A⊆C ∅ otherwise . (1) Due to the nature of the extractive question- answering task, the ground truth answer is not only supplied as text, but also its span in the context is given in most datasets (Examples Figure 1). This can be leveraged to identify the sentence containing the answer to the question. 3.1.2 Classiﬁcation Task Based on Question-Answering The answer to the question and its surroundings must certainly be some of the most important parts for correctly detecting the answer and consequently the presence of an answer in the context. This suggests that a model trained on predicting if an answer is present in the context must place its focus on the sentence containing the answer. In other words, the most important sentence for knowing that an answer is in the context is the sentence containing the answer. While this seems trivial, this",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02528,
+        0.02012,
+        -0.03057,
+        -0.00887,
+        -0.01777
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ontaining the answer. In other words, the most important sentence for knowing that an answer is in the context is the sentence containing the answer. While this seems trivial, this",
+      "overlap_with_next": "dicator function. A visual depic- tion of this can be seen in Figure 2. Then, interpretability is performed to identify the most important sentence for samples where the answer is ",
+      "text": "ontaining the answer. In other words, the most important sentence for knowing that an answer is in the context is the sentence containing the answer. While this seems trivial, this intuition can be leveraged to construct a classiﬁcation task with ground truth interpretability labels. We build a classiﬁcation task g on top of an existing question- answering dataset, where models have to predict if the answer to the question is in the context or not. For this, we view the question as ﬁxed for each question-context pair, thus building a classiﬁcation task with only the context as input. An already Question (Q) Context (C) Q&AModel Answer (A) A⁄ = 0? Figure 2: Illustration of the SQuAD experiment: Black/Grey: The Question-Answering Problem with the pretrained Model f, Blue: Our proposed classiﬁ- cation task for evaluating NLP interpretability methods (g). trained QA model is used, which means no training is needed: g(C) = 1{f (Q,C)⁄=∅} (2) where f is according to the deﬁnition in Equation 1 and 1{·} is the indicator function. A visual depic- tion of this can be seen in Figure 2. Then, interpretability is performed to identify the most important sentence for samples where the answer is ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04709,
+        0.00542,
+        0.02095,
+        0.01888,
+        -0.00243
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "dicator function. A visual depic- tion of this can be seen in Figure 2. Then, interpretability is performed to identify the most important sentence for samples where the answer is ",
+      "overlap_with_next": "e with the answer will remove the answer, resulting in the answer no longer being present in the text. The question is thus no longer answerable, leading to a change in prediction.",
+      "text": "dicator function. A visual depic- tion of this can be seen in Figure 2. Then, interpretability is performed to identify the most important sentence for samples where the answer is in the context. This prediction is com- pared to the ground truth: the sentence containing the answer. Note that only the correctly classiﬁed samples are used (True Positive). This is because, looking at the confusion matrix, True Negative and False Positive cannot be considered since no ground truth can be derived from the underlying dataset (since no answer exists). We also exclude False Negative samples, since the obtained ground truth is for a different prediction than the one being made. One may think that this evaluation procedure is in fact a case of What should the model do? eval- uation. However, in the original SQuAD paper (Rajpurkar et al., 2016), authors ﬁnd that in the ma- jority of cases (86.4%), single sentence reasoning is sufﬁcient to ﬁnd the answer. Further, employing an erasure based view, removing the sentence with the answer will remove the answer, resulting in the answer no longer being present in the text. The question is thus no longer answerable, leading to a change in prediction.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02466,
+        -0.01395,
+        -0.01141,
+        -0.01187,
+        -0.01046
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "e with the answer will remove the answer, resulting in the answer no longer being present in the text. The question is thus no longer answerable, leading to a change in prediction.",
+      "overlap_with_next": "ge model, which only argues based on the text, can know that the answer to the question is in the con- text by looking at the rationale ”capital of France is”: The reasoning is not",
+      "text": "e with the answer will remove the answer, resulting in the answer no longer being present in the text. The question is thus no longer answerable, leading to a change in prediction. This implies that the sentence containing the answer must be the most important one for a positive prediction. A quantitative test of this is given in Section 4 for the datasets used in QUACKIE. 3.1.3 Sentence as Ground Truth Many interpretability methods provide word-based explanations. It would thus seem natural to di- rectly take the answer itself as ground truth and [Page 4] not the whole sentence containing it. However, we argue that the answer itself is not an appropriate interpretability ground truth. Consider the question ”What is the capital of France?” and a context con- taining the sentence ”[...] The capital of France is Paris. [...]”. We cannot expect a classiﬁer to know that the question is answerable with just ”Paris” as the rationale, since this requires external knowl- edge. However, it would seem that a language model, which only argues based on the text, can know that the answer to the question is in the con- text by looking at the rationale ”capital of France is”: The reasoning is not",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00727,
+        0.02956,
+        0.01387,
+        -0.00059,
+        -0.01271
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ge model, which only argues based on the text, can know that the answer to the question is in the con- text by looking at the rationale ”capital of France is”: The reasoning is not",
+      "overlap_with_next": "owever, we believe it is important to use metrics that accommodate for the nuances in attributions, which is why we propose three metrics for the three levels of infor- mation: sel",
+      "text": "ge model, which only argues based on the text, can know that the answer to the question is in the con- text by looking at the rationale ”capital of France is”: The reasoning is not based on the answer itself, but on its surrounding. To account for this, we use sentences as ground truth. Interpretability methods producing explanations of other granularity (e.g. words) should aggregate them to the sentence level. For the baselines examined in our benchmark, it is not clear how the token scores should be combined into a sentence score, arguments can be made for both taking the maximum score and summing the scores in each sentence. We thus test both methods in our benchmark. 3.2 Metrics Interpretability algorithms may attribute impor- tance to inputs in a variety of ways: By attributing scores to input tokens, by ranking tokens accord- ing to their importance or by selecting important vs unimportant tokens. Of course, scores can be used to produce a ranking, and the ranking can be used to perform selection. However, we believe it is important to use metrics that accommodate for the nuances in attributions, which is why we propose three metrics for the three levels of infor- mation: sel",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01081,
+        0.00219,
+        0.0248,
+        0.01447,
+        0.0045
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "owever, we believe it is important to use metrics that accommodate for the nuances in attributions, which is why we propose three metrics for the three levels of infor- mation: sel",
+      "overlap_with_next": "s the most important sentence, it should be among the highest in the ranking. To measure this property, we propose HPD (Highest Precision for Detection). Instead of selecting the m",
+      "text": "owever, we believe it is important to use metrics that accommodate for the nuances in attributions, which is why we propose three metrics for the three levels of infor- mation: selection, ranking and scoring. All of them are aggregated across samples by reporting their mean. 3.2.1 IoU for Evaluating Selections Given a ground truth sentence and one or more se- lected sentences, we use the IoU (Intersection over Union) between them as score. If the interpreter selects only one sentence, then the IoU is either 0 or 1, thus after aggregation reﬂecting the accuracy of detection. Given binary vectors of selection and ground truth (s and g) respectively, the score is: IoU = ∑(s∧ g)∑(s∨ g) , where∑ signiﬁes summing over all entries, with True being 1 and False being 0. This metric reﬂects how well the ground truth is detected. 3.2.2 HPD for Evaluating Rankings If a ranking of sentences is provided by the inter- preter, then we may leverage this for more detailed scoring: Even if the ground truth is not detected as the most important sentence, it should be among the highest in the ranking. To measure this property, we propose HPD (Highest Precision for Detection). Instead of selecting the m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00844,
+        -0.02811,
+        -0.03309,
+        0.00948,
+        0.01591
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "s the most important sentence, it should be among the highest in the ranking. To measure this property, we propose HPD (Highest Precision for Detection). Instead of selecting the m",
+      "overlap_with_next": " score than the rest. This can be measured with an adapted SNR (signal to noise ratio), which we deﬁne as follows: Denote s the scores of the sentences and GT the index of the grou",
+      "text": "s the most important sentence, it should be among the highest in the ranking. To measure this property, we propose HPD (Highest Precision for Detection). Instead of selecting the most important sentence as prediction, we select the K-most important ones, where K is the rank of the ground truth. For this selection, the precision is reported. Given a rank- ing of sentences in decreasing importance r and ground truth sentence GT : HP D = min k 1 k s.t GT∈ rk1 This metric measures how highly ranked the ground truth is. 3.2.3 SNR for Evaluating Scores When scores are provided, we cannot simply com- pare them to a common target, since scores from different interpretability methods mean different things: Saliency scores reﬂect the aggregated local gradient, while Integrated Gradient scores reﬂect the aggregated effects on a the transition from a baseline to the text sample. However, since we know that only one sentence is important, while the rest is not, we would like this sentence to have a signiﬁcantly higher score than the rest. This can be measured with an adapted SNR (signal to noise ratio), which we deﬁne as follows: Denote s the scores of the sentences and GT the index of the grou",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03658,
+        0.00321,
+        -0.00455,
+        0.01443,
+        -0.01694
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " score than the rest. This can be measured with an adapted SNR (signal to noise ratio), which we deﬁne as follows: Denote s the scores of the sentences and GT the index of the grou",
+      "overlap_with_next": "ZON QA 5066 6857 8317 5121 5910 CLASSIF 5597 7494 9444 7882 8321 Number of Samples Used in each Dataset MODEL SQUAD N EW WIKI NYT R EDDIT AMAZON QA 5.32 5.06 5.86 8.75 7.64 CLASSIF",
+      "text": " score than the rest. This can be measured with an adapted SNR (signal to noise ratio), which we deﬁne as follows: Denote s the scores of the sentences and GT the index of the ground truth sentence. Denote sGT the score of the ground truth sentence and s\\GT the scores of all other sentences. Using mean and std, the mean and standard deviation, we deﬁne: SN R = (sGT− mean(s\\GT ))2 std(s\\GT )2 This metric measures the selectivity of the interpre- tation. Note that while the other metrics directly reﬂect performance, this metric could in theory be optimized for, by decreasing the standard devi- ation of sentences predicted as non-important in post-processing. Nonetheless, we believe that inter- esting conclusions can be drawn from this metric. [Page 5] Since IoU and HPD both measure how well the explanation reﬂects model behaviour, while SNR reﬂects selectiveness of the scores, we see IoU and HPD as primary metrics, which SNR as an additional, secondary metric. 4 QUACKIE MODEL SQUAD N EW WIKI NYT R EDDIT AMAZON QA 5066 6857 8317 5121 5910 CLASSIF 5597 7494 9444 7882 8321 Number of Samples Used in each Dataset MODEL SQUAD N EW WIKI NYT R EDDIT AMAZON QA 5.32 5.06 5.86 8.75 7.64 CLASSIF",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08182,
+        -0.01312,
+        -0.03389,
+        0.00794,
+        -0.00494
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "ZON QA 5066 6857 8317 5121 5910 CLASSIF 5597 7494 9444 7882 8321 Number of Samples Used in each Dataset MODEL SQUAD N EW WIKI NYT R EDDIT AMAZON QA 5.32 5.06 5.86 8.75 7.64 CLASSIF",
+      "overlap_with_next": "act task explained in Section 3.1. SQuADShifts (Miller et al., 2020) gives 4 new test sets from different domains for SQuAD: New Wiki (other Wikipedia Contexts), NYT (New York Time",
+      "text": "ZON QA 5066 6857 8317 5121 5910 CLASSIF 5597 7494 9444 7882 8321 Number of Samples Used in each Dataset MODEL SQUAD N EW WIKI NYT R EDDIT AMAZON QA 5.32 5.06 5.86 8.75 7.64 CLASSIF 5.32 5.05 5.92 8.81 7.74 Average Number of Sentences MODEL SQUAD N EW WIKI NYT R EDDIT AMAZON QA 0.79 0.86 0.91 0.56 0.75 CLASSIF 0.82 0.97 0.96 0.88 0.88 Classiﬁer Accuracy Table 1: Descriptive Statistics of Datasets Used So far we have presented the methodology for extracting ground-truths for classiﬁcation inter- pretability evaluation from QA datasets and intro- duced the metrics. We apply this methodology to two datasets in order to propose a new bench- mark for interpretability evaluation; QUACKIE2. We further provide two pretrained models to inter- pret. Finally, we perform a dataset analysis as well as examining the accuracy of the ground truth. 4.1 Datasets We use two datasets in our benchmark: SQuAD 2.0 (Rajpurkar et al., 2018) is a ques- tion answering dataset based on a selection of Wikipedia articles. It has the exact task explained in Section 3.1. SQuADShifts (Miller et al., 2020) gives 4 new test sets from different domains for SQuAD: New Wiki (other Wikipedia Contexts), NYT (New York Time",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03902,
+        -0.02489,
+        -0.03082,
+        -0.03332,
+        -0.02641
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "act task explained in Section 3.1. SQuADShifts (Miller et al., 2020) gives 4 new test sets from different domains for SQuAD: New Wiki (other Wikipedia Contexts), NYT (New York Time",
+      "overlap_with_next": "s, we perform a softmax to get probabili- ties for start- and end-tokens. From these, we can deduct the probability of no answer being present (invalid span or answer in question o",
+      "text": "act task explained in Section 3.1. SQuADShifts (Miller et al., 2020) gives 4 new test sets from different domains for SQuAD: New Wiki (other Wikipedia Contexts), NYT (New York Times Articles), Reddit (Reddit Posts) and Amazon (Amazon Reviews). The aim is to provide different semantic contexts for SQuAD. However, in this dataset the answer is always in the context. Since we use pretrained models from SQuAD 2.0, this is not a problem. 2QUACKIE stands for QUestion and Answering for Classiﬁcation tasK Interpretability Evaluation 4.2 Classiﬁcation Models We use two pretrained models which are available in the HuggingFace Transformers library (Wolf et al., 2020) and were trained on SQuAD 2.0. The ﬁrst model is a RoBERTa (Liu et al., 2019) based classiﬁer3 which was directly trained on the classiﬁcation problem g(·) from Equation 2. It is hereafter named ”Classif” model. The second model is an ALBERT (Lan et al., 2019) question answering model 4, trained on the task f (·,·) from Equation 1. From the output scores, we perform a softmax to get probabili- ties for start- and end-tokens. From these, we can deduct the probability of no answer being present (invalid span or answer in question o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04893,
+        -0.00437,
+        -0.01878,
+        0.00156,
+        -0.01826
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "s, we perform a softmax to get probabili- ties for start- and end-tokens. From these, we can deduct the probability of no answer being present (invalid span or answer in question o",
+      "overlap_with_next": "ectively. See Table 1 for the full results. With the exception of the QA model on Reddit (marked in bold), accuracy and recall are consistently high, suggesting that model predicti",
+      "text": "s, we perform a softmax to get probabili- ties for start- and end-tokens. From these, we can deduct the probability of no answer being present (invalid span or answer in question or CLS token). It is hereafter named ”QA” model. 4.3 Descriptive Statistics As mentioned before, we only use True Positive predictions for interpretability analysis. Further, some samples are discarded because their tokeniza- tion is too long for the models (Question + Context > 512 tokens). This results in a different number of samples usable for the different classiﬁers and datasets. To get a sense of the datasets used, we give the number of samples and average number of sentences for each dataset (after ﬁltering). We also report the accuracy of the models over the whole dataset (positive and negative samples). Since the SQuADShifts datasets only contain positives, the recall (fraction of correctly predicted positive sam- ples) is equal to the accuracy. For SQuAD, the re- call is 0.91 and 0.82 for the Classif and QA models respectively. See Table 1 for the full results. With the exception of the QA model on Reddit (marked in bold), accuracy and recall are consistently high, suggesting that model predicti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04781,
+        -0.01281,
+        -0.02602,
+        -0.01465,
+        -0.01453
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ectively. See Table 1 for the full results. With the exception of the QA model on Reddit (marked in bold), accuracy and recall are consistently high, suggesting that model predicti",
+      "overlap_with_next": "robability output of the model. In the second experiment, we remove the rest of the text and only keep the sentence contain- ing the answer. We again observe the change in probabil",
+      "text": "ectively. See Table 1 for the full results. With the exception of the QA model on Reddit (marked in bold), accuracy and recall are consistently high, suggesting that model predictions can be trusted, making them good candidates for interpretation benchmarking. 4.4 Ground Truth Veriﬁcation In the original SQuAD paper (Rajpurkar et al., 2016), the authors perform an analysis into the type of reasoning required for ﬁnding the answer and ﬁnd that in the majority of cases (86.4%), only single sentence reasoning is necessary. This moti- vated us to use the sentence containing the answer 3https://huggingface.co/a-ware/ roberta-large-squad-classification 4https://huggingface.co/twmkn9/ albert-base-v2-squad2 [Page 6] as ground-truth. We will however now evaluate this ground truth with two experiments: The experiments used are similar to the metrics comprehensiveness and sufﬁciency used by DeY- oung et al. (2019). In the ﬁrst experiment, we remove the sentence containing the ground truth and observe the change in probability output of the model. In the second experiment, we remove the rest of the text and only keep the sentence contain- ing the answer. We again observe the change in probabil",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04942,
+        0.00621,
+        -0.02503,
+        -0.01687,
+        -0.01103
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "robability output of the model. In the second experiment, we remove the rest of the text and only keep the sentence contain- ing the answer. We again observe the change in probabil",
+      "overlap_with_next": "not an agreement on the problem formula- tion of NLP interpretability. This means that many approaches use different deﬁnitions, resulting in differing types of outputs and assumpt",
+      "text": "robability output of the model. In the second experiment, we remove the rest of the text and only keep the sentence contain- ing the answer. We again observe the change in probability output. The results are given in Table 2, the probability output without removing anything can be seen in Appendix B. Note that for the classi- ﬁcation model, predictions are very discriminative, which results in the change in probability being either 0 or 1. Nonetheless, we observe for both datasets that removing the ground truth results in a much bigger decrease in probability than removing all the rest. This suggests that our ground-truth la- bels are accurate, since the ground truth rationales are necessary (comprehensiveness) and sufﬁcient (sufﬁciency) for prediction. 5 Baselines Having formulated our benchmark, we will now give a selection of interpretability algorithms which we compare in order to lay a foundation for the comparison of interpretability approaches with QUACKIE. 5.1 Interpretability Algorithms There is not an agreement on the problem formula- tion of NLP interpretability. This means that many approaches use different deﬁnitions, resulting in differing types of outputs and assumpt",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02279,
+        -0.01908,
+        0.00671,
+        0.02885,
+        -0.031
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "not an agreement on the problem formula- tion of NLP interpretability. This means that many approaches use different deﬁnitions, resulting in differing types of outputs and assumpt",
+      "overlap_with_next": " of the output with respect to each input to- ken as the importance of the token. While saliency maps are a straight-forward solution to the attribu- tion problem, they have been o",
+      "text": "not an agreement on the problem formula- tion of NLP interpretability. This means that many approaches use different deﬁnitions, resulting in differing types of outputs and assumptions. As it was already stated in Section 1, we consider algo- rithms that map parts of the inputs to their impor- tances, essentially creating a heatmap (sometimes referred to as the attribution problem). We split the considered interpretability algorithms into 2 groups, based on the assumptions of model access: • White-Box approaches assume complete ac- cess to the model and its internals, notably access to gradients. • Black-Box approaches do not need access to model internals, the model is viewed as a black box. We do however allow access to probability outputs, a condition that is not al- ways necessary. We will now present the interpretability algorithms we considered. For a more detailed explanation of the approaches, refer to their original papers. 5.1.1 White-Box Sailency Maps (Simonyan et al., 2013) report the gradient of the output with respect to each input to- ken as the importance of the token. While saliency maps are a straight-forward solution to the attribu- tion problem, they have been o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01118,
+        -0.01688,
+        0.00844,
+        0.04166,
+        -0.01748
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " of the output with respect to each input to- ken as the importance of the token. While saliency maps are a straight-forward solution to the attribu- tion problem, they have been o",
+      "overlap_with_next": "on problem by approximating the path integral of the gradients between a baseline reference and the input to explain. Multiplication by the inputs is used, the ﬁnal scores are aggr",
+      "text": " of the output with respect to each input to- ken as the importance of the token. While saliency maps are a straight-forward solution to the attribu- tion problem, they have been observed to create noisy attributions (Smilkov et al., 2017). The gradi- ent is aggregated for each token by summing over all the dimensions. Saliency maps are the simplest attribution method based on gradients and often used as baseline for gradient-based methods. SmoothGrad/NoiseTunnel (Smilkov et al., 2017) aims to address the issue of noise by aver- aging the attributions from multiple similar inputs, which are created by adding small amounts of noise to the original input. The gradient is aggregated for each token by summing over all the dimensions. SmootGrad is a widely used approach, as its ap- proach of removing noise by adding noise has been shown to reduce noise in attributions, making it a viable candidate for benchmarking. Integrated Gradients (Sundararajan et al., 2017) follow an axiomatic approach to the attri- bution problem by approximating the path integral of the gradients between a baseline reference and the input to explain. Multiplication by the inputs is used, the ﬁnal scores are aggr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00678,
+        0.01092,
+        -0.00546,
+        0.00138,
+        -0.0104
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "on problem by approximating the path integral of the gradients between a baseline reference and the input to explain. Multiplication by the inputs is used, the ﬁnal scores are aggr",
+      "overlap_with_next": "nel for the weighted regression. Since [Page 7] Model SQuAD New Wiki NYT Reddit Amazon QA -0.70 -0.67 -0.73 -0.63 -0.62 Classif -0.62 -0.60 -0.68 -0.54 -0.56 Remove Ground Truth (C",
+      "text": "on problem by approximating the path integral of the gradients between a baseline reference and the input to explain. Multiplication by the inputs is used, the ﬁnal scores are aggregated across token di- mensions taking the sum. The axiomatic approach makes Integrated Gradients an interesting addition to our benchmark. For all Black-Box methods, we use the proba- bility of the answerable class as target for gradient computation. 5.1.2 Black-Box LIME (Ribeiro et al., 2016) uses a weighted lin- ear regression to locally approximate the decision function. A local dataset is created by randomly removing some words from the text. After ﬁtting the weighted linear regression, the coefﬁcients are used as word-attributions. We use LIME in our benchmark since it is widely used and a staple in black-box interpretability. SHAP (Lundberg and Lee, 2017) follows the same approach as LIME and constructs a local linear approximation of the decision function. It utilizes methods from cooperative game-theory to derive a kernel for the weighted regression. Since [Page 7] Model SQuAD New Wiki NYT Reddit Amazon QA -0.70 -0.67 -0.73 -0.63 -0.62 Classif -0.62 -0.60 -0.68 -0.54 -0.56 Remove Ground Truth (C",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0468,
+        -0.02334,
+        -0.00727,
+        -0.01416,
+        -0.00693
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "nel for the weighted regression. Since [Page 7] Model SQuAD New Wiki NYT Reddit Amazon QA -0.70 -0.67 -0.73 -0.63 -0.62 Classif -0.62 -0.60 -0.68 -0.54 -0.56 Remove Ground Truth (C",
+      "overlap_with_next": "eﬂected by the consistently higher scores of Saliency and Smooth- grad. Further, the performance of Black-Box mod- els LIME and SHAP increases signiﬁcantly with the number of sampl",
+      "text": "nel for the weighted regression. Since [Page 7] Model SQuAD New Wiki NYT Reddit Amazon QA -0.70 -0.67 -0.73 -0.63 -0.62 Classif -0.62 -0.60 -0.68 -0.54 -0.56 Remove Ground Truth (Comprehensiveness) Model SQuAD New Wiki NYT Reddit Amazon QA -0.04 -0.04 -0.05 -0.04 -0.05 Classif -0.03 -0.03 -0.04 -0.18 -0.11 Only Keep Ground Truth (Sufﬁciency) Table 2: Average Change in Probability Output SHAP provides guarantees under certain assump- tions, it is interesting to look at it as a baseline. 5.1.3 Baseline The algorithms are compared to a random baseline, which creates a random ordering of sentences, by attributing them with evenly spaced scores from 0 to nwords− 1. 5.2 Results Figure 3 displays the results on the SQuAD 2.0 dataset in visual form. Complete Results in tabu- lar form can be found in Appdendix C. We com- pare the interpretation approaches with different aggregation methods (sum and max, as stated in Section 3.1.3). First, we observe that model access can greatly improve the explanation accuracy, reﬂected by the consistently higher scores of Saliency and Smooth- grad. Further, the performance of Black-Box mod- els LIME and SHAP increases signiﬁcantly with the number of sampl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05736,
+        -0.02974,
+        -0.01139,
+        -0.02749,
+        -0.01471
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "eﬂected by the consistently higher scores of Saliency and Smooth- grad. Further, the performance of Black-Box mod- els LIME and SHAP increases signiﬁcantly with the number of sampl",
+      "overlap_with_next": "ise, which increases the SNR. 5Experiments were carried out on an AWS SageMaker instance with 1/2 Nvidia Tesla K80 6 Related Work and Discussion Most work in evaluating rationales ",
+      "text": "eﬂected by the consistently higher scores of Saliency and Smooth- grad. Further, the performance of Black-Box mod- els LIME and SHAP increases signiﬁcantly with the number of samples used. Evaluation with the default number of samples was not possible due to computational limitations: Evaluation with a neigh- borhood of 100 samples took around 10h for LIME on only SQuAD 2.0 for 1 classiﬁer5, using the de- fault value of 5000 samples seems infeasible with reasonable computational resources, as we expect it to take close to 200 days only for LIME on a single GPU instance. We further note, surprisingly, that SmoothGrad does not seem to bring much improve- ment over standard Saliency using gradients. We attribute this to the fact that noise reduction is al- ready occurring by averaging the scores over token dimensions and over the sentences. Finally, note that both LIME and SHAP use LASSO regression as a surrogate, which results in the attribution of a score of 0 to unimportant sentences, thus reducing the noise, which increases the SNR. 5Experiments were carried out on an AWS SageMaker instance with 1/2 Nvidia Tesla K80 6 Related Work and Discussion Most work in evaluating rationales ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0545,
+        -0.02294,
+        0.01191,
+        -0.03258,
+        -0.00198
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "ise, which increases the SNR. 5Experiments were carried out on an AWS SageMaker instance with 1/2 Nvidia Tesla K80 6 Related Work and Discussion Most work in evaluating rationales ",
+      "overlap_with_next": "nal met- rics comprehensiveness and sufﬁciency, which mea- sure change in model prediction when removing the rationale and only keeping the rationale. Our approach also aims to add",
+      "text": "ise, which increases the SNR. 5Experiments were carried out on an AWS SageMaker instance with 1/2 Nvidia Tesla K80 6 Related Work and Discussion Most work in evaluating rationales has been done by comparing rationales to human judge- ments (Doshi-Velez and Kim, 2017; Strout et al., 2019) or by letting humans evaluate the expla- nations (Ribeiro et al., 2016; Lundberg and Lee, 2017). While this approach measures the plausi- bility of interpretations, it does not guarantee that explanations actually reﬂect model behaviour. Ja- covi and Goldberg (2020) performs an in-depth analysis on the state of current NLP interpretability evaluation approaches and desired future proper- ties, notably the need to evaluate faithfulness, as plausible but unfaithful explanations are arguably the worst-case scenario. However, it would seem that all evaluation methodology based on human- annotated ground truth labels is biased towards plausibility by construction. DeYoung et al. (2019) address this problem by using the additional met- rics comprehensiveness and sufﬁciency, which mea- sure change in model prediction when removing the rationale and only keeping the rationale. Our approach also aims to add",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04733,
+        -0.02267,
+        -0.00381,
+        0.02961,
+        -0.01997
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "nal met- rics comprehensiveness and sufﬁciency, which mea- sure change in model prediction when removing the rationale and only keeping the rationale. Our approach also aims to add",
+      "overlap_with_next": "al for advances in black-box interpretability. Finally, we note that the results and descriptive statistics for the Reddit and Amazon datasets are [Page 8] Gradient 5 SmoothGrad 50",
+      "text": "nal met- rics comprehensiveness and sufﬁciency, which mea- sure change in model prediction when removing the rationale and only keeping the rationale. Our approach also aims to address the bias towards plau- sibility, but instead of addressing the problem with metrics, we build a classiﬁcation task for which interpretability ground truth labels arise directly without human annotation. To our knowledge, it is the ﬁrst approach to propose unbiased ground truths for rationales. The take-away from our benchmark results is two-fold. First, for practitioners, with the current state of the art we see that model access should be used if possible, as it is able to signiﬁcantly increase the ﬁdelity of explanations. However this access is not always possible, in particular with complex text processing pipelines. Thus, for researchers, as Black-Box models lag behind gradient-based methods by a substantial amount, especially with limited computational capacity (10 samples), it seems that there is still a large potential for advances in black-box interpretability. Finally, we note that the results and descriptive statistics for the Reddit and Amazon datasets are [Page 8] Gradient 5 SmoothGrad 50",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03636,
+        -0.03217,
+        -0.00277,
+        0.00365,
+        -0.0008
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "al for advances in black-box interpretability. Finally, we note that the results and descriptive statistics for the Reddit and Amazon datasets are [Page 8] Gradient 5 SmoothGrad 50",
+      "overlap_with_next": " max Figure 3: Benchmark Results on SQuAD 2.0 quite different from the other datasets (Table 1, 2). We hypothesize that this is because they contain user-generated content, which h",
+      "text": "al for advances in black-box interpretability. Finally, we note that the results and descriptive statistics for the Reddit and Amazon datasets are [Page 8] Gradient 5 SmoothGrad 50 IntegratedGrad 10 LIME 100 10 SHAP 100 0.0 0.2 0.4 0.6 0.8 1.0QA Intersection Over Union (IoU) Aggregation sum max Gradient 5 SmoothGrad 50 IntegratedGrad 10 LIME 100 10 SHAP 100 0.0 0.2 0.4 0.6 0.8 1.0 Highest Precision for Detection (HPD) Aggregation sum max Gradient 5 SmoothGrad 50 IntegratedGrad 10 LIME 100 10 SHAP 100 0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75 Signal to Noise Ratio (SNR) Aggregation sum max Gradient 5 SmoothGrad 50 IntegratedGrad 10 LIME 100 10 SHAP 100 0.0 0.2 0.4 0.6 0.8 1.0Classif Intersection Over Union (IoU) Aggregation sum max Gradient 5 SmoothGrad 50 IntegratedGrad 10 LIME 100 10 SHAP 100 0.0 0.2 0.4 0.6 0.8 1.0 Highest Precision for Detection (HPD) Aggregation sum max Gradient 5 SmoothGrad 50 IntegratedGrad 10 LIME 100 10 SHAP 100 0.0 0.2 0.4 0.6 0.8 1.0 1.2 Signal to Noise Ratio (SNR) Aggregation sum max Figure 3: Benchmark Results on SQuAD 2.0 quite different from the other datasets (Table 1, 2). We hypothesize that this is because they contain user-generated content, which h",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02601,
+        -0.05118,
+        -0.01148,
+        -0.02595,
+        0.00629
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": " max Figure 3: Benchmark Results on SQuAD 2.0 quite different from the other datasets (Table 1, 2). We hypothesize that this is because they contain user-generated content, which h",
+      "overlap_with_next": "y for researchers to compare their approach to the state of the art. The publica- tion of these results can also aid NLP practitioners in selecting a suitable interpretability appr",
+      "text": " max Figure 3: Benchmark Results on SQuAD 2.0 quite different from the other datasets (Table 1, 2). We hypothesize that this is because they contain user-generated content, which has different proper- ties that standard text (Eisenstein, 2013). 7 Conclusion In this work, we proposed a novel model-agnostic NLP interpretability evaluation methodology for text classiﬁcation. Our methodology allows for a ground truth that arises directly from the deﬁnition of the classiﬁcation task to be interpreted. Further, it avoids biases of current state of the art evalu- ation methodologies based on human’s intuition. We used this methodology to develop a bench- mark based on two different Question-Answering datasets with a variety of semantic contexts. We publish our code, data and models to facili- tate testing of future methods, which will hopefully lead to the continuous comparison of interpretabil- ity approaches. By providing results on a range of currently available interpretability methods, we provide an easy way for researchers to compare their approach to the state of the art. The publica- tion of these results can also aid NLP practitioners in selecting a suitable interpretability appr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0772,
+        -0.02359,
+        -0.00719,
+        0.01791,
+        0.00412
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "y for researchers to compare their approach to the state of the art. The publica- tion of these results can also aid NLP practitioners in selecting a suitable interpretability appr",
+      "overlap_with_next": " Chang, Kenton Lee, and Kristina Toutanova. 2019. Bert: Pre-training of deep bidirectional transformers for language under- standing. In Proceedings of the 2019 Conference of the N",
+      "text": "y for researchers to compare their approach to the state of the art. The publica- tion of these results can also aid NLP practitioners in selecting a suitable interpretability approach. We encourage researchers to submit their results6, as it helps the community keep track of the advances in NLP interpretability. 6Researchers may make a pull request on GitHub with their results. Website: https://axa-rev-research. github.io/quackie/ Acknowledgements We would like to thank Travis McGuire (hugging- face ID TWMKN 9) and A-Ware UG (huggingface ID A-WARE) for publishing their pretrained models, which we use for our benchmark. Djam ´e Seddah was party founded by the French National Research Agency via the ANR ParSiTi project (ANR-16- CE33-002). References Tom B Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. 2020. Language models are few-shot learners. arXiv preprint arXiv:2005.14165. Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. Bert: Pre-training of deep bidirectional transformers for language under- standing. In Proceedings of the 2019 Conference of the N",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07546,
+        -0.03634,
+        0.00206,
+        0.01519,
+        -0.04458
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " Chang, Kenton Lee, and Kristina Toutanova. 2019. Bert: Pre-training of deep bidirectional transformers for language under- standing. In Proceedings of the 2019 Conference of the N",
+      "overlap_with_next": " we deﬁne and evaluate faithfulness? arXiv preprint arXiv:2004.03685. Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, and Radu Soricut. 2019. Albert: A ",
+      "text": " Chang, Kenton Lee, and Kristina Toutanova. 2019. Bert: Pre-training of deep bidirectional transformers for language under- standing. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Tech- nologies, Volume 1 (Long and Short Papers), pages 4171–4186. Jay DeYoung, Sarthak Jain, Nazneen Fatema Rajani, Eric Lehman, Caiming Xiong, Richard Socher, and Byron C Wallace. 2019. Eraser: A benchmark to evaluate rationalized nlp models. arXiv preprint arXiv:1911.03429. Finale Doshi-Velez and Been Kim. 2017. Towards a rigorous science of interpretable machine learning. arXiv preprint arXiv:1702.08608. [Page 9] Jacob Eisenstein. 2013. What to do about bad language on the internet. In Proceedings of the 2013 confer- ence of the North American Chapter of the associa- tion for computational linguistics: Human language technologies, pages 359–369. Alon Jacovi and Yoav Goldberg. 2020. Towards faith- fully interpretable nlp systems: How should we deﬁne and evaluate faithfulness? arXiv preprint arXiv:2004.03685. Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, and Radu Soricut. 2019. Albert: A ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06233,
+        -0.03907,
+        0.00983,
+        0.01556,
+        -0.00471
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " we deﬁne and evaluate faithfulness? arXiv preprint arXiv:2004.03685. Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, and Radu Soricut. 2019. Albert: A ",
+      "overlap_with_next": "els. arXiv preprint arXiv:2004.14444. Pranav Rajpurkar, Robin Jia, and Percy Liang. 2018. Know what you don’t know: Unanswerable ques- tions for squad. pages 784–789. Pranav Rajpur",
+      "text": " we deﬁne and evaluate faithfulness? arXiv preprint arXiv:2004.03685. Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, and Radu Soricut. 2019. Albert: A lite bert for self-supervised learn- ing of language representations. arXiv preprint arXiv:1909.11942. Q. Vera Liao, Daniel Gruen, and Sarah Miller. 2020. Questioning the AI: Informing Design Practices for Explainable AI User Experiences. Conference on Human Factors in Computing Systems - Proceed- ings. Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Man- dar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019. Roberta: A robustly optimized bert pretraining ap- proach. arXiv preprint arXiv:1907.11692. Scott M Lundberg and Su-In Lee. 2017. A uniﬁed approach to interpreting model predictions. In Ad- vances in neural information processing systems , pages 4765–4774. John Miller, Karl Krauth, Benjamin Recht, and Ludwig Schmidt. 2020. The effect of natural distribution shift on question answering models. arXiv preprint arXiv:2004.14444. Pranav Rajpurkar, Robin Jia, and Percy Liang. 2018. Know what you don’t know: Unanswerable ques- tions for squad. pages 784–789. Pranav Rajpur",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08567,
+        -0.01827,
+        -0.02725,
+        -0.00997,
+        -0.03637
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "els. arXiv preprint arXiv:2004.14444. Pranav Rajpurkar, Robin Jia, and Percy Liang. 2018. Know what you don’t know: Unanswerable ques- tions for squad. pages 784–789. Pranav Rajpur",
+      "overlap_with_next": "03825. Julia Strout, Ye Zhang, and Raymond J Mooney. 2019. Do human rationales improve machine expla- nations? arXiv preprint arXiv:1905.13714. Mukund Sundararajan, Ankur Taly, and",
+      "text": "els. arXiv preprint arXiv:2004.14444. Pranav Rajpurkar, Robin Jia, and Percy Liang. 2018. Know what you don’t know: Unanswerable ques- tions for squad. pages 784–789. Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang. 2016. Squad: 100,000+ questions for machine comprehension of text. In Proceedings of the 2016 Conference on Empirical Methods in Natu- ral Language Processing, pages 2383–2392. Marco Tulio Ribeiro, Sameer Singh, and Carlos Guestrin. 2016. ” why should i trust you?” explain- ing the predictions of any classiﬁer. In Proceed- ings of the 22nd ACM SIGKDD international con- ference on knowledge discovery and data mining , pages 1135–1144. Karen Simonyan, Andrea Vedaldi, and Andrew Zisser- man. 2013. Deep inside convolutional networks: Vi- sualising image classiﬁcation models and saliency maps. arXiv preprint arXiv:1312.6034. Daniel Smilkov, Nikhil Thorat, Been Kim, Fernanda Vi´egas, and Martin Wattenberg. 2017. Smoothgrad: removing noise by adding noise. arXiv preprint arXiv:1706.03825. Julia Strout, Ye Zhang, and Raymond J Mooney. 2019. Do human rationales improve machine expla- nations? arXiv preprint arXiv:1905.13714. Mukund Sundararajan, Ankur Taly, and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09272,
+        -0.03041,
+        -0.02854,
+        0.00333,
+        0.01105
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "03825. Julia Strout, Ye Zhang, and Raymond J Mooney. 2019. Do human rationales improve machine expla- nations? arXiv preprint arXiv:1905.13714. Mukund Sundararajan, Ankur Taly, and",
+      "overlap_with_next": "central part of the framework is the QAExperimenter. It can also be instantiated with SQuADExperimenter or SQuAD- ShiftsExperimenter, which automatically load the corresponding NLP",
+      "text": "03825. Julia Strout, Ye Zhang, and Raymond J Mooney. 2019. Do human rationales improve machine expla- nations? arXiv preprint arXiv:1905.13714. Mukund Sundararajan, Ankur Taly, and Qiqi Yan. 2017. Axiomatic attribution for deep networks. In Inter- national Conference on Machine Learning , pages 3319–3328. Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pier- ric Cistac, Tim Rault, R ´emi Louf, Morgan Funtow- icz, Joe Davison, Sam Shleifer, Patrick von Platen, Clara Ma, Yacine Jernite, Julien Plu, Canwen Xu, Teven Le Scao, Sylvain Gugger, Mariama Drame, Quentin Lhoest, and Alexander M. Rush. 2020. Transformers: State-of-the-art natural language pro- cessing. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations, pages 38–45, Online. Asso- ciation for Computational Linguistics. [Page 10] A Testing Custom Interpretability algorithms Figure 4 gives the UML class diagram of the ex- perimentation framework. The central part of the framework is the QAExperimenter. It can also be instantiated with SQuADExperimenter or SQuAD- ShiftsExperimenter, which automatically load the corresponding NLP",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07732,
+        -0.00485,
+        -0.02136,
+        -0.02434,
+        -0.0273
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "central part of the framework is the QAExperimenter. It can also be instantiated with SQuADExperimenter or SQuAD- ShiftsExperimenter, which automatically load the corresponding NLP",
+      "overlap_with_next": "andle -dataset: datasets Dataset +analyze() +describe() +experiment() +load() +save() +test_gt() SQuADExperimenter SQuADShiftsExperimenter Visual Paradigm Online Diagrams Express E",
+      "text": "central part of the framework is the QAExperimenter. It can also be instantiated with SQuADExperimenter or SQuAD- ShiftsExperimenter, which automatically load the corresponding NLP dataset. The user should provide the instantiated classiﬁcation model (from Model QA or Model Classiﬁcation) and interpreter func- tion. The interpreter function receives the model, question and context as arguments. It should produce a numpy array of importances, of the same length as the number of sentences in the context (using nltk.tokenize.sent tokenize). For information on how to use the model for other interpreters, one may refer to the implemented interpreters in the interpreters folder. The ﬁle run experiment.py can be used to run the experiment with custom interpreters, run sota.py was used to produce the results published here. Model -network: transformers model -tokenizer: transformers tokenizer -device: torch device +predict() +predict_proba() +predict_proba_torch() QAExperimenter -model: Model -interpreter: fctn handle -dataset: datasets Dataset +analyze() +describe() +experiment() +load() +save() +test_gt() SQuADExperimenter SQuADShiftsExperimenter Visual Paradigm Online Diagrams Express E",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03814,
+        0.00644,
+        -0.02301,
+        0.01165,
+        -0.03726
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "andle -dataset: datasets Dataset +analyze() +describe() +experiment() +load() +save() +test_gt() SQuADExperimenter SQuADShiftsExperimenter Visual Paradigm Online Diagrams Express E",
+      "overlap_with_next": "100 58.04 69.90 60.74 70.82 62.02 73.50 50.33 69.02 53.57 67.58 max 10 34.06 35.36 36.98 37.77 36.19 36.43 26.52 28.89 29.80 32.12100 57.86 68.30 59.65 68.43 61.57 72.00 48.22 65.2",
+      "text": "andle -dataset: datasets Dataset +analyze() +describe() +experiment() +load() +save() +test_gt() SQuADExperimenter SQuADShiftsExperimenter Visual Paradigm Online Diagrams Express Edition Visual Paradigm Online Diagrams Express Edition Figure 4: Class Diagram of the Experimentation Suite B Mean Probability Output To complement the results from Table 2, we give the average probability output with the complete context present in Table 3. MODEL SQUAD N EW WIKI NYT R EDDIT AMAZON QA 0.94 0.95 0.94 0.88 0.89 CLASSIF 1.00 1.00 1.00 1.00 1.00 Table 3: Average Probability Output for Question- Context Pairs, round to two digits C Complete Results in Tabular Form Tables 4, 5 and 6 give the complete results on the SQuAD 2.0 and SQuADShifts datasets. The results on SQuADShifts are in line with the ﬁndings on SQuAD 2.0. [Page 11] SQuAD New Wiki NYT Reddit Amazon Interpreter Aggregation Samples Classif QA Classif QA Classif QA Classif QA Classif QA LIME† sum 10 37.70 38.47 40.72 41.40 40.22 41.98 31.35 35.34 32.69 35.27100 58.04 69.90 60.74 70.82 62.02 73.50 50.33 69.02 53.57 67.58 max 10 34.06 35.36 36.98 37.77 36.19 36.43 26.52 28.89 29.80 32.12100 57.86 68.30 59.65 68.43 61.57 72.00 48.22 65.2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06345,
+        -0.00273,
+        -0.0318,
+        -0.03544,
+        -0.02544
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "100 58.04 69.90 60.74 70.82 62.02 73.50 50.33 69.02 53.57 67.58 max 10 34.06 35.36 36.98 37.77 36.19 36.43 26.52 28.89 29.80 32.12100 57.86 68.30 59.65 68.43 61.57 72.00 48.22 65.2",
+      "overlap_with_next": "default number of samples was not possible due to computa- tional limitations (100 samples already took 7h and 14h for Classif and QA model on SQuAD)) SQuAD New Wiki NYT Reddit Ama",
+      "text": "100 58.04 69.90 60.74 70.82 62.02 73.50 50.33 69.02 53.57 67.58 max 10 34.06 35.36 36.98 37.77 36.19 36.43 26.52 28.89 29.80 32.12100 57.86 68.30 59.65 68.43 61.57 72.00 48.22 65.23 53.09 66.24 SHAP† sum 10 30.48 32.90 31.66 32.84 29.26 31.03 22.13 23.75 24.59 25.43100 54.85 65.92 57.53 65.79 56.38 67.70 49.35 65.02 54.03 67.68 max 10 29.69 30.81 30.72 31.68 28.32 30.00 21.17 22.58 22.72 23.84100 52.45 62.34 54.56 63.18 53.19 64.78 45.79 60.03 49.54 63.35 Saliency sum - 74.74 91.12 72.19 91.18 68.87 88.46 57.57 85.26 64.82 85.91max - 66.27 80.79 65.04 80.78 58.95 76.07 48.41 77.33 59.52 79.70 Integrated Gradients sum 50 66.73 85.93 65.00 85.93 65.44 85.20 51.62 79.73 51.96 78.21max 50 62.73 87.05 60.70 86.73 61.63 85.92 50.24 82.35 49.09 82.45 SmoothGrad sum 5 60.98 91.28 60.29 90.56 60.25 88.29 50.32 84.51 52.34 84.40max 5 59.48 82.16 61.45 82.38 56.93 78.33 45.95 77.72 53.03 78.26 Random - - 24.64 25.38 26.86 27.39 24.53 24.36 16.51 16.09 18.71 19.17 Table 4: IoU Results (†Note that evaluation with the default number of samples was not possible due to computa- tional limitations (100 samples already took 7h and 14h for Classif and QA model on SQuAD)) SQuAD New Wiki NYT Reddit Ama",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00721,
+        0.00687,
+        -0.04293,
+        -0.06668,
+        -0.01024
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "default number of samples was not possible due to computa- tional limitations (100 samples already took 7h and 14h for Classif and QA model on SQuAD)) SQuAD New Wiki NYT Reddit Ama",
+      "overlap_with_next": "8.93 81.56max 50 70.15 89.67 68.93 89.48 68.73 88.52 56.51 84.70 56.35 85.10 SmoothGrad sum 5 69.03 93.08 68.92 92.59 68.05 90.52 56.77 86.58 59.36 86.72max 5 67.83 85.77 69.64 86.",
+      "text": "default number of samples was not possible due to computa- tional limitations (100 samples already took 7h and 14h for Classif and QA model on SQuAD)) SQuAD New Wiki NYT Reddit Amazon Interpreter Aggregation Samples Classif QA Classif QA Classif QA Classif QA Classif QA LIME† sum 10 50.29 50.83 53.32 53.76 51.62 53.12 39.99 43.56 42.31 44.64100 66.50 75.98 68.93 76.93 69.17 78.58 56.60 72.97 60.12 72.25 max 10 45.12 46.19 47.85 48.62 46.60 47.11 34.47 36.74 38.43 40.63100 63.74 71.33 65.47 71.89 67.28 75.25 53.23 67.65 58.41 69.21 SHAP† sum 10 41.22 44.09 42.87 44.57 39.06 41.38 28.94 31.26 32.97 34.63100 63.93 72.75 66.18 72.91 64.39 73.74 55.59 69.44 60.48 72.29 max 10 37.74 39.28 39.29 40.68 36.40 38.54 27.30 29.13 30.24 32.05100 59.85 67.47 61.80 68.35 60.80 69.98 51.19 63.41 55.32 66.86 Saliency sum - 79.91 93.01 78.20 93.06 74.97 90.71 63.05 87.21 69.96 88.01max - 72.99 84.83 72.40 84.81 66.86 80.94 55.10 80.32 65.31 82.74 Integrated Gradients sum 50 73.52 88.85 72.39 88.93 71.99 88.00 57.84 82.46 58.93 81.56max 50 70.15 89.67 68.93 89.48 68.73 88.52 56.51 84.70 56.35 85.10 SmoothGrad sum 5 69.03 93.08 68.92 92.59 68.05 90.52 56.77 86.58 59.36 86.72max 5 67.83 85.77 69.64 86.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00633,
+        -0.0138,
+        -0.03162,
+        -0.06477,
+        -0.01475
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "8.93 81.56max 50 70.15 89.67 68.93 89.48 68.73 88.52 56.51 84.70 56.35 85.10 SmoothGrad sum 5 69.03 93.08 68.92 92.59 68.05 90.52 56.77 86.58 59.36 86.72max 5 67.83 85.77 69.64 86.",
+      "overlap_with_next": "6 34.64 max 10 99.16 102.31 97.42 101.44 97.10 92.66 130.98 127.01 99.87 102.16100 107.51 137.77 102.01 132.57 94.43 132.64 149.95 240.47 135.62 207.62 Saliency sum - 37.29 39.92 4",
+      "text": "8.93 81.56max 50 70.15 89.67 68.93 89.48 68.73 88.52 56.51 84.70 56.35 85.10 SmoothGrad sum 5 69.03 93.08 68.92 92.59 68.05 90.52 56.77 86.58 59.36 86.72max 5 67.83 85.77 69.64 86.12 65.32 82.65 53.00 80.64 59.84 81.43 Random - - 40.28 40.71 42.66 42.92 39.23 39.18 27.41 27.17 30.79 31.34 Table 5: HPD Results (†Note that evaluation with the default number of samples was not possible due to computa- tional limitations (100 samples already took 7h and 14h for Classif and QA model on SQuAD)) SQuAD New Wiki NYT Reddit Amazon Interpreter Aggregation Samples Classif QA Classif QA Classif QA Classif QA Classif QA LIME† sum 10 39.23 38.20 41.82 40.66 36.98 37.26 25.89 22.84 27.87 27.08100 39.30 40.91 42.30 43.96 39.41 39.38 32.90 46.71 27.42 32.52 max 10 91.76 91.54 94.38 88.83 93.24 85.01 107.89 110.55 93.77 95.83100 125.98 176.07 124.96 162.51 133.54 184.66 171.42 305.21 151.52 232.94 SHAP† sum 10 73.24 67.24 74.17 67.85 71.42 68.34 91.28 83.95 68.02 60.68100 42.27 42.09 44.80 45.60 37.31 43.69 34.30 40.05 28.76 34.64 max 10 99.16 102.31 97.42 101.44 97.10 92.66 130.98 127.01 99.87 102.16100 107.51 137.77 102.01 132.57 94.43 132.64 149.95 240.47 135.62 207.62 Saliency sum - 37.29 39.92 4",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04435,
+        -0.01926,
+        -0.01922,
+        -0.06494,
+        -0.0181
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 42740,
+      "length": 920,
+      "overlap_with_previous": "6 34.64 max 10 99.16 102.31 97.42 101.44 97.10 92.66 130.98 127.01 99.87 102.16100 107.51 137.77 102.01 132.57 94.43 132.64 149.95 240.47 135.62 207.62 Saliency sum - 37.29 39.92 4",
+      "overlap_with_next": "",
+      "text": "6 34.64 max 10 99.16 102.31 97.42 101.44 97.10 92.66 130.98 127.01 99.87 102.16100 107.51 137.77 102.01 132.57 94.43 132.64 149.95 240.47 135.62 207.62 Saliency sum - 37.29 39.92 40.88 40.14 35.14 34.23 19.10 19.77 22.90 23.34max - 35.58 38.20 39.75 39.81 34.08 36.35 19.15 20.04 22.17 23.78 Integrated Gradients sum 50 37.28 37.32 39.16 40.19 33.30 33.04 18.96 20.60 22.50 24.60max 50 35.71 34.99 38.74 38.09 32.55 32.80 18.41 20.57 21.80 23.69 SmoothGrad sum 5 38.13 37.22 41.29 40.15 35.16 33.04 19.40 20.33 23.34 23.11max 5 37.55 36.61 40.29 40.04 34.85 35.98 19.23 19.62 22.45 22.69 Random - - 37.70 37.34 40.63 40.52 34.87 35.06 19.24 19.79 23.21 23.70 Table 6: SNR Results (†Note that evaluation with the default number of samples was not possible due to compu- tational limitations (100 samples already took 7h and 14h for Classif and QA model on SQuAD)) Examples for which noise cannot be estimated are omitted.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02924,
+        0.00918,
+        -0.02372,
+        -0.04915,
+        -0.02162
+      ]
+    }
+  ]
+}

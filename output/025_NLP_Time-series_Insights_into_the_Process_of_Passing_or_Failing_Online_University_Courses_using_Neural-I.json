@@ -1,0 +1,844 @@
+{
+  "paper_id": "8dbd24a1-0484-4168-ad2f-cd9b2d915cdf",
+  "filename": "025_NLP_Time-series_Insights_into_the_Process_of_Passing_or_Failing_Online_University_Courses_using_Neural-I.pdf",
+  "title": "Time-series Insights into the Process of Passing or Failing Online University Courses using Neural-Induced Interpretable Student States",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 49,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "n this paper we explore the use of textual data, which is sometimes available in the records of students at large, online universities. We propose a time series model that construc",
+      "text": "[Page 1] Time-series Insights into the Process of Passing or Failing Online University Courses using Neural-Induced Interpretable Student States Byungsoo Jeon Carnegie Mellon University 5000 Forbes Avenue Pittsburgh, P A byungsoj@cs.cmu.edu Eyal Shafran Western Governors University 4001 S 700 East Salt Lake City , UT eyal.shafran@wgu.edu Luke Breitfeller Carnegie Mellon University 5000 Forbes Avenue Pittsburgh, P A mbreitfe@cs.cmu.edu Jason Levin Western Governors University 4001 S 700 East Salt Lake City , UT jason.levin@wgu.edu Carolyn P . Rosé Carnegie Mellon University 5000 Forbes Avenue Pittsburgh, P A cprose@cs.cmu.edu ABSTRACT This paper addresses a key challenge in Educational Data Mining, namely to model student behavioral trajectories in order to provide a means for identifying students most at- risk, with the goal of providing supportive interventions. While many forms of data including clickstream data or data from sensors have been used extensively in time series mod- els for such purposes, in this paper we explore the use of textual data, which is sometimes available in the records of students at large, online universities. We propose a time series model that construc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08194,
+        -0.04714,
+        -0.03036,
+        -0.00887,
+        -0.01129
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "n this paper we explore the use of textual data, which is sometimes available in the records of students at large, online universities. We propose a time series model that construc",
+      "overlap_with_next": "er success by providing a personal and aﬀordable education based on real-world competencies. In such online educa- tional contexts, modeling the population of students at scale is ",
+      "text": "n this paper we explore the use of textual data, which is sometimes available in the records of students at large, online universities. We propose a time series model that constructs an evolving student state repre- sentation using both clickstream data and a signal extracted from the textual notes recorded by human mentors assigned to each student. We explore how the addition of this textual data improves both the predictive power of student states for the purpose of identifying students at risk for course failure as well as for providing interpretable insights about student course engagement processes. Keywords Student State, Clickstream Data, Mentor’s Notes, LDA, Time-series Modeling, Deep Learning 1. INTRODUCTION With the rapidly-changing landscape of work opportunities causing increased concerns related to unemployment, work- ers have a greater need to seek further education. Online universities [1] like Western Governor’s University (WGU) [18] play crucial roles in helping workers achieve their career success by providing a personal and aﬀordable education based on real-world competencies. In such online educa- tional contexts, modeling the population of students at scale is ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08817,
+        -0.02685,
+        -0.02162,
+        -0.02128,
+        5e-05
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "er success by providing a personal and aﬀordable education based on real-world competencies. In such online educa- tional contexts, modeling the population of students at scale is ",
+      "overlap_with_next": "l them. In this paper, we explore the extent to which we may achieve richer insights by adding textual data to the foun- dation provided by clickstream data. One advantage to model",
+      "text": "er success by providing a personal and aﬀordable education based on real-world competencies. In such online educa- tional contexts, modeling the population of students at scale is an important challenge, for example, in order to identify students most at-risk and to provide appropriate interven- tions to improve their chances of earning a degree in a timely fashion. In this respect, a plethora of approaches for click- stream analysis [13, 30, 31] have been published in the ﬁeld of Educational Data Mining, which address questions about modeling student course engagement processes. Some of this work has produced time series models producing predictive signals related to dropout or disengagement, which can then be used as triggers for interventions [25]. While clickstream data is the most readily available, and while some success has been achieved using it for this purpose, its low level in- dicators provide only glimpses related to student progress, challenges, and aﬀect as we would hope to observe and model them. In this paper, we explore the extent to which we may achieve richer insights by adding textual data to the foun- dation provided by clickstream data. One advantage to model",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05423,
+        -0.02605,
+        -0.02195,
+        0.01709,
+        -0.00907
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "l them. In this paper, we explore the extent to which we may achieve richer insights by adding textual data to the foun- dation provided by clickstream data. One advantage to model",
+      "overlap_with_next": "nt states we may induce from other low level behavioral indicators we can extract from traces of learning platform interactions. A major thrust of our work has been to develop a te",
+      "text": "l them. In this paper, we explore the extent to which we may achieve richer insights by adding textual data to the foun- dation provided by clickstream data. One advantage to modeling student behavior and states from a for-pay platform is that the level of support provided to students is greater than in freely available contexts like Mas- sive Open Online Courses (MOOCs), and this more inten- sive engagement provides richer data sources that can be leveraged. In our work, we make use of a new data source provided by the Western Governor’s University (WGU) plat- form, where each student is assigned a human mentor, and the notes from each biweekly encounter between student and mentor are recorded and made part of the time series data available for each student. Thus, even if we do not have access to the full transcript of the interactions between stu- dents and their mentors, we can leverage the documentation of provided support in order to enhance the richness and ulti- mately the interpretability of student states we may induce from other low level behavioral indicators we can extract from traces of learning platform interactions. A major thrust of our work has been to develop a te",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05334,
+        -0.03654,
+        -0.02253,
+        -0.01716,
+        -0.00681
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "nt states we may induce from other low level behavioral indicators we can extract from traces of learning platform interactions. A major thrust of our work has been to develop a te",
+      "overlap_with_next": "k in the ﬁelds of Educational Data Mining of large scale online course data to contextualize our speciﬁc work. Next we discuss the speciﬁc data we are working with and how it relat",
+      "text": "nt states we may induce from other low level behavioral indicators we can extract from traces of learning platform interactions. A major thrust of our work has been to develop a tech- nique for leveraging this form of available textual data. We refer to this data as Mentor’s Notes. In particular, we pro- arXiv:1905.00422v1 [cs.CL] 1 May 2019 [Page 2] pose a sequence model to integrate available data traces over time, which we refer to as Click2State, which serves a dual purpose. The ﬁrst aim is to induce predictive stu- dent states, which provide substantial traction towards pre- dicting whether a student is on a path towards passing or failing a course. Another is to provide us with insights into the process of passing or failing a course over time, and in particular leveraging the insights of human mentors whose observations give deeper meaning to the click level behav- ioral data, which is otherwise impoverished from an inter- pretability standpoint. In the remainder of the paper we discuss related work in the ﬁelds of Educational Data Mining of large scale online course data to contextualize our speciﬁc work. Next we discuss the speciﬁc data we are working with and how it relat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05415,
+        -0.02168,
+        -0.03272,
+        0.03541,
+        0.01429
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "k in the ﬁelds of Educational Data Mining of large scale online course data to contextualize our speciﬁc work. Next we discuss the speciﬁc data we are working with and how it relat",
+      "overlap_with_next": "d model to understand the process of passing or failing a course on the plat- form? 2. RELA TED WORK Past research aiming at enhancing the learning process of students in online un",
+      "text": "k in the ﬁelds of Educational Data Mining of large scale online course data to contextualize our speciﬁc work. Next we discuss the speciﬁc data we are working with and how it relates to the context in which it was collected. Then we explain from a technical level the modeling approach we are taking in this work. Finally, we present a series of experiments that investigate the following three research questions: • RQ1. How can we leverage contemporary text mining techniques such as Latent Dirichlet Allocation (LDA) [2] to extract information and meaning from mentors’ notes about the formation of student states across time using a time-series model? • RQ2. To what extent does integrating a representation of topical insights from Mentor’s Notes improve the ability of a time series neural model to predict whether students are on a path towards passing or failing a course? • RQ3. How can we use insights about student progress in an online course captured using student state rep- resentations from our integrated model to understand the process of passing or failing a course on the plat- form? 2. RELA TED WORK Past research aiming at enhancing the learning process of students in online un",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07153,
+        -0.00718,
+        -0.02167,
+        0.01386,
+        -0.02643
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "d model to understand the process of passing or failing a course on the plat- form? 2. RELA TED WORK Past research aiming at enhancing the learning process of students in online un",
+      "overlap_with_next": "already produced models to identify at-risk students and predict student outcomes speciﬁcally in online universities [6, 21]. For example, Smith et el. [29] pro- posed models to pr",
+      "text": "d model to understand the process of passing or failing a course on the plat- form? 2. RELA TED WORK Past research aiming at enhancing the learning process of students in online universities has focused on providing an- alytic tools for teachers and administrators. These tools are meant to enhance their ability to oﬀer support and make strategic choices in the administration of learning within the contexts under their care. As just one example, the Analytics4Action Evaluation Framework (A4AEF) model [25], developed at the Open University (UK) [1], provides a university-wide pipeline allowing its users to leverage learn- ing analytics to enable successful interventions and to gain strategic insights from their trials. One of the most im- portant challenges in implementing such a pipeline is to model the population of students in such a way as to provide both predictive power for triggering interventions and inter- pretability for ensuring validity and for supporting decision making. Some past research has already produced models to identify at-risk students and predict student outcomes speciﬁcally in online universities [6, 21]. For example, Smith et el. [29] pro- posed models to pr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03735,
+        0.00557,
+        -0.03613,
+        -0.01761,
+        0.00976
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "already produced models to identify at-risk students and predict student outcomes speciﬁcally in online universities [6, 21]. For example, Smith et el. [29] pro- posed models to pr",
+      "overlap_with_next": "uch as WGU, which oﬀer complementary insights to the ﬁeld. Student states are triggered by students’ interac- tion with university resources, their progress through course mileston",
+      "text": "already produced models to identify at-risk students and predict student outcomes speciﬁcally in online universities [6, 21]. For example, Smith et el. [29] pro- posed models to predict students’ course outcomes and to identify factors that led to student success in online univer- sity courses. Eagle et al. [12] presented exploratory models to predict outcomes like high scores on the upcoming tests or overall probability of passing a course, and provided ex- amples of strong indicators of student success in the WGU platform where our work is also situated. However, this past work has focused mainly on predictive modeling of student outcomes, whereas our work pursues both predictive power and interpretability. While much work in the ﬁeld of Educational Data Mining explores time series modeling and induction of student state representations from open online platforms such as Massive Open Online Courses (MOOCs) or Intelligent Tutoring Sys- tems, far less has been published from large, online univer- sities such as WGU, which oﬀer complementary insights to the ﬁeld. Student states are triggered by students’ interac- tion with university resources, their progress through course mileston",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0355,
+        -0.01189,
+        -0.02672,
+        -0.00993,
+        -0.01889
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "uch as WGU, which oﬀer complementary insights to the ﬁeld. Student states are triggered by students’ interac- tion with university resources, their progress through course mileston",
+      "overlap_with_next": "he bulk of existing work using sequence modeling to induce student states has focused on the data that is most readily available, speciﬁcally, clickstream data. For example, Tang e",
+      "text": "uch as WGU, which oﬀer complementary insights to the ﬁeld. Student states are triggered by students’ interac- tion with university resources, their progress through course milestones, test outcomes, aﬀect-inducing experiences, and so on. Aﬀect signals in particular have been utilized by many researchers as the basis for induced student states, as this rich source of insight into student experiences has been proven to correlate with several indicators of student accom- plishments [9, 24, 26]. Researchers have investigated aﬀect and developed corresponding detectors using sensors, ﬁeld observation, and self-reported aﬀect. These detectors cap- ture students’ aﬀective signals from vocal patterns [7, 23], posture [11], facial expressions [3, 23], interaction with the platform [4, 5, 14], and physiological cues [7, 20]. Although these signals provide rich insights, the requisite data is some- times expensive or even impractical to obtain, even on for- pay platforms such as WGU, where we conduct our research. The bulk of existing work using sequence modeling to induce student states has focused on the data that is most readily available, speciﬁcally, clickstream data. For example, Tang e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02392,
+        -0.04127,
+        -0.04558,
+        -0.0037,
+        -0.00518
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "he bulk of existing work using sequence modeling to induce student states has focused on the data that is most readily available, speciﬁcally, clickstream data. For example, Tang e",
+      "overlap_with_next": "e representations. Some prior work has nevertheless attempted to construct cognitively meaningful representations, such as representa- tions that can be constructed through summari",
+      "text": "he bulk of existing work using sequence modeling to induce student states has focused on the data that is most readily available, speciﬁcally, clickstream data. For example, Tang et al. [30] have constructed a model to predict a set of stu- dent actions with long short-term memory (LSTM) [15] on student clickstream data from a BerkeleyX MOOC, though the basic LSTM was unable to match the baseline of de- faulting to the majority class for samples of student actions. Fei et al. [13] proposed a sequence model to predict dropout based on clickstream data using deep learning models such as recurrent neural networks (RNNs) and LSTMs, with more success. Wang et al. [31] also built a deep neural network architecture using a combination of convolutional neural net- work (CNN) [19] and RNN for dropout prediction from click- stream data. Though these models have achieved diﬀering success at their predictive tasks, a shortcoming shared by all of these models is the lack of interpretability in the induced student state representations. Some prior work has nevertheless attempted to construct cognitively meaningful representations, such as representa- tions that can be constructed through summari",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08148,
+        -0.03606,
+        -0.0419,
+        0.01366,
+        -0.01962
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "e representations. Some prior work has nevertheless attempted to construct cognitively meaningful representations, such as representa- tions that can be constructed through summari",
+      "overlap_with_next": "1581 Table 1: Example of clickstream data. Type Description # click The number of mouse clicks. # focused state The number of times a mouse was in a content box. It is incremented ",
+      "text": "e representations. Some prior work has nevertheless attempted to construct cognitively meaningful representations, such as representa- tions that can be constructed through summarization of raw video clickstream data [27, 28]. Sinha et al. [27] attempted to construct cognitive video watching states to explain the dynamic process of cognition involved in MOOC video click- stream interaction. Building on this work, Sinha et al. [28] explored the combined representations of video clickstream behavior and discussion forum footprint to provide insights about student engagement process in MOOCs. Similar to our own work, their work extracting these abstract feature representations from the raw clickstream data aims (1) to obtain noise-resistant and interpretable features and (2) to [Page 3] # click # focused state # keypress # mouse move # scroll # unfocused state Target course 53 61 0 168 904 1732 Other courses 177 167 0 455 2301 4887 Degree plan 0 0 0 0 0 0 Portal 21 89 0 263 3862 2440 Homepage 36 69 0 122 72 1581 Table 1: Example of clickstream data. Type Description # click The number of mouse clicks. # focused state The number of times a mouse was in a content box. It is incremented ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03221,
+        -0.03594,
+        -0.01592,
+        0.00343,
+        -0.024
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "1581 Table 1: Example of clickstream data. Type Description # click The number of mouse clicks. # focused state The number of times a mouse was in a content box. It is incremented ",
+      "overlap_with_next": "ey evolve over time within courses. 3. DA TA Our study is based on data collected by Western Gover- nor’s University (WGU), an online educational platform 1. WGU is an online schoo",
+      "text": "1581 Table 1: Example of clickstream data. Type Description # click The number of mouse clicks. # focused state The number of times a mouse was in a content box. It is incremented by one every time a mouse goes into a content box from somewhere else. # keypress The number of times a keyboard was pressed. # mouse move The number of times a mouse has been moved. # scroll The number of scroll counts. # unfocused state The number of times a mouse was outside a content box. Table 2: Description of click types. transform the unstructured raw clickstream data to struc- tured data appropriate as input to existing statistical or ma- chine learning models. However, this published work does not model the temporal patterns of such cognitively mean- ingful features such as we perform in this paper. Our work extends previous studies by proposing a model that enriches temporal signals from clickstream data using the textual mentor’s notes in order to provide a means for interpret- ing student state representations as they evolve over time within courses. 3. DA TA Our study is based on data collected by Western Gover- nor’s University (WGU), an online educational platform 1. WGU is an online schoo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04898,
+        -0.03547,
+        -0.03288,
+        -0.0059,
+        -0.0059
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "ey evolve over time within courses. 3. DA TA Our study is based on data collected by Western Gover- nor’s University (WGU), an online educational platform 1. WGU is an online schoo",
+      "overlap_with_next": "Fig- ure 1. As in the example, mentor’s notes describe the status and progress of the student and what types of support was oﬀered or what suggestions were made during the call. Th",
+      "text": "ey evolve over time within courses. 3. DA TA Our study is based on data collected by Western Gover- nor’s University (WGU), an online educational platform 1. WGU is an online school with career-focused bachelor’s and master’s degrees—in teaching, nursing, IT, and business— designed to allow working professionals the opportunity to ﬁt an online university education into their busy lives. Stu- dents in WGU earn a competency-based degree by prov- ing knowledge through regular assessments [16], which facil- itates self-paced learning based on their prior experience. To support self-paced learning, students in WGU are as- signed to a program mentor (PM). The PM is in charge of evaluating a student’s progress through their degree and helping to manage obstacles the student faces. A PM and a student generally have bi-weekly live calls, but this may vary depending on the student’s needs and schedule. Each PM writes down a summary of what was discussed, which we refer to as a mentor’s note. An example is given in Fig- ure 1. As in the example, mentor’s notes describe the status and progress of the student and what types of support was oﬀered or what suggestions were made during the call. Th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0509,
+        -0.0178,
+        -0.0113,
+        -0.04631,
+        0.01394
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "Fig- ure 1. As in the example, mentor’s notes describe the status and progress of the student and what types of support was oﬀered or what suggestions were made during the call. Th",
+      "overlap_with_next": "plan represents a dashboard where students check their progress toward a degree. Homepage is the main page that shows students’ progress in each course and allows access to all pro",
+      "text": "Fig- ure 1. As in the example, mentor’s notes describe the status and progress of the student and what types of support was oﬀered or what suggestions were made during the call. This information can provide meaningful cues to infer student states over time. 1https://www.wgu.edu/ Figure 1: An example of mentor’s notes. In our modeling work we aim both for predictive power and interpretability, thus it is an important part of our work to build models that induce an interpretable student state representation. In this work we speciﬁcally investigate how the use of the mentor’s note data along side the more fre- quently used clickstream data might enable that important goal. Clickstream data in WGU also provides us with infor- mation on how active students are and where in the WGU platform they spend their time. We collect clickstream data from four diﬀerent types of web pages in the WGU platform: course, degree plan, homepage, and portal. The course web pages cover all pages related to courses in WGU. Degree plan represents a dashboard where students check their progress toward a degree. Homepage is the main page that shows students’ progress in each course and allows access to all pro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05929,
+        -0.03087,
+        -0.04104,
+        -0.02511,
+        0.00553
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "plan represents a dashboard where students check their progress toward a degree. Homepage is the main page that shows students’ progress in each course and allows access to all pro",
+      "overlap_with_next": " of notes per student 10.9± 5.7 11.0± 5.8 Avg length of notes (chars) 198± 47 194± 55 Table 3: Data Statistics For this paper, we have collected the mentor’s notes and clickstream ",
+      "text": "plan represents a dashboard where students check their progress toward a degree. Homepage is the main page that shows students’ progress in each course and allows access to all provided WGU features. Portal covers any other pages for student support including technical and ﬁnancial assistance. An example of the clickstream data can be seen in Table 1. Each row represents one of ﬁve diﬀerent click sources: tar- get course page, other course page, degree plan page, portal page, and homepage. We divide the course pages into ”tar- get course” and ”other course”. Each column represents one of diﬀerent six click types: click count, focus state count, keypress count, mousemove count, scroll count, and unfo- cused state count. The values in the table represent the weekly count of diﬀerent type of clicks from each diﬀerent source. The description of these click types are in Table 2. [Page 4] HA CA # of students 6,041 4,062 Length of a term 25 weeks 25 weeks Avg prior units 62± 39 11± 23 Fail rate 0.185 0.509 Avg # of notes per student 10.9± 5.7 11.0± 5.8 Avg length of notes (chars) 198± 47 194± 55 Table 3: Data Statistics For this paper, we have collected the mentor’s notes and clickstream ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02993,
+        -0.05244,
+        -0.03548,
+        -0.02956,
+        -0.02128
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " of notes per student 10.9± 5.7 11.0± 5.8 Avg length of notes (chars) 198± 47 194± 55 Table 3: Data Statistics For this paper, we have collected the mentor’s notes and clickstream ",
+      "overlap_with_next": "e propose a sequence model, Click2State, with two primary purposes. The ﬁrst is to form a student state representation that will allow us to better identify students at risk of fai",
+      "text": " of notes per student 10.9± 5.7 11.0± 5.8 Avg length of notes (chars) 198± 47 194± 55 Table 3: Data Statistics For this paper, we have collected the mentor’s notes and clickstream data from two courses conducted in 2017: Health Assessment (HA) and College Algebra (CA). We choose these two courses because they are popular among students and represent diﬀerent levels of overall diﬃculty. Table 3 shows the statistics for the dataset. “Average prior units” is the average number of units students transferred to WGU from prior education when they started the degree, and func- tions as a proxy for the level of student’s prior knowledge. We split the dataset for each course into a training set (80%), a validation set (10%), and a test set (10%). For training, in order to avoid a tendency for trained models to over-predict the majority class, we have resampled the training set so that both the pass state and the fail state are represented equally. 4. PROPOSED METHOD As we have stated above, in our modeling work, we propose a sequence model, Click2State, with two primary purposes. The ﬁrst is to form a student state representation that will allow us to better identify students at risk of fai",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04896,
+        -0.01728,
+        -0.04552,
+        -0.02158,
+        -0.00497
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "e propose a sequence model, Click2State, with two primary purposes. The ﬁrst is to form a student state representation that will allow us to better identify students at risk of fai",
+      "overlap_with_next": "ndary task to both improve the predictive power of the induced student states over the baseline as well as to enhance the interpretability of the state respresenta- tion. Below we ",
+      "text": "e propose a sequence model, Click2State, with two primary purposes. The ﬁrst is to form a student state representation that will allow us to better identify students at risk of failing a course than a baseline model that does not make use of rich textual data. The second is to provide us with a means to interpret the meaning of a student state representation. Figure 2 provides a schematic overview of our proposed model. Note that it is ﬁrst and foremost a sequence model that predicts whether a student will pass or fail a course based on an interpretable student state that evolves from week to week as each week’s clickstream data is input to the recurrent neural model. A summary of the content of the mentor’s note for a week is constructed using a popular topic modeling technique, speciﬁcally Latent Dirichlet Al- location (LDA). In the full model, an intermittent task to predict the topic distribution extracted from the mentor’s notes associated with a time point is introduced. The goal is to use this secondary task to both improve the predictive power of the induced student states over the baseline as well as to enhance the interpretability of the state respresenta- tion. Below we ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07284,
+        -0.03467,
+        -0.02924,
+        0.02252,
+        -0.0032
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "ndary task to both improve the predictive power of the induced student states over the baseline as well as to enhance the interpretability of the state respresenta- tion. Below we ",
+      "overlap_with_next": " notes are provided with the clickstream data. Feature Vector Design We train our model using click- stream feature vectors (as input) and topic distribution vec- tors (as output f",
+      "text": "ndary task to both improve the predictive power of the induced student states over the baseline as well as to enhance the interpretability of the state respresenta- tion. Below we evaluate the extent to which both of these objectives are met in this model. When training a neural model, inputs are presented to the network, activation is propagated forward, then an error is computed at the output, and the error is propagated back- wards through the network. As the error is propagated back- wards, adjustments are made to the weights in order to re- duce the occurrence of such errors. In all of our experiments, the only input at each time step is a representation of the clickstream data from the time step. We have two predic- tive tasks, namely pass prediction and topic prediction (from mentor’s notes). We propagate errors for pass prediction only after the whole sequence of inputs has been provided to the network. Error for topic prediction of mentor’s notes are propagated after each time step where mentor’s notes are provided with the clickstream data. Feature Vector Design We train our model using click- stream feature vectors (as input) and topic distribution vec- tors (as output f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03423,
+        -0.05354,
+        -0.01873,
+        0.0294,
+        0.00296
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " notes are provided with the clickstream data. Feature Vector Design We train our model using click- stream feature vectors (as input) and topic distribution vec- tors (as output f",
+      "overlap_with_next": "aining dataset. Formal Deﬁnition of the Model Now we formally spec- ify the model. Denote the student’s clickstream features by C = (c1,c 2,...,c T ), wherect is the clickstream fe",
+      "text": " notes are provided with the clickstream data. Feature Vector Design We train our model using click- stream feature vectors (as input) and topic distribution vec- tors (as output for the topic prediction task). We design the clickstream feature vector to include both an encoding of click behavior of students from a time period as well as a control variable that represents the prior knowledge of stu- dents as estimated by the number of units they were able to transfer in from their higher education experience prior to starting a degree at WGU. The full clickstream feature vec- tor contains thirty weekly counts for each diﬀerent type and source of click, in addition to the single control variable just mentioned, which is the number of transferred units. We use min-max normalization to scale the values between 0 and 1 in preparation for training. To extract a topic distribution vector for each mentor’s note, we run Latent Dirichlet Allo- cation (LDA)[2] over the whole set of mentor’s notes from the entire training dataset. Formal Deﬁnition of the Model Now we formally spec- ify the model. Denote the student’s clickstream features by C = (c1,c 2,...,c T ), wherect is the clickstream fe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0706,
+        -0.05036,
+        -0.03051,
+        0.02693,
+        -0.00753
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "aining dataset. Formal Deﬁnition of the Model Now we formally spec- ify the model. Denote the student’s clickstream features by C = (c1,c 2,...,c T ), wherect is the clickstream fe",
+      "overlap_with_next": "r ev- ery student state since the representation of student state is always within the same vector space. Similarly, though we only propagate error for the pass or fail prediction ",
+      "text": "aining dataset. Formal Deﬁnition of the Model Now we formally spec- ify the model. Denote the student’s clickstream features by C = (c1,c 2,...,c T ), wherect is the clickstream feature vector oftth week, andT is the number of weeks for the term. The clickstream feature vectors are encoded via Gated Recurrent Units (GRU) [8], which are variants of the Recurrent Neural Network (RNN). Each time step is a week, t. Thus, at each time step t, this network constructs a hidden state of the student for the tth week, ht∈ RH, where H is the dimen- sionality of the hidden state representation. We consider ht as the student state representation associated with the tth week. Based on the generated student state representation from RNN (ht), our model is trained to predict a topic dis- tribution of a mentor’s note. As mentioned above, the model is only trained to predict the topic distribution ˆθt for every weekt where a student has a mentor’s note in the data. But at test time, a topic distribution can be predicted for ev- ery student state since the representation of student state is always within the same vector space. Similarly, though we only propagate error for the pass or fail prediction ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06309,
+        -0.04086,
+        -0.00539,
+        -0.00144,
+        -0.01797
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "r ev- ery student state since the representation of student state is always within the same vector space. Similarly, though we only propagate error for the pass or fail prediction ",
+      "overlap_with_next": "s fed into the RNN week by week, the model es- [Page 5] Figure 2: Architecture of Click2State Model. timates the probability of the student failing that course (P (y = 1|C)) at the",
+      "text": "r ev- ery student state since the representation of student state is always within the same vector space. Similarly, though we only propagate error for the pass or fail prediction task after a series of weeks of data for a student have been input to the RNN, the pass or fail prediction can be made from the student state representation at any time step. Topic Prediction Given the generated hidden states from RNN (ht) for the tth week, the model estimates the true topic distribution (θt∈ RNt) of a mentor’s note on tth week where Nt is the number of topics. The estimated topic dis- tribution ( ˆθt∈ RNt) is computed by takinght as an input of one fully connected layer (weight matrix:Wθ) whose output dimensionality is Nt followed by a softmax layer. ˆθt = Softmax (Wθht) In training time, the loss function we use for error propa- gation and adjustment of weights is calculated by means of the Kullback-Leibler divergence loss between ˆθt and θt. Fail Prediction As data from a student’s participation in a course is fed into the RNN week by week, the model es- [Page 5] Figure 2: Architecture of Click2State Model. timates the probability of the student failing that course (P (y = 1|C)) at the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07472,
+        -0.0318,
+        0.00108,
+        0.03489,
+        -0.00652
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "s fed into the RNN week by week, the model es- [Page 5] Figure 2: Architecture of Click2State Model. timates the probability of the student failing that course (P (y = 1|C)) at the",
+      "overlap_with_next": " time t for nth student. The binary cross-entropy of the nth student measures the similarity between the predicted P (y = 1|C) and the true y as: BCE n =−yn logPΘ(yn = 1|C) − (1−yn",
+      "text": "s fed into the RNN week by week, the model es- [Page 5] Figure 2: Architecture of Click2State Model. timates the probability of the student failing that course (P (y = 1|C)) at the last timestep T . The estimated prob- ability is computed by taking ht as an input of one fully connected layer (weight matrix: Wy) whose output dimen- sionality is one followed by a sigmoid layer. P (y = 1|C) = Sigmoid(Wyht) In training time, the loss function we use for error propa- gation and adjustment of weights for fail prediction is the computed binary cross entropy loss with P (y = 1|C) and a true label for nth student, yn. Loss The loss function is composed of KL divergence loss for the topic prediction and binary cross-entropy loss for the fail prediction. Assume there are a total of N students. The KL divergence loss of topic distribution of the mentor’s note for nth student at time t is deﬁned as: KLD n,t = DKL(θn,t‖ ˆθn,t), where θn,t and ˆθn,t are the true and estimated topic distri- bution of the mentor’s note at time t for nth student. The binary cross-entropy of the nth student measures the similarity between the predicted P (y = 1|C) and the true y as: BCE n =−yn logPΘ(yn = 1|C) − (1−yn",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07123,
+        -0.01995,
+        -0.01276,
+        0.00622,
+        0.00493
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " time t for nth student. The binary cross-entropy of the nth student measures the similarity between the predicted P (y = 1|C) and the true y as: BCE n =−yn logPΘ(yn = 1|C) − (1−yn",
+      "overlap_with_next": "earned student state representations related to the process of pass- ing or failing a course over time. RQ1. What types of information about student states can we extract from ment",
+      "text": " time t for nth student. The binary cross-entropy of the nth student measures the similarity between the predicted P (y = 1|C) and the true y as: BCE n =−yn logPΘ(yn = 1|C) − (1−yn) log(1−PΘ(yn = 1|C)), whereyn is the true y (∈{ 0, 1}) of the nth student and PΘ is the probability of the fail predicted by our model with parameters Θ. Assume that there are a total of Nn mentor’s notes for nth student. Combining the two losses, our ﬁnal loss is 1 N N∑ n=1 [λBCE n + (1−λ) 1Nn tn,Nn∑ t=tn,1 KLD n,t], wheretn,i is the timestep whennth student hasith mentor’s note, and λ is the rescaling weight to balance the contribu- tion of two diﬀerent loss functions. 5. RESULTS In this section, we answer our aforementioned research ques- tions one by one. First we describe topics learned from men- tor’s notes and how they may relate to student states. Then we illustrate experiment results to evaluate our Click2State model, along with experimental settings. We conclude by providing methods of extracting insights from these learned student state representations related to the process of pass- ing or failing a course over time. RQ1. What types of information about student states can we extract from ment",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06862,
+        -0.01987,
+        -0.02283,
+        -0.01594,
+        0.00806
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "earned student state representations related to the process of pass- ing or failing a course over time. RQ1. What types of information about student states can we extract from ment",
+      "overlap_with_next": " the results. Table 4 shows the learned topics with manually assigned la- bels, topical words, and text. Topical words are the top ten words with the highest probability of appeari",
+      "text": "earned student state representations related to the process of pass- ing or failing a course over time. RQ1. What types of information about student states can we extract from mentor’s notes using LDA?Men- tor’s notes are summaries of bi-weekly live calls where pro- gram mentors (PM) interact with students to provide advice and support. On this bi-weekly call, PMs mostly check stu- dents’ progress and help them to establish appropriate study plans to achieve their goals for the term. PMs also diagnose students’ issues and developmental needs to better provide struggling students with tailored instruction and support. With this in mind, we answer the question of how student state information may be extracted from mentor’s notes through application of LDA to the notes. This provides us with topics we can easily describe and interpret to de- duce overall student states. In this section, we illustrate the insights this LDA approach yields. We set the number of topics to ten to maximize the interpretability of the results. Table 4 shows the learned topics with manually assigned la- bels, topical words, and text. Topical words are the top ten words with the highest probability of appeari",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03845,
+        -0.03017,
+        -0.02594,
+        -0.01663,
+        -0.00978
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " the results. Table 4 shows the learned topics with manually assigned la- bels, topical words, and text. Topical words are the top ten words with the highest probability of appeari",
+      "overlap_with_next": "ions. The ST still needs to revise the task based on the evaluator’s comments. He plans to do more revisions that align with the task rubric and submit the task soon. T2. Question ",
+      "text": " the results. Table 4 shows the learned topics with manually assigned la- bels, topical words, and text. Topical words are the top ten words with the highest probability of appearing within each learned topic, and are presented in decreasing order of likeli- hood. The topical text column contains an example snippet from one of top ten mentor’s notes for each topic with the highest topic probability. Frequently in topic models in- duced by LDA, not all of the topics are strongly thematic. Since many words in a text are non-thematic, and since ev- ery word needs to be assigned to a topic by the model, one or more learned topics is not coherent enough to interpret. Thus, we exclude from our interpretation the one topic that was incoherent out of the 10 learned topics, and thus we have nine topics in Table 4. [Page 6] Topic Topical Words Topical Text T1. Revision task, submit, revise, discuss, equate, complete, need, write, practice, paper The ST and I discussed his Task 3 revisions after he made some corrections. The ST still needs to revise the task based on the evaluator’s comments. He plans to do more revisions that align with the task rubric and submit the task soon. T2. Question ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01585,
+        0.00888,
+        0.01128,
+        0.01246,
+        0.02527
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "ions. The ST still needs to revise the task based on the evaluator’s comments. He plans to do more revisions that align with the task rubric and submit the task soon. T2. Question ",
+      "overlap_with_next": ", plan, pass, progress Discussed ﬁnal term courses. Discussed starting C229 and working through hours and then working through C349 course. T6. Course progress goal, course, progre",
+      "text": "ions. The ST still needs to revise the task based on the evaluator’s comments. He plans to do more revisions that align with the task rubric and submit the task soon. T2. Question student, question, call, email, send, course, discuss, appoint, speak, assist Student emailed for help with getting started. CM called to oﬀer support. Student could not talk for long. CM emailed welcome letter and scheduling link and encouraged for student to make an appointment T3. Assessment week, goal, today, schedule, pass,take, exam, ﬁnal, work, talk C278: took and did not pass preassessment, did not take ﬁnal. NNP C713: took and did not pass the preassessment. Passed LMC1 PA with a 65 on 02/27. LMC1 exam scheduled for 02/27 T4. Review for exam student, review, assess, plan, study, attempt, discuss, complete, take, report Student scheduled appointment to review for ﬁrst OA attempt but had taken and not passed the attempt by the time of the appointment. T5. Term plan student, discuss, course, complete, engage, college, term, plan, pass, progress Discussed ﬁnal term courses. Discussed starting C229 and working through hours and then working through C349 course. T6. Course progress goal, course, progre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00625,
+        0.04916,
+        -0.02253,
+        -0.00931,
+        0.00887
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": ", plan, pass, progress Discussed ﬁnal term courses. Discussed starting C229 and working through hours and then working through C349 course. T6. Course progress goal, course, progre",
+      "overlap_with_next": " next call, start c228 next Progress/concerns: states working on c349 SH, discussed deadlines Goal: ﬁnish shadow health Table 4: LDA Topics Learned From Mentor’s Notes Note that th",
+      "text": ", plan, pass, progress Discussed ﬁnal term courses. Discussed starting C229 and working through hours and then working through C349 course. T6. Course progress goal, course, progress, current, complete, previous, work, date, pass, module Current course: C349 Previous goal: completed modules 1-3 and engage shadow health by next appt date Progress toward goal: Yes New Goal: shadow health completed and engaged in video assessment T7. Term progress term, course, complete, date, goal, week, progress, current, leave, remain Date: 8/22/17 Term Ends: 5 weeks OTP Progress: 5/14 cu completed Engaged Course: C785 Goal Progress: did not pass PA T8. Time constraint work, week, lesson, complete, go,progress, plan, ﬁnish, time, goal NNP stated he was not able to make forward progressin course related to personal situation and timeconstraints from an unexpected event. T9. Goal setting goal, week, work, complete, task, progress, pass, accomplish, ﬁnish, contact Previous goal: ﬁnish shadow health, ﬁnish and submit video by next call, start c228 next Progress/concerns: states working on c349 SH, discussed deadlines Goal: ﬁnish shadow health Table 4: LDA Topics Learned From Mentor’s Notes Note that th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01129,
+        -0.00169,
+        -0.0406,
+        -0.01938,
+        -0.0381
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": " next call, start c228 next Progress/concerns: states working on c349 SH, discussed deadlines Goal: ﬁnish shadow health Table 4: LDA Topics Learned From Mentor’s Notes Note that th",
+      "overlap_with_next": "es discussions about plans for a term, such as course selection and long-term degree planning. Goal setting (T9) is similar in focus to course progress (T6), but is not constrained",
+      "text": " next call, start c228 next Progress/concerns: states working on c349 SH, discussed deadlines Goal: ﬁnish shadow health Table 4: LDA Topics Learned From Mentor’s Notes Note that there are two topics related to student progress, course progress (T6) and term progress (T7). Course progress (T6) focuses on progress towards modules in a particular course, along with past and present goals about the course itself. Term progress (T7) emphasizes the number of course units that have been achieved, course units that remain, and goals about courseload within in a term. There is a clear util- ity to these topics as an interpretation tool for regulation of the student’s process moving through the curriculum–if a student hits an impasse in their studies, mentor’s notes are expected to focus on what challenges the student experi- enced and what was discussed to address these challenges. We also ﬁnd two topics directly associated with plans and goals, which are term plan (T5) and goal setting (T9). Term plan (T5) includes discussions about plans for a term, such as course selection and long-term degree planning. Goal setting (T9) is similar in focus to course progress (T6), but is not constrained",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03538,
+        -0.0029,
+        -0.04399,
+        -0.02401,
+        -0.02128
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "es discussions about plans for a term, such as course selection and long-term degree planning. Goal setting (T9) is similar in focus to course progress (T6), but is not constrained",
+      "overlap_with_next": "redictive task is to determine whether a student fails a course within a given term given a sequence of weeks of student clickstream data. For this analysis, we trained separate mo",
+      "text": "es discussions about plans for a term, such as course selection and long-term degree planning. Goal setting (T9) is similar in focus to course progress (T6), but is not constrained to a single course. As with the previous topics, these reﬂect serious investment from the student and make useful cues for favorable progress. The remaining six topics provide insight on speciﬁc issues and circumstances a student may be facing at a particu- RQ2. Does the task of topic prediction construct better student state representation than our base- line, as evaluated by the ability to predict student failure? One method of evaluating the quality of a state representation is by measuring its predictive power on a task, such as the task of predicting whether a student will fail a course. We measure the predictive power of learned student state representation from our model and compare with that of our baseline, which shares the same neural architecture but is not trained on the extra task of topic prediction. The speciﬁc predictive task is to determine whether a student fails a course within a given term given a sequence of weeks of student clickstream data. For this analysis, we trained separate mo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03464,
+        -0.018,
+        -0.01327,
+        0.0359,
+        -0.01332
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "redictive task is to determine whether a student fails a course within a given term given a sequence of weeks of student clickstream data. For this analysis, we trained separate mo",
+      "overlap_with_next": "on by Weeks (a) T opic ” Revision” (b) T opic ” Question” (c) T opic ” Assessment” (d) T opic ” Review for exam” (e) T opic ” T erm plan” (f ) T opic ” Course progress” (g) T opic ",
+      "text": "redictive task is to determine whether a student fails a course within a given term given a sequence of weeks of student clickstream data. For this analysis, we trained separate models to make a prediction after a set number of weeks so that we could evaluate the diﬀerence in predictive power of student states depending on how many weeks worth of data were used in the prediction. The classiﬁer associated with the i-th week is trained on the clickstream data of all students up until the i-th week in the training set, to pre- dict failure as determined at the end of the term. During the training step, we mark the clickstream sequences of the students who failed in the given term as positive instances, and those of students who did not as negative instances. [Page 7] (a) F ail Prediction Performance on Health Assessment by W eeks (b) F ail Prediction Performance on College Algebra by W eeks (c) T opic Prediction Performance on Both Courses by W eeks Figure 3: Performance of Fail Prediction and Topic Prediction by Weeks (a) T opic ” Revision” (b) T opic ” Question” (c) T opic ” Assessment” (d) T opic ” Review for exam” (e) T opic ” T erm plan” (f ) T opic ” Course progress” (g) T opic ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05856,
+        -0.02017,
+        -0.00153,
+        -0.00198,
+        0.01676
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "on by Weeks (a) T opic ” Revision” (b) T opic ” Question” (c) T opic ” Assessment” (d) T opic ” Review for exam” (e) T opic ” T erm plan” (f ) T opic ” Course progress” (g) T opic ",
+      "overlap_with_next": " steps for the Health Assessment course while Figure 3(b) shows the AUC [Page 8] scores across time steps for College Algebra. For the Health Assessment course, our model achieves ",
+      "text": "on by Weeks (a) T opic ” Revision” (b) T opic ” Question” (c) T opic ” Assessment” (d) T opic ” Review for exam” (e) T opic ” T erm plan” (f ) T opic ” Course progress” (g) T opic ” T erm progress” (h) T opic ” Time constraints” (i) T opic ” Goal setting” Figure 4: Standard Score of Each Topic Probability across Weeks for P and F Students We evaluate our model and baseline using data from two WGU courses: Health Assessment and College Algebra. As our evaluation metric, we use the AUC score (Area Under the Receiver Operating Characteristic Curve), which mea- sures the probability of a positive instance being classiﬁed as more likely to fail a course than a negative instance. For clickstream feature encoding, Gated Recurrent Units (GRU) [8] with hidden state sizes 20, 40, 60, 80, and 100 are ex- plored. Optimization is performed using Adam [17] with the initial learning rate 0.001 without weight decay. The rescaling weight (λ) is 0.5, and the minibatch size is 1. Figure 3(a) shows the AUC scores across time steps for the Health Assessment course while Figure 3(b) shows the AUC [Page 8] scores across time steps for College Algebra. For the Health Assessment course, our model achieves ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03732,
+        -0.00046,
+        -0.02578,
+        -0.0297,
+        0.0129
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": " steps for the Health Assessment course while Figure 3(b) shows the AUC [Page 8] scores across time steps for College Algebra. For the Health Assessment course, our model achieves ",
+      "overlap_with_next": "ing the topic distribution of each mentor’s note. The KL Di- vergence is a typical performance measure when predicting a discrete probability distribution, which measures the en- t",
+      "text": " steps for the Health Assessment course while Figure 3(b) shows the AUC [Page 8] scores across time steps for College Algebra. For the Health Assessment course, our model achieves a statistically signif- icant improvement (p-value< 0.05) in performance over the baseline model after the 5th week. For College Algebra, our model achieves a statistically signiﬁcant improvement after the 17th week. This diﬀerence in model performance be- tween the Health Assessment and College Algebra courses suggests the result from College Algebra-speciﬁc topic data adds limited predictive power to the model. It is possible the clickstream data of students taking College Algebra al- ready contains enough information about whether a student is going to fail, a conclusion supported by the fact that AUC scores of the baseline model for College Algebra are always better across time steps than those for Health Assessment. We also plot the KL Divergence loss of our model across time steps to determine how well our model is predicting the topic distribution of each mentor’s note. The KL Di- vergence is a typical performance measure when predicting a discrete probability distribution, which measures the en- t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03353,
+        -0.00456,
+        -0.04779,
+        -0.02508,
+        -0.00932
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "ing the topic distribution of each mentor’s note. The KL Di- vergence is a typical performance measure when predicting a discrete probability distribution, which measures the en- t",
+      "overlap_with_next": " notes. RQ3. What insights do we gain about the process of passing or failing a course over time from pre- dicted mentor’s notes topic distributions over time from the model? To an",
+      "text": "ing the topic distribution of each mentor’s note. The KL Di- vergence is a typical performance measure when predicting a discrete probability distribution, which measures the en- tropy increase due to the use of an approximation to the true distribution rather than the true distribution itself. Figure 3(c) shows the minimum KL Divergence loss of the topic prediction task for both courses at each week. Though we determined that adding this task improves the fail predic- tion task, results on this task speciﬁcally are not impres- sive, which demonstrates the relative diﬃculty of predicting mentor’s notes from click data. The KL Divergence loss increases as the number of weeks increases. A possible ex- planation is that topics become more diverse as the weeks pass and therefore become harder to predict. In addition, the KL Divergence loss is lower in College Algebra than in Health Assessment, which could be explained by students in College Algebra having less variance in the topics of focus in their mentors’ notes. RQ3. What insights do we gain about the process of passing or failing a course over time from pre- dicted mentor’s notes topic distributions over time from the model? To an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08006,
+        -0.01914,
+        -0.02804,
+        -0.00901,
+        -0.02418
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " notes. RQ3. What insights do we gain about the process of passing or failing a course over time from pre- dicted mentor’s notes topic distributions over time from the model? To an",
+      "overlap_with_next": "tate Review for exam Term plan Course progress P -0.1469 -0.0481 0.6301 F -0.0752 -0.1426 -0.0049 State Term progress Time constraint Goal setting P 0.2298 -0.4811 0.0817 F -0.1647",
+      "text": " notes. RQ3. What insights do we gain about the process of passing or failing a course over time from pre- dicted mentor’s notes topic distributions over time from the model? To answer the question of character- izing students likely to pass or fail a course, we perform three diﬀerent experiments on the dataset of clickstream and mentors’ notes data of students taking the College Algebra course. We choose this course because our topic prediction loss was lower (and thus, accuracy higher) for the course. First, we determine what topics inferred from our model correlate with whether a student will pass or fail a course (Experiment 1). Then we ﬁnd sequences of standardized topic probabilities of each topic inferred by our model that characterize students likely to pass or fail (Experiment 2). Lastly, we report how early we can identify students likely to fail based on our learned student state representation (Ex- periment 3). State Revision Question Assessment P 0.4795 0.0346 -0.1486 F 0.4914 0.1090 0.1735 State Review for exam Term plan Course progress P -0.1469 -0.0481 0.6301 F -0.0752 -0.1426 -0.0049 State Term progress Time constraint Goal setting P 0.2298 -0.4811 0.0817 F -0.1647",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05029,
+        -0.02319,
+        -0.0226,
+        -0.0071,
+        -0.01213
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "tate Review for exam Term plan Course progress P -0.1469 -0.0481 0.6301 F -0.0752 -0.1426 -0.0049 State Term progress Time constraint Goal setting P 0.2298 -0.4811 0.0817 F -0.1647",
+      "overlap_with_next": "imilar for the P and F state, some vary wildly. For example, the standard score of assessment topic (T3) for the P state is negative and for the F state is positive. One interpreta",
+      "text": "tate Review for exam Term plan Course progress P -0.1469 -0.0481 0.6301 F -0.0752 -0.1426 -0.0049 State Term progress Time constraint Goal setting P 0.2298 -0.4811 0.0817 F -0.1647 -0.2186 0.0661 Table 5: Standard Score of Inferred Topic Probabil- ities from P and F State Experiment 1. In the ﬁrst experiment, we ﬁnd the two stu- dent state representations which minimize or maximize the probability of failing a course. We call the state representa- tions that minimize and maximize the probability of failure as a P state and F state, respectively. Then, we show what topic distributions are inferred from P and F states. We represent emphasis, or a lack thereof, on a topic by stan- dardizing topic probabilities and observing the number of standard deviations above and below the mean of a topic probability. Table 5 shows the number of standard deviations above or below the mean (also called standard score) for each inferred topic probability from the P and F state. While the standard score of some topics are similar for the P and F state, some vary wildly. For example, the standard score of assessment topic (T3) for the P state is negative and for the F state is positive. One interpreta",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04231,
+        -0.03101,
+        -0.01949,
+        0.00282,
+        0.0213
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "imilar for the P and F state, some vary wildly. For example, the standard score of assessment topic (T3) for the P state is negative and for the F state is positive. One interpreta",
+      "overlap_with_next": "We compare the trajectory of inferred probability of each topic from students who passed (P students) and failed (F students) a course. Figure 4 shows the average standard score of",
+      "text": "imilar for the P and F state, some vary wildly. For example, the standard score of assessment topic (T3) for the P state is negative and for the F state is positive. One interpretation of this results is that students likely to fail have more trouble in passing assessments, and thus talked to their mentors more about assessment topic (T3). As shown in Table 4, the topical text of assessment (T3) includes a general description of students’ progress in assessments. The standard score of course progress (T6) and term progress (T7) for the P state is positive and negative for the F state. This suggests that students more likely to pass show smoother progress instead of reporting ongoing issues, so their typical mentors’ notes can focus exclusively on progress reports. Evidently, the topical text of course and term progress (T6, T7) in Table 4 is a progress report without ongoing issues. Experiment 2. We investigate the inferred probability of each topic from learned student state representation by our model. We compare the trajectory of inferred probability of each topic from students who passed (P students) and failed (F students) a course. Figure 4 shows the average standard score of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04319,
+        -0.02424,
+        -0.01897,
+        -0.01015,
+        0.02495
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "We compare the trajectory of inferred probability of each topic from students who passed (P students) and failed (F students) a course. Figure 4 shows the average standard score of",
+      "overlap_with_next": "nts seek help more actively as they approach the end of a term. The standard scores of review for exam (T4) increase dra- matically until the third week, decrease for few weeks, an",
+      "text": "We compare the trajectory of inferred probability of each topic from students who passed (P students) and failed (F students) a course. Figure 4 shows the average standard score of topic probability per topic for P and F students over time. We can see through this experiment clear, distinct patterns for the frequency of each topic over time that make intuitive sense given the format of online courses. For example, term plan (T5) is high frequency for the ﬁrst week and plunges right after, since most students and mentors will naturally discuss plans for a term at the start of each term. The topical text of term plan (T5) actually exhibits the discus- sion of course choice for the ﬁnal term, expected to happen at the beginning of the ﬁnal term. The standard scores of other topics related to goal and progress (T6,T7,T9) also decrease over time, likely for similar reasons. The standard [Page 9] scores of revision (T1), question (T2), and assessment (T3), meanwhile, increase over time, which may indicate students seek help more actively as they approach the end of a term. The standard scores of review for exam (T4) increase dra- matically until the third week, decrease for few weeks, an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05738,
+        -0.00587,
+        -0.00438,
+        0.00214,
+        0.01403
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "nts seek help more actively as they approach the end of a term. The standard scores of review for exam (T4) increase dra- matically until the third week, decrease for few weeks, an",
+      "overlap_with_next": " actually have time constraints, but that they just needed an excuse for slow progress. The topical text in Table 4 also shows time constraints may be discussed as the potential re",
+      "text": "nts seek help more actively as they approach the end of a term. The standard scores of review for exam (T4) increase dra- matically until the third week, decrease for few weeks, and ﬁnally level oﬀ. As the only condition for students in WGU to pass a course is to pass the ﬁnal assessment, it may be that many students take their ﬁnal assessments during the earlier weeks so they can pass a course as early as possi- ble. The standard scores of time constraints (T8) steeply increase until the fourth week, and then gradually decrease over time. This suggests that when students begin a term they do not expect to have time constraints, but accumu- late unanticipated issues in their personal lives as the course goes on. It is possible that students mention time constraints less near the end of the term either because they have al- ready abandoned the course or they better planned out their schedules near the end of the term in order to complete a term. However, we need to keep in mind that it may not be that they actually have time constraints, but that they just needed an excuse for slow progress. The topical text in Table 4 also shows time constraints may be discussed as the potential re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01887,
+        0.028,
+        -0.01486,
+        -0.03472,
+        -0.00677
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": " actually have time constraints, but that they just needed an excuse for slow progress. The topical text in Table 4 also shows time constraints may be discussed as the potential re",
+      "overlap_with_next": "ases. This could suggest that F students are more likely to procrastinate and struggle with their assessments than P students. Finally, for time constraints (T8) F students show hi",
+      "text": " actually have time constraints, but that they just needed an excuse for slow progress. The topical text in Table 4 also shows time constraints may be discussed as the potential reason for slow progress though it may not be the real reason for the issue. For most topics, the P and F students exhibit distinct di- vergences in topic patterns. For topics related to goal and progress (T6, T7, T9), the gap between P students and F students increases over time–suggesting that as time goes on F students will be reporting issues and obstacles to their mentors instead of positive progress. The gap between P stu- dents and F students for question (T2) increases over time, likely for similar reasons. For revision (T1), P students gen- erally have higher standard scores than F students over time, which supports the idea that P students actively seek oppor- tunities for revision and review towards the end of a term. For assessment (T3), standard score for F students increases over time while score for P students decreases. This could suggest that F students are more likely to procrastinate and struggle with their assessments than P students. Finally, for time constraints (T8) F students show hi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01566,
+        -0.00925,
+        -0.02591,
+        -0.00596,
+        0.00986
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "ases. This could suggest that F students are more likely to procrastinate and struggle with their assessments than P students. Finally, for time constraints (T8) F students show hi",
+      "overlap_with_next": "ly the same distance between the P and F state until about 15 weeks. Based on these observations, we can see in early stages whether a student is likely to fail from the diﬀerence ",
+      "text": "ases. This could suggest that F students are more likely to procrastinate and struggle with their assessments than P students. Finally, for time constraints (T8) F students show higher standard score as time goes on. A likely interpretation is that students who encounter time constraints due to a demanding job or other outstanding personal issues cannot devote focus to a course and are more likely to fail. Experiment 3. We report how early we can identify stu- dents likely to fail based on our learned student state repre- sentation. We compare the Euclidean distance between stu- dent state representation and the representation of P and F states. Then we plot the average distance of students who actually passed and failed (P student and F student) across time steps. Figure 5 shows how the Euclidean distance between the stu- dent state and the P and F states changes over time. We ﬁnd that F students are closer to the F state over all diﬀer- ent weeks except second week. P students on average are approximately the same distance between the P and F state until about 15 weeks. Based on these observations, we can see in early stages whether a student is likely to fail from the diﬀerence ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02492,
+        -0.02691,
+        -0.0102,
+        -0.01099,
+        0.01543
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "ly the same distance between the P and F state until about 15 weeks. Based on these observations, we can see in early stages whether a student is likely to fail from the diﬀerence ",
+      "overlap_with_next": "ights about the process of passing or failing a given online course. Our experimental results demonstrate that student state representations learned by our model have better pre- d",
+      "text": "ly the same distance between the P and F state until about 15 weeks. Based on these observations, we can see in early stages whether a student is likely to fail from the diﬀerence between the distance of our model’s student state representation from P and F states. This is especially evident in early stages (week 5 onward), where we see a substantial distance between the average F student’s state representation from the P state compared to the F state, while there is much more ambiguity for P students. (a) P Students (b) F Students Figure 5: Average Euclidean Distance between State Representation of P and F Students and P and F State Representation 6. CONCLUSION In this paper, we propose and evaluate a sequence model, Click2State, which aims to build an interpretable student state representation by leveraging mentor’s notes to give deeper meaning to impoverished clickstream data. We also introduce a methodology for interpreting the learned rep- resentation from our model that extracts time-sensitive in- sights about the process of passing or failing a given online course. Our experimental results demonstrate that student state representations learned by our model have better pre- d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04966,
+        -0.03682,
+        -0.0134,
+        0.0019,
+        -0.00082
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "ights about the process of passing or failing a given online course. Our experimental results demonstrate that student state representations learned by our model have better pre- d",
+      "overlap_with_next": "approach might provide us a more targetted student state representa- tion. [Page 10] 7. ACKNOWLEDGEMENT This work was funded in part by NSF grantIIS 1822831. References [1] Alison ",
+      "text": "ights about the process of passing or failing a given online course. Our experimental results demonstrate that student state representations learned by our model have better pre- dictive power on the task of determining student failure rate than a baseline that only uses click stream data. We also present how individual topic-based insights into the process of passing or failing a course let us construct a rich charac- terization of a student likely to fail or pass an online course. We see many possible ways to build on the work in this paper. For instance, instead of learning topics using a sim- ple LDA approach, which is purely unsupervised, we might train our model to learn topics that directly correlate with a student’s likelihood of failure [10, 22]. In this case, the key challenge might be to train a model in a way that enable us to maintain the level of interpretability in topics that we see from LDA. Another direction could utilize mentor’s notes explicitly as an additional input of a model. This approach might provide us a more targetted student state representa- tion. [Page 10] 7. ACKNOWLEDGEMENT This work was funded in part by NSF grantIIS 1822831. References [1] Alison ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04914,
+        -0.03631,
+        -0.01063,
+        0.01787,
+        -0.00436
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "approach might provide us a more targetted student state representa- tion. [Page 10] 7. ACKNOWLEDGEMENT This work was funded in part by NSF grantIIS 1822831. References [1] Alison ",
+      "overlap_with_next": "o, Ryan Shaun Joazeiro de Baker, Jaclyn Ocumpaugh, and Neil T. Heﬀernan. Studying aﬀect dynamics and chronometry using sensor-free de- tectors. In EDM, 2018. [6] Carol Elaine Calve",
+      "text": "approach might provide us a more targetted student state representa- tion. [Page 10] 7. ACKNOWLEDGEMENT This work was funded in part by NSF grantIIS 1822831. References [1] Alison Ashby. Monitoring student retention in the open university: deﬁnition, measurement, interpretation and action. Open Learning: The Journal of Open, Distance and e-Learning, 19(1):65–77, 2004. [2] David M Blei, Andrew Y Ng, and Michael I Jordan. La- tent dirichlet allocation. Journal of machine Learning research, 3(Jan):993–1022, 2003. [3] Nigel Bosch, Yuxuan Chen, and Sidney D’Mello. Itˆ a˘A´Zs written on your face: detecting aﬀective states from facial expressions while learning computer program- ming. In International Conference on Intelligent Tu- toring Systems, pages 39–44. Springer, 2014. [4] Anthony F Botelho, Ryan S Baker, and Neil T Heﬀer- nan. Improving sensor-free aﬀect detection using deep learning. In International Conference on Artiﬁcial In- telligence in Education , pages 40–51. Springer, 2017. [5] Anthony F. Botelho, Ryan Shaun Joazeiro de Baker, Jaclyn Ocumpaugh, and Neil T. Heﬀernan. Studying aﬀect dynamics and chronometry using sensor-free de- tectors. In EDM, 2018. [6] Carol Elaine Calve",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03727,
+        -0.03245,
+        -0.02104,
+        0.0113,
+        -0.01786
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "o, Ryan Shaun Joazeiro de Baker, Jaclyn Ocumpaugh, and Neil T. Heﬀernan. Studying aﬀect dynamics and chronometry using sensor-free de- tectors. In EDM, 2018. [6] Carol Elaine Calve",
+      "overlap_with_next": "eng Gao, and John William Paisley. Topicrnn: A recurrent neural network with long-range semantic dependency. CoRR, abs/1611.01702, 2016. [11] Sidney D’mello and Arthur Graesser. Mi",
+      "text": "o, Ryan Shaun Joazeiro de Baker, Jaclyn Ocumpaugh, and Neil T. Heﬀernan. Studying aﬀect dynamics and chronometry using sensor-free de- tectors. In EDM, 2018. [6] Carol Elaine Calvert. Developing a model and applica- tions for probabilities of student success: a case study of predictive analytics. Open Learning: The Journal of Open, Distance and e-Learning, 29(2):160–173, 2014. [7] Rafael A Calvo and Sidney D’Mello. Aﬀect detection: An interdisciplinary review of models, methods, and their applications. IEEE Transactions on aﬀective com- puting, 1(1):18–37, 2010. [8] Kyunghyun Cho, Bart Van Merri¨enboer, Dzmitry Bah- danau, and Yoshua Bengio. On the properties of neu- ral machine translation: Encoder-decoder approaches. arXiv preprint arXiv:1409.1259 , 2014. [9] Scotty Craig, Arthur Graesser, Jeremiah Sullins, and Barry Gholson. Aﬀect and learning: an exploratory look into the role of aﬀect in learning with autotutor. Journal of educational media , 29(3):241–250, 2004. [10] Adji B. Dieng, Chong Wang, Jianfeng Gao, and John William Paisley. Topicrnn: A recurrent neural network with long-range semantic dependency. CoRR, abs/1611.01702, 2016. [11] Sidney D’mello and Arthur Graesser. Mi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05757,
+        -0.04667,
+        -0.02467,
+        0.01399,
+        0.00315
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "eng Gao, and John William Paisley. Topicrnn: A recurrent neural network with long-range semantic dependency. CoRR, abs/1611.01702, 2016. [11] Sidney D’mello and Arthur Graesser. Mi",
+      "overlap_with_next": "utation, 1997. [16] Douglas Johnstone. A competency alternative: Western governors university. Change: The Magazine of Higher Learning, 37(4):24, 2005. [17] Diederik P Kingma and J",
+      "text": "eng Gao, and John William Paisley. Topicrnn: A recurrent neural network with long-range semantic dependency. CoRR, abs/1611.01702, 2016. [11] Sidney D’mello and Arthur Graesser. Mind and body: Dialogue and posture for aﬀect detection in learning environments. Frontiers in Artiﬁcial Intelligence and Applications, 158:161, 2007. [12] Michael Eagle, Ted Carmichael, Jessica Stokes, Mary Jean Blink, John Stamper, and Jason Levin. Predictive student modeling for interventions in online classes. In EDM, 2018. [13] Mi Fei and Dit-Yan Yeung. Temporal models for pre- dicting student dropout in massive open online courses. In ICDMW 2015, 2015. [14] Neil T Heﬀernan and Cristina Lindquist Heﬀernan. The assistments ecosystem: Building a platform that brings scientists and teachers together for minimally invasive research on human learning and teaching. Interna- tional Journal of Artiﬁcial Intelligence in Education , 24(4):470–497, 2014. [15] Sepp Hochreiter and J ¨urgen Schmidhuber. Long short- term memory. Neural computation, 1997. [16] Douglas Johnstone. A competency alternative: Western governors university. Change: The Magazine of Higher Learning, 37(4):24, 2005. [17] Diederik P Kingma and J",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04972,
+        -0.01869,
+        -0.01378,
+        -0.00728,
+        -0.01149
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "utation, 1997. [16] Douglas Johnstone. A competency alternative: Western governors university. Change: The Magazine of Higher Learning, 37(4):24, 2005. [17] Diederik P Kingma and J",
+      "overlap_with_next": " of Educational Technology & Society, 12(3):4, 2009. [22] Jon D Mcauliﬀe and David M Blei. Supervised topic models. In Advances in neural information processing systems, pages 121–",
+      "text": "utation, 1997. [16] Douglas Johnstone. A competency alternative: Western governors university. Change: The Magazine of Higher Learning, 37(4):24, 2005. [17] Diederik P Kingma and Jimmy Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980, 2014. [18] Kevin Kinser. Taking wgu seriously: Implications of the western governors university. Innovative Higher Educa- tion, 26(3):161–173, 2002. [19] Alex Krizhevsky, Ilya Sutskever, and Geoﬀrey E Hin- ton. Imagenet classiﬁcation with deep convolutional neural networks. In Advances in neural information processing systems, pages 1097–1105, 2012. [20] Changchun Liu, Pramila Rani, and Nilanjan Sarkar. An empirical study of machine learning techniques for aﬀect recognition in human-robot interaction. In 2005 IEEE/RSJ International Conference on Intelli- gent Robots and Systems, pages 2662–2667. IEEE, 2005. [21] Julia M Matuga. Self-regulation, goal orientation, and academic achievement of secondary students in online university courses. Journal of Educational Technology & Society, 12(3):4, 2009. [22] Jon D Mcauliﬀe and David M Blei. Supervised topic models. In Advances in neural information processing systems, pages 121–",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03059,
+        -0.02382,
+        0.00262,
+        -0.00408,
+        -0.03327
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": " of Educational Technology & Society, 12(3):4, 2009. [22] Jon D Mcauliﬀe and David M Blei. Supervised topic models. In Advances in neural information processing systems, pages 121–",
+      "overlap_with_next": "dud, Anna Christine M Amarra, Thomas Dy, Maria Beatriz V Espejo-Lahoz, Sheryl Ann L Lim, Sheila AMS Pascua, Jessica O Sugay, and Emily S Ta- banao. Aﬀective and behavioral predicto",
+      "text": " of Educational Technology & Society, 12(3):4, 2009. [22] Jon D Mcauliﬀe and David M Blei. Supervised topic models. In Advances in neural information processing systems, pages 121–128, 2008. [23] Mihalis A Nicolaou, Hatice Gunes, and Maja Pantic. Continuous prediction of spontaneous aﬀect from mul- tiple cues and modalities in valence-arousal space.IEEE Transactions on Aﬀective Computing, 2011. [24] Zachary A Pardos, Ryan SJD Baker, Maria OCZ San Pedro, Sujith M Gowda, and Supreeth M Gowda. Aﬀective states and state tests: Investigating how aﬀect and engagement during the school year predict end-of- year learning outcomes. Journal of Learning Analytics, 1(1):107–128, 2014. [25] Bart Rienties, Avinash Boroowa, Simon Cross, Chris Kubiak, Kevin Mayles, and Sam Murphy. Analyt- ics4action evaluation framework: A review of evidence- based learning analytics interventions at the open uni- versity uk. Journal of Interactive Media in Education , 2016(1), 2016. [26] Ma Mercedes T Rodrigo, Ryan S Baker, Matthew C Jadud, Anna Christine M Amarra, Thomas Dy, Maria Beatriz V Espejo-Lahoz, Sheryl Ann L Lim, Sheila AMS Pascua, Jessica O Sugay, and Emily S Ta- banao. Aﬀective and behavioral predicto",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04953,
+        0.01092,
+        -0.01783,
+        0.00723,
+        0.01141
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "dud, Anna Christine M Amarra, Thomas Dy, Maria Beatriz V Espejo-Lahoz, Sheryl Ann L Lim, Sheila AMS Pascua, Jessica O Sugay, and Emily S Ta- banao. Aﬀective and behavioral predicto",
+      "overlap_with_next": "son, and Zachary A Par- dos. Deep neural networks and how they apply to se- quential education data. In Proceedings of the Third (2016) ACM Conference on Learning@ Scale , pages 32",
+      "text": "dud, Anna Christine M Amarra, Thomas Dy, Maria Beatriz V Espejo-Lahoz, Sheryl Ann L Lim, Sheila AMS Pascua, Jessica O Sugay, and Emily S Ta- banao. Aﬀective and behavioral predictors of novice programmer achievement. In ACM SIGCSE Bulletin . ACM, 2009. [27] Tanmay Sinha, Patrick Jermann, Nan Li, and Pierre Dillenbourg. Your click decides your fate: Leveraging clickstream patterns in MOOC videos to infer students’ information processing and attrition behavior. CoRR, abs/1407.7131, 2014. [28] Tanmay Sinha, Nan Li, Patrick Jermann, and Pierre Dillenbourg. Capturing ”attrition intensifying” struc- tural traits from didactic interaction sequences of mooc learners. In EMNLP 2014, Workshop on Analysis of Large Scale Social Interaction in MOOCs , 2014. [29] Vernon C Smith, Adam Lange, and Daniel R Huston. Predictive modeling to forecast student outcomes and drive eﬀective interventions in online community college courses. Journal of Asynchronous Learning Networks , 2012. [Page 11] [30] Steven Tang, Joshua C Peterson, and Zachary A Par- dos. Deep neural networks and how they apply to se- quential education data. In Proceedings of the Third (2016) ACM Conference on Learning@ Scale , pages 32",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07773,
+        -0.05191,
+        -0.01622,
+        -0.00829,
+        -0.03651
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 49263,
+      "length": 303,
+      "overlap_with_previous": "son, and Zachary A Par- dos. Deep neural networks and how they apply to se- quential education data. In Proceedings of the Third (2016) ACM Conference on Learning@ Scale , pages 32",
+      "overlap_with_next": "",
+      "text": "son, and Zachary A Par- dos. Deep neural networks and how they apply to se- quential education data. In Proceedings of the Third (2016) ACM Conference on Learning@ Scale , pages 321–324. ACM, 2016. [31] Wei Wang, Han Yu, and Chunyan Miao. Deep model for dropout prediction in moocs. In ICCSE 2017, 2017.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0457,
+        -0.05414,
+        -0.02156,
+        -0.01649,
+        -0.00023
+      ]
+    }
+  ]
+}

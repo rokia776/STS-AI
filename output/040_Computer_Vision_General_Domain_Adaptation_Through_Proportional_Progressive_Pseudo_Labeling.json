@@ -1,0 +1,776 @@
+{
+  "paper_id": "3e4fdb87-60cd-4a47-9077-118458ab9640",
+  "filename": "040_Computer_Vision_General_Domain_Adaptation_Through_Proportional_Progressive_Pseudo_Labeling.pdf",
+  "title": "General Domain Adaptation Through Proportional Progressive Pseudo Labeling",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 45,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "ginning of the training phase, PPPL progressively reduces target domain classiﬁcation error, by training the model directly with pseudo- labeled target domain samples, while exclud",
+      "text": "[Page 1] General Domain Adaptation Through Proportional Progressive Pseudo Labeling Mohammad J. Hashemi Department of Computer Science University of Colorado Boulder Boulder, CO, USA mohammad.hashemi@colorado.edu Eric Keller Department of Electrical Computer and Energy Engineering University of Colorado Boulder Boulder, CO, USA eric.keller@colorado.edu Abstract—Domain adaptation helps transfer the knowledge gained from a labeled source domain to an unlabeled target domain. During the past few years, different domain adaptation techniques have been published. One common ﬂaw of these approaches is that while they might work well on one input type, such as images, their performance drops when applied to others, such as text or time-series. In this paper, we introduce Proportional Progressive Pseudo Labeling (PPPL), a simple, yet effective technique that can be implemented in a few lines of code to build a more general domain adaptation technique that can be applied on several different input types. At the beginning of the training phase, PPPL progressively reduces target domain classiﬁcation error, by training the model directly with pseudo- labeled target domain samples, while exclud",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09971,
+        -0.02853,
+        -0.02892,
+        0.01441,
+        -0.01015
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "ginning of the training phase, PPPL progressively reduces target domain classiﬁcation error, by training the model directly with pseudo- labeled target domain samples, while exclud",
+      "overlap_with_next": "eds a human in the loop. Possible workarounds to this issue include collecting a dataset similar to the target dataset that is already labeled because they had been used for an old",
+      "text": "ginning of the training phase, PPPL progressively reduces target domain classiﬁcation error, by training the model directly with pseudo- labeled target domain samples, while excluding samples with more likely wrong pseudo-labels from the training set and also postponing training on such samples. Experiments on 6 different datasets that include tasks such as anomaly detection, text sentiment analysis and image classiﬁcation demonstrate that PPPL can beat other baselines and generalize better. Index Terms—domain adaptation, transfer learning, anomaly detection I. I NTRODUCTION Deep neural networks have been used to approach many machine learning tasks such as object recognition, sentiment analysis, and anomaly detection, and they have achieved the state of the art results on those tasks and even surpassed humans capabilities [1]–[7]. But, usually, in order to train these models, one needs to collect a very large labeled dataset. The problem is that labeling a huge dataset is expensive, time-consuming and needs a human in the loop. Possible workarounds to this issue include collecting a dataset similar to the target dataset that is already labeled because they had been used for an old",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05525,
+        -0.05462,
+        -0.047,
+        0.02867,
+        -0.01926
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "eds a human in the loop. Possible workarounds to this issue include collecting a dataset similar to the target dataset that is already labeled because they had been used for an old",
+      "overlap_with_next": ". Ideally, for such a case, we would like to label a small portion of network trafﬁc that also includes some attacks and be able to detect most types of attacks, including zero-day",
+      "text": "eds a human in the loop. Possible workarounds to this issue include collecting a dataset similar to the target dataset that is already labeled because they had been used for an older task, or collecting a dataset that can easily be labeled, such as a synthetic dataset. Unfortunately, when we train a model on this labeled dataset, it doesn’t work well on the target dataset if they are not coming from the same distribution and when there is a domain gap between them [8], [9]. In some cases, when we have a very large and ongoing stream of inputs to the system, like when we want to detect network attacks based on the stream of packets that traverse through a network, this approach becomes more cumbersome as the input This research was supported in part by VMware and the NSF as part of SDI-CSCS award number 1700527. 978-1-7281-6251-5/20/$31.00 ©2020 IEEE data distribution is constantly changing and also new attacks are introduced that may not exist in the training data which makes it even harder to detect them. Ideally, for such a case, we would like to label a small portion of network trafﬁc that also includes some attacks and be able to detect most types of attacks, including zero-day",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06283,
+        0.00622,
+        -0.05685,
+        0.02971,
+        -0.0222
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": ". Ideally, for such a case, we would like to label a small portion of network trafﬁc that also includes some attacks and be able to detect most types of attacks, including zero-day",
+      "overlap_with_next": "a. For other approaches, they either leverage adversarial loss [11], [14], [20] or other techniques such as clustering [10]. One common problem is that there is no guarantee preven",
+      "text": ". Ideally, for such a case, we would like to label a small portion of network trafﬁc that also includes some attacks and be able to detect most types of attacks, including zero-day attacks, in the future without a need to directly label them. Unsupervised domain adaptation methods are used to address such problems where there is a domain shift between data distributions of a labeled source domain and an unlabeled target domain. Recently, many different domain adaptation methods have been proposed [10]–[19]. Despite different types of techniques used in recent approaches, one common ﬂaw among them is that they don’t generalize well among different types of inputs. Some of the methods such as [12], [15] are intrinsically designed for images, as they do image-to- image translation at the pixel level, or they need speciﬁc data augmentation that should be applied to them at the pixel level. Therefore, there is no straightforward way to apply these techniques to other input types such as text or time-series data. For other approaches, they either leverage adversarial loss [11], [14], [20] or other techniques such as clustering [10]. One common problem is that there is no guarantee preven",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08358,
+        0.01057,
+        -0.04224,
+        0.03692,
+        -0.00169
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "a. For other approaches, they either leverage adversarial loss [11], [14], [20] or other techniques such as clustering [10]. One common problem is that there is no guarantee preven",
+      "overlap_with_next": "to minimize the number of target samples that will align with a wrong class by excluding uncertain samples from the training set at the beginning of the training procedure and prog",
+      "text": "a. For other approaches, they either leverage adversarial loss [11], [14], [20] or other techniques such as clustering [10]. One common problem is that there is no guarantee preventing the wrong alignment of the target samples. In other words, target domain representations from one class can get aligned with another class during the domain adaptation, leading to lower performance of the model. In addition, the complexity and the large number of hyper-parameters that some of these methods have weighs on this problem as there is no straightforward way to ﬁnd the hyper-parameters that minimize the target error due to the lack of a labeled validation set for the target domain. Therefore, more complexity leads to less generalization. In this paper, we introduce Proportional Progressive Pseudo Labeling (PPPL), a more general domain adaptation technique that works across different input types. PPPL assigns pseudo- labels to the target samples and trains the model directly with them. Key to PPPL is that it tries to minimize the number of target samples that will align with a wrong class by excluding uncertain samples from the training set at the beginning of the training procedure and prog",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08687,
+        -0.01864,
+        -0.05193,
+        0.01313,
+        -0.01703
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "to minimize the number of target samples that will align with a wrong class by excluding uncertain samples from the training set at the beginning of the training procedure and prog",
+      "overlap_with_next": "rmance. Experiments on 6 different datasets (CIC-IDS2017 [21], Yahoo [22], Multi-Domain Sentiment [23], CIFAR-STL [24], [25], Ofﬁce-31 [26] and Ofﬁce-Home [27]) including tasks suc",
+      "text": "to minimize the number of target samples that will align with a wrong class by excluding uncertain samples from the training set at the beginning of the training procedure and progressively bring them back into the training loop with a weight proportional to their certainty. Further, we assume that we can guess the arXiv:2012.13028v1 [cs.LG] 23 Dec 2020 [Page 2] proportions of target samples that belong to each class. Note that while we don’t know the individual labels in the target domain, the class proportions can be guessed in many cases. For example during an object recognition task based on the images collected from a camera deployed on an autonomous vehicle, replacing that camera with a new one can cause a domain shift, but will retain the class proportions. While other domain adaptation methods don’t consider this condition, we show that enforcing class proportions during the training further decreases incorrect alignment of target samples that results in further improvement of overall system performance. Experiments on 6 different datasets (CIC-IDS2017 [21], Yahoo [22], Multi-Domain Sentiment [23], CIFAR-STL [24], [25], Ofﬁce-31 [26] and Ofﬁce-Home [27]) including tasks suc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07716,
+        -0.0294,
+        -0.03844,
+        0.01636,
+        -0.00727
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "rmance. Experiments on 6 different datasets (CIC-IDS2017 [21], Yahoo [22], Multi-Domain Sentiment [23], CIFAR-STL [24], [25], Ofﬁce-31 [26] and Ofﬁce-Home [27]) including tasks suc",
+      "overlap_with_next": "iﬁer get better results on the target domain. Some of them, such as CyCADA [15] and self-ensembling (SE) [12], are designed for a speciﬁc type of input, namely images. In contrast,",
+      "text": "rmance. Experiments on 6 different datasets (CIC-IDS2017 [21], Yahoo [22], Multi-Domain Sentiment [23], CIFAR-STL [24], [25], Ofﬁce-31 [26] and Ofﬁce-Home [27]) including tasks such as anomaly detection, text sentiment analysis, and object recognition, demonstrates that our approach is superior to other baselines and generalizes better than them across different input types. Our experiments show that while PPPL is capable of improving the accuracy of image classiﬁers on visual domain adaptation tasks as good as state-of-the-art methods, it signiﬁcantly outperforms them on other tasks with up to 62% improvement for anomaly detection in network trafﬁc based on the F1 score. Finally, with an ablation study, we demonstrate the necessity of each component in our method and with a sensitivity analysis, we show how robust our method is to the accuracy of class proportions that are guessed. II. R ELATED WORK Recent methods that are proposed for domain adaptation leverage a wide range of techniques to make a classiﬁer get better results on the target domain. Some of them, such as CyCADA [15] and self-ensembling (SE) [12], are designed for a speciﬁc type of input, namely images. In contrast,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07507,
+        -0.01873,
+        -0.01154,
+        0.04669,
+        0.0072
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "iﬁer get better results on the target domain. Some of them, such as CyCADA [15] and self-ensembling (SE) [12], are designed for a speciﬁc type of input, namely images. In contrast,",
+      "overlap_with_next": "dversarial neural network (DANN) in which they augment a classiﬁer with a domain discriminator and train them in an adversarial fashion by back-propagating the reverse gradients of",
+      "text": "iﬁer get better results on the target domain. Some of them, such as CyCADA [15] and self-ensembling (SE) [12], are designed for a speciﬁc type of input, namely images. In contrast, our work on PPPL can easily be applied to several different input types. The second group of methods are those that don’t require being applied on a speciﬁc input type as their focus is to mitigate the gap between the source and the target domain in the feature space at some intermediate layer of a deep network. The adversarial domain adaptation is the basic idea behind a large portion of recent approaches [11], [14], [20], in which the classiﬁer is trained jointly with a domain discriminator like a GAN [28]. The discriminator is trained to distinguish between source and target samples based on their representation captured from an intermediate layer of a deep network while the classiﬁer itself is trained in a way to fool the discriminator that results in generating domain invariant features. Ganin et al. [14] proposed domain adversarial neural network (DANN) in which they augment a classiﬁer with a domain discriminator and train them in an adversarial fashion by back-propagating the reverse gradients of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04726,
+        -0.04174,
+        -0.01376,
+        -7e-05,
+        0.01181
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "dversarial neural network (DANN) in which they augment a classiﬁer with a domain discriminator and train them in an adversarial fashion by back-propagating the reverse gradients of",
+      "overlap_with_next": "al domain adaptation methods, there are also other approaches like Contrastive Adaptation Network (CAN). Kang et al. [10] mitigate the gap between the source and target domains at ",
+      "text": "dversarial neural network (DANN) in which they augment a classiﬁer with a domain discriminator and train them in an adversarial fashion by back-propagating the reverse gradients of the domain classiﬁer to learn domain invariant representations. Long et al. [11] designed conditional adversarial domain adaptation (CDAN) in which they condition the domain discriminator on the cross-covariance of domain- speciﬁc feature representations and classiﬁer predictions, as well as on the uncertainty of the classiﬁer to prioritize the discriminator on the easy to transfer samples. While we also model target domain uncertainty into our PPPL method, our approach differs from approaches like CDAN as they model the uncertainties into the domain discriminator. Doing so makes those approaches deal with the complications of training GANs, whereas in our approach there is no discriminator and we model uncertainty directly into the classiﬁcation loss. This results in less complexity and greater generalization. Beyond adversarial domain adaptation methods, there are also other approaches like Contrastive Adaptation Network (CAN). Kang et al. [10] mitigate the gap between the source and target domains at ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03688,
+        -0.04739,
+        -0.02017,
+        -0.01937,
+        -0.02641
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "al domain adaptation methods, there are also other approaches like Contrastive Adaptation Network (CAN). Kang et al. [10] mitigate the gap between the source and target domains at ",
+      "overlap_with_next": ",..., (xsNs,y sNs)} such that yi∈ Y = {0, 1,...,M − 1} and another set of unlabeled samples known as target domain T = {xt1,x t2,...,x tNt} which come from two different data distr",
+      "text": "al domain adaptation methods, there are also other approaches like Contrastive Adaptation Network (CAN). Kang et al. [10] mitigate the gap between the source and target domains at some feature space through the help of an alternating optimization method in which they initially cluster target samples into multiple different groups and then they assign some pseudo labels to them. They then train the model by minimizing intra-class discrepancy and maximizing inter-class discrepancy. Similar to CAN, we also assign some pseudo labels to the target samples, but unlike CAN, we don’t use any clustering method. We instead assign the pseudo labels directly based on the model predictions. This, again, leads to less complexity and greater generalization. III. D ESIGN INSIGHTS Our goal is to train a deep network with the help of a labeled source domain in order to maximize the cor- rect predictions on an unlabeled target domain. Formally, given a set of labeled samples known as source domain S ={(xs1,y s1), (xs2,y s2),..., (xsNs,y sNs)} such that yi∈ Y = {0, 1,...,M − 1} and another set of unlabeled samples known as target domain T = {xt1,x t2,...,x tNt} which come from two different data distr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05101,
+        -0.04592,
+        -0.03457,
+        0.02517,
+        0.00479
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": ",..., (xsNs,y sNs)} such that yi∈ Y = {0, 1,...,M − 1} and another set of unlabeled samples known as target domain T = {xt1,x t2,...,x tNt} which come from two different data distr",
+      "overlap_with_next": "oss. We can also directly minimize the distance of the ﬁnal layer outputs and the one-hot encoding of the labels with mean square error loss (MSE). We argue that for such a setting",
+      "text": ",..., (xsNs,y sNs)} such that yi∈ Y = {0, 1,...,M − 1} and another set of unlabeled samples known as target domain T = {xt1,x t2,...,x tNt} which come from two different data distributions our goal is to train a model F :x↦→y to predict ˆyti∈Y to minimize the prediction error on the target domain. That is to say we want to minimize ΣNti=11 (ˆyti⁄= yti) where yti are the ground truth labels of the target domain samples. In the rest of this section, we ﬁrst provide some insights that helped us to design our approach. Then, in the following section, we explain how we incorporate these insights to design PPPL. A. Insight 1 - when training with pseudo-labels mean square error is a better choice As we mentioned earlier, we want to assign pseudo labels directly based on model predictions to the target domain samples and train the model with them. For training, there are two choices here: We can feed the outputs of the ﬁnal layer of the model to a Softmax function and train the model with the cross-entropy (CE) loss. We can also directly minimize the distance of the ﬁnal layer outputs and the one-hot encoding of the labels with mean square error loss (MSE). We argue that for such a setting",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08555,
+        -0.01826,
+        -0.07494,
+        0.01441,
+        0.01484
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "oss. We can also directly minimize the distance of the ﬁnal layer outputs and the one-hot encoding of the labels with mean square error loss (MSE). We argue that for such a setting",
+      "overlap_with_next": " This means that potentially, the points that belong to the same class can form multiple different clusters in the logit space. More speciﬁcally, the target domain samples and the ",
+      "text": "oss. We can also directly minimize the distance of the ﬁnal layer outputs and the one-hot encoding of the labels with mean square error loss (MSE). We argue that for such a setting, MSE is a better choice. First, consider the Softmax function which is deﬁned as follows: σ(z)i = eziΣM −1j=0 ezj for i = 0, 1,...,M − 1where M is the number of classes. Note that because of the nature of this function there is no one-to-one mapping between the probabilities (outputs of the Softmax layer) and the logits (inputs of the Softmax layer). That is to say, many different points in the logit space can be mapped to a single vector [Page 3] (a) (b) (c) Fig. 1: a) Model accuracy on the target domain when trained only on correct predictions. b) The ratio of wrong predictions at different levels of model certainty. c) The negative impact of early training on wrong pseudo-labels. of probabilities. For example, when there is only 2 classes, both of the points [1, 100] and [200, 299] will be mapped to the [ 11+e99, e991+e99 ]. This means that potentially, the points that belong to the same class can form multiple different clusters in the logit space. More speciﬁcally, the target domain samples and the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08174,
+        0.00464,
+        -0.05563,
+        -0.01503,
+        0.02703
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " This means that potentially, the points that belong to the same class can form multiple different clusters in the logit space. More speciﬁcally, the target domain samples and the ",
+      "overlap_with_next": "E loss in this setting we get the same advantages of adversarial domain adaptation techniques without being worried about the complications of training GANs. B. Insight 2 - trainin",
+      "text": " This means that potentially, the points that belong to the same class can form multiple different clusters in the logit space. More speciﬁcally, the target domain samples and the source domain samples that share the same label or pseudo label can fall into different clusters. On the other hand, when we train the model with MSE, the points that have real or pseudo label Ci will fall into one single cluster very close to the point [0,..., 0, 1, 0,... 0] where the i-th index is 1 after we train the model on them. This characteristic is more desirable as it mitigates the domain gap between the source and the target samples at logit space and forces the model to learn features in the earlier layers of the network that leads to indistinguishable representations at the logit space between the source and the target domain samples. From another point of view, if we would have a domain discriminator to distinguish between the source and the target samples logits it could be completely fooled. Therefore by using MSE loss in this setting we get the same advantages of adversarial domain adaptation techniques without being worried about the complications of training GANs. B. Insight 2 - trainin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04685,
+        -0.00457,
+        -0.03179,
+        0.02392,
+        0.02278
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "E loss in this setting we get the same advantages of adversarial domain adaptation techniques without being worried about the complications of training GANs. B. Insight 2 - trainin",
+      "overlap_with_next": "s propagated to the points in close proximity of B and C in the next iteration. Therefore, excluding wrong samples and training only on correct samples gradually reduces the target",
+      "text": "E loss in this setting we get the same advantages of adversarial domain adaptation techniques without being worried about the complications of training GANs. B. Insight 2 - training only on correct samples gradually reduces the target error Consider a model pretrained on the source domain. Also, consider some samples (e.g. A, B and C) from the target domain that belongs to the same class (e.g. class 1) and fall into the close proximity of each other at some middle representation of the network. Assume that we assign pseudo-labels to these samples directly based on model predictions. Suppose that some of these pseudo-labels are correct and some are wrong (e.g. ˆyA = 1, ˆyB = 2, ˆyC = 2). If we exclude wrong samples (B, C) and train the model only on correct samples (A), then the model learns that the points (B, C) in close proximity of these points (A) are also more likely to be from the same class (class 1) and potentially some of them will get a correct pseudo-label in the next iteration. This effect gets propagated to the points in close proximity of B and C in the next iteration. Therefore, excluding wrong samples and training only on correct samples gradually reduces the target",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03838,
+        -0.0144,
+        -0.04937,
+        0.02413,
+        0.01707
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "s propagated to the points in close proximity of B and C in the next iteration. Therefore, excluding wrong samples and training only on correct samples gradually reduces the target",
+      "overlap_with_next": "xclude them from the training procedure. C. Insight 3 - an uncertainty metric can guide which predic- tions are wrong Unfortunately, there is no straightforward way to know which o",
+      "text": "s propagated to the points in close proximity of B and C in the next iteration. Therefore, excluding wrong samples and training only on correct samples gradually reduces the target error. To further show this, in Figure 1(a) we demonstrate the results of such training on 4 different domain adaptation tasks namely Amazon → DSLR and DSLR → Amazon from the Ofﬁce-31 dataset, Art → Clipart from the OfﬁceHome dataset, and Electronics → Books from the Multi-Domain Sentiment (MDS) dataset. As can be seen in all cases, the model progressively learns to predict target domain samples more accurately. These results are better than the results of any other domain adaptation approach by a large margin and it also generalizes well across different input types. In other words, we can signiﬁcantly reduce the target error only by assigning pseudo labels to the target samples directly based on the model predictions and training the classiﬁer with them. We just somehow need to determine in which cases the model is wrong to exclude them from the training procedure. C. Insight 3 - an uncertainty metric can guide which predic- tions are wrong Unfortunately, there is no straightforward way to know which o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06596,
+        -0.01844,
+        -0.05073,
+        0.03046,
+        -0.0031
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "xclude them from the training procedure. C. Insight 3 - an uncertainty metric can guide which predic- tions are wrong Unfortunately, there is no straightforward way to know which o",
+      "overlap_with_next": " wrongly. As can be seen in Figure 1(b), in general when certainty score decreases among samples that are given the same pseudo-label, a larger portion of predictions becomes wrong",
+      "text": "xclude them from the training procedure. C. Insight 3 - an uncertainty metric can guide which predic- tions are wrong Unfortunately, there is no straightforward way to know which of the model predictions are correct and which ones are wrong on the target domain as we don’t know the target domain’s labels. But, among all samples that are predicted as the same class, there is a relation between the model’s certainty and the chance of wrong predictions. We capture the model’s certainty with the difference between the two largest scores that the model outputs for each sample and call it the certainty score. This difference becomes smaller as in some intermediate representation of the inputs the points get further away from the same-labeled source points, falling into sub-spaces that are not well explored by the model or when they fall in close proximity to other points with different labels meaning getting closer to [Page 4] the decision boundaries. Thus, in such cases, it becomes more likely to get predicted wrongly. As can be seen in Figure 1(b), in general when certainty score decreases among samples that are given the same pseudo-label, a larger portion of predictions becomes wrong",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07034,
+        -0.02296,
+        -0.05312,
+        0.02326,
+        0.00126
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " wrongly. As can be seen in Figure 1(b), in general when certainty score decreases among samples that are given the same pseudo-label, a larger portion of predictions becomes wrong",
+      "overlap_with_next": "samples into the training procedure deteriorates the model’s performance on the target domain more than later inclusion. This is because of the same phenomenon that we discussed in",
+      "text": " wrongly. As can be seen in Figure 1(b), in general when certainty score decreases among samples that are given the same pseudo-label, a larger portion of predictions becomes wrong. For this ﬁgure, we ﬁrst trained the model on the source domain for each of the aforementioned tasks with MSE loss. Then for each class C the ratio of wrong predictions to all of the target samples that are predicted as C and their certainty scores fall into the interval [ i−110 , i10] is calculated. For each task, the i-th bar demonstrates the average of such ratio across all the classes. D. Insight 4 - the timing of inclusion of a wrong-prediction matters While we can predict better, we cannot know for sure which predictions are correct, and therefore it might be inevitable we assign some wrong pseudo-labels to some of the target samples and train the model on them. But one thing that is important is the time when we train the model on the target samples with the wrong pseudo-labels. We argue that the early inclusion of such samples into the training procedure deteriorates the model’s performance on the target domain more than later inclusion. This is because of the same phenomenon that we discussed in",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06104,
+        0.00975,
+        -0.0508,
+        0.037,
+        0.0173
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "samples into the training procedure deteriorates the model’s performance on the target domain more than later inclusion. This is because of the same phenomenon that we discussed in",
+      "overlap_with_next": "e target domain sample size. For all of the cases, we trained the model for 10 epochs. In this ﬁgure, we illustrate the change in the model accuracy when the wrong pseudo-labeled s",
+      "text": "samples into the training procedure deteriorates the model’s performance on the target domain more than later inclusion. This is because of the same phenomenon that we discussed in insight 2: When we train a model on a target sample with a wrong pseudo-label, it would be more likely for the model to assign that wrong label to the points that are in close proximity of that wrong sample. Then, this wrong label propagates to the neighborhood of these newly affected samples in the next iteration. Therefore, the earlier we train the model on a wrong sample, the further its impact will propagate, the more model’s accuracy deteriorates on the target domain. This can be seen in Figure 1(c). For this ﬁgure, for each of the tasks mentioned in the second insight, we trained the model the same way we discussed but also we included some samples with wrong pseudo-labels into the training procedure at different epochs (epochs 1,4,7 and 10). The size of the wrong pseudo- labeled samples in each task is equal to 10% of the target domain sample size. For all of the cases, we trained the model for 10 epochs. In this ﬁgure, we illustrate the change in the model accuracy when the wrong pseudo-labeled s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06438,
+        -0.00725,
+        -0.04435,
+        0.00883,
+        -0.00086
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "e target domain sample size. For all of the cases, we trained the model for 10 epochs. In this ﬁgure, we illustrate the change in the model accuracy when the wrong pseudo-labeled s",
+      "overlap_with_next": "vely gets better. Also, based on the ﬁrst insight we know that for such a setting using MSE loss is better than CE loss. Unfortunately, since we don’t know target labels we can’t ﬁ",
+      "text": "e target domain sample size. For all of the cases, we trained the model for 10 epochs. In this ﬁgure, we illustrate the change in the model accuracy when the wrong pseudo-labeled samples were included in the training loop at epoch 1, 4, and 7 in comparison with when they were included at epoch 10. Therefore a larger bar shows a greater decrease in the model’s accuracy. As can be seen, the earlier the model got trained on the wrong samples the more its accuracy is decreased. For example, for the Art → Clipart task if we include the wrong pseudo-labeled samples at the ﬁrst epoch of training the ﬁnal accuracy will be almost 7% lower than when we postpone their inclusion to epoch 10. IV. P ROPORTIONAL PROGRESSIVE PSEUDO LABELING (PPPL) Based on the insights we discussed we designed our approach. In a nutshell, based on the second insight we know that if we use a model pre-trained on the source domain and assign pseudo-labels to the target samples with it and exclude the wrong pseudo-labels the model progressively gets better. Also, based on the ﬁrst insight we know that for such a setting using MSE loss is better than CE loss. Unfortunately, since we don’t know target labels we can’t ﬁ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06259,
+        -0.03545,
+        -0.051,
+        0.02666,
+        0.0206
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "vely gets better. Also, based on the ﬁrst insight we know that for such a setting using MSE loss is better than CE loss. Unfortunately, since we don’t know target labels we can’t ﬁ",
+      "overlap_with_next": "core which is a vector with size M (M is the number of available classes) for each of the target samples (line 4) and assign a pseudo-label to that sample based on its largest scor",
+      "text": "vely gets better. Also, based on the ﬁrst insight we know that for such a setting using MSE loss is better than CE loss. Unfortunately, since we don’t know target labels we can’t ﬁnd out exactly for which cases the pseudo-labels are wrong but based on the third insight we know that the ratio of wrong predictions increases as the model certainty decreases. In addition, based on the fourth insight we know that it is better to postpone training the model on such samples. Algorithm 1 describes our approach in more detail. The inputs are F which is the model pretrained on the source domain, Xs which is the set of all source domain samples, Ys which is the set of all the source domain labels, Xt which is the set of all target domain samples and CP t which is the set of target class proportions that are guessed or known from other sources. We ﬁrst train the model ( F ) on the source domain samples (Xs,Y s) with the MSE loss function (based on insight 1). Then in each iteration of the algorithm, we ﬁrst get the score which is a vector with size M (M is the number of available classes) for each of the target samples (line 4) and assign a pseudo-label to that sample based on its largest scor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04915,
+        -0.01425,
+        -0.04388,
+        0.04732,
+        0.01969
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "core which is a vector with size M (M is the number of available classes) for each of the target samples (line 4) and assign a pseudo-label to that sample based on its largest scor",
+      "overlap_with_next": "N% of the samples and 0 to the rest of the samples of that group. Within each group, the weights are monotonically assigned based on the certainty scores such that a sample with a ",
+      "text": "core which is a vector with size M (M is the number of available classes) for each of the target samples (line 4) and assign a pseudo-label to that sample based on its largest score. (line 5). Then for all of the target samples, we calculate the \"certainty score\" (line 6) and then assign a weight value to each of the target samples based on its certainty score (line 7). This weight will be used later during training to control the impact of each sample on the model parameters. Algorithm 1 Proportional Progressive Pseudo-Labeling 1: procedure PPPL(F,X s,Y s,X t,CP t) 2: fori← 1 to 45 do 3: N← 10 + 2×i 4: St←F (Xt) 5: PL t←argmax(St) 6: CS t←CalcCertaintyScore (St) 7: Wt←CalculateWeight (CS t,PL t,N ) 8: X′t,Y′t,W′t←Exclude(Xt,PL t,W t,CP t) 9: X′s,Y′s,W s←Select(Xs,Y s) 10: Train (F,X′s,Y′s,W s,X′t,Y′t,W′t) 11: end for 12: end procedure The function CalculateWeight (CS t,PL t,N ), ﬁrst groups all of the samples that are assigned the same label. Then, for each group, it assigns a weight between [0.2−1.0] toN% of the samples and 0 to the rest of the samples of that group. Within each group, the weights are monotonically assigned based on the certainty scores such that a sample with a ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07083,
+        -0.00931,
+        -0.03977,
+        0.02586,
+        0.00508
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "N% of the samples and 0 to the rest of the samples of that group. Within each group, the weights are monotonically assigned based on the certainty scores such that a sample with a ",
+      "overlap_with_next": "h 20, 50% of the samples will be included in the training and at the ﬁnal epoch, all the samples will be included. Using this weighting strategy decreases the chance of training on",
+      "text": "N% of the samples and 0 to the rest of the samples of that group. Within each group, the weights are monotonically assigned based on the certainty scores such that a sample with a larger certainty score will be assigned a larger weight. More speciﬁcally, if the number of samples that fall into top N% for a given group is Lc then the weights for those samples are calculated as follows: wj = 1tj where tj = 1 + 4Lc×j in which j∈ [0,L c) and wj is assigned to the j-th sample with the largest certainty score. For better illustration, in Figure 2 we show the weights that will be assigned to the target samples with the same pseudo- label at epoch 1, 20 and 45 of our method. We assumed that the size of this group would remain in 1000 during the whole training. As can be seen, for the ﬁrst epoch only 10% of [Page 5] the samples will be assigned with a weight of more than 0, which essentially means that the other 90% samples that have a lower certainty score will be excluded from training in the ﬁrst epoch. At epoch 20, 50% of the samples will be included in the training and at the ﬁnal epoch, all the samples will be included. Using this weighting strategy decreases the chance of training on",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06046,
+        0.01187,
+        -0.05298,
+        0.03321,
+        -0.0059
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "h 20, 50% of the samples will be included in the training and at the ﬁnal epoch, all the samples will be included. Using this weighting strategy decreases the chance of training on",
+      "overlap_with_next": "ct. Therefore, we expect that some of these predictions to be wrong. So, from each class, we keep excluding the most uncertain predictions until the ratio of remaining samples beco",
+      "text": "h 20, 50% of the samples will be included in the training and at the ﬁnal epoch, all the samples will be included. Using this weighting strategy decreases the chance of training on wrong samples on the early epochs by excluding the less certain samples (designed based on insights 3 and 4). Also for the samples that will be included at each epoch, we assign a smaller weight to the less certain samples to decrease the impact of those that are assigned wrong pseudo-labels and potentially are among included samples on the model parameters (designed based on insight 3). There is also another way we try to exclude wrong samples which is based on guessed class proportions (line 8). In the Exclude function, for each label, we ﬁrst calculate the ratio of samples with that pseudo-label to the whole target domain sample size. Then we exclude some samples for classes that their ratio is higher than its corresponding guessed ratio because it means that the model predicted samples with that label more than what we expect. Therefore, we expect that some of these predictions to be wrong. So, from each class, we keep excluding the most uncertain predictions until the ratio of remaining samples beco",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0756,
+        -0.04077,
+        -0.01376,
+        0.0439,
+        0.0078
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "ct. Therefore, we expect that some of these predictions to be wrong. So, from each class, we keep excluding the most uncertain predictions until the ratio of remaining samples beco",
+      "overlap_with_next": "he current epoch. V. E VALUATION In this section, we evaluate PPPL for doing domain adapta- tion on 6 different datasets. For two of them (CIC-IDS2017 and Yahoo) we want to do anom",
+      "text": "ct. Therefore, we expect that some of these predictions to be wrong. So, from each class, we keep excluding the most uncertain predictions until the ratio of remaining samples becomes equal to our expected ratio (designed based on insights 2 and 3). In addition to the target samples, we also select some samples randomly from the source domain at each epoch to train the model on them. We do this because in the initial phases of our algorithm we only include a small portion of the target samples and we don’t want to make the model over-ﬁt on them. We also assign a weight equal to 1 to these source samples as all of their labels are correct. Finally with the combination of pseudo-labeled target samples and these source samples we train the model with MSE loss (designed based on insight 1). More speciﬁcally, the loss function we use for training is as follows: 1N ∑Ni=1wi||F (xi)−yi||22 in which yi is the one-hot encoding of (pseudo)label assigned to sample xi and N is the total number of included samples at the current epoch. V. E VALUATION In this section, we evaluate PPPL for doing domain adapta- tion on 6 different datasets. For two of them (CIC-IDS2017 and Yahoo) we want to do anom",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06402,
+        -0.02587,
+        -0.02427,
+        0.02991,
+        0.00578
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "he current epoch. V. E VALUATION In this section, we evaluate PPPL for doing domain adapta- tion on 6 different datasets. For two of them (CIC-IDS2017 and Yahoo) we want to do anom",
+      "overlap_with_next": "sday attacks are Web attacks and Inﬁltration. We consider the trafﬁc collected in each of these days as one domain and deﬁne 6 domain adaptation tasks between each pair of them (e.",
+      "text": "he current epoch. V. E VALUATION In this section, we evaluate PPPL for doing domain adapta- tion on 6 different datasets. For two of them (CIC-IDS2017 and Yahoo) we want to do anomaly detection based on time-series, in one of them (MDS) we want to do sentiment analysis based on text input, and for the other three (Ofﬁce-31, Ofﬁce-Home, CIFAR-STL) we want to do object recognition in image inputs. A. Datasets CIC-IDS2017 dataset consists of network traces of different network attacks. The whole dataset which is collected over a week contains millions of packets and each packet is labeled as either benign or malicious. The task in this dataset is to detect malicious packets. The type of attacks that are carried out on different days differs from each other. The Tuesday attacks are FTP-Patator and SSH-Patator. The Wednesday attacks are DoS Slowloris, DoS Slowhttptest, DoS Hulk, DoS GoldenEye Fig. 2: The illustration of weights assigned to the target samples with the same pseudo-label. and Heartbleed. The Thursday attacks are Web attacks and Inﬁltration. We consider the trafﬁc collected in each of these days as one domain and deﬁne 6 domain adaptation tasks between each pair of them (e.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05201,
+        -0.02168,
+        -0.03184,
+        0.05506,
+        -0.00852
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "sday attacks are Web attacks and Inﬁltration. We consider the trafﬁc collected in each of these days as one domain and deﬁne 6 domain adaptation tasks between each pair of them (e.",
+      "overlap_with_next": "anomalous points. We preprocessed this dataset as follows: For each of the time-series, we ﬁrst calculated the difference between each point and its adjacent point and then normali",
+      "text": "sday attacks are Web attacks and Inﬁltration. We consider the trafﬁc collected in each of these days as one domain and deﬁne 6 domain adaptation tasks between each pair of them (e.g. Tu→We, Tu→Th). In order to classify the packets in this dataset, we ﬁrst preprocessed them with the same method described in [4]. Given this preprocessing method, the Tu, We and Th domains contain 573,544, 685,241 and 462,031 samples, respectively. Also, all of these domains are imbalanced. The percentage of malicious trafﬁc in the Tu, We, and Th domains are 2.2%, 18.2% and 2.7%, respectively. Yahoo dataset contains real and synthetic time-series and the goal is to detect anomalous points in these time-series. The real domain consists of metrics of different Yahoo services and reﬂects the status of the Yahoo system and the synthetic dataset is generated artiﬁcially. Both of the domains are extremely imbalanced. There are 67 time-series in the real domain and 100 ones in the synthetic domain and each of them contains multiple anomalous points. We preprocessed this dataset as follows: For each of the time-series, we ﬁrst calculated the difference between each point and its adjacent point and then normali",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05615,
+        -0.02392,
+        -0.0074,
+        0.00856,
+        -0.00665
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "anomalous points. We preprocessed this dataset as follows: For each of the time-series, we ﬁrst calculated the difference between each point and its adjacent point and then normali",
+      "overlap_with_next": "nd 4,000 are named unlabeled. For each task, after Bag of Words (BoW) preprocessing, during [Page 6] TABLE I: Results of all methods on the CICIDS-2017 dataset. The numbers reporte",
+      "text": "anomalous points. We preprocessed this dataset as follows: For each of the time-series, we ﬁrst calculated the difference between each point and its adjacent point and then normalized all the points in that time-series to have a mean of 0 and standard deviation of 1. Then, we concatenated each point with the 511 points that came before it and fed this vector to the classiﬁer as the input. Given this preprocessing method, the real domain contains 60,629 samples where 1,563 of them are anomalous and the artiﬁcial domain contains 91,000 samples where 466 of them are anomalous. Multi-Domain Sentiment (MDS) is widely used to evaluate domain adaptation methods built for sentiment-analysis based on text inputs. It contains 27,677 product reviews from amazon.com about four product domains: books (B), DVDs (D), electronics (E) and kitchen appliances (K) and therefore 12 different tasks. The goal is to classify the reviews into positive and negative classes. For each domain, 2,000 reviews are named labeled and around 4,000 are named unlabeled. For each task, after Bag of Words (BoW) preprocessing, during [Page 6] TABLE I: Results of all methods on the CICIDS-2017 dataset. The numbers reporte",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05292,
+        -0.0539,
+        -0.0164,
+        0.01566,
+        -0.00321
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "nd 4,000 are named unlabeled. For each task, after Bag of Words (BoW) preprocessing, during [Page 6] TABLE I: Results of all methods on the CICIDS-2017 dataset. The numbers reporte",
+      "overlap_with_next": "dataset is a combination of images from 9 overlapping classes of CIFAR-10 and STL. There are 45,000 images in the CIFAR-10 domain and 4,500 images in the STL domain. Ofﬁce-31 is wi",
+      "text": "nd 4,000 are named unlabeled. For each task, after Bag of Words (BoW) preprocessing, during [Page 6] TABLE I: Results of all methods on the CICIDS-2017 dataset. The numbers reported in this table are F1 scores. Method Tu → We Tu → Th We → Tu We → Th Th → Tu Th → We Avg Only-Src 0.055 0.215 0.028 0.087 0.010 0.016 0.068 CDAN 0.007 0.004 0.006 0.013 0.000 0.025 0.009 CAN 0.662 0.169 0.123 0.333 0.000 0.005 0.215 PPPL 0.973 0.708 0.855 0.712 0.784 0.964 0.833 TABLE II: Results of all methods on the CIFAR-STL and Yahoo datasets. We reported accuracies for the CIFAR-STL dataset and F1 scores for the Yahoo dataset. Method CIFAR \u0001 STL STL \u0001 CIFAR Avg Real \u0001 Syn. Syn. \u0001 Real Avg Only-Src 76.0 61.3 68.6 0.441 0.081 0.261 CDAN 77.6 63.3 70.5 0.448 0.049 0.249 CAN 76.6 55.5 66.0 0.016 0.187 0.102 PPPL 79.6 69.7 74.6 0.624 0.285 0.454 the training of each method, we used 2,000 labeled reviews from the source domain and both of the labeled and unlabeled reviews from the target domain (without their labels). CIFAR-STL dataset is a combination of images from 9 overlapping classes of CIFAR-10 and STL. There are 45,000 images in the CIFAR-10 domain and 4,500 images in the STL domain. Ofﬁce-31 is wi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.10129,
+        -0.03801,
+        -0.03275,
+        0.01407,
+        0.00745
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "dataset is a combination of images from 9 overlapping classes of CIFAR-10 and STL. There are 45,000 images in the CIFAR-10 domain and 4,500 images in the STL domain. Ofﬁce-31 is wi",
+      "overlap_with_next": ". CAN is state-of-the-art for the Ofﬁce-31 dataset. Kang et al. in their evaluation showed that CAN outperforms many other baselines such as Domain Adversarial Neural Network (DANN",
+      "text": "dataset is a combination of images from 9 overlapping classes of CIFAR-10 and STL. There are 45,000 images in the CIFAR-10 domain and 4,500 images in the STL domain. Ofﬁce-31 is widely used for the evaluation of visual domain adaptation methods and contains 4,652 images in 3 different domains known as Amazon (A), DSLR (D) and Webcam (W) and 31 different classes. There are 6 domain adaptation tasks between each pair of domains (e.g. A →D, D→W, ...) and we evaluate PPPL and other baselines on all of the 6 tasks. Ofﬁce-Home is another dataset used for visual domain adaptation that is harder than Ofﬁce-31. This dataset contains 15,500 images in 65 classes and there are in 4 different domains known as Art (Ar), Clipart (Cl), Product (Pr) and Real-World (Rw). Therefore for this dataset, 12 different tasks exist between each pair of domains. B. Experiments Baselines: We compare PPPL with two other baselines which are among the best domain adaptation techniques to the best of our knowledge: CAN [10] and CDAN [11]. CAN is state-of-the-art for the Ofﬁce-31 dataset. Kang et al. in their evaluation showed that CAN outperforms many other baselines such as Domain Adversarial Neural Network (DANN",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03578,
+        -0.07027,
+        -0.03769,
+        0.02454,
+        -0.00544
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": ". CAN is state-of-the-art for the Ofﬁce-31 dataset. Kang et al. in their evaluation showed that CAN outperforms many other baselines such as Domain Adversarial Neural Network (DANN",
+      "overlap_with_next": "CIC-IDS2017, a four-layer fully- connected network (2048→ 2048→ 256→ 2) for Yahoo and another four-layer fully-connected network (2048→ 2048→ 2048→ 2) for the MDS dataset. For the ",
+      "text": ". CAN is state-of-the-art for the Ofﬁce-31 dataset. Kang et al. in their evaluation showed that CAN outperforms many other baselines such as Domain Adversarial Neural Network (DANN) [14], [20], Joint Adaptation Network (JAN) [16], Multi-adversarial Domain Adaptation (MADA) [19], Deep Adaptation Network (DAN) [29] and Self Ensembling (SE) [12]. Also, CDAN is among the best adversarial domain adaptation techniques that we are aware of. Long et al. in their evaluation showed that CDAN outperforms many other methods such as DAN [29], Residual Transfer Networks (RTN) [30], DANN [14], [20], Adversarial Discriminative Domain Adaptation (ADDA) [31], JAN [16] and CyCADA [15]. Therefore by comparing our approach with CAN and CDAN and outperforming them, the superiority of PPPL over many other baselines can be inferred. Setup: For evaluation of PPPL on the CIC-IDS2017, Yahoo, MDS and CIFAR-STL datasets we trained a model from scratch. After preprocessing, we trained a two-layer fully-connected network (2048→ 2) for CIC-IDS2017, a four-layer fully- connected network (2048→ 2048→ 256→ 2) for Yahoo and another four-layer fully-connected network (2048→ 2048→ 2048→ 2) for the MDS dataset. For the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03074,
+        -0.02365,
+        -0.05288,
+        -0.01495,
+        0.00688
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "CIC-IDS2017, a four-layer fully- connected network (2048→ 2048→ 256→ 2) for Yahoo and another four-layer fully-connected network (2048→ 2048→ 2048→ 2) for the MDS dataset. For the ",
+      "overlap_with_next": "et are reported in Table I which are the F1 scores calculated for each case. As can be seen, on average PPPL is 61.8% better than the best baseline we compared with. Table II shows",
+      "text": "CIC-IDS2017, a four-layer fully- connected network (2048→ 2048→ 256→ 2) for Yahoo and another four-layer fully-connected network (2048→ 2048→ 2048→ 2) for the MDS dataset. For the CIFAR-STL dataset, we trained the same convolutional network used in [12] for this dataset. For the Ofﬁce-31 and Ofﬁce-Home datasets we used ResNet-50 [32] pretrained on ImageNet [33] as the feature extractor. We removed the ﬁnal layer of Resnet-50 model and added 4 new layers at the end (4096→ 4096→ 4096→ #classes). In all of the datasets, we ﬁrst trained the model on the labeled source samples and then we did domain adaptation with labeled source samples and unlabeled target samples according to the Algorithm 1. 1 Also, in all of the cases here we assumed that we know the class proportions in the target domain accurately. In the sensitivity analysis section, we show how inaccurate class proportions impact the results. Results: CAN and CDAN perform very poorly on the anomaly detection tasks. The results on the CIC-IDS2017 dataset are reported in Table I which are the F1 scores calculated for each case. As can be seen, on average PPPL is 61.8% better than the best baseline we compared with. Table II shows",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05803,
+        -0.02383,
+        -0.0422,
+        -0.00058,
+        0.00716
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "et are reported in Table I which are the F1 scores calculated for each case. As can be seen, on average PPPL is 61.8% better than the best baseline we compared with. Table II shows",
+      "overlap_with_next": " TABLE III: Accuracy (%) for all the 12 tasks of the MDS dataset. Method B\u0001D B\u0001E B\u0001K D\u0001B D\u0001E D\u0001K E\u0001B E\u0001D E\u0001K K\u0001B K\u0001D K\u0001E Avg Only-Src 81.0 73.0 75.6 78.0 74.2 78.5 71.4 72.3 85.7 7",
+      "text": "et are reported in Table I which are the F1 scores calculated for each case. As can be seen, on average PPPL is 61.8% better than the best baseline we compared with. Table II shows the results of all methods on CIFAR-STL and Yahoo datasets. For the Yahoo dataset, because we have a very imbalanced dataset, we also reported F1 scores. Note that on average, our approach notably improves model performance on both datasets compared to training only on the source domain samples (6% improvement for the CIFAR-STL dataset and 19.3% improvement for the Yahoo dataset). Whereas, on average CAN performs even worse than just training on the source domain on both datasets. CDAN also performs worse than training on the source domain for the Yahoo dataset and just slightly better than training a model using only source domain samples on the CIFAR-STL dataset. The same problem can be observed for the MDS dataset. The results for this dataset 1For more details, please see https://github.com/s-mohammad-hashemi/pppl. [Page 7] TABLE III: Accuracy (%) for all the 12 tasks of the MDS dataset. Method B\u0001D B\u0001E B\u0001K D\u0001B D\u0001E D\u0001K E\u0001B E\u0001D E\u0001K K\u0001B K\u0001D K\u0001E Avg Only-Src 81.0 73.0 75.6 78.0 74.2 78.5 71.4 72.3 85.7 7",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04879,
+        -0.07375,
+        -0.08586,
+        -0.02158,
+        -0.00153
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " TABLE III: Accuracy (%) for all the 12 tasks of the MDS dataset. Method B\u0001D B\u0001E B\u0001K D\u0001B D\u0001E D\u0001K E\u0001B E\u0001D E\u0001K K\u0001B K\u0001D K\u0001E Avg Only-Src 81.0 73.0 75.6 78.0 74.2 78.5 71.4 72.3 85.7 7",
+      "overlap_with_next": "68.2 78.9 78.3 67.7 57.1 83.1 74.3 62.9 84.9 73.0 PPPL 62.9 80.2 82.2 70.0 80.8 80.7 69.5 58.4 83.6 77.2 62.0 85.8 74.4 are reported in Table III. Note that CDAN performs worse tha",
+      "text": " TABLE III: Accuracy (%) for all the 12 tasks of the MDS dataset. Method B\u0001D B\u0001E B\u0001K D\u0001B D\u0001E D\u0001K E\u0001B E\u0001D E\u0001K K\u0001B K\u0001D K\u0001E Avg Only-Src 81.0 73.0 75.6 78.0 74.2 78.5 71.4 72.3 85.7 73.2 74.0 86.3 76.9 CDAN 83.3 80.5 82.4 79.0 68.3 82.1 61.8 65.9 86.0 65.5 65.4 84.3 75.4 CAN 79.3 77.8 80.5 75.6 76.2 81.4 73.9 74.4 85.3 73.9 70.9 83.1 77.7 PPPL 83.2 84.2 86.0 81.9 84.4 87.1 75.5 80.3 89.9 77.1 79.6 89.2 83.2 TABLE IV: Accuracy (%) for all the six tasks of Ofﬁce-31 based on ResNet-50. Method A → D A → W D → A D → W W → A W → D Avg Only-Src 82.1 79.4 66.9 98.1 66.3 99.8 82.1 CDAN 92.9 94.1 71.0 98.6 69.3 100.0 87.7 CAN 95.0 94.5 78.0 99.1 77.0 99.8 90.6 PPPL 95.0 96.1 77.8 99.2 77.3 100.0 90.9 TABLE V: Accuracy (%) for all the 12 tasks of Ofﬁce-Home based on ResNet-50. Method Ar\u0001Cl Ar\u0001Pr Ar\u0001Rw Cl\u0001Ar Cl\u0001Pr Cl\u0001Rw Pr\u0001Ar Pr\u0001Cl Pr\u0001Rw Rw\u0001Ar Rw\u0001Cl Rw\u0001Pr Avg Only-Src 41.3 67.8 75.0 56.9 65.2 67.2 53.7 39.0 74.5 66.2 43.2 78.1 60.7 CDAN 50.7 70.6 76.0 57.6 70.0 70.0 57.4 50.9 77.3 70.9 56.7 81.6 65.8 CAN 60.0 79.0 81.3 68.2 78.9 78.3 67.7 57.1 83.1 74.3 62.9 84.9 73.0 PPPL 62.9 80.2 82.2 70.0 80.8 80.7 69.5 58.4 83.6 77.2 62.0 85.8 74.4 are reported in Table III. Note that CDAN performs worse tha",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02842,
+        -0.02148,
+        -0.06936,
+        -0.03829,
+        -0.00287
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "68.2 78.9 78.3 67.7 57.1 83.1 74.3 62.9 84.9 73.0 PPPL 62.9 80.2 82.2 70.0 80.8 80.7 69.5 58.4 83.6 77.2 62.0 85.8 74.4 are reported in Table III. Note that CDAN performs worse tha",
+      "overlap_with_next": "nent of our method, we compare PPPL with the following alternative training strategies: A1) We replace MSE with CE loss. A2) We include all the target samples into the training loo",
+      "text": "68.2 78.9 78.3 67.7 57.1 83.1 74.3 62.9 84.9 73.0 PPPL 62.9 80.2 82.2 70.0 80.8 80.7 69.5 58.4 83.6 77.2 62.0 85.8 74.4 are reported in Table III. Note that CDAN performs worse than training only on the source domain samples and CAN just slightly works better than it, while PPPL outperforms it by 6.3%. In addition to outperforming other baselines in tasks such as anomaly detection and sentiment analysis, PPPL can still work as good as other baselines on the Ofﬁce-31 and Ofﬁce home datasets where our baselines demonstrate their best performance. The results on the Ofﬁce-31 dataset are reported in Table IV. On this dataset, PPPL works as good as CAN and even slightly better. The results on the Ofﬁce-Home dataset are reported in Table V. PPPL outperforms other baselines on this dataset. Our results are 1.4% better than CAN and 8.6% better than CDAN. Therefore these results conﬁrm that our approach generalizes better across different input types. C. Analysis Ablation Study: To show the necessity of each component of our method, we compare PPPL with the following alternative training strategies: A1) We replace MSE with CE loss. A2) We include all the target samples into the training loo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04248,
+        -0.04674,
+        -0.06271,
+        -0.02515,
+        -0.00048
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "nent of our method, we compare PPPL with the following alternative training strategies: A1) We replace MSE with CE loss. A2) We include all the target samples into the training loo",
+      "overlap_with_next": " 30% S. T. CPDiff. A → D 96.6 95.0 94.8 91.4 95.0 .32 A → W 95.5 95.5 95.8 95.0 96.1 .21 D → A 77.7 77.0 74.3 74.7 77.8 .32 Ar → Cl 61.5 61.6 62.3 57.9 62.9 .47 S → R 0.264 0.264 0",
+      "text": "nent of our method, we compare PPPL with the following alternative training strategies: A1) We replace MSE with CE loss. A2) We include all the target samples into the training loop from the ﬁrst epoch. That is to say we modify line 7 of Algorithm 1 to become Wt← CalculateWeight (CS t,PL t, 100). A3) Instead of class-aware weight assignment inCalculateWeight function, we assign weights to target samples without grouping them based on their assigned pseudo-label and group them only based on their certainty scores. A4) We don’t adjust the training set based on target class proportions. In other words, we remove line 8 from Algorithm 1. We make these comparisons for the following tasks: A → D from the Ofﬁce-31 dataset, B → E from the MDS dataset and Syn→ Real from the Yahoo dataset. TABLE VI: Alternative training strategies. Task A1 A2 A3 A4 PPPL A → D 86.6 89.4 91.4 89.2 95.0 B → E 81.7 74.3 76.3 79.3 84.2 S → R 0.187 0.259 0.095 0.282 0.285 TABLE VII: Training PPPL with enforcing different CP. Task 10% 20% 30% S. T. CPDiff. A → D 96.6 95.0 94.8 91.4 95.0 .32 A → W 95.5 95.5 95.8 95.0 96.1 .21 D → A 77.7 77.0 74.3 74.7 77.8 .32 Ar → Cl 61.5 61.6 62.3 57.9 62.9 .47 S → R 0.264 0.264 0",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0181,
+        -0.02664,
+        -0.04676,
+        -0.00752,
+        0.00696
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": " 30% S. T. CPDiff. A → D 96.6 95.0 94.8 91.4 95.0 .32 A → W 95.5 95.5 95.8 95.0 96.1 .21 D → A 77.7 77.0 74.3 74.7 77.8 .32 Ar → Cl 61.5 61.6 62.3 57.9 62.9 .47 S → R 0.264 0.264 0",
+      "overlap_with_next": "sk, the error is calculated for the anomalous class. That is to say for E∈{ 0.1, 0.2, 0.3} [Page 8] anomalous class proportion is modiﬁed such that |CP a−ˆCP a| =E×CP a. For the ot",
+      "text": " 30% S. T. CPDiff. A → D 96.6 95.0 94.8 91.4 95.0 .32 A → W 95.5 95.5 95.8 95.0 96.1 .21 D → A 77.7 77.0 74.3 74.7 77.8 .32 Ar → Cl 61.5 61.6 62.3 57.9 62.9 .47 S → R 0.264 0.264 0.266 0.263 0.285 .04 Table VI shows the results. Note that on average, all of the alternative training strategies perform worse than PPPL. Sensitivity Analysis: During the evaluation of our method, we assumed that we know the exact values of class proportions of the target domain. Now we want to see how much error our method can tolerate in the class proportions. The bottom line is that we can always enforce source domain class proportions during training with PPPL as we can calculate them with the help of source labels. Therefore in Table VII we show how our method performs when we enforce source domain class proportions (column 5) and when there is 10%, 20% and 30% error (column 2,3 and 4) in our guessed values compared to real target domain class proportions for ﬁve different tasks. In this table, for the anomaly detection task, the error is calculated for the anomalous class. That is to say for E∈{ 0.1, 0.2, 0.3} [Page 8] anomalous class proportion is modiﬁed such that |CP a−ˆCP a| =E×CP a. For the ot",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06171,
+        -0.01216,
+        -0.03388,
+        -0.02487,
+        -0.03351
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "sk, the error is calculated for the anomalous class. That is to say for E∈{ 0.1, 0.2, 0.3} [Page 8] anomalous class proportion is modiﬁed such that |CP a−ˆCP a| =E×CP a. For the ot",
+      "overlap_with_next": "tions with a small error or when the source and target class proportions are very similar. VI. C ONCLUSION In this paper, we proposed Proportional Progressive Pseudo Labeling (PPPL",
+      "text": "sk, the error is calculated for the anomalous class. That is to say for E∈{ 0.1, 0.2, 0.3} [Page 8] anomalous class proportion is modiﬁed such that |CP a−ˆCP a| =E×CP a. For the other tasks, the error is calculated based on all the classes. More speciﬁcally, the guessed class proportions are chosen such that ΣMi=1|CP i− ˆCP i| =E where CP i is the real class proportion for i-th class and ˆCP i is the guessed one. The last column of this table also shows the difference between the source domain and target domain class proportions which are calculated with this formula for all of the tasks. Note that for most of the tasks in the table, the algorithm’s performance gets affected only slightly when there is up to 30% error in the guessed class proportions. Also, note that just by enforcing source class proportions, we can still get good results when the difference between the source and target CPs is small (e.g. A → W task). Therefore our algorithm will be a good choice when we can estimate target class proportions with a small error or when the source and target class proportions are very similar. VI. C ONCLUSION In this paper, we proposed Proportional Progressive Pseudo Labeling (PPPL",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08642,
+        0.00111,
+        0.0041,
+        -0.00071,
+        -0.02077
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "tions with a small error or when the source and target class proportions are very similar. VI. C ONCLUSION In this paper, we proposed Proportional Progressive Pseudo Labeling (PPPL",
+      "overlap_with_next": " in autonomous driving,” in Proceedings of the 2015 IEEE International Conference on Computer Vision (ICCV) , 2015. [3] A. Severyn and A. Moschitti, “Twitter sentiment analysis wit",
+      "text": "tions with a small error or when the source and target class proportions are very similar. VI. C ONCLUSION In this paper, we proposed Proportional Progressive Pseudo Labeling (PPPL), a simple and novel method for domain adaptation that generalizes better than other methods across different input types. PPPL aims to progressively reduce the error on the target domain by assigning pseudo-labels to the target domain samples and training the model with them while excluding samples with more likely wrong pseudo-labels from the training set and also postponing training on such samples. Experiments on multiple different tasks conﬁrm the superiority of our approach compared to other strong baselines. REFERENCES [1] K. He, X. Zhang, S. Ren, and J. Sun, “Delving deep into rectiﬁers: Surpassing human-level performance on imagenet classiﬁcation,” The IEEE International Conference on Computer Vision (ICCV) , 2015. [2] C. Chen, A. Seff, A. Kornhauser, and J. Xiao, “Deepdriving: Learning affordance for direct perception in autonomous driving,” in Proceedings of the 2015 IEEE International Conference on Computer Vision (ICCV) , 2015. [3] A. Severyn and A. Moschitti, “Twitter sentiment analysis wit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.10442,
+        -0.02793,
+        -0.01642,
+        0.04132,
+        -0.00178
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": " in autonomous driving,” in Proceedings of the 2015 IEEE International Conference on Computer Vision (ICCV) , 2015. [3] A. Severyn and A. Moschitti, “Twitter sentiment analysis wit",
+      "overlap_with_next": "halapathy and S. Chawla, “Deep learning for anomaly detection: A survey,” CoRR, vol. abs/1901.03407, 2019. [8] J. Yosinski, J. Clune, Y . Bengio, and H. Lipson, “How transferable a",
+      "text": " in autonomous driving,” in Proceedings of the 2015 IEEE International Conference on Computer Vision (ICCV) , 2015. [3] A. Severyn and A. Moschitti, “Twitter sentiment analysis with deep convolutional neural networks,” in Proceedings of the 38th International ACM SIGIR Conference on Research and Development in Information Retrieval, ser. SIGIR ’15, 2015. [4] M. J. Hashemi and E. Keller, “Enhancing robustness against adversarial examples in network intrusion detection systems,” in 2020 IEEE Conference on Network Function Virtualization and Software Deﬁned Networks (NFV-SDN), 2020. [5] B. Zong, Q. Song, M. R. Min, W. Cheng, C. Lumezanu, D. Cho, and H. Chen, “Deep autoencoding gaussian mixture model for unsupervised anomaly detection,” in International Conference on Learning Represen- tations, 2018. [6] Y . Mirsky, T. Doitshman, Y . Elovici, and A. Shabtai, “Kitsune: An ensemble of autoencoders for online network intrusion detection,” in Network and Distributed System Security Symposium 2018 , 2018. [7] R. Chalapathy and S. Chawla, “Deep learning for anomaly detection: A survey,” CoRR, vol. abs/1901.03407, 2019. [8] J. Yosinski, J. Clune, Y . Bengio, and H. Lipson, “How transferable a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0599,
+        -0.04926,
+        0.03698,
+        0.02771,
+        0.00151
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "halapathy and S. Chawla, “Deep learning for anomaly detection: A survey,” CoRR, vol. abs/1901.03407, 2019. [8] J. Yosinski, J. Clune, Y . Bengio, and H. Lipson, “How transferable a",
+      "overlap_with_next": "tions, 2018. [13] H. Liu, M. Long, J. Wang, and M. Jordan, “Transferable adversarial training: A general approach to adapting deep classiﬁers,” in Proceedings of the 36th Internati",
+      "text": "halapathy and S. Chawla, “Deep learning for anomaly detection: A survey,” CoRR, vol. abs/1901.03407, 2019. [8] J. Yosinski, J. Clune, Y . Bengio, and H. Lipson, “How transferable are features in deep neural networks?” in Proceedings of the 27th International Conference on Neural Information Processing Systems - Volume 2, ser. NIPS’14, 2014. [9] J. Quiñonero-Candela, M. Sugiyama, A. Schwaighofer, and N. D. Lawrence, Dataset Shift in Machine Learning . The MIT Press, 2009. [10] G. Kang, L. Jiang, Y . Yang, and A. G. Hauptmann, “Contrastive adaptation network for unsupervised domain adaptation,” in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , 2019, pp. 4893–4902. [11] M. Long, Z. CAO, J. Wang, and M. I. Jordan, “Conditional adversarial domain adaptation,” in Advances in Neural Information Processing Systems 31, 2018, pp. 1640–1650. [12] G. French, M. Mackiewicz, and M. Fisher, “Self-ensembling for visual domain adaptation,” in International Conference on Learning Representations, 2018. [13] H. Liu, M. Long, J. Wang, and M. Jordan, “Transferable adversarial training: A general approach to adapting deep classiﬁers,” in Proceedings of the 36th Internati",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05655,
+        -0.03407,
+        -0.00586,
+        0.04589,
+        -0.01838
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "tions, 2018. [13] H. Liu, M. Long, J. Wang, and M. Jordan, “Transferable adversarial training: A general approach to adapting deep classiﬁers,” in Proceedings of the 36th Internati",
+      "overlap_with_next": " embedding,” in The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2019. [18] V . K. Kurmi, S. Kumar, and V . P. Namboodiri, “Attending to discrim- inative",
+      "text": "tions, 2018. [13] H. Liu, M. Long, J. Wang, and M. Jordan, “Transferable adversarial training: A general approach to adapting deep classiﬁers,” in Proceedings of the 36th International Conference on Machine Learning , 2019. [14] Y . Ganin, E. Ustinova, H. Ajakan, P. Germain, H. Larochelle, F. Laviolette, M. Marchand, and V . Lempitsky, “Domain-adversarial training of neural networks,” J. Mach. Learn. Res. , vol. 17, no. 1, p. 2096–2030, Jan. 2016. [15] J. Hoffman, E. Tzeng, T. Park, J.-Y . Zhu, P. Isola, K. Saenko, A. Efros, and T. Darrell, “CyCADA: Cycle-consistent adversarial domain adaptation,” in Proceedings of the 35th International Conference on Machine Learning, 2018. [16] M. Long, H. Zhu, J. Wang, and M. I. Jordan, “Deep transfer learning with joint adaptation networks,” in Proceedings of the 34th International Conference on Machine Learning - Volume 70 , ser. ICML’17, 2017. [17] X. Xu, X. Zhou, R. Venkatesan, G. Swaminathan, and O. Majumder, “d-sne: Domain adaptation using stochastic neighborhood embedding,” in The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2019. [18] V . K. Kurmi, S. Kumar, and V . P. Namboodiri, “Attending to discrim- inative",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05824,
+        -0.0118,
+        -0.03917,
+        0.01007,
+        0.01105
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": " embedding,” in The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2019. [18] V . K. Kurmi, S. Kumar, and V . P. Namboodiri, “Attending to discrim- inative",
+      "overlap_with_next": "” in Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, ser. KDD ’15, 2015. [23] J. Blitzer, M. Dredze, and F. Pereira, “Biographie",
+      "text": " embedding,” in The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2019. [18] V . K. Kurmi, S. Kumar, and V . P. Namboodiri, “Attending to discrim- inative certainty for domain adaptation,” in The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , June 2019. [19] Z. Pei, Z. Cao, M. Long, and J. Wang, “Multi-adversarial domain adaptation,” in AAAI Conference on Artiﬁcial Intelligence , 2018. [20] Y . Ganin and V . Lempitsky, “Unsupervised domain adaptation by backpropagation,” in Proceedings of the 32nd International Conference on International Conference on Machine Learning - Volume 37 , ser. ICML’15, 2015. [21] I. Sharafaldin, A. H. Lashkari, , and A. A. Ghorbani, “Toward generating a new intrusion detection dataset and intrusion trafﬁc characterization,” in 4th International Conference on Information Systems Security and Privacy (ICISSP), 2018. [22] N. Laptev, S. Amizadeh, and I. Flint, “Generic and scalable framework for automated time-series anomaly detection,” in Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, ser. KDD ’15, 2015. [23] J. Blitzer, M. Dredze, and F. Pereira, “Biographie",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06437,
+        -0.00666,
+        -0.02147,
+        0.03744,
+        -0.02906
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "” in Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, ser. KDD ’15, 2015. [23] J. Blitzer, M. Dredze, and F. Pereira, “Biographie",
+      "overlap_with_next": ", S. Ozair, A. Courville, and Y . Bengio, “Generative adversarial nets,” in Proceedings of the 27th International Conference on Neural Information Processing Systems - Volume 2 , s",
+      "text": "” in Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, ser. KDD ’15, 2015. [23] J. Blitzer, M. Dredze, and F. Pereira, “Biographies, Bollywood, boom- boxes and blenders: Domain adaptation for sentiment classiﬁcation,” in Proceedings of the 45th Annual Meeting of the Association of Computational Linguistics, 2007. [24] A. Krizhevsky, “Learning multiple layers of features from tiny images,” Tech. Rep., 2009. [25] A. Coates, H. Lee, and A. Y . Ng, “An analysis of single layer networks in unsupervised feature learning,” in AISTATS, 2011. [26] K. Saenko, B. Kulis, M. Fritz, and T. Darrell, “Adapting visual category models to new domains,” in Computer Vision – ECCV 2010 , 2010. [27] H. Venkateswara, J. Eusebio, S. Chakraborty, and S. Panchanathan, “Deep hashing network for unsupervised domain adaptation,” in The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , July 2017. [28] I. J. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley, S. Ozair, A. Courville, and Y . Bengio, “Generative adversarial nets,” in Proceedings of the 27th International Conference on Neural Information Processing Systems - Volume 2 , s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07089,
+        -0.00587,
+        -0.00348,
+        0.0123,
+        0.00505
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45012,
+      "length": 1152,
+      "overlap_with_previous": ", S. Ozair, A. Courville, and Y . Bengio, “Generative adversarial nets,” in Proceedings of the 27th International Conference on Neural Information Processing Systems - Volume 2 , s",
+      "overlap_with_next": "W. Dong, R. Socher, L. Li, Kai Li, and Li Fei-Fei, “Imagenet: A large-scale hierarchical image database,” in 2009 IEEE Conference on Computer Vision and Pattern Recognition , 2009.",
+      "text": ", S. Ozair, A. Courville, and Y . Bengio, “Generative adversarial nets,” in Proceedings of the 27th International Conference on Neural Information Processing Systems - Volume 2 , ser. NIPS’14, 2014. [29] M. Long, Y . Cao, J. Wang, and M. I. Jordan, “Learning transferable features with deep adaptation networks,” in Proceedings of the 32nd International Conference on International Conference on Machine Learning - Volume 37 , ser. ICML’15, 2015. [30] M. Long, H. Zhu, J. Wang, and M. I. Jordan, “Unsupervised domain adaptation with residual transfer networks,” ser. NIPS’16, 2016. [31] E. Tzeng, J. Hoffman, K. Saenko, and T. Darrell, “Adversarial discrimi- native domain adaptation,” in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , July 2017. [32] K. He, X. Zhang, S. Ren, and J. Sun, “Deep residual learning for image recognition,” in 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016. [33] J. Deng, W. Dong, R. Socher, L. Li, Kai Li, and Li Fei-Fei, “Imagenet: A large-scale hierarchical image database,” in 2009 IEEE Conference on Computer Vision and Pattern Recognition , 2009.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06652,
+        -0.01326,
+        -0.0274,
+        0.01824,
+        -0.00955
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 45012,
+      "length": 132,
+      "overlap_with_previous": "i, “Imagenet: A large-scale hierarchical image database,” in 2009 IEEE Conference on Computer Vision and Pattern Recognition , 2009.",
+      "overlap_with_next": "",
+      "text": "i, “Imagenet: A large-scale hierarchical image database,” in 2009 IEEE Conference on Computer Vision and Pattern Recognition , 2009.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01455,
+        0.00923,
+        -0.02482,
+        0.02196,
+        -0.03674
+      ]
+    }
+  ]
+}

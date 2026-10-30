@@ -1,0 +1,1422 @@
+{
+  "paper_id": "0361e56d-a548-43be-a242-aa7fc17bebc5",
+  "filename": "023_NLP_Short_Text_Topic_Modeling_Techniques_Applications_and_Performance_A_Survey.pdf",
+  "title": "Short Text Topic Modeling Techniques, Applications, and Performance: A Survey",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 83,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " Dirichlet multinomial mixture, global word co-occurrences, and self-aggregation, with example of representative approaches in each category and analysis of their performance on va",
+      "text": "[Page 1] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 1 Short Text Topic Modeling Techniques, Applications, and Performance: A Survey Jipeng Qiang, Zhenyu Qian, Yun Li, Yunhao Yuan, and Xindong Wu, Fellow, IEEE, Abstract—Analyzing short texts infers discriminative and coherent latent topics that is a critical and fundamental task since many real-world applications require semantic understanding of short texts. Traditional long text topic modeling algorithms (e.g., PLSA and LDA) based on word co-occurrences cannot solve this problem very well since only very limited word co-occurrence information is available in short texts. Therefore, short text topic modeling has already attracted much attention from the machine learning research community in recent years, which aims at overcoming the problem of sparseness in short texts. In this survey, we conduct a comprehensive review of various short text topic modeling techniques proposed in the literature. We present three categories of methods based on Dirichlet multinomial mixture, global word co-occurrences, and self-aggregation, with example of representative approaches in each category and analysis of their performance on va",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06934,
+        -0.03197,
+        -0.01059,
+        0.00655,
+        -0.00455
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " Dirichlet multinomial mixture, global word co-occurrences, and self-aggregation, with example of representative approaches in each category and analysis of their performance on va",
+      "overlap_with_next": "dels infer the latent topics from short texts, which can help discover the latent semantic structures that occur in a collection of documents. Short text topic modeling algorithms ",
+      "text": " Dirichlet multinomial mixture, global word co-occurrences, and self-aggregation, with example of representative approaches in each category and analysis of their performance on various tasks. We develop the ﬁrst comprehensive open-source library, called STTM, for use in Java that integrates all surveyed algorithms within a uniﬁed interface, benchmark datasets, to facilitate the expansion of new methods in this research ﬁeld. Finally, we evaluate these state-of-the-art methods on many real-world datasets and compare their performance against one another and versus long text topic modeling algorithm. Index Terms—Topic modeling, Short text, Sparseness, Short text topic modeling. ! 1 I NTRODUCTION Short texts have become an important information source including news headlines, status updates, web page snippets, tweets, question/answer pairs, etc. Short text analysis has been attracting increasing attention in recent years due to the ubiquity of short text in the real-world [1]–[3]. Effective and efﬁcient models infer the latent topics from short texts, which can help discover the latent semantic structures that occur in a collection of documents. Short text topic modeling algorithms ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06289,
+        -0.00565,
+        -0.03454,
+        0.03859,
+        0.00775
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "dels infer the latent topics from short texts, which can help discover the latent semantic structures that occur in a collection of documents. Short text topic modeling algorithms ",
+      "overlap_with_next": "ariants have had a major impact on numerous applied ﬁelds in modeling text collections news articles, research papers, and blogs [11]–[13]. However, traditional topic models experi",
+      "text": "dels infer the latent topics from short texts, which can help discover the latent semantic structures that occur in a collection of documents. Short text topic modeling algorithms are always applied into many tasks such as topic detection [4], classiﬁcation [5], comment summarization [6], user interest proﬁling [7]. Traditional topic modeling algorithms such as probabilistic latent semantic analysis (PLSA) [8] and latent Dirichlet allocation (LDA) [9] are widely adopted for discovering latent semantic structure from text corpus without requiring any prior annotations or labeling of the documents. In these algorithms, each document may be viewed as a mixture of various topics and each topic is characterized by a distribution over all the words. Statistical techniques (e.g., Variational methods and Gibbs sampling) are then employed to infer the latent topic distribution of each document and the word distribution of each topic using higher- order word co-occurrence patterns [10]. These algorithms and their variants have had a major impact on numerous applied ﬁelds in modeling text collections news articles, research papers, and blogs [11]–[13]. However, traditional topic models experi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06652,
+        -0.00541,
+        0.00442,
+        0.03649,
+        -0.01039
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ariants have had a major impact on numerous applied ﬁelds in modeling text collections news articles, research papers, and blogs [11]–[13]. However, traditional topic models experi",
+      "overlap_with_next": " may boost the performance of topic models. For example, Phan et al. [16] ﬁrst learned latent topics from Wikipedia, and then inferred topics from short texts. Weng et al. [7] and ",
+      "text": "ariants have had a major impact on numerous applied ﬁelds in modeling text collections news articles, research papers, and blogs [11]–[13]. However, traditional topic models experience large performance degradation over short texts due to the lack of word co-occurrence information in each short text [1], [14]. Therefore, short text topic modeling has already attracted much • J. Qiang, Z. Qian, Y. Li and Y. Yuan are with the Department of Computer Science, Yangzhou, Jiangsu, P . R. China, 225127. E-mail:{jpqiang,liyun, yhyuan}@yzu.edu.cn • X. Wu is with Department of Computer Science, University of Louisiana at Lafayette, Louisiana, USA. E-mail: xwu@louisiana.edu.edu attention from the machine learning research community in recent years, which aims at overcoming the problem of sparseness in short texts. Earlier works [15], [16] still used traditional topic models for short texts, but exploited external knowledge or metadata to bring in additional useful word co-occurrences across short texts, and therefore may boost the performance of topic models. For example, Phan et al. [16] ﬁrst learned latent topics from Wikipedia, and then inferred topics from short texts. Weng et al. [7] and ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05679,
+        -0.01364,
+        -0.04504,
+        -0.00278,
+        -0.01267
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": " may boost the performance of topic models. For example, Phan et al. [16] ﬁrst learned latent topics from Wikipedia, and then inferred topics from short texts. Weng et al. [7] and ",
+      "overlap_with_next": "d co-occurrence information. (2) Due to a few words in each text, most texts are probably generated by only one topic (e.g, text 1, text2, text 3). (3) Statistical information of w",
+      "text": " may boost the performance of topic models. For example, Phan et al. [16] ﬁrst learned latent topics from Wikipedia, and then inferred topics from short texts. Weng et al. [7] and Mehrotra et al. [17] aggregated tweets for pseudo-document using hashtags and the same user respectively. The problem lies in that auxiliary information or metadata is not always available or just too costly for deployment. These studies suggest that topic models speciﬁcally designed for general short texts are imperative. This survey will provide a taxonomy that captures the existing short text topic modeling algorithms and their application domains. News aggregation websites often rely on news headlines to cluster different source news about the same event. In Table 1, we show an event about artiﬁcial intelligence reported on March 1, 2018. As presented, all these short texts were reported about the same event. From these short texts, we can found these following characteristics. (1) Obviously, each short text lacks enough word co-occurrence information. (2) Due to a few words in each text, most texts are probably generated by only one topic (e.g, text 1, text2, text 3). (3) Statistical information of w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04547,
+        -0.00927,
+        -0.00809,
+        0.02111,
+        0.00122
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "d co-occurrence information. (2) Due to a few words in each text, most texts are probably generated by only one topic (e.g, text 1, text2, text 3). (3) Statistical information of w",
+      "overlap_with_next": "ws media on March 1, 2018. Number Media Headline 1 Lawfare President Trump’s Executive Order on Artiﬁcial Intelligence 2 Nextgov White Houses Race to Maintain AI Dominance Misses O",
+      "text": "d co-occurrence information. (2) Due to a few words in each text, most texts are probably generated by only one topic (e.g, text 1, text2, text 3). (3) Statistical information of words among texts cannot fully capture words that are semantically related but rarely co-occur. For example, President Trump of text 1 and White House of text 2 are highly semantically related, and AI is short for Artiﬁcal Intelligence. (4) The single-topic assumption may be too strong for some short texts. For example, text 3 is probably associated with a small number of topics (e.g., one to three topics). Considering these characteristics, existing short text topic modeling algorithms were proposed by trying to solve one or two of these characteristics. Here, we divide the short text topic modeling algorithms basically into the following three major arXiv:1904.07695v1 [cs.IR] 13 Apr 2019 [Page 2] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 2 TABLE 1 An event about artiﬁcial intelligence was reported by different news media on March 1, 2018. Number Media Headline 1 Lawfare President Trump’s Executive Order on Artiﬁcial Intelligence 2 Nextgov White Houses Race to Maintain AI Dominance Misses O",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04198,
+        -0.00566,
+        0.0029,
+        0.0078,
+        -0.00312
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ws media on March 1, 2018. Number Media Headline 1 Lawfare President Trump’s Executive Order on Artiﬁcial Intelligence 2 Nextgov White Houses Race to Maintain AI Dominance Misses O",
+      "overlap_with_next": "te the parameters including variation inference and Gibbs sampling. For example, Yu et al. [23] proposed the DMAFP model based on variational inference algorithm [24]. Yin et al. [",
+      "text": "ws media on March 1, 2018. Number Media Headline 1 Lawfare President Trump’s Executive Order on Artiﬁcial Intelligence 2 Nextgov White Houses Race to Maintain AI Dominance Misses Opportunity 3 Forbes Artiﬁcial Intelligence Regulation may be Impossible 4 CognitiveWorld Pop Culture, AI and Ethics categories. (1) Dirichlet multinomial mixture (DMM) based methods : A simple and effective model, Dirichlet Multinomial Mixture model, has been adopted to infer latent topics in short texts [18], [19]. DMM follows the simple assumption that each text is sam- pled from only one latent topic. Considering the characteristics (1) and (2) in short texts, this assumption is reasonable and suitable for short texts compared to the complex assumption adopted by LDA that each text is modeled over a set of topics [20], [21]. Nigam et al. [22] proposed an EM-based algorithm for Dirichlet Multi- nomial Mixture (DMM) model. Except for the basic expectation maximization (EM), a number of inference methods have been used to estimate the parameters including variation inference and Gibbs sampling. For example, Yu et al. [23] proposed the DMAFP model based on variational inference algorithm [24]. Yin et al. [",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0473,
+        -0.02979,
+        0.00973,
+        0.01401,
+        -0.02757
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "te the parameters including variation inference and Gibbs sampling. For example, Yu et al. [23] proposed the DMAFP model based on variational inference algorithm [24]. Yin et al. [",
+      "overlap_with_next": "ng word embeddings. (2) Global word co-occurrences based methods : Consider- ing the characteristic (1), some models try to use the rich global word co-occurrence patterns for infe",
+      "text": "te the parameters including variation inference and Gibbs sampling. For example, Yu et al. [23] proposed the DMAFP model based on variational inference algorithm [24]. Yin et al. [18] proposed a collapsed Gibbs sampling algorithm for DMM. Other variations based on DMM [25]–[27] were proposed for improving the performance. The above models based on DMM ignore the characteristic (3). Therefore, many models by incorporating word embeddings into DMM were proposed [28], [29], because word embeddings learned from millions of external documents contain semantic information of words [30]. Not only word co-occurrence words belong to one topic, but words with high similarity have high probability belonging to one topic, which can effectively solve the data sparsity issue. To highlight the characteristic (4), a Poisson-based DMM model (PDMM) was proposed that allows each short text is sampled by a limited number of topics [31]. Accordingly, Li et al. [31] proposed a new model by directly extending the PDMM model using word embeddings. (2) Global word co-occurrences based methods : Consider- ing the characteristic (1), some models try to use the rich global word co-occurrence patterns for infe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03443,
+        -0.01903,
+        -0.03223,
+        0.0196,
+        -0.0055
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ng word embeddings. (2) Global word co-occurrences based methods : Consider- ing the characteristic (1), some models try to use the rich global word co-occurrence patterns for infe",
+      "overlap_with_next": "nd to one node and the weight of each edge stands for the empirical co-occurrence probability of the connected two words [32], [34]. (3) Self-aggregation based methods : Self-aggre",
+      "text": "ng word embeddings. (2) Global word co-occurrences based methods : Consider- ing the characteristic (1), some models try to use the rich global word co-occurrence patterns for inferring latent topics [14], [32]. Due to the adequacy of global word co-occurrences, the sparsity of short texts is mitigated for these models. According to the utilizing strategies of global word co-occurrences, this type of models can be divided into two types. 1) The ﬁrst type directly uses the global word co-occurrences to infer latent topics. Biterm topic modeling (BTM) [14] posits that the two words in a biterm share the same topic drawn from a mixture of topics over the whole corpus. Some models extend the Biterm Topic Modeling (BTM) by incorporating the burstiness of biterms as prior knowledge [21] or distinguishing background words from topical words [33]. 2) The second type ﬁrst constructs word co-occurrence network using global word co-occurrences and then infers latent topics from this network, where each word correspond to one node and the weight of each edge stands for the empirical co-occurrence probability of the connected two words [32], [34]. (3) Self-aggregation based methods : Self-aggre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0174,
+        -0.02455,
+        -0.00217,
+        0.04067,
+        0.01456
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "nd to one node and the weight of each edge stands for the empirical co-occurrence probability of the connected two words [32], [34]. (3) Self-aggregation based methods : Self-aggre",
+      "overlap_with_next": "rithms for short text topic modeling and explain their differences. We deﬁne three different tasks, i.e., application domains of short text topic modeling tech- niques. We illustra",
+      "text": "nd to one node and the weight of each edge stands for the empirical co-occurrence probability of the connected two words [32], [34]. (3) Self-aggregation based methods : Self-aggregation based methods are proposed to perform topic modeling and text self- aggregation during topic inference simultaneously. Short texts are merged into long pseudo-documents before topic inference that can help improve word co-occurrence information. Different from the aforementioned aggregation strategies [7], [17], this type of methods SATM [20] and PTM [35] posit that each short text is sampled from a long pseudo-document unobserved in current text collection, and infer latent topics from long pseudo-documents, without depending on auxiliary information or metadata. Consid- ering the characteristic (3), Qiang et al. [36] and Bicalho et al. [37] merged short texts into long pseudo-documents using word embeddings. 1.1 Our contributions This survey has the following three-pronged contribution: (1) We propose a taxonomy of algorithms for short text topic modeling and explain their differences. We deﬁne three different tasks, i.e., application domains of short text topic modeling tech- niques. We illustra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01707,
+        -0.02155,
+        -0.01576,
+        0.01891,
+        0.00309
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "rithms for short text topic modeling and explain their differences. We deﬁne three different tasks, i.e., application domains of short text topic modeling tech- niques. We illustra",
+      "overlap_with_next": "vey The rest of this survey is organized as follows. In Section 2, we introduce the task of short text topic modeling. Section 3 proposes a taxonomy of short text topic modeling al",
+      "text": "rithms for short text topic modeling and explain their differences. We deﬁne three different tasks, i.e., application domains of short text topic modeling tech- niques. We illustrate the evolution of the topic, the challenges it faces, and future possible research directions. (2) To facilitate the expansion of new methods in this ﬁeld, we develop the ﬁrst comprehensive open-source JA V A library, called STTM, which not only includes all short text topic mod- eling algorithms discussed in this survey with a uniform easy- to-use programming interface but also includes a great num- ber of designed modules for the evaluation and application of short text topic modeling algorithms. STTM is open-sourced at https://github.com/qiang2100/STTM. (3) We ﬁnally provide a detailed analysis of short text topic modeling techniques and discuss their performance on various applications. For each model, we analyze their results through comprehensive comparative evaluation on some common datasets. 1.2 Organization of the survey The rest of this survey is organized as follows. In Section 2, we introduce the task of short text topic modeling. Section 3 proposes a taxonomy of short text topic modeling al",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04348,
+        -0.02896,
+        -0.02767,
+        0.02294,
+        0.00862
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "vey The rest of this survey is organized as follows. In Section 2, we introduce the task of short text topic modeling. Section 3 proposes a taxonomy of short text topic modeling al",
+      "overlap_with_next": "al distribution over the vocabulary W , i.e., {p(w|φ)}w∈W . [Page 3] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 3 TABLE 2 The notations of symbols used in the paper D",
+      "text": "vey The rest of this survey is organized as follows. In Section 2, we introduce the task of short text topic modeling. Section 3 proposes a taxonomy of short text topic modeling algorithms and provides a description of representative approaches in each category. The list of applications for which researchers have used the short text topic modeling algorithms is provided in Section 4. Section 5 presents our Java library for short text topic modeling algorithms. In the next two sections, we describe the experimental setup (Section 6) and evaluate the discussed models (Section 7). Finally, we draw our conclusions and discuss potential future research directions in Section 8. 2 D EFINITIONS In this section, we formally deﬁne the problem of short text topic modeling. Given a short text corpus D ofN documents, with a vocabu- laryW of sizeV , andK pre-deﬁned latent topics. One document d is represented as (wd,1,wd,2,...,w d,nd) in D including nd words. A topic φ in a given collection D is deﬁned as a multino- mial distribution over the vocabulary W , i.e., {p(w|φ)}w∈W . [Page 3] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 3 TABLE 2 The notations of symbols used in the paper D",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0481,
+        -0.00652,
+        -0.01462,
+        0.02625,
+        0.00194
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "al distribution over the vocabulary W , i.e., {p(w|φ)}w∈W . [Page 3] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 3 TABLE 2 The notations of symbols used in the paper D",
+      "overlap_with_next": "tinomial distribution overK topics, i.e.,{p(φk|θd)}k=1,...,K. The general task of topic modeling aims to ﬁnd K salient topics φk=1,...,K from D and to ﬁnd the topic representation ",
+      "text": "al distribution over the vocabulary W , i.e., {p(w|φ)}w∈W . [Page 3] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 3 TABLE 2 The notations of symbols used in the paper D,N Documents and number of documents in the corpus W,V The vocabulary and number of words in the vocabulary K Number of pre-deﬁned latent topics l Average length of each document inD nk Number of words associated with topic k mk Number of documents associated with topic k nwk Number of wordw associated with topick in− →d nd Number of words in document d nwd Number of wordw in documentd nkd Number of word associated with topic k in documentd nwk,d Number of wordw associated with topick in documentd P Long pseudo-document set generated by models φ Topic distribution θ Document-topic distribution z Topic indicator U Number of dimensions in word embeddings ζ Time cost of considering GPU model ς Maximum number of topics allowable in a short text c Size of sliding window The topic representation of a document d, θd, is deﬁned as a multinomial distribution overK topics, i.e.,{p(φk|θd)}k=1,...,K. The general task of topic modeling aims to ﬁnd K salient topics φk=1,...,K from D and to ﬁnd the topic representation ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01689,
+        -0.01927,
+        -0.02288,
+        0.00798,
+        -0.03276
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "tinomial distribution overK topics, i.e.,{p(φk|θd)}k=1,...,K. The general task of topic modeling aims to ﬁnd K salient topics φk=1,...,K from D and to ﬁnd the topic representation ",
+      "overlap_with_next": "on of topics φ; (2). Learn the sparse topic representation of documents θ. All the notations used in this paper are summarized in Table 2. 3 A LGORITHMIC APPROACHES : A TAXONOMY In",
+      "text": "tinomial distribution overK topics, i.e.,{p(φk|θd)}k=1,...,K. The general task of topic modeling aims to ﬁnd K salient topics φk=1,...,K from D and to ﬁnd the topic representation of each documentθd=1,...,N . Most classical probabilistic topic models adopt the Dirichlet prior for both the topics and the topic representation of documents, which are ﬁrst used in LDA [9], which isφk∼Dirichlet(β) and θd∼ Dirichlet(α). In practice, the Dirichlet prior smooths the topic mixture in individual documents and the word distribution of each topic, which alleviates the overﬁtting problem of probabilistic latent semantic analysis (PLSA) [8], especially when the number of topics and the size of vocabulary increase. Therefore, all of existing short text topic modeling algorithms adopt Dirichlet distribution as prior distribution. Given a short text corpus D with a vocabulary of size V , and the predeﬁned number of topics K, the major tasks of short text topic modeling can be deﬁned as to: (1). Learn the word representation of topics φ; (2). Learn the sparse topic representation of documents θ. All the notations used in this paper are summarized in Table 2. 3 A LGORITHMIC APPROACHES : A TAXONOMY In",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06665,
+        -0.01428,
+        -0.02442,
+        0.00934,
+        -0.0186
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "on of topics φ; (2). Learn the sparse topic representation of documents θ. All the notations used in this paper are summarized in Table 2. 3 A LGORITHMIC APPROACHES : A TAXONOMY In",
+      "overlap_with_next": " text corpus by capturing word co-occurrence pat- tern at the document level. Hence, more word co-occurrences would bring in more reliable and better topic inference. Due to the la",
+      "text": "on of topics φ; (2). Learn the sparse topic representation of documents θ. All the notations used in this paper are summarized in Table 2. 3 A LGORITHMIC APPROACHES : A TAXONOMY In the past decade, there has been much work to discover latent topics from short texts using traditional topic modeling algorithms by incorporating external knowledge or metadata. More recently, researchers focused on proposing new short text topic modeling algorithms. In the following, we present historical context about the research progress in this domain, then propose a taxonomy of short text topic modeling techniques including: (1) Dirichlet Multinomial Mixture (DMM) based methods, (2) Global word co-occurrence based methods, and (3) Self-aggregation based methods. 3.1 Short Text Topic Modeling Research Context and Evolution Traditional topic modeling algorithms such as probabilistic latent semantic analysis (PLSA) [8] and latent Dirichlet allocation (LDA) [9] are widely adopted for discovering latent semantic structure from text corpus by capturing word co-occurrence pat- tern at the document level. Hence, more word co-occurrences would bring in more reliable and better topic inference. Due to the la",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07425,
+        -0.00981,
+        -0.01961,
+        0.03458,
+        0.00014
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " text corpus by capturing word co-occurrence pat- tern at the document level. Hence, more word co-occurrences would bring in more reliable and better topic inference. Due to the la",
+      "overlap_with_next": "tent topics. For example, Weng et al. [7] merge all tweets of one user into a pseudo-document before using LDA. Other information includes hashtags, timestamps, and named entities ",
+      "text": " text corpus by capturing word co-occurrence pat- tern at the document level. Hence, more word co-occurrences would bring in more reliable and better topic inference. Due to the lack of word co-occurrence information in each short text, traditional topic models have a large performance degradation over short texts. Earlier works focus on exploiting external knowledge to help enhance the topic inference of short texts. For example, Phan et al. [16] adopted the learned latent topics from Wikipedia to help infer the topic structure of short texts. Similarly, Jin et al. [15] searched auxiliary long texts for short texts to infer latent topics of short texts for clustering. A large regular text corpus of high quality is required by these models, which bring in big limitation for these models. Since 2010, research on topic discovery from short texts has been shifted to merging short texts into long pseudo-documents using different aggregation strategies before adopting traditional topic modeling to infer the latent topics. For example, Weng et al. [7] merge all tweets of one user into a pseudo-document before using LDA. Other information includes hashtags, timestamps, and named entities ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07103,
+        -0.00291,
+        -0.00362,
+        0.0444,
+        -0.00201
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "tent topics. For example, Weng et al. [7] merge all tweets of one user into a pseudo-document before using LDA. Other information includes hashtags, timestamps, and named entities ",
+      "overlap_with_next": "richlet Multinomial Mixture based Methods Dirichlet Multinomial Mixture model (DMM) was ﬁrst pro- posed by Nigam et al. [22] based on the assumption that each document is sampled b",
+      "text": "tent topics. For example, Weng et al. [7] merge all tweets of one user into a pseudo-document before using LDA. Other information includes hashtags, timestamps, and named entities have been tread as metadata to merging short texts [17], [19], [38]. However, helpful metadata may not be accessible in any domains, e.g., news headlines and search snippets. These studies suggest that topic models speciﬁcally designed for general short texts are crucial. This survey will provide a taxonomy that captures the existing strategies and these application domains. 3.2 A Taxonomy of Short Text Topic Modeling Methods We propose a taxonomy of short text topic modeling ap- proaches. We categorize topic modeling approaches into three broad categories: (1) Dirichlet Multinomial Mixture (DMM) based, (2) Global Word co-occurrences based, and (3) Self- aggregation based. Below we describe the characteristics of each of these categories and present a summary of some representative methods for each category (cf. Table 3). 3.3 Dirichlet Multinomial Mixture based Methods Dirichlet Multinomial Mixture model (DMM) was ﬁrst pro- posed by Nigam et al. [22] based on the assumption that each document is sampled b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.063,
+        -0.0293,
+        -0.02222,
+        0.00602,
+        -0.01059
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "richlet Multinomial Mixture based Methods Dirichlet Multinomial Mixture model (DMM) was ﬁrst pro- posed by Nigam et al. [22] based on the assumption that each document is sampled b",
+      "overlap_with_next": "n in Figure 1. The generative process for DMM is described as follows: (1). Sample a topic proportion θ∼Dirichlet(α). (2). For each topic k∈{ 1,...,K}: Draw a topic-word distributi",
+      "text": "richlet Multinomial Mixture based Methods Dirichlet Multinomial Mixture model (DMM) was ﬁrst pro- posed by Nigam et al. [22] based on the assumption that each document is sampled by only one topic. The assumption is more ﬁt for short texts than the assumption that each text is generated by multiple topics. Therefore, many models for short texts were proposed based on this simple assumption [19], [23], [25]. Yin et al. [18] proposed a DMM model based on collapse Gibbs sampling. Zhao et al. [19] proposed a Twitter-LDA model by assuming that one tweet is generated from one topic. Recently, more work incorporates word embeddings into DMM [29], [31]. 3.3.1 GSDMM DMM respectively chooses Dirichlet distribution for topic- word distribution φ and document-topic distribution θ as prior distribution with parameterα andβ. DMM samples a topiczd for the documentd by Multinomial distributionθ, and then generates all words in the document d from topic zd by Multinomial distributionφzd. The graphical model of DMM is shown in Figure 1. The generative process for DMM is described as follows: (1). Sample a topic proportion θ∼Dirichlet(α). (2). For each topic k∈{ 1,...,K}: Draw a topic-word distributi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05295,
+        -0.03297,
+        -0.01654,
+        0.00719,
+        -0.0188
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "n in Figure 1. The generative process for DMM is described as follows: (1). Sample a topic proportion θ∼Dirichlet(α). (2). For each topic k∈{ 1,...,K}: Draw a topic-word distributi",
+      "overlap_with_next": "pling algorithm for Dirichlet Multinomial Mixture model is denoted as GSDMM, which is based on the assumption that each text is sampled by a single topic [18]. Here, for better rep",
+      "text": "n in Figure 1. The generative process for DMM is described as follows: (1). Sample a topic proportion θ∼Dirichlet(α). (2). For each topic k∈{ 1,...,K}: Draw a topic-word distributionθk∼Dirichlet(β). (3). For each document d∈ D: (b)Sample a topiczd∼Multinomial (θ). [Page 4] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 4 TABLE 3 List of short text topic modeling approaches Category Year Published Authors Method Time Complexity of One Iteration DMM 2014 KDD [18] J. Yin & et al. GSDMM O(KNl) 2015 TACL [28] D. Nguyen & et al. LF-DMM O(O(2KNl +KVU )) 2016 SIGIR [29] C. Li & et al. GPU-DMM O(KNl +Nlζ +KV ) 2017 TOIS [31] C. Li & et al. GPU-PDMM O(Nl ∑ς−1i=1 CiK +Nlζ +KV ) Global word 2013 WWW [14] X. Chen & et al. BTM O(KNlc)co-occurrences 2016 KAIS [32] Y . Zuo & et al. WNTM O(KNlc(c− 1)) Self-aggregation 2015 IJCAI X. Quan & et al. SATM O(NlPK )2016 KDD Y . Zuo & et al. PTM O(Nl(P +K)) (c)For each wordw∈{wd,1,...,w d,nd}: Sample a wordw∼Multinomial (φzd). Fig. 1. Graphical Model of GSDMM. Gibbs sampling algorithm for Dirichlet Multinomial Mixture model is denoted as GSDMM, which is based on the assumption that each text is sampled by a single topic [18]. Here, for better rep",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05348,
+        -0.0234,
+        -0.00123,
+        -0.01413,
+        -0.02268
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "pling algorithm for Dirichlet Multinomial Mixture model is denoted as GSDMM, which is based on the assumption that each text is sampled by a single topic [18]. Here, for better rep",
+      "overlap_with_next": "collapsed Gibbs sampling, conditioned on a complete assignment of all other hidden variables. GSDMM uses the following conditional probability distribution to infer its topic, p(zd",
+      "text": "pling algorithm for Dirichlet Multinomial Mixture model is denoted as GSDMM, which is based on the assumption that each text is sampled by a single topic [18]. Here, for better representation of latent topics, we represent a topic with the topic feature (CF) vector, which essentially is a big document combined with its documents. The TF vector of a topic k is deﬁned as a tuple {nwk (w∈ W ),mk,nk}, wherenwk is the number of word w in topick,mk is the number of documents in topic k, and nk is the number of words in topick. The topic feature (TF) presents important addible and deletable properties, as described next. (1) Addible Property. A documentd can be efﬁciently added to topick by updating its TF vector as follows. nwk =nwk +nwd foreachwordwind mk =mk + 1 ; nk =nk +nd (2) Deletable Property . A document d can be efﬁciently deleted from topick by updating its TF vector as follows. nwk =nwk−nwd foreachwordwind mk =mk− 1 ; nk =nk−nd The hidden multinomial variable ( zd) for document d is sampled based on collapsed Gibbs sampling, conditioned on a complete assignment of all other hidden variables. GSDMM uses the following conditional probability distribution to infer its topic, p(zd",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07922,
+        -0.04515,
+        0.01027,
+        0.01048,
+        0.00783
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "collapsed Gibbs sampling, conditioned on a complete assignment of all other hidden variables. GSDMM uses the following conditional probability distribution to infer its topic, p(zd",
+      "overlap_with_next": " each text is sampled by a single topic, LF-DMM generates the words by Dirichlet multinomial model or latent feature model. Given two latent-feature vectorsτ associated with topic ",
+      "text": "collapsed Gibbs sampling, conditioned on a complete assignment of all other hidden variables. GSDMM uses the following conditional probability distribution to infer its topic, p(zd =k|Z¬d, D)∝ mk,¬d +α N− 1 +Kα ∏ w∈d ∏nwd j=1(nwk,¬d +β +j− 1)∏nd i=1(nk,¬d +Vβ +i− 1) (1) where Z represents all topics of all documents, the subscript ¬d means document d is removed from its current topic feature (TF) vector, which is useful for the update learning process of GSDMM. For each document, we ﬁrst delete it from its current TF vector with the deletable property. Then, we reassign the document to a topic according to the probability of the document belonging to each of the K topics using Equation 1. After obtaining the topic of the document, we add it from its new TF vector with the addible property. Finally, the posterior distribution of each word belonging to each topic is calculated as the follows, φwk = nwk +βnk +Vβ (2) 3.3.2 LF-DMM The graphical model of LF-DMM is shown in Figure 2. Based on the assumption that each text is sampled by a single topic, LF-DMM generates the words by Dirichlet multinomial model or latent feature model. Given two latent-feature vectorsτ associated with topic ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08203,
+        -0.03644,
+        0.00521,
+        0.0065,
+        -0.00312
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " each text is sampled by a single topic, LF-DMM generates the words by Dirichlet multinomial model or latent feature model. Given two latent-feature vectorsτ associated with topic ",
+      "overlap_with_next": " a word w ∼ (1 − sw)Multinomial (φzd) +sw(σ(τzd ωT )). [Page 5] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 5 Here, the hyper-parameterλ is the probability of a word b",
+      "text": " each text is sampled by a single topic, LF-DMM generates the words by Dirichlet multinomial model or latent feature model. Given two latent-feature vectorsτ associated with topic k andω associated with word w, latent feature model generates a wordw usingsoftmax function by the formula, σ(w|τkωT ) = e(τk·ωw)Σw′∈We(τk·ωw′ ) (3) where ω is pre-trained word vectors of all words W , and ωw is the word vector of word w. Fig. 2. Graphical Model of LF-DMM. For each word w of document d, a binary indicator vari- able Sd,w is sampled from a Bernoulli distribution to determine whether Dirichlet multinomial model or latent feature model will be used to generate w. The generative process is described as follows: (1). Sample a topic proportion θ∼Dirichlet(α). (2). For each topic k∈{ 1,...,K}: (a) Draw a topic-word distribution θk∼Dirichlet(β). (3). For each document d∈ D: (a) Sample a topic zd∼Multinomial (θ). (b) For each word w∈{wd,1,...,w d,nd}: (i) Sample a binary indicator variable Sd,w ∈ Bernoulli(λ) (ii) Sample a word w ∼ (1 − sw)Multinomial (φzd) +sw(σ(τzd ωT )). [Page 5] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 5 Here, the hyper-parameterλ is the probability of a word b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04586,
+        -0.01412,
+        0.00816,
+        -0.02129,
+        -0.01361
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " a word w ∼ (1 − sw)Multinomial (φzd) +sw(σ(τzd ωT )). [Page 5] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 5 Here, the hyper-parameterλ is the probability of a word b",
+      "overlap_with_next": "ature (TF) vector. After each iteration, LF-DMM estimates the topic vectors using the following optimization function, Lk =− ∑ w∈W Fwk (τk·ωw− log( ∑ w′∈W eτk·ωw′ )) +µ||τk||22 (6)",
+      "text": " a word w ∼ (1 − sw)Multinomial (φzd) +sw(σ(τzd ωT )). [Page 5] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 5 Here, the hyper-parameterλ is the probability of a word being generated by latent feature model, and Sd,w indicates whether Dirichlet multinomial model or latent feature model is applied to word w of document d. The topic feature (TF) in LF-DMM is similar with GSDMM, so we do not present the addible and deletable properties for LF-DMM. Based on collapsed Gibbs sampling, LF-DMM uses the fol- lowing conditional probability distribution to infer the topic of the documentd, p(zd =k|Z¬d, D,τ, ω)∝ (mk,¬d +α) ∏ w∈d ((1−λ) nwk,¬d +βnk,¬d +Vβ +λσ(w|τkωT ))nwd (4) wherenwd is the number of word w in documentd. The binary indicator variable Sd,w for wordw in document d conditional onzd =k is inferred using the following distribution, p(Sd,w =s|zd =k)∝    (1−λ) n wi k,¬d+β nk,¬d+Vβ fors = 0, λσ(wi|τkωT ) fors = 1. (5) where the subscript ¬d means document d is removed from its current topic feature (TF) vector. After each iteration, LF-DMM estimates the topic vectors using the following optimization function, Lk =− ∑ w∈W Fwk (τk·ωw− log( ∑ w′∈W eτk·ωw′ )) +µ||τk||22 (6)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0638,
+        -0.02041,
+        0.0069,
+        0.00067,
+        -0.01762
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "ature (TF) vector. After each iteration, LF-DMM estimates the topic vectors using the following optimization function, Lk =− ∑ w∈W Fwk (τk·ωw− log( ∑ w′∈W eτk·ωw′ )) +µ||τk||22 (6)",
+      "overlap_with_next": "cosine similarity. For all word pairs in vocab- ulary, if the semantic similarity score is higher that a prede- ﬁned threshold ϵ, the word pair is saved into a matric M, i.e., M ={",
+      "text": "ature (TF) vector. After each iteration, LF-DMM estimates the topic vectors using the following optimization function, Lk =− ∑ w∈W Fwk (τk·ωw− log( ∑ w′∈W eτk·ωw′ )) +µ||τk||22 (6) whereFwk is the number of times word w generated from topic k by latent feature model. LF-DMM adopted L-BFGS 1 [40] to ﬁnd the topic vectorτk that minimizesLk. 3.3.3 GPU-DMM Based on DMM model, GPU-DMM [29] promotes the seman- tically related words under the same topic during the sampling process by the generalized P ´olya urn (GPU) model [41]. When a ball of a particular color is sampled, a certain number of balls of similar colors are put back along with the original ball and a new ball of that color. In this case, sampling a word w in topic k not only increases the probability of w itself under topic k, but also increases the probability of the semantically similar words of wordw under topick. Given pre-trained word embeddings, the semantic similarity between two words wi and wj is denoted by cos(wi,wj) that are measured by cosine similarity. For all word pairs in vocab- ulary, if the semantic similarity score is higher that a prede- ﬁned threshold ϵ, the word pair is saved into a matric M, i.e., M ={",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0652,
+        -0.01753,
+        -0.01006,
+        -0.01672,
+        -0.02688
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "cosine similarity. For all word pairs in vocab- ulary, if the semantic similarity score is higher that a prede- ﬁned threshold ϵ, the word pair is saved into a matric M, i.e., M ={",
+      "overlap_with_next": "=k|w) = p(z =k)p(w|z =k)∑K i=1p(z =i)p(w|z =i) (10) where Sd,w indicates whether GPU is applied to word w of documentd given topic zd. We can see that GPU model is more likely to b",
+      "text": "cosine similarity. For all word pairs in vocab- ulary, if the semantic similarity score is higher that a prede- ﬁned threshold ϵ, the word pair is saved into a matric M, i.e., M ={(wi,wj)|cos(wi,wj) > ϵ}. Then, the promotion matrix A with respect to each word pair is deﬁned below, Awi,wj =    1 wi =wj µ w j∈ Mwi andw j⁄=wi 0 otherwisex (7) where Mwi is the row in M corresponding to word wi and µ is the pre-deﬁned promotion weight. 1. LF-DMM used the implementation of the Mallet toolkit [39] GPU-DMM and DMM share the same generative process and graphical representation but differ in the topic inference process that they use. Different from DMM and LF-DMM, GPU-DMM ﬁrst samples a topic for a document, and then only reinforces only the semantically similar words if and only if a word has strong ties with the sampled topic. Therefore, a nonparametric probabilistic sampling process for word w in documentd is as follows: Sd,w∼Bernoulli(λw,zd) (8) λw,zd = p(z|w)pmax(z′|w) (9) pmax(z′|w) = maxk p(z =k|w) p(z =k|w) = p(z =k)p(w|z =k)∑K i=1p(z =i)p(w|z =i) (10) where Sd,w indicates whether GPU is applied to word w of documentd given topic zd. We can see that GPU model is more likely to b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04682,
+        -0.02307,
+        -0.01675,
+        0.00375,
+        -0.00571
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "=k|w) = p(z =k)p(w|z =k)∑K i=1p(z =i)p(w|z =i) (10) where Sd,w indicates whether GPU is applied to word w of documentd given topic zd. We can see that GPU model is more likely to b",
+      "overlap_with_next": "ent in Equation 1 is rewritten as follows: p(zd =k|Z¬d, D)∝ mk,¬d +αN− 1 +Kα×∏ w∈d ∏nwd j=1(~nwk,¬d +β +j− 1)∏nd i=1(~nk,¬d +Vβ +i− 1) (11) During each iteration, GPU-PDMM ﬁrst del",
+      "text": "=k|w) = p(z =k)p(w|z =k)∑K i=1p(z =i)p(w|z =i) (10) where Sd,w indicates whether GPU is applied to word w of documentd given topic zd. We can see that GPU model is more likely to be applied to w if wordw is highly relate to topic zd. The Topic feature vector of a topick in GPU-DMM is deﬁned as a tuple{~nwk (w∈W ),mk, ~nk}. TF makes the same changes with GSDMM when no GPU is applied, namely Sd,w = 0 . Under Sd,w = 1 , the addible and deletable properties of topic feature (TF) in GPU-DMM are described below. (1) Addible Property. A documentd will be added into topic k by updating its TF vector as follows, ~nk = ~nk +nwid · Awi,wj foreachwordw j∈ Mwi ~nwjk = ~nwjk +nwd· Awi,wj foreachwordw j∈ Mwi mk =mk + 1 (2) Deletable Property. A document d will be deleted from topick by updating its TF vector as follows, ~nk = ~nk−nwid · Awi,wj foreachwordw j∈ Mwi ~nwjk = ~nwjk −nwd· Awi,wj foreachwordw j∈ Mwi mk =mk− 1 Accordingly, based on Gibbs sampling, the conditional dis- tribution to infer the topic for each document in Equation 1 is rewritten as follows: p(zd =k|Z¬d, D)∝ mk,¬d +αN− 1 +Kα×∏ w∈d ∏nwd j=1(~nwk,¬d +β +j− 1)∏nd i=1(~nk,¬d +Vβ +i− 1) (11) During each iteration, GPU-PDMM ﬁrst del",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05894,
+        -0.01668,
+        0.00031,
+        -0.01648,
+        -0.01433
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "ent in Equation 1 is rewritten as follows: p(zd =k|Z¬d, D)∝ mk,¬d +αN− 1 +Kα×∏ w∈d ∏nwd j=1(~nwk,¬d +β +j− 1)∏nd i=1(~nk,¬d +Vβ +i− 1) (11) During each iteration, GPU-PDMM ﬁrst del",
+      "overlap_with_next": "rated by td (0<t d≤ ς) topics, where ς is the maximum number of topics allowable in a document. GPU-PDMM uses Poisson distribution to model td. The graphical model of GPU-PDMM is s",
+      "text": "ent in Equation 1 is rewritten as follows: p(zd =k|Z¬d, D)∝ mk,¬d +αN− 1 +Kα×∏ w∈d ∏nwd j=1(~nwk,¬d +β +j− 1)∏nd i=1(~nk,¬d +Vβ +i− 1) (11) During each iteration, GPU-PDMM ﬁrst delete it from its current TF vector with the deletable property. After obtaining the topic of the document, GPU-DMM ﬁrst updates Sd,w for GPU using Equation 8, and then updates TF vector for each word using the addible property. Finally, the posterior distribution in Equation 2 for GPU-DMM is rewritten as follows: φwk = ~nwk +β~nk +Vβ (12) [Page 6] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 6 3.3.4 GPU-PDMM Considering the single-topic assumption may be too strong for some short text corpus, Li et al. [31] ﬁrst proposed Poisson-based Dirichlet Multinomial Mixture model (PDMM) that allows each document can be generated by one or more (but not too many) topics. Then PDMM can be extended as GPU-PDMM model by incorporating generalized P ´olya urn (GPU) model during the sampling process. In GPU-PDMM, each document is generated by td (0<t d≤ ς) topics, where ς is the maximum number of topics allowable in a document. GPU-PDMM uses Poisson distribution to model td. The graphical model of GPU-PDMM is s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06173,
+        -0.02027,
+        -0.00854,
+        -0.01191,
+        -0.01688
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "rated by td (0<t d≤ ς) topics, where ς is the maximum number of topics allowable in a document. GPU-PDMM uses Poisson distribution to model td. The graphical model of GPU-PDMM is s",
+      "overlap_with_next": "topic feature (TF) in GPU-PDMM are described below. The ~nk and ~nwk of TF in GPU- PDMM makes the same changes with GPU-DMM. Here, we only describe other variables in TF. (1) Addib",
+      "text": "rated by td (0<t d≤ ς) topics, where ς is the maximum number of topics allowable in a document. GPU-PDMM uses Poisson distribution to model td. The graphical model of GPU-PDMM is shown in Figure 3. The generative process of GPU-PDMM is described as follows. (1). Sample a topic proportion θ∼Dirichlet(α). (2). For each topic k∈{ 1,...,K}: (a) Draw a topic-word distribution θk∼Dirichlet(β). (3). For each document d∈ D: (a) Sample a topic number td∼Poisson (λ). (b) Sampletd distinct topics Zd∼Multinomial (θ). (c) For each word w∈{wd,1,...,w d,nd}: (i) Uniformly sample a topic zd,w∼ Zd. (ii) Sample a word w∼Multinomial (φzd,w). Heretd is sampled using Poisson distribution with parameter λ, and Zd is the topic set for document d. Fig. 3. Graphical Model of GPU-PDMM. The topic feature (TF) vector of a topic k in GPU-PDMM is deﬁned as a tuple ~nk, ~nwk (w∈W ),ck,dk,nk,d,nwk,d}, whereck is the number of words associated with topic k anddk represents the word set in topic k. The addible and deletable properties of topic feature (TF) in GPU-PDMM are described below. The ~nk and ~nwk of TF in GPU- PDMM makes the same changes with GPU-DMM. Here, we only describe other variables in TF. (1) Addib",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04536,
+        -0.04999,
+        -0.02113,
+        0.00228,
+        -0.0152
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "topic feature (TF) in GPU-PDMM are described below. The ~nk and ~nwk of TF in GPU- PDMM makes the same changes with GPU-DMM. Here, we only describe other variables in TF. (1) Addib",
+      "overlap_with_next": "s TF vector using Deletable Property and the topic for each wordw ind using Equation 13. Then GPU-PDMM samples each possible Zd using Equation 14. Finally, GPU-PDMM sets all the va",
+      "text": "topic feature (TF) in GPU-PDMM are described below. The ~nk and ~nwk of TF in GPU- PDMM makes the same changes with GPU-DMM. Here, we only describe other variables in TF. (1) Addible Property . Suppose that word w in document d will be added to topic k, TF feature is updates as follows, ck =ck + 1 ; dk =dk +w nk,d =nk,d + 1 ; nwk,d =nwk,d + 1 (2) Deletable Property. Suppose that word d will be deleted from topick. TF feature is updated as follows, ck =ck− 1 ; dk =dk−w nk,d =nk,d− 1 ; nwk,d =nwk,d− 1 The Gibbs sampling process of GPU-PDMM is similar to GPU-DMM, it updates the topic for word w in documentd using the following equation, p(zd,w =k|z¬(d,w), Zd, D)∝ 1td× ~nwk,¬(d,w) +β∑Vw ~nwk,¬(d,w) +Vβ (13) Conditioned on allzd,w in documentd, GPU-PDMM samples each possible Zd as follows, p(Zd|Z¬d, D)∝ λtd tndd × ∏ k∈Zd(ck,¬d +α)∏td−1 i=0 (∑Kk ck,¬d +Kα−i) × ∏ k∈Zd ∏ w∈dk ∏nwk,d i=0 (~nk,¬d +nwk,d)−i +β∏nk,d−1 i=0 (∑Vw ~nwk,¬d +nk,d−i +Vβ ). (14) During each iteration, for each documentd, GPU-PDMM ﬁrst updates TF vector using Deletable Property and the topic for each wordw ind using Equation 13. Then GPU-PDMM samples each possible Zd using Equation 14. Finally, GPU-PDMM sets all the va",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06464,
+        -0.02387,
+        -0.01396,
+        -0.00854,
+        -0.01082
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "s TF vector using Deletable Property and the topic for each wordw ind using Equation 13. Then GPU-PDMM samples each possible Zd using Equation 14. Finally, GPU-PDMM sets all the va",
+      "overlap_with_next": "m the original corpus. This type of methods needs to set sliding window for extracting word co-occurrences. In general, if the average length of each document is larger than 10, th",
+      "text": "s TF vector using Deletable Property and the topic for each wordw ind using Equation 13. Then GPU-PDMM samples each possible Zd using Equation 14. Finally, GPU-PDMM sets all the values of zd,w based on the updates Zd, updates Sd,w for GPU using Equation 8, and then updates TF vector for each word using the addible property. Here, due to the computational costs involved in sampling Zd, GPU-PDMM only samples the more relevant topics for each document. Speciﬁcally, GPU-PDMM infers the topic probability p(z|d) of each documentd using the follows, p(z =k|d)∝ ∑ w∈d p(z =k|w)p(w|d) wherep(w|d) = nwdnd . GPU-PDMM only chooses the topM topicsfor document d based on the probability p(z|d) to generate Zd, whereς <M≤K. The topic-word distribution can be calculated by Equation 12. 3.4 Global Word Co-occurrences based Methods The closer the two words, the more relevance the two words. Utilizing this idea, global word co-occurrences based methods learn the latent topics from the global word co-occurrences ob- tained from the original corpus. This type of methods needs to set sliding window for extracting word co-occurrences. In general, if the average length of each document is larger than 10, th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05845,
+        -0.03291,
+        -0.00872,
+        0.02049,
+        -0.01806
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "m the original corpus. This type of methods needs to set sliding window for extracting word co-occurrences. In general, if the average length of each document is larger than 10, th",
+      "overlap_with_next": "ble properties of topic feature (TF) in BTM are described below. (1) Addible Property. A bitermbi can be efﬁciently added to topick by updating its TF vector as follows. nwi,1k =nw",
+      "text": "m the original corpus. This type of methods needs to set sliding window for extracting word co-occurrences. In general, if the average length of each document is larger than 10, they use sliding window and set the size of the sliding window as 10, else they can directly take each document as a sliding window. 3.4.1 BTM BTM [14] ﬁrst generate biterms from the corpus D, where any two words in a document is treated as a biterm. Sup- pose that the corpus contains nb biterms B ={bi}nBi=1, where bi = (wi,1,wi,2). BTM infers topics over the biterms B. The generative process of BTM is described as follows, and its graph- ical model is shown in Figure 4. Fig. 4. Graphical Model of BTM. (1). Drawθ∼ Dirichlet(α). (2). For each topic k∈ [1,K ] (a) drawφk∼ Dirichlet(β). [Page 7] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 7 (3). For each biterm bi∈ B (a) drawzi∼ Multinomial(θ), (b) drawwi,1,wi,2∼ Multinomial(φzi). The TF vector of a topic k in BTM is deﬁned as a tuple {nk(w∈W ),nk}. The addible and deletable properties of topic feature (TF) in BTM are described below. (1) Addible Property. A bitermbi can be efﬁciently added to topick by updating its TF vector as follows. nwi,1k =nw",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03516,
+        -0.01631,
+        -0.01339,
+        0.02456,
+        0.01113
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "ble properties of topic feature (TF) in BTM are described below. (1) Addible Property. A bitermbi can be efﬁciently added to topick by updating its TF vector as follows. nwi,1k =nw",
+      "overlap_with_next": "φwk = nwk +βnk +Vβ , (16) θkd = nbd∑ i=1 p(zi =k) (17) where θkd is the probability of topic k in document d, and nbd is the number of biterms in document d. 3.4.2 WNTM WNTM [32] u",
+      "text": "ble properties of topic feature (TF) in BTM are described below. (1) Addible Property. A bitermbi can be efﬁciently added to topick by updating its TF vector as follows. nwi,1k =nwi,1k + 1 ; nwi,2k =nwi,2k + 1 ; nk =nk + 1 (2) Deletable Property. A bitermbi can be efﬁciently deleted from topick by unpdating its TF vector as follows. nwi,1k =nwi,1k − 1 ; nwi,2k =nwi,2k − 1 ; nk =nk− 1 Using the technique of collapsed Gibbs sampling, BTM sam- ples the topic zi of biterm bi using the following conditional distribution, p(zi =k|Z¬i, B)∝ (nk,−i +α)× (nwi,1k,¬i +β)(nwi,2k,¬i +β) (nk,¬i +Vβ + 1)(nk,¬i +Vβ ) (15) where Z¬i denotes the topics for all biterms except the current bitermbi, andnk is the number of biterms assigned to topic k. For each biterm, we ﬁrst delete it from its current TF vector with the deletable property. Then, we reassign the biterm to a topic using Equation 4. Accordingly, we update the new TF vector with the addible property. After ﬁnishing the iterations, BTM estimates φ andθ as follows, φwk = nwk +βnk +Vβ , (16) θkd = nbd∑ i=1 p(zi =k) (17) where θkd is the probability of topic k in document d, and nbd is the number of biterms in document d. 3.4.2 WNTM WNTM [32] u",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03328,
+        -0.01067,
+        0.00738,
+        0.02436,
+        0.01191
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "φwk = nwk +βnk +Vβ , (16) θkd = nbd∑ i=1 p(zi =k) (17) where θkd is the probability of topic k in document d, and nbd is the number of biterms in document d. 3.4.2 WNTM WNTM [32] u",
+      "overlap_with_next": "sted of the adjacent vertices of this vertex in word network. The occur times of this adjacent vertex in l is determined by the weight of the edge. The number of words in l is the ",
+      "text": "φwk = nwk +βnk +Vβ , (16) θkd = nbd∑ i=1 p(zi =k) (17) where θkd is the probability of topic k in document d, and nbd is the number of biterms in document d. 3.4.2 WNTM WNTM [32] uses global word co-occurrence to construct word co-occurrence network, and learns the distribution over topics for each word from word co-occurrence network using LDA. WNTM ﬁrst set the size of a sliding window, and the window is moving word by word. Suppose window size is set as 10 in the original paper, if one document has 15 words, it will have 16 windows in this document. As WNTM scanning word by word in one window, two distinct words in the window are regarded as co-occurrence. WNTM construct undirected word co-occurrence network, where each node of the word co-occurrence network represents one word and the weight of each edge is the number of co-occurrence of the two connected words. We can see that the number of nodes is the number of vocabularyV . Then, WNTM generates one pseudo-document l for each vertexv which is consisted of the adjacent vertices of this vertex in word network. The occur times of this adjacent vertex in l is determined by the weight of the edge. The number of words in l is the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02555,
+        -0.01084,
+        -0.00815,
+        0.00534,
+        -0.00402
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "sted of the adjacent vertices of this vertex in word network. The occur times of this adjacent vertex in l is determined by the weight of the edge. The number of words in l is the ",
+      "overlap_with_next": "= nkl +αnl +Kα (19) wherenl is the number of words in l. Given topic-word distribution, the document-word distribution θd can be calculated as, θkd = nd∑ i=1 φwd,ik p(wd,i|d) p(wd,",
+      "text": "sted of the adjacent vertices of this vertex in word network. The occur times of this adjacent vertex in l is determined by the weight of the edge. The number of words in l is the degree of the vertexv and the number of pseudo-documents P is the number of vertices. After obtaining pseudo-documents P , WNTM adopts LDA to learn latent topics from pseudo-documents. Therefore, the topic feature (TF) in LF-DMM is same with LDA. For each word w in l, WNTM infers its topic using the following conditional distribution, p(zl,w =k| Z¬(l,w),P,α,β )∝ (nkl,¬(l,w)+α) nwk,¬(l,w) +βnk,¬(l,w) +Vβ (18) wherenkl is the number of topic k belonging to pseudo-document l, and ¬(l,w ) means word w is removed from its pseudo- documentl. Because each pseudo-document is each word’s adjacent word-list, the document-topic distribution learned from pseudo- document is the topic-word distribution in WNTM. Suppose pseudo-document l is generated from word w, the topic-word distribution ofw is calculated using the following Equation, φwk = nkl +αnl +Kα (19) wherenl is the number of words in l. Given topic-word distribution, the document-word distribution θd can be calculated as, θkd = nd∑ i=1 φwd,ik p(wd,i|d) p(wd,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01491,
+        -0.01847,
+        0.03712,
+        -0.01458,
+        -0.01216
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "= nkl +αnl +Kα (19) wherenl is the number of words in l. Given topic-word distribution, the document-word distribution θd can be calculated as, θkd = nd∑ i=1 φwd,ik p(wd,i|d) p(wd,",
+      "overlap_with_next": "M can be described in two indispensable steps. The ﬁrst step calculates the probability of the occurrence of a pseudo-documentl inP conditioned on short documentd in short corpus, ",
+      "text": "= nkl +αnl +Kα (19) wherenl is the number of words in l. Given topic-word distribution, the document-word distribution θd can be calculated as, θkd = nd∑ i=1 φwd,ik p(wd,i|d) p(wd,i|d) = nwd,idnd wherenwd,id is the number of word wd,i in documentd. 3.5 Self-aggregation based Methods Self-aggregation based methods alleviate the problem of sparseness by merging short texts into long pseudo-documents P before inferring the latent topics [15], [17], [36]. The previous self-aggregation based methods ﬁrst merged short texts, and then applied topic models. Recently, SATM and PTM simultaneously integrate clustering and topic modeling in one iteration. In general, the number of pseudo-documents|P| is signiﬁcantly less than the number of short texts, namely|P|≪N. 3.5.1 SA TM Self-aggregation based topic modeling (SATM) [20] supposes that each short text is sampled from an unobserved long pseudo- document, and infers latent topics from pseudo-documents using standard topic modeling. The Gibbs sampling process in SATM can be described in two indispensable steps. The ﬁrst step calculates the probability of the occurrence of a pseudo-documentl inP conditioned on short documentd in short corpus, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01995,
+        -0.01704,
+        0.00562,
+        0.00533,
+        -0.00672
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "M can be described in two indispensable steps. The ﬁrst step calculates the probability of the occurrence of a pseudo-documentl inP conditioned on short documentd in short corpus, ",
+      "overlap_with_next": "l =nl + 1 nwk =nwk + 1 ; nk =nk + 1 (2) Deletable Property. A word w can be efﬁciently deleted from pseudo-document l and topic k by updating its PTF vector as follows. nwl =nwl − ",
+      "text": "M can be described in two indispensable steps. The ﬁrst step calculates the probability of the occurrence of a pseudo-documentl inP conditioned on short documentd in short corpus, which is estimated using the mixture of unigrams model [22], w˙d,i p(l|d) = p(l) ∏Vi=1(nwd,ilnl )nwd,id ∑|P| m=1p(m) ∏Vi=1(nwd,imnm )nwd,id (20) [Page 8] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 8 where p(l) = nlN represents the probability of pseudo-document pl,nwd,il is the number of word wd,i in pseudo-documentpl, and nl is the number of words in pl. The second step estimates draws a pair of pseudo-document label ld,w and topic label zd,w jointly for word w in document d, which is similar with standard topic modeling (author-topic modeling) [42]. The addible and deletable properties of pseudo-document and topic feature (PTF) in SATM are described below. (1) Addible Property . A word w can be efﬁciently added into pseudo-documentl and topick by updating its TPF vector as follows. nwl =nwl + 1 ; nkl =nkl + 1 ; nl =nl + 1 nwk =nwk + 1 ; nk =nk + 1 (2) Deletable Property. A word w can be efﬁciently deleted from pseudo-document l and topic k by updating its PTF vector as follows. nwl =nwl − ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04203,
+        0.00123,
+        0.01837,
+        0.0212,
+        0.0055
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "l =nl + 1 nwk =nwk + 1 ; nk =nk + 1 (2) Deletable Property. A word w can be efﬁciently deleted from pseudo-document l and topic k by updating its PTF vector as follows. nwl =nwl − ",
+      "overlap_with_next": "f PTM is described as follows, Fig. 5. Graphical Model of PTM. (1). Sampleϕ∼Dir(λ) (2). For each topic k∈ [1,K ] (a) drawφk∼ Dirichlet(β). (3). For each pseudo-document l (a) sampl",
+      "text": "l =nl + 1 nwk =nwk + 1 ; nk =nk + 1 (2) Deletable Property. A word w can be efﬁciently deleted from pseudo-document l and topic k by updating its PTF vector as follows. nwl =nwl − 1 ; nkl =nkl− 1 ; nl =nl− 1 nwk =nwk− 1 ; nk =nk− 1 The pair of pseudo-document label ld,w and topic label zd,w jointly for wordw in documentd can be calculated by, p(ld,w =l,zd,w =k|Z¬(d,w),P¬(d,w))∝ p(l|d)× nkl,¬(d,w) +α nl,¬(d,w) +Kα· nwk,¬(d,w) +β nk,¬(d,w) +Vβ (21) wherenkl is the number of words in pseudo-documentl belonging to topick. After ﬁnishing the iterations, SATM estimates φ and θ as follows, φwk = nwk +βnk +Vβ , (22) θkd = nd∏ i=1 φwd,ik (23) 3.5.2 PTM The pseudo-document-based topic modeling (PTM) [35] sup- poses that each short text is sampled from one long pseudo- documentpl, and then infers the latent topics from long pseudo- documentsP . A multinomial distribution ϕ is used to model the distribution of short texts over pseudo-documents. The graphical model of PTM is shown in Figure 5. The generative process of PTM is described as follows, Fig. 5. Graphical Model of PTM. (1). Sampleϕ∼Dir(λ) (2). For each topic k∈ [1,K ] (a) drawφk∼ Dirichlet(β). (3). For each pseudo-document l (a) sampl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04698,
+        0.00439,
+        0.0208,
+        -0.00478,
+        0.00307
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "f PTM is described as follows, Fig. 5. Graphical Model of PTM. (1). Sampleϕ∼Dir(λ) (2). For each topic k∈ [1,K ] (a) drawφk∼ Dirichlet(β). (3). For each pseudo-document l (a) sampl",
+      "overlap_with_next": "∏ k∈d ∏nkd j=1(nkl,¬d +α +j− 1)∏nd i=1(nl,¬d +Kα +i− 1) (24) where ml is the number of short texts associated with pseudo- documentl,nkl is the number of words associated with topi",
+      "text": "f PTM is described as follows, Fig. 5. Graphical Model of PTM. (1). Sampleϕ∼Dir(λ) (2). For each topic k∈ [1,K ] (a) drawφk∼ Dirichlet(β). (3). For each pseudo-document l (a) sampleθl∼Dir(α) (4). For each document d∈ D: (a) Sample a pseudo-document l∼Multinomial (ϕ). (b) For each word w∈{wd,1,...,w d,nd} ind: (i) Sample a topic z∼Multinomial (θl). (ii) Sample a word w∼Multinomial (φz). The addible and deletable properties of pseudo-document and topic feature (PTF) in PTM are described below. (1) Addible Property. A documentd can be efﬁciently added into pseudo-documentl by updating its PTF vector as follows. nkl =nkl + 1 forz d,w =kind ml =ml + 1 ; nl =nl +nd (2) Deletable Property . A document d can be efﬁciently deleted from pseudo-document l by updating its PF vector as follows. nkl =nkl− 1 forz d,w =kind ml =ml− 1 ; nl =nl−nd Integrating out θ,φ and ϕ, the pseudo-document assignment l for short text d based on collapsed Gibbs sampling can be estimated as follows, p(ld =l|− −→P¬d, D)∝ ml,¬d N− 1 +λ|P| ∏ k∈d ∏nkd j=1(nkl,¬d +α +j− 1)∏nd i=1(nl,¬d +Kα +i− 1) (24) where ml is the number of short texts associated with pseudo- documentl,nkl is the number of words associated with topi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05166,
+        -0.02106,
+        0.01291,
+        0.00621,
+        0.01632
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "∏ k∈d ∏nkd j=1(nkl,¬d +α +j− 1)∏nd i=1(nl,¬d +Kα +i− 1) (24) where ml is the number of short texts associated with pseudo- documentl,nkl is the number of words associated with topi",
+      "overlap_with_next": "improve the performance of these tasks. [Page 9] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 9 4.1 Content characterizing and recommendation Microblogging sites are us",
+      "text": "∏ k∈d ∏nkd j=1(nkl,¬d +α +j− 1)∏nd i=1(nl,¬d +Kα +i− 1) (24) where ml is the number of short texts associated with pseudo- documentl,nkl is the number of words associated with topic k in pseudo-documentl. After obtaining the pseudo-document for each short text, PTM samples the topic assignment for each word w in document d. That is, p(zd,w =k|Z¬(d,w), D)∝ (nkl +α) nwk +βnk +Vβ (25) where nkl is the number of words associated with topic k in pseudo-documentl. The document-word distributionθd can be calculated as, θkd = nkd +αnd +Kα (26) 4 A PPLICATIONS With the emerging of social media, topic models have been used for social media content analysis, such as content charac- terizing and recommendation, text classiﬁcation, event tracking. However, although the corpus is composed of short texts, some previous work directly applied traditional topic models for topic discovery, since no speciﬁc short text topic models were proposed at that time. Therefore, it brings a new chance for short text topic modeling to improve the performance of these tasks. [Page 9] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 9 4.1 Content characterizing and recommendation Microblogging sites are us",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05743,
+        -0.02389,
+        -0.004,
+        -0.00707,
+        -0.01037
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "improve the performance of these tasks. [Page 9] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 9 4.1 Content characterizing and recommendation Microblogging sites are us",
+      "overlap_with_next": " between Twitter and traditional medium. Content analysis is crucial for content recommendation for mi- croblogging users [44], [45]. Phelan et al. [46] identiﬁed emerging topics o",
+      "text": "improve the performance of these tasks. [Page 9] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 9 4.1 Content characterizing and recommendation Microblogging sites are used as publishing platforms to create and consume content from sets of users with overlapping and disparate interests, which results in many contents are useless for users. These work [19], [43] have been devoted to content analysis of Twitter. Ramage et al. [43] used topic models to discover latent topics from the tweets that can be roughly categorized into four types: substance topics about events and ideas, social topics recognizing language used toward a social end, status topics denoting personal updates, and style topics that embody broader trends in language usage. Next, they characterize selected Twitter users along these learned dimensions for providing interpretable summaries or characterizations of users tweet streams. Zhao et al. [19] performed content analysis on tweets using topic modeling to discover the difference between Twitter and traditional medium. Content analysis is crucial for content recommendation for mi- croblogging users [44], [45]. Phelan et al. [46] identiﬁed emerging topics o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06333,
+        -0.00598,
+        0.00103,
+        0.02946,
+        0.02104
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": " between Twitter and traditional medium. Content analysis is crucial for content recommendation for mi- croblogging users [44], [45]. Phelan et al. [46] identiﬁed emerging topics o",
+      "overlap_with_next": "idden topics discovered from short texts and produced discriminative features for short text classiﬁcation. V o et al. [49] explored more external large-scale data collections whic",
+      "text": " between Twitter and traditional medium. Content analysis is crucial for content recommendation for mi- croblogging users [44], [45]. Phelan et al. [46] identiﬁed emerging topics of interest from Twitter information using topic modeling, and recommended news by matching emerging topics and recent news coverage in an RSS feed. Chen et al. [47] also studied content recommendation based on Twitter for better capture users’ attention by exploring three separate dimensions in designing such a recommender: content sources, topic interest models for users, and social voting. 4.2 Text Classiﬁcation Topic models for text classiﬁcation are mainly from the follow- ing two aspects. The ﬁrst one is topics discovered from external large-scale data corpora are added into short text documents as external features. For example, Phan et al. [16] built a classiﬁer on both a set of labeled training data and a set of latent topics discovered from a large-scale data collection. Chen et al. [48] inte- grated multi-granularity hidden topics discovered from short texts and produced discriminative features for short text classiﬁcation. V o et al. [49] explored more external large-scale data collections whic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0672,
+        -0.02082,
+        -0.0038,
+        0.05773,
+        0.00661
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "idden topics discovered from short texts and produced discriminative features for short text classiﬁcation. V o et al. [49] explored more external large-scale data collections whic",
+      "overlap_with_next": " large volume of text data is generated from the social communities, such as blogs, tweets, and comments. The important task of event tracking is to observe and track the popular e",
+      "text": "idden topics discovered from short texts and produced discriminative features for short text classiﬁcation. V o et al. [49] explored more external large-scale data collections which contain not only Wikipedia but also LNCS and DBLP for discovering latent topics. The other one is that topic models are used to obtain a low dimensional representation of each text, and then classify text using classiﬁcation methods [50], [51]. Compared with traditional statistical methods, the representation using topic models can get a compact, dense and lower dimensional vector in which each dimension of the vector usually represents a speciﬁc semantic meaning (e.g., a topic) [22]. Dai et al. [50] used the topic information from training data to extend representation for short text. Recent topic modeling methods on text representation have explicitly evaluated their models on this task. They showed that a low dimensional representation for each text sufﬁces to capture the semantic information. 4.3 Event Tracking Nowadays, a large volume of text data is generated from the social communities, such as blogs, tweets, and comments. The important task of event tracking is to observe and track the popular e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0599,
+        -0.02943,
+        0.00245,
+        0.04831,
+        -0.02127
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": " large volume of text data is generated from the social communities, such as blogs, tweets, and comments. The important task of event tracking is to observe and track the popular e",
+      "overlap_with_next": "rt text topic modeling algorithms. The design of STTM follows three basic principles. (1) Preferring integration of existing algorithms rather than implementing them. If the origin",
+      "text": " large volume of text data is generated from the social communities, such as blogs, tweets, and comments. The important task of event tracking is to observe and track the popular events or topics that evolve over time [52]–[54]. Lin et al. [52] proposed a novel topic modeling that models the popularity of events over time, taking into consideration the burstiness of user interest, information diffusion in the network structure, and the evolution of latent topics. Lau et al. [55] designed a novel topic modeling for event detecting, whose model has an in-built update mechanism based on time slices by implementing a dynamic vocabulary. 5 A J AVA LIBRARY FOR SHORT TEXT TOPIC MODELING We released an open-source Java library, STTM (Short Text Topic Modeling) 2, which is the ﬁrst comprehensive open-source library, which not only includes the state-of-the-art algorithms with a uniform easy-to-use programming interface but also in- cludes a great number of designed modules for the evaluation and application of short text topic modeling algorithms. The design of STTM follows three basic principles. (1) Preferring integration of existing algorithms rather than implementing them. If the origin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04256,
+        -0.02298,
+        -0.02459,
+        0.05149,
+        0.02014
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "rt text topic modeling algorithms. The design of STTM follows three basic principles. (1) Preferring integration of existing algorithms rather than implementing them. If the origin",
+      "overlap_with_next": "es of STTM. Figure 6 shows the hierarchical architecture of STTM. STTM supports the entire knowledge discovery procedure including analysis, inference, evaluation, application for ",
+      "text": "rt text topic modeling algorithms. The design of STTM follows three basic principles. (1) Preferring integration of existing algorithms rather than implementing them. If the original implementations are open, we always attempt to integrate the original codes rather than implement them. The work that we have done is to consolidate the input/output ﬁle formats and package these different approaches into some newly designed java classes with a uniform easy-to-use member functions. (2) Including traditional topic modeling algorithms for long texts. The classical topic modeling algorithm (LDA [9] and its variation LF-LDA [28]) are integrated, which is easy for users to the comparison of long text topic modeling algorithms and short text topic modeling algorithms. (3) Extendibility. Because short text topic modeling is an emerging research ﬁeld, many topics have not been studied yet. For incorporating future work easily, we try to make the class structures as extendable as possible when designing the core modules of STTM. Figure 6 shows the hierarchical architecture of STTM. STTM supports the entire knowledge discovery procedure including analysis, inference, evaluation, application for ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05115,
+        -0.01336,
+        -0.02248,
+        0.04304,
+        0.01835
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "es of STTM. Figure 6 shows the hierarchical architecture of STTM. STTM supports the entire knowledge discovery procedure including analysis, inference, evaluation, application for ",
+      "overlap_with_next": "tion (PMI) to measure the coherence of topics [35]. Short text topic modeling algorithms are widely used for clustering and classiﬁcation. In the clustering module, STTM provides t",
+      "text": "es of STTM. Figure 6 shows the hierarchical architecture of STTM. STTM supports the entire knowledge discovery procedure including analysis, inference, evaluation, application for classiﬁcation and clustering. In the data layer, STTM is able to read a text ﬁle, in which each line represents one document. Here, a document is a sequence of words/tokens separated by whitespace characters. If we need to evaluate the algorithm, we also need to read a gold ﬁle, in which each line is the class label of one document. STTM provides implementations of DMM [18], LF-DMM [28], GPU- DMM [29], GPU-PDMM [31], BTM [14], WNTM [32], SATM [20], and PTM [35]. For each model, we not only provide how to train a model on existing corpus but also give how to infer topics on a new/unseen corpus using a pre-trained topic model. In addition, STTM presents three aspects of how to evaluate the performance of the algorithms (i.e., topic coherence, clustering, and classiﬁcation). For topic coherence, we use the point-wise mutual information (PMI) to measure the coherence of topics [35]. Short text topic modeling algorithms are widely used for clustering and classiﬁcation. In the clustering module, STTM provides t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02904,
+        -0.00819,
+        -0.03156,
+        -0.01073,
+        -0.00734
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "tion (PMI) to measure the coherence of topics [35]. Short text topic modeling algorithms are widely used for clustering and classiﬁcation. In the clustering module, STTM provides t",
+      "overlap_with_next": "DMM are trained by Glove [56]. In this paper, we used the pre-trained word embeddings ”glove.6B.200d.txt”, where the dimension of the vector is 200. 6.1 Parameter Setting LDA: LDA ",
+      "text": "tion (PMI) to measure the coherence of topics [35]. Short text topic modeling algorithms are widely used for clustering and classiﬁcation. In the clustering module, STTM provides two measures (NMI and Purity) [21]. Based on the latent semantic representations learned by short text topic modeling, accuracy metric is chosen in classiﬁcations [14]. 6 E XPERIMENTAL SETUP In this section, we specify the parameter setting of the in- troduced short text topic models, dataset and evaluation metrics we used. All of these are implemented in our library STTM. The experiments were performed on a Ubuntu 18.04(bionic) system with 6 cores, Intel Xeon E5645 CPU and 12288 KB cache. For all models in comparison, we used the recommended setting by the authors and set the number of iterations as 2,000 2. https://github.com/qiang2100/STTM [Page 10] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 10 Fig. 6. The architecture of STTM unless explicitly speciﬁed elsewhere. The word embeddings of LF-DMM, GPU-DMM, and GPU-PDMM are trained by Glove [56]. In this paper, we used the pre-trained word embeddings ”glove.6B.200d.txt”, where the dimension of the vector is 200. 6.1 Parameter Setting LDA: LDA ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06427,
+        -0.0243,
+        -0.02083,
+        0.02002,
+        -0.02057
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "DMM are trained by Glove [56]. In this paper, we used the pre-trained word embeddings ”glove.6B.200d.txt”, where the dimension of the vector is 200. 6.1 Parameter Setting LDA: LDA ",
+      "overlap_with_next": "gets optimal performance. Each document is treated as one window. WNTM: We set α = 0.1 and β = 0.1 used in the original paper. The window size is set as 10 words. SATM: We set the ",
+      "text": "DMM are trained by Glove [56]. In this paper, we used the pre-trained word embeddings ”glove.6B.200d.txt”, where the dimension of the vector is 200. 6.1 Parameter Setting LDA: LDA is the most popular and classic topic modeling. We choose it as a baseline to the comparison. The hyper-parameters of LDA are set as α = 0.05 andβ = 0.01 that are proved in the paper (BTM). The authors tuned parameters via grid search on the smallest collection to get the best performance. GSDMM: We setk = 300,α = 0.1 andβ = 0.1 declared in the paper(GSDMM). LF-DMM: We setλ = 0.6,α = 0.1 andβ = 0.01 shown in their paper. We set the iterations for baseline models as 1,500 and ran the further iterations 500 times. GPU-DMM: We use the hyper-parameter settings provided by the authors, α = 50/k,β = 0.01. The number of iterations is 1,000 in the paper. GPU-PDMM: All the settings are same as the model GPU- DMM. We set λ = 1.5, ς = 1.5, and M=10 declared in the original paper. BTM: The parametersα = 50/K andβ = 0.01 are used, the model gets optimal performance. Each document is treated as one window. WNTM: We set α = 0.1 and β = 0.1 used in the original paper. The window size is set as 10 words. SATM: We set the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0659,
+        -0.02228,
+        -0.04366,
+        -1e-05,
+        -0.02525
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "gets optimal performance. Each document is treated as one window. WNTM: We set α = 0.1 and β = 0.1 used in the original paper. The window size is set as 10 words. SATM: We set the ",
+      "overlap_with_next": "19,448 7.44/28 4498 Tweet 89 2,472 8.55/20 5,096 GoogleNews 152 11,109 6.23/14 8,110 PascalFlickr 20 4,834 5.37/19 3,431 SearchSnippets: Given the predeﬁned phrases of 8 different ",
+      "text": "gets optimal performance. Each document is treated as one window. WNTM: We set α = 0.1 and β = 0.1 used in the original paper. The window size is set as 10 words. SATM: We set the number of pseudo-numbers as 300, and the hyper-parametersα = 50/k,β = 0.1. The number of iterations is set as 1,000. PTM: The hyper-parameters are α = 0.1 andβ = 0.01. We also set the number of pseudo-document as 1000. 6.2 Datasets To show the effects and differences of the above nine models, we select the following six datasets to verify the models. After preprocessing these datasets, we present the key information of the datasets that are summarized in Table 4, whereK corresponds to the number of topics per dataset, N represents the number of documents in each dataset, Len shows the average length and maximum length of each document, and V indicates the size of the vocabulary. TABLE 4 The basic information of the corpus Dataset K N Len V SearchSnippets 8 12,295 14.4/37 5,547 StackOverﬂow 20 16,407 5.03/17 2,638 Biomedicine 20 19,448 7.44/28 4498 Tweet 89 2,472 8.55/20 5,096 GoogleNews 152 11,109 6.23/14 8,110 PascalFlickr 20 4,834 5.37/19 3,431 SearchSnippets: Given the predeﬁned phrases of 8 different ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01749,
+        -0.0179,
+        -0.02815,
+        0.00395,
+        -0.04167
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "19,448 7.44/28 4498 Tweet 89 2,472 8.55/20 5,096 GoogleNews 152 11,109 6.23/14 8,110 PascalFlickr 20 4,834 5.37/19 3,431 SearchSnippets: Given the predeﬁned phrases of 8 different ",
+      "overlap_with_next": "oogleNews: In the Google news site, the news articles are divided into clusters automatically. GoolgeNews dataset is downloaded from Google news site on November 27, 2013, and craw",
+      "text": "19,448 7.44/28 4498 Tweet 89 2,472 8.55/20 5,096 GoogleNews 152 11,109 6.23/14 8,110 PascalFlickr 20 4,834 5.37/19 3,431 SearchSnippets: Given the predeﬁned phrases of 8 different domains, this dataset was chosen from the results of web search transaction. The 8 domains are Business, Computers, Culture- Arts, Education-Science, Engineering, Health, Politics-Society, and Sports, respectively. StackOverﬂow: The dataset is released on Kaggle.com. The raw dataset contains 3,370,528 samples from July 31st, 2012 to August 14, 2012. Here, the dataset randomly selects 20,000 question titles from 20 different tags. Biomedicine: Biomedicine makes use of the challenge data delivered on BioASQ’s ofﬁcial website. Tweet: In the 2011 and 2012 microblog tracks at Text RE- trieval Conference (TREC), there are 109 queries for using. After [Page 11] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 11 removing the queries with none highly-relevant tweets, Tweet dataset includes 89 clusters and totally 2,472 tweets. GoogleNews: In the Google news site, the news articles are divided into clusters automatically. GoolgeNews dataset is downloaded from Google news site on November 27, 2013, and craw",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07497,
+        -0.01057,
+        0.00115,
+        -0.00742,
+        0.00186
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "oogleNews: In the Google news site, the news articles are divided into clusters automatically. GoolgeNews dataset is downloaded from Google news site on November 27, 2013, and craw",
+      "overlap_with_next": "ent metrics, Classiﬁcation Evaluation : Each document can bed repre- sented using document-topic distribution p(z|d). Therefore, we can evaluate the performance of topic modeling u",
+      "text": "oogleNews: In the Google news site, the news articles are divided into clusters automatically. GoolgeNews dataset is downloaded from Google news site on November 27, 2013, and crawled the titles and snippets of 11,109 news articles belonging to 152 clusters. PascalFlickr: PascalFlickr dataset are a set of captions [57], which is used as evaluation for short text clustering [58]. 6.3 Evaluation Metrics It is still an open problem about how to evaluate short text topic models. A lot of metrics have been proposed for measuring the coherence of topics in texts [59], [60]. Although some metrics tend to be reasonable for long texts, they can be problematic for short texts [20]. Most conventional metrics (e.g., perplexity) try to estimate the likelihood of held-out testing data based on parameters inferred from training data. However, this likelihood is not necessarily a good indicator of the quality of the extracted topics [61]. To provide a good evaluation, we evaluate all models from many aspects using different metrics, Classiﬁcation Evaluation : Each document can bed repre- sented using document-topic distribution p(z|d). Therefore, we can evaluate the performance of topic modeling u",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06103,
+        -0.03391,
+        -0.00613,
+        0.0206,
+        0.01225
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": "ent metrics, Classiﬁcation Evaluation : Each document can bed repre- sented using document-topic distribution p(z|d). Therefore, we can evaluate the performance of topic modeling u",
+      "overlap_with_next": " we calculate the point-wise mutual information (PMI) of each word pair, estimated from the entire corpus of over one million English Wikipedia articles [31]. Using a sliding windo",
+      "text": "ent metrics, Classiﬁcation Evaluation : Each document can bed repre- sented using document-topic distribution p(z|d). Therefore, we can evaluate the performance of topic modeling using text classi- ﬁcation. Here, we choose accuracy as a metric for classiﬁcation. Higher accuracy means the learned topics are more discriminative and representative. We use a linear kernel Support Vector Machine (SVM) classiﬁer in LIBLINEAR 3 with the default parameter set- tings. The accuracy of classiﬁcation is computed through ﬁvefold cross-validation on all datasets. Cluster Evaluation (Purity and NMI) : By choosing the maximum of topic probability for each document, we can get the cluster label for each text. Then, we can compare the cluster label and the golden label using metric Purity and NMI [18], [24]. Topic Coherence : Computing topic coherence, additional dataset (Wikipedia) as a single meta-document is needed to score word pairs using term co-occurrence in the paper (Automatic Evaluation of Topic Coherence). Here, we calculate the point-wise mutual information (PMI) of each word pair, estimated from the entire corpus of over one million English Wikipedia articles [31]. Using a sliding windo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06401,
+        -0.02746,
+        -4e-05,
+        0.03968,
+        -0.00174
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": " we calculate the point-wise mutual information (PMI) of each word pair, estimated from the entire corpus of over one million English Wikipedia articles [31]. Using a sliding windo",
+      "overlap_with_next": "ps://liblinear.bwaldvogel.de/ 4. https://dumps.wikimedia.org/enwiki/ The classiﬁcation accuracy on six datasets using nine models is shown in Figure 7. We observe that although the",
+      "text": " we calculate the point-wise mutual information (PMI) of each word pair, estimated from the entire corpus of over one million English Wikipedia articles [31]. Using a sliding window of 10 words to identify co-occurrence, we computed the PMI of all a given word pair. The Wikipedia corpus can be downloaded here 4. Then, we can transfer the dataset from HTML to text using the code in the STTM package. Finally, due to the large size, we only choose 1,000,000 sentences from it. 7 E XPERIMENTS AND ANALYSIS In this section, we conduct experiments to evaluate the perfor- mance of the nine models. We run each model 20 times on each dataset and report the mean and standard deviation. 7.1 Classiﬁcation Accuracy Classiﬁcation accuracy is used to evaluate document-topic distribution. We represent each document with its document-topic distribution and employ text classiﬁcation method to assess. For DMM based methods, we use p(zd = k) to represent each document. For other models, we adopt the giving equation θkd. 3. https://liblinear.bwaldvogel.de/ 4. https://dumps.wikimedia.org/enwiki/ The classiﬁcation accuracy on six datasets using nine models is shown in Figure 7. We observe that although the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05703,
+        -0.02149,
+        0.00122,
+        0.02182,
+        -0.00491
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "ps://liblinear.bwaldvogel.de/ 4. https://dumps.wikimedia.org/enwiki/ The classiﬁcation accuracy on six datasets using nine models is shown in Figure 7. We observe that although the",
+      "overlap_with_next": " next step. In conclusion, these models based on the simple assumption (BTM and GSDMM) always outperform than LDA in all datasets, which indicate that two words or all words in one",
+      "text": "ps://liblinear.bwaldvogel.de/ 4. https://dumps.wikimedia.org/enwiki/ The classiﬁcation accuracy on six datasets using nine models is shown in Figure 7. We observe that although the performance of methods is dataset dependent, DMM based methods which utilize word embeddings outperform others, especially on Tweet and GoogleNews datasets. This is because GoogleNews and Tweet are general (not domain-speciﬁc) datasets and word embeddings used in this paper are trained in general datasets. If we try to use these models (LF-DMM, GPU-DMM, and GPU-PDMM) on domain-speciﬁc datasets, we can further improve the performance by re-training word embeddings on domain-speciﬁc datasets. We also observe that self-aggregation based methods are unable to achieve high accuracy, especially the SATM method. The performance of self-aggregation based methods is affected by generating long pseudo-documents. Without any auxiliary infor- mation or metadata, the error of this step of generating pseudo- documents will be ampliﬁed in the next step. In conclusion, these models based on the simple assumption (BTM and GSDMM) always outperform than LDA in all datasets, which indicate that two words or all words in one",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04598,
+        -0.03154,
+        -0.01792,
+        -0.00088,
+        -0.02685
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": " next step. In conclusion, these models based on the simple assumption (BTM and GSDMM) always outperform than LDA in all datasets, which indicate that two words or all words in one",
+      "overlap_with_next": "), except SATM. Here, similar to the conclusions in classiﬁcation, we can observe that the performance of approaches is highly data set dependent. WNTM achieves the best performanc",
+      "text": " next step. In conclusion, these models based on the simple assumption (BTM and GSDMM) always outperform than LDA in all datasets, which indicate that two words or all words in one document are very likely to from one topic. Here we can see that the performance of other models (LF-DMM, GPU-DMM, GPU-PDMM, WNTM) are highly data set dependent. For example, WNTM achieves good performance on Tweet, GoogleNews and StackOverﬂow, but performs poorly on other data sets. GPU-PDMM achieves the best performance on all data sets, except SearchSnippets. 7.2 Clustering Another important application of short text topic modeling is short text clustering. For each document, we choose the maximum value from its topic distribution as the cluster label. We report the mean value of each modeling on all datasets in the last column. The best results for each dataset using each metric are highlighted in bold. Table 5 illustrates the results using cluster metrics. We can see that all models outperform long text topic modeling (LDA), except SATM. Here, similar to the conclusions in classiﬁcation, we can observe that the performance of approaches is highly data set dependent. WNTM achieves the best performanc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07601,
+        -0.01607,
+        -0.02495,
+        0.00257,
+        -0.02659
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "), except SATM. Here, similar to the conclusions in classiﬁcation, we can observe that the performance of approaches is highly data set dependent. WNTM achieves the best performanc",
+      "overlap_with_next": "mance on four datasets (Biomedicine, GoogleNews, SearchSnippets, and Tweet), GPU- DMM has the best performance on StackOverﬂow, and GPU- PDMM achieves the best on PascalFlickr. It ",
+      "text": "), except SATM. Here, similar to the conclusions in classiﬁcation, we can observe that the performance of approaches is highly data set dependent. WNTM achieves the best performance on several datasets but performs poorly on PascalFlickr. GPU-PDMM performs very well on all datasets except SearchSnippets. For self-aggregation based methods, PTM performs better than SATM. For global word-occurrences based methods, two methods are very different from each other. WNTM performs better than BTM on Tweet and StackOverﬂow, and BTM achieves good performance on GoogleNews and PascalFlickr. For DMM based methods, GSDMM without incorporating word embeddings outperforms other methods on Biomedicine and SearchSnippets. 7.3 Topic Coherence Topic coherence is used to evaluate the quality of topic-word distribution. Here, we only choose the top 10 words for each topic based on the word probability. The results are shown in Figure 8. DMM based methods achieve the best performance on all datasets. LF-DMM has the best performance on four datasets (Biomedicine, GoogleNews, SearchSnippets, and Tweet), GPU- DMM has the best performance on StackOverﬂow, and GPU- PDMM achieves the best on PascalFlickr. It ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04619,
+        -0.03823,
+        -0.01784,
+        -0.00659,
+        -0.02504
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "mance on four datasets (Biomedicine, GoogleNews, SearchSnippets, and Tweet), GPU- DMM has the best performance on StackOverﬂow, and GPU- PDMM achieves the best on PascalFlickr. It ",
+      "overlap_with_next": "tics), Engineering (engine.), Culture-Arts (culture), Sports, Computers, Business, and Education-Science (education). Table 6 shows the eight topics learned by the nine models. Eac",
+      "text": "mance on four datasets (Biomedicine, GoogleNews, SearchSnippets, and Tweet), GPU- DMM has the best performance on StackOverﬂow, and GPU- PDMM achieves the best on PascalFlickr. It means that incor- porating word embeddings into DMM can help to alleviate the sparseness. Two methods based on global word co-occurrences perform very well and achieve a similar result on each dataset, [Page 12] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 12 (a). Biomedicine (b). GoogleNews (c). PascalFlickr (d). SearchSnippets (e). StackOverﬂow (f). Tweet Fig. 7. Average classiﬁcation accuracy of all models on six datasets. which indicates that the adequacy of global word co-occurrences can mitigate the sparsity of short texts. Similar to the above results using other metrics, self-aggregation based methods perform very poorly. We also present the qualitative evaluation of latent topics. Here, we choose SearchSnippets dataset as an example, since it only contains eight topics that are Health, Politics-Society (politics), Engineering (engine.), Culture-Arts (culture), Sports, Computers, Business, and Education-Science (education). Table 6 shows the eight topics learned by the nine models. Eac",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07553,
+        -0.03952,
+        -0.02983,
+        -0.01562,
+        -0.01337
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "tics), Engineering (engine.), Culture-Arts (culture), Sports, Computers, Business, and Education-Science (education). Table 6 shows the eight topics learned by the nine models. Eac",
+      "overlap_with_next": "ations reaches 2000, we vary the number of iterations from 2 to 2024. The results are shown in Figure 9. We can see that models based DMM can converge fast to the optimal solutions",
+      "text": "tics), Engineering (engine.), Culture-Arts (culture), Sports, Computers, Business, and Education-Science (education). Table 6 shows the eight topics learned by the nine models. Each topic is visualized by the top ten words. Words that are noisy and lack of representativeness are highlighted in bold. From Table 6, we observe that LF-DMM can achieve a similar conclusion with topic coherence, which can learn more coherent topics with fewer noisy and meaningless words. GPU-DMM and GPU-PDMM can not discriminate the topic ’Engineering’. SATM remains the worst method in all short text topic models, which cannot discriminate three topics ’Engineering’, ’Politics-Society’ can ’Culture. Except LDA, PTM, WNTM, and SATM, other models can identify at least seven topics from all eight topics. 7.4 Inﬂuence of the number of iterations In this subsection, we try to investigate the inﬂuence of the number of iterations to the performance of all models using NMI metric. Since all models have converged when the number of iterations reaches 2000, we vary the number of iterations from 2 to 2024. The results are shown in Figure 9. We can see that models based DMM can converge fast to the optimal solutions",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01444,
+        -0.00841,
+        0.02111,
+        -0.02467,
+        -0.03066
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": "ations reaches 2000, we vary the number of iterations from 2 to 2024. The results are shown in Figure 9. We can see that models based DMM can converge fast to the optimal solutions",
+      "overlap_with_next": "ime for optimizing the topic vectors. We can see that GPU-PDMM is the slowest modeling compared with other models. Global word co-occurrences based methods are much slower than GSD",
+      "text": "ations reaches 2000, we vary the number of iterations from 2 to 2024. The results are shown in Figure 9. We can see that models based DMM can converge fast to the optimal solutions and almost get stable within 30 iterations. Models based global word co- occurrences get stable within 60 iterations. Models based self- aggregation has the slowest convergence speed and the lowest iterative performance. 7.5 Efﬁciency In this part, we compare the efﬁciency of various short text topic models. Here, we choose the largest dataset ”Biomedicine” from all datasets to do the experiments. The average runtime of the initiation and per iteration for each model are reported in Table 7. Among all models evaluated, LDA and DMM are the most efﬁcient methods as expected. GPU-DMM is slightly slower than DMM and LDA, due to a similar Gibbs sampling process with GSDMM. LF-DMM and GPU-PDMM take much more time than GPU-DMM, because GPU-PDMM spends more time for the computational costs involved in sampling Zd and LF-DMM need much time for optimizing the topic vectors. We can see that GPU-PDMM is the slowest modeling compared with other models. Global word co-occurrences based methods are much slower than GSD",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04201,
+        -0.01054,
+        -0.0293,
+        -0.02089,
+        -0.02954
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": "ime for optimizing the topic vectors. We can see that GPU-PDMM is the slowest modeling compared with other models. Global word co-occurrences based methods are much slower than GSD",
+      "overlap_with_next": "013 NMI 0.356 ±0.004 0.825 ±0.002 0.321 ±0.006 0.517 ±0.025 0.425 ±0.006 0.805 ±0.004 0.542 ±0.008 GSDMM Purity 0.494 ±0.011 0.754 ±0.014 0.360 ±0.012 0.801 ±0.024 0.713 ±0.002 0.7",
+      "text": "ime for optimizing the topic vectors. We can see that GPU-PDMM is the slowest modeling compared with other models. Global word co-occurrences based methods are much slower than GSDMM, LDA and GPU-DMM and faster than the rest models. This is expected since they extend the number of words by extracting word co-occurrences. For self-aggregation based methods, the time is affected by the number of pseudo-documents. PTM is much faster than SATM but much slower than global word co-occurrences based methods. In addition, the models by incorporating word embeddings (GPU-DMM, LF-DMM, and GPU-PDMM) have the slowest time for the initiation due to the computational cost for the similarity between words. [Page 13] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 13 TABLE 5 Purity andNMI value of all models on six datasets. Model Biome dicine Google News Pascal Flickr Search Snippets Stack Overﬂow Tweet Mean Value LDA Purity 0.456 ±0.011 0.793 ±0.005 0.376 ±0.013 0.740 ±0.029 0.562 ±0.013 0.821 ±0.006 0.625 ±0.013 NMI 0.356 ±0.004 0.825 ±0.002 0.321 ±0.006 0.517 ±0.025 0.425 ±0.006 0.805 ±0.004 0.542 ±0.008 GSDMM Purity 0.494 ±0.011 0.754 ±0.014 0.360 ±0.012 0.801 ±0.024 0.713 ±0.002 0.7",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04332,
+        -0.02396,
+        -0.01399,
+        -0.01351,
+        -0.02264
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "013 NMI 0.356 ±0.004 0.825 ±0.002 0.321 ±0.006 0.517 ±0.025 0.425 ±0.006 0.805 ±0.004 0.542 ±0.008 GSDMM Purity 0.494 ±0.011 0.754 ±0.014 0.360 ±0.012 0.801 ±0.024 0.713 ±0.002 0.7",
+      "overlap_with_next": " ±0.004 0.875 ±0.003 0.368 ±0.006 0.566 ±0.027 0.456 ±0.008 0.808 ±0.005 0.575 ±0.009 WNTM Purity 0.472 ±0.009 0.837 ±0.007 0.324 ±0.005 0.712 ±0.016 0.750 ±0.026 0.856 ±0.012 0.65",
+      "text": "013 NMI 0.356 ±0.004 0.825 ±0.002 0.321 ±0.006 0.517 ±0.025 0.425 ±0.006 0.805 ±0.004 0.542 ±0.008 GSDMM Purity 0.494 ±0.011 0.754 ±0.014 0.360 ±0.012 0.801 ±0.024 0.713 ±0.002 0.785 ±0.011 0.650 ±0.013 NMI 0.396 ± 0.006 0.851 ± 0.004 0.317 ± 0.005 0.608 ± 0.023 0.593 ± 0.002 0.801 ± 0.007 0.590 ± 0.001 LF-DMM Purity 0.421 ±0.019 0.828 ±0.009 0.381 ±0.009 0.762 ±0.042 0.518 ±0.0217 0.856 ±0.009 0.630 ±0.018 NMI 0.348 ±0.005 0.875 ±0.005 0.365 ±0.007 0.579 ±0.026 0.443 ±0.007 0.843 ±0.006 0.578 ±0.009 GPU-DMM Purity 0.433 ±0.008 0.818 ±0.005 0.395 ±0.010 0.751 ±0.035 0.511 ±0.013 0.830 ±0.006 0.623 ±0.013 NMI 0.366 ±0.006 0.852 ±0.002 0.370 ±0.004 0.561 ±0.026 0.429 ±0.003 0.810 ±0.006 0.565 ±0.008 GPU-PDMM Purity 0.481 ±0.011 0.860 ±0.002 0.368 ±0.008 0.537 ±0.030 0.702 ±0.032 0.869 ±0.005 0.636 ±0.015 NMI 0.381 ±0.005 0.871 ±0.001 0.322 ±0.003 0.341 ±0.014 0.607 ±0.013 0.830 ±0.003 0.559 ±0.007 BTM Purity 0.458 ±0.012 0.849 ±0.005 0.392 ±0.011 0.765 ±0.032 0.537 ±0.019 0.814 ±0.008 0.636 ±0.014 NMI 0.380 ±0.004 0.875 ±0.003 0.368 ±0.006 0.566 ±0.027 0.456 ±0.008 0.808 ±0.005 0.575 ±0.009 WNTM Purity 0.472 ±0.009 0.837 ±0.007 0.324 ±0.005 0.712 ±0.016 0.750 ±0.026 0.856 ±0.012 0.65",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06886,
+        -0.01867,
+        -0.02165,
+        -0.04334,
+        -0.03854
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 62400,
+      "length": 1200,
+      "overlap_with_previous": " ±0.004 0.875 ±0.003 0.368 ±0.006 0.566 ±0.027 0.456 ±0.008 0.808 ±0.005 0.575 ±0.009 WNTM Purity 0.472 ±0.009 0.837 ±0.007 0.324 ±0.005 0.712 ±0.016 0.750 ±0.026 0.856 ±0.012 0.65",
+      "overlap_with_next": "of short text topic modeling (STTM) techniques covered three broad categories of methods: DMM based, global word co-occurrences based, and self-aggregation based. We stud- ied the ",
+      "text": " ±0.004 0.875 ±0.003 0.368 ±0.006 0.566 ±0.027 0.456 ±0.008 0.808 ±0.005 0.575 ±0.009 WNTM Purity 0.472 ±0.009 0.837 ±0.007 0.324 ±0.005 0.712 ±0.016 0.750 ±0.026 0.856 ±0.012 0.658 ±0.013 NMI 0.369 ±0.004 0.876 ±0.004 0.295 ±0.003 0.464 ±0.011 0.659 ±0.006 0.850 ±0.009 0.585 ±0.006 SATM Purity 0.384 ±0.007 0.654 ±0.008 0.237 ±0.059 0.459 ±0.055 0.505 ±0.019 0.392 ±0.011 0.438 ±0.027 NMI 0.27 ±0.001 0.76 ±0.005 0.186 ±0.049 0.205 ±0.036 0.366 ±0.011 0.507 ±0.006 0.382 ±0.018 PTM Purity 0.425 ±0.012 0.807 ±0.010 0.359 ±0.012 0.674 ±0.057 0.481 ±0.034 0.839 ±0.007 0.597 ±0.022 NMI 0.353 ±0.003 0.866 ±0.005 0.336 ±0.010 0.457 ±0.045 0.442 ±0.016 0.846 ±0.006 0.550 ±0.014 TABLE 7 The average runtime of initiation and per iteration of each model on Biomedicine (in milliseconds). Model Initiation time Per iteration time LDA 77 41.50 GSDMM 46 48.15 LF-DMM 3329 2243.03 GPU-DMM 13610 53.83 GPU-PDMM 13037 9685.44 BTM 320 160.43 WNTM 192 220.12 SATM 41 2015.03 PTM 126 818.32 8 C ONCLUSION AND FUTURE WORK The review of short text topic modeling (STTM) techniques covered three broad categories of methods: DMM based, global word co-occurrences based, and self-aggregation based. We stud- ied the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06835,
+        -0.02092,
+        -0.0074,
+        -0.00615,
+        -0.02642
+      ]
+    },
+    {
+      "chunk_index": 61,
+      "start_char": 62220,
+      "end_char": 63420,
+      "length": 1200,
+      "overlap_with_previous": "of short text topic modeling (STTM) techniques covered three broad categories of methods: DMM based, global word co-occurrences based, and self-aggregation based. We stud- ied the ",
+      "overlap_with_next": "own in the survey, we display topics by listing the most frequent words of each topic (see Figure 6). This new ways of labeling the topics may be more reasonable by either choosing",
+      "text": "of short text topic modeling (STTM) techniques covered three broad categories of methods: DMM based, global word co-occurrences based, and self-aggregation based. We stud- ied the structure and properties preserved by various topic model- ing algorithms and characterized the challenges faced by short text topic modeling techniques in general as well as each category of approaches. We presented various applications of STTM including content characterizing and recommendation, text classiﬁcation, and event tracking. We provided an open-source Java library, named STTM, which is consisted of short text topic modeling approaches surveyed and evaluation tasks including classiﬁcation, clustering, and topic coherence. Finally, we evaluated the surveyed approaches to these evaluation tasks using six publicly available real datasets and compared their strengths and weaknesses. Short text topic modeling is an emerging ﬁeld in machine learning, and there are many promising research directions: (1) Visualization: as shown in the survey, we display topics by listing the most frequent words of each topic (see Figure 6). This new ways of labeling the topics may be more reasonable by either choosing",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06769,
+        -0.01436,
+        -0.01549,
+        0.01885,
+        0.00464
+      ]
+    },
+    {
+      "chunk_index": 62,
+      "start_char": 63240,
+      "end_char": 64440,
+      "length": 1200,
+      "overlap_with_previous": "own in the survey, we display topics by listing the most frequent words of each topic (see Figure 6). This new ways of labeling the topics may be more reasonable by either choosing",
+      "overlap_with_next": ". When dealing with a new corpus or a new task, we cannot decide which topic modeling algorithms should I use. How can I decide which of the many modeling assumptions are suitable ",
+      "text": "own in the survey, we display topics by listing the most frequent words of each topic (see Figure 6). This new ways of labeling the topics may be more reasonable by either choosing different words or displaying the chosen words differ- ently [62], [63]. How to display a document using topic models is also a difﬁcult problem? For each document, topic modeling provides useful information about the structure of the document. Binding with topic labels, this structure can help to identify the most interesting parts of the document. (2) Evaluation: Useful evaluation metrics for topic modeling algorithms have never been solved [10]. Topic coherence cannot distinguish the differences between topics. In addition, existing metrics only evaluate one part of topic modeling algorithms. One open direction for topic modeling is to develop new evaluation metrics that match how the methods are used. (3) Model checking. From the experimental results on this paper, each method has different performance on different datasets. When dealing with a new corpus or a new task, we cannot decide which topic modeling algorithms should I use. How can I decide which of the many modeling assumptions are suitable ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01914,
+        -0.02144,
+        -0.0016,
+        0.02016,
+        -0.0088
+      ]
+    },
+    {
+      "chunk_index": 63,
+      "start_char": 64260,
+      "end_char": 65460,
+      "length": 1200,
+      "overlap_with_previous": ". When dealing with a new corpus or a new task, we cannot decide which topic modeling algorithms should I use. How can I decide which of the many modeling assumptions are suitable ",
+      "overlap_with_next": "cts ﬁlm medical wikipedia wikipedia fashion medical political electric fashion news democracy digital movies news party system motor drug democracy cars movie research system home ",
+      "text": ". When dealing with a new corpus or a new task, we cannot decide which topic modeling algorithms should I use. How can I decide which of the many modeling assumptions are suitable for my goals? New computational answers to these questions would be a signiﬁcant contribution to topic modeling. [Page 14] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 14 TABLE 6 The top ten words of each topic by each model on SearchSnippets dataset. LDA GSDMM LF-DMM Topic1 Topic2 Topic3 Topic4 Topic1 Topic2 Topic3 Topic4 Topic1 Topic2 Topic3 Topic4 (health) (politics) (engine.) (culture) (health) (politics) (engine.) (culture) (health) (politics) (engine.) (culture) health wikipedia car music health political car movie health culture motor ﬁlm information encyclopedia engine movie information culture engine com cancer party engine music cancer wiki electrical com cancer culture com art disease democratic wheels art gov political com news gov democracy electrical ﬁlm healthy war electronics com medical culture products ﬁlm medical wikipedia wikipedia fashion medical political electric fashion news democracy digital movies news party system motor drug democracy cars movie research system home ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03368,
+        -0.0319,
+        -0.00836,
+        0.0377,
+        -0.01452
+      ]
+    },
+    {
+      "chunk_index": 64,
+      "start_char": 65280,
+      "end_char": 66480,
+      "length": 1200,
+      "overlap_with_previous": "cts ﬁlm medical wikipedia wikipedia fashion medical political electric fashion news democracy digital movies news party system motor drug democracy cars movie research system home ",
+      "overlap_with_next": "orts programming information theory news device economic resources games com trade journal football wikipedia stock information league linux trade science amazon news edu theoretic",
+      "text": "cts ﬁlm medical wikipedia wikipedia fashion medical political electric fashion news democracy digital movies news party system motor drug democracy cars movie research system home yahoo healthy war wheels wikipedia treatment congress models books disease party motor art disease republic olympic books physical presidential phone arts healthy republic energy video nutrition information digital arts food communist graduation rock nutrition philosophy calorie arts hiv government trade movies care philosophy fashion band Topic5 Topic6 Topic7 Topic8 Topic5 Topic6 Topic7 Topic8 Topic5 Topic6 Topic7 Topic8 (sport) (computer) (business) (education) (sport) (computer) (business) (education) (sport) (computer) (business) (education) com computer gov edu news computer business research sports computer business research news business business research music software market edu football intel ﬁnancial edu sports web information science com web news science games software bank graduate football software school theory sports programming information theory news device economic resources games com trade journal football wikipedia stock information league linux trade science amazon news edu theoretic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0395,
+        -0.03138,
+        -0.06395,
+        0.04354,
+        -0.01984
+      ]
+    },
+    {
+      "chunk_index": 65,
+      "start_char": 66300,
+      "end_char": 67500,
+      "length": 1200,
+      "overlap_with_previous": "orts programming information theory news device economic resources games com trade journal football wikipedia stock information league linux trade science amazon news edu theoretic",
+      "overlap_with_next": " com cancer wiki information american gov culture intel com medical wikipedia wikipedia ﬁlm medical political home history cancer democracy electrical amazon gov party edu news dis",
+      "text": "orts programming information theory news device economic resources games com trade journal football wikipedia stock information league linux trade science amazon news edu theoretical games memory gov school com digital news university game market research physics movie com com university hockey network market school soccer stock home computer game intel ﬁnance journal game hardware services faculty world internet law information wikipedia internet services physics soccer web law center tennis programming economic university tennis data home computer golf computers stock national GPU-DMM GPU-PDMM BTM Topic1 Topic2 Topic3 Topic4 Topic1 Topic2 Topic3 Topic4 Topic1 Topic2 Topic3 Topic4 (health) (politics) (engine.) (culture) (health) (politics) (engine.) (culture) (health) (politics) (engine.) (culture) health political theory movie health wikipedia com culture health political car movie information culture theoretical music gov encyclopedia news art information wikipedia engine music cancer democracy physics com cancer wiki information american gov culture intel com medical wikipedia wikipedia ﬁlm medical political home history cancer democracy electrical amazon gov party edu news dis",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04834,
+        -0.02907,
+        -0.03356,
+        0.03358,
+        -0.01846
+      ]
+    },
+    {
+      "chunk_index": 66,
+      "start_char": 67320,
+      "end_char": 68520,
+      "length": 1200,
+      "overlap_with_previous": " com cancer wiki information american gov culture intel com medical wikipedia wikipedia ﬁlm medical political home history cancer democracy electrical amazon gov party edu news dis",
+      "overlap_with_next": "are news research football software news science games programming management science football web market science com programming trade school football systems economic theory com ",
+      "text": " com cancer wiki information american gov culture intel com medical wikipedia wikipedia ﬁlm medical political home history cancer democracy electrical amazon gov party edu news disease system online car medical encyclopedia com ﬁlm news system information movies healthy democracy world arts news party digital news healthy information science wikipedia nutrition party web imdb research wiki motor movies disease government research art physical government music museum disease system wheels books nutrition news amazon fashion hiv gov index income healthy government products art hiv gov com amazon diet war amazon literature nutrition war automatic video Topic5 Topic6 Topic7 Topic8 Topic5 Topic6 Topic7 Topic8 Topic5 Topic6 Topic7 Topic8 (sport) (computer) (business) (education) (sport) (computer) (business) (education) (sport) (computer) (business) (education) sports computer business research movie computer business research sports computer business edu news web market edu sports software trade edu news software news research football software news science games programming management science football web market science com programming trade school football systems economic theory com ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01918,
+        -0.04594,
+        -0.01412,
+        0.02317,
+        -0.0197
+      ]
+    },
+    {
+      "chunk_index": 67,
+      "start_char": 68340,
+      "end_char": 69540,
+      "length": 1200,
+      "overlap_with_previous": "are news research football software news science games programming management science football web market science com programming trade school football systems economic theory com ",
+      "overlap_with_next": " movie health wikipedia amazon music information wikipedia engine com information research amazon news information encyclopedia theory movie cancer culture car amazon news trade wi",
+      "text": "are news research football software news science games programming management science football web market science com programming trade school football systems economic theory com programming information theory games com stock journal yahoo memory law school games com trade information soccer wikipedia information university game engine international university game internet stock university game memory com computer video intel gov journal soccer memory services journal wikipedia intel services information soccer design products theoretical match data home school tennis linux ﬁnance department ﬁlm electrical jobs physics world wikipedia gov theoretical world digital home graduate movies security bank department tennis linux ﬁnance physics WNTM SATM PTM Topic1 Topic2 Topic3 Topic4 Topic1 Topic2 Topic3 Topic4 Topic1 Topic2 Topic3 Topic4 (health) (politics) (engine.) (culture) (health) (politics) (engine.) (culture) (health) (politics) (engine.) (culture) health political music movie health wikipedia culture movie health wikipedia amazon music information wikipedia engine com information research amazon news information encyclopedia theory movie cancer culture car amazon news trade wi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05298,
+        -0.02209,
+        -0.03132,
+        0.04164,
+        -0.00703
+      ]
+    },
+    {
+      "chunk_index": 68,
+      "start_char": 69360,
+      "end_char": 70560,
+      "length": 1200,
+      "overlap_with_previous": " movie health wikipedia amazon music information wikipedia engine com information research amazon news information encyclopedia theory movie cancer culture car amazon news trade wi",
+      "overlap_with_next": "cation) sports computer market research sports system business edu news computer business research football web business science games com news science sports edu news science news",
+      "text": " movie health wikipedia amazon music information wikipedia engine com information research amazon news information encyclopedia theory movie cancer culture car amazon news trade wikipedia com cancer wiki com com hiv encyclopedia rock ﬁlm research information democracy ﬁlm medical political theoretical news healthy system com art gov wiki books wikipedia gov democracy physics ﬁlm nutrition democracy motor books medical gov com movies news system books movies disease party reviews fashion party international political reviews disease party car video medical government pop online home journal history online healthy war engine reviews news war band movies disease programming edu digital nutrition government models intel diet world wikipedia video healthy business encyclopedia articles hiv house electrical imdb Topic5 Topic6 Topic7 Topic8 Topic5 Topic6 Topic7 Topic8 Topic5 Topic6 Topic7 Topic8 (sport) (computer) (business) (education) (sport) (computer) (business) (education) (sport) (computer) (business) (education) sports computer market research sports system business edu news computer business research football web business science games com news science sports edu news science news",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02716,
+        -0.04679,
+        -0.0217,
+        0.02649,
+        -0.0151
+      ]
+    },
+    {
+      "chunk_index": 69,
+      "start_char": 70380,
+      "end_char": 71580,
+      "length": 1200,
+      "overlap_with_previous": "cation) sports computer market research sports system business edu news computer business research football web business science games com news science sports edu news science news",
+      "overlap_with_next": "chSnippets (e). StackOverﬂow (f). Tweet Fig. 8. Topic Coherence of all models on six datasets. ACKNOWLEDGEMENT This research is partially supported by the National Natural Science ",
+      "text": "cation) sports computer market research sports system business edu news computer business research football web business science games com news science sports edu news science news programming trade edu com web com research com software information edu games intel stock school news computer market school football web market journal com memory news theory football information yahoo information games school services art soccer internet information information game car stock university game research com resources game systems jobs journal world wikipedia internet program soccer programming trade culture tennis com ﬁnance university soccer memory services fashion culture university stock information match data home theoretical online device ﬁnancial department world information home directory league wikipedia tax physics wikipedia engine information home tennis systems gov library [Page 15] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 15 (a). Biomedicine (b). GoogleNews (c). PascalFlickr (d). SearchSnippets (e). StackOverﬂow (f). Tweet Fig. 8. Topic Coherence of all models on six datasets. ACKNOWLEDGEMENT This research is partially supported by the National Natural Science ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06966,
+        -0.01802,
+        -0.05814,
+        0.00911,
+        0.00522
+      ]
+    },
+    {
+      "chunk_index": 70,
+      "start_char": 71400,
+      "end_char": 72600,
+      "length": 1200,
+      "overlap_with_previous": "chSnippets (e). StackOverﬂow (f). Tweet Fig. 8. Topic Coherence of all models on six datasets. ACKNOWLEDGEMENT This research is partially supported by the National Natural Science ",
+      "overlap_with_next": " [4] X. Wang, C. Zhai, X. Hu, R. Sproat, Mining correlated bursty topic patterns from coordinated text streams, in: Proceedings of the 13th ACM SIGKDD international conference on K",
+      "text": "chSnippets (e). StackOverﬂow (f). Tweet Fig. 8. Topic Coherence of all models on six datasets. ACKNOWLEDGEMENT This research is partially supported by the National Natural Science Foundation of China under grant 61703362, and theNatu- ral Science Foundation of Jiangsu Province of China under grant BK20170513. REFERENCES [1] T. Lin, W. Tian, Q. Mei, C. Hong, The dual-sparse topic model: mining focused topics and focused terms in short text, in: International Conference on World Wide Web, 2014. [2] J. Qiang, P. Chen, W. Ding, T. Wang, F. Xie, X. Wu, Topic discovery from heterogeneous texts, in: Tools with Artiﬁcial Intelligence (ICTAI), 2016 IEEE 28th International Conference on, IEEE, 2016, pp. 196–203. [3] T. Shi, K. Kang, J. Choo, C. K. Reddy, Short-text topic modeling via non-negative matrix factorization enriched with local word-context correlations, in: Proceedings of the 2018 World Wide Web Conference on World Wide Web, International World Wide Web Conferences Steering Committee, 2018, pp. 1105–1114. [4] X. Wang, C. Zhai, X. Hu, R. Sproat, Mining correlated bursty topic patterns from coordinated text streams, in: Proceedings of the 13th ACM SIGKDD international conference on K",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05991,
+        -0.02124,
+        -0.01222,
+        0.01971,
+        -0.00813
+      ]
+    },
+    {
+      "chunk_index": 71,
+      "start_char": 72420,
+      "end_char": 73620,
+      "length": 1200,
+      "overlap_with_previous": " [4] X. Wang, C. Zhai, X. Hu, R. Sproat, Mining correlated bursty topic patterns from coordinated text streams, in: Proceedings of the 13th ACM SIGKDD international conference on K",
+      "overlap_with_next": " ACM SIGIR conference on Research and development in information retrieval, ACM, 1999, pp. 50–57. [9] D. M. Blei, A. Y . Ng, M. I. Jordan, Latent dirichlet allocation, the Journal ",
+      "text": " [4] X. Wang, C. Zhai, X. Hu, R. Sproat, Mining correlated bursty topic patterns from coordinated text streams, in: Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining, 2007, pp. 784–793. [5] B. Sriram, D. Fuhry, E. Demir, H. Ferhatosmanoglu, M. Demirbas, Short text classiﬁcation in twitter to improve information ﬁltering, in: Proceed- ings of the 33rd international ACM SIGIR conference on Research and development in information retrieval, 2010, pp. 841–842. [6] Z. Ma, A. Sun, Q. Yuan, G. Cong, Topic-driven reader comments summarization, in: Proceedings of the 21st ACM international conference on Information and knowledge management, 2012, pp. 265–274. [7] J. Weng, E.-P. Lim, J. Jiang, Q. He, Twitterrank: ﬁnding topic-sensitive inﬂuential twitterers, in: Proceedings of the third ACM international conference on Web search and data mining, 2010, pp. 261–270. [8] T. Hofmann, Probabilistic latent semantic indexing, in: Proceedings of the 22nd annual international ACM SIGIR conference on Research and development in information retrieval, ACM, 1999, pp. 50–57. [9] D. M. Blei, A. Y . Ng, M. I. Jordan, Latent dirichlet allocation, the Journal ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05953,
+        -0.02407,
+        0.00905,
+        0.01924,
+        -0.00999
+      ]
+    },
+    {
+      "chunk_index": 72,
+      "start_char": 73440,
+      "end_char": 74640,
+      "length": 1200,
+      "overlap_with_previous": " ACM SIGIR conference on Research and development in information retrieval, ACM, 1999, pp. 50–57. [9] D. M. Blei, A. Y . Ng, M. I. Jordan, Latent dirichlet allocation, the Journal ",
+      "overlap_with_next": "nal conference on Information and knowledge management, ACM, 2011, pp. 775–784. [16] X.-H. Phan, L.-M. Nguyen, S. Horiguchi, Learning to classify short and sparse text & web with h",
+      "text": " ACM SIGIR conference on Research and development in information retrieval, ACM, 1999, pp. 50–57. [9] D. M. Blei, A. Y . Ng, M. I. Jordan, Latent dirichlet allocation, the Journal of machine Learning research 3 (2003) 993–1022. [10] D. M. Blei, Probabilistic topic models, Communications of the ACM 55 (4) (2012) 77–84. [11] M. D. Hoffman, D. M. Blei, F. Bach, Online learning for latent dirichlet allocation, in: International Conference on Neural Information Process- ing Systems, 2010. [12] P. Xie, E. P. Xing, Integrating document clustering and topic modeling, UAI. [13] P. Xie, D. Yang, E. P. Xing, Incorporating word correlation knowledge into topic modeling, in: NACACL, 2015. [14] X. Cheng, X. Yan, Y . Lan, J. Guo, Btm: Topic modeling over short texts, Knowledge and Data Engineering, IEEE Transactions on 26 (12) (2014) 2928–2941. [15] O. Jin, N. N. Liu, K. Zhao, Y . Yu, Q. Yang, Transferring topical knowl- edge from auxiliary long texts for short text clustering, in: Proceedings of the 20th ACM international conference on Information and knowledge management, ACM, 2011, pp. 775–784. [16] X.-H. Phan, L.-M. Nguyen, S. Horiguchi, Learning to classify short and sparse text & web with h",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0752,
+        -0.03624,
+        -0.01353,
+        0.0293,
+        -0.01461
+      ]
+    },
+    {
+      "chunk_index": 73,
+      "start_char": 74460,
+      "end_char": 75660,
+      "length": 1200,
+      "overlap_with_previous": "nal conference on Information and knowledge management, ACM, 2011, pp. 775–784. [16] X.-H. Phan, L.-M. Nguyen, S. Horiguchi, Learning to classify short and sparse text & web with h",
+      "overlap_with_next": "uan, C. Kit, Y . Ge, S. J. Pan, Short and sparse text topic modeling via self-aggregation, in: Proceedings of the 24th International Conference on Artiﬁcial Intelligence, 2015, pp.",
+      "text": "nal conference on Information and knowledge management, ACM, 2011, pp. 775–784. [16] X.-H. Phan, L.-M. Nguyen, S. Horiguchi, Learning to classify short and sparse text & web with hidden topics from large-scale data collections, in: Proceedings of the 17th international conference on World Wide Web, ACM, 2008, pp. 91–100. [17] R. Mehrotra, S. Sanner, W. Buntine, L. Xie, Improving lda topic models for microblogs via tweet pooling and automatic labeling, in: Proceedings of the 36th international ACM SIGIR conference on Research and development in information retrieval, ACM, 2013, pp. 889–892. [18] J. Yin, J. Wang, A dirichlet multinomial mixture model-based approach for short text clustering, in: Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining, 2014, pp. 233–242. [19] W. X. Zhao, J. Jiang, J. Weng, J. He, E.-P. Lim, H. Yan, X. Li, Com- paring twitter and traditional media using topic models, in: Advances in Information Retrieval, 2011, pp. 338–349. [20] X. Quan, C. Kit, Y . Ge, S. J. Pan, Short and sparse text topic modeling via self-aggregation, in: Proceedings of the 24th International Conference on Artiﬁcial Intelligence, 2015, pp.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07328,
+        -0.04404,
+        0.00682,
+        0.01144,
+        -0.01423
+      ]
+    },
+    {
+      "chunk_index": 74,
+      "start_char": 75480,
+      "end_char": 76680,
+      "length": 1200,
+      "overlap_with_previous": "uan, C. Kit, Y . Ge, S. J. Pan, Short and sparse text topic modeling via self-aggregation, in: Proceedings of the 24th International Conference on Artiﬁcial Intelligence, 2015, pp.",
+      "overlap_with_next": "edge and Data Engineering, IEEE Transactions on 25 (8) (2013) 1748–1759. [25] J. Qiang, Y . Li, Y . Yuan, X. Wu, Short text clustering based on pitman-yor process mixture model, Ap",
+      "text": "uan, C. Kit, Y . Ge, S. J. Pan, Short and sparse text topic modeling via self-aggregation, in: Proceedings of the 24th International Conference on Artiﬁcial Intelligence, 2015, pp. 2270–2276. [21] X. Yan, J. Guo, Y . Lan, J. Xu, X. Cheng, A probabilistic model for bursty topic discovery in microblogs., in: AAAI, 2015, pp. 353–359. [Page 16] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 16 (a). Biomedicine (b). GoogleNews (c). PascalFlickr (d). SearchSnippets (e). StackOverﬂow (f). Tweet Fig. 9. NMI values with different number of iterations on every corpora. [22] K. Nigam, A. K. McCallum, S. Thrun, T. Mitchell, Text classiﬁcation from labeled and unlabeled documents using em, Machine learning 39 (2- 3) (2000) 103–134. [23] G. Yu, R. Huang, Z. Wang, Document clustering via dirichlet process mixture model with feature selection, in: SIGKDD, ACM, 2010, pp. 763–772. [24] R. Huang, G. Yu, Z. Wang, J. Zhang, L. Shi, Dirichlet process mixture model for document clustering with feature partition, Knowledge and Data Engineering, IEEE Transactions on 25 (8) (2013) 1748–1759. [25] J. Qiang, Y . Li, Y . Yuan, X. Wu, Short text clustering based on pitman-yor process mixture model, Ap",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07969,
+        -0.02031,
+        -0.00364,
+        0.03703,
+        -0.00471
+      ]
+    },
+    {
+      "chunk_index": 75,
+      "start_char": 76500,
+      "end_char": 77700,
+      "length": 1200,
+      "overlap_with_previous": "edge and Data Engineering, IEEE Transactions on 25 (8) (2013) 1748–1759. [25] J. Qiang, Y . Li, Y . Yuan, X. Wu, Short text clustering based on pitman-yor process mixture model, Ap",
+      "overlap_with_next": " 39th International ACM SIGIR conference on Research and Development in Information Retrieval, ACM, 2016, pp. 165–174. [30] T. Mikolov, I. Sutskever, K. Chen, G. S. Corrado, J. Dea",
+      "text": "edge and Data Engineering, IEEE Transactions on 25 (8) (2013) 1748–1759. [25] J. Qiang, Y . Li, Y . Yuan, X. Wu, Short text clustering based on pitman-yor process mixture model, Applied Intelligence 48 (7) (2018) 1802–1812. [26] J. Yin, J. Wang, A text clustering algorithm using an online clustering scheme for initialization, in: Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, ACM, 2016, pp. 1995–2004. [27] J. Yin, D. Chao, Z. Liu, W. Zhang, X. Yu, J. Wang, Model-based clustering of short text streams, in: Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, ACM, 2018, pp. 2634–2642. [28] D. Q. Nguyen, R. Billingsley, L. Du, M. Johnson, Improving topic models with latent feature word representations, Transactions of the Association for Computational Linguistics 3 (2015) 299–313. [29] C. Li, H. Wang, Z. Zhang, A. Sun, Z. Ma, Topic modeling for short texts with auxiliary word embeddings, in: Proceedings of the 39th International ACM SIGIR conference on Research and Development in Information Retrieval, ACM, 2016, pp. 165–174. [30] T. Mikolov, I. Sutskever, K. Chen, G. S. Corrado, J. Dea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07267,
+        -0.02679,
+        -0.00075,
+        -0.00082,
+        0.00774
+      ]
+    },
+    {
+      "chunk_index": 76,
+      "start_char": 77520,
+      "end_char": 78720,
+      "length": 1200,
+      "overlap_with_previous": " 39th International ACM SIGIR conference on Research and Development in Information Retrieval, ACM, 2016, pp. 165–174. [30] T. Mikolov, I. Sutskever, K. Chen, G. S. Corrado, J. Dea",
+      "overlap_with_next": "494. [34] W. Wang, H. Zhou, K. He, J. E. Hopcroft, Learning latent topics from the word co-occurrence network, National Conference of Theoretical Computer Science (2017) 18–30. [35",
+      "text": " 39th International ACM SIGIR conference on Research and Development in Information Retrieval, ACM, 2016, pp. 165–174. [30] T. Mikolov, I. Sutskever, K. Chen, G. S. Corrado, J. Dean, Distributed representations of words and phrases and their compositionality, in: Advances in neural information processing systems, 2013, pp. 3111– 3119. [31] C. Li, Y . Duan, H. Wang, Z. Zhang, A. Sun, Z. Ma, Enhancing topic mod- eling for short texts with auxiliary word embeddings, ACM Transactions on Information Systems (TOIS) 36 (2) (2017) 11. [32] Y . Zuo, J. Zhao, K. Xu, Word network topic model: a simple but general solution for short and imbalanced texts, Knowledge and Information Systems 48 (2) (2016) 379–398. [33] W. Chen, J. Wang, Y . Zhang, H. Yan, X. Li, User based aggregation for biterm topic model, in: Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (V olume 2: Short Papers), V ol. 2, 2015, pp. 489–494. [34] W. Wang, H. Zhou, K. He, J. E. Hopcroft, Learning latent topics from the word co-occurrence network, National Conference of Theoretical Computer Science (2017) 18–30. [35",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0185,
+        -0.05306,
+        0.00055,
+        -0.00019,
+        -0.00454
+      ]
+    },
+    {
+      "chunk_index": 77,
+      "start_char": 78540,
+      "end_char": 79740,
+      "length": 1200,
+      "overlap_with_previous": "494. [34] W. Wang, H. Zhou, K. He, J. E. Hopcroft, Learning latent topics from the word co-occurrence network, National Conference of Theoretical Computer Science (2017) 18–30. [35",
+      "overlap_with_next": "olkit. [40] D. C. Liu, J. Nocedal, On the limited memory bfgs method for large scale optimization, Mathematical programming 45 (1-3) (1989) 503–528. [41] H. Mahmoud, P ´olya urn mo",
+      "text": "494. [34] W. Wang, H. Zhou, K. He, J. E. Hopcroft, Learning latent topics from the word co-occurrence network, National Conference of Theoretical Computer Science (2017) 18–30. [35] Y . Zuo, J. Wu, H. Zhang, H. Lin, F. Wang, K. Xu, H. Xiong, Topic modeling of short texts: A pseudo-document view, in: Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, ACM, 2016, pp. 2105–2114. [36] J. Qiang, P. Chen, T. Wang, X. Wu, Topic modeling over short texts by incorporating word embeddings, in: Paciﬁc-Asia Conference on Knowledge Discovery and Data Mining, Springer, 2017, pp. 363–374. [37] P. V . Bicalho, M. Pita, G. Pedrosa, A. Lacerda, G. L. Pappa, A general framework to expand short text for topic modeling, Information Sciences 393 (2017) 66–81. [38] L. Hong, B. D. Davison, Empirical study of topic modeling in twitter, in: Proceedings of the ﬁrst workshop on social media analytics, ACM, 2010, pp. 80–88. [39] A. K. McCallum, Mallet: A machine learning for language toolkit. [40] D. C. Liu, J. Nocedal, On the limited memory bfgs method for large scale optimization, Mathematical programming 45 (1-3) (1989) 503–528. [41] H. Mahmoud, P ´olya urn mo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06272,
+        -0.02752,
+        -0.0162,
+        0.00377,
+        -0.00592
+      ]
+    },
+    {
+      "chunk_index": 78,
+      "start_char": 79560,
+      "end_char": 80760,
+      "length": 1200,
+      "overlap_with_previous": "olkit. [40] D. C. Liu, J. Nocedal, On the limited memory bfgs method for large scale optimization, Mathematical programming 45 (1-3) (1989) 503–528. [41] H. Mahmoud, P ´olya urn mo",
+      "overlap_with_next": "rd ACM conference on Recommender systems, ACM, 2009, pp. 385–388. [47] J. Chen, R. Nairn, L. Nelson, M. Bernstein, E. Chi, Short and tweet: experiments on recommending content from",
+      "text": "olkit. [40] D. C. Liu, J. Nocedal, On the limited memory bfgs method for large scale optimization, Mathematical programming 45 (1-3) (1989) 503–528. [41] H. Mahmoud, P ´olya urn models, Chapman and Hall/CRC, 2008. [42] M. Rosen-Zvi, T. L. Grifﬁths, M. Steyvers, P. Smyth, The author-topic model for authors and documents, uncertainty in artiﬁcial intelligence (2004) 487–494. [Page 17] JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, APRIL 2019 17 [43] D. Ramage, S. Dumais, D. Liebling, Characterizing microblogs with topic models, in: Fourth International AAAI Conference on Weblogs and Social Media, 2010. [44] I. Guy, Social recommender systems, in: Recommender systems hand- book, Springer, 2015, pp. 511–543. [45] X. Qian, H. Feng, G. Zhao, T. Mei, Personalized recommendation com- bining user interest and social circle, IEEE transactions on knowledge and data engineering 26 (7) (2014) 1763–1777. [46] O. Phelan, K. McCarthy, B. Smyth, Using twitter to recommend real- time topical news, in: Proceedings of the third ACM conference on Recommender systems, ACM, 2009, pp. 385–388. [47] J. Chen, R. Nairn, L. Nelson, M. Bernstein, E. Chi, Short and tweet: experiments on recommending content from",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07036,
+        0.01069,
+        -0.01494,
+        0.03342,
+        -0.00784
+      ]
+    },
+    {
+      "chunk_index": 79,
+      "start_char": 80580,
+      "end_char": 81780,
+      "length": 1200,
+      "overlap_with_previous": "rd ACM conference on Recommender systems, ACM, 2009, pp. 385–388. [47] J. Chen, R. Nairn, L. Nelson, M. Bernstein, E. Chi, Short and tweet: experiments on recommending content from",
+      "overlap_with_next": " [52] C. X. Lin, B. Zhao, Q. Mei, J. Han, Pet: a statistical model for popular events tracking in social communities, in: Proceedings of the 16th ACM SIGKDD international conferenc",
+      "text": "rd ACM conference on Recommender systems, ACM, 2009, pp. 385–388. [47] J. Chen, R. Nairn, L. Nelson, M. Bernstein, E. Chi, Short and tweet: experiments on recommending content from information streams, in: Proceedings of the SIGCHI Conference on Human Factors in Computing Systems, ACM, 2010, pp. 1185–1194. [48] M. Chen, X. Jin, D. Shen, Short text classiﬁcation improved by learning multi-granularity topics, in: IJCAI, 2011, pp. 1776–1781. [49] D.-T. V o, C.-Y . Ock, Learning to classify short text from scientiﬁc documents using topic models with various types of knowledge, Expert Systems with Applications 42 (3) (2015) 1684–1698. [50] Z. Dai, A. Sun, X.-Y . Liu, Crest: Cluster-based representation enrichment for short text classiﬁcation, in: Paciﬁc-Asia Conference on Knowledge Discovery and Data Mining, Springer, 2013, pp. 256–267. [51] A. H. Razavi, D. Inkpen, Text representation using multi-level latent dirichlet allocation, in: Canadian Conference on Artiﬁcial Intelligence, Springer, 2014, pp. 215–226. [52] C. X. Lin, B. Zhao, Q. Mei, J. Han, Pet: a statistical model for popular events tracking in social communities, in: Proceedings of the 16th ACM SIGKDD international conferenc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07337,
+        -0.04079,
+        -0.00373,
+        0.01977,
+        -0.02758
+      ]
+    },
+    {
+      "chunk_index": 80,
+      "start_char": 81600,
+      "end_char": 82800,
+      "length": 1200,
+      "overlap_with_previous": " [52] C. X. Lin, B. Zhao, Q. Mei, J. Han, Pet: a statistical model for popular events tracking in social communities, in: Proceedings of the 16th ACM SIGKDD international conferenc",
+      "overlap_with_next": "] C. Rashtchian, P. Young, M. Hodosh, J. Hockenmaier, Collecting im- age annotations using amazon’s mechanical turk, in: Proceedings of the NAACL HLT 2010 Workshop on Creating Spee",
+      "text": " [52] C. X. Lin, B. Zhao, Q. Mei, J. Han, Pet: a statistical model for popular events tracking in social communities, in: Proceedings of the 16th ACM SIGKDD international conference on Knowledge discovery and data mining, ACM, 2010, pp. 929–938. [53] C. C. Aggarwal, K. Subbian, Event detection in social streams, in: Proceedings of the 2012 SIAM international conference on data mining, SIAM, 2012, pp. 624–635. [54] A. Ritter, O. Etzioni, S. Clark, et al., Open domain event extraction from twitter, in: Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining, ACM, 2012, pp. 1104–1112. [55] J. H. Lau, N. Collier, T. Baldwin, On-line trend analysis with topic models:\\# twitter trends detection topic model online, Proceedings of COLING 2012 (2012) 1519–1534. [56] J. Pennington, R. Socher, C. Manning, Glove: Global vectors for word representation, in: Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP), 2014, pp. 1532–1543. [57] C. Rashtchian, P. Young, M. Hodosh, J. Hockenmaier, Collecting im- age annotations using amazon’s mechanical turk, in: Proceedings of the NAACL HLT 2010 Workshop on Creating Spee",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06479,
+        -0.07206,
+        -0.01648,
+        0.03754,
+        -0.01127
+      ]
+    },
+    {
+      "chunk_index": 81,
+      "start_char": 82620,
+      "end_char": 83820,
+      "length": 1200,
+      "overlap_with_previous": "] C. Rashtchian, P. Young, M. Hodosh, J. Hockenmaier, Collecting im- age annotations using amazon’s mechanical turk, in: Proceedings of the NAACL HLT 2010 Workshop on Creating Spee",
+      "overlap_with_next": "e Processing, Association for Computational Linguistics, 2011, pp. 262–272. [61] J. Chang, S. Gerrish, C. Wang, J. L. Boyd-Graber, D. M. Blei, Reading tea leaves: How humans interp",
+      "text": "] C. Rashtchian, P. Young, M. Hodosh, J. Hockenmaier, Collecting im- age annotations using amazon’s mechanical turk, in: Proceedings of the NAACL HLT 2010 Workshop on Creating Speech and Language Data with Amazon’s Mechanical Turk, Association for Computational Linguistics, 2010, pp. 139–147. [58] C. Finegan-Dollak, R. Coke, R. Zhang, X. Ye, D. Radev, Effects of creativity and cluster tightness on short text clustering performance, in: Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (V olume 1: Long Papers), V ol. 1, 2016, pp. 654–665. [59] D. Newman, J. H. Lau, K. Grieser, T. Baldwin, Automatic evaluation of topic coherence, in: Human Language Technologies: The 2010 Annual Conference of the North American Chapter of the Association for Computational Linguistics, 2010, pp. 100–108. [60] D. Mimno, H. M. Wallach, E. Talley, M. Leenders, A. McCallum, Optimizing semantic coherence in topic models, in: Proceedings of the Conference on Empirical Methods in Natural Language Processing, Association for Computational Linguistics, 2011, pp. 262–272. [61] J. Chang, S. Gerrish, C. Wang, J. L. Boyd-Graber, D. M. Blei, Reading tea leaves: How humans interp",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03831,
+        -0.03208,
+        -0.01015,
+        0.02434,
+        -0.01272
+      ]
+    },
+    {
+      "chunk_index": 82,
+      "start_char": 83640,
+      "end_char": 84332,
+      "length": 692,
+      "overlap_with_previous": "e Processing, Association for Computational Linguistics, 2011, pp. 262–272. [61] J. Chang, S. Gerrish, C. Wang, J. L. Boyd-Graber, D. M. Blei, Reading tea leaves: How humans interp",
+      "overlap_with_next": "",
+      "text": "e Processing, Association for Computational Linguistics, 2011, pp. 262–272. [61] J. Chang, S. Gerrish, C. Wang, J. L. Boyd-Graber, D. M. Blei, Reading tea leaves: How humans interpret topic models, in: Advances in neural information processing systems, 2009, pp. 288–296. [62] J. Chuang, C. D. Manning, J. Heer, Termite: Visualization techniques for assessing textual topic models, in: Proceedings of the international working conference on advanced visual interfaces, ACM, 2012, pp. 74– 77. [63] C. Sievert, K. Shirley, Ldavis: A method for visualizing and interpreting topics, in: Proceedings of the workshop on interactive language learning, visualization, and interfaces, 2014, pp. 63–70.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02349,
+        -0.01918,
+        0.00767,
+        0.02369,
+        -0.00892
+      ]
+    }
+  ]
+}

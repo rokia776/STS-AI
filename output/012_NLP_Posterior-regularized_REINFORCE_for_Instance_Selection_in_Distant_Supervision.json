@@ -1,0 +1,283 @@
+{
+  "paper_id": "e68d009c-441f-40e2-a369-bef10fd6464f",
+  "filename": "012_NLP_Posterior-regularized_REINFORCE_for_Instance_Selection_in_Distant_Supervision.pdf",
+  "title": "Posterior-regularized REINFORCE for Instance Selection in Distant Supervision",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 16,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "he relation classiﬁer trained on cleaned distant supervision dataset as well as the efﬁciency of the REINFORCE training. 1 Introduction Relation extraction is a fundamental work in",
+      "text": "[Page 1] Posterior-regularized REINFORCE for Instance Selection in Distant Supervision Qi Zhang1, Siliang Tang1∗, Xiang Ren3,Fei Wu1, Shiliang Pu2 & Yueting Zhuang1 1Zhejiang University, 2Hikvision, 3University of Southern California, {zhangqihit,siliang,wufei,yzhuang}@zju.edu.cn, pushiliang@hikvision.com, xiangren@usc.edu Abstract This paper provides a new way to improve the efﬁciency of the REINFORCE training pro- cess. We apply it to the task of instance selec- tion in distant supervision. Modeling the in- stance selection in one bag as a sequential de- cision process, a reinforcement learning agent is trained to determine whether an instance is valuable or not and construct a new bag with less noisy instances. However unbiased methods, such as REINFORCE, could usually take much time to train. This paper adopts posterior regularization (PR) to integrate some domain-speciﬁc rules in instance selection us- ing REINFORCE. As the experiment results show, this method remarkably improves the performance of the relation classiﬁer trained on cleaned distant supervision dataset as well as the efﬁciency of the REINFORCE training. 1 Introduction Relation extraction is a fundamental work in",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04602,
+        -0.00096,
+        -0.02739,
+        0.02063,
+        -0.01073
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "he relation classiﬁer trained on cleaned distant supervision dataset as well as the efﬁciency of the REINFORCE training. 1 Introduction Relation extraction is a fundamental work in",
+      "overlap_with_next": "k = ( ek1,ek2) and contains a sequence of in- stances{xk1,xk2,...,x k|Bk|} . However, distant su- pervision may suffer a wrong label problem. In other words, the instances in one b",
+      "text": "he relation classiﬁer trained on cleaned distant supervision dataset as well as the efﬁciency of the REINFORCE training. 1 Introduction Relation extraction is a fundamental work in natu- ral language processing. Detecting and classifying the relation between entity pairs from the unstruc- tured document, it can support many other tasks such as question answering. While relation extraction requires lots of la- beled data and make methods labor intensive, (Mintz et al., 2009) proposes distant supervision (DS), a widely used automatic annotating way. In distant supervision, knowledge base (KB) , such as Freebase, is aligned with nature documents. In this way, the sentences which contain an en- tity pair in KB all express the exact relation that the entity pair has in KB. We usually call the set of instances that contain the same entity pair a bag. In this way, the training instances can be di- vided into N bags B ={B1,B 2,...,B N}. Each bagBk are corresponding to an unique entity pair ∗Corresponding author Ek = ( ek1,ek2) and contains a sequence of in- stances{xk1,xk2,...,x k|Bk|} . However, distant su- pervision may suffer a wrong label problem. In other words, the instances in one b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05048,
+        -0.00368,
+        -0.04061,
+        0.05199,
+        -0.00253
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "k = ( ek1,ek2) and contains a sequence of in- stances{xk1,xk2,...,x k|Bk|} . However, distant su- pervision may suffer a wrong label problem. In other words, the instances in one b",
+      "overlap_with_next": "ong labeled instances. With the newly constructed dataset B ={B1,B2,..., BN} with less wrong labeling instances, we can train bag level relation predicting models with better perfo",
+      "text": "k = ( ek1,ek2) and contains a sequence of in- stances{xk1,xk2,...,x k|Bk|} . However, distant su- pervision may suffer a wrong label problem. In other words, the instances in one bag may not ac- tually have the relation. To resolve the wrong label problem, just like Fig.2 shows, (Feng et al., 2018) model the instance selection task in one bag Bk as a sequential deci- sion process and train an agentπ(a|s,θπ) denoting the probabilityPπ(At =a,|St =s,θt =θπ) that actiona is taken at timet given that the agent is in states with parameter vectorθπ by REINFORCE algorithm (Sutton et al., 1998). The action a can only be 0 or 1 indicating whether an instance xki is truly expressing the relation and whether it should be selected and added to the new bag Bk. The state s is determined by the entity pair cor- responding to the bag, the candidate instance to be selected and the instances that have already been selected. Accomplishing this task, the agent gets a new bag Bk at the terminal of the trajec- tory with less wrong labeled instances. With the newly constructed dataset B ={B1,B2,..., BN} with less wrong labeling instances, we can train bag level relation predicting models with better perfo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03683,
+        -0.0243,
+        -0.02878,
+        0.02124,
+        -0.02155
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ong labeled instances. With the newly constructed dataset B ={B1,B2,..., BN} with less wrong labeling instances, we can train bag level relation predicting models with better perfo",
+      "overlap_with_next": "arization method (Ganchev, 2010) to regular- ize the posterior distribution ofπ(a|s,θπ) onxMI . In this way, we can construct a rule-based agent πr. πr tends to regard the instance",
+      "text": "ong labeled instances. With the newly constructed dataset B ={B1,B2,..., BN} with less wrong labeling instances, we can train bag level relation predicting models with better performance. Meanwhile, the relation predicting model gives reward to the instance selection agent. Therefore, the agent and the relation classiﬁer can be trained jointly. However, REINFORCE is a Monte Carlo algo- rithm and need stochastic gradient method to op- timize. It is unbiased and has good convergence properties but also may be of high variance and slow to train (Sutton et al., 1998). Therefore, we train a REINFORCE based agent by integrating some other domain-speciﬁc rules to accelerate the training process and guide the agent to explore more effectively and learn a bet- ter policy. Here we use a rule pattern as the Fig.1 shows (Liu et al., 2017). The instances that return arXiv:1904.08051v1 [cs.CL] 17 Apr 2019 [Page 2] true (match the pattern and label in any one of the rules) are denoted as xMI and we adopt posterior regularization method (Ganchev, 2010) to regular- ize the posterior distribution ofπ(a|s,θπ) onxMI . In this way, we can construct a rule-based agent πr. πr tends to regard the instance",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04021,
+        0.0025,
+        -0.01667,
+        0.02913,
+        0.00959
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "arization method (Ganchev, 2010) to regular- ize the posterior distribution ofπ(a|s,θπ) onxMI . In this way, we can construct a rule-based agent πr. πr tends to regard the instance",
+      "overlap_with_next": " been done in han- dling noisy data in distant supervision. An expressed-at-least-once assumption is employed in (Mintz et al., 2009): if two entities partici- pated in a relation,",
+      "text": "arization method (Ganchev, 2010) to regular- ize the posterior distribution ofπ(a|s,θπ) onxMI . In this way, we can construct a rule-based agent πr. πr tends to regard the instances in xMI valu- able and select them without wasting time in trial- and-error exploring. The number of such rules is 134 altogether and can match nearly four percents of instances in the training data. Our contributions include: • We propose PR REINFORCE by integrating domain-speciﬁc rules to improve the perfor- mance of the original REINFORCE. • We apply the PR REINFORCE to the in- stance selection task for DS dataset to alle- viate the wrong label problem in DS. 2 RELATED WORK Among the previous studies in relation extraction, most of them are supervised methods that need a large amount of annotated data (Bach et al., 2007). Distant supervision is proposed to allevi- ate this problem by aligning plain text with Free- base. However, distant supervision inevitably suf- fers from the wrong label problem. Some previous research has been done in han- dling noisy data in distant supervision. An expressed-at-least-once assumption is employed in (Mintz et al., 2009): if two entities partici- pated in a relation,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09115,
+        0.00346,
+        -0.01742,
+        0.02915,
+        -0.01273
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": " been done in han- dling noisy data in distant supervision. An expressed-at-least-once assumption is employed in (Mintz et al., 2009): if two entities partici- pated in a relation,",
+      "overlap_with_next": "n instance selection for distant supervision which is the basis of our work. Posterior regularization (Ganchev, 2010) is a framework to handle the problem that a variety of tasks a",
+      "text": " been done in han- dling noisy data in distant supervision. An expressed-at-least-once assumption is employed in (Mintz et al., 2009): if two entities partici- pated in a relation, at least one instance in the bag might express that relation. Many follow-up stud- ies adopt this assumption and choose a most credi- ble instance to represent the bag. (Lin et al., 2016; Ji et al., 2017) employs the attention mechanism to put different attention weight on each sentence in one bag and assume each sentence is related to the relation but have a different correlation. Another key issue for relation extraction is how to model the instance and extract features, (Zeng et al., 2014, 2015; Zhou et al., 2016) adopts deep Figure 1: Rule Pattern Examples Figure 2: Overall Framework neural network including CNN and RNN, these methods perform better than conventional feature- based methods. Reinforcement learning has been widely used in data selection and natural language process- ing. (Feng et al., 2018) adopts REINFORCE in instance selection for distant supervision which is the basis of our work. Posterior regularization (Ganchev, 2010) is a framework to handle the problem that a variety of tasks a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03215,
+        0.02651,
+        -0.01556,
+        0.03883,
+        -0.02156
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "n instance selection for distant supervision which is the basis of our work. Posterior regularization (Ganchev, 2010) is a framework to handle the problem that a variety of tasks a",
+      "overlap_with_next": "tion, the conditional probability can be written as follows: [Page 3] Pfb(r|Bk,θb) = exp(or)∑nr k=1exp(ok) (1) wherer is relation type,nr is the number of re- lation types,θb is th",
+      "text": "n instance selection for distant supervision which is the basis of our work. Posterior regularization (Ganchev, 2010) is a framework to handle the problem that a variety of tasks and domains require the creation of large problem-speciﬁc annotated data. This framework incorporates external problem-speciﬁc informa- tion and put a constraint on the posterior of the model. In this paper, we propose a rule-based RE- INFORCE based on this framework. 3 Methodology In this section, we focus on the model details. Be- sides the interacting process of the relation clas- siﬁer and the instance selector, we will introduce how to model the state, action, reward of the agent and how we add rules for the agent in training pro- cess. 3.1 basic relation classiﬁer We need a pretrained basic relation classiﬁer to de- ﬁne the reward and state. In this paper, we adopt the BGRU with attention bag level relation clas- siﬁerfb (Zhou et al., 2016). With o denoting the output offb corresponding to the scores associated to each relation, the conditional probability can be written as follows: [Page 3] Pfb(r|Bk,θb) = exp(or)∑nr k=1exp(ok) (1) wherer is relation type,nr is the number of re- lation types,θb is th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03983,
+        -0.02775,
+        -0.01518,
+        0.01365,
+        0.00686
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "tion, the conditional probability can be written as follows: [Page 3] Pfb(r|Bk,θb) = exp(or)∑nr k=1exp(ok) (1) wherer is relation type,nr is the number of re- lation types,θb is th",
+      "overlap_with_next": "he trajectory. We use the pretrainedfb to address this key problem. The reward deﬁned by the basic relation classiﬁer is as follows: R = logPfb(rk|Bk,θb) (2) In which rk denotes th",
+      "text": "tion, the conditional probability can be written as follows: [Page 3] Pfb(r|Bk,θb) = exp(or)∑nr k=1exp(ok) (1) wherer is relation type,nr is the number of re- lation types,θb is the parameter vector of the basic relation classiﬁerfb andBk denotes the input bag of the classiﬁer. In the basic classiﬁer, the sentence rep- resentation is calculated by the sentence encoder network BGRU, the BGRU takes the instance xki as input and output the sen- tence representation BGRU( xki ). And then the sentence level(ATT) attention will take {BGRU (xk1),BGRU (xk2),...,BGRU (xk|Bk|)} as input and output o which is the ﬁnal output of fb corresponding to the scores associated to each relation. 3.2 Original REINFORCE Original REINFORCE agent training process is quite similar to (Feng et al., 2018). The instance selection process for one bag is completed in one trajectory. Agent π(a|s,θπ) is trained as an in- stance selector. The key of the model is how to represent the state in every step and the reward at the terminal of the trajectory. We use the pretrainedfb to address this key problem. The reward deﬁned by the basic relation classiﬁer is as follows: R = logPfb(rk|Bk,θb) (2) In which rk denotes th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04628,
+        -0.03427,
+        -0.00752,
+        -0.01464,
+        0.01015
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "he trajectory. We use the pretrainedfb to address this key problem. The reward deﬁned by the basic relation classiﬁer is as follows: R = logPfb(rk|Bk,θb) (2) In which rk denotes th",
+      "overlap_with_next": "ftmax (WSt +b) (3) With the model above, the parameter vector can be updated according to REINFORCE algorithm (Sutton et al., 1998). 3.3 Posterior Regularized REINFORCE REINFORCE u",
+      "text": "he trajectory. We use the pretrainedfb to address this key problem. The reward deﬁned by the basic relation classiﬁer is as follows: R = logPfb(rk|Bk,θb) (2) In which rk denotes the corresponding relation ofBk. The state s mainly contained three parts: the representation of the candidate instance, the rep- resentation of the relation and the representation of the instances that have been selected. The representation of the candidate instance are also deﬁned by the basic relation classiﬁer fb. At time step t, we use BGRU(xkt ) to represent the can- didate instancexkt and the same for the selected in- stances. As for the embedding of relation, we use the entity embedding method introduced in TransE model (Bordes et al., 2013) which is trained on the Freebase triples that have been mentioned in the training and testing dataset, and the relation em- beddingrek will be computed by the difference of the entity embedding element-wise. The policy π with parameter θπ = {W,b} is deﬁned as follows: Pπ(At|St,θπ) = softmax (WSt +b) (3) With the model above, the parameter vector can be updated according to REINFORCE algorithm (Sutton et al., 1998). 3.3 Posterior Regularized REINFORCE REINFORCE u",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02736,
+        -0.03041,
+        -0.00527,
+        0.01437,
+        0.00151
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ftmax (WSt +b) (3) With the model above, the parameter vector can be updated according to REINFORCE algorithm (Sutton et al., 1998). 3.3 Posterior Regularized REINFORCE REINFORCE u",
+      "overlap_with_next": "should select the xMI . This expectation can be written as follows: EPπ [l(At = 1)] = 1 (4) where l here is the indicator function. In order to transfer the rules into a new policy",
+      "text": "ftmax (WSt +b) (3) With the model above, the parameter vector can be updated according to REINFORCE algorithm (Sutton et al., 1998). 3.3 Posterior Regularized REINFORCE REINFORCE uses the complete return, which in- cludes all future rewards up until the end of the tra- jectory. In this sense, all updates are made after the trajectory is completed (Sutton et al., 1998). These stochastic properties could make the training slow. Fortunately, we have some domain-speciﬁc rules that could help to train the agent and adopt pos- terior regularization framework to integrate these rules. The goal of this framework is to restrict the posterior of π. It can guide the agent towards de- sired behavior instead of wasting too much time in meaninglessly exploring. Since we assume that the domain-speciﬁc rules have high credibility, we designed a rule-based policy agent πr to emphasize their inﬂuences on π. The posterior constrains for π is that the pol- icy posterior for xMI is expected to be 1 which indicates that agent should select the xMI . This expectation can be written as follows: EPπ [l(At = 1)] = 1 (4) where l here is the indicator function. In order to transfer the rules into a new policy",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05299,
+        -0.02097,
+        -0.01572,
+        0.02783,
+        -0.00681
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "should select the xMI . This expectation can be written as follows: EPπ [l(At = 1)] = 1 (4) where l here is the indicator function. In order to transfer the rules into a new policy",
+      "overlap_with_next": "M do forBk in B do Bk ={xk1,xk2,...,x k|Bk|},Bk ={}; for step i in|Bk| do constructsi byBk,xki,rek; ifxki∈xMI then constructπr; sample actionAi follow πr(a|si,θ′π); else sample act",
+      "text": "should select the xMI . This expectation can be written as follows: EPπ [l(At = 1)] = 1 (4) where l here is the indicator function. In order to transfer the rules into a new policy πr, the KL di- vergence between the posterior ofπ andπr should be minimized, this can be formally deﬁned as minKL(Pπ(At|St,θπ)||Pπr (At|St,θπ)) (5) Optimizing the constrained convex problem de- ﬁned by Eq.(4) and Eq.(5), we get a new policy πr: Pπr (At|St,θπ) = Pπ(At|St,θπ)exp(l(At = 1)− 1)Z (6) where Z is a normalization term. Z = 1∑ At=0 Pπr (At|X,θπ)exp(l(At = 1)− 1) Algorithm 1 formally deﬁne the overall frame- work of the rule-based data selection process. 4 Experiment Our experiment is designed to demonstrate that our proposed methodologies can train an instance selector more efﬁciently. [Page 4] Data: Original DS Dataset: B ={B1,B 2,...,B N}, Max Episode:M, Basic Relation Classiﬁer:fb, Step Size:α Result: An Instance Selector initialization policy weightθ′π =θπ; initialization classiﬁer weightθ′b =θb; for episode m=1 to M do forBk in B do Bk ={xk1,xk2,...,x k|Bk|},Bk ={}; for step i in|Bk| do constructsi byBk,xki,rek; ifxki∈xMI then constructπr; sample actionAi follow πr(a|si,θ′π); else sample act",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03851,
+        -0.04298,
+        -0.02406,
+        0.02207,
+        -0.02391
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "M do forBk in B do Bk ={xk1,xk2,...,x k|Bk|},Bk ={}; for step i in|Bk| do constructsi byBk,xki,rek; ifxki∈xMI then constructπr; sample actionAi follow πr(a|si,θ′π); else sample act",
+      "overlap_with_next": "s the baseline. Figure 3: Precision/Recall Curves 4.1 Dataset A widely used DS dataset, which is developed by (Riedel et al., 2010), is used as the original dataset to be selected.",
+      "text": "M do forBk in B do Bk ={xk1,xk2,...,x k|Bk|},Bk ={}; for step i in|Bk| do constructsi byBk,xki,rek; ifxki∈xMI then constructπr; sample actionAi follow πr(a|si,θ′π); else sample actionAi follow π(a|si,θ′π); end ifAi=1 then Addxki inBk; end end Get terminal reward: R = logPfb(rk|Bk,θ′b); Get step delayed reward:Ri=R; Update agent: θπ←θπ +α ∑|Bk|i=1 Ri∇θπ logπ end θ′π =τθπ + (1−τ )θ′π; Update the classiﬁerfb; end Algorithm 1: PR REINFORCE We tuned our model using three-fold cross val- idation on the training set. For the parameters of the instance selector, we set the dimension of en- tity embedding as 50, the learning rate as 0.01. The delay coefﬁcient τ is 0.005. For the parame- ters of the relation classiﬁer, we follow the settings that are described in (Zhou et al., 2016). The comparison is done in rule-based rein- forcement learning method, original reinforce- ment learning and method with no reinforce- ment learning which is the basic relation classiﬁer trained on original DS dataset. We use the last as the baseline. Figure 3: Precision/Recall Curves 4.1 Dataset A widely used DS dataset, which is developed by (Riedel et al., 2010), is used as the original dataset to be selected.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05089,
+        -0.01901,
+        -0.02764,
+        -0.00277,
+        -0.02495
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "s the baseline. Figure 3: Precision/Recall Curves 4.1 Dataset A widely used DS dataset, which is developed by (Riedel et al., 2010), is used as the original dataset to be selected.",
+      "overlap_with_next": "ion. The experiment re- sults show that PR REINFORCE outperforms the original REINFORCE. Moreover, PR REIN- FORCE greatly improves the efﬁciency of the RE- INFORCE training. Acknow",
+      "text": "s the baseline. Figure 3: Precision/Recall Curves 4.1 Dataset A widely used DS dataset, which is developed by (Riedel et al., 2010), is used as the original dataset to be selected. The dataset is generated by aligning Freebase with New York Times corpus. 4.2 Metric and Performance Comparison We compare the data selection model performance by the ﬁnal performance of the basic model trained on newly constructed dataset selected by different models. We use the precision/recall curves as the main metric. Fig.3 presents this comparison. PR REINFORCE constructs cleaned DS dataset with less noisy data compared with the original RE- INFORCE so that the BGRU+2ATT classiﬁer can reach better performance. 5 Conclusions In this paper, we develop a posterior regular- ized REINFORCE methodology to alleviate the wrong label problem in distant supervision. Our model makes full use of the hand-crafted domain- speciﬁc rules in the trial and error search dur- ing the training process of REINFORCE method for DS dataset selection. The experiment re- sults show that PR REINFORCE outperforms the original REINFORCE. Moreover, PR REIN- FORCE greatly improves the efﬁciency of the RE- INFORCE training. Acknow",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07253,
+        0.00787,
+        -0.05058,
+        0.04355,
+        -0.00482
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ion. The experiment re- sults show that PR REINFORCE outperforms the original REINFORCE. Moreover, PR REIN- FORCE greatly improves the efﬁciency of the RE- INFORCE training. Acknow",
+      "overlap_with_next": "ide information and weak supervi- sion. Ph.D. thesis, University of Pennsylvania. Ji et al. 2017. Distant supervision for relation extrac- tion with sentence-level attention and en",
+      "text": "ion. The experiment re- sults show that PR REINFORCE outperforms the original REINFORCE. Moreover, PR REIN- FORCE greatly improves the efﬁciency of the RE- INFORCE training. Acknowledgments This work has been supported in part by NSFC (No.61751209, U1611461), 973 program (No. 2015CB352302), Hikvision-Zhejiang University [Page 5] Joint Research Center, Chinese Knowledge Cen- ter of Engineering Science and Technology (CK- CEST), Engineering Research Center of Digital Library, Ministry of Education. Xiang Ren’s re- search has been supported in part by National Sci- ence Foundation SMA 18-29268. References Bach et al. 2007. A review of relation extraction. Lit- erature review for Language and Statistics II , 2. Bordes et al. 2013. Translating embeddings for mod- eling multi-relational data. In Advances in neural information processing systems, pages 2787–2795. Feng et al. 2018. Reinforcement learning for relation classiﬁcation from noisy data. Kuzman Ganchev. 2010. Posterior regularization for learning with side information and weak supervi- sion. Ph.D. thesis, University of Pennsylvania. Ji et al. 2017. Distant supervision for relation extrac- tion with sentence-level attention and en",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06586,
+        0.02675,
+        -0.03349,
+        0.00056,
+        -0.00711
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ide information and weak supervi- sion. Ph.D. thesis, University of Pennsylvania. Ji et al. 2017. Distant supervision for relation extrac- tion with sentence-level attention and en",
+      "overlap_with_next": "chine Learning and Knowledge Dis- covery in Databases, pages 148–163. Springer. Sutton et al. 1998. Reinforcement learning: An intro- duction, volume 1. MIT press Cambridge. Zeng e",
+      "text": "ide information and weak supervi- sion. Ph.D. thesis, University of Pennsylvania. Ji et al. 2017. Distant supervision for relation extrac- tion with sentence-level attention and entity descrip- tions. In AAAI, pages 3060–3066. Lin et al. 2016. Neural relation extraction with selec- tive attention over instances. In Proceedings of the 54th Annual Meeting of the Association for Compu- tational Linguistics (V olume 1: Long Papers) , vol- ume 1, pages 2124–2133. Liu et al. 2017. Heterogeneous supervision for relation extraction: A representation learning approach. Mintz et al. 2009. Distant supervision for relation ex- traction without labeled data. In Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL and the 4th International Joint Conference on Natural Language Processing of the AFNLP: V ol- ume 2-V olume 2, pages 1003–1011. Association for Computational Linguistics. Riedel et al. 2010. Modeling relations and their men- tions without labeled text. In Joint European Con- ference on Machine Learning and Knowledge Dis- covery in Databases, pages 148–163. Springer. Sutton et al. 1998. Reinforcement learning: An intro- duction, volume 1. MIT press Cambridge. Zeng e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07038,
+        -0.00091,
+        -0.0003,
+        0.01974,
+        -0.0246
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16161,
+      "length": 861,
+      "overlap_with_previous": "chine Learning and Knowledge Dis- covery in Databases, pages 148–163. Springer. Sutton et al. 1998. Reinforcement learning: An intro- duction, volume 1. MIT press Cambridge. Zeng e",
+      "overlap_with_next": "",
+      "text": "chine Learning and Knowledge Dis- covery in Databases, pages 148–163. Springer. Sutton et al. 1998. Reinforcement learning: An intro- duction, volume 1. MIT press Cambridge. Zeng et al. 2014. Relation classiﬁcation via convolu- tional deep neural network. In Proceedings of COL- ING 2014, the 25th International Conference on Computational Linguistics: Technical Papers, pages 2335–2344. Zeng et al. 2015. Distant supervision for relation extraction via piecewise convolutional neural net- works. In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Process- ing, pages 1753–1762. Zhou et al. 2016. Attention-based bidirectional long short-term memory networks for relation classiﬁca- tion. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (V ol- ume 2: Short Papers), volume 2, pages 207–212.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04811,
+        -0.01351,
+        0.00642,
+        0.01156,
+        -0.00611
+      ]
+    }
+  ]
+}

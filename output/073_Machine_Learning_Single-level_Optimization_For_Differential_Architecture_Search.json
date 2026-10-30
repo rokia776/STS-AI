@@ -1,0 +1,776 @@
+{
+  "paper_id": "736947f7-b5e1-48cb-b5e2-740c2c2ab5fd",
+  "filename": "073_Machine_Learning_Single-level_Optimization_For_Differential_Architecture_Search.pdf",
+  "title": "073_Machine_Learning_Single-level_Optimization_For_Differential_Architecture_Search.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 45,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "nchmark 201 validate our hypothesis and stably ﬁnd out nearly the op- timal architecture. On DARTS space, we search the state- of-the-art architecture with 77.0% top1 accuracy (tra",
+      "text": "[Page 1] Single-level Optimization For Differential Architecture Search Pengfei Hou houpengfei2020@126.com Ying Jin jiny18@mails.tsinghua.edu.cn Abstract In this paper, we point out that differential architecture search (DARTS) makes gradient of architecture parame- ters biased for network weights and architecture param- eters are updated in different datasets alternatively in the bi-level optimization framework. The bias causes the archi- tecture parameters of non-learnable operations to surpass that of learnable operations. Moreover, using softmax as architecture parameters’ activation function and inappro- priate learning rate would exacerbate the bias. As a result, it’s frequently observed that non-learnable operations are dominated in the search phase. To reduce the bias, we pro- pose to use single-level to replace bi-level optimization and non-competitive activation function like sigmoid to replace softmax. As a result, we could search high-performance ar- chitectures steadily. Experiments on NAS Benchmark 201 validate our hypothesis and stably ﬁnd out nearly the op- timal architecture. On DARTS space, we search the state- of-the-art architecture with 77.0% top1 accuracy (tra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02441,
+        -0.01827,
+        -0.03433,
+        -0.00073,
+        -0.00745
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "nchmark 201 validate our hypothesis and stably ﬁnd out nearly the op- timal architecture. On DARTS space, we search the state- of-the-art architecture with 77.0% top1 accuracy (tra",
+      "overlap_with_next": "arch the optimal architecture. To avoid training each architecture from scratch, weight-sharing methods [28] are proposed to construct a super network where all architectures share",
+      "text": "nchmark 201 validate our hypothesis and stably ﬁnd out nearly the op- timal architecture. On DARTS space, we search the state- of-the-art architecture with 77.0% top1 accuracy (training setting follows PDARTS and without any additional mod- ule) on ImageNet-1K and steadily search architectures up- to 76.5% top1 accuracy (but not select the best from the searched architectures) which is comparable with current reported best result. 1. Introduction Neural architecture search (NAS) has helped to ﬁnd more optimal architecture than manual design. Generally NAS is formulated as a bi-level optimization problem[2] as: α∗ = arg min α∈A Lval(α,w∗α) s.t.w∗α = arg minwα Ltrain(α,w ) (1) where α denote architecture and A denote architecture search space, wα denote the network weights bound with the architectureα,Ltrain andLval denote optimization loss on training and validation dataset. Due to inner optimiza- tion onLtrain that any architecture has to be trained fully, therefore it costs huge computation sources to search the optimal architecture. To avoid training each architecture from scratch, weight-sharing methods [28] are proposed to construct a super network where all architectures share",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0417,
+        -0.00123,
+        -0.02941,
+        0.00839,
+        -0.01583
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "arch the optimal architecture. To avoid training each architecture from scratch, weight-sharing methods [28] are proposed to construct a super network where all architectures share",
+      "overlap_with_next": "t’s caused from two aspects and try to give theoretic explanation. For one thing, the approximation to bi-level optimization which has to train w and α on different datasets comput",
+      "text": "arch the optimal architecture. To avoid training each architecture from scratch, weight-sharing methods [28] are proposed to construct a super network where all architectures share the same weights. DARTS relaxes the search space to be con- tinuous and approximates w∗α by adapting w using only a single training step, without solving the inner optimization 1 completely. The approximation scheme is as follows: ∇αLval(α,w∗α)≈∇ αLval(α,w−ξ∇wLtrain(α,w )) (2) It saves computation costs a lot and ﬁnds out competitive architectures [8, 35]. However, many papers [35, 27, 38, 22, 12, 15] have re- ported that DARTS easily converges to non-learnable op- erations including skip-connet, pooling and zero, etc. and it could not search steadily high-performance architectures. Furthermore we ﬁnd out that non-learnable operations are dominated in the very early stage of search phase. And once the situation happens, it’s likely to last until the end of the search phase 1. For the phenomenon, we propose the hypothesis that it’s caused from two aspects and try to give theoretic explanation. For one thing, the approximation to bi-level optimization which has to train w and α on different datasets comput",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00336,
+        0.00363,
+        -0.03709,
+        0.00816,
+        -0.00614
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "t’s caused from two aspects and try to give theoretic explanation. For one thing, the approximation to bi-level optimization which has to train w and α on different datasets comput",
+      "overlap_with_next": "optimization instead of bi-level optimization and update w and α on 1 arXiv:2012.11337v1 [cs.LG] 15 Dec 2020 [Page 2] 0 10 20 30 40 50 0.0 0.1 0.2 0.3 0.4 0.5 0.6 zero skip conv1x1",
+      "text": "t’s caused from two aspects and try to give theoretic explanation. For one thing, the approximation to bi-level optimization which has to train w and α on different datasets computes biased gradients for α. Even the gradients of w and α are computed on the same dataset but not on the same batch, the bias also exists. On the early stage of training process, learnable operations’ α could not be learned normally. As a result, non-learnable operations’ α would surpass over learnable operations’. For the other thing, using softmax asα’s activation function and inappropriate (in speciﬁc is too large) learning rate would make surpassing architecture parameters larger. It means under the bi-level optimization framework the non-learnable operations would dominate over learnable operations from the start to ﬁnish. In view of the above two aspects, we conduct experi- mental analysis to verify them based on NAS-Benchmark- 201[15]. Furthermore, we give improvement on DARTS. On one side, we propose to use single-level optimization instead of bi-level optimization and update w and α on 1 arXiv:2012.11337v1 [cs.LG] 15 Dec 2020 [Page 2] 0 10 20 30 40 50 0.0 0.1 0.2 0.3 0.4 0.5 0.6 zero skip conv1x1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0336,
+        -5e-05,
+        -0.04435,
+        -0.01283,
+        0.00308
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "optimization instead of bi-level optimization and update w and α on 1 arXiv:2012.11337v1 [cs.LG] 15 Dec 2020 [Page 2] 0 10 20 30 40 50 0.0 0.1 0.2 0.3 0.4 0.5 0.6 zero skip conv1x1",
+      "overlap_with_next": "a batch. On another side, we propose to use uncompetitive activation function like sigmoid to replace softmax. And if there are too many non-operations in the searched result, we a",
+      "text": "optimization instead of bi-level optimization and update w and α on 1 arXiv:2012.11337v1 [cs.LG] 15 Dec 2020 [Page 2] 0 10 20 30 40 50 0.0 0.1 0.2 0.3 0.4 0.5 0.6 zero skip conv1x1 conv3x3 avg_pool (a) edge.1− 0 0 10 20 30 40 50 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 zero skip conv1x1 conv3x3 avg_pool (b) edge.2− 0 0 10 20 30 40 50 0.1 0.2 0.3 0.4 0.5 0.6 zero skip conv1x1 conv3x3 avg_pool (c) edge.2− 1 0 10 20 30 40 50 0.0 0.2 0.4 0.6 0.8 zero skip conv1x1 conv3x3 avg_pool (d) edge.3− 0 0 10 20 30 40 50 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 zero skip conv1x1 conv3x3 avg_pool (e) edge.3− 1 0 10 20 30 40 50 0.0 0.2 0.4 0.6 0.8 zero skip conv1x1 conv3x3 avg_pool (f) edge.3− 2 Figure 1: Values of softmax(α)(probability) on NAS- Benchmark-201. Use bi-level optimization(DARTS) to train for 50 epochs on CIFAR10. Non-learnable operations’ probability is far bigger than learnable operations’. It shows that non-learnable operations are likely dominated in the early stage and the situation would last until the end. the same data batch. On another side, we propose to use uncompetitive activation function like sigmoid to replace softmax. And if there are too many non-operations in the searched result, we a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04596,
+        -0.02354,
+        -0.04558,
+        -0.01547,
+        -0.01101
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "a batch. On another side, we propose to use uncompetitive activation function like sigmoid to replace softmax. And if there are too many non-operations in the searched result, we a",
+      "overlap_with_next": "tion and inappropriate learning rate would make the bias more serious. We give a theoretical explanation and conduct experiments to verify it. • As a substitude, we propose to use ",
+      "text": "a batch. On another side, we propose to use uncompetitive activation function like sigmoid to replace softmax. And if there are too many non-operations in the searched result, we advice to decrease learning rate. As a result, we steadily search high-performance architectures. Experiments on NAS-Benchmark-201[15] search nearly the optimal architecture in the space with variance of 0. On DARTS space, we search the SOTA architecture with top1 accuracy of 77% on ImageNet-1K [21] for the ﬁrst time. And we could search architectures steadily with top1 accuracy up to 76.5% which is comparable with reported best result 76.6% [19, 37]. The training phase is the same as PDARTS[27] and without any additional module. In general, our contributions are as follows: • We ﬁnd out that non-learnable operations dominate learnable operations from the start to ﬁnish. Accord- ing to the phenomenon, we propose a hypothesis that bi-level optimization bias the gradients of architecture parameters. Using softmax as activation function and inappropriate learning rate would make the bias more serious. We give a theoretical explanation and conduct experiments to verify it. • As a substitude, we propose to use ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0265,
+        0.0013,
+        -0.04321,
+        -0.00438,
+        0.0036
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "tion and inappropriate learning rate would make the bias more serious. We give a theoretical explanation and conduct experiments to verify it. • As a substitude, we propose to use ",
+      "overlap_with_next": "S) is an automatic method to design neural architecture instead of human design. Early NAS meth- ods adopt reinforcement learning (RL) or evolutionary strategy [39, 2, 3, 32, 31, 4",
+      "text": "tion and inappropriate learning rate would make the bias more serious. We give a theoretical explanation and conduct experiments to verify it. • As a substitude, we propose to use single-level opti- mization which calculates and backward the gradients of w and α on the same data batch as well as at the same time: αt,wt+ =η∇α,wLtrain(αt−1,wt−1) (3) And we use uncompetitive activation function like sigmoid to replace softmax. Meanwhile, we do normalization for the initialization of sigmoid. More details are introduced bellow. • Our improvement on DARTS could search high- performance architectures with little variance. On NAS-Benchmark-201 we ﬁnd out nearly the optimal architecture. On DARTS space, we ﬁnd the SOTA architecture which get 77.0% top1 accuracy on Ima- geNet. And we steadily ﬁnd architectures (not select the best architecture of several tries) up to 76.5% top1 accuracy which is comparable with current reported best result. 2. Related Works Neural Architecture Search. Neural architecture search(NAS) is an automatic method to design neural architecture instead of human design. Early NAS meth- ods adopt reinforcement learning (RL) or evolutionary strategy [39, 2, 3, 32, 31, 4",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02077,
+        0.00429,
+        -0.02203,
+        0.00896,
+        -0.00771
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "S) is an automatic method to design neural architecture instead of human design. Early NAS meth- ods adopt reinforcement learning (RL) or evolutionary strategy [39, 2, 3, 32, 31, 4",
+      "overlap_with_next": "ure Search. Gradient-based approaches are commonly formulated as an approxima- tion to the bi-level optimization which updates network 2 [Page 3] weights and updates architecture p",
+      "text": "S) is an automatic method to design neural architecture instead of human design. Early NAS meth- ods adopt reinforcement learning (RL) or evolutionary strategy [39, 2, 3, 32, 31, 40] to search among thou- sands of individually trained completely networks, which costs huge computation sources. Recent works focus on efﬁcient weight-sharing methods, which falls into two categories: one-shot approaches [6, 4, 1, 7, 18, 34, 30] and gradient-based approaches [33, 28, 9, 8, 20, 12, 35, 24], both achieve state-of-the-art results on a series of tasks [10, 17, 25, 36, 16, 29] in various search space. They construct a super network/graph which share weights with all sub network/graphs. The former commonly does heuristic search and evaluation sampled architectures in the super network to get the optimal architecture. The latter relaxes the search space to be continuous and introduce differential and learnable architecture parameters. In the this paper, we mainly argue gradient-based approaches. Differential Architecture Search. Gradient-based approaches are commonly formulated as an approxima- tion to the bi-level optimization which updates network 2 [Page 3] weights and updates architecture p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01136,
+        -0.03058,
+        -0.03625,
+        0.0054,
+        -0.02819
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ure Search. Gradient-based approaches are commonly formulated as an approxima- tion to the bi-level optimization which updates network 2 [Page 3] weights and updates architecture p",
+      "overlap_with_next": "less parameters are trained maturely earlier. However, we indicate that Matthew effect is mainly caused by gradient bias in bi-level optimization but not co-adaption problem. In fa",
+      "text": "ure Search. Gradient-based approaches are commonly formulated as an approxima- tion to the bi-level optimization which updates network 2 [Page 3] weights and updates architecture parameters in the training and validation dataset alternatively[28]. Although it has searched competitive architectures, however, many papers pointed out DARTS-based methods don’t work stably. [15] show DARTS perform badly on NAS-Benchmark-201 and performance drops fast during search. There are many works trying to give explanation and solve it. [4] show the relationship between DARTS searched architectures’ performance and the domain eigenvalue of ∇2αLvalid. [12] show darts easily converge to skip-connect operation. [27, 35, 19, 22] show DARTS also easily over-converge to non-parametric operations. [12] introduces collabo- rative competition approach which offer each operation an independent architecture weight to avoid competition between operations. [19] observes the co-adaption problem and Matthew effect that operations with less parameters are trained maturely earlier. However, we indicate that Matthew effect is mainly caused by gradient bias in bi-level optimization but not co-adaption problem. In fa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0364,
+        -0.00276,
+        -0.0368,
+        0.00316,
+        -0.00395
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "less parameters are trained maturely earlier. However, we indicate that Matthew effect is mainly caused by gradient bias in bi-level optimization but not co-adaption problem. In fa",
+      "overlap_with_next": "ions dropout with single-level optimization to solve co-adaptation problem in the paper. However, on one side, these works focus on other technology to get satisfac- tory results b",
+      "text": "less parameters are trained maturely earlier. However, we indicate that Matthew effect is mainly caused by gradient bias in bi-level optimization but not co-adaption problem. In fact, in single-level optimization, the Matthew effect would be disappeared. Single-level Optimization. Recently there are some works adopt single/one-level optimization to replace bi- level optimization and get much more stable results. Al- though in the original paper [28] it shows that single-level performs worse than bi-level optimization and they indicate single-level would cause overﬁtting, but recent works show the inverse results [22, 5, 19]. [22] advocates the overﬁt- ting phenomenon is caused by network’s depth gap between search phase and evaluation phase and get much more stable results than bi-level-based DARTS. [5] indicates that super network parameters are trained much more effective than architecture parameters and do data augmentation in search phase. And based on single-level optimization, [19] com- bines operations dropout with single-level optimization to solve co-adaptation problem in the paper. However, on one side, these works focus on other technology to get satisfac- tory results b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00984,
+        -0.01299,
+        -0.07489,
+        -0.01474,
+        0.01009
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ions dropout with single-level optimization to solve co-adaptation problem in the paper. However, on one side, these works focus on other technology to get satisfac- tory results b",
+      "overlap_with_next": "net- work weightsw and architecture parametersα separably on the training and validation dataset. It’s the computation on different dataset that makes the gradients of learnable op",
+      "text": "ions dropout with single-level optimization to solve co-adaptation problem in the paper. However, on one side, these works focus on other technology to get satisfac- tory results but single-level optimization is as basis. Our experiments demonstrate that stand-alone single-level opti- mization is enough to search steadily high-performance ar- chitectures. On the other side, these works show single- level better than bi-level optimization mainly by empirical experiments but not give clear explanation on why bi-level doesn’t work. In this paper, we propose that the reason is from biased gradients caused by calculating gradients on different data batch in the bi-level optimization framework. 3. Hypothesis And Methodology In this section, we propose the hypothesis of the gradient bias of architecture parameters in the bi-level optimization framework and try to give theoretic explanation on the dom- ination phenomenon of non-learnable operations. In out- line, bi-level optimization has to compute gradients of net- work weightsw and architecture parametersα separably on the training and validation dataset. It’s the computation on different dataset that makes the gradients of learnable op",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02313,
+        0.00644,
+        -0.05627,
+        0.00769,
+        -0.00677
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "net- work weightsw and architecture parametersα separably on the training and validation dataset. It’s the computation on different dataset that makes the gradients of learnable op",
+      "overlap_with_next": " the best architecture is trans- formed to search the best operationoi,jk∗ among all cells and edges. DARTS make the search space continuous by re- laxing the categorical choice of",
+      "text": "net- work weightsw and architecture parametersα separably on the training and validation dataset. It’s the computation on different dataset that makes the gradients of learnable op- erations’α biased. Moreover, the bias leads non-learnable operations’ α accumulating gradient faster than learnable operations’. With softmax as α’s activation function, the gap between them would be expanded. Finally, it results in the domination phenomenon. 3.1. Preliminary of Differential Architecture Search Following [28] we search the DARTS space which stacks of several cells, where each cell is a directed acyclic graph. Each cell consists of sequential nodes where each node rep- resent latent feature mapxi. The edge from node i to node j represent a connection and is bounded with one from candidate operations O: convolution, pooling, zero, skip- connect, etc. Let oi,j denote operation from node i to j. Each intermediate node is computed based on all of its pre- decessors: xj = ∑ i<j oi,j(xi)) (4) The problem of searching the best architecture is trans- formed to search the best operationoi,jk∗ among all cells and edges. DARTS make the search space continuous by re- laxing the categorical choice of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01966,
+        0.0135,
+        -0.03546,
+        -0.00057,
+        -0.02774
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " the best architecture is trans- formed to search the best operationoi,jk∗ among all cells and edges. DARTS make the search space continuous by re- laxing the categorical choice of",
+      "overlap_with_next": "ng oi(x) could be ex- panded asWix, we have 3 [Page 4] ∂L ∂pi = E[∂L∂¯xT (Wix);X,y ] (8) ∂L ∂Wi = E[pi ∂L ∂¯xxT ;X,y ] (9) Considering ∂L∂pi , if Wix is negative correlated with ∂L",
+      "text": " the best architecture is trans- formed to search the best operationoi,jk∗ among all cells and edges. DARTS make the search space continuous by re- laxing the categorical choice of a particular operation to a softmax over all possible operations. Letαi,jok orαi,jk denote bounded parameter with operationok fi,j(xi) = ∑ o∈O exp(αi,jo )∑ o′∈Oexp(αi,jo′ )o(xi) (5) Then the intermediate node is computed based on all of its predecessors: xj = ∑ i<j fi,j(xi)) (6) Without loss of generality, we consider a single edge. Loss function could be seen as L =f( ∑ i exp(αi)∑ jexp(αj)oi(x);X,y ) (7) 3.2. Hypothesis Prior works point out that DARTS easily converge to non-parametric operations like skip-connect, zero, pooling, etc. In fact, we ﬁnd that in the early stage of search phase, non-learnable operations’ architecture parameters have suppressed learnable operations’. Once the situation happens, it’s hard to be retrieved 1. For the phenomenon, we have the following explanation. Let pi denote exp(αi)∑ jexp(αj), assuming oi(x) could be ex- panded asWix, we have 3 [Page 4] ∂L ∂pi = E[∂L∂¯xT (Wix);X,y ] (8) ∂L ∂Wi = E[pi ∂L ∂¯xxT ;X,y ] (9) Considering ∂L∂pi , if Wix is negative correlated with ∂L",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04437,
+        0.03065,
+        -0.05798,
+        0.02448,
+        -0.00262
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ng oi(x) could be ex- panded asWix, we have 3 [Page 4] ∂L ∂pi = E[∂L∂¯xT (Wix);X,y ] (8) ∂L ∂Wi = E[pi ∂L ∂¯xxT ;X,y ] (9) Considering ∂L∂pi , if Wix is negative correlated with ∂L",
+      "overlap_with_next": "dent ofxjval. Thus we have N∑ j=1 M∑ k=1 (∂L(xjval)∂¯x T∂L(xktrain)∂¯x )(xktrainTxjval)≈ 0 (13) Furthermore, on the early stage when iteration is not enough we have ∂L ∂pti≈ 1N N∑ ",
+      "text": "ng oi(x) could be ex- panded asWix, we have 3 [Page 4] ∂L ∂pi = E[∂L∂¯xT (Wix);X,y ] (8) ∂L ∂Wi = E[pi ∂L ∂¯xxT ;X,y ] (9) Considering ∂L∂pi , if Wix is negative correlated with ∂L∂¯x ,pi would be increased under gradient descent. Heuris- tically, if Wi ﬁt x better than Wj, then ∂L∂pi should be smaller than ∂L∂pj . For DARTS, pi is updated on the vali- dation dataset. On the iteration t and on validation dataset Dvalid ={Xval,yval}, we have: ∂L ∂pti = 1N N∑ j=1 ∂L(xjval) ∂¯x T (Wtixjval) (10) Wti is updated on the training dataset Dtrain = {Xtrain,ytrain}, we have: ∂L ∂Wti = piM M∑ k=1 ∂L(xktrain) ∂¯x xktrainT Wti =Wt−1i −η ∂L∂Wt−1i =Wt−1i −ηpt−1iM N∑k=1∂L(xktrain)∂¯x xktrainT (11) As a result, the gradient ofpi is: ∂L ∂pti = 1N N∑ j=1 ∂L(xjval) ∂¯x T (Wt−1i xjval) − ηpt−1i NM N∑ j=1 M∑ k=1 (∂L(xjval)∂¯x T∂L(xktrain)∂¯x )(xktrainTxjval) (12) For bi-level optimizationW andα are computed on the dif- ferent batches, if samples are different ∂L(xjval)∂¯x T is inde- pendent ∂L(xktrain)∂¯x andxktrain is independent ofxjval. Thus we have N∑ j=1 M∑ k=1 (∂L(xjval)∂¯x T∂L(xktrain)∂¯x )(xktrainTxjval)≈ 0 (13) Furthermore, on the early stage when iteration is not enough we have ∂L ∂pti≈ 1N N∑ ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07567,
+        0.01144,
+        -0.02943,
+        0.00162,
+        -0.01336
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "dent ofxjval. Thus we have N∑ j=1 M∑ k=1 (∂L(xjval)∂¯x T∂L(xktrain)∂¯x )(xktrainTxjval)≈ 0 (13) Furthermore, on the early stage when iteration is not enough we have ∂L ∂pti≈ 1N N∑ ",
+      "overlap_with_next": "inδ = mini⁄=i∗ ∂l∂z (zi∗− zi)≥ 0, ifαi∗≥αi, it holds that for anyϵ> 0, function gradient achievespi∗ > 1−ϵ in iterations t≤ n ln((1−ϵ)n)ηδ (15) Please see proof in Appendix. Howeve",
+      "text": "dent ofxjval. Thus we have N∑ j=1 M∑ k=1 (∂L(xjval)∂¯x T∂L(xktrain)∂¯x )(xktrainTxjval)≈ 0 (13) Furthermore, on the early stage when iteration is not enough we have ∂L ∂pti≈ 1N N∑ j=1 ∂L(xjval) ∂¯x T (Wt−1i xjval) ≈ 1N N∑ j=1 ∂L(xjval) ∂¯x T (W 0ixjval) (14) Learnable operations are initialized randomly thus they are actually making noise on input x and ﬁtting x worse than non-learnable operations like skip-connect and pool- ing. If Wi ﬁtx better, ∂L∂pti would be smaller and pi wouldbe increased. As a result, in the early stage, non-learnable operations’pi would be increased faster than learnable op- erations. Furthermore, for the biggest αi (assumeα0), it’s more likely that the gradient ofα0 smaller than others com- pared under softmax activation. And large learning rate would expand the gap. It means DARTS is more easily con- verge toα0. We have the following theorems. Theorem 3.1. For function like l = f(∑i exp(αi)∑jexp(αj) zi), letpi = exp(αi)∑ jexp(αj), z = ∑ipizi,i∗ = arg maxi ∂l∂z zi, we deﬁne marginδ = mini⁄=i∗ ∂l∂z (zi∗− zi)≥ 0, ifαi∗≥αi, it holds that for anyϵ> 0, function gradient achievespi∗ > 1−ϵ in iterations t≤ n ln((1−ϵ)n)ηδ (15) Please see proof in Appendix. Howeve",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03838,
+        0.05738,
+        -0.031,
+        -0.01375,
+        0.01267
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "inδ = mini⁄=i∗ ∂l∂z (zi∗− zi)≥ 0, ifαi∗≥αi, it holds that for anyϵ> 0, function gradient achievespi∗ > 1−ϵ in iterations t≤ n ln((1−ϵ)n)ηδ (15) Please see proof in Appendix. Howeve",
+      "overlap_with_next": "ed. • Using softmax as α’s activation function and inap- propriate learning rate would expand the gap between non-learnable and learnable operations. 4 [Page 5] Therefore, we propo",
+      "text": "inδ = mini⁄=i∗ ∂l∂z (zi∗− zi)≥ 0, ifαi∗≥αi, it holds that for anyϵ> 0, function gradient achievespi∗ > 1−ϵ in iterations t≤ n ln((1−ϵ)n)ηδ (15) Please see proof in Appendix. However, for single-level optimization, we have ∂L ∂pti≈ 1N N∑ j=1 ∂L(xjval) ∂¯x T (Wt−1i xjval) − ηpt−1i N2 N∑ j=1 (∂L(xjtrain)∂¯x T∂L(xjtrain)∂¯x )(xjtrainTxjtrain) ≤ 1N N∑ j=1 ∂L(xjval) ∂¯x T (Wt−1i xjval) (16) It means for learnable operations, ∂L∂pi could be decreased astraining process goes. And after adequate iterations, learn- able operations ∂L∂pi would be smaller than non-learnableoperations. Under gradient descent, pi would be increased faster than non-learnable operations until exceed them. 3.3. Methodology Above explanation shows that: • Bi-level optimization make gradients of architecture parameters biased for that training data makes no di- rect effort on the gradients of architecture parameters. In fact, even doing bi-level optimization on the same dataset but not on the same data batch, the gradients could yet be biased. • Using softmax as α’s activation function and inap- propriate learning rate would expand the gap between non-learnable and learnable operations. 4 [Page 5] Therefore, we propo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05577,
+        0.03415,
+        -0.02402,
+        -0.0012,
+        0.02149
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ed. • Using softmax as α’s activation function and inap- propriate learning rate would expand the gap between non-learnable and learnable operations. 4 [Page 5] Therefore, we propo",
+      "overlap_with_next": "ion function with other independent activation function. At last we compare different learning rates’ effect. For the second part, we do experiments in NAS- Benchmark-201 and DARTS",
+      "text": "ed. • Using softmax as α’s activation function and inap- propriate learning rate would expand the gap between non-learnable and learnable operations. 4 [Page 5] Therefore, we propose: • Use single-level optimization meanwhile calculate gradients of w and α at the same time to instead bi- level optimization. • Use sigmoid or other uncompetitive activation func- tion to replace softmax. • Decrease the learning rate if there are too many non- learnable operations. 4. Experiments In this section, we introduce our experiments on dif- ferent datasets and search spaces and mainly divided into two parts. One is to do experiments on NAS-Bench-201 to verify our hypothesis. The other part is to compare our improved DARTS (single-level optimization with sigmoid activation function) with different algorithms. For the ﬁrst part, speciﬁcally, we ﬁrstly analyze the gradient correlation 13 and the gradients of pi in bi-level optimization and single-level optimization. Then we compare the effect of using softmax as activation function with other independent activation function. At last we compare different learning rates’ effect. For the second part, we do experiments in NAS- Benchmark-201 and DARTS",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01282,
+        -0.00059,
+        -0.02474,
+        -0.0163,
+        -0.00479
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "ion function with other independent activation function. At last we compare different learning rates’ effect. For the second part, we do experiments in NAS- Benchmark-201 and DARTS",
+      "overlap_with_next": ", (4) 3-by-3 convolution, and (5) 3-by-3 average pooling. The search space has 15,625 neural cell candidates in total. And all the candidates are given training accuracy/valid accu",
+      "text": "ion function with other independent activation function. At last we compare different learning rates’ effect. For the second part, we do experiments in NAS- Benchmark-201 and DARTS space, and on Cifar10 and ImageNet-1K dataset. Experiments show that we could steadily search high-performance architectures. On NAS- Benchmark-201 space, we stably ﬁnd out nearly the opti- mal architecture. On DARTS space, we search the state- of-the-art architecture with 77.0% top1 accuracy (training setting follows PDARTS and without any additional mod- ule) on ImageNet-1K and steadily search architectures up- to 76.5% top1 accuracy which is comparable with current reported best result. 4.1. Veriﬁcation On NAS Benchmark 201 4.1.1 Search space. NAS-Bench-201 [15] builds a cell-based search space, where a cell could be seen as a directed acyclic graph con- sisting of 4 nodes and 6 edges. Each network is stacked by 15 cells. Each edge represents an operation selected from (1) zeroize, (2) skip connection, (3) 1-by-1 convolution, (4) 3-by-3 convolution, and (5) 3-by-3 average pooling. The search space has 15,625 neural cell candidates in total. And all the candidates are given training accuracy/valid accu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01245,
+        -0.01227,
+        -0.03588,
+        -0.00326,
+        0.00539
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": ", (4) 3-by-3 convolution, and (5) 3-by-3 average pooling. The search space has 15,625 neural cell candidates in total. And all the candidates are given training accuracy/valid accu",
+      "overlap_with_next": "orrelation in bi-level optimiza- tion is nearly zero and far smaller than in single-level opti- mization. 4.1.2 Analysis on Gradient Correlation In last section, we analyze the gra",
+      "text": ", (4) 3-by-3 convolution, and (5) 3-by-3 average pooling. The search space has 15,625 neural cell candidates in total. And all the candidates are given training accuracy/valid accu- racy/test accuracy on three datasets: CIFAR-10, CIFAR- 100 and ImageNet-16-120. In order to facilitate the anal- ysis, in this section we set optimizers of network weights and architecture parameters as SGD. 0 10 20 30 40 50 10 6 10 5 10 4 10 3 10 2 edge.1<-* edge.1<-* edge.2<-* edge.2<-* edge.3<-* edge.3<-* 0 10 20 30 40 50 10 8 10 7 10 6 10 5 10 4 edge.1<-* edge.1<-* edge.2<-* edge.2<-* edge.3<-* edge.3<-* 0 10 20 30 40 50 10 9 10 8 10 7 10 6 10 5 edge.1<-* edge.1<-* edge.2<-* edge.2<-* edge.3<-* edge.3<-* Figure 2: Comparison of gradient correlation 13 between bi-level and single-level optimization on Cifar10 dataset and in NAS-Benchmark-201 search space. It shows the gra- dient correlation on different nodes of ﬁrst, middle and last cells. Solid lines represent bi-level and dashed lines repre- sent single-level. Gradient correlation in bi-level optimiza- tion is nearly zero and far smaller than in single-level opti- mization. 4.1.2 Analysis on Gradient Correlation In last section, we analyze the gra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05844,
+        -0.03069,
+        -0.04095,
+        -0.01202,
+        -0.0093
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "orrelation in bi-level optimiza- tion is nearly zero and far smaller than in single-level opti- mization. 4.1.2 Analysis on Gradient Correlation In last section, we analyze the gra",
+      "overlap_with_next": " that it results badly in next section. 4.1.3 Analysis on Gradient Bias We compare ∂L∂pi in the last cell between bi-level and single-level optimization in Fig 3. For bi-level opti",
+      "text": "orrelation in bi-level optimiza- tion is nearly zero and far smaller than in single-level opti- mization. 4.1.2 Analysis on Gradient Correlation In last section, we analyze the gradient correlation between bi-level optimization and single-level optimization. Fig 2 compares that the gradients correlation 13 in bi-level and single-level optimization in different cells. For bi-level op- timization it’s nearly zero and far less than that gradient- correlation in single-level. In fact, even from the same dataset but not the same batch, their gradients are still ir- relevant. Table 1 compares the effect of whether back- ward propagations gradients of w andα in the same batch. The results show that even the gradients are from the same dataset but from different batches, the search progress col- lapses yet for the bias exists. The training phase lasts 50 epochs.w andα is optimized with SGD optimizer, learning rate is 0.005 (cosine scheduler). Original learning rate in [15] is 0.025, but it’s too large and we show that it results badly in next section. 4.1.3 Analysis on Gradient Bias We compare ∂L∂pi in the last cell between bi-level and single-level optimization in Fig 3. For bi-level opti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05193,
+        -0.02254,
+        -0.04685,
+        -0.01991,
+        -0.00043
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " that it results badly in next section. 4.1.3 Analysis on Gradient Bias We compare ∂L∂pi in the last cell between bi-level and single-level optimization in Fig 3. For bi-level opti",
+      "overlap_with_next": "values. It shows that even on the same dataset but not the same mini batch, DARTS could not search good architectures for different batches are also low correlated. The experiments",
+      "text": " that it results badly in next section. 4.1.3 Analysis on Gradient Bias We compare ∂L∂pi in the last cell between bi-level and single-level optimization in Fig 3. For bi-level optimization, due to gradient bias, ∂L∂pi of non-learnable operations are smallerthan learnable operations and the gap is increased as the training process goes. Thus non-learnable operations’ ar- chitecture parameter would be much larger than learnable operations’. For single-level optimization, ∂L∂pi of learnableoperations compete against non-learnable operations but ﬁ- nally get dominated. More comparison of different cells are shown in Appendix. 4.1.4 Analysis on Activation Function and Learning Rate We compare the effects of learning rate and activation func- tion on the searched results. Table 2 shows that larger learn- ing rate would cause search phase collapsed, especially in 5 [Page 6] Table 1: Comparison the effect of whether gradients are calculated on the same data. Each setting is run 3 independent times to get average values. It shows that even on the same dataset but not the same mini batch, DARTS could not search good architectures for different batches are also low correlated. The experiments",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03652,
+        0.0011,
+        -0.0468,
+        0.00704,
+        -0.00138
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "values. It shows that even on the same dataset but not the same mini batch, DARTS could not search good architectures for different batches are also low correlated. The experiments",
+      "overlap_with_next": "vgpool (e) edge.3←1 0 10 20 30 40 50 0.020 0.015 0.010 0.005 0.000 0.005 0.010 0.015 0.020 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 3: Comparison of gradient ofpi in the e",
+      "text": "values. It shows that even on the same dataset but not the same mini batch, DARTS could not search good architectures for different batches are also low correlated. The experiments are under softmax as activation function. For learning rate damages search phase (it would be discussed bellow), the analysis is based on learning rate set as 0.005. same dataset same batch CIFAR10 CIFAR100 ImageNet16-120 False False 61.88±10.72 25.13±13.47 17.98±2.35 True False 84.34±0.02 54.92±0.06 25.97±0.49 True True 94.27±0.13 73.01±0.71 46.10±0.34 0 10 20 30 40 50 0.15 0.10 0.05 0.00 0.05 0.10 0.15 0.20 zero skip conv1 conv3 avgpool (a) edge.3←0 0 10 20 30 40 50 0.05 0.00 0.05 0.10 0.15 0.20 0.25 0.30 zero skip conv1 conv3 avgpool (b) edge.3←1 0 10 20 30 40 50 0.05 0.00 0.05 0.10 0.15 0.20 0.25 0.30 0.35 zero skip conv1 conv3 avgpool (c) edge.3←2 0 10 20 30 40 50 0.01 0.00 0.01 0.02 0.03 0.04 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.015 0.010 0.005 0.000 0.005 0.010 0.015 0.020 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.020 0.015 0.010 0.005 0.000 0.005 0.010 0.015 0.020 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 3: Comparison of gradient ofpi in the e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04315,
+        -0.00478,
+        -0.04024,
+        4e-05,
+        -0.00235
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "vgpool (e) edge.3←1 0 10 20 30 40 50 0.020 0.015 0.010 0.005 0.000 0.005 0.010 0.015 0.020 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 3: Comparison of gradient ofpi in the e",
+      "overlap_with_next": " 0.3, we should decrease it. And the pro- cess commonly doesn’t cost too much time. 4.2. Comparison between algorithms 4.2.1 On NAS-201 At last, we compare our improvement with oth",
+      "text": "vgpool (e) edge.3←1 0 10 20 30 40 50 0.020 0.015 0.010 0.005 0.000 0.005 0.010 0.015 0.020 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 3: Comparison of gradient ofpi in the edges 3←* in the 15th cell between bi-level and single-level optimization. Figures (a)(b)(c) are on bi-level optimization and (d)(e)(f) are on single-level optimization. the bi-level optimization framework. In the single-level op- timization, the search phase performs more steadily. But too large learning rate also has bad effects. In addition, us- ing sigmoid performs more steadily than softmax under dif- ferent learning rate and optimization level. In this section, for the convenience of analysis, we use SGD as network weights’ and architecture parameters’ optimizer. In general NAS tasks, we advice to use SGD as network weights’ opti- mizer and Adam as architecture parameters’ optimizer. We could adjust network parameters’ learning rate according to the searched non-parametric operations’ ratio. If it’s over a threshold such as 0.3, we should decrease it. And the pro- cess commonly doesn’t cost too much time. 4.2. Comparison between algorithms 4.2.1 On NAS-201 At last, we compare our improvement with oth",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06683,
+        -0.03283,
+        -0.03972,
+        -0.03147,
+        0.00429
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " 0.3, we should decrease it. And the pro- cess commonly doesn’t cost too much time. 4.2. Comparison between algorithms 4.2.1 On NAS-201 At last, we compare our improvement with oth",
+      "overlap_with_next": ".53±1.62 69.62±2.05 bi sigmoid 0.005 80.57±0.00 47.93±0.00 bi sigmoid 0.025 74.27±14.12 41.86±18.56 single softmax 0.001 94.36±0.00 73.51±0.00 single softmax 0.005 94.27±0.13 73.01",
+      "text": " 0.3, we should decrease it. And the pro- cess commonly doesn’t cost too much time. 4.2. Comparison between algorithms 4.2.1 On NAS-201 At last, we compare our improvement with other algo- rithms. We use single-level to replace bi-level optimiza- tion, use sigmoid to replace softmax and α initialized as − ln(n− 1). It shows single-level optimization could steadily get the SOTA and nearly the optimal architecture in NAS-201 space. On search phase, we train the super Table 2: Comparison of effects of different activation func- tion and learning rate. Each setting is run 3 independent times to get average values. Larger learning rate would cause search phase collapsed, especially in the bi-level op- timization framework. In the single-level optimization, the search phase performs more steadily. And using sigmoid performs more steadily. optim activation lr CIFAR10 CIFAR100 bi softmax 0.001 91.54±1.26 68.21±1.15 bi softmax 0.005 61.88±10.72 25.13±13.47 bi softmax 0.025 84.97±1.03 56.01±1.71 bi sigmoid 0.001 92.53±1.62 69.62±2.05 bi sigmoid 0.005 80.57±0.00 47.93±0.00 bi sigmoid 0.025 74.27±14.12 41.86±18.56 single softmax 0.001 94.36±0.00 73.51±0.00 single softmax 0.005 94.27±0.13 73.01",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02631,
+        -0.02986,
+        -0.03935,
+        -0.01805,
+        0.00682
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": ".53±1.62 69.62±2.05 bi sigmoid 0.005 80.57±0.00 47.93±0.00 bi sigmoid 0.025 74.27±14.12 41.86±18.56 single softmax 0.001 94.36±0.00 73.51±0.00 single softmax 0.005 94.27±0.13 73.01",
+      "overlap_with_next": "e has 8 operations: 3×3 and 5×5 separable convolution,3×3 and 5×5 dilated 6 [Page 7] Table 3: Comparison of different NAS algorithms on NAS-Bench-201. Method CIFAR-10 CIFAR-100 Ima",
+      "text": ".53±1.62 69.62±2.05 bi sigmoid 0.005 80.57±0.00 47.93±0.00 bi sigmoid 0.025 74.27±14.12 41.86±18.56 single softmax 0.001 94.36±0.00 73.51±0.00 single softmax 0.005 94.27±0.13 73.01±0.71 single softmax 0.025 86.58±0.00 58.33±0.00 single sigmoid 0.001 94.36±0.00 73.51±0.00 single sigmoid 0.005 94.36±0.00 73.51±0.00 single sigmoid 0.025 93.10±0.00 69.24±0.00 model for 50 epochs, using SGD optimizer with a momen- tum of 0.9, cosine scheduler, batch size as 64, learning rate as 0.005, weight decay as 3× 10−4. For architecture pa- rameters, we use Adam optimizer with a ﬁxed learning rate of 3× 10−4, a momentum (0.5, 0.999). α is initialized as − ln(4) such that sigmoid(α) = 0 .2. And weight decay is set 0 to avoid extra gradients on zero-op. Results 3 show single-level optimization search steadily near the best archi- tecture in NAS-201-Benchmark. 4.2.2 On DARTS DARTS [15] is also a cell-based search space. Each cell contains 6 nodes and each node has to select 2 edges to connect with previous 2 nodes. Each edge has 8 operations: 3×3 and 5×5 separable convolution,3×3 and 5×5 dilated 6 [Page 7] Table 3: Comparison of different NAS algorithms on NAS-Bench-201. Method CIFAR-10 CIFAR-100 Ima",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01957,
+        -0.02379,
+        -0.04746,
+        -0.02116,
+        0.00036
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "e has 8 operations: 3×3 and 5×5 separable convolution,3×3 and 5×5 dilated 6 [Page 7] Table 3: Comparison of different NAS algorithms on NAS-Bench-201. Method CIFAR-10 CIFAR-100 Ima",
+      "overlap_with_next": "tacked networks have normal cells and reduction cells. The search space covers 1018 architectures which is quite large. We directly do search process on the ImgeNet-1k dataset. Tab",
+      "text": "e has 8 operations: 3×3 and 5×5 separable convolution,3×3 and 5×5 dilated 6 [Page 7] Table 3: Comparison of different NAS algorithms on NAS-Bench-201. Method CIFAR-10 CIFAR-100 ImageNet-16-120validation test validation test validation test RSPS[23] 84.16±1.69 87.66±1.69 59.00±4.60 58.33±4.34 31.56±3.28 31.14±3.88 DARTS[28] 39.77±0.00 54.30±0.00 15.03±0.00 15.61±0.00 16.43±0.00 16.32±0.00 GDAS[14] 90.00±0.21 93.51±0.13 71.14±0.27 70.61±0.26 41.70±1.26 41.84±0.90 SETN [13] 82.25±5.17 86.19±4.63 56.86±7.59 56.87±7.77 32.54±3.63 31.90±4.07 ENAS [30] 39.77±0.00 54.30±0.00 15.03±0.00 15.61±0.00 16.43±0.00 16.32±0.00 CDARTS [37] 91.13±0.44 94.02±0.31 72.12±1.23 71.92±1.30 45.09±0.61 45.51±0.72 DARTS- [11] 91.03±0.44 93.80±0.40 71.36±1.51 71.53±1.51 44.87±1.46 45.12±0.82 single-level+sigmoid 91.55±0.00 94.36±0.00 73.49±0.00 73.51±0.00 44.87±0.00 46.34±0.00 optimal 91.61 94.37 73.49 73.51 46.77 47.31 separable convolution, 3× 3 max-pooling, 3× 3 average- pooling, skip-connect (identity), and zero (none). And the stacked networks have normal cells and reduction cells. The search space covers 1018 architectures which is quite large. We directly do search process on the ImgeNet-1k dataset. Tab",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01315,
+        -0.04331,
+        -0.06746,
+        0.00975,
+        -0.00187
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "tacked networks have normal cells and reduction cells. The search space covers 1018 architectures which is quite large. We directly do search process on the ImgeNet-1k dataset. Tab",
+      "overlap_with_next": "06 6.56 76.7 Single-level+softmax† 710 6.58 76.4 Single-level+sigmoid* 714 6.60 77.0 Single-level+sigmoid† 707 6.55 76.7 Speciﬁcally, input images are downsampled third times by co",
+      "text": "tacked networks have normal cells and reduction cells. The search space covers 1018 architectures which is quite large. We directly do search process on the ImgeNet-1k dataset. Table 4: Comparison with SOTA architectures on ImageNet in DARTS space.† denotes the average results of searched architectures (not the average results of retraining searched best architecture) and∗ denotes the best result. For single- level optimization and DARTS(ours), we search 3 times di- rectly on the ImageNet-1K. Different from PDARTS train- ing setting that re-train the searched architecture for 250 epochs, DropNAS train it for 600 epochs and DARTS+ 800 epochs. Architecture FLOPs Params Top-1. (M) (M) (%) NASNet-A ([40]) 564 5.3 74.0 AmoebaNet-C ([31]) 570 6.4 75.7 PDARTS ([9]) 557 4.9 75.6 PC-DARTS ([35]) 597 5.3 75.8 DARTS ([28]) 574 4.7 73.3 DARTS(ours)* 677 5.93 74.6 DARTS(ours)† 629 5.51 74.0 DARTS+([24]) 591 5.1 76.3 CDARTS†([37]) 732 6.1 76.3 CDARTS*([37]) 704 6.3 76.6 DropNAS([19] 597 5.4 76.6 Single-level+softmax* 706 6.56 76.7 Single-level+softmax† 710 6.58 76.4 Single-level+sigmoid* 714 6.60 77.0 Single-level+sigmoid† 707 6.55 76.7 Speciﬁcally, input images are downsampled third times by co",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01262,
+        -0.02177,
+        -0.05164,
+        -0.02531,
+        0.00325
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "06 6.56 76.7 Single-level+softmax† 710 6.58 76.4 Single-level+sigmoid* 714 6.60 77.0 Single-level+sigmoid† 707 6.55 76.7 Speciﬁcally, input images are downsampled third times by co",
+      "overlap_with_next": "additional module. It lasts 250 epochs, using SGD optimizer with a momen- tum of 0.9, batch size as 768, an initial learning rate of 0.375 (decayed down to zero linearly), and a we",
+      "text": "06 6.56 76.7 Single-level+softmax† 710 6.58 76.4 Single-level+sigmoid* 714 6.60 77.0 Single-level+sigmoid† 707 6.55 76.7 Speciﬁcally, input images are downsampled third times by convolution layers at the beginning of the super model to reduce spatial resolution which follows [26]. On search phase, we train the super model for 50 epochs, using SGD optimizer with a momentum of 0.9, cosine scheduler, batch size as 360, learning rate as 0.025, weight decay as3×10−4. For architecture parameters, we use Adam optimizer with a ﬁxed learning rate of 3× 10−4, a momentum (0.5, 0.999). For softmax as architecture parameters’ activation function, α is initialized with Gaussian(0, 10−3) and weight decay is 10−3. For sigmoid, α is initialized as− ln(7) such that sigmoid(α) = 0.125. And weight decay is set 0 to avoid extra gradients on zero-op. The search phase costs 4 GPUs for about 28 hours on NVIDIA GeForce RTX 2080ti. On retrain phase, we train the searched architecture following fully PDARTS setting and without any additional module. It lasts 250 epochs, using SGD optimizer with a momen- tum of 0.9, batch size as 768, an initial learning rate of 0.375 (decayed down to zero linearly), and a we",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02669,
+        -0.02058,
+        -0.03695,
+        -0.02207,
+        -0.01611
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "additional module. It lasts 250 epochs, using SGD optimizer with a momen- tum of 0.9, batch size as 768, an initial learning rate of 0.375 (decayed down to zero linearly), and a we",
+      "overlap_with_next": "on and large learning rate would aggregate the gap. We give a theoretical explanation and conduct experiments 7 [Page 8] to verify it. As a result, we propose to use single-level o",
+      "text": "additional module. It lasts 250 epochs, using SGD optimizer with a momen- tum of 0.9, batch size as 768, an initial learning rate of 0.375 (decayed down to zero linearly), and a weight decay of 3× 10−5. Additional enhancements are adopted includ- ing label smoothing and an auxiliary loss tower during train- ing as in PDARTS. Learning rate warm-up is applied for the ﬁrst 5 epochs. The retrain phase costs 8 GPUs for about 3.5 days on NVIDIA GeForce RTX 2080ti. We search the state- of-the-art architecture with 77.0% top1 accuracy (training setting follows PDARTS and without any additional mod- ule) on ImageNet-1K and steadily search architectures up-to 76.5% top1 accuracy. More details are shown in Appendix. 5. conclusion In this paper, we do analysis on the bi-level optimization in DARTS. Experiments show that bi-level optimization could cause gradients bias of architecture parameters and expand the gap between learnable and non-learnable op- erations. Furthermore, architecture parameters’ activation function and large learning rate would aggregate the gap. We give a theoretical explanation and conduct experiments 7 [Page 8] to verify it. As a result, we propose to use single-level o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00581,
+        -0.03008,
+        -0.0555,
+        0.00828,
+        -0.0113
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "on and large learning rate would aggregate the gap. We give a theoretical explanation and conduct experiments 7 [Page 8] to verify it. As a result, we propose to use single-level o",
+      "overlap_with_next": " learning. arXiv preprint arXiv:1709.07417, 2017. 2 [4] Gabriel Bender, Pieter-Jan Kindermans, Barret Zoph, Vijay Vasudevan, and Quoc Le. Understanding and simplifying one-shot arc",
+      "text": "on and large learning rate would aggregate the gap. We give a theoretical explanation and conduct experiments 7 [Page 8] to verify it. As a result, we propose to use single-level optimization as an instead. And we use uncompetitive activation function like sigmoid to replace softmax. Mean- while, we do normalization for the initialization of sigmoid. Experiments on NAS-Benchmark-201 and DARTS space show that single-level optimization could steadily ﬁnd out high-performance architectures. References [1] Youhei Akimoto, Shinichi Shirakawa, Nozomu Yoshinari, Kento Uchida, Shota Saito, and Kouhei Nishida. Adaptive stochastic natural gradient method for one-shot neural archi- tecture search. arXiv preprint arXiv:1905.08537, 2019. 2 [2] Bowen Baker, Otkrist Gupta, Nikhil Naik, and Ramesh Raskar. Designing neural network architectures using rein- forcement learning. arXiv preprint arXiv:1611.02167, 2016. 1, 2 [3] Irwan Bello, Barret Zoph, Vijay Vasudevan, and Quoc V Le. Neural optimizer search with reinforcement learning. arXiv preprint arXiv:1709.07417, 2017. 2 [4] Gabriel Bender, Pieter-Jan Kindermans, Barret Zoph, Vijay Vasudevan, and Quoc Le. Understanding and simplifying one-shot arc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04083,
+        0.00747,
+        -0.01557,
+        -0.01725,
+        0.01124
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": " learning. arXiv preprint arXiv:1709.07417, 2017. 2 [4] Gabriel Bender, Pieter-Jan Kindermans, Barret Zoph, Vijay Vasudevan, and Quoc Le. Understanding and simplifying one-shot arc",
+      "overlap_with_next": "epth gap between search and evaluation. arXiv preprint arXiv:1904.12760, 2019. 2, 7 [10] Yukang Chen, Tong Yang, Xiangyu Zhang, Gaofeng Meng, Chunhong Pan, and Jian Sun. Detnas: Ne",
+      "text": " learning. arXiv preprint arXiv:1709.07417, 2017. 2 [4] Gabriel Bender, Pieter-Jan Kindermans, Barret Zoph, Vijay Vasudevan, and Quoc Le. Understanding and simplifying one-shot architecture search. In International Conference on Machine Learning, pages 549–558, 2018. 2, 3 [5] Kaifeng Bi, Lingxi Xie, Xin Chen, Longhui Wei, and Qi Tian. Gold-nas: Gradual, one-level, differentiable. arXiv preprint arXiv:2007.03331, 2020. 3 [6] Andrew Brock, Theodore Lim, James M Ritchie, and Nick Weston. Smash: one-shot model architecture search through hypernetworks. arXiv preprint arXiv:1708.05344, 2017. 2 [7] Han Cai, Chuang Gan, and Song Han. Once for all: Train one network and specialize it for efﬁcient deployment.arXiv preprint arXiv:1908.09791, 2019. 2 [8] Han Cai, Ligeng Zhu, and Song Han. Proxylessnas: Direct neural architecture search on target task and hardware.arXiv preprint arXiv:1812.00332, 2018. 1, 2 [9] Xin Chen, Lingxi Xie, Jun Wu, and Qi Tian. Pro- gressive differentiable architecture search: Bridging the depth gap between search and evaluation. arXiv preprint arXiv:1904.12760, 2019. 2, 7 [10] Yukang Chen, Tong Yang, Xiangyu Zhang, Gaofeng Meng, Chunhong Pan, and Jian Sun. Detnas: Ne",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0521,
+        0.02204,
+        -0.03436,
+        -0.02465,
+        -0.00802
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "epth gap between search and evaluation. arXiv preprint arXiv:1904.12760, 2019. 2, 7 [10] Yukang Chen, Tong Yang, Xiangyu Zhang, Gaofeng Meng, Chunhong Pan, and Jian Sun. Detnas: Ne",
+      "overlap_with_next": "n Recognition , pages 1761–1770, 2019. 7 [15] Xuanyi Dong and Yi Yang. Nas-bench-201: Extending the scope of reproducible neural architecture search. arXiv preprint arXiv:2001.0032",
+      "text": "epth gap between search and evaluation. arXiv preprint arXiv:1904.12760, 2019. 2, 7 [10] Yukang Chen, Tong Yang, Xiangyu Zhang, Gaofeng Meng, Chunhong Pan, and Jian Sun. Detnas: Neural architecture search on object detection.arXiv preprint arXiv:1903.10979, 2019. 2 [11] Xiangxiang Chu, Xiaoxing Wang, Bo Zhang, Shun Lu, Xi- aolin Wei, and Junchi Yan. Darts-: robustly stepping out of performance collapse without indicators. arXiv preprint arXiv:2009.01027, 2020. 7 [12] Xiangxiang Chu, Tianbao Zhou, Bo Zhang, and Jixiang Li. Fair darts: Eliminating unfair advantages in differentiable ar- chitecture search. arXiv preprint arXiv:1911.12126, 2019. 1, 2, 3 [13] Xuanyi Dong and Yi Yang. One-shot neural architecture search via self-evaluated template network. In Proceedings of the IEEE International Conference on Computer Vision , pages 3681–3690, 2019. 7 [14] Xuanyi Dong and Yi Yang. Searching for a robust neural ar- chitecture in four gpu hours. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , pages 1761–1770, 2019. 7 [15] Xuanyi Dong and Yi Yang. Nas-bench-201: Extending the scope of reproducible neural architecture search. arXiv preprint arXiv:2001.0032",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03896,
+        -0.01768,
+        -0.0146,
+        0.01288,
+        -0.0019
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "n Recognition , pages 1761–1770, 2019. 7 [15] Xuanyi Dong and Yi Yang. Nas-bench-201: Extending the scope of reproducible neural architecture search. arXiv preprint arXiv:2001.0032",
+      "overlap_with_next": "ernational Joint Conference on Artiﬁcial Intelligence , 2020. 2, 3, 7 [20] Andrew Hundt, Varun Jain, and Gregory D Hager. sharp- darts: Faster and more accurate differentiable arch",
+      "text": "n Recognition , pages 1761–1770, 2019. 7 [15] Xuanyi Dong and Yi Yang. Nas-bench-201: Extending the scope of reproducible neural architecture search. arXiv preprint arXiv:2001.00326, 2020. 1, 2, 3, 5, 6 [16] Yonggan Fu, Wuyang Chen, Haotao Wang, Haoran Li, Yingyan Lin, and Zhangyang Wang. Autogan-distiller: Searching to compress generative adversarial networks. arXiv preprint arXiv:2006.08198, 2020. 2 [17] Golnaz Ghiasi, Tsung-Yi Lin, and Quoc V Le. Nas-fpn: Learning scalable feature pyramid architecture for object de- tection. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 7036–7045, 2019. 2 [18] Zichao Guo, Xiangyu Zhang, Haoyuan Mu, Wen Heng, Zechun Liu, Yichen Wei, and Jian Sun. Single path one- shot neural architecture search with uniform sampling.arXiv preprint arXiv:1904.00420, 2019. 2 [19] Weijun Hong, Guilin Li, Weinan Zhang, Ruiming Tang, Yunhe Wang, Zhenguo Li, and Yong Yu. Dropnas: Grouped operation dropout for differentiable architecture search. In International Joint Conference on Artiﬁcial Intelligence , 2020. 2, 3, 7 [20] Andrew Hundt, Varun Jain, and Gregory D Hager. sharp- darts: Faster and more accurate differentiable arch",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05356,
+        -0.00355,
+        -0.00667,
+        0.01397,
+        -0.00903
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "ernational Joint Conference on Artiﬁcial Intelligence , 2020. 2, 3, 7 [20] Andrew Hundt, Varun Jain, and Gregory D Hager. sharp- darts: Faster and more accurate differentiable arch",
+      "overlap_with_next": "print arXiv:1909.06035, 2019. 2, 7 [25] Chenxi Liu, Liang-Chieh Chen, Florian Schroff, Hartwig Adam, Wei Hua, Alan L Yuille, and Li Fei-Fei. Auto- deeplab: Hierarchical neural arch",
+      "text": "ernational Joint Conference on Artiﬁcial Intelligence , 2020. 2, 3, 7 [20] Andrew Hundt, Varun Jain, and Gregory D Hager. sharp- darts: Faster and more accurate differentiable architecture search. arXiv preprint arXiv:1903.09900, 2019. 2 [21] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. Imagenet classiﬁcation with deep convolutional neural net- works. In Advances in neural information processing sys- tems, pages 1097–1105, 2012. 2 [22] Guilin Li, Xing Zhang, Zitong Wang, Zhenguo Li, and Tong Zhang. Stacnas: Towards stable and consistent optimization for differentiable neural architecture search. arXiv preprint arXiv:1909.11926, 2019. 1, 3 [23] Liam Li and Ameet Talwalkar. Random search and repro- ducibility for neural architecture search. In Uncertainty in Artiﬁcial Intelligence, pages 367–377. PMLR, 2020. 7 [24] Hanwen Liang, Shifeng Zhang, Jiacheng Sun, Xingqiu He, Weiran Huang, Kechen Zhuang, and Zhenguo Li. Darts+: Improved differentiable architecture search with early stop- ping. arXiv preprint arXiv:1909.06035, 2019. 2, 7 [25] Chenxi Liu, Liang-Chieh Chen, Florian Schroff, Hartwig Adam, Wei Hua, Alan L Yuille, and Li Fei-Fei. Auto- deeplab: Hierarchical neural arch",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03439,
+        -0.01361,
+        -0.01233,
+        0.03383,
+        0.00135
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "print arXiv:1909.06035, 2019. 2, 7 [25] Chenxi Liu, Liang-Chieh Chen, Florian Schroff, Hartwig Adam, Wei Hua, Alan L Yuille, and Li Fei-Fei. Auto- deeplab: Hierarchical neural arch",
+      "overlap_with_next": "ian Prisacariu. Finding non-uniform quantization schemes usingmulti-task gaussian processes. arXiv preprint arXiv:2007.07743, 2020. 2 [30] Hieu Pham, Melody Y Guan, Barret Zoph, Qu",
+      "text": "print arXiv:1909.06035, 2019. 2, 7 [25] Chenxi Liu, Liang-Chieh Chen, Florian Schroff, Hartwig Adam, Wei Hua, Alan L Yuille, and Li Fei-Fei. Auto- deeplab: Hierarchical neural architecture search for semantic image segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 82–92, 2019. 2 [26] Chenxi Liu, Piotr Doll ´ar, Kaiming He, Ross Girshick, Alan Yuille, and Saining Xie. Are labels necessary for neural ar- chitecture search? arXiv preprint arXiv:2003.12056, 2020. 7 [27] Chenxi Liu, Barret Zoph, Maxim Neumann, Jonathon Shlens, Wei Hua, Li-Jia Li, Li Fei-Fei, Alan Yuille, Jonathan Huang, and Kevin Murphy. Progressive neural architecture 8 [Page 9] search. In Proceedings of the European Conference on Com- puter Vision (ECCV), pages 19–34, 2018. 1, 2, 3 [28] Hanxiao Liu, Karen Simonyan, and Yiming Yang. Darts: Differentiable architecture search. arXiv preprint arXiv:1806.09055, 2018. 1, 2, 3, 7 [29] Marcelo Gennari do Nascimento, Theo W Costain, and Vic- tor Adrian Prisacariu. Finding non-uniform quantization schemes usingmulti-task gaussian processes. arXiv preprint arXiv:2007.07743, 2020. 2 [30] Hieu Pham, Melody Y Guan, Barret Zoph, Qu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03509,
+        -0.03163,
+        -0.0179,
+        0.01141,
+        -0.00955
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "ian Prisacariu. Finding non-uniform quantization schemes usingmulti-task gaussian processes. arXiv preprint arXiv:2007.07743, 2020. 2 [30] Hieu Pham, Melody Y Guan, Barret Zoph, Qu",
+      "overlap_with_next": "Priyantha, Jie Liu, and Diana Mar- culescu. Single-path nas: Device-aware efﬁcient convnet de- sign. arXiv preprint arXiv:1905.04159, 2019. 2 [35] Yuhui Xu, Lingxi Xie, Xiaopeng Zh",
+      "text": "ian Prisacariu. Finding non-uniform quantization schemes usingmulti-task gaussian processes. arXiv preprint arXiv:2007.07743, 2020. 2 [30] Hieu Pham, Melody Y Guan, Barret Zoph, Quoc V Le, and Jeff Dean. Efﬁcient neural architecture search via parameter sharing. arXiv preprint arXiv:1802.03268, 2018. 2, 7 [31] Esteban Real, Alok Aggarwal, Yanping Huang, and Quoc V Le. Regularized evolution for image classiﬁer architecture search. In Proceedings of the aaai conference on artiﬁcial intelligence, volume 33, pages 4780–4789, 2019. 2, 7 [32] Esteban Real, Sherry Moore, Andrew Selle, Saurabh Sax- ena, Yutaka Leon Suematsu, Jie Tan, Quoc V Le, and Alexey Kurakin. Large-scale evolution of image classiﬁers. In Pro- ceedings of the 34th International Conference on Machine Learning-Volume 70, pages 2902–2911. JMLR. org, 2017. 2 [33] Richard Shin, Charles Packer, and Dawn Song. Differen- tiable neural network architecture search. 2018. 2 [34] Dimitrios Stamoulis, Ruizhou Ding, Di Wang, Dimitrios Lymberopoulos, Bodhi Priyantha, Jie Liu, and Diana Mar- culescu. Single-path nas: Device-aware efﬁcient convnet de- sign. arXiv preprint arXiv:1905.04159, 2019. 2 [35] Yuhui Xu, Lingxi Xie, Xiaopeng Zh",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06614,
+        -0.03118,
+        -0.01784,
+        -0.00427,
+        0.01635
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "Priyantha, Jie Liu, and Diana Mar- culescu. Single-path nas: Device-aware efﬁcient convnet de- sign. arXiv preprint arXiv:1905.04159, 2019. 2 [35] Yuhui Xu, Lingxi Xie, Xiaopeng Zh",
+      "overlap_with_next": "h, Vijay Vasudevan, Jonathon Shlens, and Quoc V Le. Learning transferable architectures for scalable image recognition. In Proceedings of the IEEE conference on computer vision and",
+      "text": "Priyantha, Jie Liu, and Diana Mar- culescu. Single-path nas: Device-aware efﬁcient convnet de- sign. arXiv preprint arXiv:1905.04159, 2019. 2 [35] Yuhui Xu, Lingxi Xie, Xiaopeng Zhang, Xin Chen, Guo-Jun Qi, Qi Tian, and Hongkai Xiong. Pc-darts: Partial channel connections for memory-efﬁcient differentiable architecture search. arXiv preprint arXiv:1907.05737, 2019. 1, 2, 3, 7 [36] Zhimin Xu, Si Zuo, Edmund Y Lam, Byoungho Lee, and Ni Chen. Autosegnet: An automated neural network for image segmentation. IEEE Access, 8:92452–92461, 2020. 2 [37] Hongyuan Yu and Houwen Peng. Cyclic differentiable ar- chitecture search. arXiv preprint arXiv:2006.10724 , 2020. 2, 7 [38] Arber Zela, Thomas Elsken, Tonmoy Saikia, Yassine Mar- rakchi, Thomas Brox, and Frank Hutter. Understanding and robustifying differentiable architecture search. arXiv preprint arXiv:1909.09656, 2019. 1 [39] Barret Zoph and Quoc V Le. Neural architecture search with reinforcement learning. arXiv preprint arXiv:1611.01578 , 2016. 2 [40] Barret Zoph, Vijay Vasudevan, Jonathon Shlens, and Quoc V Le. Learning transferable architectures for scalable image recognition. In Proceedings of the IEEE conference on computer vision and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04181,
+        0.00279,
+        -0.03207,
+        0.01332,
+        0.00046
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "h, Vijay Vasudevan, Jonathon Shlens, and Quoc V Le. Learning transferable architectures for scalable image recognition. In Proceedings of the IEEE conference on computer vision and",
+      "overlap_with_next": "n) (20) 9 [Page 10] Thus pi∗ = 1∑ i exp(αi−αi∗)≥ 1∑i exp(− ln((1−ϵ)n)) = 1−ϵ(21) Under gradient descent, for i∗ = arg mini ∂l∂z zi, we have the same conclusion. B. More comparison ",
+      "text": "h, Vijay Vasudevan, Jonathon Shlens, and Quoc V Le. Learning transferable architectures for scalable image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition, pages 8697–8710, 2018. 2, 7 A. Proof of theorem 3.1 Proof. It’s easily to see thatpi≥pj ifαi≥αj andpi∗≥ 1n for ∑ipi = 1. Consider ∂l ∂αi = ∂l∂z ∂z∂αi = ∂l∂z (pi(1−pi)zi−pi ∑j⁄=ipjzj) = ∂l∂z ∑j pipj(zi− zj) =pi ∑ j pj ∂l ∂z (zi− zj) (17) Fori∗ and∀i⁄= i∗, because ∂l∂z (zi∗− zj)≥ ∂l∂z (zi− zj) andpi∗≥pi≥ 0, thus ∂l∂αi∗≥ ∂l∂αi .As a result ∂l ∂αi∗ − ∂l∂αi =pi∗ ∑ j pj ∂l ∂z (zi∗− zj)−pi ∑ j pj ∂l ∂z (zi− zj) = (pi∗−pi) ∑ j pj ∂l ∂z (zi∗− zj) +pi( ∑ j pj ∂l ∂z (zi∗− zj) − ∑ j pj ∂l ∂z (zi− zj)) = (pi∗−pi) ∑ j pj ∂l ∂z (zi∗− zj) +pi ∑ j pj ∂l ∂z (zi∗− zi) ≥ (pi∗−pi)δ +piδ =pi∗δ ≥ δn (18) Under gradient ascent, on update step t we have, for any i⁄=i∗, αti∗−αti =αt−1i∗ −αt−1i +η(dlt−1dαt−1i∗ − dlt−1dαt−1i ) ≥αt−1i∗ −αt−1i +ηpti∗δt ≥α0i∗−α0i +η ∑ t pti∗δt ≥ ηtδn (19) Whent = n ln((1−ϵ)n)ηδ , we have αi∗−αi≥ ln((1−ϵ)n) (20) 9 [Page 10] Thus pi∗ = 1∑ i exp(αi−αi∗)≥ 1∑i exp(− ln((1−ϵ)n)) = 1−ϵ(21) Under gradient descent, for i∗ = arg mini ∂l∂z zi, we have the same conclusion. B. More comparison ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08282,
+        0.01653,
+        -0.0111,
+        0.00459,
+        0.02715
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "n) (20) 9 [Page 10] Thus pi∗ = 1∑ i exp(αi−αi∗)≥ 1∑i exp(− ln((1−ϵ)n)) = 1−ϵ(21) Under gradient descent, for i∗ = arg mini ∂l∂z zi, we have the same conclusion. B. More comparison ",
+      "overlap_with_next": "0.04 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 0.3 zero skip c",
+      "text": "n) (20) 9 [Page 10] Thus pi∗ = 1∑ i exp(αi−αi∗)≥ 1∑i exp(− ln((1−ϵ)n)) = 1−ϵ(21) Under gradient descent, for i∗ = arg mini ∂l∂z zi, we have the same conclusion. B. More comparison of gradient ofpi in section 4.2.3 0 10 20 30 40 50 0.2 0.0 0.2 0.4 0.6 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.15 0.10 0.05 0.00 0.05 0.10 0.15 zero skip conv1 conv3 avgpool (b) edge.2←0 0 10 20 30 40 50 0.10 0.05 0.00 0.05 0.10 0.15 0.20 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.4 0.2 0.0 0.2 0.4 0.6 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.50 0.25 0.00 0.25 0.50 0.75 1.00 1.25 1.50 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.4 0.2 0.0 0.2 0.4 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 4: Bi-level optimization. On the 0th cell. 0 10 20 30 40 50 0.10 0.05 0.00 0.05 0.10 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.06 0.04 0.02 0.00 0.02 0.04 0.06 zero skip conv1 conv3 avgpool (b) edge.2←0 0 10 20 30 40 50 0.04 0.02 0.00 0.02 0.04 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 0.3 zero skip c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08635,
+        -0.01303,
+        -0.04046,
+        -0.03656,
+        0.02176
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "0.04 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 0.3 zero skip c",
+      "overlap_with_next": "0 50 0.01 0.00 0.01 0.02 0.03 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.05 0.00 0.05 0.10 0.15 zeroskip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.00 0",
+      "text": "0.04 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 0.3 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.3 0.2 0.1 0.0 0.1 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 5: Bi-level optimization. On the 8th cell. C. Searched results in DARTS We use single-level optimization to directly search on the ImageNet-1K dataset in DARTS space. Initialize αi as− ln(7) so that softmax(αi) = 0.125 would have more better results. It’s ﬁrst time that searched architecture in DARTS space get 77% top-1 accuracy on ImageNet-1K dataset. The training setting follows PDARTS and without any additional tricks. In addition, for single-level optimiza- tion, using half of dataset could search promising results as well. 0 10 20 30 40 50 0.05 0.00 0.05 0.10 0.15 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.03 0.02 0.01 0.00 0.01 0.02 zero skip conv1 conv3 avgpool (b) edge.2←0 0 10 20 30 40 50 0.01 0.00 0.01 0.02 0.03 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.05 0.00 0.05 0.10 0.15 zeroskip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.00 0",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06465,
+        -0.02489,
+        -0.05387,
+        -0.0116,
+        0.01096
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "0 50 0.01 0.00 0.01 0.02 0.03 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.05 0.00 0.05 0.10 0.15 zeroskip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.00 0",
+      "overlap_with_next": "30 40 50 0.03 0.02 0.01 0.00 0.01 0.02 0.03 0.04 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.02 0.01 0.00 0.01 zero skip conv1 conv3 avgpool (b) edge.2←0 0 10 20 ",
+      "text": "0 50 0.01 0.00 0.01 0.02 0.03 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.05 0.00 0.05 0.10 0.15 zeroskip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.00 0.05 0.10 0.15 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.00 0.05 0.10 0.15 0.20 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 6: Bi-level optimization. On the 16th cell. 0 10 20 30 40 50 0.2 0.1 0.0 0.1 0.2 0.3 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.050 0.025 0.000 0.025 0.050 0.075 0.100 0.125 zero skip conv1 conv3 avgpool (b) edge.2←0 0 10 20 30 40 50 0.15 0.10 0.05 0.00 0.05 0.10 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.075 0.050 0.025 0.000 0.025 0.050 0.075 0.100 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.15 0.10 0.05 0.00 0.05 0.10 0.15 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.20 0.15 0.10 0.05 0.00 0.05 0.10 0.15 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 7: Single-level optimization. On the 0th cell. 0 10 20 30 40 50 0.03 0.02 0.01 0.00 0.01 0.02 0.03 0.04 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.02 0.01 0.00 0.01 zero skip conv1 conv3 avgpool (b) edge.2←0 0 10 20 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04318,
+        -0.01643,
+        -0.0472,
+        -0.03423,
+        0.01639
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "30 40 50 0.03 0.02 0.01 0.00 0.01 0.02 0.03 0.04 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.02 0.01 0.00 0.01 zero skip conv1 conv3 avgpool (b) edge.2←0 0 10 20 ",
+      "overlap_with_next": " conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.025 0.020 0.015 0.010 0.005 0.000 0.005 0.010 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.03 0.02 0.01 0.00 0.01 ze",
+      "text": "30 40 50 0.03 0.02 0.01 0.00 0.01 0.02 0.03 0.04 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.02 0.01 0.00 0.01 zero skip conv1 conv3 avgpool (b) edge.2←0 0 10 20 30 40 50 0.02 0.01 0.00 0.01 0.02 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.05 0.04 0.03 0.02 0.01 0.00 0.01 0.02 0.03 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.04 0.03 0.02 0.01 0.00 0.01 0.02 0.03 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.03 0.02 0.01 0.00 0.01 0.02 0.03 0.04 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 8: Single-level optimization. On the 8th cell. D. Visualization of architectures 10 [Page 11] 0 10 20 30 40 50 0.02 0.01 0.00 0.01 0.02 zero skip conv1 conv3 avgpool (a) edge.1←0 0 10 20 30 40 50 0.005 0.000 0.005 0.010 0.015 zeroskip conv1 conv3 avgpool (b) edge.2←0 0 10 20 30 40 50 0.0100 0.0075 0.0050 0.0025 0.0000 0.0025 0.0050 0.0075 zero skip conv1 conv3 avgpool (c) edge.2←1 0 10 20 30 40 50 0.02 0.01 0.00 0.01 0.02 0.03 0.04 zero skip conv1 conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.025 0.020 0.015 0.010 0.005 0.000 0.005 0.010 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.03 0.02 0.01 0.00 0.01 ze",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04121,
+        -0.00495,
+        -0.03565,
+        -0.03468,
+        0.0031
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": " conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.025 0.020 0.015 0.010 0.005 0.000 0.005 0.010 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.03 0.02 0.01 0.00 0.01 ze",
+      "overlap_with_next": "_3x3 c_{k}sep_conv_3x3 sep_conv_3x3 (a) normal c_{k-2} 0sep_conv_3x3 1sep_conv_3x3 2 sep_conv_5x5 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_5x5 sep_conv_5x5 c_{k} (",
+      "text": " conv3 avgpool (d) edge.3←0 0 10 20 30 40 50 0.025 0.020 0.015 0.010 0.005 0.000 0.005 0.010 zero skip conv1 conv3 avgpool (e) edge.3←1 0 10 20 30 40 50 0.03 0.02 0.01 0.00 0.01 zero skip conv1 conv3 avgpool (f) edge.3←2 Figure 9: Single-level optimization. On the 16th cell. Table 5:∗ denotesα is initialized as− ln(7). ’Data’ means use full or half of data to do search. Activation Data Seed FLOPs Params Top-1. (M) (M) (%) softmax full 0 714.72 6.58 76.28 softmax full 1 712.92 6.56 76.71 softmax full 2 722.25 6.61 76.27 sigmoid full 0 738.21 6.69 76.12 sigmoid full 1 738.21 6.69 76.58 sigmoid full 2 721.35 6.60 76.29 sigmoid* full 0 707.89 6.50 76.26 sigmoid* full 1 721.35 6.60 77.0 sigmoid* full 2 700.61 6.40 76.95 softmax half 0 712.01 6.55 76.51 softmax half 1 692.18 6.36 76.31 softmax half 2 709.04 6.45 76.51 sigmoid* half 0 720.44 6.59 76.67 sigmoid* half 1 692.18 6.36 76.78 sigmoid* half 2 707.89 6.50 76.54 c_{k-2} 0 sep_conv_3x3 1sep_conv_3x3 2sep_conv_3x3 3sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 c_{k}sep_conv_3x3 sep_conv_3x3 (a) normal c_{k-2} 0sep_conv_3x3 1sep_conv_3x3 2 sep_conv_5x5 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_5x5 sep_conv_5x5 c_{k} (",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03796,
+        -0.02466,
+        -0.0482,
+        -0.03056,
+        0.00148
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "_3x3 c_{k}sep_conv_3x3 sep_conv_3x3 (a) normal c_{k-2} 0sep_conv_3x3 1sep_conv_3x3 2 sep_conv_5x5 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_5x5 sep_conv_5x5 c_{k} (",
+      "overlap_with_next": "nv_3x3 c_{k} sep_conv_3x3 (a) normal cell c_{k-2} 0 sep_conv_3x3 1 sep_conv_3x3 2 sep_conv_3x3 3 sep_conv_3x3 c_{k-1} skip_connect sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 c_{k} (b) ",
+      "text": "_3x3 c_{k}sep_conv_3x3 sep_conv_3x3 (a) normal c_{k-2} 0sep_conv_3x3 1sep_conv_3x3 2 sep_conv_5x5 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_5x5 sep_conv_5x5 c_{k} (b) reduction Figure 10: activation=softmax, data=full, seed=0 c_{k-2} 0 sep_conv_3x3 1sep_conv_3x3 2sep_conv_3x3 3sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 c_{k}sep_conv_3x3 sep_conv_3x3 (a) normal c_{k-2} 0sep_conv_3x3 1sep_conv_3x3 2sep_conv_3x3 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_5x5 sep_conv_3x3 c_{k} (b) reduction Figure 11: activation=softmax, data=full, seed=1 c_{k-2} 0sep_conv_3x3 1sep_conv_3x3 2 sep_conv_3x3 3 sep_conv_5x5 c_{k-1} sep_conv_3x3 sep_conv_3x3 c_{k}sep_conv_3x3 sep_conv_3x3 (a) normal c_{k-2} 0sep_conv_3x3 1sep_conv_5x5 2 sep_conv_3x3 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_5x5 sep_conv_3x3 c_{k} (b) reduction Figure 12: activation=softmax, data=full, seed=2 c_{k-2} 0sep_conv_3x3 1 sep_conv_3x3 2sep_conv_3x3 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 c_{k} sep_conv_3x3 (a) normal cell c_{k-2} 0 sep_conv_3x3 1 sep_conv_3x3 2 sep_conv_3x3 3 sep_conv_3x3 c_{k-1} skip_connect sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 c_{k} (b) ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02909,
+        0.00201,
+        -0.09059,
+        -0.04428,
+        -0.01799
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 45809,
+      "length": 929,
+      "overlap_with_previous": "nv_3x3 c_{k} sep_conv_3x3 (a) normal cell c_{k-2} 0 sep_conv_3x3 1 sep_conv_3x3 2 sep_conv_3x3 3 sep_conv_3x3 c_{k-1} skip_connect sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 c_{k} (b) ",
+      "overlap_with_next": "",
+      "text": "nv_3x3 c_{k} sep_conv_3x3 (a) normal cell c_{k-2} 0 sep_conv_3x3 1 sep_conv_3x3 2 sep_conv_3x3 3 sep_conv_3x3 c_{k-1} skip_connect sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 c_{k} (b) reduction cell Figure 13: activation=sigmoid*, data=full, seed=0 c_{k-2} 0 sep_conv_3x3 1 sep_conv_3x3 2sep_conv_5x5 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 c_{k} sep_conv_3x3 (a) normal c_{k-2} 0 sep_conv_3x3 1 sep_conv_3x3 2 sep_conv_3x3 3 sep_conv_5x5 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 c_{k} (b) reduction Figure 14: activation=sigmoid*, data=full, seed=1 c_{k-2} 0 sep_conv_3x3 2sep_conv_3x3 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 1sep_conv_5x5 dil_conv_5x5 c_{k}sep_conv_3x3 sep_conv_3x3 (a) normal c_{k-2} 0 sep_conv_3x3 1 sep_conv_3x3 2 sep_conv_3x3 3 sep_conv_3x3 c_{k-1} sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 sep_conv_3x3 c_{k} (b) reduction Figure 15: activation=sigmoid*, data=full, seed=2 11",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02889,
+        -0.00793,
+        -0.07006,
+        -0.0115,
+        -0.01911
+      ]
+    }
+  ]
+}

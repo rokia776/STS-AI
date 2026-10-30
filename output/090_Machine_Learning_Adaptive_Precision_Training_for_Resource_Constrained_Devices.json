@@ -1,0 +1,521 @@
+{
+  "paper_id": "651c53c4-3348-4aaf-bf86-6cf6f34bac23",
+  "filename": "090_Machine_Learning_Adaptive_Precision_Training_for_Resource_Constrained_Devices.pdf",
+  "title": "090_Machine_Learning_Adaptive_Precision_Training_for_Resource_Constrained_Devices.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 30,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "ward and backward pass in order to reduce memory usage for training. Through evaluating the progress of training, APT allocates layer-wise precision dynamically so that the model l",
+      "text": "[Page 1] Adaptive Precision Training for Resource Constrained Devices Tian HUANG∗, Tao LUO†, and Joey Tianyi ZHOU‡ Agency for Science, Technology and Research, Singapore ∗huang tian@ihpc.a-star.edu.sg,†luo tao@ihpc.a-star.edu.sg,‡Joey Zhou@ihpc.a-star.edu.sg Abstract—Learn in-situ is a growing trend for Edge AI. Train- ing deep neural network (DNN) on edge devices is challenging because both energy and memory are constrained. Low precision training helps to reduce the energy cost of a single training iteration, but that does not necessarily translate to energy savings for the whole training process, because low precision could slows down the convergence rate. One evidence is that most works for low precision training keep an fp32 copy of the model during training, which in turn imposes memory requirements on edge devices. In this work we propose Adaptive Precision Training. It is able to save both total training energy cost and memory usage at the same time. We use model of the same precision for both forward and backward pass in order to reduce memory usage for training. Through evaluating the progress of training, APT allocates layer-wise precision dynamically so that the model l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02652,
+        -0.03595,
+        -0.04685,
+        -0.01398,
+        -0.01476
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "ward and backward pass in order to reduce memory usage for training. Through evaluating the progress of training, APT allocates layer-wise precision dynamically so that the model l",
+      "overlap_with_next": "p learning model on edge device reﬂects the very idea of edge computing, and beneﬁts from energy savings in data transmission, low response latency and enhanced privacy. Train deep",
+      "text": "ward and backward pass in order to reduce memory usage for training. Through evaluating the progress of training, APT allocates layer-wise precision dynamically so that the model learns quicker for longer time. APT provides an application speciﬁc hyper-parameter for users to play trade-off between training energy cost, memory usage and accuracy. Experiment shows that APT achieves more than 50% saving on training energy and memory usage with limited accuracy loss. 20% more savings of training energy and memory usage can be achieved in return for a 1% sacriﬁce in accuracy loss. I. I NTRODUCTION Deep learning-based Edge AI, as a growing trend, have started to change many aspects of people’s lives. Well trained deep learning models are able to achieve record-breaking predictive performance [15], [7], but we have witnessed in- creasing demand for the model to learn in-situ, for the purpose of personalisation or adaptation to evolving environment. Comparing to cloud-based deep learning framework, training a deep learning model on edge device reﬂects the very idea of edge computing, and beneﬁts from energy savings in data transmission, low response latency and enhanced privacy. Train deep",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01053,
+        -0.03579,
+        -0.05302,
+        0.01127,
+        -0.01623
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "p learning model on edge device reﬂects the very idea of edge computing, and beneﬁts from energy savings in data transmission, low response latency and enhanced privacy. Train deep",
+      "overlap_with_next": "for solving more complicated tasks [12]. Low precision training reduces the energy cost of a single training iteration, but that does not necessarily translate to energy savings fo",
+      "text": "p learning model on edge device reﬂects the very idea of edge computing, and beneﬁts from energy savings in data transmission, low response latency and enhanced privacy. Train deep learning model on edge device is challenging be- cause training DNNs usually involves energy-intensive devices such as GPU and CPU with high precision (ﬂoat32) processing units and abundant memory. For example, neural architecture search on ImageNet [2] would consume 10,000 GPU hours and tons of memory. An edge device such as a smart phone could easily draining out its battery before ﬁnishing a few training epochs. Training is memory demanding than inference, as the precision demand for back propagation is usually higher than inference [9] [28]. Many works [9], [16] only focus on compressing network for inference, while still keeping high precision during training. The gap between limited resource on edge devices and the growing demand on training is widening, as researchers strive for better accuracy and propose larger models for solving more complicated tasks [12]. Low precision training reduces the energy cost of a single training iteration, but that does not necessarily translate to energy savings fo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03766,
+        -0.02573,
+        -0.0537,
+        -0.01771,
+        -0.02425
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "for solving more complicated tasks [12]. Low precision training reduces the energy cost of a single training iteration, but that does not necessarily translate to energy savings fo",
+      "overlap_with_next": "n, we propose a heuristic method called Adaptive Precision Training (APT) . In APT, We use per-layer metrics that indicate how effective a layer learns with given precision. By eva",
+      "text": "for solving more complicated tasks [12]. Low precision training reduces the energy cost of a single training iteration, but that does not necessarily translate to energy savings for the whole training process, because low precision could slows down the convergence rate. [9] A prolonged training process could leads to a worse battery situation. Many works keep an fp32 copy of their model during training [9], [16], [30], [28], [20], [19], which in turn imposes further memory requirements on edge devices. In this paper we consider the training of a DNN on energy and memory constrained devices. Our goal is to reduce the total energy and memory cost for the training , We are inspired by [3] and ﬁnd that one can train a model with low precision at the beginning of training process, enjoying the energy and memory savings from low precision. As the training curve comes to its plateau, adding more precision help the model approach higher accuracy with fewer training epochs and less energy. Based on this inspiration, we propose a heuristic method called Adaptive Precision Training (APT) . In APT, We use per-layer metrics that indicate how effective a layer learns with given precision. By eva",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01743,
+        -0.01724,
+        -0.05336,
+        -0.00193,
+        -0.01478
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "n, we propose a heuristic method called Adaptive Precision Training (APT) . In APT, We use per-layer metrics that indicate how effective a layer learns with given precision. By eva",
+      "overlap_with_next": "fast as, sometimes even faster than, its fp32 counterpart. APT achieves more than 50% saving on training energy and memory usage with limited accuracy loss. By tuning the applicati",
+      "text": "n, we propose a heuristic method called Adaptive Precision Training (APT) . In APT, We use per-layer metrics that indicate how effective a layer learns with given precision. By evaluating the metrics, APT adjusts layer- wise precision dynamically throughout the training process. Below shows a few features that sets APT unique among other training methods: • APT adjusts layer-wise precision dynamically (i.e. using different bitwidth for different layer in different period of training). • In training, we use a model of the same precision for both forward and backward propagation in order to save memory usage for training. • APT provides an application speciﬁc hyper-parameter that achieves trade-off between training energy, memory usage and accuracy. APT ﬁnds the layer-wise precision conﬁguration that help the model learn effectively on the ﬂy, It beneﬁts edge devices that have to learn in-situ frequently after deployment. Exper- iments show that with APT, a model starts in low precision is able to learn as fast as, sometimes even faster than, its fp32 counterpart. APT achieves more than 50% saving on training energy and memory usage with limited accuracy loss. By tuning the applicati",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00618,
+        -0.01832,
+        -0.02414,
+        0.01766,
+        0.00342
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "fast as, sometimes even faster than, its fp32 counterpart. APT achieves more than 50% saving on training energy and memory usage with limited accuracy loss. By tuning the applicati",
+      "overlap_with_next": "arameters are quantised into ﬁxed-point numbers during FPROP. Quantisation Aware Training Training with quantised gradients has been well studied in the distributed learning, whose",
+      "text": "fast as, sometimes even faster than, its fp32 counterpart. APT achieves more than 50% saving on training energy and memory usage with limited accuracy loss. By tuning the application speciﬁc hyper-parameter, one can achieve 20% more savings of training energy and memory usage in return for a 1% sacriﬁce in accuracy loss. arXiv:2012.12775v1 [cs.LG] 23 Dec 2020 [Page 2] II. R ELATED WORK We mainly focus on adaptive layer-wise precision for train- ing. Orthogonal and complementary techniques for reducing complexity like network compression, pruning [4], [27] and compact architectures [8] are impressively efﬁcient but outside the scope this paper. Low Precision for Forward Propagation Many works ex- plores the capability of ﬁxed-point representation for forward prorogation (FPROP) [11], [18], [21], [23]. These methods keep a ﬂoating-point copy of model parameters in the back- ward propagation (BPROP), which places additional demand on memory usage and data movement during training. These ﬂoating-point model parameters are quantised into ﬁxed-point numbers during FPROP. Quantisation Aware Training Training with quantised gradients has been well studied in the distributed learning, whose",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01024,
+        -0.01635,
+        -0.01556,
+        0.02299,
+        -0.01833
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "arameters are quantised into ﬁxed-point numbers during FPROP. Quantisation Aware Training Training with quantised gradients has been well studied in the distributed learning, whose",
+      "overlap_with_next": "of layer-wise bitwidth for energy efﬁcient inference. [26] learns quantisation parameters through ﬁnding gradient of these parameters. Adding more learnable parameters could introd",
+      "text": "arameters are quantised into ﬁxed-point numbers during FPROP. Quantisation Aware Training Training with quantised gradients has been well studied in the distributed learning, whose main motivation is to reduce the communication cost during gradient aggregations between workers [1], [20]. Our goal setting are different because an edge device may not have access to remote support and has to learn in-situ by itself. DoReFa-Net [28] quantise gradients to low-bitwidth ﬁxed-point numbers in the BPROP. TernGrad [20] quantises gradients to ternary values in the BPROP. But the weights are stored and updated in ﬂoating-point representations for these works. W AGE [22] provided a lossy information compression technique and manage to operates BPROP in 8-bit. The goal setting of this work is different from us, as it focuses on reducing the energy cost for single training iteration. Adaptive Training There are a few works that quantise weight and activation with layer-wise precision. [18], [21], [23] explore the space of layer-wise bitwidth for energy efﬁcient inference. [26] learns quantisation parameters through ﬁnding gradient of these parameters. Adding more learnable parameters could introd",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01621,
+        -0.02419,
+        -0.01005,
+        -0.04804,
+        -0.03319
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "of layer-wise bitwidth for energy efﬁcient inference. [26] learns quantisation parameters through ﬁnding gradient of these parameters. Adding more learnable parameters could introd",
+      "overlap_with_next": "ing point arithmetic in terms of energy and memory, but quanti- sation magniﬁes the underﬂow issue. [13] Equation 1 shows the update process of a weight in fp32 format: wij :=wij−l",
+      "text": "of layer-wise bitwidth for energy efﬁcient inference. [26] learns quantisation parameters through ﬁnding gradient of these parameters. Adding more learnable parameters could introduce more uncertainty of the conver- gence of training curve. It also introduce more energy cost for learning more parameters. Zhang et al. [25] also emphasise on energy saving for single training iterations and store and update weights in fp32 format in BPROP. III. A DAPTIVE PRECISION TRAINING In this work, we apply a widely used quantisation scheme [11] to convert ﬂoating point numbers to into integers. The scheme is equivalent to an afﬁne mapping of integers q to real numbers r. The formalised equation is shown as follows r =S(q−Z). S and Z represent the scale and zero point of a group of values, or a tensor. All values in a tensor share one S andZ. Different tensors have their own S andZ. For k-bit quantisation, q has 2k possible discrete states. A. Quantisation Underﬂow Low precision integer arithmetic is cheaper than a ﬂoating point arithmetic in terms of energy and memory, but quanti- sation magniﬁes the underﬂow issue. [13] Equation 1 shows the update process of a weight in fp32 format: wij :=wij−l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01506,
+        0.00513,
+        -0.02276,
+        -0.02344,
+        -0.00258
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ing point arithmetic in terms of energy and memory, but quanti- sation magniﬁes the underﬂow issue. [13] Equation 1 shows the update process of a weight in fp32 format: wij :=wij−l",
+      "overlap_with_next": "l,lr∗gij is bigger than ϵi for most of cases. As the precision decreases, ϵi increases, quantisation underﬂow happens more often, putting higher resistance on weights updating. Gra",
+      "text": "ing point arithmetic in terms of energy and memory, but quanti- sation magniﬁes the underﬂow issue. [13] Equation 1 shows the update process of a weight in fp32 format: wij :=wij−lr∗gij (1) wij is the j-th weight of i-th layer, lr is the learning rate, gij is the corresponding gradient of the wij. Ideally, at each training step, a weight changes by lr∗gij. As we apply k- bit quantisation to a tensor of weights, too small changes cannot be represented by the weight. We refer to this minimum resolution as ϵ, which is formalised as follow: ϵi = max(Wi)−min(Wi)2k− 1 (2) Wi is a tensor of weights of i-th layer. k is the precision, or the bitwidth for the tensor. The updates of a weight wij is regulated by ϵi, which can be formalised as the following equation: wij :=wij− ⌊lr∗gij ϵi ⌋ ∗ϵi (3) As a result, lr∗gij is quantised to discrete states, which is equivalent to that of wij. lr∗gij has to be at least bigger than ϵi, otherwise quantisation underﬂow happens. For high precision training (e.g. 32-bit) ϵ is small,lr∗gij is bigger than ϵi for most of cases. As the precision decreases, ϵi increases, quantisation underﬂow happens more often, putting higher resistance on weights updating. Gra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04277,
+        -0.01797,
+        -0.03346,
+        -0.03351,
+        -0.00716
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "l,lr∗gij is bigger than ϵi for most of cases. As the precision decreases, ϵi increases, quantisation underﬂow happens more often, putting higher resistance on weights updating. Gra",
+      "overlap_with_next": " all parameters in order to prevent the above- mention situation from happening, in the cost of memory usage, energy on data movement and additional training iter- ations. We belie",
+      "text": "l,lr∗gij is bigger than ϵi for most of cases. As the precision decreases, ϵi increases, quantisation underﬂow happens more often, putting higher resistance on weights updating. Gradient is the horse power that drives the training process forward. Low-precision training put restrictions on the horse power and slow down the training process. We have the observation that in low precision network, gradients vanishes quicker than that of a network with higher precision. This is because quantisation underﬂow happens more often in low precision model and guides the model into local minima. Some of layers have larger ϵ and are harder to be updated than others. As the training loss decreases, These layers with larger ϵ suffer more quantisation underﬂow than before, stepping onto a slippery slope. As the training process moves forward, quantisation underﬂow freezes more parameters, driving the training into a dead state. B. Metrics for Underﬂow Many works [9], [16], [30], [28], [20], [19], [25] keep an fp32 copy of all parameters in order to prevent the above- mention situation from happening, in the cost of memory usage, energy on data movement and additional training iter- ations. We belie",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04802,
+        -0.02433,
+        -0.06922,
+        -0.03317,
+        0.0015
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": " all parameters in order to prevent the above- mention situation from happening, in the cost of memory usage, energy on data movement and additional training iter- ations. We belie",
+      "overlap_with_next": "pdate. Although we use weight to describe the concept of quantisa- tion underﬂow and metrics, Gavg applies to other parameters that need to be learned during training, e.g. bias, t",
+      "text": " all parameters in order to prevent the above- mention situation from happening, in the cost of memory usage, energy on data movement and additional training iter- ations. We believe there are low precision conﬁgurations that is able to save training energy and memory usage at the same. The key is to understand how easy quantisation underﬂow happens to a layer, I propose a metric called Gavg, which is formalised as Equation 4. Gavgi = 1Ni Ni∑ j=0 ⏐⏐⏐⏐gijϵi⏐⏐⏐⏐ (4) Ni represents the number of parameters in a tensor, Gavgi indicates how large a gradient is related to the minimum resolution of parameters in i-th layer. The larger the Gavg is, the less likely the parameters remains unchanged during back propagation. If Gavg approaches zero, that means the [Page 3] layer suffers serious quantisation underﬂow problem and does not update for most of times. The precision is the key to preventGavg from approaching zero. A higher precision leads to lower ϵ and higher Gavg, which means the parameters are easier to update. Although we use weight to describe the concept of quantisa- tion underﬂow and metrics, Gavg applies to other parameters that need to be learned during training, e.g. bias, t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02423,
+        -0.01724,
+        -0.06145,
+        -0.02994,
+        0.0106
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "pdate. Although we use weight to describe the concept of quantisa- tion underﬂow and metrics, Gavg applies to other parameters that need to be learned during training, e.g. bias, t",
+      "overlap_with_next": " sure that Gavg of all layers are within a pre-deﬁned range. A C-styled description of the policy is presented below. Algorithm 1: Precision Adjustment Policy input : k0...M −1, Ga",
+      "text": "pdate. Although we use weight to describe the concept of quantisa- tion underﬂow and metrics, Gavg applies to other parameters that need to be learned during training, e.g. bias, the clipping point of activation and gradient. In the metric Gavg, we do not include other factors like learning rate or momentum in the metrics so that user can still use training tricks or sophisticated optimisers over our training method. C. Precision Adjustment Policy The metric Gavg is a good measure for balancing require- ments between training energy, memory usage, and accuracy. It is well known that precision is directly related to the energy, memory and accuracy. Using ﬁxed precision across the whole network may not meets the requirement of each layer. On comparison, a single threshold for Gavg is able to produce different precision conﬁguration according to the distribution of parameters and their gradients. We propose a precision adjustment policy based on the metric Gavg. We start with a naive policy, which is to make sure that Gavg of all layers are within a pre-deﬁned range. A C-styled description of the policy is presented below. Algorithm 1: Precision Adjustment Policy input : k0...M −1, Ga",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01214,
+        -0.04773,
+        -0.07566,
+        -0.0329,
+        -0.00504
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " sure that Gavg of all layers are within a pre-deﬁned range. A C-styled description of the policy is presented below. Algorithm 1: Precision Adjustment Policy input : k0...M −1, Ga",
+      "overlap_with_next": "n adjustment happens between training epochs. Gavg does not have to be calculated for each training iteration. A few times in each epoch sufﬁce to give a proﬁle of Gavg for precisi",
+      "text": " sure that Gavg of all layers are within a pre-deﬁned range. A C-styled description of the policy is presented below. Algorithm 1: Precision Adjustment Policy input : k0...M −1, Gavg0...M −1, Tmin, Tmax, output: k0...M −1 1 for ( i = 0; i<M ; i =i + 1 ){ 2 if ( Gavgi <T min && ki < 32 ){ 3 ki :=ki + 1; 4 } 5 if ( Gavgi >T max && ki > 2 ){ 6 ki :=ki− 1; 7 } 8} 9 returnk0...M −1; In Algorithm 1, k0...M −1 and Gavg0...M −1 represents the precision and metrics of all M layers. Tmin, Tmax are the upper and lower limit. Algorithm 1 increase the precision of a layer when its Gavg < Tmin and decrease the precision when Gavg >Tmax. The lower limit ensures all layers learn effective, whereas the upper limit is for saving energy cost and memory usage on those parameters that are very easy to update (e.g. due to its small range or large gradients). A typical workﬂow of APT is described in Algorithm 2. A training starts with a low-precision model. The metrics evaluation happens inside each training epoch. The precision adjustment happens between training epochs. Gavg does not have to be calculated for each training iteration. A few times in each epoch sufﬁce to give a proﬁle of Gavg for precisi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0044,
+        -0.04996,
+        -0.06233,
+        -0.00084,
+        0.00477
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "n adjustment happens between training epochs. Gavg does not have to be calculated for each training iteration. A few times in each epoch sufﬁce to give a proﬁle of Gavg for precisi",
+      "overlap_with_next": "ure layer B learns effectively.Tmax is set to inf in this demo. It is also possible to use Tmax to reduce bitwidth for layers that do not suffer much from quantisation underﬂow. IV",
+      "text": "n adjustment happens between training epochs. Gavg does not have to be calculated for each training iteration. A few times in each epoch sufﬁce to give a proﬁle of Gavg for precision adjustment. Algorithm 2: Training with APT 1 Initialise all layers of a model with low precision, e.g. k = 6; 2 for ( epoch = 0; epoch< 200; epoch + + ){ 3 for ( iter = 0; iter<len (train loader); iter + + ) { 4 Forward propagation; 5 Backward propagation; 6 if iter%INTERVAL == 0 then 7 EvaluateGavg using Equation 4; 8 Moving average on Gavg; 9 end 10 } 11 Adjust model precision using Algorithm 1; 12} Fig. 1. Gavg v.s. Epoch for two layer Figure 1 demonstrate the trend of Gavg of two layers in a training with adaptive precision. Tmin is set to 1.0 in this demo. Layer A starts with a Gavg below Tmin, indicating it suffers quantisation underﬂow. APT allocates more bitwidth to lift the Gavg of layer A above the threshold. Layer B is very easy to update at the beginning. Whenever Gavg hits Tmin, APT allocates more bitwidth to ensure layer B learns effectively.Tmax is set to inf in this demo. It is also possible to use Tmax to reduce bitwidth for layers that do not suffer much from quantisation underﬂow. IV",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00074,
+        -0.05303,
+        -0.03994,
+        0.0075,
+        0.00074
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ure layer B learns effectively.Tmax is set to inf in this demo. It is also possible to use Tmax to reduce bitwidth for layers that do not suffer much from quantisation underﬂow. IV",
+      "overlap_with_next": " one GPU. For experiments on CIFAR10, we start with a learning rate of 0.1, divide it by 10 at 100 epoch and 150 epoch iterations, and terminate training at 200 iterations. For exp",
+      "text": "ure layer B learns effectively.Tmax is set to inf in this demo. It is also possible to use Tmax to reduce bitwidth for layers that do not suffer much from quantisation underﬂow. IV. E XPERIMENTS In this section we evaluate the APT with three datasets: CI- FAR10 and CIFAR100 [14]. We follow the data augmentation in [22] for training: 4 pixels are padded on each side, and a 32x32 patch is randomly cropped from the padded image or its horizontal ﬂip. For testing, only single view of the original 32x32 image is evaluated. Three popular backbones, ResNet- 20, ResNet-110 [6], and MobileNetV2 [17], are included in the experiments. [Page 4] Fig. 2. Test Accuracy v.s. Epoch for ResNet20 on CIFAR10 Many works used sophisticated optimiser, such as Adam, in their experiments. We use SGD to show the potential of saving energy and memory usage. We use a weight decay of 0.0001 and momentum of 0.9, and adopt the weight initialization in [5] and BN [10] with no dropout. The model is trained with a minibatch size of 128 on one GPU. For experiments on CIFAR10, we start with a learning rate of 0.1, divide it by 10 at 100 epoch and 150 epoch iterations, and terminate training at 200 iterations. For exp",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03503,
+        -0.00621,
+        -0.0493,
+        -0.00105,
+        -0.0106
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " one GPU. For experiments on CIFAR10, we start with a learning rate of 0.1, divide it by 10 at 100 epoch and 150 epoch iterations, and terminate training at 200 iterations. For exp",
+      "overlap_with_next": "t model has the steepest learning curves among all, as they do not suffer much from quantisation underﬂow problem. The curve of 8-bit model does not climb as fast as fp32 and 16-bi",
+      "text": " one GPU. For experiments on CIFAR10, we start with a learning rate of 0.1, divide it by 10 at 100 epoch and 150 epoch iterations, and terminate training at 200 iterations. For experiments on CIFAR100, we apply learning rate warm up, which reduces the learning rate down to 0.01 for the ﬁrst two epochs and go back to learning rate scheduling for CIFAR10 for the rest of the training. For all experiments we set initial bitwidth to 6, which will be explained later. Unless speciﬁed, we set the application speciﬁc parameter (Tmin,T max) to (6.0,inf ) for all experi- ments. This setting is better for demonstrating the capability of APT in saving energy and memory usage. One can set (Tmin,T max) to other values that meets the requirements of the applications. A. Training Curves and Adaptive Precision Adjustment We compare the our APT method with a vanilla SGD with different precision. The weights of all models are quantised for both forward pass and backward pass. Figure 2 shows the training curve. fp32 and 16-bit model has the steepest learning curves among all, as they do not suffer much from quantisation underﬂow problem. The curve of 8-bit model does not climb as fast as fp32 and 16-bi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02798,
+        -0.02552,
+        -0.03018,
+        0.01829,
+        -0.015
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "t model has the steepest learning curves among all, as they do not suffer much from quantisation underﬂow problem. The curve of 8-bit model does not climb as fast as fp32 and 16-bi",
+      "overlap_with_next": "f clarity. Overlapping curved are shifted slight away from each other for the same purpose. APT treats layers differently according to their learning effectiveness. Some layers are",
+      "text": "t model has the steepest learning curves among all, as they do not suffer much from quantisation underﬂow problem. The curve of 8-bit model does not climb as fast as fp32 and 16-bit does. An investigation into the training statistics shows thatGavg of the all layers drop from the scale of 1 down to 1e− 1 within the ﬁrst 50 epoch, which indicates quantisation underﬂow happens model wide and signiﬁcantly slows down the training process of the 8-bit model. On comparison, our adaptive training method starts with a model initialised with 6-bit weights. Its training curve starts with lower accuracy at the beginning, even lower than that of 8-bit. It overtakes the 8-bit and catch up with 16-bit and fp32. This is achieved by adaptively adjust layer-wise bitwidth of the model. Fig. 3. Layer-wise Bitwitdh v.s. Epoch for ResNet20 on CIFAR10 Figure 3 demonstrate the changes our method made to the layer-wise bitwidth of the model. Only four layers with weight parameters out of 20 are shown in this ﬁgure for the sake of clarity. Overlapping curved are shifted slight away from each other for the same purpose. APT treats layers differently according to their learning effectiveness. Some layers are",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01886,
+        -0.03388,
+        -0.02699,
+        -0.01052,
+        0.01698
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "f clarity. Overlapping curved are shifted slight away from each other for the same purpose. APT treats layers differently according to their learning effectiveness. Some layers are",
+      "overlap_with_next": "d memory. APT provides users trade-off between training energy and test accuracy. For this comparison. we train ResNet20 with CIRFAR10 dataset. The weights of all models are quanti",
+      "text": "f clarity. Overlapping curved are shifted slight away from each other for the same purpose. APT treats layers differently according to their learning effectiveness. Some layers are trained with lower bitwidth in early epochs and achieve solid energy savings. At 100 epoch, The precision of the ﬁrst and last layer reach bitwidth of 13 as the training loss drops quickly after the decay of the learning rate. Though Figure 3 we understand that APT also serves as a neural architecture search method. It start training with an initial bitwidth of 6, which is for sure to be under- qualiﬁed with the target application. The adaptive training method will dynamically adjust the bitwidth of the network, and approaches the target accuracy with fewer energy. This means an initial bitwidth other than 6 leads to similar similar results. We choose 6 for all experiments just for demonstration purpose. B. Savings in Energy and Memory In this subsection we demonstrates that our adaptive training method saves training energy and memory. APT provides users trade-off between training energy and test accuracy. For this comparison. we train ResNet20 with CIRFAR10 dataset. The weights of all models are quanti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.03543,
+        -0.00281,
+        -0.01909,
+        -0.00134,
+        -0.00277
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "d memory. APT provides users trade-off between training energy and test accuracy. For this comparison. we train ResNet20 with CIRFAR10 dataset. The weights of all models are quanti",
+      "overlap_with_next": "use within 200 epoch it is not able to reach an accuracy of 91.75%. In order to achieve the last few percentage of improvement in accuracy, models with ﬁxed bitwidth spend a lot of",
+      "text": "d memory. APT provides users trade-off between training energy and test accuracy. For this comparison. we train ResNet20 with CIRFAR10 dataset. The weights of all models are quantised for both forward pass and backward pass. The 12-bit, 14-bit, 16-bit and 32-bit models use ﬁxed bitwidth throughout training process. We do not include 10-bit, 8-bit or lower bitwidth because their suffer large accuracy loss and fall off charts in most cases. Our adaptive training method starts on a model with initial weight bitwidth of 6. The grouped bars in Figure 4 show the energy our method saved given a target accuracy. X axis is the Top 1 accuracy ranging from 91% to 92%. All training energy cost are normalised to the cost of 32-bit model. 12-bit model has the least training energy cost among the all ﬁxed-bitwidth models. It still spends 9% more training energy [Page 5] Fig. 4. Training Energy v.s. Bitwidth for ResNet20 on CIFAR10 than our adaptive method does. The 12-bit model is absent in the 91.75% and 92% group because within 200 epoch it is not able to reach an accuracy of 91.75%. In order to achieve the last few percentage of improvement in accuracy, models with ﬁxed bitwidth spend a lot of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01262,
+        -0.01938,
+        -0.067,
+        0.00709,
+        -0.0131
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "use within 200 epoch it is not able to reach an accuracy of 91.75%. In order to achieve the last few percentage of improvement in accuracy, models with ﬁxed bitwidth spend a lot of",
+      "overlap_with_next": " to achieve more savings in training energy and memory cost in the cost of accuracy loss. In Figure 5, we use Gavg threshold ranging from 0.1− 100.0 and generate a scatter plot of ",
+      "text": "use within 200 epoch it is not able to reach an accuracy of 91.75%. In order to achieve the last few percentage of improvement in accuracy, models with ﬁxed bitwidth spend a lot of training energy. For example, 16-bit model spends 13% more energy to achieve an improvement of 0.25% from 91.5% to 91.75%. On comparison, our adaptive method managed to achieve this by just 1% additional energy. One may notice that the training energy of our adaptive method drops from 40% to 26% when achieving the accuracy improvement from 91.75% to 92%. This is because the 32-bit model spends more training energy than our method does for the same improvement. As the training energy in this ﬁgure is normalised to that of the 32-bit model, the training energy of our method drops from a percentage point of view. In Figure 4, APT trains with Tmin = 6 .0. This hyper- parameter is application speciﬁc, which can be used as a trade-off between accuracy and training energy. Next we demonstrate that by tuning this threshold, one is able to achieve more savings in training energy and memory cost in the cost of accuracy loss. In Figure 5, we use Gavg threshold ranging from 0.1− 100.0 and generate a scatter plot of ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01818,
+        -0.03632,
+        -0.04668,
+        -0.0064,
+        -0.00266
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " to achieve more savings in training energy and memory cost in the cost of accuracy loss. In Figure 5, we use Gavg threshold ranging from 0.1− 100.0 and generate a scatter plot of ",
+      "overlap_with_next": "ning v.s. Test Accuracy for ResNet20 on CIFAR10 for training. The memory usage is normalised to that of a 32- bit presentation. The memory usage follows the same trend as the train",
+      "text": " to achieve more savings in training energy and memory cost in the cost of accuracy loss. In Figure 5, we use Gavg threshold ranging from 0.1− 100.0 and generate a scatter plot of the training energy cost (in orange) for 200 epochs and corresponding accuracy the it achieves. All training energy cost are normalised to that of 32-bit model training. Through Figure 5 we know that higher Gavg threshold results in more training energy, memory usage and higher accuracy. For threshold below 1.0, accuracy increases quickly along with the increase of training energy. The plateau appears on the right of threshold 1.0 means extra training energy brings less improvements, which is very common during the training process. One can choose a Gavg threshold that ﬁts the need of the his or her applications. Figure 5 also presents the model size for training of the same experiment. We use low-precision representation of parameter during the back propagation in order to save memory usage Fig. 5. Resource Consumption for Training v.s. Test Accuracy for ResNet20 on CIFAR10 for training. The memory usage is normalised to that of a 32- bit presentation. The memory usage follows the same trend as the train",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03813,
+        -0.04949,
+        -0.07094,
+        -0.02801,
+        0.01381
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "ning v.s. Test Accuracy for ResNet20 on CIFAR10 for training. The memory usage is normalised to that of a 32- bit presentation. The memory usage follows the same trend as the train",
+      "overlap_with_next": "edge devices is challenging. We propose Adaptive Precision Training method that saves both energy cost and memory usage for training. APT evaluates how effective each layer learns ",
+      "text": "ning v.s. Test Accuracy for ResNet20 on CIFAR10 for training. The memory usage is normalised to that of a 32- bit presentation. The memory usage follows the same trend as the training energy. C. Comparison to Others Table I shows the comparison to other quantisation methods. Model Precision in BPROP refers to the representation used in the update of weights. Many works [9], [16], [30], [28], [20], [19] keeps a fp32 copy of weights for back propagation in order to prevent a prolonged training process. There is no savings in memory usage for training. For example, TernGrad [20] is only for worker-to-server communication in distributed training, weights are still accumulated with fp32. In fact, [22], [24] need more training epochs and/or sophisticated optimiser to reach comparable accuracy. With SGD optimiser and quantised model in BPROP, APT is able to achieve more than 50% of savings in energy and memory usage with limited accuracy loss. V. C ONCLUSION AND FUTURE WORK Training DNNs on resource constrained edge devices is challenging. We propose Adaptive Precision Training method that saves both energy cost and memory usage for training. APT evaluates how effective each layer learns ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05313,
+        -0.02164,
+        -0.0332,
+        -0.01409,
+        -0.04354
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "edge devices is challenging. We propose Adaptive Precision Training method that saves both energy cost and memory usage for training. APT evaluates how effective each layer learns ",
+      "overlap_with_next": "b 68.95 (ResNet-110) [24] b TTQ [30] FP32 Adam 91.13 (ResNet-20) NA DoReFa Net [28] FP32 Adam 89.52 [29] 61.43 [29] TernGrad [20] FP32 a Adam 85.64 (CifarNet) NA W AGE [22] 8-bit S",
+      "text": "edge devices is challenging. We propose Adaptive Precision Training method that saves both energy cost and memory usage for training. APT evaluates how effective each layer learns with its current precision. Based on the evaluation, APT performs layer-wise precision adjustments dynamically to make sure the model learns effective throughout the training process. APT has a hyper-parameter Tmin which provides trade-off between training energy and accuracy. Tuning parameter Tmin requires application speciﬁc knowledge. In future, we are going to ﬁnd automatic ways for choosing a proper Tmin in order to ease the use of APT. REFERENCES [1] Jeremy Bernstein, Yu-Xiang Wang, Kamyar Azizzadenesheli, and An- ima Anandkumar. signsgd: Compressed optimisation for non-convex problems. arXiv preprint arXiv:1802.04434 , 2018. [Page 6] TABLE I COMPARISON OF NETWORK QUANTISATION METHODS Method Model Precision in BPROP Optimizer CIFAR10 CIFAR100 BNN [9] FP32 Adam 89.85 NA TWN [16] FP32 BinaryRelax [24] 88.65 (ResNet-20) [24] b 68.95 (ResNet-110) [24] b TTQ [30] FP32 Adam 91.13 (ResNet-20) NA DoReFa Net [28] FP32 Adam 89.52 [29] 61.43 [29] TernGrad [20] FP32 a Adam 85.64 (CifarNet) NA W AGE [22] 8-bit S",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01119,
+        -0.04025,
+        -0.03183,
+        -0.0035,
+        -0.0068
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "b 68.95 (ResNet-110) [24] b TTQ [30] FP32 Adam 91.13 (ResNet-20) NA DoReFa Net [28] FP32 Adam 89.52 [29] 61.43 [29] TernGrad [20] FP32 a Adam 85.64 (CifarNet) NA W AGE [22] 8-bit S",
+      "overlap_with_next": "ffman coding. arXiv preprint arXiv:1510.00149 , 2015. [5] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Delving deep into rectiﬁers: Surpassing human-level performance on ",
+      "text": "b 68.95 (ResNet-110) [24] b TTQ [30] FP32 Adam 91.13 (ResNet-20) NA DoReFa Net [28] FP32 Adam 89.52 [29] 61.43 [29] TernGrad [20] FP32 a Adam 85.64 (CifarNet) NA W AGE [22] 8-bit SGD 93.22 (VGG-like) b NA E2 Train [19] FP32 SGD 93.07 (ResNet110) NA APT Adaptive SGD 92.23 (ResNet20) 68.38 (ResNet110) 93.96 (MobileNet v2) a Only for worker-to-server communication in distributed training, weights are accumulated with ﬂoat32 b 300 training epochs [2] Zhaowei Cai, Xiaodong He, Jian Sun, and Nuno Vasconcelos. Deep learning with low precision by half-wave gaussian quantization. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 5918–5926, 2017. [3] Suyog Gupta, Ankur Agrawal, Kailash Gopalakrishnan, and Pritish Narayanan. Deep learning with limited numerical precision. In International Conference on Machine Learning, pages 1737–1746, 2015. [4] Song Han, Huizi Mao, and William J Dally. Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding. arXiv preprint arXiv:1510.00149 , 2015. [5] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Delving deep into rectiﬁers: Surpassing human-level performance on ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06217,
+        -0.0417,
+        -0.02375,
+        -0.05888,
+        -0.01363
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "ffman coding. arXiv preprint arXiv:1510.00149 , 2015. [5] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Delving deep into rectiﬁers: Surpassing human-level performance on ",
+      "overlap_with_next": "ision applications. arXiv preprint ArXiv:1704.0486 , 2017. [9] Itay Hubara, Matthieu Courbariaux, Daniel Soudry, Ran El-Yaniv, and Yoshua Bengio. Quantized neural networks: Trainin",
+      "text": "ffman coding. arXiv preprint arXiv:1510.00149 , 2015. [5] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Delving deep into rectiﬁers: Surpassing human-level performance on imagenet classiﬁcation. In Proceedings of the IEEE international conference on computer vision, pages 1026–1034, 2015. [6] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition , pages 770–778, 2016. [7] Geoffrey Hinton, Li Deng, Dong Yu, George E Dahl, Abdel-rahman Mohamed, Navdeep Jaitly, Andrew Senior, Vincent Vanhoucke, Patrick Nguyen, Tara N Sainath, et al. Deep neural networks for acoustic modeling in speech recognition: The shared views of four research groups. IEEE Signal processing magazine , 29(6):82–97, 2012. [8] Andrew G Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, and H Adam Mo- bilenets. Efﬁcient convolutional neural networks for mobile vision applications. arXiv preprint ArXiv:1704.0486 , 2017. [9] Itay Hubara, Matthieu Courbariaux, Daniel Soudry, Ran El-Yaniv, and Yoshua Bengio. Quantized neural networks: Trainin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03427,
+        -0.02723,
+        -0.01382,
+        -0.01449,
+        0.01012
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "ision applications. arXiv preprint ArXiv:1704.0486 , 2017. [9] Itay Hubara, Matthieu Courbariaux, Daniel Soudry, Ran El-Yaniv, and Yoshua Bengio. Quantized neural networks: Trainin",
+      "overlap_with_next": " convolutional networks for efﬁcient inference: A whitepaper. arXiv preprint arXiv:1806.08342, 2018. [14] Alex Krizhevsky, Geoffrey Hinton, et al. Learning multiple layers of featu",
+      "text": "ision applications. arXiv preprint ArXiv:1704.0486 , 2017. [9] Itay Hubara, Matthieu Courbariaux, Daniel Soudry, Ran El-Yaniv, and Yoshua Bengio. Quantized neural networks: Training neural networks with low precision weights and activations. The Journal of Machine Learning Research, 18(1):6869–6898, 2017. [10] S Ioffe and C Szegedy. Batch normalization: accelerating deep network training by reducing internal covariate shift. cornell university library, 2017. [11] Benoit Jacob, Skirmantas Kligys, Bo Chen, Menglong Zhu, Matthew Tang, Andrew Howard, Hartwig Adam, and Dmitry Kalenichenko. Quantization and training of neural networks for efﬁcient integer- arithmetic-only inference. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , pages 2704–2713, 2018. [12] Lukasz Kaiser, Aidan N Gomez, Noam Shazeer, Ashish Vaswani, Niki Parmar, Llion Jones, and Jakob Uszkoreit. One model to learn them all. arXiv preprint arXiv:1706.05137 , 2017. [13] Raghuraman Krishnamoorthi. Quantizing deep convolutional networks for efﬁcient inference: A whitepaper. arXiv preprint arXiv:1806.08342, 2018. [14] Alex Krizhevsky, Geoffrey Hinton, et al. Learning multiple layers of featu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02794,
+        -0.00178,
+        -0.03861,
+        0.01499,
+        -0.01062
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": " convolutional networks for efﬁcient inference: A whitepaper. arXiv preprint arXiv:1806.08342, 2018. [14] Alex Krizhevsky, Geoffrey Hinton, et al. Learning multiple layers of featu",
+      "overlap_with_next": "g, Xiaohan Chen, Pengfei Xu, Yang Zhao, Yingyan Lin, and Zhangyang Wang. E2-train: Training state-of-the-art cnns with over 80% energy savings. In Advances in Neural Information Pr",
+      "text": " convolutional networks for efﬁcient inference: A whitepaper. arXiv preprint arXiv:1806.08342, 2018. [14] Alex Krizhevsky, Geoffrey Hinton, et al. Learning multiple layers of features from tiny images. 2009. [15] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. Imagenet classiﬁcation with deep convolutional neural networks. In Advances in neural information processing systems , pages 1097–1105, 2012. [16] Fengfu Li, Bo Zhang, and Bin Liu. Ternary weight networks. arXiv preprint arXiv:1605.04711, 2016. [17] Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zhmoginov, and Liang-Chieh Chen. Mobilenetv2: Inverted residuals and linear bottlenecks. In Proceedings of the IEEE conference on computer vision and pattern recognition , pages 4510–4520, 2018. [18] Kuan Wang, Zhijian Liu, Yujun Lin, Ji Lin, and Song Han. Haq: Hardware-aware automated quantization with mixed precision. In Proceedings of the IEEE conference on computer vision and pattern recognition, pages 8612–8620, 2019. [19] Yue Wang, Ziyu Jiang, Xiaohan Chen, Pengfei Xu, Yang Zhao, Yingyan Lin, and Zhangyang Wang. E2-train: Training state-of-the-art cnns with over 80% energy savings. In Advances in Neural Information Pr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04024,
+        -0.01335,
+        -0.00239,
+        0.0025,
+        -0.0031
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "g, Xiaohan Chen, Pengfei Xu, Yang Zhao, Yingyan Lin, and Zhangyang Wang. E2-train: Training state-of-the-art cnns with over 80% energy savings. In Advances in Neural Information Pr",
+      "overlap_with_next": "Pattern Recognition (CVPR) , June 2019. [24] Penghang Yin, Shuai Zhang, Jiancheng Lyu, Stanley Osher, Yingyong Qi, and Jack Xin. Binaryrelax: A relaxation approach for training dee",
+      "text": "g, Xiaohan Chen, Pengfei Xu, Yang Zhao, Yingyan Lin, and Zhangyang Wang. E2-train: Training state-of-the-art cnns with over 80% energy savings. In Advances in Neural Information Processing Systems, pages 5139–5151, 2019. [20] Wei Wen, Cong Xu, Feng Yan, Chunpeng Wu, Yandan Wang, Yiran Chen, and Hai Li. Terngrad: Ternary gradients to reduce communica- tion in distributed deep learning. In Advances in neural information processing systems, pages 1509–1519, 2017. [21] Bichen Wu, Yanghan Wang, Peizhao Zhang, Yuandong Tian, Peter Va- jda, and Kurt Keutzer. Mixed precision quantization of convnets via dif- ferentiable neural architecture search. arXiv preprint arXiv:1812.00090, 2018. [22] Shuang Wu, Guoqi Li, Feng Chen, and Luping Shi. Training and inference with integers in deep neural networks. arXiv preprint arXiv:1802.04680, 2018. [23] Jiwei Yang, Xu Shen, Jun Xing, Xinmei Tian, Houqiang Li, Bing Deng, Jianqiang Huang, and Xian-sheng Hua. Quantization networks. In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , June 2019. [24] Penghang Yin, Shuai Zhang, Jiancheng Lyu, Stanley Osher, Yingyong Qi, and Jack Xin. Binaryrelax: A relaxation approach for training dee",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05403,
+        -0.01855,
+        -0.01728,
+        -0.01491,
+        -0.01259
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "Pattern Recognition (CVPR) , June 2019. [24] Penghang Yin, Shuai Zhang, Jiancheng Lyu, Stanley Osher, Yingyong Qi, and Jack Xin. Binaryrelax: A relaxation approach for training dee",
+      "overlap_with_next": " Zou. Dorefa-net: Training low bitwidth convolutional neural networks with low bitwidth gradients. arXiv preprint arXiv:1606.06160, 2016. [29] Zhengguang Zhou, Wengang Zhou, Xutao ",
+      "text": "Pattern Recognition (CVPR) , June 2019. [24] Penghang Yin, Shuai Zhang, Jiancheng Lyu, Stanley Osher, Yingyong Qi, and Jack Xin. Binaryrelax: A relaxation approach for training deep neural networks with quantized weights. SIAM Journal on Imaging Sciences, 11(4):2205–2223, 2018. [25] Xishan Zhang, Shaoli Liu, Rui Zhang, Chang Liu, Di Huang, Shiyi Zhou, Jiaming Guo, Yu Kang, Qi Guo, Zidong Du, et al. Adaptive precision training: Quantify back propagation in neural networks with ﬁxed-point numbers. arXiv preprint arXiv:1911.00361 , 2019. [26] Yichi Zhang, Ritchie Zhao, Weizhe Hua, Nayun Xu, G Edward Suh, and Zhiru Zhang. Precision gating: Improving neural network efﬁciency with dynamic dual-precision activations. arXiv preprint arXiv:2002.07136 , 2020. [27] Aojun Zhou, Anbang Yao, Yiwen Guo, Lin Xu, and Yurong Chen. Incremental network quantization: Towards lossless cnns with low- precision weights. arXiv preprint arXiv:1702.03044 , 2017. [28] Shuchang Zhou, Yuxin Wu, Zekun Ni, Xinyu Zhou, He Wen, and Yuheng Zou. Dorefa-net: Training low bitwidth convolutional neural networks with low bitwidth gradients. arXiv preprint arXiv:1606.06160, 2016. [29] Zhengguang Zhou, Wengang Zhou, Xutao ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0589,
+        -0.02757,
+        -0.05502,
+        -0.01977,
+        -0.01894
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30024,
+      "length": 444,
+      "overlap_with_previous": " Zou. Dorefa-net: Training low bitwidth convolutional neural networks with low bitwidth gradients. arXiv preprint arXiv:1606.06160, 2016. [29] Zhengguang Zhou, Wengang Zhou, Xutao ",
+      "overlap_with_next": "",
+      "text": " Zou. Dorefa-net: Training low bitwidth convolutional neural networks with low bitwidth gradients. arXiv preprint arXiv:1606.06160, 2016. [29] Zhengguang Zhou, Wengang Zhou, Xutao Lv, Xuan Huang, Xiaoyu Wang, and Houqiang Li. Progressive learning of low-precision networks. arXiv preprint arXiv:1905.11781 , 2019. [30] Chenzhuo Zhu, Song Han, Huizi Mao, and William J Dally. Trained ternary quantization. arXiv preprint arXiv:1612.01064 , 2016.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04199,
+        -0.00485,
+        -0.01336,
+        -0.03925,
+        0.02173
+      ]
+    }
+  ]
+}

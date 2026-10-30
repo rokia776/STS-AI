@@ -1,0 +1,606 @@
+{
+  "paper_id": "52e32df7-22d0-4153-accd-269e77fc5edf",
+  "filename": "078_Machine_Learning_Machine_Learning_Algorithm_for_NLOS_Millimeter_Wave_in_5G_V2X_Communication.pdf",
+  "title": "078_Machine_Learning_Machine_Learning_Algorithm_for_NLOS_Millimeter_Wave_in_5G_V2X_Communication.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 35,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "d broadcast the messages to the vehicles at NLOS using a LOS nodes as a relay. The transmission of information is faster with higher throughpu t and it covers a wider bandwidth whi",
+      "text": "[Page 1] Natarajan Meghanathan et al. (Eds): CSE, BMLI, EDU, AI & FL, CCNET - 2020 pp. 63-76, 2020. CS & IT - CSCP 2020 DOI: 10.5121/csit.2020.101706 MACHINE LEARNING ALGORITHM FOR NLOS MILLIMETER WAVE IN 5G V2X COMMUNICATION Deepika Mohan1, G. G. Md. Nawaz Ali2 and Peter Han Joo Chong1 1Department of Electrical and Electronics Engineering, Auckland University of Technology, Auckland 1010, New Zealand 2Department of Applied Computer Science, University of Charleston, WV 25304, USA ABSTRACT The 5G vehicle -to-everything (V2X) communication for autonomous and semi -autonomous driving utilizes the wireless technology for communication and the Millimeter Wave bands are widely implemented in this kind of vehicular network application. The main purpose of this paper is to broadcast the messages from the mmWave Base Station to vehicles at LOS (Line -of- sight) and NLOS (Non-LOS). Relay using Machine Learning (RML) algorithm is formulated to train the mmBS for identifying the blockages within its coverage area and broadcast the messages to the vehicles at NLOS using a LOS nodes as a relay. The transmission of information is faster with higher throughpu t and it covers a wider bandwidth whi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0205,
+        -0.0203,
+        -0.04542,
+        0.01646,
+        -0.00489
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "d broadcast the messages to the vehicles at NLOS using a LOS nodes as a relay. The transmission of information is faster with higher throughpu t and it covers a wider bandwidth whi",
+      "overlap_with_next": " accidents and to calculate the speed of their neighbours, hence from this it is clear that the vehicular communication and mobility are approaching for a new era. The 5G provides ",
+      "text": "d broadcast the messages to the vehicles at NLOS using a LOS nodes as a relay. The transmission of information is faster with higher throughpu t and it covers a wider bandwidth which is reused, therefore when performing machine learning within the coverage area of mmBS most of the vehicles in NLOS can be benefited. A unique method of relay mechanism combined with machine learning is proposed to communicate with mobile nodes at NLOS. KEYWORDS 5G, Millimeter Wave, Machine Learning, Relay, V2X communication 1. INTRODUCTION Significant advancement has been made in the field of vehicular communication in recent years. Information about live traffic updates, warnings, safety messages and even more information are exchanged through the communication node among vehicles and Road side units (RSU) [12]. All these communications between vehicles and network are done as the vehicles communicates through cell phone towers for information about traffic and routes. Every mobile node communicates with each other to avoid accidents and to calculate the speed of their neighbours, hence from this it is clear that the vehicular communication and mobility are approaching for a new era. The 5G provides ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03182,
+        -0.02348,
+        -0.02899,
+        0.02861,
+        -0.00923
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " accidents and to calculate the speed of their neighbours, hence from this it is clear that the vehicular communication and mobility are approaching for a new era. The 5G provides ",
+      "overlap_with_next": "X applications make use o f the Millimeter Wave [Page 2] 64 Computer Science & Information Technology (CS & IT) (mmWave) band as it functions below 6GHz with higher data rate, incr",
+      "text": " accidents and to calculate the speed of their neighbours, hence from this it is clear that the vehicular communication and mobility are approaching for a new era. The 5G provides a higher speed with lower latency which creates a revolution in the digital world of wireless technology and the advancements in 5G has benefited in the improvements in vehicular networks for autonomous driving [11]. Ultra -high reliability is provided for many applications that utilize 5G as it involves new technology with a usage of high frequency and antenna improvement. The vehicle-to-everything (V2X) plays an important role in improving high vehicle utilization, supporting accident free transportation thus providing zero emission vehicles which are more efficient [16]. The major use of 5G techno logy in future is V2X communication where the vehicles communicate with its surroundings to get information from outside world. For basic security and non -safety applications the V2X technology is operated below 6 GHz [26]. Many V2X applications make use o f the Millimeter Wave [Page 2] 64 Computer Science & Information Technology (CS & IT) (mmWave) band as it functions below 6GHz with higher data rate, incr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04399,
+        0.00187,
+        -0.02947,
+        0.03063,
+        -0.02071
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "X applications make use o f the Millimeter Wave [Page 2] 64 Computer Science & Information Technology (CS & IT) (mmWave) band as it functions below 6GHz with higher data rate, incr",
+      "overlap_with_next": "osed for these drawbacks but for predicting blockages and transmitting messages is still a chal lenge in mmWave, which will be focused in this paper. Therefore in a particular cove",
+      "text": "X applications make use o f the Millimeter Wave [Page 2] 64 Computer Science & Information Technology (CS & IT) (mmWave) band as it functions below 6GHz with higher data rate, increased network capacity and bandwidth. The major drawback mmWave faces is its coverage area as it suffers a higher penetration loss hence it cannot transmit signal when obstructed by buildings, therefore mmWave cannot send information to vehicles in NLOS. The mmWave coverage area can be increased either by deploying mmWave Base Station (mmBS) or designing an antenna in such a way which will transmit information to vehic les using radio frequency [13]. But a suitable solution for overcoming this drawback is by using Machine Learning (ML); through which mmBS understands and learns about its environment and transmits data to vehicles in NLOS range [6]. Even though mmWave have more advantages in the communication field, it suffers a big loss due to shadowing, blockages, fast fading and path loss [5]. More number of approaches is proposed for these drawbacks but for predicting blockages and transmitting messages is still a chal lenge in mmWave, which will be focused in this paper. Therefore in a particular cove",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01576,
+        0.01648,
+        -0.0582,
+        0.01555,
+        -0.00091
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "osed for these drawbacks but for predicting blockages and transmitting messages is still a chal lenge in mmWave, which will be focused in this paper. Therefore in a particular cove",
+      "overlap_with_next": "ion 1. Section 2 discusses the related works which helps the reader to understand the different methodologies used in mmWave and V2X Communication using ML. The System Architecture",
+      "text": "osed for these drawbacks but for predicting blockages and transmitting messages is still a chal lenge in mmWave, which will be focused in this paper. Therefore in a particular coverage area if the broadcast information such as basic safety messages (BSM) are transmitted to all vehicles then only the vehicles at LOS receives the information but other vehicles in NLOS cannot receive the message from mmBS. Many researches are going on to overcome this problem in mmWave. One solution is by making use of ML so that all the vehicles can communicate with the mmBS without any interruptions as ML trains the base station to identify blockages and transmits data to NLOS nodes in terms of automatic and semi -autonomous driving which is the main motive of this paper. From the best of our knowledge none of the existing works proposed this idea and shown any result. H ence the organizational structure of this paper is as follows, this paper introduced the functions and applications of mmWave and Machine Learning in section 1. Section 2 discusses the related works which helps the reader to understand the different methodologies used in mmWave and V2X Communication using ML. The System Architecture",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00965,
+        0.00531,
+        -0.03508,
+        -0.00695,
+        0.00102
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ion 1. Section 2 discusses the related works which helps the reader to understand the different methodologies used in mmWave and V2X Communication using ML. The System Architecture",
+      "overlap_with_next": " individual packet preference level. In order to lower the pressure of complexity in vehicular applications, th e ML is developed for V2V communication in which every transmitter a",
+      "text": "ion 1. Section 2 discusses the related works which helps the reader to understand the different methodologies used in mmWave and V2X Communication using ML. The System Architecture and its work functions are summarized in Section 3 and Section 4 discusses the RML algorithm and the experimental results. Finally Section 5 concludes the overall work along wit h the limitations of RML and its future developments. 2. RELATED WORKS For improving the efficiency of road safety, traffic and infotainment options in vehicles, the V2X communication has been identified as the most suitable technology between road infrast ructure and vehicles [25]. The V2X provides better QoS and coverage when compared to the other short - range dedicated communication. The mobile nodes handle more amount of data due to crowding and video streaming on traffic and entertainment applications wi th frequent internet usage [7]. Hence for this each automatic application requires good reliability with reduced latency which is embedded within individual packet preference level. In order to lower the pressure of complexity in vehicular applications, th e ML is developed for V2V communication in which every transmitter a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05711,
+        0.01952,
+        -0.008,
+        0.00729,
+        -0.01172
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": " individual packet preference level. In order to lower the pressure of complexity in vehicular applications, th e ML is developed for V2V communication in which every transmitter a",
+      "overlap_with_next": "mmWave are used more efficiently for spectrum sharing mechanism. Therefore a model based on sensing is developed on mmW ave spectrum for vehicular networks [24]. For constructing t",
+      "text": " individual packet preference level. In order to lower the pressure of complexity in vehicular applications, th e ML is developed for V2V communication in which every transmitter acts as an agent whose decision is based on the observation from the surroundings. Even though ML and 5G are two different fields but on combining both together better results are obtained for solving various application problems. The complexity of design and procedures in V2X can be handled by data learning, modifying and replacing the rule list with ML routines which learns readily from previous stored data. The problems in coverage probab ility on spectrum location are differentiated into small parts by using Poisson Point Process and Cox Point process [10]. For the vehicular Fog computing methodology by using Q -learning provides higher reward as the system reaches a stable state faster whe n compared to other existing methods [27]. Considering the expected high traffic demand of vehicular networks, the spectrum resources of mmWave are used more efficiently for spectrum sharing mechanism. Therefore a model based on sensing is developed on mmW ave spectrum for vehicular networks [24]. For constructing t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06587,
+        -0.03882,
+        -0.00025,
+        0.01144,
+        0.01101
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "mmWave are used more efficiently for spectrum sharing mechanism. Therefore a model based on sensing is developed on mmW ave spectrum for vehicular networks [24]. For constructing t",
+      "overlap_with_next": "tandard of the link using numerical algorithm [22]. The ML designs can utilize the uplink signal gathered at the base station to learn about the mapping structure related to the ou",
+      "text": "mmWave are used more efficiently for spectrum sharing mechanism. Therefore a model based on sensing is developed on mmW ave spectrum for vehicular networks [24]. For constructing this model innovatively, an algorithm based on beam alignment was proposed using the temporal correlation. During the implementation of this method, the sensing outputs generated in different sensing time are affected by various environmental conditions. [Page 3] Computer Science & Information Technology (CS & IT) 65 On utilizing the capable solutions like the beam recovery, tracking and alignment, the higher data rate of 10 to 100 mbps and lower latency of 10ms to 100 ms in mmWave can be used by vehicular communication [19]. In order to overcome the limitations of hardware in mmWave, the beam forming mechanism is proposed in which the antenna weight is restricted to phase shifts of lower resolution and the best transreceiver pairs are selected [21]. The traini ng process helps to detect the capable beam pairs that increase the standard of the link using numerical algorithm [22]. The ML designs can utilize the uplink signal gathered at the base station to learn about the mapping structure related to the ou",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04912,
+        -0.00592,
+        -0.0236,
+        0.02518,
+        0.00691
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "tandard of the link using numerical algorithm [22]. The ML designs can utilize the uplink signal gathered at the base station to learn about the mapping structure related to the ou",
+      "overlap_with_next": "-Mead beam based training technique [14]. Therefore the starting point, of the training mechanism is derived as in Equation (1) as, 𝑃1,𝑛𝑐2 = (𝑝1,𝑛𝑐2 , 𝑞1,𝑛𝑐2 ), 𝑛𝑐 [1, 𝑁𝑐] (1) 𝑝1,𝑛",
+      "text": "tandard of the link using numerical algorithm [22]. The ML designs can utilize the uplink signal gathered at the base station to learn about the mapping structure related to the outdoor s cenario [9]. Even though there are many solutions supporting mmWave communication but the actual problem lies in the system design [8]. It suffers a higher penetration loss when blocked by obstacles and hence results in inaccurate beam selection. There are some methods that are time consuming and unscalable for 5G implementation but these approaches cannot detect regular pattern of traffic and blockages. An approach of contexted multi- armed bandit was developed that works on the network information based o n the vehicles arrival direction which uses the mmBS to automatically learn and understand from its environment. Many NLOS scenarios have dissimilar amplitude giving rise to functions consisting of various local optima and hence by improving channels of NL OS nodes certain changes and extensions are proposed in Nelder-Mead beam based training technique [14]. Therefore the starting point, of the training mechanism is derived as in Equation (1) as, 𝑃1,𝑛𝑐2 = (𝑝1,𝑛𝑐2 , 𝑞1,𝑛𝑐2 ), 𝑛𝑐 [1, 𝑁𝑐] (1) 𝑝1,𝑛",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0089,
+        -0.01406,
+        -0.03868,
+        0.01415,
+        0.01836
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "-Mead beam based training technique [14]. Therefore the starting point, of the training mechanism is derived as in Equation (1) as, 𝑃1,𝑛𝑐2 = (𝑝1,𝑛𝑐2 , 𝑞1,𝑛𝑐2 ), 𝑛𝑐 [1, 𝑁𝑐] (1) 𝑝1,𝑛",
+      "overlap_with_next": "ion is best suited to overcome this pa th loss [3]. The most efficient method for penetration loss problems in mmWave is to utilize ML. A relay mechanism based on soft -information",
+      "text": "-Mead beam based training technique [14]. Therefore the starting point, of the training mechanism is derived as in Equation (1) as, 𝑃1,𝑛𝑐2 = (𝑝1,𝑛𝑐2 , 𝑞1,𝑛𝑐2 ), 𝑛𝑐 [1, 𝑁𝑐] (1) 𝑝1,𝑛𝑐2 = 2 x (2 x 𝑃𝑜𝑝𝑡,𝑛𝑐1 − 1) − 1 (2) 𝑞1,𝑛𝑐2 = 2 x (2 x 𝑞𝑜𝑝𝑡,𝑛𝑐1 − 1) − 1 (3) where 𝑁𝑐, is the output optima which is defined as, 𝑃𝑜𝑝𝑡,𝑛𝑐2 = ( 𝑝𝑜𝑝𝑡,𝑛𝑐2 , 𝑞𝑜𝑝𝑡,𝑛𝑐2 ), declared in descending order which is derived from Equation (2) and (3). The ML algorithm based on Manhattan Poisson line process for street model is defined as a better solution for differentiating blockages in mmWave urban networks [17]. In order to analyze the block ing assistance the following equations are calculated for simulating triangles as in Equation (4). 𝐵𝐶𝑚− 𝛺𝑚− 𝑤𝑣22 𝐵𝐶𝑚 = 𝐻𝐵𝑆− 𝐻𝐿 𝐻𝐵𝑆 − 𝐻𝑆 (4) Therefore from Equation (5), the final value of blocking assistance is derived as, 𝐵𝐶𝑚 = 𝛺𝑚+ 𝑊𝑣𝐿2 [ 𝐻𝐵𝑆− 𝐻𝐿 𝐻𝐵𝑆− 𝐻𝑆] (5) For a group of vehicles travelling on the same lane, some mobile nodes experience fading if the length of the group is long and hence a relay option is best suited to overcome this pa th loss [3]. The most efficient method for penetration loss problems in mmWave is to utilize ML. A relay mechanism based on soft -information",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00091,
+        -0.00716,
+        -0.05712,
+        -0.02478,
+        0.01427
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ion is best suited to overcome this pa th loss [3]. The most efficient method for penetration loss problems in mmWave is to utilize ML. A relay mechanism based on soft -information",
+      "overlap_with_next": "x due to increased system specification in mmWave links. In this paper, we propose Relay using Machine Learning (RML) algorithm to train the mmBS for identifying the blockages and ",
+      "text": "ion is best suited to overcome this pa th loss [3]. The most efficient method for penetration loss problems in mmWave is to utilize ML. A relay mechanism based on soft -information was delivered for vehicular networks which use the estimate and forward strategy in which the minimum mean square e rror of the signal received is obtained with less complexity which achieves a good trade off among vehicular networks [1]. The DSRC and LTE-V2V nodes use the first relay system which provides a performance gain of 91% with respect to the communication dist ances [2]. For signal blocking in a direct link a deep learning model was formulated to solve the challenges in optimal relay selection [4]. This method of prediction is utilized in the proposed research in terms of relay selection but using RL. [Page 4] 66 Computer Science & Information Technology (CS & IT) 3. SYSTEM MODEL Since more number of solution were formulated for sending information to NLOS vehicles, these solutions may sometimes make the system complex due to increased system specification in mmWave links. In this paper, we propose Relay using Machine Learning (RML) algorithm to train the mmBS for identifying the blockages and ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0341,
+        -0.00905,
+        -0.02627,
+        0.00602,
+        -0.014
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "x due to increased system specification in mmWave links. In this paper, we propose Relay using Machine Learning (RML) algorithm to train the mmBS for identifying the blockages and ",
+      "overlap_with_next": " urban scenario is considered for the research where there are rapid changes in traffic and the network is often int errupted by permanent and temporary blockages. Fig. 1 shows the",
+      "text": "x due to increased system specification in mmWave links. In this paper, we propose Relay using Machine Learning (RML) algorithm to train the mmBS for identifying the blockages and to learn about the best direction and location for broadcasting the messages to vehicles at NLOS. A relay mechanism is used for transmitting information to vehicles that cannot communicat e with the mmBS. This proposed ML algorithm chooses a relay that is capable of transmitting data to all the vehicles at NLOS with strong signal strength and minimum congestion. This kind of Relay mechanism utilizing ML is new in mmWave 5G V2X communication as the BS learns about its environment through observations and transmit information to vehicles at NLOS through a single hop relay depending on the position of blockages. Instead of deploying more number of BS to broadcast messages, it is easier for formulating ML on mmBS and make it learn about its surroundings in order to transmit data accordingly which saves much time, cost and energy. An urban scenario is considered for the research where there are rapid changes in traffic and the network is often int errupted by permanent and temporary blockages. Fig. 1 shows the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02159,
+        -0.00706,
+        -0.00381,
+        0.00908,
+        -0.01786
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " urban scenario is considered for the research where there are rapid changes in traffic and the network is often int errupted by permanent and temporary blockages. Fig. 1 shows the",
+      "overlap_with_next": "eflected back from its path. After a deep research analysis on the temporary blockage an assumption is made in this paper that the maximum height of vehicle is 16 feet, and only la",
+      "text": " urban scenario is considered for the research where there are rapid changes in traffic and the network is often int errupted by permanent and temporary blockages. Fig. 1 shows the design scenario of the proposed research. The mmBS which is deployed has a coverage range of 300 meters and the vehicles on different lanes are subjected to blockage effect. The vehicles close r to mmBS are free from blockages as they are at direct LOS with the BS. But the vehicles at a distance are obstructed by blockages is the NLOS node that does not receive any data from the mmBS. Fig. 1. Architectural design scenario. 3.1. Identification of Blockages As the mmWave is sensitive to blockages, it leads to severe shadowing and produces various characteristic of path loss between LOS and NLOS links. In order to reduce this effect, the blockage is identified [18]. Using the RML the mmWave identi fies the blockages. Initially the mmBS broadcasts signal through antenna and the blockages are identified if the radiation pattern is reflected back from its path. After a deep research analysis on the temporary blockage an assumption is made in this paper that the maximum height of vehicle is 16 feet, and only la",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04749,
+        -0.03078,
+        -0.02918,
+        -0.00021,
+        -0.01485
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "eflected back from its path. After a deep research analysis on the temporary blockage an assumption is made in this paper that the maximum height of vehicle is 16 feet, and only la",
+      "overlap_with_next": "d the best location and position to communicate with vehicles at NLOS. Fig. 2 shows the distance estimation for identifying the blockage location. Fig. 2. Identification of the loc",
+      "text": "eflected back from its path. After a deep research analysis on the temporary blockage an assumption is made in this paper that the maximum height of vehicle is 16 feet, and only large [Page 5] Computer Science & Information Technology (CS & IT) 67 vehicles like bus, truck and semi -trucks are considered as temporary blockages. Hence a threshold value of 16 feet is taken to differentiate blockages as permanent or temporary. Once when the r adiation pattern is reflected below the threshold the mmBS identifies it as temporary blockage and if the reflection occurs greater than the threshold it determines it as permanent blockage. In the case of temporary blockages the obstacle itself acts as a relay to transmit information to NLOS nodes, but for permanent blockages the BS calculates the distance between itself and the barrier along with the direction and hence stores the detail for future use. This stored data on the position of blockages is upd ated at regular intervals of time which makes the mmBS understand the best location and position to communicate with vehicles at NLOS. Fig. 2 shows the distance estimation for identifying the blockage location. Fig. 2. Identification of the loc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01299,
+        -0.03712,
+        -0.01388,
+        0.04631,
+        -0.02057
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "d the best location and position to communicate with vehicles at NLOS. Fig. 2 shows the distance estimation for identifying the blockage location. Fig. 2. Identification of the loc",
+      "overlap_with_next": "ation (7) and (8). Using RML the mmBS chooses the suitable relay based on the following conditions, a. Since most vehicles uses GPS receiver system, each node in the network gets i",
+      "text": "d the best location and position to communicate with vehicles at NLOS. Fig. 2 shows the distance estimation for identifying the blockage location. Fig. 2. Identification of the location of blockage based on distance estimation. 3.2. Efficient Relay Selection The mmBS identifies the location of LOS and NLOS vehicles in its coverage area through V2V communication. Once when a LOS vehicle communicate with the BS, all the data about the LOS is gathered by the mmBS, hence the BS confirms the position of NLOS node and chooses an efficient relay for transmission of information in the following manner [20]. In handoff, a BS targets a particular mobile node and manages data delivery through relay techni que. From Equation (6), the handoff algorithm is formulated at time t, with N, number of flow at m (constant) and hence the estimation state is given as, 𝑁𝑛 = 𝑁 + 𝑁𝑟 − 𝑁𝑡 − 𝑚 (6) 𝑁𝑟 = 𝑡𝑠 ∗ 𝑛𝑢𝑚𝑏𝑒𝑟𝑜𝑓𝑎𝑟𝑟𝑖𝑣𝑎𝑙 𝑇𝑒 (7) 𝑁𝑡 = 𝑡𝑠 ∗ 𝑛𝑢𝑚𝑏𝑒𝑟𝑜𝑓𝑑𝑒𝑝𝑎𝑟𝑡𝑢𝑟𝑒 𝑇𝑒 (8) where 𝑡𝑠the next sampling time and 𝑇𝑒 is the estimated time as in Equation (7) and (8). Using RML the mmBS chooses the suitable relay based on the following conditions, a. Since most vehicles uses GPS receiver system, each node in the network gets i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01934,
+        -0.02339,
+        -0.01914,
+        0.01276,
+        -0.02244
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "ation (7) and (8). Using RML the mmBS chooses the suitable relay based on the following conditions, a. Since most vehicles uses GPS receiver system, each node in the network gets i",
+      "overlap_with_next": " the beam to direct the messages and performs relay mechanism so that all the vehicles make use of the mmWave tec hnology. On performing Beam selection or switching operations ther",
+      "text": "ation (7) and (8). Using RML the mmBS chooses the suitable relay based on the following conditions, a. Since most vehicles uses GPS receiver system, each node in the network gets its position in real time. [Page 6] 68 Computer Science & Information Technology (CS & IT) b. The link metric is calculated by exchanging information about the vehicles position through control messages which is stated in Equation (9) as, Link metric =ln[ 1 − ∏ (1 − 𝑃𝑉𝐿𝑛𝑉𝐿𝑛∈𝑃𝑎𝑡ℎ )] (9) c. Based on the information exchanged the Relay calculation is performed with the metrics choosing Relay path as calculated in Equation (10). Path = {𝑉𝐿1, 𝑉𝐿2, … … . 𝑉𝐿𝑛} (10) Here 𝑉𝐿1, 𝑉𝐿2, … … . 𝑉𝐿𝑛 are different suitable LOS relay nodes. Hence the RML algorithm aims to choose a relay based on distance and position which is defined in Equation (11), (12) and (13). 𝑃𝑝𝑎𝑡ℎ = 1 − ∏ (1 − 𝑃𝑉𝐿𝑛𝑉𝐿𝑛∈𝑃𝑎𝑡ℎ ) (11) 𝑃𝑝𝑎𝑡ℎ = ln[1 − ∏ (1 − 𝑃𝑉𝐿𝑛𝑉𝐿𝑛∈𝑃𝑎𝑡ℎ )] (12) ∑ ln 𝑃𝑉𝐿𝑛𝑉𝐿𝑛∈𝑃𝑎𝑡ℎ = ∑ 𝐿𝑖𝑛𝑘𝑀𝑒𝑡𝑟𝑖𝑐𝑉𝐿𝑛𝑉𝐿𝑛∈𝑃𝑎𝑡ℎ (13) 4. RML ALGORITHM Machine learning algorithm is used in the beam to direct the messages and performs relay mechanism so that all the vehicles make use of the mmWave tec hnology. On performing Beam selection or switching operations ther",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04242,
+        -0.01736,
+        -0.00946,
+        -0.00637,
+        -0.0485
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " the beam to direct the messages and performs relay mechanism so that all the vehicles make use of the mmWave tec hnology. On performing Beam selection or switching operations ther",
+      "overlap_with_next": " is as follows (see Algorithm 1): First during the initialization process the trained model accepts the input broadcast messages 𝐵𝑚𝑛, height, distance and 𝑉ℎ. The mmBs coverage are",
+      "text": " the beam to direct the messages and performs relay mechanism so that all the vehicles make use of the mmWave tec hnology. On performing Beam selection or switching operations there is fewer guarantee that all the data transmitted reaches the mobile node without any delay but by using relay mechanism the data reaches the nodes at a faster rate without any packet loss. In this scenario all the network operations and functions are built on the same data foundations which will make the system simpler [15]. The advantage of RML is that the solution to an issue can be learnt directly from the data generated as this algorithm runs on the mmBS which broadcasts information to the nodes in its coverage area. The background of RML algorithm is the Reinforcement Learning which is formulated based on the correlation among the location of NLOS vehicles and the action taken by the mm BS based on Relay mechanism is the key for future decision. 4.1. Detailed Description In detail, our proposed RML algorithm work function is as follows (see Algorithm 1): First during the initialization process the trained model accepts the input broadcast messages 𝐵𝑚𝑛, height, distance and 𝑉ℎ. The mmBs coverage are",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01933,
+        -0.01296,
+        -0.01617,
+        0.01097,
+        -0.0139
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": " is as follows (see Algorithm 1): First during the initialization process the trained model accepts the input broadcast messages 𝐵𝑚𝑛, height, distance and 𝑉ℎ. The mmBs coverage are",
+      "overlap_with_next": "ange information about its distance and information about its neighbour nodes. 15: Calculate 𝑉𝐷 = 𝐷𝑟 − 𝐷𝑣 // distance between the vehicle and the blockage is calculated 16: State S",
+      "text": " is as follows (see Algorithm 1): First during the initialization process the trained model accepts the input broadcast messages 𝐵𝑚𝑛, height, distance and 𝑉ℎ. The mmBs coverage area is assigned to 300 meters and hence the system observes the environment based on regular traffic patterns. The model checks for permanent and temporary blockages based on the estimated threshold 𝜀. Algorithm 1 Pseudocode of RML algorithm. 1: Input: 𝐵𝑚𝑛, h, D, Ref, angle (θ) and 𝑉ℎ 2: Initialize vehicles: 𝑉ℎ = 𝑉ℎ1, 𝑉ℎ2, … … … … 𝑉ℎ𝑛 3: Initialize LOS nodes: 𝑉𝐿 = 𝑉𝐿1, 𝑉𝐿2 , … … … … … . 𝑉𝐿𝑛 4: Initialize NLOS nodes:𝑉𝑁𝐿 = 𝑉𝑁𝐿1, 𝑉𝑁𝐿2 , … … … … … . 𝑉𝑁𝐿𝑛 5: Output: Ar (antenna radiation),𝑅𝑡 6: Initialize Model = model (input, output) 7: State = Observation [Page 7] Computer Science & Information Technology (CS & IT) 69 8: if State random.rand () <𝜀 9: Select action temporary blockage 10: else Take action >𝜀 11: Action = D + Ref + θ //Direction of permanent blockage 12: Return action 13: end if 14: Exchange 𝐷𝑣, 𝑉𝐿, 𝑉𝑁𝐿 // vehicles exchange information about its distance and information about its neighbour nodes. 15: Calculate 𝑉𝐷 = 𝐷𝑟 − 𝐷𝑣 // distance between the vehicle and the blockage is calculated 16: State S",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0179,
+        -0.02543,
+        0.00581,
+        0.01894,
+        -0.02507
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "ange information about its distance and information about its neighbour nodes. 15: Calculate 𝑉𝐷 = 𝐷𝑟 − 𝐷𝑣 // distance between the vehicle and the blockage is calculated 16: State S",
+      "overlap_with_next": "tion_a, reward_r, done_r = =replay [i] // To construct training set 34: for each 𝐷𝑟 // identify the best suitable distance of data transmission 35: Repeat Step 2 36: end for 37: 𝐵𝑚",
+      "text": "ange information about its distance and information about its neighbour nodes. 15: Calculate 𝑉𝐷 = 𝐷𝑟 − 𝐷𝑣 // distance between the vehicle and the blockage is calculated 16: State S = 𝑉𝐷 + + // update the state 17: Select Relay node 𝐷𝑣 ≤ 𝐷𝑟 18: if (𝐷𝑣(𝑉𝐿1) ≤ 𝐷𝑣(𝑉𝑁𝐿1)) // calculates the distance between vehicle1 (LOS) with vehicle1 (NLOS) 19: Transmit Bm1 = 𝑉𝑁𝐿1 // Send received broadcast message from vehicle1 (LOS) to vehicle1 (NLOS) 20: else (𝐷𝑣(𝑉𝐿2) ≤ 𝐷𝑣(𝑉𝑁𝐿1)) // calculates the distance between vehicle2 (LOS) with vehicle1 (NLOS) 21: end if 22: Update 𝐷𝑟 = 𝐷𝑣 // update the best distance between vehicles at LOS to NLOS based on the direction of permanent blockage. 23: S = np.array (a[0]) // Select States 24: S+1 (new state) = np.array (a[n]) // Select new States for replay 25: Q = self.model predict (states) 26: Q-new = self.model predict (new_states) 27: Replay_distance = len (replay) 28: Target = Q[i] 29: Target [action_r] = reward_r 30: while True, 31: Total reward = reward 32: S = S+1 33. State_s, action_a, reward_r, done_r = =replay [i] // To construct training set 34: for each 𝐷𝑟 // identify the best suitable distance of data transmission 35: Repeat Step 2 36: end for 37: 𝐵𝑚",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03031,
+        -0.05278,
+        -0.00812,
+        0.0039,
+        -0.04289
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "tion_a, reward_r, done_r = =replay [i] // To construct training set 34: for each 𝐷𝑟 // identify the best suitable distance of data transmission 35: Repeat Step 2 36: end for 37: 𝐵𝑚",
+      "overlap_with_next": "s the relay node and the action_r is performed and for every action a reward_r is obtained. Finally 𝐵𝑚𝑛 is transmitted to 𝑉𝑁𝐿 through 𝑉𝐿with a new state S+1. The time complexity of",
+      "text": "tion_a, reward_r, done_r = =replay [i] // To construct training set 34: for each 𝐷𝑟 // identify the best suitable distance of data transmission 35: Repeat Step 2 36: end for 37: 𝐵𝑚= 𝑉𝐿 = 𝑉𝑁𝐿 // All the vehicles at both LOS and NLOS receives broadcast information from the mmBS 38: end 39: Return When 𝜀 is higher than 16 then the action is taken with respect to distance D, Ref and 𝜃 to estimate the location of the blockage. In the mean time, the vehicles 𝑉𝐿(LOS) and 𝑉𝑁𝐿(NLOS) exchange information about each other and the overall data is termed as 𝑉ℎ. The mmBS calculates the distance between 𝐷𝑟 and 𝐷𝑣 to predict 𝑉𝐷 and hence the state S is ready for update. The Relay node is selected based on the distance between 𝐷𝑣 and 𝐷𝑟, hence initially the distance between the LOS node 𝑉𝐿1 and NLOS node 𝑉𝑁𝐿1is calculated and if the distance are near then 𝐵𝑚1 is transmitted to 𝑉𝑁𝐿1 else the next LOS node 𝑉𝐿2 is compared until a suitable relay is selected. In order to transmit data to 𝑉𝑁𝐿1 the target Q[i] is chosen which is the relay node and the action_r is performed and for every action a reward_r is obtained. Finally 𝐵𝑚𝑛 is transmitted to 𝑉𝑁𝐿 through 𝑉𝐿with a new state S+1. The time complexity of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00949,
+        -0.05581,
+        -0.01894,
+        0.00408,
+        -0.03695
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "s the relay node and the action_r is performed and for every action a reward_r is obtained. Finally 𝐵𝑚𝑛 is transmitted to 𝑉𝑁𝐿 through 𝑉𝐿with a new state S+1. The time complexity of",
+      "overlap_with_next": "ic denotes the overall nodes in the coverage area. In order to decrease the complexity of vehicles the action space is considered when a maximum update is reached the model resets ",
+      "text": "s the relay node and the action_r is performed and for every action a reward_r is obtained. Finally 𝐵𝑚𝑛 is transmitted to 𝑉𝑁𝐿 through 𝑉𝐿with a new state S+1. The time complexity of RML algorithm measures the speed at which this algorithm performs its operations for the given input size n. This proposed RML [Page 8] 70 Computer Science & Information Technology (CS & IT) algorithm has two types of time complexity: training and run time complexity. When the amount of data is larger, the time complexity for training the mmBS is represented as in Equation (14). Training time complexity = O (n*log (n)*d*k) (14) where n is the number of training examples which is chosen from the environment using RL and d is the directional dimensionality of blockages, and k is the number of available LOS relay nodes. The complexity in run time is expressed with respect to the traffic pattern and the neighbour nodes which is represented in Equation 15 as, Run time complexity = O (depth of traffic*k) (15) where the depth of traffic denotes the overall nodes in the coverage area. In order to decrease the complexity of vehicles the action space is considered when a maximum update is reached the model resets ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04924,
+        -0.01685,
+        -0.0167,
+        0.01593,
+        -0.03251
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "ic denotes the overall nodes in the coverage area. In order to decrease the complexity of vehicles the action space is considered when a maximum update is reached the model resets ",
+      "overlap_with_next": "ht Z = 10m (32 feet) Channel Model 3GPP Channel model Transmission radius 100m Bandwidth of mmWave signal 200 MHz Transmit power 30 dBm Packet size of messages 1024 bytes Data Rate",
+      "text": "ic denotes the overall nodes in the coverage area. In order to decrease the complexity of vehicles the action space is considered when a maximum update is reached the model resets itself without erasing the data from its memory. 4.2. Simulation Setup The scenario is simulated for the terrain area with dimension 300m X 300m where the transmission range of mobile nodes and eNB are 100m. Table 1 briefs the important parameters used for simulation. Table 1. Simulation parameters. Simulation Parameter Values Simulator tool ns-3 Machine Learning Reinforcement Learning Terrain Dimension 300m x 300m No. of eNB’s 1 Position of eNB (x, y) (55,55) (115,115) (175,175) (235,235) (295,295) for blockages (2, 4, 6, 8, 10) Mobility model of eNB Constant position model No. of vehicles 10, 20, 30, 40, 50 Mobility model for vehicles Random waypoint model Speed of vehicles 15 Min = 0.1 Max = 15 No. of Relay 1 No. of Blockages 2, 4, 6, 8, 10 Propagation Model 3GPP Propagation model Building width X = 50m, Y = 50m Building height Z = 10m (32 feet) Channel Model 3GPP Channel model Transmission radius 100m Bandwidth of mmWave signal 200 MHz Transmit power 30 dBm Packet size of messages 1024 bytes Data Rate",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07862,
+        -0.05136,
+        -0.04283,
+        0.00576,
+        -0.0184
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "ht Z = 10m (32 feet) Channel Model 3GPP Channel model Transmission radius 100m Bandwidth of mmWave signal 200 MHz Transmit power 30 dBm Packet size of messages 1024 bytes Data Rate",
+      "overlap_with_next": "aximum number of obstacles are given as 10 which is designed using the 3 GPP building model with a height of the obstacle, z = 10 meters. The simulat ion time is set as 50 seconds ",
+      "text": "ht Z = 10m (32 feet) Channel Model 3GPP Channel model Transmission radius 100m Bandwidth of mmWave signal 200 MHz Transmit power 30 dBm Packet size of messages 1024 bytes Data Rate 100 Gb/s MTU 1500 bytes Interpacket arrival 200ms Queue size 100 Simulation Time 50Seconds [Page 9] Computer Science & Information Technology (CS & IT) 71 The number of blockages is varied within the coverage area based on the location of eNB which is deployed using constant position model. The mobile nodes are placed in the simulation setup using the Random waypoint model in which the speed of vehicle is set as 15 (constant) with a pause time of 5 seconds after which th e vehicle takes new direction. An assumption is made in this simulation scenario that when a vehicle hits the blockage or the borders of the coverage area it bounces back and takes a new position as the collision is ignored in this setup because the main concentration of our work is relay selection and transmission of information to vehicles at NLOS. Here the maximum number of obstacles are given as 10 which is designed using the 3 GPP building model with a height of the obstacle, z = 10 meters. The simulat ion time is set as 50 seconds ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03542,
+        -0.04124,
+        -0.00413,
+        -0.00013,
+        -0.00966
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "aximum number of obstacles are given as 10 which is designed using the 3 GPP building model with a height of the obstacle, z = 10 meters. The simulat ion time is set as 50 seconds ",
+      "overlap_with_next": "20 and the blockages are varied from 2, 4, 6, 8 and 10 for the simulation time of 50 seconds. Fig. 4 shows that the average latency is less than 0.05 ms for the simulation that use",
+      "text": "aximum number of obstacles are given as 10 which is designed using the 3 GPP building model with a height of the obstacle, z = 10 meters. The simulat ion time is set as 50 seconds but the actual simulation runs for 45 minutes which is the time taken for training and run time purposes. Fig. 3 shows the design of the simulated network. For the location of permanent blockages a 3GPP propagation model is used to calculate the co-ordinates of x and y. Fig. 3. Layout of the Simulated Network. 4.3. Experimental Results and Discussions From the formulated RML algorithm the simulation is done using the specifications of the parameters. The results are obtained on comparing the simulation scenario using RML and without using RML. For the model without RML, the simulation is done with normal mmWave design which is prone to blockages and penetration loss. Hence the simulation is performed under 3 stages and the res ults are obtained in terms of throughput, latency and PDR. First the mobile nodes are kept constant at 20 and the blockages are varied from 2, 4, 6, 8 and 10 for the simulation time of 50 seconds. Fig. 4 shows that the average latency is less than 0.05 ms for the simulation that use",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01978,
+        -0.03507,
+        -0.0135,
+        -0.03942,
+        -0.02615
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "20 and the blockages are varied from 2, 4, 6, 8 and 10 for the simulation time of 50 seconds. Fig. 4 shows that the average latency is less than 0.05 ms for the simulation that use",
+      "overlap_with_next": "t mobile nodes. In the next stage of the simulation the blockages are made constant at 10 and the vehicles are varied and from the result obtained in Fig. 7, it is clear that for m",
+      "text": "20 and the blockages are varied from 2, 4, 6, 8 and 10 for the simulation time of 50 seconds. Fig. 4 shows that the average latency is less than 0.05 ms for the simulation that uses RML with 10 obstacles but the latency increases to 0.7 ms for the model without using RML. [Page 10] 72 Computer Science & Information Technology (CS & IT) Fig. 4. Average latency comparision under different number of blockages for mmWave with and without RML. Fig. 5. Average throughput evaluation for mmWave with and without RML. The throughput is calculated by varying the blockages and from Fig. 5 the throughput is 27.44 mbps when using RML but it is only 18 mbps when RML is not used. Hence the performance of the model without RML is low. Fig. 6 shows the result of PDR for constant mobile node where the performance is good as it reached 100% when using RML in mmWave than without using RML. [Page 11] Computer Science & Information Technology (CS & IT) 73 Fig. 6. PDR performance of mmWave through RML and without RML for constant mobile nodes. In the next stage of the simulation the blockages are made constant at 10 and the vehicles are varied and from the result obtained in Fig. 7, it is clear that for m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03659,
+        -0.01603,
+        -0.01113,
+        -0.03628,
+        -0.03264
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "t mobile nodes. In the next stage of the simulation the blockages are made constant at 10 and the vehicles are varied and from the result obtained in Fig. 7, it is clear that for m",
+      "overlap_with_next": "s kind of solution can have the ability to solve real-world applications. Fig. 9. PDR perfromance for mmWave with and without RML. 5. CONCLUSION In this paper, we address the drawb",
+      "text": "t mobile nodes. In the next stage of the simulation the blockages are made constant at 10 and the vehicles are varied and from the result obtained in Fig. 7, it is clear that for maximum blockages the latency output using RML is at 0.1ms but for model without using RML it goes beyond 1.6ms. Fig. 7. Average Latency evaluation for Blockage = 10 by varying vehicles in mmWave with and without RML. The Fig. 8 shows throughput result in which the model using RML outperforms the other. Fig. 8. Average throughput comparision graph for number of vehicles at blockage = 10 in mmWave with and without RML. [Page 12] 74 Computer Science & Information Technology (CS & IT) For the number of blockages as 10 and vehicles as 10 the PDR is 75% for the scenario using RML where as it is only 50% for the output without using RML as in Fig. 9. From the obtained result it is clear that on using RML as the blockages increases the throughput and the PDR also rises with a fall in latency, therefore the proposed RML confirms that this kind of solution can have the ability to solve real-world applications. Fig. 9. PDR perfromance for mmWave with and without RML. 5. CONCLUSION In this paper, we address the drawb",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0394,
+        -0.01696,
+        -0.01543,
+        -0.01113,
+        -0.04391
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "s kind of solution can have the ability to solve real-world applications. Fig. 9. PDR perfromance for mmWave with and without RML. 5. CONCLUSION In this paper, we address the drawb",
+      "overlap_with_next": " number of NLOS nodes is present a single relay may not be suitabl e to transmit information to all of them especially when the coverage range and the transmission distance is high",
+      "text": "s kind of solution can have the ability to solve real-world applications. Fig. 9. PDR perfromance for mmWave with and without RML. 5. CONCLUSION In this paper, we address the drawbacks in mmWave due to blockages from buildings and vehicles in real -time urban scenario. To this aim, we propose RML, a single hop relay mechanism based on Reinforcement learning which trains the mmBS to identify the location of blockages and to select a relay node based on the distance calculation from the BS and to broadcast the data to NLOS vehicles using LOS relay node. Using RML 1) the mmBS learns about its surroundings through continuous observations 2) the mmBS becomes efficient to predict the relay node earlier when it identifies vehicles at NLOS. The RML achieves 75% of the PDR when the blockage is at its maximum and the results demonstrate the reliability of using Machine Learning in 5G V2X applications. Even though the RML performance is good, it lacks accuracy when it sees rapid changes in traffic pattern. When more number of NLOS nodes is present a single relay may not be suitabl e to transmit information to all of them especially when the coverage range and the transmission distance is high",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0166,
+        0.00558,
+        0.00146,
+        0.0012,
+        -0.01936
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": " number of NLOS nodes is present a single relay may not be suitabl e to transmit information to all of them especially when the coverage range and the transmission distance is high",
+      "overlap_with_next": "i, (2020) “Performance Analysis of Sidelink Relay in SCM A-based Multicasting for Platooning in V2X,” IEEE International Conference on Communications Workshops (ICC Workshops). [Pa",
+      "text": " number of NLOS nodes is present a single relay may not be suitabl e to transmit information to all of them especially when the coverage range and the transmission distance is higher. Hence our RML model can be further extended by using Deep RL or Q -learning to accurately predict the temporary blockages and to efficiently select the relay nodes for transmitting data to NLOS vehicles based on the daily changes in traffic pattern especially during the peak hours. REFERENCES [1] Yingchun Wang, Tingting Yao, Fenghua Zhu , Gang Xiong, Dongpu Cao, Fei -Yue Wang, (2017) “Relaying Algorithm Based On Soft Estimated Information For Cooperative V2X Networks,” International Conference on Intelligent Transportation Systems (ITSC), pp. 509-514. [2] Byungjun Kim, Seongwon Kim,Hoyoung Yoon,Sunwook Hwang,M. Xavier Punithan,By eong Rim Jo,Sunghyun Choi, (2019) “Nearest -First: Efficient Relaying Scheme in Heterogeneous V2V Communication Environments,” in IEEE Access, vol. 7, pp. 23615-23627. [3] Jingwei Fu, Gang Wu, Ran Li, (2020) “Performance Analysis of Sidelink Relay in SCM A-based Multicasting for Platooning in V2X,” IEEE International Conference on Communications Workshops (ICC Workshops). [Pa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06008,
+        -0.00341,
+        -0.00259,
+        0.02313,
+        -0.03101
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "i, (2020) “Performance Analysis of Sidelink Relay in SCM A-based Multicasting for Platooning in V2X,” IEEE International Conference on Communications Workshops (ICC Workshops). [Pa",
+      "overlap_with_next": "urce Allocation for Cellular V2X Communications,” IEEE Internet of Things Journal, vol. 7, no. 7, pp. 6380-6391. [8] G. H. Sim, S. Klos, A. Asadi, A. Klein, M. Hollick, (2018) “An ",
+      "text": "i, (2020) “Performance Analysis of Sidelink Relay in SCM A-based Multicasting for Platooning in V2X,” IEEE International Conference on Communications Workshops (ICC Workshops). [Page 13] Computer Science & Information Technology (CS & IT) 75 [4] A. Abdelreheem, O. A. Omer, H. Esmaiel, U. S. Mohamed, (2019) “Deep Learning -Based Relay Selection In D2D Millimeter Wave Communi cations,” International Conference on Computer and Information Sciences (ICCIS), pp. 1-5. [5] Peyman Siyari, Hanif Rahbari, Marwan Krunz, (2019) “Machine Learning for Intelligent and Agile Wireless Communications,” IEEE Journal on Selected Areas in Co mmunications (JSAC) - Special Issue on Machine Learning in Wireless Communications, vol. 37, no. 11, pp. 2544-2558. [6] Marwan Krunz, Mingjie Feng, (2019) “Protocols, Adaptation, and Spectrum Allocation for 5G Millimeter-wave Systems,” wireless communication and networking laboratory. [7] X. Zhang, M. Peng, S. Yan, Y. Sun, (2020) “Deep -Reinforcement-Learning-Based Mode Selection and Resource Allocation for Cellular V2X Communications,” IEEE Internet of Things Journal, vol. 7, no. 7, pp. 6380-6391. [8] G. H. Sim, S. Klos, A. Asadi, A. Klein, M. Hollick, (2018) “An ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06694,
+        0.01723,
+        -0.01772,
+        -0.00548,
+        0.00391
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "urce Allocation for Cellular V2X Communications,” IEEE Internet of Things Journal, vol. 7, no. 7, pp. 6380-6391. [8] G. H. Sim, S. Klos, A. Asadi, A. Klein, M. Hollick, (2018) “An ",
+      "overlap_with_next": "e Challenge, vol. 7, pp. 37251-37268. [12] Kshitiz Shrestha, (2019) “5G: The Future of Improved Road Safety and Au tonomous Vehicle,” Metropolia University of Applied Sciences. [13",
+      "text": "urce Allocation for Cellular V2X Communications,” IEEE Internet of Things Journal, vol. 7, no. 7, pp. 6380-6391. [8] G. H. Sim, S. Klos, A. Asadi, A. Klein, M. Hollick, (2018) “An Online Context -Aware Machine Learning Algorithm for 5G mmWave Vehicular Communications,” IEEE/ACM Transactions on Networking, vol. 26, no. 6, pp. 2487-2500. [9] Liang Xian, Alexander Maltsev, Gia Khanh Tran, Hiroaki Ogawa, Kim Mahler, Robert W. Heath Jr, (2017) “Where, When, and How mmWave is Used in 5G and Beyond,” IEICE Transactions on Electronics. [10] S. Yan, X. Zhang, H. Xiang, W. Wu, (2019) “Joint Access Mode Selection and Spectru m Allocation for Fog Computing Based Vehicular Networks,” IEEE Access Fog Radio Access Networks (F - RANs) for 5G: Recent Advances and Future Trends, vol. 7, pp. 17725-17735. [11] H. Ullah, N. Gopalakrishnan Nair, A. Moore, C. Nugent, P. Muschamp, M. Cuevas , (2019) “5G Communication: An Overview of Vehicle -to-Everything, Drones, and Healthcare Use-Cases” IEEE Access Roadmap to 5G: Rising to the Challenge, vol. 7, pp. 37251-37268. [12] Kshitiz Shrestha, (2019) “5G: The Future of Improved Road Safety and Au tonomous Vehicle,” Metropolia University of Applied Sciences. [13",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04212,
+        0.00723,
+        -0.02511,
+        0.03218,
+        -0.00382
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "e Challenge, vol. 7, pp. 37251-37268. [12] Kshitiz Shrestha, (2019) “5G: The Future of Improved Road Safety and Au tonomous Vehicle,” Metropolia University of Applied Sciences. [13",
+      "overlap_with_next": "less Engineering Research and Education Centre Volume 21, Issue 3. [18] H. Elkotby, M. Vu, (2017) “A Prob abilistic Interference Distribution Model Encompassing Cellular LOS and NL",
+      "text": "e Challenge, vol. 7, pp. 37251-37268. [12] Kshitiz Shrestha, (2019) “5G: The Future of Improved Road Safety and Au tonomous Vehicle,” Metropolia University of Applied Sciences. [13] S. K. Agrawal, K. Sharma, (2016) “5G millimeter wave communications,” International Conference on Computing for Sustainable Global Development (INDIACom), pp. 3630-3634. [14] C. R. Storck, F. Duarte -Figureueiredo, (2018) “5G V2X Ecosystem Providing Entertainment on Board Using MmWave Communications,” IEEE 10th Latin -American Conference on Communications (LATINCOM), pp. 1-6. [15] Tianyu Wang, Shaowei Wang, Zhi-Hua Zhou, (2019) “ Machine Learning for 5G and Beyond: From Model- Based to Data-Driven Mobile Wireless Networks,” Emerging Technologies & Applications. [16] Y. Wang, K. Venugopal, A. F. Molisch, R. W. Heath, (2017) “Blockage and Coverage Analysis with mmWave Cross streetBSs Near Urban Intersections, ” IEEE International Conference on Communications (ICC), pp. 1-6. [17] Grants CNS-1702957and CNS-1320664, and by the Wireless Engineering Research and Education Centre Volume 21, Issue 3. [18] H. Elkotby, M. Vu, (2017) “A Prob abilistic Interference Distribution Model Encompassing Cellular LOS and NL",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05409,
+        0.00706,
+        -0.01979,
+        -0.01911,
+        0.00423
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "less Engineering Research and Education Centre Volume 21, Issue 3. [18] H. Elkotby, M. Vu, (2017) “A Prob abilistic Interference Distribution Model Encompassing Cellular LOS and NL",
+      "overlap_with_next": "alwar, (2020) “Ray -Based Modeling of Directional Millimeter -Wave V2V Transmissions in Highway Scenarios,” IEEE Access, vol. 8, pp. 54482-54493. [23] H. Zhang, C. Guo, (2019) “Bea",
+      "text": "less Engineering Research and Education Centre Volume 21, Issue 3. [18] H. Elkotby, M. Vu, (2017) “A Prob abilistic Interference Distribution Model Encompassing Cellular LOS and NLOS mmwave Propagation,” IEEE Global Conference on Signal and Information Processing (GlobalSIP), pp. 738-742. [19] W. Khawaja, O. Ozdemir, Y. Yapici, F. Erden, I. Guvenc, (2020) “Coverage Enhancement for NLOS mmWave Links Using Passive Reflectors,” IEEE Open Journal of the Communications Society, vol. 1, pp. 263-281. [20] X. Wang, E. Turgut, M. C. Gursoy, (2019) “Coverage in Downlink Heterogeneous mmWave Cellular Networks With User-Centric Small Cell Deployment,” IEEE Transactions on Vehicular Technology, vol. 68, no. 4, pp. 3513-3533. [21] K. Zeman, M. Stusek, P. Masek, J. Hosek, (2018) “Improved NLOS Propagation Models for Wireless Communication in mmWave bands,”International Conf erence on Localization and GNSS (ICL - GNSS), pp. 1-6. [22] Yekaterina Sadovaya, Dmitrii Solomitckii, Wei Mao, Oner Orhan, Hosein Nikopour, Shilpa Talwar, (2020) “Ray -Based Modeling of Directional Millimeter -Wave V2V Transmissions in Highway Scenarios,” IEEE Access, vol. 8, pp. 54482-54493. [23] H. Zhang, C. Guo, (2019) “Bea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06427,
+        -0.00795,
+        -0.01328,
+        -0.00791,
+        0.0084
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "alwar, (2020) “Ray -Based Modeling of Directional Millimeter -Wave V2V Transmissions in Highway Scenarios,” IEEE Access, vol. 8, pp. 54482-54493. [23] H. Zhang, C. Guo, (2019) “Bea",
+      "overlap_with_next": "ent at the Department of Electrical and Electronics Engineering, Auckland University of Technology, NZ. Deepika received her previous Master Degree (Communication systems) in India",
+      "text": "alwar, (2020) “Ray -Based Modeling of Directional Millimeter -Wave V2V Transmissions in Highway Scenarios,” IEEE Access, vol. 8, pp. 54482-54493. [23] H. Zhang, C. Guo, (2019) “Beam Alignment -Based mmWave Spectrum Sensing in Cognitive Vehicular Networks,” IEEE Global Conference on Signal and Information Processing (GlobalSIP), pp. 1-5. [Page 14] 76 Computer Science & Information Technology (CS & IT) [24] Rakesh R T, Debarati Sen, Goutam Das, (2018)“On Bounds of Spectral Efficiency of Optimally Beamformed NLOS Millimeter-Wave Links,” IEEE Transactions on Vehicular Technology, vol. 67, no. 4. [25] Fabio Arena, Giovanni Pau, Alessandro Severino, (2019) “V2X Communications Applied to Safetyof Pedestrians and Vehicles,” Journal of Sensor and Actuator Networks. [26] S. Zhou, Y. Sun, Z. Jiang, Z. Niu, (2020) “Exploiting Moving Intelligence: Delay -Optimized Computation Offloading in Vehicular Fog Networks,” IEEE Communications Magazine, vol. 57, no. 5, pp. 49-55. AUTHORS Deepika Mohan is currently a Master Student at the Department of Electrical and Electronics Engineering, Auckland University of Technology, NZ. Deepika received her previous Master Degree (Communication systems) in India",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04279,
+        -0.02398,
+        -0.02003,
+        -0.00628,
+        -0.01528
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "ent at the Department of Electrical and Electronics Engineering, Auckland University of Technology, NZ. Deepika received her previous Master Degree (Communication systems) in India",
+      "overlap_with_next": "ty of British Columbia, Canada. His research interests are in the areas of wireless/mobile communications systems including radio resource management, multiple access, MANETs/VANET",
+      "text": "ent at the Department of Electrical and Electronics Engineering, Auckland University of Technology, NZ. Deepika received her previous Master Degree (Communication systems) in India 2011. Her research interest is Machine Learning, mmWave, vehicular communication and 5G. G. G. Md. Nawaz Ali (Member IEEE) is working as an Assistant Professor with the Department of Applied Computer Science of University of Charleston, WV, USA. Prior to joining to UCWV, he was working as a post docto ral research fellow with the Department of Automotive Engineering of Clemson University, SC, USA (March 2018 – July 2019). His research interests are in the areas of Vehicular Adhoc networks, Scheduling and Broadcasting and data analytics. Peter Han Joo Chong (Senior member IEEE) is an Associate Head of School (Research) and a Head of Department of Electrical and Electronic Engineering at Auckland University of Technology, Auckland, New Zealand. He received his Ph.D. degrees in Electrical and Computer Engineering from the University of British Columbia, Canada. His research interests are in the areas of wireless/mobile communications systems including radio resource management, multiple access, MANETs/VANET",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02545,
+        -0.053,
+        -0.01912,
+        -0.00776,
+        0.01675
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35142,
+      "length": 462,
+      "overlap_with_previous": "ty of British Columbia, Canada. His research interests are in the areas of wireless/mobile communications systems including radio resource management, multiple access, MANETs/VANET",
+      "overlap_with_next": "",
+      "text": "ty of British Columbia, Canada. His research interests are in the areas of wireless/mobile communications systems including radio resource management, multiple access, MANETs/VANETs, green radio networks and 5G-V2X networks. He ha s published over 200 journal and conference papers, 1 edited book and 9 book chapters in the relevant areas. © 2020 By AIRCC Publishing Corporation . This article is published under the Creative Commons Attribution (CC BY) license.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05075,
+        0.00927,
+        -0.01184,
+        -0.01161,
+        0.00345
+      ]
+    }
+  ]
+}

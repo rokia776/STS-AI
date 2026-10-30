@@ -1,0 +1,436 @@
+{
+  "paper_id": "3b175055-6a4c-4a48-9271-e2642b59129f",
+  "filename": "092_Machine_Learning_Low-Cost_Maximum_Entropy_Covariance_Matrix_Reconstruction_Algorithm_for_Robust_Adaptive_Beamforming.pdf",
+  "title": "092_Machine_Learning_Low-Cost_Maximum_Entropy_Covariance_Matrix_Reconstruction_Algorithm_for_Robust_Adaptive_Beamforming.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 25,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " I NTRODUCTION A DAPTIVE beamforming aims to extract the signal from a certain direction while suppressing interference and noise. The technique has been widely used in many ﬁelds ",
+      "text": "[Page 1] arXiv:2012.14338v1 [cs.IT] 28 Dec 2020 1 Low-Cost Maximum Entropy Covariance Matrix Reconstruction Algorithm for Robust Adaptive Beamforming Saeed Mohammadzadeh †, V´ ıtor H. Nascimento† and Rodrigo C. de Lamare †† Abstract—In this letter , we present a novel low-complexity adaptive beamforming technique using a stochastic gradien t algo- rithm to avoid matrix inversions. The proposed method explo its algorithms based on the maximum entropy power spectrum (MEPS) to estimate the noise-plus-interference covarianc e matrix (MEPS-NPIC) so that the beamforming weights are updated adaptively, thus greatly reducing the computational compl exity. MEPS is further used to reconstruct the desired signal covar iance matrix and to improve the estimate of the desired signals’s s teer- ing vector (SV). Simulations show the superiority of the pro posed MEPS-NPIC approach over previously proposed beamformers. Index Terms —Adaptive beamforming, Matrix reconstruction, Spatial power spectrum, Stochastic gradient. I. I NTRODUCTION A DAPTIVE beamforming aims to extract the signal from a certain direction while suppressing interference and noise. The technique has been widely used in many ﬁelds ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00353,
+        0.00012,
+        -0.00437,
+        0.00481,
+        0.02021
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " I NTRODUCTION A DAPTIVE beamforming aims to extract the signal from a certain direction while suppressing interference and noise. The technique has been widely used in many ﬁelds ",
+      "overlap_with_next": "the leakage of a component of the signal of interest (SOI) in the sample covariance matrix (SC M) [19]. Recently, a new approach to adaptive beamforming was presented that removes ",
+      "text": " I NTRODUCTION A DAPTIVE beamforming aims to extract the signal from a certain direction while suppressing interference and noise. The technique has been widely used in many ﬁelds such as wireless communications, sonar and radar [1]. However, standard adaptive beamformers are well known to be sensitiv e to steering vector (SV) mismatches, array imperfections or environmental uncertainties due to non-ideal conditions a nd many different factors (e.g., wavefront errors, local scat ter- ing and ﬁnite sample sizes) [2]. Hence, various adaptive beamformers have been developed in order to mitigate the effects of these problems. Existing methods include diagon al loading [3], [4], [5], the worst-case optimization in [6], [ 7] and the projection techniques and subspace-based beamform er investigated in [8], [9], [10], [11], [12], [13], [14], [15] , [16], [17], [18]. However, these approaches are limited when the SV mismatch is severe. Recent works show that the main cause of beamformer performance degradation is the leakage of a component of the signal of interest (SOI) in the sample covariance matrix (SC M) [19]. Recently, a new approach to adaptive beamforming was presented that removes ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02626,
+        -0.01396,
+        -0.05606,
+        -0.02151,
+        0.02302
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "the leakage of a component of the signal of interest (SOI) in the sample covariance matrix (SC M) [19]. Recently, a new approach to adaptive beamforming was presented that removes ",
+      "overlap_with_next": "ctrum sampling (SPSS), but its performance degrades as the number of sensors is decreased. In [26] the SOI component is eliminated from the DoA of the related bases in order to con",
+      "text": "the leakage of a component of the signal of interest (SOI) in the sample covariance matrix (SC M) [19]. Recently, a new approach to adaptive beamforming was presented that removes the effect of the SOI component from the covariance matrix by reconstructing the noise-plu s- interference covariance (NPIC) matrix. The NPIC matrix in [20] is reconstructed by integrating the assumed SV and the corresponding Capon spectrum over a range of angles in which the SOI is absent. The NPIC-based beamformer in [21] relies on a sparse reconstruction method. In [22], [23], computationally efﬁcient algorithms via low complex ity reconstruction of the NPIC matrix are presented. In [24] a subspace-based NPIC matrix reconstruction algorithm was proposed. However, it requires that the angular sector of ea ch interference should be known and separated from each other. †Dept. of Electronic Systems Engineering, Univ. of S˜ ao Paul o, Brazil. ††CETUC, PUC-Rio, Brazil. Later, in [25] an approach is developed using spatial power spectrum sampling (SPSS), but its performance degrades as the number of sensors is decreased. In [26] the SOI component is eliminated from the DoA of the related bases in order to con",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04093,
+        0.00759,
+        -0.01091,
+        -0.00621,
+        0.01353
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ctrum sampling (SPSS), but its performance degrades as the number of sensors is decreased. In [26] the SOI component is eliminated from the DoA of the related bases in order to con",
+      "overlap_with_next": "ative techniques. The estimated we ight vector is obtained from a coarse estimate of the angular sect or where the desired signal lies, using CG iterations that avoi d the explicit",
+      "text": "ctrum sampling (SPSS), but its performance degrades as the number of sensors is decreased. In [26] the SOI component is eliminated from the DoA of the related bases in order to construct an NPIC matrix directly from the signal-interfer ence subspace. It is worth noting that the use of adaptive antenna arrays and their applications has a trade-off between computation al complexity and performance which has a direct relation with the adaptation algorithm. However, in practice and for larg e systems, these techniques require the computation of the inverse of the input data SCM (or NPIC matrix), rendering the method very complex. In this letter, we introduce a conjugate gradient (CG) type adaptation algorithm [27], [28], [29] for the maximum entro py power spectrum noise-plus-interference covariance techn ique, denoted MEPS-NPIC-CG. The proposed MEPS-NPIC-CG al- gorithm updates the beamforming weights with a reduced cost as it does not explicitly form the covariance matrices, rely ing instead on low-cost iterative techniques. The estimated we ight vector is obtained from a coarse estimate of the angular sect or where the desired signal lies, using CG iterations that avoi d the explicit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0597,
+        0.00336,
+        -0.01118,
+        0.03485,
+        0.014
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "ative techniques. The estimated we ight vector is obtained from a coarse estimate of the angular sect or where the desired signal lies, using CG iterations that avoi d the explicit",
+      "overlap_with_next": "ing signals. The angles θ0 and θl (l = 1 ,··· , L) denote the DoAs of the desired signal and interference, respectively. For a sensor array with M sensors, a(·) designates the corr",
+      "text": "ative techniques. The estimated we ight vector is obtained from a coarse estimate of the angular sect or where the desired signal lies, using CG iterations that avoi d the explicit construction of the covariance matrix. We simi larly implicitly reconstruct the desired signal covariance matr ix and obtain a better desired signal SV estimate using low-cost iterations. An analysis of computational complexity shows that MEPS-NPIC-CG has low-complexity and outperforms other existing techniques. II. P ROBLEM BACKGROUND Let us assume a linear antenna array with M sensors, spaced by distance d, that receive narrowband signals which impinge on the array from several far-ﬁeld sources. The arra y observation vector at the t-th snapshot can be modeled as x(t) = a(θ0)s0(t) + L∑ l=1 a(θl)sl(t) + n(t), (1) where s0(t) and sl(t) denote the waveforms of the SOI and lth interfering signal, respectively. The additive white Ga ussian noise vector n(t) is assumed spatially uncorrelated from the desired signal and the interfering signals. The angles θ0 and θl (l = 1 ,··· , L) denote the DoAs of the desired signal and interference, respectively. For a sensor array with M sensors, a(·) designates the corr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09051,
+        -0.00228,
+        -0.00111,
+        0.01439,
+        0.02852
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ing signals. The angles θ0 and θl (l = 1 ,··· , L) denote the DoAs of the desired signal and interference, respectively. For a sensor array with M sensors, a(·) designates the corr",
+      "overlap_with_next": "ion [1]. Mo re- over, the array covariance matrix R = E{x(t)xH(t)} is R = Ri+n + Rs = ∫ Φ P (θ)a(θ)aH(θ)dθ, (5) where P (θ) is the power spectrum of the signals and Φ = [ ¯Θ∪ Θ] co",
+      "text": "ing signals. The angles θ0 and θl (l = 1 ,··· , L) denote the DoAs of the desired signal and interference, respectively. For a sensor array with M sensors, a(·) designates the corresponding SV , which has the general form a(θ) = [ 1, e−jπ ¯d sin θ,··· , e−jπ(M−1) ¯d sin θ]T, where ¯d = 2d/λ, λ is the wavelength, and (·)T denotes the transpose. Assuming that the SV a0 = a(θ0) is known, for a given [Page 2] 2 beamformer w, the performance is evaluated by the output signal-to-interference-plus-noise ratio (SINR) as SINR = σ20|wHa0|2 wHRi+nw , (2) where Ri+n is the NPIC matrix, σ20 is power of the desired sig- nal and (·)H stands for Hermitian transpose. The beamformer that maximizes (2) is equivalent to ﬁnding the solution that maintains a distortionless response toward the SV a0: min w wHRi+n w s.t. wHa0 = 1. (3) The solution to (3) yields the optimal beamformer given by wopt = R−1i+na0 aH0 R−1i+na0 , (4) which is the adaptive weight vector based on the minimum variance distortionless response (MVDR) criterion [1]. Mo re- over, the array covariance matrix R = E{x(t)xH(t)} is R = Ri+n + Rs = ∫ Φ P (θ)a(θ)aH(θ)dθ, (5) where P (θ) is the power spectrum of the signals and Φ = [ ¯Θ∪ Θ] co",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05264,
+        -0.00398,
+        -0.0201,
+        -0.02213,
+        -0.00025
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ion [1]. Mo re- over, the array covariance matrix R = E{x(t)xH(t)} is R = Ri+n + Rs = ∫ Φ P (θ)a(θ)aH(θ)dθ, (5) where P (θ) is the power spectrum of the signals and Φ = [ ¯Θ∪ Θ] co",
+      "overlap_with_next": "ng method, an approach different from prior works is adopted to reconstruct the NPIC and the desired signal covariance matrices. The essence of the idea is based on the use of the ",
+      "text": "ion [1]. Mo re- over, the array covariance matrix R = E{x(t)xH(t)} is R = Ri+n + Rs = ∫ Φ P (θ)a(θ)aH(θ)dθ, (5) where P (θ) is the power spectrum of the signals and Φ = [ ¯Θ∪ Θ] covers the union of the angular sectors of the noise-plus-interference signal, ¯Θ, and of the desired signal region, Θ (obtained through some low-resolution direction ﬁnding methods [1]), while Rs = σ20a0aH0 is the theoretical desired signal covariance matrix. Since Ri+n is unknown in practice, it is substituted by the data SCM [30] as ˆR = (1/K) ∑Kt=1 x(t)xH(t), where K is the number of received snapshot vectors. III. P ROPOSED MEPS-NPIC-CG A LGORITHM Our approach is based on MEPS to reconstruct the NPIC matrix and estimate the desired signal SV separately. The NPIC matrix is never explicity computed, however – instead, we use CG recursions to solve a linear system to obtain the desired weight vector. The desired signal SV is also obtaine d via a low-complexity approach. A. Maximum Entropy Power Spectrum In the proposed beamforming method, an approach different from prior works is adopted to reconstruct the NPIC and the desired signal covariance matrices. The essence of the idea is based on the use of the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04242,
+        -0.00281,
+        -0.02879,
+        -0.00081,
+        0.01349
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ng method, an approach different from prior works is adopted to reconstruct the NPIC and the desired signal covariance matrices. The essence of the idea is based on the use of the ",
+      "overlap_with_next": "erically evaluating (5) over Θ ˆRs≈ S∑ i=1 ˆPmeps a(θsi )aH(θsi )∆θs, (7) where Θ is sampled uniformly with S sampling points spaced by ∆θs, so that {a(θsi )|θsi∈ Θ} lies within th",
+      "text": "ng method, an approach different from prior works is adopted to reconstruct the NPIC and the desired signal covariance matrices. The essence of the idea is based on the use of the spatial spectrum distribution over al l possible directions and coarse estimates of the angular reg ions where the desired signal and the interferers lie. In this wor k, we exploit maximum entropy power spectrum estimation [31]: ˆPmeps = 1 ǫp|aH(θ) ˆR−1u1|2 (6) where u1 = [ 1 0 ··· 0 ]T, ǫp = 1/uT1 ˆR−1u1. B. Desired Signal SV Estimation In practice, we have inaccurate SV estimates, resulting in performance degradation. Therefore, we utilize the knowle dge of the angular sector of the SOI to construct a criterion whic h can be used to estimate the actual SV . This algorithm is based on the multiplication of an estimate of the desired signal covariance matrix and the nominal SV of the SOI, which results in a vector much closer to the SV of SOI. First, the desired signal covariance matrix can be reconstructed base d on MEPS by numerically evaluating (5) over Θ ˆRs≈ S∑ i=1 ˆPmeps a(θsi )aH(θsi )∆θs, (7) where Θ is sampled uniformly with S sampling points spaced by ∆θs, so that {a(θsi )|θsi∈ Θ} lies within th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05917,
+        -0.00091,
+        -0.00621,
+        0.02727,
+        0.01203
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "erically evaluating (5) over Θ ˆRs≈ S∑ i=1 ˆPmeps a(θsi )aH(θsi )∆θs, (7) where Θ is sampled uniformly with S sampling points spaced by ∆θs, so that {a(θsi )|θsi∈ Θ} lies within th",
+      "overlap_with_next": "aint into the objective function as J(w) = wH ˆRi+n w + α(wHˆa0− 1). (9) The cost function J(w) can be minimized by applying the steepest descent algorithm as follows w(t + 1) = w(",
+      "text": "erically evaluating (5) over Θ ˆRs≈ S∑ i=1 ˆPmeps a(θsi )aH(θsi )∆θs, (7) where Θ is sampled uniformly with S sampling points spaced by ∆θs, so that {a(θsi )|θsi∈ Θ} lies within the range space of ˆRs. Let ¯a be the nominal desired signal SV . If the set Θ is such that the noise and interference power are dominated by the signal power in the covariance estimate (7), then ˆa0 = ˆRs¯a≃ (σ20a0aH0 )¯a≃σ20(aH0 ¯a)a0, (8) is proportional to the desired signal’s SV (note that the nom inal SV is usually a good enough approximation so that aH0 ¯a is far from zero). C. NPIC Matrix Reconstruction Using CG The classical least mean square (LMS) algorithm in [32] is based on adjusting the array of sensors in real-time toward a signal coming from the desired direction while the interfer - ences are attenuated. The LMS algorithm is an CG algorithm which searches for the minimum of a quadratic cost function. We apply LMS to solve the MVDR optimization problem in (3) by using the Lagrange multiplier α to include the constraint into the objective function as J(w) = wH ˆRi+n w + α(wHˆa0− 1). (9) The cost function J(w) can be minimized by applying the steepest descent algorithm as follows w(t + 1) = w(",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07092,
+        0.03485,
+        -0.00911,
+        -0.01534,
+        0.00808
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "aint into the objective function as J(w) = wH ˆRi+n w + α(wHˆa0− 1). (9) The cost function J(w) can be minimized by applying the steepest descent algorithm as follows w(t + 1) = w(",
+      "overlap_with_next": ", (15) where r(t) = ∑Qi=1 ˆPmeps(aH(θi)w(t))a(θi)∆θ and µ is the steepest descent step size. In order to ﬁnd the beamformer, t he conjugate gradient algorithm is used to solve the ",
+      "text": "aint into the objective function as J(w) = wH ˆRi+n w + α(wHˆa0− 1). (9) The cost function J(w) can be minimized by applying the steepest descent algorithm as follows w(t + 1) = w(t)− 12 µ∇J(w), (10) where∇J(w) is the gradient of the cost function with respect to w(t). The gradient vector can be obtained from (9) as ∇J(w) = 2 ˆRi+nw(t) + αˆa0. (11) Exploiting (5) over angular ¯Θ and the MEPS estimate (6), the NPIC matrix can be reconstructed by numerically evaluating ˆRi+n = ∫ ¯Θ ˆPmepsa(θ)aH(θ)dθ, (12) Sampling ¯Θ uniformly with Q sampling points spaced by ∆θ, (12) can be approximated by ˆRi+n≈ Q∑ i=1 a(θi)aH(θi) ǫp|aH(θ) ˆR−1u1|2 ∆θ. (13) [Page 3] 3 Here and in the next section we show how to apply the update (10) while avoiding to compute (13) explicitly. Rewriting ( 11) by substituting the expression for ˆRi+n, we get ∇J(w) = Q∑ i=1 2 ˆPmeps ( aH(θi)w(t))a(θi)∆θ + αˆa0, (14) By substituting (14) into (10) and rearranging, we obtain a recursion for the beamformer given by w(t + 1) = w(t)− µ [ˆa0− r(t)], (15) where r(t) = ∑Qi=1 ˆPmeps(aH(θi)w(t))a(θi)∆θ and µ is the steepest descent step size. In order to ﬁnd the beamformer, t he conjugate gradient algorithm is used to solve the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03126,
+        0.03103,
+        -0.018,
+        -0.00209,
+        0.00042
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": ", (15) where r(t) = ∑Qi=1 ˆPmeps(aH(θi)w(t))a(θi)∆θ and µ is the steepest descent step size. In order to ﬁnd the beamformer, t he conjugate gradient algorithm is used to solve the ",
+      "overlap_with_next": "orithm in (15), (19) and (22) (see below), we avoid actually computi ng expensive O(M 2) outer products, so our algorithm requires O(M Q) for steps (2,4,5,7,8 and 10) while steps i",
+      "text": ", (15) where r(t) = ∑Qi=1 ˆPmeps(aH(θi)w(t))a(θi)∆θ and µ is the steepest descent step size. In order to ﬁnd the beamformer, t he conjugate gradient algorithm is used to solve the unconstra ined quadratic programming problem in (9) as algorithm 1. Hence, Algorithm 1 Conjugate Gradient [33] 1: Choose an initial iterate w0; 2: Set g0 =∇J(w0) and e0 =−g0; 3: Set t← 0; 4: while‖∇J(wt)‖ > tol. do 5: Deﬁne et = ˆa0− rt 6: Determine the step-size µt =− eTt gt eTt ˆRi+net 7: wt+1 = wt + µtet; 8: gt+1 =∇J(wt+1) 9: Determine βt as βt = gTt+1(gt+1− gt)gTt gt ; 10: Set et+1 =−gt+1 + βtet; 11: Set t← t + 1; 12: end while the weight vector is updated at each iteration by the recursi on in (15) for reducing the complexity. Up to now, the main difference here from prior works lies in the fact that the integral (12) is approximated by a summatio n (13), which would require a complexity ofO(M 2Q) to be able to synthesize narrowband signal’s power accurately. Howev er, in the computation of (14) and in the ﬁnal proposed algorithm in (15), (19) and (22) (see below), we avoid actually computi ng expensive O(M 2) outer products, so our algorithm requires O(M Q) for steps (2,4,5,7,8 and 10) while steps i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02429,
+        0.04219,
+        -0.05078,
+        -0.02742,
+        0.02381
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "orithm in (15), (19) and (22) (see below), we avoid actually computi ng expensive O(M 2) outer products, so our algorithm requires O(M Q) for steps (2,4,5,7,8 and 10) while steps i",
+      "overlap_with_next": "∑ t=1 x(t) ( xH(t)v(t) K )) . (19) In (17), the step size, ξ, should satisfy 0 < ξ < 2/λmax (λmax is the largest eigenvalue of ˆR), with fastest convergence occurring for ξ ≈ 1/λma",
+      "text": "orithm in (15), (19) and (22) (see below), we avoid actually computi ng expensive O(M 2) outer products, so our algorithm requires O(M Q) for steps (2,4,5,7,8 and 10) while steps in (6 and 9) needsO(M ) complexity. Since this algorithm iterates t times to ﬁnding the best step-size, µt. Hence, the ﬁnal computational complexity of the proposed method is only O(tM Q) while computing the beamformer without need for the inverse of the NPIC matrix. D. MEPS Estimation Using CG In order to compute (13) efﬁciently, we can use an iterative solution to the linear system, and take advantage of the structure of the SCM, ˆR. We write the term v = ˆR−1u1 in (13) and consider the optimization problem min v vH ˆR v s.t. vHu1 = 1, (16) The corresponding CG algorithm is described by v(t + 1) = v(t) + ξ(u1− ˆRv(t)), (17) where ξ is a step size. Now, substituting the expression for ˆR and multiplying by v(t) yields ˆRv(t) = 1K K∑ t=1 x(t) ( xH(t)v(t)), (18) By substituting (18) into (17), we obtain v(t + 1) = v(t) + ξ ( u1− K∑ t=1 x(t) ( xH(t)v(t) K )) . (19) In (17), the step size, ξ, should satisfy 0 < ξ < 2/λmax (λmax is the largest eigenvalue of ˆR), with fastest convergence occurring for ξ ≈ 1/λma",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01581,
+        0.02202,
+        -0.03432,
+        -0.01024,
+        0.01419
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "∑ t=1 x(t) ( xH(t)v(t) K )) . (19) In (17), the step size, ξ, should satisfy 0 < ξ < 2/λmax (λmax is the largest eigenvalue of ˆR), with fastest convergence occurring for ξ ≈ 1/λma",
+      "overlap_with_next": "O(max(M 2Q, M 3.5)). IV. S IMULATIONS In this section, a uniform linear array of M = 10 omni- directional sensors and half-wavelength interelement spa cing is considered. Two inter",
+      "text": "∑ t=1 x(t) ( xH(t)v(t) K )) . (19) In (17), the step size, ξ, should satisfy 0 < ξ < 2/λmax (λmax is the largest eigenvalue of ˆR), with fastest convergence occurring for ξ ≈ 1/λmax. Since computing λmax requires O(M 3) operations, it is more efﬁcient to use an approxima- tion. Assume that λ is an eigenvalue of ˆR with respect to the eigenvalue z, so we can write λz = ˆRz = 1K K∑ t=1 x(t) ( xH(t)z). (20) Taking norm in both sides | λ|‖ z‖= 1K‖ K∑ t=1 x(t)xH(t)z‖ ⩽ 1K K∑ t=1 ‖ x(t)‖| xH(t)z|⩽ 1K K∑ t=1 ‖ x(t)‖2‖ z‖, (21) Hence| λ|⩽ (1/K) ∑Kt=1‖ x(t)‖2. An approximation to the step size, ξ, is given by ξ≈ K∑K t=1‖ x(t)‖2 . (22) The computational complexity of MEPS-NPIC-CG is O(tM Q). The solution of the quadratically constrained quadratic programming (QCQP) problem in [20] has com- plexity of at least O(M 3.5 + M 2Q), while the beamformer in [10] has a complexity of O(KM ) + O(M 3) and the reconstructed NPIC matrices in [22] and [25] have a com- plexity of O(M 3). Also, the cost of the beamformer in [34] isO(max(M 2Q, M 3.5)). IV. S IMULATIONS In this section, a uniform linear array of M = 10 omni- directional sensors and half-wavelength interelement spa cing is considered. Two inter",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04359,
+        0.04588,
+        -0.05639,
+        -0.03267,
+        0.00319
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "O(max(M 2Q, M 3.5)). IV. S IMULATIONS In this section, a uniform linear array of M = 10 omni- directional sensors and half-wavelength interelement spa cing is considered. Two inter",
+      "overlap_with_next": "lus-interference covariance ma trix reconstruction and SV estimation (INC-SV), [34] and the beamformer (SV -Est) in [35]. The angular sector of the desir ed signal is set to Θ = [−",
+      "text": "O(max(M 2Q, M 3.5)). IV. S IMULATIONS In this section, a uniform linear array of M = 10 omni- directional sensors and half-wavelength interelement spa cing is considered. Two interferers and a desired signal impinge on the sensor array with incident angles 50o, 20o and 5o, respectively. The interference-plus-noise ratio (INR) fo r each interferer is assumed 30 dB in each sensor. The additive nois e is modeled as spatially white Gaussian with zero mean and unit variance where 100 Monte Carlo runs are performed for each simulation. When we examine the performance of the output SINR versus input SNR, the number of snapshots is set to K = 30 whereas for the performance comparison of the adaptive beamformers versus the number of snapshots the SNR is set to 20 dB. The proposed MEPS-NPIC-CG method is compared with LOCSME [22], the modiﬁed projection beam- former (Shrinkage) [10], the reconstruction-estimation b ased [Page 4] 4 beamformer (Rec-Est) [20], the SPSS beamformer in [25], the algorithm based on noise-plus-interference covariance ma trix reconstruction and SV estimation (INC-SV), [34] and the beamformer (SV -Est) in [35]. The angular sector of the desir ed signal is set to Θ = [−",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07531,
+        -0.00417,
+        -0.0139,
+        0.00806,
+        0.01398
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "lus-interference covariance ma trix reconstruction and SV estimation (INC-SV), [34] and the beamformer (SV -Est) in [35]. The angular sector of the desir ed signal is set to Θ = [−",
+      "overlap_with_next": " 1(b) and Figs. 2(b) show the output SINR of the beamformers versus the input SNR and versus the snapshots. Similar to the previous scenario, the proposed beamformer signiﬁcantly o",
+      "text": "lus-interference covariance ma trix reconstruction and SV estimation (INC-SV), [34] and the beamformer (SV -Est) in [35]. The angular sector of the desir ed signal is set to Θ = [−1◦, 11◦] while the interference angular sector is ¯Θ = [ −90◦,−1◦)∪ (11◦, 90◦]. For the proposed MEPS-NPIC-CG beamformer, tol = 0 .001, t = 7 , S = 10 and Q = 90 are used and the bound for the beamformer in [34] is set as ǫ = √ 0.1. To solve the optimization problems to compute the optimum solutions used for comparison, the Matlab CVX toolbox [36] is used. In the ﬁrst scenario, we investigate the impact of the array arbitrary imperfection mismatch in an inhomogeneous mediu m when the wave propagation effects distort the signal spatia l signature. Speciﬁcally, when the nominal SV components accumulate the phase increment, it is assumed that the phase increments are chosen independently from the random error vector of the Gaussian generator with zero mean and standard deviation 0.07, which in each simulation run remain ﬁxed. Figs. 1(b) and Figs. 2(b) show the output SINR of the beamformers versus the input SNR and versus the snapshots. Similar to the previous scenario, the proposed beamformer signiﬁcantly o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06172,
+        -0.00138,
+        -0.01171,
+        -0.02514,
+        0.01905
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " 1(b) and Figs. 2(b) show the output SINR of the beamformers versus the input SNR and versus the snapshots. Similar to the previous scenario, the proposed beamformer signiﬁcantly o",
+      "overlap_with_next": "0(t) and sp(t) change from both run to run and snapshot to snapshot. Fig. 1(a) and Fig. 2(a) depict the output SINR of the tested beamformers versus the SNR and versus the snapshot",
+      "text": " 1(b) and Figs. 2(b) show the output SINR of the beamformers versus the input SNR and versus the snapshots. Similar to the previous scenario, the proposed beamformer signiﬁcantly outperforms other beamformers due to its abil ity to reconstruct the NPIC matrix and estimate the desired sign al SV with higher accuracy than other methods. In the second scenario, we analyze the effect of the SV mis- match by the incoherent local scattering of the desired sign al. We assume that the actual SV has a time-varying signature and the SV is expressed as a(t) = s0(t)a(θ0) + ∑4p=1 sp(t)a(θp) where s0(t) and sp(t) ( p = 1 , 2, 3, 4) are independently and identically distributed complex Gaussian random varia bles independently drawn from a random generator. In each sim- ulation run, the DoAs θp (p = 0 , 1, 2, 3, 4) are independently distributed in a uniform generator with mean 5◦ and standard deviation 2◦. Note that θp changes from run to run while remains ﬁxed from snapshot to snapshot. Meanwhile, the random variables s0(t) and sp(t) change from both run to run and snapshot to snapshot. Fig. 1(a) and Fig. 2(a) depict the output SINR of the tested beamformers versus the SNR and versus the snapshot",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0716,
+        0.0119,
+        -0.01834,
+        -0.01966,
+        -0.00556
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "0(t) and sp(t) change from both run to run and snapshot to snapshot. Fig. 1(a) and Fig. 2(a) depict the output SINR of the tested beamformers versus the SNR and versus the snapshot",
+      "overlap_with_next": "erent Local Scattering Optimal SINR NPIC-MEPS-SG Rec-Est INC-SV SHRINKAGE SV-Est LOCSME SPSS -20 -10 0 10 20 30 40 50 SNR (dB) -40 -20 0 20 40 60 SINR (dB) Wavefront Fig. 1. SINR v",
+      "text": "0(t) and sp(t) change from both run to run and snapshot to snapshot. Fig. 1(a) and Fig. 2(a) depict the output SINR of the tested beamformers versus the SNR and versus the snapshots under the incoherent local scatter ing case. It is demonstrated that the MEPS-NPIC-CG has high accuracy SINR for all snapshots. Also, it is seen that the res ult of the proposed (MEPS-NPIC-CG) beamformer outperforms the other beamformers. V. C ONCLUSION A low-complexity approach to robust adaptive beamforming based on estimated weight vector through CG recursions, named MEPS-NPIC-CG, has been proposed. The computed weight vector is exploited to reconstruct accurate NPIC mat rix without requiring matrix inversions. Simulations demonst rate that MEPS-NPIC-CG can offer a superior performance to recently reported robust adaptive beamforming methods. REFERENCES [1] H. L. V an Trees, Detection, Estimation, and Modulation Theory . John Wiley & Sons, New Y ork, 2004. -20 -10 0 10 20 30 40 50 SNR (dB) -40 -20 0 20 40 60 SINR (dB) Incoherent Local Scattering Optimal SINR NPIC-MEPS-SG Rec-Est INC-SV SHRINKAGE SV-Est LOCSME SPSS -20 -10 0 10 20 30 40 50 SNR (dB) -40 -20 0 20 40 60 SINR (dB) Wavefront Fig. 1. SINR v",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08112,
+        0.01563,
+        -0.01474,
+        0.00786,
+        0.00274
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "erent Local Scattering Optimal SINR NPIC-MEPS-SG Rec-Est INC-SV SHRINKAGE SV-Est LOCSME SPSS -20 -10 0 10 20 30 40 50 SNR (dB) -40 -20 0 20 40 60 SINR (dB) Wavefront Fig. 1. SINR v",
+      "overlap_with_next": "tronics Letters, vol. 50, no. 13, pp. 910–912, 2014. [5] Z. Y ang, R. C. de Lamare, and X. Li, “ l1 -regularized stap algorithms with a generalized sidelobe canceler architecture f",
+      "text": "erent Local Scattering Optimal SINR NPIC-MEPS-SG Rec-Est INC-SV SHRINKAGE SV-Est LOCSME SPSS -20 -10 0 10 20 30 40 50 SNR (dB) -40 -20 0 20 40 60 SINR (dB) Wavefront Fig. 1. SINR vs SNR a) Incoherent Local Scattering b) Wavefro nt 0 10 20 30 40 50 NUMBER OF SNAPSHOTS -20 -10 0 10 20 30 SINR (dB) Incoherent Local Scattering Optimal SINR NPIC-MEPS-SG Rec-Est INC-SV SHRINKAGE SV-Est LOCSME SPSS 0 10 20 30 40 50 NUMBER OF SNAPSHOTS -20 -10 0 10 20 30 SINR (dB) Wavefront Fig. 2. SINR vs Snapshots a) Incoherent Local Scattering b) W avefront [2] J. Li, P . Stoica, and Z. Wang, “On robust Capon beamformin g and diagonal loading,” IEEE Trans. on Signal Process. , vol. 51, no. 7, pp. 1702–1715, 2003. [3] X. Mestre and M. A. Lagunas, “Finite sample size effect on minimum variance beamformers: Optimum diagonal loading factor for large ar- rays,” IEEE Trans. on Signal Process. , vol. 54, no. 1, pp. 69–82, 2006. [4] O. Kukrer and S. Mohammadzadeh, “Generalised loading al gorithm for adaptive beamforming in ulas,” Electronics Letters, vol. 50, no. 13, pp. 910–912, 2014. [5] Z. Y ang, R. C. de Lamare, and X. Li, “ l1 -regularized stap algorithms with a generalized sidelobe canceler architecture f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05084,
+        0.00234,
+        -0.03097,
+        -0.00297,
+        0.00566
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "tronics Letters, vol. 50, no. 13, pp. 910–912, 2014. [5] Z. Y ang, R. C. de Lamare, and X. Li, “ l1 -regularized stap algorithms with a generalized sidelobe canceler architecture f",
+      "overlap_with_next": "l quadratic programming: An it erative solution to the mismatch problem,” IEEE Signal Process.Lett. , vol. 15, pp. 733–736, 2008. [10] F. Huang, W. Sheng, and X. Ma, “Modiﬁed proje",
+      "text": "tronics Letters, vol. 50, no. 13, pp. 910–912, 2014. [5] Z. Y ang, R. C. de Lamare, and X. Li, “ l1 -regularized stap algorithms with a generalized sidelobe canceler architecture for airb orne radar,” IEEE Transactions on Signal Processing , vol. 60, no. 2, pp. 674–686, 2012. [6] S. A. V orobyov, A. B. Gershman, and Z.-Q. Luo, “Robust ada ptive beamforming using worst-case performance optimization: A solution to the signal mismatch problem,” IEEE Trans. on Signal Process. , vol. 51, no. 2, pp. 313–324, 2003. [7] L. Landau, R. C. de Lamare, and M. Haardt, “Robust adaptiv e beam- forming algorithms using the constrained constant modulus criterion,” IET Signal Processing , vol. 8, no. 5, pp. 447–457, 2014. [8] S. Mohammadzadeh and O. Kukrer, “Adaptive beamforming b ased on theoretical interference-plus-noise covariance and di rection-of-arrival estimation,” IET Signal Process. , vol. 12, no. 7, pp. 819–825, 2018. [9] A. Hassanien, S. A. V orobyov, and K. M. Wong, “Robust adap tive beamforming using sequential quadratic programming: An it erative solution to the mismatch problem,” IEEE Signal Process.Lett. , vol. 15, pp. 733–736, 2008. [10] F. Huang, W. Sheng, and X. Ma, “Modiﬁed proje",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02695,
+        -0.0016,
+        -0.01068,
+        0.00025,
+        0.02356
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "l quadratic programming: An it erative solution to the mismatch problem,” IEEE Signal Process.Lett. , vol. 15, pp. 733–736, 2008. [10] F. Huang, W. Sheng, and X. Ma, “Modiﬁed proje",
+      "overlap_with_next": "ns on Aerospace and Electronic Systems, vol. 47, no. 3, pp. 1668–1684, 2011. [15] N. Song, W. U. Alokozai, R. C. de Lamare, and M. Haardt, “A daptive widely linear reduced-rank bea",
+      "text": "l quadratic programming: An it erative solution to the mismatch problem,” IEEE Signal Process.Lett. , vol. 15, pp. 733–736, 2008. [10] F. Huang, W. Sheng, and X. Ma, “Modiﬁed projection appro ach for robust adaptive array beamforming,” Signal Process., vol. 92, no. 7, pp. 1758–1763, 2012. [11] F. Shen, F. Chen, and J. Song, “Robust adaptive beamform ing based on steering vector estimation and covariance matrix reconstr uction,” IEEE Communications Letters , vol. 19, no. 9, pp. 1636–1639, 2015. [Page 5] 5 [12] R. C. de Lamare and R. Sampaio-Neto, “Reduced-rank adap tive ﬁltering based on joint iterative optimization of adaptive ﬁlters,” IEEE Signal Processing Letters, vol. 14, no. 12, pp. 980–983, 2007. [13] “Adaptive reduced-rank lcmv beamforming algorithms b ased on joint iterative optimization of ﬁlters: Design and analysis,” Signal Processing, vol. 90, no. 2, pp. 640 – 652, 2010. [14] R. Fa and R. C. De Lamare, “Reduced-rank stap algorithms using joint iterative optimization of ﬁlters,” IEEE Transactions on Aerospace and Electronic Systems, vol. 47, no. 3, pp. 1668–1684, 2011. [15] N. Song, W. U. Alokozai, R. C. de Lamare, and M. Haardt, “A daptive widely linear reduced-rank bea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04113,
+        0.00242,
+        -0.00909,
+        -0.01465,
+        0.02201
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ns on Aerospace and Electronic Systems, vol. 47, no. 3, pp. 1668–1684, 2011. [15] N. Song, W. U. Alokozai, R. C. de Lamare, and M. Haardt, “A daptive widely linear reduced-rank bea",
+      "overlap_with_next": "ie, S. G. Razul, P . Suganthan, and C . M. S. See, “Robust adaptive beamforming based on covariance matr ix recon- struction for look direction mismatch,” Progress In Electromagnet",
+      "text": "ns on Aerospace and Electronic Systems, vol. 47, no. 3, pp. 1668–1684, 2011. [15] N. Song, W. U. Alokozai, R. C. de Lamare, and M. Haardt, “A daptive widely linear reduced-rank beamforming based on joint iter ative opti- mization,” IEEE Signal Processing Letters , vol. 21, no. 3, pp. 265–269, 2014. [16] R. C. de Lamare and R. Sampaio-Neto, “Adaptive reduced- rank process- ing based on joint and iterative interpolation, decimation , and ﬁltering,” IEEE Transactions on Signal Processing , vol. 57, no. 7, pp. 2503–2514, 2009. [17] R. Fa, R. C. de Lamare, and L. Wang, “Reduced-rank stap sc hemes for airborne radar based on switched joint interpolation, d ecimation and ﬁltering algorithm,” IEEE Transactions on Signal Processing , vol. 58, no. 8, pp. 4182–4194, 2010. [18] H. Ruan and R. C. de Lamare, “Distributed robust beamfor ming based on low-rank and cross-correlation techniques: Design and ana lysis,” IEEE Transactions on Signal Processing, vol. 67, no. 24, pp. 6411–6423, 2019. [19] R. Mallipeddi, J. P . Lie, S. G. Razul, P . Suganthan, and C . M. S. See, “Robust adaptive beamforming based on covariance matr ix recon- struction for look direction mismatch,” Progress In Electromagnet",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03899,
+        0.01934,
+        -0.00845,
+        0.00166,
+        0.01378
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "ie, S. G. Razul, P . Suganthan, and C . M. S. See, “Robust adaptive beamforming based on covariance matr ix recon- struction for look direction mismatch,” Progress In Electromagnet",
+      "overlap_with_next": "] X. Y uan and L. Gan, “Robust adaptive beamforming via a no vel subspace method for interference covariance matrix recons truction,” Signal Processing, vol. 130, pp. 233–242, 2017",
+      "text": "ie, S. G. Razul, P . Suganthan, and C . M. S. See, “Robust adaptive beamforming based on covariance matr ix recon- struction for look direction mismatch,” Progress In Electromagnetics Research, vol. 25, pp. 37–46, 2011. [20] Y . Gu and A. Leshem, “Robust adaptive beamforming based on interfer- ence covariance matrix reconstruction and steering vector estimation,” IEEE Trans. on Signal Process. , vol. 60, no. 7, pp. 3881–3885, 2012. [21] Y . Gu, N. A. Goodman, S. Hong, and Y . Li, “Robust adaptive beam- forming based on interference covariance matrix sparse rec onstruction,” Signal Processing, vol. 96, pp. 375–381, 2014. [22] H. Ruan and R. C. de Lamare, “Robust adaptive beamformin g using a low-complexity shrinkage-based mismatch estimation algo rithm.” IEEE Signal Process. Lett. , vol. 21, no. 1, pp. 60–64, 2014. [23] H. Ruan and R. C. de Lamare, “Robust adaptive beamformin g based on low-rank and cross-correlation techniques,” IEEE Trans. on Signal Process., vol. 64, no. 15, pp. 3919–3932, Aug 2016. [24] X. Y uan and L. Gan, “Robust adaptive beamforming via a no vel subspace method for interference covariance matrix recons truction,” Signal Processing, vol. 130, pp. 233–242, 2017",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04681,
+        0.01044,
+        -0.00864,
+        -0.0006,
+        0.02638
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "] X. Y uan and L. Gan, “Robust adaptive beamforming via a no vel subspace method for interference covariance matrix recons truction,” Signal Processing, vol. 130, pp. 233–242, 2017",
+      "overlap_with_next": "89–797, 2012. [29] Z. Y ang, R. C. D. Lamare, and X. Li, “Sparsity-aware spac e-time adaptive processing algorithms with l1-norm regularisati on for airborne radar,” IET Signal Pro",
+      "text": "] X. Y uan and L. Gan, “Robust adaptive beamforming via a no vel subspace method for interference covariance matrix recons truction,” Signal Processing, vol. 130, pp. 233–242, 2017. [25] Z. Zhang, W. Liu, W. Leng, A. Wang, and H. Shi, “Interfere nce- plus-noise covariance matrix reconstruction via spatial p ower spectrum sampling for robust adaptive beamforming,” IEEE Signal Process. Lett. , vol. 23, no. 1, pp. 121–125, 2016. [26] P . Chen, Y . Y ang, Y . Wang, and Y . Ma, “Adaptive beamformi ng with sensor position errors using covariance matrix constructi on based on subspace bases transition,” IEEE Signal Process. Lett. , vol. 26, no. 1, pp. 19–23, 2018. [27] L. Wang and R. C. D. Lamare, “Constrained adaptive ﬁlter ing algorithms based on conjugate gradient techniques for beamforming,” IET Signal Processing, vol. 4, no. 6, pp. 686–697, 2010. [28] L. Wang and R. C. de Lamare, “Set-membership constraine d conjugate gradient adaptive algorithm for beamforming,” IET Signal Processing , vol. 6, no. 8, pp. 789–797, 2012. [29] Z. Y ang, R. C. D. Lamare, and X. Li, “Sparsity-aware spac e-time adaptive processing algorithms with l1-norm regularisati on for airborne radar,” IET Signal Pro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03004,
+        0.0184,
+        -0.02152,
+        -0.01832,
+        0.01137
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "89–797, 2012. [29] Z. Y ang, R. C. D. Lamare, and X. Li, “Sparsity-aware spac e-time adaptive processing algorithms with l1-norm regularisati on for airborne radar,” IET Signal Pro",
+      "overlap_with_next": "Tech., vol. 67, no. 9, pp. 8495–8503, 2018. [35] A. Khabbazibasmenj, S. A. V orobyov, and A. Hassanien, “ Robust adaptive beamforming based on steering vector estimation w ith as l",
+      "text": "89–797, 2012. [29] Z. Y ang, R. C. D. Lamare, and X. Li, “Sparsity-aware spac e-time adaptive processing algorithms with l1-norm regularisati on for airborne radar,” IET Signal Processing , vol. 6, no. 5, pp. 413–423, 2012. [30] R. C. De Lamare and R. Sampaio-Neto, “Minimum mean-squa red error iterative successive parallel arbitrated decision feedba ck detectors for ds- cdma systems,” IEEE Transactions on Communications , vol. 56, no. 5, pp. 778–789, 2008. [31] R. T. Lacoss, “Data adaptive spectral analysis methods ,” Geophysics, vol. 36, no. 4, pp. 661–675, 1971. [32] O. L. Frost, “An algorithm for linearly constrained ada ptive array processing,” Proceedings of the IEEE , vol. 60, no. 8, pp. 926–935, 1972. [33] D. G. Luenberger, Y . Y e et al. , Linear and nonlinear programming . Springer, 1984, vol. 2. [34] Z. Zheng, Y . Zheng, W.-Q. Wang, and H. Zhang, “Covarianc e matrix reconstruction with interference steering vector and powe r estimation for robust adaptive beamforming,” IEEE Trans. on V ehicular Tech., vol. 67, no. 9, pp. 8495–8503, 2018. [35] A. Khabbazibasmenj, S. A. V orobyov, and A. Hassanien, “ Robust adaptive beamforming based on steering vector estimation w ith as l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04398,
+        0.02524,
+        -0.02748,
+        -0.0015,
+        -0.00239
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 24873,
+      "length": 393,
+      "overlap_with_previous": "Tech., vol. 67, no. 9, pp. 8495–8503, 2018. [35] A. Khabbazibasmenj, S. A. V orobyov, and A. Hassanien, “ Robust adaptive beamforming based on steering vector estimation w ith as l",
+      "overlap_with_next": "",
+      "text": "Tech., vol. 67, no. 9, pp. 8495–8503, 2018. [35] A. Khabbazibasmenj, S. A. V orobyov, and A. Hassanien, “ Robust adaptive beamforming based on steering vector estimation w ith as little as possible prior information,” IEEE Trans. on Signal Process. , vol. 60, no. 6, pp. 2974–2987, 2012. [36] M. Grant and S. Boyd, “Cvx: Matlab software for discipli ned convex programming, version 2.1,” 2017.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01069,
+        -0.00073,
+        -0.02719,
+        -0.00122,
+        0.00945
+      ]
+    }
+  ]
+}

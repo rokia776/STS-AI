@@ -1,0 +1,725 @@
+{
+  "paper_id": "47f37f26-c7a1-4283-9c39-89e7f9c62b4e",
+  "filename": "051_Computer_Vision_Unsupervised_Domain_Adaptation_for_Semantic_Segmentation_by_Content_Transfer.pdf",
+  "title": "Unsupervised Domain Adaptation for Semantic Segmentation by Content Transfer",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 42,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "or semantic segmentation in the real domain, another main challenge, the class imbalance problem, still ex- ists in UDA for semantic segmentation. We address this prob- lem by tran",
+      "text": "[Page 1] Unsupervised Domain Adaptation for Semantic Segmentation by Content Transfer Suhyeon Lee, Junhyuk Hyun, Hongje Seong, Euntai Kim * School of Electrical and Electronic Engineering, Yonsei University, Seoul, Korea {hyeon93, jhhyun, hjseong, etkim}@yonsei.ac.kr Abstract In this paper, we tackle the unsupervised domain adaptation (UDA) for semantic segmentation, which aims to segment the unlabeled real data using labeled synthetic data. The main problem of UDA for semantic segmentation relies on reduc- ing the domain gap between the real image and synthetic im- age. To solve this problem, we focused on separating infor- mation in an image into content and style. Here, only the con- tent has cues for semantic segmentation, and the style makes the domain gap. Thus, precise separation of content and style in an image leads to effect as supervision of real data even when learning with synthetic data. To make the best of this effect, we propose a zero-style loss. Even though we perfectly extract content for semantic segmentation in the real domain, another main challenge, the class imbalance problem, still ex- ists in UDA for semantic segmentation. We address this prob- lem by tran",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06691,
+        -0.01019,
+        -0.02925,
+        -0.02432,
+        -0.00637
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "or semantic segmentation in the real domain, another main challenge, the class imbalance problem, still ex- ists in UDA for semantic segmentation. We address this prob- lem by tran",
+      "overlap_with_next": "orly in real-world environments, so unsupervised domain adaptation (UDA) methods have been proposed to solve this problem (Chang et al. 2019; Du et al. 2019; Lin et al. 2017; Luo e",
+      "text": "or semantic segmentation in the real domain, another main challenge, the class imbalance problem, still ex- ists in UDA for semantic segmentation. We address this prob- lem by transferring the contents of tail classes from synthetic to real domain. Experimental results show that the proposed method achieves the state-of-the-art performance in semantic segmentation on the major two UDA settings. Introduction Semantic segmentation is a task of classifying each pixel of an image into semantic categories (e.g., sky, road, traf- ﬁc sign, etc.). Training the segmentation model (Chen et al. 2017) requires large amounts of pixel-level anno- tated data, but pixelwise image labeling is extremely labor- intensive and time-consuming. To reduce the labeling cost, the model learned with automatically labeled synthetic datasets (Richter et al. 2016; Ros et al. 2016) can be used in real-world environments (Cordts et al. 2016). In this case, the domain gap between synthetic data and real data causes the model to behave poorly in real-world environments, so unsupervised domain adaptation (UDA) methods have been proposed to solve this problem (Chang et al. 2019; Du et al. 2019; Lin et al. 2017; Luo e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09269,
+        -0.02571,
+        -0.00426,
+        -0.0134,
+        -0.01878
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "orly in real-world environments, so unsupervised domain adaptation (UDA) methods have been proposed to solve this problem (Chang et al. 2019; Du et al. 2019; Lin et al. 2017; Luo e",
+      "overlap_with_next": "tic segmentation regardless of style. The style is a cue to represent a characteristic for a domain of an image regard- less of content. The style makes a domain gap, so separating",
+      "text": "orly in real-world environments, so unsupervised domain adaptation (UDA) methods have been proposed to solve this problem (Chang et al. 2019; Du et al. 2019; Lin et al. 2017; Luo et al. 2019). UDA for semantic segmentation aims to train a segmen- tation model that performs on the real domain by using un- labeled real images and labeled synthetic images. Since the supervision of semantic information comes only from syn- thetic data, reducing the domain gap between the real image *Corresponding author Copyright © 2021, Association for the Advancement of Artiﬁcial Intelligence (www.aaai.org). All rights reserved. and synthetic image is a major problem. That is, if we com- pletely adapt the real and synthetic domains, learning with synthetic data would be the same as learning with real data. We address this problem by forcing networks to extract con- tent and style from an image separately. An image includes content and style (Gatys, Ecker, and Bethge 2016; Isola et al. 2017). The content has cues for se- mantic segmentation regardless of style. The style is a cue to represent a characteristic for a domain of an image regard- less of content. The style makes a domain gap, so separating",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06196,
+        -0.00774,
+        -0.01756,
+        -0.01517,
+        -0.02099
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "tic segmentation regardless of style. The style is a cue to represent a characteristic for a domain of an image regard- less of content. The style makes a domain gap, so separating",
+      "overlap_with_next": "., road, sky) exist in most of the data, but tail classes (e.g., traf- ﬁc sign, bicycle) are rarely shown. The model learned with the class-imbalanced dataset would be biased towar",
+      "text": "tic segmentation regardless of style. The style is a cue to represent a characteristic for a domain of an image regard- less of content. The style makes a domain gap, so separating style from content further enhances the alignment between the two domains in the content space. However, separating content and style in an image is challenging because we can- not directly supervise what content or style is. In this paper, we introduce zero-style loss to capture content and style sep- arately. To do this, we set one content encoder and two style encoders. By learning with our proposed zero-style loss, the content encoder and style encoders can capture domain- invariant content feature and domain-speciﬁc style features, respectively. With the UDA for semantic segmentation, we can pro- vide a large number of additional labeled synthetic images for training. However, this method overlooks a serious prob- lem. In the urban scene dataset, the number of samples per class is not equally distributed. Head classes (e.g., road, sky) exist in most of the data, but tail classes (e.g., traf- ﬁc sign, bicycle) are rarely shown. The model learned with the class-imbalanced dataset would be biased towar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06896,
+        -0.04165,
+        -0.02995,
+        0.0232,
+        0.03145
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "., road, sky) exist in most of the data, but tail classes (e.g., traf- ﬁc sign, bicycle) are rarely shown. The model learned with the class-imbalanced dataset would be biased towar",
+      "overlap_with_next": ", our model can extract the content arXiv:2012.12545v1 [cs.CV] 23 Dec 2020 [Page 2] from the source data, and this content would be usable in the target domain. Therefore, we trans",
+      "text": "., road, sky) exist in most of the data, but tail classes (e.g., traf- ﬁc sign, bicycle) are rarely shown. The model learned with the class-imbalanced dataset would be biased toward head classes (Cui et al. 2019). To further boost the performance on the target (real) do- main, the self-training strategy has recently been applied to the UDA methods (Li, Yuan, and Vasconcelos 2019; French, Mackiewicz, and Fisher 2017). This strategy generates the target pseudo labels using the segmentation model, which is trained with labeled source (synthetic) data. The class im- balance problem is further accelerated when using this self- training technique. Since the segmentation model is already biased toward the head classes, we cannot expect the correct generation of pseudo labels for the tail classes. Thus, self- training makes networks to be further biased toward head classes. To solve this problem, we propose the tail-class content transfer. Since we trained our model to separate the content and style from an image, our model can extract the content arXiv:2012.12545v1 [cs.CV] 23 Dec 2020 [Page 2] from the source data, and this content would be usable in the target domain. Therefore, we trans",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05376,
+        -0.03467,
+        -0.03636,
+        0.00656,
+        -0.01122
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": ", our model can extract the content arXiv:2012.12545v1 [cs.CV] 23 Dec 2020 [Page 2] from the source data, and this content would be usable in the target domain. Therefore, we trans",
+      "overlap_with_next": "s a computer vision task that predicts category per pixel of image. Recently, convo- lutional neural network-based methods have been devel- oped. Long, Shelhamer, and Darrell (2015",
+      "text": ", our model can extract the content arXiv:2012.12545v1 [cs.CV] 23 Dec 2020 [Page 2] from the source data, and this content would be usable in the target domain. Therefore, we transfer the tail-class con- tents from the source to the target. Note that unlike the target pseudo label generated by the segmentation model, our con- tent transfer enables the model to supervise using accurately annotated source labels in the target domain. To sum up, our contributions are as follows: • We propose the zero-style loss that enables more precise feature-level domain adaptation and domain transfer by separating the content and style of the image indepen- dently. • We propose the content transfer to solve the class imbal- ance problem in UDA for semantic segmentation. This method is end-to-end trainable without pre-processing datasets. • We achieve the state-of-the-art performance for two synthetic-to-real UDA settings; GTA5→ Cityscapes and SYNTHIA→ Cityscapes. Related Work Semantic Segmentation Semantic segmentation is a computer vision task that predicts category per pixel of image. Recently, convo- lutional neural network-based methods have been devel- oped. Long, Shelhamer, and Darrell (2015",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0611,
+        -0.03407,
+        -0.01988,
+        0.02766,
+        0.00808
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "s a computer vision task that predicts category per pixel of image. Recently, convo- lutional neural network-based methods have been devel- oped. Long, Shelhamer, and Darrell (2015",
+      "overlap_with_next": "led target data, achieves high performance in target data, and this depends on reducing the discrepancy between source and target domains. Many methods, including adversarial learn",
+      "text": "s a computer vision task that predicts category per pixel of image. Recently, convo- lutional neural network-based methods have been devel- oped. Long, Shelhamer, and Darrell (2015) proposed Fully Convolutional Network (FCN) for spatially dense predic- tion. DeepLab (Chen et al. 2017) proposed Atrous Spa- tial Pyramid Pooling (ASPP) to reliably segment on vari- ous scales. PSPNet (Zhao et al. 2017) proposed pyramid pooling module (PPM) that utilizes global context infor- mation through different-region-based context aggregation. SegNet (Badrinarayanan, Kendall, and Cipolla 2017) and U- Net (Ronneberger, Fischer, and Brox 2015) used a encoder- decoder architecture for mapping the low-resolution features to input-resolution. Unsupervised Domain Adaptation for Semantic Segmentation Unsupervised Domain Adaptation (UDA) is applied to se- mantic segmentation to save the effort for per-pixel annota- tion. The goal of the UDA for semantic segmentation is that the model, trained with labeled source data and unlabeled target data, achieves high performance in target data, and this depends on reducing the discrepancy between source and target domains. Many methods, including adversarial learn",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05123,
+        -0.01457,
+        -0.02963,
+        0.01431,
+        -0.01463
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "led target data, achieves high performance in target data, and this depends on reducing the discrepancy between source and target domains. Many methods, including adversarial learn",
+      "overlap_with_next": "ng the model using a dataset with a long-tailed class distribution. This problem stands out in the semantic segmentation task that predicts the pixel-wise category of the image. Th",
+      "text": "led target data, achieves high performance in target data, and this depends on reducing the discrepancy between source and target domains. Many methods, including adversarial learning, are proposed. Du et al. (2019) and Wu et al. (2018) align latent representations of the two domains in feature space. Hoffman et al. (2017) and Zhang et al. (2018) reduced the visual difference between the two domains for input- level adaptation. Zhu et al. (2017) proposed to transfer the domain of images, and domain-transferred images can be used to learn the segmentation model. Tsai et al. (2018) and Luo et al. (2019) use output-level discriminators to adapt the semantic predictions from two domains. Li, Yuan, and Vas- concelos (2019) proposed self-training approach to provide extra target information. We deal with the UDA for semantic segmentation by separating content and style from an image and then transferring content from source to target domain. Class Imbalance Problem The class imbalance problem occurs when training the model using a dataset with a long-tailed class distribution. This problem stands out in the semantic segmentation task that predicts the pixel-wise category of the image. Th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06383,
+        -0.015,
+        -0.03325,
+        -0.01633,
+        -0.0037
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ng the model using a dataset with a long-tailed class distribution. This problem stands out in the semantic segmentation task that predicts the pixel-wise category of the image. Th",
+      "overlap_with_next": "DA for semantic segmenta- tion because of the absence of the target annotation. In this paper, we propose the content transfer to solve the lack of data for target tail classes, wh",
+      "text": "ng the model using a dataset with a long-tailed class distribution. This problem stands out in the semantic segmentation task that predicts the pixel-wise category of the image. The urban scene dataset (Cordts et al. 2016), which is commonly used for the semantic segmentation, has an imbalanced number of class-wise samples. In this dataset, there are many samples for head classes (e.g., road, sky, etc.), while there are signif- icantly fewer samples for tail classes (e.g., trafﬁc sign, etc.). The model trained with the imbalanced dataset is skewed to the head classes (Cui et al. 2019). For handling the issue, the class rebalancing approaches have been proposed. The class-balanced loss (Cui et al. 2019) calculates the effective number of samples for each class, and then they rebalance the loss. The cut-and- paste (Dwibedi, Misra, and Hebert 2017), which cuts and pastes objects into images, can be used to increase the amount of tail-class training data. However, these methods cannot be applied directly to UDA for semantic segmenta- tion because of the absence of the target annotation. In this paper, we propose the content transfer to solve the lack of data for target tail classes, wh",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07703,
+        -0.03518,
+        -0.02357,
+        0.00684,
+        -0.01006
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "DA for semantic segmenta- tion because of the absence of the target annotation. In this paper, we propose the content transfer to solve the lack of data for target tail classes, wh",
+      "overlap_with_next": "ntic infor- mation regardless of domain. The Es and Et capture style information that depends on the source and target domains, respectively. The ﬁrst convolutional layers of three",
+      "text": "DA for semantic segmenta- tion because of the absence of the target annotation. In this paper, we propose the content transfer to solve the lack of data for target tail classes, which is the essential cause of the class imbalance problem. Method The overall framework is depicted in Figure 1. We ﬁrst describe the unsupervised domain adaptation (UDA) part, which contains domain transfer and semantic prediction, with the zero-style loss. Second, we describe the content transfer part to address the class imbalance problem in the UDA for semantic segmentation. Unsupervised Domain Adaptation We denote the source domain as S and target domain as T . In the UDA, the source image Is ∈ RH×W×3 with label Ys∈ RH×W×K and target image It∈ RH×W×3 without label are given. TheH andW are the height and width of the image andK is the number of the semantic categories. Our model contains one shared content encoder Ec, one shared segmenterGc, two style encoders Es andEt, and two im- age generatorsGs andGt. TheEc captures semantic infor- mation regardless of domain. The Es and Et capture style information that depends on the source and target domains, respectively. The ﬁrst convolutional layers of three",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06747,
+        -0.02933,
+        -0.02586,
+        0.00998,
+        -0.00059
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ntic infor- mation regardless of domain. The Es and Et capture style information that depends on the source and target domains, respectively. The ﬁrst convolutional layers of three",
+      "overlap_with_next": "ansfer pseudo label generation tail‐class selection head‐class selection ܿ Paper preprints 학회버전 Figure 1: An overview of the proposed architecture. Our model consists of two parts,",
+      "text": "ntic infor- mation regardless of domain. The Es and Et capture style information that depends on the source and target domains, respectively. The ﬁrst convolutional layers of three encoders are shared to extract the features from the raw image before decomposing style and content. The Gc predicts the pixel- level categories of the image using content feature encoded fromEc. TheGs andGt generate style-speciﬁc images cor- responding to the given style while maintaining the given content. We translateIs andIt into the other domain as: Is2t =Gt(Et(It),E c(Is)), (1) It2s =Gs(Es(Is),E c(It)), (2) [Page 3] ൈ (a) Unsupervised Domain Adaptation (b) Content Transfer ܮ௦௘௚_௖௧ pseudo label generation source domain target domain loss ࢅ࢚ࡼ࢙ࡵ ෩ࢉࡳࢉࡱ࢚ ܮ௥௘௖ ܮ௖௬௖௟௘ ܮ௔ௗ௩ ܮ௦௘௚ ܮ௔ௗ௩ ૙ ܮ௭௘௥௢ ૙ ܮ௭௘௥௢_௧௥௔௡௦ ࢉࡳࢉࡱ ࢙ࡼ/࢙ࡼ ૛࢚ ܮ௥௘௖ ܮ௖௬௖௟௘ ܮ௔ௗ௩ ૙ ܮ௭௘௥௢ ૙ ܮ௭௘௥௢_௧௥௔௡௦ ࢙ࡱ࢚ࡵ࢚ࡱ࢙ࡵ ࢉࡱࢉࡳ ࢙ࡵ૛࢚ࡵ࢙ࡱ࢚ ૛࢚ࡱ࢙ ࢚ࡼ/࢚ࡼ ૛࢙ ܮ௦௘௚ ܮ௔ௗ௩ ࢙ࡵ࢚ࡵ ૛࢚ࡵ࢚ࡳ࢚ࡱ࢚ _࢚ࡼ࢚ࢉ _ࢉࡳࢉࡱ࢚ࢉ ࢙ࢅ ࢚ࡹ_ࢊࢇࢋࢎ ࢙ࢅ _࢒࢏ࢇ࢚ ࢚ࢉࡹ ࢙ࡹ_࢒࢏ࢇ࢚ input‐level content transfer ࢅ෩′࢚_࢚ࢉ ࢅ ෩࢚_࢚ࢉ output‐level content transfer pseudo label generation tail‐class selection head‐class selection ܿ Paper preprints 학회버전 Figure 1: An overview of the proposed architecture. Our model consists of two parts,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05883,
+        -0.01226,
+        -0.01586,
+        0.04472,
+        0.01814
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "ansfer pseudo label generation tail‐class selection head‐class selection ܿ Paper preprints 학회버전 Figure 1: An overview of the proposed architecture. Our model consists of two parts,",
+      "overlap_with_next": "Et(Is2t),E c(It2s))), (4) whereIs2t2s represents the image in which domain is trans- ferred to source→ target→ source andIt2s2t represents the image in which domain is transferred ",
+      "text": "ansfer pseudo label generation tail‐class selection head‐class selection ܿ Paper preprints 학회버전 Figure 1: An overview of the proposed architecture. Our model consists of two parts, unsupervised domain adaptation (UDA) and content transfer. The UDA part contains domain transfer and semantic segmentation. The image is separated into the domain-speciﬁc style and domain-invariant content, and the combination of them enables us to generate the translated image. The content feature is used for both semantic segmentation and content transfer. The content transfer part transmits the tail- class content from source to target in the input and output space. The class imbalance problem is alleviated by learning the segmentation model using the content transferred image and label. where Is2t and It2s represent domain-translated images from source to target and from target to source, respectively. The translated images can be transferred back to the orig- inal domain as: Is2t2s =Gs(Es(It2s),E c(Is2t))), (3) It2s2t =Gt(Et(Is2t),E c(It2s))), (4) whereIs2t2s represents the image in which domain is trans- ferred to source→ target→ source andIt2s2t represents the image in which domain is transferred ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08466,
+        -0.01257,
+        -0.01842,
+        0.04066,
+        -0.00124
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "Et(Is2t),E c(It2s))), (4) whereIs2t2s represents the image in which domain is trans- ferred to source→ target→ source andIt2s2t represents the image in which domain is transferred ",
+      "overlap_with_next": "ndIs, respectively. However, there is no guarantee that unique information only implies the style of the domain, such as color and texture, and does not include the content for seg",
+      "text": "Et(Is2t),E c(It2s))), (4) whereIs2t2s represents the image in which domain is trans- ferred to source→ target→ source andIt2s2t represents the image in which domain is transferred to target→ source→ target. The goal of our domain adaptation is to adapt the contents of the source and target domain, which is the cue for seman- tic segmentation, not including the styles of both domains at all. To do this, we propose the zero-style loss to ensure that the content encoder captures only the content and the style encoder only captures the style from an image. Zero-Style Loss Zero loss (Benaim et al. 2019) has been proposed to create a new image using shared information and unique information extracted independently from two images. We can adapt the zero loss to our model for extract- ing content and style independently as follows: Lzero =||Et(Is)− 0||1 +||Es(It)− 0||1. (5) The Es and Et capture unique information that exists only in the source domain and target domain byLzero, so it gets no information from It andIs, respectively. However, there is no guarantee that unique information only implies the style of the domain, such as color and texture, and does not include the content for seg",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02959,
+        -0.00926,
+        -0.03796,
+        0.05063,
+        0.01274
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ndIs, respectively. However, there is no guarantee that unique information only implies the style of the domain, such as color and texture, and does not include the content for seg",
+      "overlap_with_next": "ns =||Es(Is2t)− 0||1 +||Et(It2s)− 0||1. (8) TheLzero trans is used in two perspectives. First, it guaran- tees the domain-transferred images (Is2t andIt2s) are well adapted to each",
+      "text": "ndIs, respectively. However, there is no guarantee that unique information only implies the style of the domain, such as color and texture, and does not include the content for segmentation. The shared content cannot be guaranteed to contain all the required information for semantic segmentation. To address these concerns, we propose the zero-style loss that forces the Ec to extract the content feature for segmentation and induce Es and Et to extract only the styles of source and target, respectively. The content features of the two domains are aligned byLseg, and this affects the segmentation performance on the target do- main. Lseg =LCE (Ps,Y s) +LCE (Ps2t,Y s2t) (6) wherePs =Gc(Ec(Is)) andPs2t =Gc(Ec(Is2t)) are out- put probability maps, and Ys2t is the same as Ys since the content of Is2t is equal to the content of Is. The LCE de- [Page 4] notes a cross-entropy loss function. LCE (Ps,Y s) =− H∑ h W∑ w K∑ k Y (h,w,k)s log(P (h,w,k)s ). (7) The zero loss also applies toIs2t andIt2s as follows: Lzero trans =||Es(Is2t)− 0||1 +||Et(It2s)− 0||1. (8) TheLzero trans is used in two perspectives. First, it guaran- tees the domain-transferred images (Is2t andIt2s) are well adapted to each",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06512,
+        -0.01157,
+        -0.03339,
+        0.04941,
+        0.00874
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ns =||Es(Is2t)− 0||1 +||Et(It2s)− 0||1. (8) TheLzero trans is used in two perspectives. First, it guaran- tees the domain-transferred images (Is2t andIt2s) are well adapted to each",
+      "overlap_with_next": "d source and target im- ages, respectively. Pseudo Label Generation for Self-Training In the UDA settings, there is no label for It. Our goal is to improve per- formance on the tar",
+      "text": "ns =||Es(Is2t)− 0||1 +||Et(It2s)− 0||1. (8) TheLzero trans is used in two perspectives. First, it guaran- tees the domain-transferred images (Is2t andIt2s) are well adapted to each domain. Second, it enables the style en- coders (Es andEt) to capture each style not only from orig- inal images (Is and It), but also from domain-transferred images (It2s andIs2t). The proposed zero-style loss enables feature-level align- ment in the content feature space, and it can be deﬁned as follows: Lzero−style =Lzero +Lzero trans +Lseg. (9) Cycle-Consistent Adversarial Learning In addition to the feature alignment, we apply the adversarial loss Ladv to reduce the domain gap in image and prediction (Chang et al. 2019). Additionally, we deﬁne cycle-consistent loss (Zhu et al. 2017) Lcycle and reconstruction loss Lrec to prevent content information loss that may occur in the process of the domain transfer. Lcycle =||Is2t2s−Is||1 +||It2s2t−It||1, (10) Lrec =||Is2s−Is||1 +||It2t−It||1, (11) whereIs2s andIt2t are reconstructed source and target im- ages, respectively. Pseudo Label Generation for Self-Training In the UDA settings, there is no label for It. Our goal is to improve per- formance on the tar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.10494,
+        0.01267,
+        -0.04719,
+        0.03633,
+        0.01586
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "d source and target im- ages, respectively. Pseudo Label Generation for Self-Training In the UDA settings, there is no label for It. Our goal is to improve per- formance on the tar",
+      "overlap_with_next": "(b) (c) (d) Figure 2: The results of the input-level content transfer with and without considering the content of the target image. Given the source image (a), the tail-class regio",
+      "text": "d source and target im- ages, respectively. Pseudo Label Generation for Self-Training In the UDA settings, there is no label for It. Our goal is to improve per- formance on the target, so we train the model with the target pseudo label ˜Yt assigned by maximum probability threshold (MPT) (Li, Yuan, and Vasconcelos 2019). The˜Yt is deﬁned as follows: ˜Y (h,w,k∗)t = { 1 if P (h,w,k∗)t >P k∗thres 0 otherwise (12) wherePt is the output probability map ofIt, and classk∗ = argmaxkP (h,w,k)t is chosen for each pixelI (h,w)t . The class- wise conﬁdence thresholdP kthres is newly set for everyPt. Content Transfer In this section, we introduce the content transfer approach to solve the class imbalance problem in the UDA for semantic segmentation. The fundamental reason for this problem is a lack of samples for tail classes, so we resolve this issue to increase the training samples by transferring the tail-class content from source to target. Our approach is applied to the input and output space. (a) (b) (c) (d) (a) (b) (c) (d) Figure 2: The results of the input-level content transfer with and without considering the content of the target image. Given the source image (a), the tail-class regio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08026,
+        -0.04355,
+        -0.03799,
+        0.01614,
+        -0.00636
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "(b) (c) (d) Figure 2: The results of the input-level content transfer with and without considering the content of the target image. Given the source image (a), the tail-class regio",
+      "overlap_with_next": "his method does not consider the content information of the target image. There- fore, it happens that the tail-class region of the original target image is occluded by transferred",
+      "text": "(b) (c) (d) Figure 2: The results of the input-level content transfer with and without considering the content of the target image. Given the source image (a), the tail-class region is obtained as (b). For the input-level content transfer, as shown in (c), we can easily transfer all the source content corresponding to all areas of (b) to the target. Since this simple way does not consider the content information of the target image, the original target content is obscured as inside the green dashed box of (c). Therefore, as shown in (d), we transfer the source content only to the head-class region by considering the con- tent information of the target image. Tail-Class Selection For the tail-class content transfer, we should select the tail-class region from the source image. We easily obtain the tail-class label Ys tail∈ RH×W×K as fol- lows: Y (h,w,k)s tail = { Y (h,w,k)s if k is a tail class 0 otherwise (13) The tail-class content can be directly transferred from source to target by using Ys tail, but this method does not consider the content information of the target image. There- fore, it happens that the tail-class region of the original target image is occluded by transferred",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03817,
+        -0.01841,
+        -0.00463,
+        0.04481,
+        0.00045
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "his method does not consider the content information of the target image. There- fore, it happens that the tail-class region of the original target image is occluded by transferred",
+      "overlap_with_next": "uth label, (c) is the pseudo label, and (d) is the improved pseudo label by transferring the source content to the target in output space. The green dashed box indicates the conten",
+      "text": "his method does not consider the content information of the target image. There- fore, it happens that the tail-class region of the original target image is occluded by transferred content, as shown in Figure 2. To prevent this problem, we reﬁne Ys tail to transfer the content only to the head-class region of the original target image. We can obtain the head-class mask from the target image as follows: Mt head = ˜YtKhead (14) whereKhead is a K-dimensional vector with a head-class of 1 and a tail-class of 0. Then, we deﬁne a mask Mct for the content transfer. Mct =Mt head⊙Ms tail (15) whereMs tail is a binary mask ofYs tail. Input-Level Content Transfer In the input-level content transfer, we transmit the tail-class content from domain- translated imageIs2t to target imageIt. It can be formulated as follows: It ct =Mct⊙Is2t + (1−Mct)⊙It. (16) [Page 5] (a) (b) (c) (d) (a) (b) (c) (d) Figure 3: The results of the output-level content transfer. (a) is the content-transferred target image, (b) is the ground-truth label, (c) is the pseudo label, and (d) is the improved pseudo label by transferring the source content to the target in output space. The green dashed box indicates the conten",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0267,
+        -0.01221,
+        -0.02233,
+        0.03552,
+        0.01964
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "uth label, (c) is the pseudo label, and (d) is the improved pseudo label by transferring the source content to the target in output space. The green dashed box indicates the conten",
+      "overlap_with_next": "act that the label for the transferred re- gion ofIt ct is the same as theYs, we can improve the quality of the pseudo label forIt ct as follows: ˜Y′t ct =Mct⊙Ys + (1−Mct)⊙ ˜Yt ct.",
+      "text": "uth label, (c) is the pseudo label, and (d) is the improved pseudo label by transferring the source content to the target in output space. The green dashed box indicates the content transmission region. As shown in Figure 2, It ct is created in consideration of the target content. We predict the semantic categories for the content-transferred image It ct, and the output probability mapPt ct ofIt ct is obtained byGc(Ec(It ct)). We generate a pseudo label ˜Yt ct forIt ct using Equation (12), and train the model with the generated data. This approach solves the class imbalance issue by increasing the tail-class samples for training the network. Output-Level Content Transfer The semantic segmenta- tion model biased toward head classes produces the prob- ability map with low conﬁdence for tail classes, so the pseudo label ˜Yt ct is highly incomplete for tail classes. To enable more reliable supervision for tail-class content, we also transfer the source content to the target in the output space. Based on the fact that the label for the transferred re- gion ofIt ct is the same as theYs, we can improve the quality of the pseudo label forIt ct as follows: ˜Y′t ct =Mct⊙Ys + (1−Mct)⊙ ˜Yt ct.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07441,
+        -0.01477,
+        -0.01533,
+        0.04036,
+        0.03237
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "act that the label for the transferred re- gion ofIt ct is the same as theYs, we can improve the quality of the pseudo label forIt ct as follows: ˜Y′t ct =Mct⊙Ys + (1−Mct)⊙ ˜Yt ct.",
+      "overlap_with_next": "ions as the source domain and real-world dataset (Cityscapes) without annotation as the target domain during training. For both synthetic-to-real experiments, we evaluate the segme",
+      "text": "act that the label for the transferred re- gion ofIt ct is the same as theYs, we can improve the quality of the pseudo label forIt ct as follows: ˜Y′t ct =Mct⊙Ys + (1−Mct)⊙ ˜Yt ct. (17) The pseudo label with the output-level content transfer is shown in Figure 3. We can train the segmentation model with the deﬁnite label for the transferred region. The seg- mentation loss for the content transferred data is deﬁned as follows: Lseg ct = LCE (Pt ct, ˜Y′t ct). (18) Overall Loss Function Our model is based on the DISE (Chang et al. 2019) and inserted the proposed approaches. The overall loss function is as follows: Ltotal =LDISE +Lzero−style +Lcycle +Lseg ct, (19) whereLDISE is the loss function of DISE and containsLrec andLadv. Experiments Datasets In this works, we consider two common synthetic-to-real domain adaptation problems; GTA5(Richter et al. 2016)→ Cityscapes(Cordts et al. 2016) and SYNTHIA(Ros et al. 2016)→ Cityscapes. We use the synthetic dataset (GTA5 or SYNTHIA) with pixel-level semantic annotations as the source domain and real-world dataset (Cityscapes) without annotation as the target domain during training. For both synthetic-to-real experiments, we evaluate the segme",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07586,
+        -0.01274,
+        -0.02225,
+        0.03139,
+        0.00965
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ions as the source domain and real-world dataset (Cityscapes) without annotation as the target domain during training. For both synthetic-to-real experiments, we evaluate the segme",
+      "overlap_with_next": " performance of the 19 classes in the evaluation set of Cityscapes. GTA5→ Cityscapes Methods road sidewalk building wall fence pole trafﬁc light trafﬁc sign vegetation terrain sky ",
+      "text": "ions as the source domain and real-world dataset (Cityscapes) without annotation as the target domain during training. For both synthetic-to-real experiments, we evaluate the segmentation model in the validation set of the Cityscapes. GTA5 is the large-scale synthetic dataset containing 24966 urban scene images with a resolution of 1914× 1052. These high-resolution images are rendered from Grand Theft Auto V game engine and automatically per-pixel annotated into 19 semantic categories. We consider all 19 classes, which are fully compatible with Cityscapes. SYNTHIA is another synthetic dataset rendered from a vir- tual city. We use the SYNTHIA-RAND-CITYSCAPES sub- set, which contains 9400 labeled images with a resolution of 1280× 760 and 16 common categories with Cityscapes. We consider both 16 and 13 classes, following the standard pro- tocol. [Page 6] Table 1: Results of adapting GTA5 to Cityscapes. All methods use DeepLab v2 with the backbone ResNet-101 as the segmen- tation network. We measure the mIoU performance of the 19 classes in the evaluation set of Cityscapes. GTA5→ Cityscapes Methods road sidewalk building wall fence pole trafﬁc light trafﬁc sign vegetation terrain sky ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03541,
+        -0.06217,
+        -0.00662,
+        0.01027,
+        0.00658
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " performance of the 19 classes in the evaluation set of Cityscapes. GTA5→ Cityscapes Methods road sidewalk building wall fence pole trafﬁc light trafﬁc sign vegetation terrain sky ",
+      "overlap_with_next": "81.0 26.6 26.8 27.2 33.5 24.7 83.9 36.7 78.8 58.7 30.5 84.8 38.5 44.5 1.7 31.6 32.4 45.5 APODA (Yang et al. 2020) 85.6 32.8 79.0 29.5 25.5 26.8 34.6 19.9 83.7 40.6 77.9 59.2 28.3 8",
+      "text": " performance of the 19 classes in the evaluation set of Cityscapes. GTA5→ Cityscapes Methods road sidewalk building wall fence pole trafﬁc light trafﬁc sign vegetation terrain sky person rider car truck bus train motorcycle bicyclemIoU NonAdapt 75.8 16.8 77.2 12.5 21.0 25.5 30.1 20.1 81.3 24.6 70.3 53.8 26.4 49.9 17.2 25.9 6.5 25.3 36.0 36.6 AdaptSegNet (Tsai et al. 2018) 86.5 36.0 79.9 23.4 23.3 23.9 35.2 14.8 83.4 33.3 75.6 58.5 27.6 73.7 32.5 35.4 3.9 30.1 28.1 42.4 CLAN (Luo et al. 2019) 87.0 27.1 79.6 27.3 23.3 28.3 35.5 24.2 83.6 27.4 74.2 58.6 28.0 76.2 33.1 36.7 6.7 31.9 31.4 43.2 MaxSquare (Chen, Xue, and Cai 2019) 88.1 27.7 80.8 28.7 19.8 24.9 34.0 17.8 83.6 34.7 76.0 58.6 28.6 84.1 37.8 43.1 7.2 32.2 34.2 44.3 SSF-DAN (Du et al. 2019) 90.3 38.9 81.7 24.8 22.9 30.5 37.0 21.2 84.8 38.8 76.9 58.8 30.7 85.7 30.6 38.1 5.9 28.3 36.9 45.4 DISE (Chang et al. 2019) 91.5 47.5 82.5 31.3 25.6 33.0 33.7 25.8 82.7 28.8 82.7 62.4 30.8 85.2 27.7 34.5 6.4 25.2 24.4 45.4 AdvEnt+MinEnt (Vu et al. 2019) 89.4 33.1 81.0 26.6 26.8 27.2 33.5 24.7 83.9 36.7 78.8 58.7 30.5 84.8 38.5 44.5 1.7 31.6 32.4 45.5 APODA (Yang et al. 2020) 85.6 32.8 79.0 29.5 25.5 26.8 34.6 19.9 83.7 40.6 77.9 59.2 28.3 8",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04256,
+        -0.03848,
+        -0.02823,
+        -0.04436,
+        0.01889
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "81.0 26.6 26.8 27.2 33.5 24.7 83.9 36.7 78.8 58.7 30.5 84.8 38.5 44.5 1.7 31.6 32.4 45.5 APODA (Yang et al. 2020) 85.6 32.8 79.0 29.5 25.5 26.8 34.6 19.9 83.7 40.6 77.9 59.2 28.3 8",
+      "overlap_with_next": "the 16 classes in the evaluation set of Cityscapes and the mIoU of the 13 classes (mIoU*), excluding classes with *. SYNTHIA→ Cityscapes Methods road sidewalk building wall* fence*",
+      "text": "81.0 26.6 26.8 27.2 33.5 24.7 83.9 36.7 78.8 58.7 30.5 84.8 38.5 44.5 1.7 31.6 32.4 45.5 APODA (Yang et al. 2020) 85.6 32.8 79.0 29.5 25.5 26.8 34.6 19.9 83.7 40.6 77.9 59.2 28.3 84.6 34.6 49.2 8.0 32.6 39.6 45.9 MaxSquare+IW+Multi (Chen, Xue, and Cai 2019) 89.4 43.0 82.1 30.5 21.3 30.3 34.7 24.0 85.3 39.4 78.2 63.0 22.9 84.6 36.4 43.0 5.5 34.7 33.5 46.4 Patch Alignment (Tsai et al. 2019) 92.3 51.9 82.1 29.2 25.1 24.5 33.8 33.0 82.4 32.8 82.2 58.6 27.2 84.3 33.4 46.3 2.2 29.5 32.3 46.5 WeakSegDA (Paul et al. 2020) 91.6 47.4 84.0 30.4 28.3 31.4 37.4 35.4 83.9 38.3 83.9 61.2 28.2 83.7 28.8 41.3 8.8 24.7 46.4 48.2 BDL (Li, Yuan, and Vasconcelos 2019) 91.0 44.7 84.2 34.6 27.6 30.2 36.0 36.0 85.0 43.6 83.0 58.6 31.6 83.3 35.3 49.7 3.3 28.8 35.6 48.5 Ours 95.3 65.1 84.6 33.2 23.7 32.8 32.7 36.9 86.0 41.0 85.6 56.1 25.9 86.3 34.5 39.1 11.5 28.3 43.0 49.6 Table 2: Results of adapting SYNTHIA to Cityscapes. All methods use DeepLab v2 with the backbone ResNet-101 as the segmentation network. We measure the mIoU of the 16 classes in the evaluation set of Cityscapes and the mIoU of the 13 classes (mIoU*), excluding classes with *. SYNTHIA→ Cityscapes Methods road sidewalk building wall* fence*",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07116,
+        -0.01547,
+        -0.01519,
+        -0.06462,
+        -0.00379
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "the 16 classes in the evaluation set of Cityscapes and the mIoU of the 13 classes (mIoU*), excluding classes with *. SYNTHIA→ Cityscapes Methods road sidewalk building wall* fence*",
+      "overlap_with_next": " 18.2 82.5 82.2 53.1 18.0 79.0 31.4 10.4 35.6 41.4 48.2 DISE (Chang et al. 2019) 91.7 53.5 77.1 2.5 0.2 27.1 6.2 7.6 78.4 81.2 55.8 19.2 82.3 30.3 17.1 34.3 41.5 48.8 SSF-DAN (Du e",
+      "text": "the 16 classes in the evaluation set of Cityscapes and the mIoU of the 13 classes (mIoU*), excluding classes with *. SYNTHIA→ Cityscapes Methods road sidewalk building wall* fence* pole* trafﬁc light trafﬁc sign vegetation sky person rider car bus motorcycle bicyclemIoU mIoU* NonAdapt 55.6 23.8 74.6 9.2 0.2 24.4 6.1 12.1 74.8 79.0 55.3 19.1 39.6 23.3 13.7 25.0 33.5 38.6 MaxSquare (Chen, Xue, and Cai 2019) 77.4 34.0 78.7 5.6 0.2 27.7 5.8 9.8 80.7 83.2 58.5 20.5 74.1 32.1 11.0 29.9 39.3 45.8 Patch Alignment (Tsai et al. 2019) 82.4 38.0 78.6 8.7 0.6 26.0 3.9 11.1 75.5 84.6 53.5 21.6 71.4 32.6 19.3 31.7 40.0 46.5 AdaptSegNet (Tsai et al. 2018) 84.3 42.7 77.5 - - - 4.7 7.0 77.9 82.5 54.3 21.0 72.3 32.2 18.9 32.3 - 46.7 CLAN (Luo et al. 2019) 81.3 37.0 80.1 - - - 16.1 13.7 78.2 81.5 53.4 21.2 73.0 32.9 22.6 30.7 - 47.8 AdvEnt+MinEnt (Vu et al. 2019) 85.6 42.2 79.7 8.7 0.4 25.9 5.4 8.1 80.4 84.1 57.9 23.8 73.3 36.4 14.2 33.0 41.2 48.0 MaxSquare+IW+Multi (Chen, Xue, and Cai 2019) 82.9 40.7 80.3 10.2 0.8 25.8 12.8 18.2 82.5 82.2 53.1 18.0 79.0 31.4 10.4 35.6 41.4 48.2 DISE (Chang et al. 2019) 91.7 53.5 77.1 2.5 0.2 27.1 6.2 7.6 78.4 81.2 55.8 19.2 82.3 30.3 17.1 34.3 41.5 48.8 SSF-DAN (Du e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05174,
+        -0.03383,
+        -0.03217,
+        -0.05565,
+        0.00703
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " 18.2 82.5 82.2 53.1 18.0 79.0 31.4 10.4 35.6 41.4 48.2 DISE (Chang et al. 2019) 91.7 53.5 77.1 2.5 0.2 27.1 6.2 7.6 78.4 81.2 55.8 19.2 82.3 30.3 17.1 34.3 41.5 48.8 SSF-DAN (Du e",
+      "overlap_with_next": "ring the learning process and evaluate the segmentation model in the validation set. Implementation Details We implement with PyTorch (Paszke et al. 2017), and all experiments are ",
+      "text": " 18.2 82.5 82.2 53.1 18.0 79.0 31.4 10.4 35.6 41.4 48.2 DISE (Chang et al. 2019) 91.7 53.5 77.1 2.5 0.2 27.1 6.2 7.6 78.4 81.2 55.8 19.2 82.3 30.3 17.1 34.3 41.5 48.8 SSF-DAN (Du et al. 2019) 84.6 41.7 80.8 - - - 11.5 14.7 80.8 85.3 57.5 21.6 82.0 36.0 19.3 34.5 - 50.0 BDL (Li, Yuan, and Vasconcelos 2019) 86.0 46.7 80.3 - - - 14.1 11.6 79.2 81.3 54.1 27.9 73.7 42.2 25.7 45.3 - 51.4 WeakSegDA (Paul et al. 2020) 92.0 53.5 80.9 11.4 0.4 21.8 3.8 6.0 81.6 84.4 60.8 24.4 80.5 39.0 26.0 41.7 44.3 51.9 APODA (Yang et al. 2020) 86.4 41.3 79.3 - - - 22.6 17.3 80.3 81.6 56.9 21.0 84.1 49.1 24.6 45.7 - 53.1 Ours 93.3 54.0 81.3 14.3 0.7 28.8 21.3 22.8 82.6 83.3 57.7 22.8 83.4 30.7 20.2 47.2 46.5 53.9 Cityscapes is the real-world dataset that contains 5000 ur- ban street scenes. The dataset consists of a training set with 2975 images, a validation set with 500 images, and a test set with 1525 images. The images have a resolution of 2048× 1024 and are annotated into 19 classes. We use the training set without labels during the learning process and evaluate the segmentation model in the validation set. Implementation Details We implement with PyTorch (Paszke et al. 2017), and all experiments are ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0781,
+        -0.04187,
+        -0.00892,
+        -0.05066,
+        -0.00969
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "ring the learning process and evaluate the segmentation model in the validation set. Implementation Details We implement with PyTorch (Paszke et al. 2017), and all experiments are ",
+      "overlap_with_next": "r fake. Gener- ators are trained to generate the reconstructed images and style translated images, and the segmenter is trained with the class balanced weight factor (Cui et al. 20",
+      "text": "ring the learning process and evaluate the segmentation model in the validation set. Implementation Details We implement with PyTorch (Paszke et al. 2017), and all experiments are conducted using a single Nvidia Titan RTX GPU and an Intel Core i7-9700K CPU. Our model is based on the DISE (Chang et al. 2019), which includes three en- coders, two decoders (one segmenter and one generator), and discriminators. For cycle-consistency learning, we use two generators for the source and target domains differently from DISE. The segmentation model is based on DeepLab v2 with the backbone ResNet-101, and the output of the ﬁrst convolutional layer is shared to capture the content and style features. For adversarial learning, discriminators and three pairs of encoder and decoder are trained alternately. Discriminators are learned to determine whether the pixel- level semantic prediction comes from the source domain or the target domain and to determine whether the gener- ated source and target style images are real or fake. Gener- ators are trained to generate the reconstructed images and style translated images, and the segmenter is trained with the class balanced weight factor (Cui et al. 20",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04593,
+        -0.04061,
+        0.00219,
+        0.01051,
+        0.00167
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "r fake. Gener- ators are trained to generate the reconstructed images and style translated images, and the segmenter is trained with the class balanced weight factor (Cui et al. 20",
+      "overlap_with_next": "ian value for the number of tail-class samples per image in the source dataset and per- form the content transfer during learning when the number of tail-class samples in the sourc",
+      "text": "r fake. Gener- ators are trained to generate the reconstructed images and style translated images, and the segmenter is trained with the class balanced weight factor (Cui et al. 2019) for source data to predict the pixel-level semantic probabilities. In the self-training, we use the maximum probability threshold (Li, Yuan, and Vasconcelos 2019) to assign the pseudo label of the target image. For every target probability map, we sort the class-wise probabilities and set the probability corre- sponding to the top50% as the class-wise conﬁdence thresh- old. If the threshold is greater than 0.9, we set it to 0.9. In this paper, we select the pole, trafﬁc light, trafﬁc sign, rider, motorcycle, and bicycle as tail classes. We selectively use the tail-class samples for the content transfer. The pole is used for content transfer when it exists together with the trafﬁc light or trafﬁc sign, and the rider is used for content transfer when it exists together with the motorcycle or bi- cycle. We pre-calculate the median value for the number of tail-class samples per image in the source dataset and per- form the content transfer during learning when the number of tail-class samples in the sourc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08164,
+        -0.05217,
+        -0.00268,
+        0.03825,
+        0.01536
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "ian value for the number of tail-class samples per image in the source dataset and per- form the content transfer during learning when the number of tail-class samples in the sourc",
+      "overlap_with_next": " 43.7 12.6 25.1 36.4 48.0 29.9 (+3.8%) ✓ ✓ ✓ ✓ 94.5 62.6 84.3 35.9 24.4 30.2 30.2 34.9 85.3 35.7 84.0 55.6 27.7 86.7 31.8 43.6 12.7 26.7 39.2 48.7 31.5 (+9.4%) ✓ ✓ ✓ ✓ ✓ 95.3 65.1 ",
+      "text": "ian value for the number of tail-class samples per image in the source dataset and per- form the content transfer during learning when the number of tail-class samples in the source image is higher than that value. During the training, we resize the input image to a size of 1024× 512 and then randomly crop to a 512× 256 size [Page 7] Table 3: Ablation studies of adapting GTA5 to Cityscapes. GTA5→ Cityscapes Methods UDA CT road sidewalk building wall fence pole trafﬁc light trafﬁc sign vegetation terrain sky person rider car truck bus train motorcycle bicyclemIoU mIoU tailSty Cyc ST In Out DISE 91.5 47.5 82.5 31.3 25.6 33.0 33.7 25.8 82.7 28.8 82.7 62.4 30.8 85.2 27.7 34.5 6.4 25.2 24.4 45.4 28.8 Ours ✓ 91.6 51.2 82.7 33.0 25.9 29.3 32.7 29.9 82.4 25.6 81.7 59.6 29.6 85.1 30.9 43.5 6.1 29.1 34.8 46.6 30.9 (+7.3%) ✓ ✓ 91.9 51.9 82.8 34.1 26.2 29.3 33.1 31.6 82.9 28.2 81.0 59.5 29.1 85.7 31.2 43.9 8.0 28.4 32.4 46.9 30.6 (+6.3%) ✓ ✓ ✓ 93.9 61.5 83.8 36.8 23.7 28.1 30.9 32.4 85.2 35.5 83.0 52.6 26.6 86.5 33.2 43.7 12.6 25.1 36.4 48.0 29.9 (+3.8%) ✓ ✓ ✓ ✓ 94.5 62.6 84.3 35.9 24.4 30.2 30.2 34.9 85.3 35.7 84.0 55.6 27.7 86.7 31.8 43.6 12.7 26.7 39.2 48.7 31.5 (+9.4%) ✓ ✓ ✓ ✓ ✓ 95.3 65.1 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05719,
+        -0.03111,
+        -0.02324,
+        0.00026,
+        0.01004
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": " 43.7 12.6 25.1 36.4 48.0 29.9 (+3.8%) ✓ ✓ ✓ ✓ 94.5 62.6 84.3 35.9 24.4 30.2 30.2 34.9 85.3 35.7 84.0 55.6 27.7 86.7 31.8 43.6 12.7 26.7 39.2 48.7 31.5 (+9.4%) ✓ ✓ ✓ ✓ ✓ 95.3 65.1 ",
+      "overlap_with_next": "2 26.3 (+41.4%) ✓ ✓ ✓ ✓ ✓ 93.3 54.0 81.3 14.3 0.7 28.8 21.3 22.8 82.6 83.3 57.7 22.8 83.4 30.7 20.2 47.2 46.5 27.2 (+46.2%) patch. We ﬁrst train the UDA part to generate a reliable",
+      "text": " 43.7 12.6 25.1 36.4 48.0 29.9 (+3.8%) ✓ ✓ ✓ ✓ 94.5 62.6 84.3 35.9 24.4 30.2 30.2 34.9 85.3 35.7 84.0 55.6 27.7 86.7 31.8 43.6 12.7 26.7 39.2 48.7 31.5 (+9.4%) ✓ ✓ ✓ ✓ ✓ 95.3 65.1 84.6 33.2 23.7 32.8 32.7 36.9 86.0 41.0 85.6 56.1 25.9 86.3 34.5 39.1 11.5 28.3 43.0 49.6 33.3 (+15.6%) Table 4: Ablation studies of adapting SYNTHIA to Cityscapes. SYNTHIA→ Cityscapes Methods UDA CT road sidewalk building wall fence pole trafﬁc light trafﬁc sign vegetation sky person rider car bus motorcycle bicyclemIoU mIoU tailSty Cyc ST In Out DISE 91.7 53.5 77.1 2.5 0.2 27.1 6.2 7.6 78.4 81.2 55.8 19.2 82.3 30.3 17.1 34.3 41.5 18.6 Ours ✓ 91.3 52.4 78.6 7.1 1.3 26.7 19.6 17.5 78.4 78.3 53.1 20.1 81.1 29.0 16.0 42.4 43.3 23.7 (+27.4%) ✓ ✓ 91.6 53.0 78.9 6.1 1.2 26.8 19.1 17.7 78.5 78.4 53.5 20.2 81.5 29.3 16.4 43.4 43.5 24.0 (+29.0%) ✓ ✓ ✓ 91.7 52.3 78.8 13.7 2.2 26.2 13.8 18.3 79.8 79.5 53.8 21.0 81.9 29.8 14.3 45.8 43.9 23.2 (+24.7%) ✓ ✓ ✓ ✓ 93.3 55.2 81.2 14.7 0.8 27.9 20.1 21.8 82.5 83.1 57.2 23.9 83.2 30.2 17.7 46.3 46.2 26.3 (+41.4%) ✓ ✓ ✓ ✓ ✓ 93.3 54.0 81.3 14.3 0.7 28.8 21.3 22.8 82.6 83.3 57.7 22.8 83.4 30.7 20.2 47.2 46.5 27.2 (+46.2%) patch. We ﬁrst train the UDA part to generate a reliable",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05141,
+        0.02853,
+        -0.0297,
+        -0.02062,
+        -0.00706
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "2 26.3 (+41.4%) ✓ ✓ ✓ ✓ ✓ 93.3 54.0 81.3 14.3 0.7 28.8 21.3 22.8 82.6 83.3 57.7 22.8 83.4 30.7 20.2 47.2 46.5 27.2 (+46.2%) patch. We ﬁrst train the UDA part to generate a reliable",
+      "overlap_with_next": "olicy. For a fair comparison with DISE at the evaluation time, we use a 1024× 512 sized input to obtain the output prediction of 1024× 512 size and then resize it to 2048× 1024. Ex",
+      "text": "2 26.3 (+41.4%) ✓ ✓ ✓ ✓ ✓ 93.3 54.0 81.3 14.3 0.7 28.8 21.3 22.8 82.6 83.3 57.7 22.8 83.4 30.7 20.2 47.2 46.5 27.2 (+46.2%) patch. We ﬁrst train the UDA part to generate a reliable tar- get pseudo label, and then we add the content transfer part and train together. This process reduces the content transfer failures that may occur due to the inaccuracy of the target pseudo label. We train the model with a batch size 2 and use the weights provided in (Chang et al. 2019) as initial weights. The batch normalization layers are freeze. We use the SGD solver with an initial learning rate of 2.5× 10−6 and a momentum of 0.9 for the segmentation model and the Adam solver with an initial learning rate of 1.0× 10−5 and betasβ1 = 0.5,β2 = 0.999 for the generators. We use the Adam solver with an initial learning rate of1.0×10−6 to op- timize discriminators for segmentation and image, and they have betasβ1 = 0.9,β2 = 0.99 andβ1 = 0.5,β2 = 0.999, respectively. All the learning rates decrease according to the polynomial policy. For a fair comparison with DISE at the evaluation time, we use a 1024× 512 sized input to obtain the output prediction of 1024× 512 size and then resize it to 2048× 1024. Ex",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0808,
+        -0.01253,
+        -0.03344,
+        -0.02018,
+        -0.01388
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "olicy. For a fair comparison with DISE at the evaluation time, we use a 1024× 512 sized input to obtain the output prediction of 1024× 512 size and then resize it to 2048× 1024. Ex",
+      "overlap_with_next": "ng performance degradation in head classes. Thus our method keeps a balance between head and tail classes, and we achieve the state-of-the-art performance. Ablation Study Tables 3 ",
+      "text": "olicy. For a fair comparison with DISE at the evaluation time, we use a 1024× 512 sized input to obtain the output prediction of 1024× 512 size and then resize it to 2048× 1024. Experimental Results We compare our method with existing state-of-the-art UDA methods. We report the results for GTA5 →Cityscapes in Table 1 and the results for SYNTHIA →Cityscapes in Ta- ble 2. All methods are trained using the labeled GTA5 or SYNTHIA as the source and the unlabeled Cityscapes train- ing set as the target, and they are based on DeepLab v2 with the backbone ResNet-101. We use the mean of class- wise Intersection-over-Union (mIOU) as an evaluation met- ric, and we measure the performance on the validation set of Cityscapes. All UDA methods have higher performance than “NonAdapt,” which learns the segmentation model us- ing only the source dataset, and it suggests that domain adap- tation is effective in semantic segmentation problem. We aim at not only improving the performance of each tail- class but also preventing performance degradation in head classes. Thus our method keeps a balance between head and tail classes, and we achieve the state-of-the-art performance. Ablation Study Tables 3 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04196,
+        -0.02832,
+        -0.02005,
+        0.01056,
+        -0.0049
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "ng performance degradation in head classes. Thus our method keeps a balance between head and tail classes, and we achieve the state-of-the-art performance. Ablation Study Tables 3 ",
+      "overlap_with_next": "orse. That is the point that content transfer exploits in UDA. Even when “InCT” is ap- plied alone, mIoUtail is signiﬁcantly improved (29.9→ 31.5 and 23.2→ 26.3), and mIoU is also ",
+      "text": "ng performance degradation in head classes. Thus our method keeps a balance between head and tail classes, and we achieve the state-of-the-art performance. Ablation Study Tables 3 and 4 show the effect of adding each component of the proposed method to the base network. “UDA” and “CT” represent the unsupervised domain adaptation part and con- tent transfer part in our method, respectively. “Sty” means training with the zero-style loss, and “Cyc” means cycle- consistency learning, and “ST” means self-training with the pseudo label of the target image. “In” refers to the input- level content transfer, and “Out” refers to the output-level content transfer. “mIoUtail” is the mIoU of the tail classes. As shown in Tables 3 and 4, we increase the performance by training the model with “Sty” and “Cyc.” The “ST” im- proves mIoU (46.9→ 48.0 and 43.5→ 43.9), but it rather degrades mIoUtail (30.6→ 29.9 and 24.0→ 23.2). It means that self-training using a class-imbalanced dataset can make the class imbalance problem worse. That is the point that content transfer exploits in UDA. Even when “InCT” is ap- plied alone, mIoUtail is signiﬁcantly improved (29.9→ 31.5 and 23.2→ 26.3), and mIoU is also ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05875,
+        -0.03035,
+        -0.03507,
+        0.01084,
+        0.02832
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "orse. That is the point that content transfer exploits in UDA. Even when “InCT” is ap- plied alone, mIoUtail is signiﬁcantly improved (29.9→ 31.5 and 23.2→ 26.3), and mIoU is also ",
+      "overlap_with_next": "yscapes SYNTHIA‐>Cityscapes (a) (b) (c) (d) (e) Figure 4: Qualitative segmentation results of UDA for GTA5 → Cityscapes. (a) Original inputs of Cityscapes; (b) Ground truths; Predi",
+      "text": "orse. That is the point that content transfer exploits in UDA. Even when “InCT” is ap- plied alone, mIoUtail is signiﬁcantly improved (29.9→ 31.5 and 23.2→ 26.3), and mIoU is also enhances (48.0→ 48.7 and 43.9 → 46.2). When “OutCT” is also applied, both mIoUtail (31.5→ 33.3 and 26.3 → 27.2) and mIoU (48.7 → 49.6 and 46.2→ 46.5) are improved from “InCT”. Here, the improvement from “InCT” to “OutCT” on SYNTHIA→ Cityscapes (+ 0.3) is lower than GTA5→ Cityscapes (+ 0.9). It demonstrates the limitation of our “OutCT”. When a con- tent taken from the source data is transferred to the target data, the content is placed at the same location in the tar- get data by Equations (16) and (17). However, the vertical angle between SYNTHIA and Cityscapes is quite different, so some objects can be transferred in the unlikely region in Cityscapes (e.g., a rider in the sky), degrading “OutCT.” It can be improved with a context-aware content transfer, and we leave this for future works. [Page 8] (a) (b) (c) (d) (e) GTA5‐>Cityscapes SYNTHIA‐>Cityscapes (a) (b) (c) (d) (e) Figure 4: Qualitative segmentation results of UDA for GTA5 → Cityscapes. (a) Original inputs of Cityscapes; (b) Ground truths; Predi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0524,
+        -0.00539,
+        -0.02145,
+        0.00889,
+        0.00034
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "yscapes SYNTHIA‐>Cityscapes (a) (b) (c) (d) (e) Figure 4: Qualitative segmentation results of UDA for GTA5 → Cityscapes. (a) Original inputs of Cityscapes; (b) Ground truths; Predi",
+      "overlap_with_next": "yle loss that reduces the domain gap between the source data and target data by completely separating the content and style of the image. The zero-style loss aligns the content fea",
+      "text": "yscapes SYNTHIA‐>Cityscapes (a) (b) (c) (d) (e) Figure 4: Qualitative segmentation results of UDA for GTA5 → Cityscapes. (a) Original inputs of Cityscapes; (b) Ground truths; Prediction results from (c) DISE, (d) Ours without OutCT, and (e) Ours. (a) (b) (c) (d) (e) GTA5‐>Cityscapes SYNTHIA‐>Cityscapes (a) (b) (c) (d) (e) Figure 5: Qualitative segmentation results of UDA for SYNTHIA→ Cityscapes. (a) Original inputs of Cityscapes; (b) Ground truths; Prediction results from (c) DISE, (d) Ours without OutCT, and (e) Ours. The effectiveness of “CT” can also be seen from the ex- amples. Figures 4 and 5 show that tail-class objects inside dashed boxes are segmented better than DISE after “CT” is performed. In the ﬁrst row of Figure 4, the trafﬁc sign is seg- mented better than DISE when “InCT” is applied. Further- more, when “OutCT” is also applied, the trafﬁc sign’s border and the pole’s border become clearer because “OutCT” en- ables more reliable supervision. Conclusion In this paper, we proposed the zero-style loss that reduces the domain gap between the source data and target data by completely separating the content and style of the image. The zero-style loss aligns the content fea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05425,
+        -0.02183,
+        -0.03172,
+        0.0121,
+        0.02679
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "yle loss that reduces the domain gap between the source data and target data by completely separating the content and style of the image. The zero-style loss aligns the content fea",
+      "overlap_with_next": "2019. Do- main Intersection and Domain Difference. In Proceedings [Page 9] of the IEEE International Conference on Computer Vision , 3445–3453. Chang, W.-L.; Wang, H.-P.; Peng, W.-",
+      "text": "yle loss that reduces the domain gap between the source data and target data by completely separating the content and style of the image. The zero-style loss aligns the content features of the two domains, and this leads to improved semantic segmenta- tion performance in the target domain. Moreover, our pro- posed content transfer enhances performance by solving the class imbalance problem in unsupervised domain adaptation (UDA) for semantic segmentation. In the two UDA segmen- tation scenarios from synthetic to real, we achieve the state- of-the-art performance. Acknowledgment This research was supported by the National Research Foun- dation of Korea (NRF) grant funded by the Korea govern- ment (MSIT) (NRF-2019R1A2C1007153). References Badrinarayanan, V .; Kendall, A.; and Cipolla, R. 2017. Seg- net: A deep convolutional encoder-decoder architecture for image segmentation. IEEE transactions on pattern analysis and machine intelligence 39(12): 2481–2495. Benaim, S.; Khaitov, M.; Galanti, T.; and Wolf, L. 2019. Do- main Intersection and Domain Difference. In Proceedings [Page 9] of the IEEE International Conference on Computer Vision , 3445–3453. Chang, W.-L.; Wang, H.-P.; Peng, W.-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08456,
+        -0.02231,
+        -0.01732,
+        -0.00319,
+        0.02218
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "2019. Do- main Intersection and Domain Difference. In Proceedings [Page 9] of the IEEE International Conference on Computer Vision , 3445–3453. Chang, W.-L.; Wang, H.-P.; Peng, W.-",
+      "overlap_with_next": "ntic urban scene un- derstanding. In Proceedings of the IEEE conference on com- puter vision and pattern recognition, 3213–3223. Cui, Y .; Jia, M.; Lin, T.-Y .; Song, Y .; and Belo",
+      "text": "2019. Do- main Intersection and Domain Difference. In Proceedings [Page 9] of the IEEE International Conference on Computer Vision , 3445–3453. Chang, W.-L.; Wang, H.-P.; Peng, W.-H.; and Chiu, W.-C. 2019. All about structure: Adapting structural information across domains for boosting semantic segmentation. In Pro- ceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 1900–1909. Chen, L.-C.; Papandreou, G.; Kokkinos, I.; Murphy, K.; and Yuille, A. L. 2017. Deeplab: Semantic image segmentation with deep convolutional nets, atrous convolution, and fully connected crfs. IEEE transactions on pattern analysis and machine intelligence 40(4): 834–848. Chen, M.; Xue, H.; and Cai, D. 2019. Domain adaptation for semantic segmentation with maximum squares loss. In Pro- ceedings of the IEEE International Conference on Computer Vision, 2090–2099. Cordts, M.; Omran, M.; Ramos, S.; Rehfeld, T.; Enzweiler, M.; Benenson, R.; Franke, U.; Roth, S.; and Schiele, B. 2016. The cityscapes dataset for semantic urban scene un- derstanding. In Proceedings of the IEEE conference on com- puter vision and pattern recognition, 3213–3223. Cui, Y .; Jia, M.; Lin, T.-Y .; Song, Y .; and Belo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03235,
+        -0.00795,
+        -0.00124,
+        -0.0154,
+        0.00097
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "ntic urban scene un- derstanding. In Proceedings of the IEEE conference on com- puter vision and pattern recognition, 3213–3223. Cui, Y .; Jia, M.; Lin, T.-Y .; Song, Y .; and Belo",
+      "overlap_with_next": "volutional neural networks. In Proceed- ings of the IEEE conference on computer vision and pattern recognition, 2414–2423. Hoffman, J.; Tzeng, E.; Park, T.; Zhu, J.-Y .; Isola, P.;",
+      "text": "ntic urban scene un- derstanding. In Proceedings of the IEEE conference on com- puter vision and pattern recognition, 3213–3223. Cui, Y .; Jia, M.; Lin, T.-Y .; Song, Y .; and Belongie, S. 2019. Class-balanced loss based on effective number of samples. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 9268–9277. Du, L.; Tan, J.; Yang, H.; Feng, J.; Xue, X.; Zheng, Q.; Ye, X.; and Zhang, X. 2019. SSF-DAN: Separated Semantic Feature Based Domain Adaptation Network for Semantic Segmentation. In Proceedings of the IEEE International Conference on Computer Vision, 982–991. Dwibedi, D.; Misra, I.; and Hebert, M. 2017. Cut, paste and learn: Surprisingly easy synthesis for instance detection. In Proceedings of the IEEE International Conference on Com- puter Vision, 1301–1310. French, G.; Mackiewicz, M.; and Fisher, M. 2017. Self- ensembling for visual domain adaptation. arXiv preprint arXiv:1706.05208 . Gatys, L. A.; Ecker, A. S.; and Bethge, M. 2016. Image style transfer using convolutional neural networks. In Proceed- ings of the IEEE conference on computer vision and pattern recognition, 2414–2423. Hoffman, J.; Tzeng, E.; Park, T.; Zhu, J.-Y .; Isola, P.;",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03537,
+        0.02378,
+        -0.02589,
+        -0.01183,
+        0.01479
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "volutional neural networks. In Proceed- ings of the IEEE conference on computer vision and pattern recognition, 2414–2423. Hoffman, J.; Tzeng, E.; Park, T.; Zhu, J.-Y .; Isola, P.;",
+      "overlap_with_next": " Fully convo- lutional networks for semantic segmentation. In Proceed- ings of the IEEE conference on computer vision and pattern recognition, 3431–3440. Luo, Y .; Zheng, L.; Guan,",
+      "text": "volutional neural networks. In Proceed- ings of the IEEE conference on computer vision and pattern recognition, 2414–2423. Hoffman, J.; Tzeng, E.; Park, T.; Zhu, J.-Y .; Isola, P.; Saenko, K.; Efros, A. A.; and Darrell, T. 2017. Cy- cada: Cycle-consistent adversarial domain adaptation. arXiv preprint arXiv:1711.03213 . Isola, P.; Zhu, J.-Y .; Zhou, T.; and Efros, A. A. 2017. Image- to-image translation with conditional adversarial networks. In Proceedings of the IEEE conference on computer vision and pattern recognition, 1125–1134. Li, Y .; Yuan, L.; and Vasconcelos, N. 2019. Bidirectional learning for domain adaptation of semantic segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 6936–6945. Lin, G.; Milan, A.; Shen, C.; and Reid, I. 2017. Reﬁnenet: Multi-path reﬁnement networks for high-resolution seman- tic segmentation. In Proceedings of the IEEE conference on computer vision and pattern recognition, 1925–1934. Long, J.; Shelhamer, E.; and Darrell, T. 2015. Fully convo- lutional networks for semantic segmentation. In Proceed- ings of the IEEE conference on computer vision and pattern recognition, 3431–3440. Luo, Y .; Zheng, L.; Guan,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06057,
+        0.01156,
+        -0.00043,
+        0.01088,
+        0.00038
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": " Fully convo- lutional networks for semantic segmentation. In Proceed- ings of the IEEE conference on computer vision and pattern recognition, 3431–3440. Luo, Y .; Zheng, L.; Guan,",
+      "overlap_with_next": " Brox, T. 2015. U-net: Con- volutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention, 234–24",
+      "text": " Fully convo- lutional networks for semantic segmentation. In Proceed- ings of the IEEE conference on computer vision and pattern recognition, 3431–3440. Luo, Y .; Zheng, L.; Guan, T.; Yu, J.; and Yang, Y . 2019. Tak- ing a closer look at domain shift: Category-level adversaries for semantics consistent domain adaptation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2507–2516. Paszke, A.; Gross, S.; Chintala, S.; Chanan, G.; Yang, E.; DeVito, Z.; Lin, Z.; Desmaison, A.; Antiga, L.; and Lerer, A. 2017. Automatic differentiation in pytorch . Paul, S.; Tsai, Y .-H.; Schulter, S.; Roy-Chowdhury, A. K.; and Chandraker, M. 2020. Domain Adaptive Semantic Seg- mentation Using Weak Labels. In Proceedings of the Euro- pean conference on computer vision. Richter, S. R.; Vineet, V .; Roth, S.; and Koltun, V . 2016. Playing for data: Ground truth from computer games. In Proceedings of the European conference on computer vi- sion, 102–118. Springer. Ronneberger, O.; Fischer, P.; and Brox, T. 2015. U-net: Con- volutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention, 234–24",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04121,
+        0.00082,
+        -0.02871,
+        0.00542,
+        0.00129
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": " Brox, T. 2015. U-net: Con- volutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention, 234–24",
+      "overlap_with_next": " Adversarial entropy minimization for domain adaptation in semantic segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recogni- tion, 2517–2526. Wu,",
+      "text": " Brox, T. 2015. U-net: Con- volutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention, 234–241. Springer. Ros, G.; Sellart, L.; Materzynska, J.; Vazquez, D.; and Lopez, A. M. 2016. The synthia dataset: A large collec- tion of synthetic images for semantic segmentation of urban scenes. In Proceedings of the IEEE conference on computer vision and pattern recognition, 3234–3243. Tsai, Y .-H.; Hung, W.-C.; Schulter, S.; Sohn, K.; Yang, M.- H.; and Chandraker, M. 2018. Learning to adapt structured output space for semantic segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 7472–7481. Tsai, Y .-H.; Sohn, K.; Schulter, S.; and Chandraker, M. 2019. Domain adaptation for structured output via discrim- inative patch representations. In Proceedings of the IEEE International Conference on Computer Vision, 1456–1465. Vu, T.-H.; Jain, H.; Bucher, M.; Cord, M.; and P ´erez, P. 2019. Advent: Adversarial entropy minimization for domain adaptation in semantic segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recogni- tion, 2517–2526. Wu,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04506,
+        0.00446,
+        -0.03111,
+        -0.00452,
+        -0.01382
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": " Adversarial entropy minimization for domain adaptation in semantic segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recogni- tion, 2517–2526. Wu,",
+      "overlap_with_next": "erence on computer vision and pattern recognition , 2881– 2890. Zhu, J.-Y .; Park, T.; Isola, P.; and Efros, A. A. 2017. Un- paired image-to-image translation using cycle-consisten",
+      "text": " Adversarial entropy minimization for domain adaptation in semantic segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recogni- tion, 2517–2526. Wu, Z.; Han, X.; Lin, Y .-L.; Gokhan Uzunbas, M.; Gold- stein, T.; Nam Lim, S.; and Davis, L. S. 2018. Dcan: Dual channel-wise alignment networks for unsupervised scene adaptation. In Proceedings of the European Conference on Computer Vision, 518–534. Yang, J.; Xu, R.; Li, R.; Qi, X.; Shen, X.; Li, G.; and Lin, L. 2020. An Adversarial Perturbation Oriented Domain Adap- tation Approach for Semantic Segmentation. InProceedings [Page 10] of the AAAI Conference on Artiﬁcial Intelligence , 12613– 12620. Zhang, Y .; Qiu, Z.; Yao, T.; Liu, D.; and Mei, T. 2018. Fully convolutional adaptation networks for semantic segmenta- tion. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 6810–6818. Zhao, H.; Shi, J.; Qi, X.; Wang, X.; and Jia, J. 2017. Pyra- mid scene parsing network. InProceedings of the IEEE con- ference on computer vision and pattern recognition , 2881– 2890. Zhu, J.-Y .; Park, T.; Isola, P.; and Efros, A. A. 2017. Un- paired image-to-image translation using cycle-consisten",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04692,
+        -0.00323,
+        -0.00713,
+        0.00099,
+        -0.01823
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 42107,
+      "length": 287,
+      "overlap_with_previous": "erence on computer vision and pattern recognition , 2881– 2890. Zhu, J.-Y .; Park, T.; Isola, P.; and Efros, A. A. 2017. Un- paired image-to-image translation using cycle-consisten",
+      "overlap_with_next": "",
+      "text": "erence on computer vision and pattern recognition , 2881– 2890. Zhu, J.-Y .; Park, T.; Isola, P.; and Efros, A. A. 2017. Un- paired image-to-image translation using cycle-consistent ad- versarial networks. InProceedings of the IEEE international conference on computer vision, 2223–2232.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03466,
+        0.02372,
+        -0.00614,
+        0.02398,
+        0.0107
+      ]
+    }
+  ]
+}

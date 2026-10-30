@@ -1,0 +1,589 @@
+{
+  "paper_id": "626d8f6b-22a2-447f-9273-33bcada1a016",
+  "filename": "020_NLP_A_Persona-based_Multi-turn_Conversation_Model_in_an_Adversarial_Learning_Framework.pdf",
+  "title": "A Persona-based Multi-turn Conversation Model in an Adversarial Learning Framework",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 34,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "nal attributes are available in a multi-turn dialogue corpus. This superiority is demonstrated on TV drama series with character consistency (such as Big Bang Theory and Friends) a",
+      "text": "[Page 1] A Persona-based Multi-turn Conversation Model in an Adversarial Learning Framework Oluwatobi O. Olabiyi Capital One Conversation Research Vienna, V A Email: oluwatobi.olabiyi@capitalone.com Anish Khazane Capital One Conversation Research San Francisco, CA Email: anish.khazane@capitalone.com Erik T. Mueller Capital One Conversation Research Vienna, V A Email: erik.mueller@capitalone.com Abstract—In this paper, we extend the persona-based sequence- to-sequence (Seq2Seq) neural network conversation model to multi-turn dialogue by modifying the state-of-the-art hredGAN architecture. To achieve this, we introduce an additional input modality into the encoder and decoder of hredGAN to capture other attributes such as speaker identity, location, sub-topics, and other external attributes that might be available from the corpus of human-to-human interactions. The resulting persona hredGAN ( phredGAN ) shows better performance than both the existing persona-based Seq2Seq and hredGAN models when those external attributes are available in a multi-turn dialogue corpus. This superiority is demonstrated on TV drama series with character consistency (such as Big Bang Theory and Friends) a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0146,
+        0.00468,
+        -0.01619,
+        -0.00557,
+        0.00147
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "nal attributes are available in a multi-turn dialogue corpus. This superiority is demonstrated on TV drama series with character consistency (such as Big Bang Theory and Friends) a",
+      "overlap_with_next": "and sub-topic in the data. Most work in this domain has primarily focused on opti- mizing dialogue consistency. For example, Serban et al. [3]– [5] and Xing et al. [6] introduce a ",
+      "text": "nal attributes are available in a multi-turn dialogue corpus. This superiority is demonstrated on TV drama series with character consistency (such as Big Bang Theory and Friends) and customer service interaction datasets such as Ubuntu dialogue corpus in terms of perplexity, BLEU, ROUGE, and Distinct n- gram scores. I. I NTRODUCTION Recent advances in machine learning especially with deep neural networks has led to tremendous progress in natural language processing and dialogue modeling research [1]–[3]. Nevertheless, developing a good conversation model capable of ﬂuent interactions between a human and a machine is still in its infancy. Most existing work relies on a limited dialogue history to produce responses with the assumption that the model parameters will capture all the modalities within a dataset. However, this is not true as dialogue corpora tend to be strongly multi-modal and practical neural network models ﬁnd it difﬁcult to disambiguate characteristics such as speaker personality, location, and sub-topic in the data. Most work in this domain has primarily focused on opti- mizing dialogue consistency. For example, Serban et al. [3]– [5] and Xing et al. [6] introduce a ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03616,
+        -0.02234,
+        -0.00299,
+        -0.00203,
+        -0.01014
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "and sub-topic in the data. Most work in this domain has primarily focused on opti- mizing dialogue consistency. For example, Serban et al. [3]– [5] and Xing et al. [6] introduce a ",
+      "overlap_with_next": "odels. For example, Li et al. [8] integrate learnable speaker attributes into a single- turn (Seq2Seq) generative dialogue model. In this work, Li et al. consider persona models: o",
+      "text": "and sub-topic in the data. Most work in this domain has primarily focused on opti- mizing dialogue consistency. For example, Serban et al. [3]– [5] and Xing et al. [6] introduce a Hierarchical Recurrent Encoder-Decoder (HRED) network architecture that combines a series of recurrent neural networks to capture long-term context state within a dialogue. However, the HRED system suffers from lack of diversity and does not support any guarantees on the generator output since the output conditional probability is not calibrated. Olabiyi et al. [7] tackle this problem by training a modiﬁed HRED generator alongside an adversarial discriminator in order to provide a stronger guarantee to the generator’s output. While the hredGAN system improves upon response quality, it does not capture speaker and other attributes modalities within a dataset and fails to generate persona-speciﬁc responses in datasets with multiple modalities. At the same time, there has been some recent work on introducing persona into dialogue models. For example, Li et al. [8] integrate learnable speaker attributes into a single- turn (Seq2Seq) generative dialogue model. In this work, Li et al. consider persona models: o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06241,
+        -0.02012,
+        -0.03107,
+        0.0104,
+        -0.01749
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "odels. For example, Li et al. [8] integrate learnable speaker attributes into a single- turn (Seq2Seq) generative dialogue model. In this work, Li et al. consider persona models: o",
+      "overlap_with_next": "alization and conversation quality, and cannot generate multiple responses given a dialogue context. This is evident in the relatively short and generic responses even though they ",
+      "text": "odels. For example, Li et al. [8] integrate learnable speaker attributes into a single- turn (Seq2Seq) generative dialogue model. In this work, Li et al. consider persona models: one with Speaker-only representation and another with Speaker and Addressee representations (Speaker-Addressee model), both of which capture aspects of speaker identity and interactions. Nguyen et al. [9] continue the same line of thought by considering a Seq2Seq dialogue model with Responder-only representations. In both cases, the attribute representation is learned during the system training. Zhang et al. [10] propose a slightly different approach. Here, the attributes are a set of sentences describing the proﬁle of the speaker. In this case, the attribute representation is not learned. The system however learns how to attend to different parts of the attributes during training. Still, the above persona- based models have a limited dialogue history (single-turn), suffer from exposure bias worsening the trade off between personalization and conversation quality, and cannot generate multiple responses given a dialogue context. This is evident in the relatively short and generic responses even though they ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06537,
+        0.03199,
+        -0.00941,
+        0.00468,
+        -0.01487
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "alization and conversation quality, and cannot generate multiple responses given a dialogue context. This is evident in the relatively short and generic responses even though they ",
+      "overlap_with_next": "osed phredGAN similar to the procedure for hredGAN [7]. To demonstrate model capability, we train on customer service related data such as the Ubuntu Dialogue Corpus (UDC) that is ",
+      "text": "alization and conversation quality, and cannot generate multiple responses given a dialogue context. This is evident in the relatively short and generic responses even though they generally capture the persona of the speaker. To overcome these limitations, we propose phredGAN , a multi-modal hredGAN dialogue system which additionally conditions the adversarial framework proposed by Olabiyi et al. [7] on speaker and/or utterance attributes in order to maintain response quality of hredGAN and still capture speaker and other modalities within a conversation. The attributes can be seen as another input modality as the utterance. The attribute representation is an embedding that is learned together with the rest of model parameters, similar to [8]. The introduction of attributes allows the model to generate responses conditioned on particular attribute(s) across conversation turns. Since the attributes are discrete, it also allows for exploring what-if scenarios of model responses. We train and sample the proposed phredGAN similar to the procedure for hredGAN [7]. To demonstrate model capability, we train on customer service related data such as the Ubuntu Dialogue Corpus (UDC) that is ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02285,
+        0.00807,
+        -0.02338,
+        0.00677,
+        -0.01579
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "osed phredGAN similar to the procedure for hredGAN [7]. To demonstrate model capability, we train on customer service related data such as the Ubuntu Dialogue Corpus (UDC) that is ",
+      "overlap_with_next": " Holy crap, Sheldon, did you just ﬁgure out a method for synthesizing a new stable super-heavy element? Context 1 Sheldon NA Did I? Well, that can’t be right. No one’s ever done th",
+      "text": "osed phredGAN similar to the procedure for hredGAN [7]. To demonstrate model capability, we train on customer service related data such as the Ubuntu Dialogue Corpus (UDC) that is strongly bimodal between question poster and answerer, and character consistent TV scripts from two popular series, The Big Bang Theory and Friends with quantitative and qualitative analysis. We demonstrate system superiority over hredGAN and the state-of-the-art persona conversational model in terms arXiv:1905.01998v1 [cs.CL] 29 Apr 2019 [Page 2] TABLE I SAMPLE OF phredGAN OUTPUTS WITH DISCRIMINATOR SCORE . Source Speaker D(G(.)) Utterance Big Bang Theory and Friends TV Series Context 0 Penny NA You have to, we all have to be there at the same time to yell surprise!. Context 1 Howard NA Okay, you have to understand something, we’re in a hospital right now. Response 0 Penny 0.1705 Okay, I’m sorry. I’m not really even like that. Response 1 Penny 0.1426 Okay, I’m sorry, I’m sorry. Response 2 Penny 0.0688 Okay. Context 0 Leonard NA Holy crap, Sheldon, did you just ﬁgure out a method for synthesizing a new stable super-heavy element? Context 1 Sheldon NA Did I? Well, that can’t be right. No one’s ever done th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04211,
+        0.0034,
+        -0.03508,
+        -0.04002,
+        0.00765
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": " Holy crap, Sheldon, did you just ﬁgure out a method for synthesizing a new stable super-heavy element? Context 1 Sheldon NA Did I? Well, that can’t be right. No one’s ever done th",
+      "overlap_with_next": " update from today? giving me a kernel panic Context 1 helper NA you can select previous kernels at the bootloader (grub) menu on booth. Response 0 asker 0.3665 it says that it is ",
+      "text": " Holy crap, Sheldon, did you just ﬁgure out a method for synthesizing a new stable super-heavy element? Context 1 Sheldon NA Did I? Well, that can’t be right. No one’s ever done that before. Except me, because I just did it. Sheldon and his brain, yeah Response 0 Leonard 0.3976 Sheldon , what are you doing ? Response 1 Leonard 0.3503 Sheldon ? Context 0 Leonard NA She’s gotten really hooked on Age of Conan, she’s playing non-stop. Response 0 Raj 0.4890 Okay , so we know , what about you and Penny doing here ? Response 1 Raj 0.3586 Okay , so we would have to say that about people ? Response 2 Raj 0.1113 Okay , let ’ s go . UDC Context 0 asker NA all i need some quick amarok help. i cant hear my music Context 1 helper NA is amarok muted? Context 2 asker NA no Response 0 helper 0.3079 use the UNK drivers , and then run the ” UNK ” command to get the UNK Response 1 helper 0.1283 what is the error message ? Response 2 helper 0.0725 what version of ubuntu ? Context 0 asker NA anyone had problems with the kernel update from today? giving me a kernel panic Context 1 helper NA you can select previous kernels at the bootloader (grub) menu on booth. Response 0 asker 0.3665 it says that it is ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00092,
+        0.03286,
+        -0.03815,
+        -0.01242,
+        -0.00726
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": " update from today? giving me a kernel panic Context 1 helper NA you can select previous kernels at the bootloader (grub) menu on booth. Response 0 asker 0.3665 it says that it is ",
+      "overlap_with_next": "ion, we brieﬂy introduce the state-of-the-art hredGAN model and subsequently show how we derive the persona version by combining it with the distributed representation of the dialo",
+      "text": " update from today? giving me a kernel panic Context 1 helper NA you can select previous kernels at the bootloader (grub) menu on booth. Response 0 asker 0.3665 it says that it is not installed . . . Response 1 asker 0.3195 i’m not sure what i can ﬁnd . . . Response 2 asker 0.0186 it’s a UNK , I’m not sure of the way . Context 0 asker NA how do I install Ubuntu? Response 0 helper 0.5797 use the alternate cd , it should be in the repos , it’s a good place to get the source of the kernel Response 1 helper 0.1984 use the UNK package , it should work . . . Response 2 helper 0.0131 use the UNK of dialogue response quality and quantitatively with perplexity, BLEU, ROUGE, and distinct n-gram scores. The rest of the paper is organized as follows: In section II, we describe the model architecture. Section III describes model training and evaluation while section IV contains experiments and result discussion. Finally, section V concludes and explores some future work directions. II. M ODEL ARCHITECTURE In this section, we brieﬂy introduce the state-of-the-art hredGAN model and subsequently show how we derive the persona version by combining it with the distributed representation of the dialo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04891,
+        0.00834,
+        -0.01353,
+        0.01434,
+        -0.02313
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ion, we brieﬂy introduce the state-of-the-art hredGAN model and subsequently show how we derive the persona version by combining it with the distributed representation of the dialo",
+      "overlap_with_next": "ncoder state. In the case of hredGAN [7], it is a bidirectional RNN that discriminates at the word level to capture both the syntactic and semantic difference between the ground tr",
+      "text": "ion, we brieﬂy introduce the state-of-the-art hredGAN model and subsequently show how we derive the persona version by combining it with the distributed representation of the dialogue speaker and utterance attributes. A. hredGAN : Adversarial Learning Framework The hredGAN proposed by Olabiyi et. al [7] contains three major components. Encoder: The encoder consists of three RNNs, the aRNN that encodes an utterance for attention memory, theeRNN that encodes an utterance for dialogue context, and the cRNN that encodes a multi-turn dialogue context from the eRNN outputs. The ﬁnal states ofaRNN andcRRN are concatenated to form the ﬁnal encoder state. Generator: The generator contains a single decoder RNN, dRNN , initialized with the ﬁnal encoder state. The dRNN inputs consists of cRNN output, embedding of the ground truth or previously generated tokens, as well as noise samples and the attention over the aRNN outputs. Discriminator: The discriminator also contains a single RNN,DRNN , initialized by the ﬁnal encoder state. In the case of hredGAN [7], it is a bidirectional RNN that discriminates at the word level to capture both the syntactic and semantic difference between the ground tr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00653,
+        -0.01608,
+        -0.00489,
+        -0.01126,
+        -0.0198
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ncoder state. In the case of hredGAN [7], it is a bidirectional RNN that discriminates at the word level to capture both the syntactic and semantic difference between the ground tr",
+      "overlap_with_next": "opy loss LMLE (G) between the ground truth Xi+1, and the generator output Yi. The following objective summarizes both goals: G∗,D∗ =argmin G max D ( λGLcGAN (G,D )+ λMLMLE (G) ) . ",
+      "text": "ncoder state. In the case of hredGAN [7], it is a bidirectional RNN that discriminates at the word level to capture both the syntactic and semantic difference between the ground truth and the generator output. Problem Formulation : The hredGAN [7] formulates multi-turn dialogue response generation as: given a dialogue history of sequence of utterances, Xi = ( X1,X 2,··· ,Xi ) , where each utterance Xi = ( X 1i,X 2i,··· ,XMii ) contains a variable-length sequence ofMi word tokens such that Xij∈V for vocabulary V , the dialogue model produces an output Yi = ( Y 1i ,Y 2i ,··· ,Y Tii ), where Ti is the number of generated tokens. The framework uses a conditional GAN structure to learn a mapping from an observed dialogue history to a sequence of output tokens. The generator, G, is trained to produce sequences that cannot be distinguished from the ground truth by an adversarially trained discriminator, D, akin to a two-player min-max optimization problem. The generator is also trained to minimize the cross-entropy loss LMLE (G) between the ground truth Xi+1, and the generator output Yi. The following objective summarizes both goals: G∗,D∗ =argmin G max D ( λGLcGAN (G,D )+ λMLMLE (G) ) . ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0331,
+        -0.042,
+        0.00247,
+        0.02241,
+        -0.00691
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "opy loss LMLE (G) between the ground truth Xi+1, and the generator output Yi. The following objective summarizes both goals: G∗,D∗ =argmin G max D ( λGLcGAN (G,D )+ λMLMLE (G) ) . ",
+      "overlap_with_next": "der of hredGAN , if the attribute Ci is a sequence of tokens, then another RNN, sattRNN is used to summarize the token embeddings; otherwise a single attribute embedding is concate",
+      "text": "opy loss LMLE (G) between the ground truth Xi+1, and the generator output Yi. The following objective summarizes both goals: G∗,D∗ =argmin G max D ( λGLcGAN (G,D )+ λMLMLE (G) ) . (1) where λG and λM are hyperparameters and LcGAN (G,D ) andLMLE (G) are deﬁned in Eqs. (5) and (7) of [7] respec- tively. Note that the generator G and discriminator D share the same encoder and embedding representation of the word tokens. B. phredGAN : Persona Adversarial Learning Framework The proposed architecture of phredGAN is very sim- ilar to that of hredGAN summarized above. The only difference is that the dialogue history is now Xi =( (X1,C 1), (X2,C 2),··· , (Xi,Ci) ) where Ci is additional input that represents the speaker and/or utterance attributes. Note that Ci can either be a sequence of tokens or a single token such that Cij∈Vc for vocabulary Vc . The embedding for attribute tokens is also learned similar to that of word tokens. The modiﬁed system is as follows: Encoder: In addition to the three RNNs in the encoder of hredGAN , if the attribute Ci is a sequence of tokens, then another RNN, sattRNN is used to summarize the token embeddings; otherwise a single attribute embedding is concate",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02877,
+        -0.02393,
+        -0.03264,
+        -0.01832,
+        0.00273
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "der of hredGAN , if the attribute Ci is a sequence of tokens, then another RNN, sattRNN is used to summarize the token embeddings; otherwise a single attribute embedding is concate",
+      "overlap_with_next": " between the generator and the discriminator (Fig. 1 of [7]). The attributes C allow the generator to condition its response on the utterance attributes such as speaker identity, s",
+      "text": "der of hredGAN , if the attribute Ci is a sequence of tokens, then another RNN, sattRNN is used to summarize the token embeddings; otherwise a single attribute embedding is concatenated with the output of eRNN as shown in Fig. 1. Generator: In addition to the dRNN in the generator of hredGAN , if the attribute Ci+1 is a sequence of tokens, then another RNN, tattRNN is used to summarize the attribute token embeddings; otherwise a single attribute embedding is concatenated with the other inputs of dRNN as shown in Fig. 1. Discriminator: In addition to theDRNN in the discriminator of hredGAN , if the attribute Ci+1 is a sequence of tokens, then the same tattRNN is used to summarize the attribute token embeddings; otherwise the single attribute embedding is concatenated with the other inputs of DRNN in Fig. 1 of [7]. [Page 3] Fig. 1. The PHRED generator with local attention - Encoder : Encoder RNN, eRN N, Attention RNN, aRN N and the Context RNN, cRRN. Generator: Decoder RNN, dRN N. The same encoder is shared between the generator and the discriminator (Fig. 1 of [7]). The attributes C allow the generator to condition its response on the utterance attributes such as speaker identity, s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02042,
+        -0.01755,
+        -0.00912,
+        -0.00547,
+        -0.00344
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " between the generator and the discriminator (Fig. 1 of [7]). The attributes C allow the generator to condition its response on the utterance attributes such as speaker identity, s",
+      "overlap_with_next": "he generator and the discriminator (with a shared encoder) of phredGAN using the same training procedure in Algorithm 1 with λG = λM = 1 [7]. Since the encoder, word embeddings and",
+      "text": " between the generator and the discriminator (Fig. 1 of [7]). The attributes C allow the generator to condition its response on the utterance attributes such as speaker identity, subtopics, and so on. Noise Injection : Although [7] demonstrated that injecting noise at the word level seems to perform better than at the utterance level for hredGAN , we found that this is dataset- dependent for phredGAN . The phredGAN model with utterance-level noise injection and word-level noise injection are tagged phredGANu and phredGANw respectively. The losses,LcGAN (G,D ) andLMLE (G) in eq. (1) are then respectively updated as: LcGAN (G,D ) = EXi,Ci+1,Xi+1 [logD(Xi,Ci+1,Xi+1)]+ EXi,Ci+1,Zi [1− logD(Xi,Ci+1,G (Xi,Ci+1,Zi))] (2) LMLE (G) = EXi+1 [−log PG ( Xi+1|Xi,Ci+1,Zi ) ]. (3) The addition of speaker or utterance attributes allows the dialogue model to exhibit personality traits giving consistent responses across style, gender, location, and so on. III. M ODEL TRAINING AND INFERENCE A. Model Training We train both the generator and the discriminator (with a shared encoder) of phredGAN using the same training procedure in Algorithm 1 with λG = λM = 1 [7]. Since the encoder, word embeddings and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01399,
+        -0.03734,
+        -0.02845,
+        -0.00532,
+        0.02266
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "he generator and the discriminator (with a shared encoder) of phredGAN using the same training procedure in Algorithm 1 with λG = λM = 1 [7]. Since the encoder, word embeddings and",
+      "overlap_with_next": "ntext state. hi =cRNN (eRNN (E(Xi)), hi−1,Ci) Compute the generator output similar to Eq. (11) in [7]. PθG ( Yi|,Zi, Xi,Ci+1 ) = { PθG ( Yji|X 1:j−1i+1 ,Zji, Xi,Ci+1)}Mi+1j=1 Sampl",
+      "text": "he generator and the discriminator (with a shared encoder) of phredGAN using the same training procedure in Algorithm 1 with λG = λM = 1 [7]. Since the encoder, word embeddings and attribute embeddings are shared, we are able to train the system end-to-end with back- propagation. Encoder: The encoder RNNs, eRNN , and eRNN are bidirectional while cRRN is unidirectional. All RNN units are 3-layer GRU cells with a hidden state size of 512. We use a word vocabulary size, V = 50, 000, with a word embedding size of 512. The number of attributes, Vc is dataset-dependent Algorithm 1 Adversarial Learning of phredGAN Require: A generator G with parameters θG. Require: A discriminator D with parameters θD. Require: Training hyperparameters, λG, and λM . for number of training iterations do InitializecRNN to zero state, h0 Sample a mini-batch of conversations, X = {Xi,Ci}Ni=1, Xi =( (X1,C 1), (X2,C 2),··· , (Xi,Ci) ) withN utterances. Each utterance mini batchi containsMi word tokens. fori = 1 toN− 1 do Update the context state. hi =cRNN (eRNN (E(Xi)), hi−1,Ci) Compute the generator output similar to Eq. (11) in [7]. PθG ( Yi|,Zi, Xi,Ci+1 ) = { PθG ( Yji|X 1:j−1i+1 ,Zji, Xi,Ci+1)}Mi+1j=1 Sampl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02557,
+        -0.02424,
+        -0.02126,
+        -0.01413,
+        0.00847
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ntext state. hi =cRNN (eRNN (E(Xi)), hi−1,Ci) Compute the generator output similar to Eq. (11) in [7]. PθG ( Yi|,Zi, Xi,Ci+1 ) = { PθG ( Yji|X 1:j−1i+1 ,Zji, Xi,Ci+1)}Mi+1j=1 Sampl",
+      "overlap_with_next": "te size of 512. The aRNN outputs [Page 4] are connected to the dRNN input using an additive attention mechanism [11]. Discriminator: The discriminator RNN,DRNN , is a bidirec- tion",
+      "text": "ntext state. hi =cRNN (eRNN (E(Xi)), hi−1,Ci) Compute the generator output similar to Eq. (11) in [7]. PθG ( Yi|,Zi, Xi,Ci+1 ) = { PθG ( Yji|X 1:j−1i+1 ,Zji, Xi,Ci+1)}Mi+1j=1 Sample a corresponding mini batch of utterance Yi. Yi∼PθG ( Yi|,Zi, Xi,Ci+1 ) end for Compute the adversarial discriminator accuracy Dacc over N− 1 utterances {Yi}N −1i=1 and{Xi+1}N −1i=1 ifDacc <accDth thenUpdatephredGAN ’sθD with gradient of the discriminator loss.∑ i [∇θD logD(hi,Ci+1,Xi+1) +∇θD log ( 1−D(hi,Ci+1,Yi) ) ] end if ifDacc <accGth thenUpdateθG with the generator’s MLE loss only.∑ i [∇θG− logPθG ( Yi|,Zi, Xi,Ci+1 ) ] else UpdateθG with attribute, adversarial and MLE losses.∑ i [λG∇θG logD(hi,Ci+1,Yi) + λM∇θG− logPθG ( Yi|,Zi, Xi,Ci+1 ) ] end if end for but we use an attribute embedding size of 512. In this study, we only use one attribute per utterance, so there is no need to use RNNs, sattRNN and tattRNN to combine the attribute embeddings. Generator: The generator RNN, dRNN is also a 3-layer GRU cell with a hidden state size of 512. The aRNN outputs [Page 4] are connected to the dRNN input using an additive attention mechanism [11]. Discriminator: The discriminator RNN,DRNN , is a bidirec- tion",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04872,
+        0.00646,
+        0.00031,
+        -0.01036,
+        0.00205
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "te size of 512. The aRNN outputs [Page 4] are connected to the dRNN input using an additive attention mechanism [11]. Discriminator: The discriminator RNN,DRNN , is a bidirec- tion",
+      "overlap_with_next": "nally, the model is implemented, trained, and evaluated using the TensorFlow deep learning framework. B. Model Inference We use an inference strategy similar to the approach in Ola",
+      "text": "te size of 512. The aRNN outputs [Page 4] are connected to the dRNN input using an additive attention mechanism [11]. Discriminator: The discriminator RNN,DRNN , is a bidirec- tional RNN, each 3-layer GRU cell having a hidden state size of 512. The output of both the forward and the backward cells for each word are concatenated and passed to a fully-connected layer with binary output. The output is the probability that the word is from the ground truth given the past and future words of the sequence as well as the responding speaker’s embedding. Others: All parameters are initialized with Xavier uniform random initialization [12]. Due to the large word vocabulary size, we use sampled softmax loss [13] for MLE loss to expedite the training process. However, we use full softmax for model evaluation. The parameter update is conditioned on the discriminator accuracy performance as in [7] with accDth = 0 .99 and accGth = 0 .75. The model is trained end-to-end using the stochastic gradient descent algorithm. Finally, the model is implemented, trained, and evaluated using the TensorFlow deep learning framework. B. Model Inference We use an inference strategy similar to the approach in Ola",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.056,
+        -0.02972,
+        -0.0128,
+        -0.03256,
+        -0.03327
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "nally, the model is implemented, trained, and evaluated using the TensorFlow deep learning framework. B. Model Inference We use an inference strategy similar to the approach in Ola",
+      "overlap_with_next": "rator outputs by the discriminator which is also conditioned on the encoder outputs, and the intended responder’s embedding. The ﬁnal response is the response ranked highest by the",
+      "text": "nally, the model is implemented, trained, and evaluated using the TensorFlow deep learning framework. B. Model Inference We use an inference strategy similar to the approach in Olabiyi et. al [7]. The only differences between training and inference are : (i) The generator is run in autoregressive mode with greedy decoding by passing the previously generated word token to the input of the dRNN at the next step. (ii) A modiﬁed noise sample N (0,α I) is passed into the generator input. For the modiﬁed noise sample, we perform a linear search for α with sample size L = 1 based on the average discriminator loss,−logD(G(.)) [7] using trained models run in autore- gressive mode to reﬂect performance in actual deployment. The optimum α value is then used for all inferences and evaluations. During inference, we condition the dialogue response generation on the encoder outputs, noise samples, word embedding, and the attribute embedding of the intended responder. With multiple noise samples, L = 64, we rank the generator outputs by the discriminator which is also conditioned on the encoder outputs, and the intended responder’s embedding. The ﬁnal response is the response ranked highest by the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01875,
+        -0.01876,
+        0.01572,
+        0.00605,
+        -0.01446
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "rator outputs by the discriminator which is also conditioned on the encoder outputs, and the intended responder’s embedding. The ﬁnal response is the response ranked highest by the",
+      "overlap_with_next": "90% 3.00% ROGUE-2 - - 0.4044 DISTINCT -1 - - 0.1765 DISTINCT -2 - - 0.2164 pair each set with a corresponding attribute ﬁle that maps speaker IDs to utterances in the combined data",
+      "text": "rator outputs by the discriminator which is also conditioned on the encoder outputs, and the intended responder’s embedding. The ﬁnal response is the response ranked highest by the discriminator. IV. E XPERIMENTS AND RESULTS In this section, we explore phredGAN ’s results on two conversational datasets and compare its performance to the persona system in Li et al. [8] and hredGAN [7] in terms of quantitative and qualitative measures. A. Datasets TV Series Transcripts dataset [3]. We train our model on transcripts from the two popular TV drama series, Big Bang Theory and Friends. Following a preprocessing setup similar to [8], we collect utterances from the top 12 speakers from both series to construct a corpus of 5,008 lines of multi-turn dialogue. We split the corpus into training, development, and test sets with 94%, 3%, and 3% proportions, respectively, and TABLE II predGAN VS. SEQ2SEQ PERSONA MODELS [8] P ERFORMANCE . METRIC SM1 [8] SAM [8] phredGAN TV S ERIES PERPLEXITY 25.0 25.4 25.9 BLEU-4 1.88% 1.90% 3.00% ROGUE-2 - - 0.4044 DISTINCT -1 - - 0.1765 DISTINCT -2 - - 0.2164 pair each set with a corresponding attribute ﬁle that maps speaker IDs to utterances in the combined data",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03429,
+        -0.02949,
+        -0.01192,
+        -0.01881,
+        0.00584
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "90% 3.00% ROGUE-2 - - 0.4044 DISTINCT -1 - - 0.1765 DISTINCT -2 - - 0.2164 pair each set with a corresponding attribute ﬁle that maps speaker IDs to utterances in the combined data",
+      "overlap_with_next": "the same training, development, and test split as the UDC dataset in [7], with 90%, 5%, and 5% proportions, respectively. While the overwhelming majority of utterances in UDC follo",
+      "text": "90% 3.00% ROGUE-2 - - 0.4044 DISTINCT -1 - - 0.1765 DISTINCT -2 - - 0.2164 pair each set with a corresponding attribute ﬁle that maps speaker IDs to utterances in the combined dataset. Due to the small size of the combined transcripts dataset, we ﬁrst train our model on the larger Movie Triplets Corpus (MTC) by Banchs et al. [14] which consists of 240,000 dialogue triples. We pre-train our model on this dataset to initialize our model parameters to avoid overﬁtting on a relatively small persona TV series dataset. After pre-training on MTC, we reinitialize the attribute embeddings in the generator from a uniform distribution following a Xavier initialization [12] for training on the combined person TV series dataset. Ubuntu Dialogue Corpus (UDC) dataset [4]. We train our model on 1.85 million conversations of multi-turn dialogue from the Ubuntu community hub, with an average of 5 utterances per conversation. We assign two types of speaker IDs to utterances in this dataset: questioner and helper. We follow the same training, development, and test split as the UDC dataset in [7], with 90%, 5%, and 5% proportions, respectively. While the overwhelming majority of utterances in UDC follo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06859,
+        -0.00929,
+        -0.04632,
+        0.00713,
+        -0.02696
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "the same training, development, and test split as the UDC dataset in [7], with 90%, 5%, and 5% proportions, respectively. While the overwhelming majority of utterances in UDC follo",
+      "overlap_with_next": "two persona models to incorporate vector representations of speaker interaction and speaker attributes into the decoder of their Seq2Seq model, i.e., Speaker and Speaker- Addressee",
+      "text": "the same training, development, and test split as the UDC dataset in [7], with 90%, 5%, and 5% proportions, respectively. While the overwhelming majority of utterances in UDC follow two speaker types, the dataset does include utterances that are not classiﬁed under either a questioner or helper speaker type. To remain consistent, we assume that there are only two speaker types within this dataset and that the ﬁrst utterance of every dialogue is from a questioner. This simplifying assumption does introduce a degree of noise into the model’s ability to construct attribute embeddings. However, our experimental results demonstrate that our model is still able to differentiate between the larger two speaker types in the dataset. B. Evaluation Metrics We use similar evaluation metrics as in [7] including perplexity, BLEU [15], ROUGE [16], and distinct n-gram [17] scores. C. Baseline We compare our system to [8] which uses a Seq2Seq framework in conjunction with learnable persona embeddings. Their work explores two persona models to incorporate vector representations of speaker interaction and speaker attributes into the decoder of their Seq2Seq model, i.e., Speaker and Speaker- Addressee",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05554,
+        0.00982,
+        -0.04061,
+        -0.00149,
+        -0.02999
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "two persona models to incorporate vector representations of speaker interaction and speaker attributes into the decoder of their Seq2Seq model, i.e., Speaker and Speaker- Addressee",
+      "overlap_with_next": "sion with word-level noise injection, hredGANw, so we use this version in our comparison. Also for fair comparison, we use the same UDC dataset as reported in [7]. The only additio",
+      "text": "two persona models to incorporate vector representations of speaker interaction and speaker attributes into the decoder of their Seq2Seq model, i.e., Speaker and Speaker- Addressee models. While we compare with both models quantitatively, we mostly compare with the Speaker-Addressee 1SM stands for Speaker Model and SAM stands for Speaker-Addressee Model [Page 5] TABLE III phredGAN VS. hredGAN [7] P ERFORMANCE METRIC hredGAN [7] phredGAN UDC PERPLEXITY 48.18 27.3 ROUGE-2 (F1) 0.1252 0.1692 DISTINCT-1 14.05% 20.12% DISTINCT-2 31.24% 24.53% model qualitatively. Our quantitative comparison uses perplexity and BLEU-4 scores as those are the ones reported in [8]. In addition, we also measure our model performance in terms of ROGUE and Distinct n-gram scores for the purpose of completeness. For fair comparison, we use the same TV drama series dataset used in their study. We also compare our system tohredGAN from [7] in terms of perplexity, ROGUE, and distinct n-grams scores. In [7], the authors recommend the version with word-level noise injection, hredGANw, so we use this version in our comparison. Also for fair comparison, we use the same UDC dataset as reported in [7]. The only additio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0479,
+        -0.01328,
+        -0.0249,
+        -0.05629,
+        0.01348
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "sion with word-level noise injection, hredGANw, so we use this version in our comparison. Also for fair comparison, we use the same UDC dataset as reported in [7]. The only additio",
+      "overlap_with_next": " L = 1. We obtained an optimalα of 2 withphredGANu for the combined TV series dataset and an optimal α of 5 for phredGANw for the much larger UDC dataset. E. Results After training",
+      "text": "sion with word-level noise injection, hredGANw, so we use this version in our comparison. Also for fair comparison, we use the same UDC dataset as reported in [7]. The only addition we made is to add the speaker attribute to the utterances of the dataset as described in the Dataset subsection. D. Hyperparameter search Prior to evaluation, we determine the noise injection method and the optimum noise variance α that are suitable for the two datasets. We consider the two variations of phredGAN , that is, phredGANu for utterance-level and phredGANw for word- level noise injections. We notice a partial mode collapse with phredGANw on the combined TV transcripts, likely due to the high variation of word-level perturbation on a very limited dataset. However, this issue was rectiﬁed by phredGANu. Therefore, we use phredGANu for the combined TV series dataset and phredGANw for the UDC dataset. We perform a linear search for optimal noise variance values between 1 and 30 at an increment of 1, with a sample size of L = 1. We obtained an optimalα of 2 withphredGANu for the combined TV series dataset and an optimal α of 5 for phredGANw for the much larger UDC dataset. E. Results After training",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00859,
+        -0.02565,
+        -0.02754,
+        -0.03047,
+        0.01601
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " L = 1. We obtained an optimalα of 2 withphredGANu for the combined TV series dataset and an optimal α of 5 for phredGANw for the much larger UDC dataset. E. Results After training",
+      "overlap_with_next": "cy, sometimes referencing background information inherent in the conversation between two speakers. For example, in the second sample of the TV series in Table I, phredGAN generato",
+      "text": " L = 1. We obtained an optimalα of 2 withphredGANu for the combined TV series dataset and an optimal α of 5 for phredGANw for the much larger UDC dataset. E. Results After training phredGAN models on the TV series and UDC datasets, we ran inference on some example dialogue contexts. The responses and their discriminator scores from phredGAN are listed in Table I. The table shows that phredGAN (i) can handle multi-turn dialogue context with utterances and corresponding persona attributes; (ii) generates responses condi- tioned on a persona attribute; (iii) generates multiple responses per dialogue context and scores their human likelihood by the discriminator. We observe that the discriminator score is generally reasonable with longer, more informative, and more persona-related responses receiving higher scores. It is worth noting that this behavior, although similar to the behavior of a human judge, is learned without supervision. Furthermore, we observe that phredGAN responses retain contextual consistency, sometimes referencing background information inherent in the conversation between two speakers. For example, in the second sample of the TV series in Table I, phredGAN generato",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02092,
+        -0.02717,
+        -0.04006,
+        -0.04308,
+        -0.00338
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "cy, sometimes referencing background information inherent in the conversation between two speakers. For example, in the second sample of the TV series in Table I, phredGAN generato",
+      "overlap_with_next": "3] about seq2seq and HRED dialogue models. However, phredGANu gives a signiﬁcantly larger BLEU-4 score than both Speaker and Speaker-Addressee models. We attribute this improvement",
+      "text": "cy, sometimes referencing background information inherent in the conversation between two speakers. For example, in the second sample of the TV series in Table I, phredGAN generator, Leonard refers to Sheldon by name. Also, in the third sample, phredGAN , Raj refers to Penny when responding to Leonard who happens to be Penny’s boy friend. We observe similar persona-based response generation for the UDC dataset with distinct communication styles between the asker and the helper. We will now present performance comparisons of phredGAN against the baselines, hredGAN , and Li et al.’s persona Seq2Seq models. 1) Quantitative Analysis: We ﬁrst report the performance of phredGANu on TV series transcripts in table II. Our system actually performs slightly worse than both variations of the Speaker Model and Speaker-Addressee systems in [8] in terms of the perplexity measure. This is because the entropy of multi-turn dialogue is higher than that of single-turn. Similar observations have been made by Serban et al. [3] about seq2seq and HRED dialogue models. However, phredGANu gives a signiﬁcantly larger BLEU-4 score than both Speaker and Speaker-Addressee models. We attribute this improvement",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06016,
+        -0.00404,
+        -0.04801,
+        -0.05158,
+        0.00637
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "3] about seq2seq and HRED dialogue models. However, phredGANu gives a signiﬁcantly larger BLEU-4 score than both Speaker and Speaker-Addressee models. We attribute this improvement",
+      "overlap_with_next": "t n-grams, with the exception of distinct 2-grams. This is expected as phredGAN should be generally less diverse than hredGAN since the number of distinct data distribution modes i",
+      "text": "3] about seq2seq and HRED dialogue models. However, phredGANu gives a signiﬁcantly larger BLEU-4 score than both Speaker and Speaker-Addressee models. We attribute this improvement to (i) the multi-turn dialogue context, and (ii) training in an adversarial framework, which forces the model to produce longer, more informative, and diverse responses that have high topic relevance even with a limited dataset. Also, unlike Speaker-Addressee models which suffer from lower response quality due to persona conditioning, conditioning the generator and discriminator of phredGAN on speaker embeddings does not compromise the system’s ability to produce diverse responses. This problem might have been alleviated by the adversarial training too. We also comparephredGAN with the recommended variant of hredGAN that includes word-level noise injection at the decoder on the UDC dataset. The results are summarized in Table III. We note an improvement in a variety of evaluation metrics including perplexity, ROUGE, and distinct n-grams, with the exception of distinct 2-grams. This is expected as phredGAN should be generally less diverse than hredGAN since the number of distinct data distribution modes i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03581,
+        -0.00692,
+        -0.01986,
+        -0.03748,
+        0.01088
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "t n-grams, with the exception of distinct 2-grams. This is expected as phredGAN should be generally less diverse than hredGAN since the number of distinct data distribution modes i",
+      "overlap_with_next": "text, “Do [Page 6] TABLE IV PHRED GAN SAMPLE RESPONSES ON TV S ERIES AND UDC. Model Speaker Response Big Bang Theory Series Context Sheldon Do you like me? phredGAN Leonard Yes ? p",
+      "text": "t n-grams, with the exception of distinct 2-grams. This is expected as phredGAN should be generally less diverse than hredGAN since the number of distinct data distribution modes is more for thephredGAN dataset due to the persona attributes. However, this leads to better response quality with persona, something not achievable with hredGAN . Also, the better ROUGE(f1) score indicates that phredGAN is able to strike a better balance between diversity and precision while still capturing the characteristics of the speaker attribute modality in the UDC dataset. 2) Qualitative Analysis: A qualitative assessment of these results are in Table IV with responses from several characters in the TV series dataset and the two characters in UDC. We see that for TV drama series, phredGAN responses are comparatively more informative than that of the Speaker- Addressee model of [8]. For example, with Speaker-Addressee model, nearly all the characters in the TV series respond with “Of course I love you.” to the dialogue context, “Do [Page 6] TABLE IV PHRED GAN SAMPLE RESPONSES ON TV S ERIES AND UDC. Model Speaker Response Big Bang Theory Series Context Sheldon Do you like me? phredGAN Leonard Yes ? p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03139,
+        -0.03286,
+        -0.03621,
+        -0.04453,
+        0.01954
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "text, “Do [Page 6] TABLE IV PHRED GAN SAMPLE RESPONSES ON TV S ERIES AND UDC. Model Speaker Response Big Bang Theory Series Context Sheldon Do you like me? phredGAN Leonard Yes ? p",
+      "overlap_with_next": "Star Trek game with his friends than hanging out with me. phredGAN Penny You know , when you ’ re being so nice about Sheldon and I want to take him to like his own girlfriend Cont",
+      "text": "text, “Do [Page 6] TABLE IV PHRED GAN SAMPLE RESPONSES ON TV S ERIES AND UDC. Model Speaker Response Big Bang Theory Series Context Sheldon Do you like me? phredGAN Leonard Yes ? phredGAN Penny No , you don ’ t understand . You ’ re an idiot . phredGAN Howard Well , I don ’ t know what to say . This is the part I ’ ve ever seen . phredGAN Raj Well , you know , we could be a little more than my friends ’ s friends . Context Emily Do you like me? Speaker-Addressee Sheldon Of course, I love you, Emily Speaker-Addressee Penny Of course, I love you, Emily. Speaker-Addressee Rachel Of course I love you. Context 0 Howard We cant go home. Context 1 Leonard Alright, I’ll be right back. phredGAN Howard Okay , well , before you and Penny get out and get married with Penny just get married. Context 0 Amy Spent a lot of my childhood throwing coins into wishing wells hoping for friends Context 1 Penny Whoa, whoa, give me a second to catch up here. Hold on Context 2 Amy That’d be my boyfriend. Happier playing his dopey Star Trek game with his friends than hanging out with me. phredGAN Penny You know , when you ’ re being so nice about Sheldon and I want to take him to like his own girlfriend Cont",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02449,
+        0.00828,
+        -0.01666,
+        -0.04546,
+        0.02263
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "Star Trek game with his friends than hanging out with me. phredGAN Penny You know , when you ’ re being so nice about Sheldon and I want to take him to like his own girlfriend Cont",
+      "overlap_with_next": "e had problems with the kernel update from today? giving me a kernel panic there a simple way to make a rollback? anyone if I can go back to my previous kernel? phredGAN Helper wha",
+      "text": "Star Trek game with his friends than hanging out with me. phredGAN Penny You know , when you ’ re being so nice about Sheldon and I want to take him to like his own girlfriend Context Sheldon I recently read that during World War Two, Joseph Stalin had a research program to create supersoldiers by having women impregnated by gorillas. predGAN Howard You ’ re right . I don ’ t know what you ’ re talking about , Sheldon . Friends TV Series Context Rachel Do you like me? phredGAN Joey Yeah . phredGAN Ross Well , no , no , no . I mean , I just , I don ’ t know . . . phredGAN Monica Well , I do . And I ’ m not gonna tell you another guy . phredGAN Chandler No , I do not . You are a mean little man . . Context Rachel Do you like me? Speaker-Addressee Chandler Of course I love you. Ubuntu Context Asker i need to install ubuntu on a pendrive so i can install software on the pendrive after booting from the usb, is it possible? phredGAN Helper you can just boot into the live cd and install grub. Context Asker anyone had problems with the kernel update from today? giving me a kernel panic there a simple way to make a rollback? anyone if I can go back to my previous kernel? phredGAN Helper wha",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02564,
+        0.00042,
+        -0.03068,
+        -0.00754,
+        -0.00219
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "e had problems with the kernel update from today? giving me a kernel panic there a simple way to make a rollback? anyone if I can go back to my previous kernel? phredGAN Helper wha",
+      "overlap_with_next": "Raj (“Well , you know , we could be a little more than my friend’s friends.”) The wide range of responses indicate our model’s ability to construct distinct attribute embeddings fo",
+      "text": "e had problems with the kernel update from today? giving me a kernel panic there a simple way to make a rollback? anyone if I can go back to my previous kernel? phredGAN Helper what version of ubuntu are you using ? Context Helper did you see my message about looking at other log ﬁles? predGAN Asker yeah , it ’ s not that I ’ m trying to get the UNK to work Context Asker you can select previous kernels at the bootloader (grub) menu on boot phredGAN Helper i ’ m not to be able to get the grub to the grub menu you love me?” despite the fact that some of the responders sometimes have unfriendly relationship with the addressee. Many of the novel situations explored by phredGAN are unachievable with the Speaker-Addressee model due to a lack of informative responses. For example, by conditioning as Sheldon from The Big Bang Theory and asking “Do you like me?”, our model responds with annoyance if conditioned as Penny (“No, you don’t understand. You’re an idiot”), brevity with Leonard (“Yes?”), and sarcasm with Raj (“Well , you know , we could be a little more than my friend’s friends.”) The wide range of responses indicate our model’s ability to construct distinct attribute embeddings fo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02661,
+        -0.00402,
+        -0.01831,
+        -0.01859,
+        0.00109
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "Raj (“Well , you know , we could be a little more than my friend’s friends.”) The wide range of responses indicate our model’s ability to construct distinct attribute embeddings fo",
+      "overlap_with_next": "8] with respect to BLEU score and even improves upon hredGAN with respect to ROUGE, distinct n-grams, and perplexity scoring. We also see a qualitative improvement in response qual",
+      "text": "Raj (“Well , you know , we could be a little more than my friend’s friends.”) The wide range of responses indicate our model’s ability to construct distinct attribute embeddings for each character even from a limited dataset. The other interesting responses in Table IV indicate our model’s ability to infer not only the context of the conversation but important character information about the Addressee. We also see similar results with our model’s output on UDC. We demonstrate that by conditioning as either a helper or questioner from the UDC dataset, our model is able to respond differently to input utterances as well as stay close to the context of the conversation. V. C ONCLUSION AND FUTURE WORK In this article, we improve upon state-of-the-art persona- based response generation models by adding attribute embed- dings to hredGAN in order to capture a representation of speaker identity and style in a multi-turn dialogue. Our model outperforms the existing Speaker-Model and Speaker-Addressee models from [8] with respect to BLEU score and even improves upon hredGAN with respect to ROUGE, distinct n-grams, and perplexity scoring. We also see a qualitative improvement in response qual",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03189,
+        -0.00331,
+        -0.00088,
+        0.03089,
+        -0.01129
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "8] with respect to BLEU score and even improves upon hredGAN with respect to ROUGE, distinct n-grams, and perplexity scoring. We also see a qualitative improvement in response qual",
+      "overlap_with_next": ", Y . Bengio, A. Courville, and J. Pineau, “Building end-to-end dialogue systems using generative hierarchical neural network models,” in Proceedings of The Thirtieth AAAI Conferen",
+      "text": "8] with respect to BLEU score and even improves upon hredGAN with respect to ROUGE, distinct n-grams, and perplexity scoring. We also see a qualitative improvement in response quality that more clearly separates speaker identity from even limited datasets. In the future, we hope to carry out a human evaluation to conﬁrm qualitative improvement of our model’s outputs. We also hope to extend this work to Multi-class GAN by optimizing over two separate adversarial losses, one for speaker attribute classiﬁcation and the other for dialogue generation real/fake discrimination. This will allow us to further improve on persona distinctions without the loss of response quality. REFERENCES [1] I. Sutskever, O. Vinyals, and Q. Le, “Sequence to sequence learning with neural networks,” in Proceedings of Advances in Neural Information Processing Systems (NIPS) , 2014, pp. 3104–3112. [2] O. Vinyals and Q. Le, “A neural conversational model,” in Proceedings of ICML Deep Learning Workshop , 2015. [3] I. Serban, A. Sordoni, Y . Bengio, A. Courville, and J. Pineau, “Building end-to-end dialogue systems using generative hierarchical neural network models,” in Proceedings of The Thirtieth AAAI Conferen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05852,
+        -0.03257,
+        0.01019,
+        -0.013,
+        0.00255
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": ", Y . Bengio, A. Courville, and J. Pineau, “Building end-to-end dialogue systems using generative hierarchical neural network models,” in Proceedings of The Thirtieth AAAI Conferen",
+      "overlap_with_next": "ller, “Multi-turn dialogue response generation in an adversarial learning framework,” in arXiv preprint arXiv:1805.11752, 2018. [8] J. Li, M. Galley, C. Brockett, G. Spithourakis, ",
+      "text": ", Y . Bengio, A. Courville, and J. Pineau, “Building end-to-end dialogue systems using generative hierarchical neural network models,” in Proceedings of The Thirtieth AAAI Conference on Artiﬁcial Intelligence (AAAI 2016) , 2016, pp. 3776–3784. [4] I. V . Serban, A. Sordoni, R. Lowe, L. Charlin, J. Pineau, A. Courville, and Y . Bengio, “A hierarchical latent variable encoder-decoder model for generating dialogue,” in Proceedings of The Thirty-ﬁrst AAAI Conference on Artiﬁcial Intelligence (AAAI 2017) , 2017. [5] I. V . Serban, T. Klinger, G. Tesauro, K. Talamadupula, B. Zhou, Y . Bengio, and A. Courville, “Multiresolution recurrent neural networks: An application to dialogue response generation,” in Proceedings of The Thirty-ﬁrst AAAI Conference on Artiﬁcial Intelligence (AAAI 2017) , 2017. [6] C. Xing, W. Wu, Y . Wu, M. Zhou, Y . Huang, and W. Ma, “Hierarchical recurrent attention network for response generation,” in arXiv preprint arXiv:1701.07149, 2017. [7] O. Olabiyi, A. Salimov, A. Khazane, and E. Mueller, “Multi-turn dialogue response generation in an adversarial learning framework,” in arXiv preprint arXiv:1805.11752, 2018. [8] J. Li, M. Galley, C. Brockett, G. Spithourakis, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05086,
+        -0.01463,
+        0.02441,
+        0.00079,
+        0.00319
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "ller, “Multi-turn dialogue response generation in an adversarial learning framework,” in arXiv preprint arXiv:1805.11752, 2018. [8] J. Li, M. Galley, C. Brockett, G. Spithourakis, ",
+      "overlap_with_next": " networks,” in International conference on artiﬁcial intelligence and statistics , 2010. [13] S. Jean, K. Cho, R. Memisevic, and Y . Bengio, “On using very large target vocabulary ",
+      "text": "ller, “Multi-turn dialogue response generation in an adversarial learning framework,” in arXiv preprint arXiv:1805.11752, 2018. [8] J. Li, M. Galley, C. Brockett, G. Spithourakis, J. Gao, and B. Dolan, “A persona-based neural conversation model,” in Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics , 2016, pp. 994–1003. [9] H. Nguyen, D. Morales, and T. Chin, “A neural chatbot with personality,” in Stanford NLP Course website: https://web.stanford.edu/class/cs224n/reports/2761115.pdf, 2018. [10] S. Zhang, E. Dinan, J. Urbanek, A. Szlam, D. Kiela, and J. Weston, “Personalizing dialogue agents: I have a dog, do you have pets too?” in arXiv preprint arXiv:1801.07243v3 , 2018. [11] D. Bahdanau, K. Cho, and Y . Bengio, “Neural machine translation by jointly learning to align and translate,” in Proceedings of International Conference of Learning Representation (ICLR 2015) , 2015. [12] X. Glorot and Y . Bengio, “Understanding the difﬁculty of training deep feedforward neural networks,” in International conference on artiﬁcial intelligence and statistics , 2010. [13] S. Jean, K. Cho, R. Memisevic, and Y . Bengio, “On using very large target vocabulary ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04035,
+        -0.04832,
+        -0.00163,
+        0.01376,
+        -0.03245
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34658,
+      "length": 998,
+      "overlap_with_previous": " networks,” in International conference on artiﬁcial intelligence and statistics , 2010. [13] S. Jean, K. Cho, R. Memisevic, and Y . Bengio, “On using very large target vocabulary ",
+      "overlap_with_next": "",
+      "text": " networks,” in International conference on artiﬁcial intelligence and statistics , 2010. [13] S. Jean, K. Cho, R. Memisevic, and Y . Bengio, “On using very large target vocabulary for neural machine translation,” in arXiv preprint arXiv:1412.2007, 2015. [14] R. E. Banchs, “Movie-dic: A movie dialogue corpus for research and development,” in Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics , 2012, pp. 203–207. [15] K. Papineni, S. Roukos, T. Ward, and W. Zhu, “Bleu: A method for automatic evalution of machine translation,” in Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics , 2002, pp. 311–318. [16] C. Y . Lin, “Rouge: a package for automatic evaluation of summaries,” in Proceedings of the Workshop on Text Summarization Branches Out , 2014. [17] J. Li, M. Galley, C. Brockett, J. Gao, and B. Dolan, “A diversity- promoting objective function for neural conversation models,” in Pro- ceedings of NAACL-HLT, 2016.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06845,
+        -0.03079,
+        -0.0081,
+        0.03961,
+        -0.00667
+      ]
+    }
+  ]
+}

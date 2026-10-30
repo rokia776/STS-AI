@@ -1,0 +1,78 @@
+[
+  {
+    "id": "q01",
+    "type": "specific",
+    "question": "What limitations are mentioned in the short text topic modeling survey?",
+    "expected_papers": ["Short Text Topic Modeling Techniques, Applications, and Performance: A Survey"],
+    "keywords": ["spars", "co-occurrence", "external"],
+    "reference": "Short texts are sparse and lack word co-occurrence information, so traditional topic models perform poorly; many approaches need external knowledge or aggregation to compensate."
+  },
+  {
+    "id": "q02",
+    "type": "specific",
+    "question": "How does neural document expansion improve ad-hoc retrieval?",
+    "expected_papers": ["Neural document expansion for ad-hoc information retrieval"],
+    "keywords": ["Seq2Seq", "scarce"],
+    "reference": "A neural Seq2Seq model generates extra terms for each document to reduce vocabulary mismatch. The paper adapts this approach to standard ad-hoc IR where labeled data is scarce and documents are long."
+  },
+  {
+    "id": "q03",
+    "type": "specific",
+    "question": "What is the main idea behind hashtag segmentation with pairwise neural ranking?",
+    "expected_papers": ["Multi-task Pairwise Neural Ranking for Hashtag Segmentation"],
+    "keywords": ["pairwise", "ranking", "multi-task", "24.6"],
+    "reference": "Hashtag segmentation is framed as pairwise ranking of candidate segmentations with a neural model, trained multi-task to also handle single vs multi-token hashtags; it gives a 24.6% error reduction over the previous state of the art."
+  },
+  {
+    "id": "q04",
+    "type": "specific",
+    "question": "What does the Panarchy paper say about adaptive cycles?",
+    "expected_papers": ["Panarchy: ripples of a boundary concept"],
+    "keywords": ["potential", "connectivity", "resilience", "nested"],
+    "reference": "The adaptive cycle (Holling) is hypothesized to exist in a space defined by potential, connectivity and resilience; Panarchy links adaptive cycles across scales in nested hierarchies."
+  },
+  {
+    "id": "q05",
+    "type": "specific",
+    "question": "How does the inclusion and exclusion phrase mining paper extract phrases from reviews?",
+    "expected_papers": ["Should I visit this place? Inclusion and Exclusion Phrase Mining from Reviews"],
+    "keywords": ["BIO", "CRF", "BiLSTM"],
+    "reference": "It treats extraction as sequence labeling: reviews are manually annotated with BIO tags and models such as CRF, BiLSTM-CRF and BERT-based taggers are trained to predict the phrase tags."
+  },
+  {
+    "id": "q06",
+    "type": "specific",
+    "question": "What are the main families of short text topic modeling methods?",
+    "expected_papers": ["Short Text Topic Modeling Techniques, Applications, and Performance: A Survey"],
+    "keywords": ["DMM", "co-occurrence", "self-aggregation"],
+    "reference": "Three families: DMM-based methods, global word co-occurrence based methods (e.g. BTM), and self-aggregation based methods (e.g. SATM, PTM). STTM is a Java library, not a family."
+  },
+  {
+    "id": "q07",
+    "type": "multi",
+    "question": "Compare the short text topic modeling survey and the hashtag segmentation paper in a table.",
+    "expected_papers": [
+      "Short Text Topic Modeling Techniques, Applications, and Performance: A Survey",
+      "Multi-task Pairwise Neural Ranking for Hashtag Segmentation"
+    ],
+    "keywords": ["STTM", "24.6", "hashtag"],
+    "reference": "The survey covers a taxonomy of short-text topic models and the STTM library with benchmark comparisons; the hashtag paper proposes a multi-task pairwise neural ranking model for hashtag segmentation. Results of one paper must not be attributed to the other."
+  },
+  {
+    "id": "q08",
+    "type": "multi",
+    "question": "Which methods or datasets are shared by more than one paper in the library?",
+    "require_citation": false
+  },
+  {
+    "id": "q09",
+    "type": "unanswerable",
+    "question": "What does the survey say about the best topic model for Arabic short texts?"
+  },
+  {
+    "id": "q10",
+    "type": "unanswerable",
+    "question": "Which paper uses reinforcement learning for image classification?",
+    "note": "Verify with check.py that no paper in the library does this; otherwise this is not an unanswerable question."
+  }
+]

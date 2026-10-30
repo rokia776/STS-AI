@@ -1,0 +1,640 @@
+{
+  "paper_id": "fe87ab02-542b-4e4f-956a-99fdc1d13ac7",
+  "filename": "041_Computer_Vision_Appearance-Invariant_6-DoF_Visual_Localization_using_Generative_Adversarial_Networks.pdf",
+  "title": "Appearance-Invariant 6-DoF Visual Localization using Generative Adversarial Networks",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 37,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "ith various environment changes. I. INTRODUCTION Over the past decade, there has been a great interest in robust long-term 6-DoF visual localization, which aims to retrieve the cam",
+      "text": "[Page 1] Appearance-Invariant 6-DoF Visual Localization using Generative Adversarial Networks Yimin Lin, Jianfeng Huang, Shiguo Lian Abstract— We propose a novel visual localization network when outside environment has changed such as different illu- mination, weather and season. The visual localization network is composed of a feature extraction network and pose regression network. The feature extraction network is made up of an encoder network based on the Generative Adversarial Network CycleGAN, which can capture intrinsic appearance-invariant feature maps from unpaired samples of different weathers and seasons. With such an invariant feature, we use a 6-DoF pose regression network to tackle long-term visual localization in the presence of outdoor illumination, weather and season changes. A variety of challenging datasets for place recognition and localization are used to prove our visual localization network, and the results show that our method outperforms state-of-the- art methods in the scenarios with various environment changes. I. INTRODUCTION Over the past decade, there has been a great interest in robust long-term 6-DoF visual localization, which aims to retrieve the cam",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03643,
+        -0.0448,
+        -0.01375,
+        -0.01119,
+        -0.00302
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "ith various environment changes. I. INTRODUCTION Over the past decade, there has been a great interest in robust long-term 6-DoF visual localization, which aims to retrieve the cam",
+      "overlap_with_next": " [5], [6] are gaining importance in most visual localization tasks and turn out to outperform traditional handcrafted features under different illumination or weather conditions. A",
+      "text": "ith various environment changes. I. INTRODUCTION Over the past decade, there has been a great interest in robust long-term 6-DoF visual localization, which aims to retrieve the camera pose including position and orientation with respect to a known environment map [1], [2]. In fact, it is a challenging task especially when the images change in appearance due to variety of illumination, weather, or season over a long time. The key issue is how to extract the appearance-invariant representation used for 6-DoF camera pose regression in such condition [3]. Traditionally, various types of handcrafted features have been investigated for vision based localization, such as SIFT, SURF and ORB [4], etc. Most of these features work well in matching scenes under similar illumination condition. How- ever, the feature descriptions would always be affected by drastic appearance changes, which leads to poor localization accuracy. With the research of deep learning, pre-trained Convolutional Neural Networks (CNNs) features [5], [6] are gaining importance in most visual localization tasks and turn out to outperform traditional handcrafted features under different illumination or weather conditions. A",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03213,
+        -0.002,
+        -0.0354,
+        -0.0006,
+        -0.02533
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " [5], [6] are gaining importance in most visual localization tasks and turn out to outperform traditional handcrafted features under different illumination or weather conditions. A",
+      "overlap_with_next": "twork (a) and feature based localization network (for training (b) and inference (c)). For example, various season data (e.g.,spring, summer, autumn and winter) are used for traini",
+      "text": " [5], [6] are gaining importance in most visual localization tasks and turn out to outperform traditional handcrafted features under different illumination or weather conditions. As a learning- based method, the training of CNNs features needs lots of training data composed of paired images at the same scene under different environment conditions, which is time consuming and infeasible. This is an apparent limitation for CNNs features based long-term visual localization. To address this issue, recent works exploited domain adaptation techniques to reduce the disturbance of envi- ronment changes. Building on the ﬂexibility of Generative Adversarial Networks (GANs) [7], recent works model the Yimin Lin, Jianfeng Huang, Shiguo Lian, are all with the AI Innovation and Application Center, China Unicomn, Beijing, 100102, China e-mail: linym39, huangjf53, liansg@chinaunicom.cn Fig. 1. A demonstration of our proposed method for long-term 6-DoF visual localization. It is composed of a GAN-based feature training network (a) and feature based localization network (for training (b) and inference (c)). For example, various season data (e.g.,spring, summer, autumn and winter) are used for traini",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03479,
+        -0.02508,
+        -0.0338,
+        -0.03115,
+        -0.01977
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "twork (a) and feature based localization network (for training (b) and inference (c)). For example, various season data (e.g.,spring, summer, autumn and winter) are used for traini",
+      "overlap_with_next": " outperform state-of-the-art feature-based localization. This is partly due to their inability to internally model the 3D struc- tural constraints of the environment while learning",
+      "text": "twork (a) and feature based localization network (for training (b) and inference (c)). For example, various season data (e.g.,spring, summer, autumn and winter) are used for training the networks. transformation from a source domain (eg. summer) to a target domain (eg. winter) as the image preprocessing for place recognition. However, they only paid attention to synthesize images of the same location under different conditions and each method could only solve one kind of change. Different from previous methods, our work aims at using the encoder networks of GAN such as CycleGAN [8] to capture intrinsic appearance-invariant feature maps from unpaired samples under different weather and season conditions, as shown in Fig. 1. In the experimental section, we will show that the feature map focusing on structural information is more stable when illumination, weather or season changes. Moreover, some CNNs have recently been explored to directly regress the 6-DoF metric pose [9]. However, they are still unable to outperform state-of-the-art feature-based localization. This is partly due to their inability to internally model the 3D struc- tural constraints of the environment while learning",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02938,
+        -0.00788,
+        -0.0361,
+        -0.00633,
+        0.00757
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": " outperform state-of-the-art feature-based localization. This is partly due to their inability to internally model the 3D struc- tural constraints of the environment while learning",
+      "overlap_with_next": "K In this section, we give a brief overview of previous works that aim to address the challenge of long-term visual localization in the presence of outdoor lighting, weather and se",
+      "text": " outperform state-of-the-art feature-based localization. This is partly due to their inability to internally model the 3D struc- tural constraints of the environment while learning from lim- ited training data. Therefore, our feature extraction network is also helpful to capture invariant feature and improve the performance of 6-DoF pose regression in various scenarios. The main contributions of this paper can be summarized as follows: 1. We design a learning network and strategy based on CycleGAN to capture appearance-invariant feature map from the image captured in different season or weather conditions; 2. We incorporate the feature extraction network and pose regression network to improve the performance of learning- based 6-DoF pose regression; 3. We also conduct extensive experiments on three public benchmarks, and achieve consistently better performance than other state-of-the-art visual place recognition and lo- arXiv:2012.13191v1 [cs.CV] 24 Dec 2020 [Page 2] calization approaches. II. RELATED WORK In this section, we give a brief overview of previous works that aim to address the challenge of long-term visual localization in the presence of outdoor lighting, weather and se",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0239,
+        -0.02028,
+        -0.04316,
+        -0.0041,
+        -0.00733
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "K In this section, we give a brief overview of previous works that aim to address the challenge of long-term visual localization in the presence of outdoor lighting, weather and se",
+      "overlap_with_next": "es. SeqSLAM [11] attempts to match sequences of images rather than indi- vidual images. It substantially reduces the false positive matches and recognizes places that underwent hea",
+      "text": "K In this section, we give a brief overview of previous works that aim to address the challenge of long-term visual localization in the presence of outdoor lighting, weather and season changes. A. 2D Image Feature Bag-of-Word (BOW) approaches [10] have been proposed in the early years towards developing a system to constitute handcrafted feature descriptors, such as SIFT and ORB, etc. These methods rely entirely on the feature detector to determine what parts of the image are useful for localization, as well as relying on the invariant feature descriptor to provide robustness to changes in appearance. Unfortunately, handcrafted feature matching is not robust to appearance changes due to strong lighting variation, weather conditions and seasonal changes. Therefore, these feature based BOW methods have not achieved state-of-the-art performance in a long-term visual localization. Some approaches also exploit sequential information to alleviate the problem of spatially inconsistent and non-perfect image matches. SeqSLAM [11] attempts to match sequences of images rather than indi- vidual images. It substantially reduces the false positive matches and recognizes places that underwent hea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.039,
+        0.00456,
+        -0.0185,
+        0.03022,
+        -0.01954
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "es. SeqSLAM [11] attempts to match sequences of images rather than indi- vidual images. It substantially reduces the false positive matches and recognizes places that underwent hea",
+      "overlap_with_next": "y identifying salient regions and creating their regional representations directly from the convolutional layer activations. By training with millions of images from a wide variety",
+      "text": "es. SeqSLAM [11] attempts to match sequences of images rather than indi- vidual images. It substantially reduces the false positive matches and recognizes places that underwent heavy changes in appearance (e.g. from summer to winter). Inspired by this work, [12] generated network ﬂow with the sequential information for higher gain in the long-term localization performance. B. Learning-based Feature In recent years, some CNNs have shown tremendous progress in learning better visual descriptors of whole images or image regions to improve place recognition performance. [13] presented a method to combine the individual strengths of the high-level and mid-level feature layers to partition the search space and recognize places under severe appearance changes. [14] trained two CNN models to learn condition- invariant features for place recognition across extreme ap- pearance conditions. [15] took a step deeper into the internal structure of CNNs and proposed novel CNN-based image features for place recognition by identifying salient regions and creating their regional representations directly from the convolutional layer activations. By training with millions of images from a wide variety",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03661,
+        -0.00732,
+        -0.02237,
+        0.00633,
+        0.00039
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "y identifying salient regions and creating their regional representations directly from the convolutional layer activations. By training with millions of images from a wide variety",
+      "overlap_with_next": " solved the problem in the context of domain adaptation by developing a framework for applying adversarial techniques to align features across domains. [20] proposed a novel domain",
+      "text": "y identifying salient regions and creating their regional representations directly from the convolutional layer activations. By training with millions of images from a wide variety of environments, these CNNs ob- tained descriptors which can learn how appearance changes over time. C. Semantic Methods Recently, [16] found that above methods do not work well in practice since they need an expensive pairwise comparison of descriptors, and proposed the method to learn features from high-level 3D geometric and semantic information, which are geometrically stable over a long period time. [17] and [18] designed a localization algorithm based on seman- tically segmented images and a semantic point feature map. They show that localization works well when the more robust scene descriptor is learnt from semantic information. D. Domain Adaptation Some recent studies considered domain adaptation and transfer learning techniques to address robust localization in such varying environmental conditions. For instance, [19] solved the problem in the context of domain adaptation by developing a framework for applying adversarial techniques to align features across domains. [20] proposed a novel domain",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02141,
+        0.02657,
+        -0.02663,
+        -0.00383,
+        0.00107
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " solved the problem in the context of domain adaptation by developing a framework for applying adversarial techniques to align features across domains. [20] proposed a novel domain",
+      "overlap_with_next": "domain are more useful for the place recognition task. However, it needs to learn a new model again when the source domain corresponds to another domains. The reason is that they a",
+      "text": " solved the problem in the context of domain adaptation by developing a framework for applying adversarial techniques to align features across domains. [20] proposed a novel domain generalization framework to learn classiﬁcation mod- els that are able to generalize to unseen scenarios. [21] effectively compared images under different illumination by visually translating one to another domain and then comparing with CycleGAN [8]. They enforced a descriptor- aiding feature loss on the input and synthetic image in hopes of these features staying present in the intermediate translated image. The main drawback is that they localize in two steps since the network output a synthetic image instead of invariant feature for place retrieval. Similar to our approach, [22] used a pair of coupled Generative Adversarial Networks (GANs) to generate the appearance of one domain from another without requiring image-to-image correspon- dences across the domains. Then the feature spaces learned by the discriminator for each domain are more useful for the place recognition task. However, it needs to learn a new model again when the source domain corresponds to another domains. The reason is that they a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01918,
+        -0.01329,
+        -0.00517,
+        -0.02291,
+        0.01651
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "domain are more useful for the place recognition task. However, it needs to learn a new model again when the source domain corresponds to another domains. The reason is that they a",
+      "overlap_with_next": "ly regressing pose from input image to the 3D scene space. To our knowledge, there is no learning-based method reported to tackle the long-term relocalization right now. The reason",
+      "text": "domain are more useful for the place recognition task. However, it needs to learn a new model again when the source domain corresponds to another domains. The reason is that they are trained and inferred from only two domains each time, which is more complex than us. In contrast, we can learn uniﬁed feature from different domains as inputs with only once training. E. Learning-based Visual Relocalization Learning-based relocalization systems perform as image classiﬁcation with very large scale datasets. For example, Kendall et al. proposed PoseNet [9], which was the ﬁrst successful end-to-end pre-trained deep CNNs approach for 6-DoF pose regression. In addition, Clark et al. [23] intro- duced deep CNNs with Long-Short Term Memory (LSTM) units to avoid overﬁtting to training data. More recently, VLocNet [24] proposed global and Siamese-type relative networks for inferring global poses with the great help of relative motion. Another representative DSAC++ [25] is a fully convolutional neural network for densely regressing pose from input image to the 3D scene space. To our knowledge, there is no learning-based method reported to tackle the long-term relocalization right now. The reason",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07251,
+        0.01495,
+        -0.03126,
+        0.00055,
+        -0.01381
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ly regressing pose from input image to the 3D scene space. To our knowledge, there is no learning-based method reported to tackle the long-term relocalization right now. The reason",
+      "overlap_with_next": "main where labels (ground-truth poses) are available, but also in the unlabeled target domain. Here, we try to use domain trans- formation network CycleGAN [8], which learns the im",
+      "text": "ly regressing pose from input image to the 3D scene space. To our knowledge, there is no learning-based method reported to tackle the long-term relocalization right now. The reason is that changes in environment, such as weather, illumination, season and so on, will lead to great difference in appearance, which makes it hard for long-term visual relocalization. III. OUR APPROACH As shown in Fig. 2, our proposed method for long-term visual localization system consists of two stages: feature training based on CycleGAN, and feature-based localization based on the feature extraction network and pose regression network. [Page 3] Fig. 2. The network architecture for appearance-invariance feature extraction and pose regression. The data ﬂow of feature extraction network is described with blue lines while the data ﬂow of pose regression network is described with green lines. A. Feature Training Based on CycleGAN Our goal is to maximize the performance of a supervised pose regression task not only in the source domain where labels (ground-truth poses) are available, but also in the unlabeled target domain. Here, we try to use domain trans- formation network CycleGAN [8], which learns the im",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03525,
+        -0.00955,
+        -0.04346,
+        0.01288,
+        0.00048
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "main where labels (ground-truth poses) are available, but also in the unlabeled target domain. Here, we try to use domain trans- formation network CycleGAN [8], which learns the im",
+      "overlap_with_next": "]+ Eb−Pdata (b)[||GAB(GBA(b)−b)||1] (1) where a−Pdata(a) and b−Pdata(b) are the collections of image at the correspond domain, and E is the expectation function. Discriminator DA a",
+      "text": "main where labels (ground-truth poses) are available, but also in the unlabeled target domain. Here, we try to use domain trans- formation network CycleGAN [8], which learns the image transformation between two different domains without paired samples. And it will be proved that the cycle consistency and general adversarial training strategy are available to capture the invariant distribution of the target domain in the encoding network. As shown in Fig. 2, Ai(i = 1 : M ) and B, where {aij}(j = 1 : N ),aij∈{Ai} and{bk}(k = 1 : S),bk∈B, are images collected under signiﬁcantly different lighting, weather and seasonal conditions. Assuming that there exists a generator function GAB that can transform domain Ai into domain B, such that ~b = GAB(aij). Additionally, another generator GBA transforms in the reverse direction, that is ~a =GBA(~b). Similarly, GBA should also transform domain B to Ai. So we apply a cycle consistency L1 loss between domain Ai and B like: Lcyc(GAB,G BA) = Ea−Pdata (a)[||GBA(GAB(a)−a||1]+ Eb−Pdata (b)[||GAB(GBA(b)−b)||1] (1) where a−Pdata(a) and b−Pdata(b) are the collections of image at the correspond domain, and E is the expectation function. Discriminator DA a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04521,
+        -0.03747,
+        -0.0652,
+        0.00187,
+        0.0039
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "]+ Eb−Pdata (b)[||GAB(GBA(b)−b)||1] (1) where a−Pdata(a) and b−Pdata(b) are the collections of image at the correspond domain, and E is the expectation function. Discriminator DA a",
+      "overlap_with_next": " the images captured in summer, fall and winter into domain A, denoted as A1,A 2 and A3 respectively. Naturally, spring images are divided into domain B as Fig. 2 shows. And Fig. 3",
+      "text": "]+ Eb−Pdata (b)[||GAB(GBA(b)−b)||1] (1) where a−Pdata(a) and b−Pdata(b) are the collections of image at the correspond domain, and E is the expectation function. Discriminator DA and DB work in each domain and try to discriminate between A, ~A andB, ~B respectively. For simplicity, we only give discriminatorDA in Fig. 2. And we apply adversarial losses like: LGan(GAB,D B) = Eb−Pdata (b)[logDB(b)]+ Ea−Pdata(a)[1− logDB(GAB(a))] LGan(GBA,D A) = Ea−Pdata (a)[logDA(a)]+ Eb−Pdata(b)[1− logDA(GBA(b))] (2) Then the task of image-to-image transformation GAN is to minimax cycle and adversarial loss as: min G max D {LGan(GAB,D B)}+ LGan(GBA,D A) +ωLcyc(GAB,G BA)} (3) where ω is a weight to balance the training direction. Here we wish to ﬁnd stable feature representation in domain Ai, where images are collected under signiﬁcantly different lighting, weather and seasonal conditions. For instance, when we want to ﬁnd the appearance-invariant feature maps of images taken in summer, fall and winter, therefore, we divide the images captured in summer, fall and winter into domain A, denoted as A1,A 2 and A3 respectively. Naturally, spring images are divided into domain B as Fig. 2 shows. And Fig. 3",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05293,
+        -0.04333,
+        -0.05971,
+        -0.027,
+        -0.00385
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " the images captured in summer, fall and winter into domain A, denoted as A1,A 2 and A3 respectively. Naturally, spring images are divided into domain B as Fig. 2 shows. And Fig. 3",
+      "overlap_with_next": "e by fusing M feature maps as follow: ff us = M∑ i=1 fi (4) where ff us is the fusion feature and fi means the ith feature map. By feeding fusion feature into a pose estimation net",
+      "text": " the images captured in summer, fall and winter into domain A, denoted as A1,A 2 and A3 respectively. Naturally, spring images are divided into domain B as Fig. 2 shows. And Fig. 3 shows domain transformation results of generator GAB and GBA. [Page 4] Fig. 3. Domain transformation results of generator GAB and GBA. From Fig. 3, we can see that generator GAB transfers summer, fall and winter image into spring image. Different from GAB, the transformation result of GBA may be the combination of multi-season or a single season, which is determined by the content of the input image. B. Feature-based Localization The proposed feature-based localization is composed of feature extraction network and pose regression network. The feature extraction network corresponds to the encoding network of generator GAB based on CycleGAN, and each layer of the feature extraction network outputs a tensor sized a∗b∗M, where a∗b is the size of feature map while M means the number of channel. For each layer, we obtain fusion future by fusing M feature maps as follow: ff us = M∑ i=1 fi (4) where ff us is the fusion feature and fi means the ith feature map. By feeding fusion feature into a pose estimation net",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00943,
+        -0.04516,
+        -0.06044,
+        0.0055,
+        0.01238
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "e by fusing M feature maps as follow: ff us = M∑ i=1 fi (4) where ff us is the fusion feature and fi means the ith feature map. By feeding fusion feature into a pose estimation net",
+      "overlap_with_next": ". Actually, fusion feature from different layer has different robustness against appearance changes, therefore, we need to ﬁnd the most stable fusion feature. In implementation, th",
+      "text": "e by fusing M feature maps as follow: ff us = M∑ i=1 fi (4) where ff us is the fusion feature and fi means the ith feature map. By feeding fusion feature into a pose estimation network, eg. PoseNet, we can estimate a 6-dimensional poseP ={pi} withpi∈SE (3) . Similar to previous works [9], we regress the pose on Euclidean loss using stochastic gradient descent with the following objective loss function: loss(I) =||ˆx−x||2 +β||ˆq− q||q||||2 (5) where β is a scale factor to balance the position and orientation errors. Fig. 4. Architecture of GAB and fusion features from ﬁve layers. Top row shows ﬁfteen network layers of GAB, terms on the top of network layers represent operation, eg. Conv1 means the ﬁrst convolutional layer, Res1 means the ﬁrst residual block and Uconv1 means the ﬁrst unconvolutional layer, and number on the bottom of layers correspond to the channels of the output from this layer. The images in 1st column are input images and the rest columns are fusion features from different layers of GAB. Actually, fusion feature from different layer has different robustness against appearance changes, therefore, we need to ﬁnd the most stable fusion feature. In implementation, th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02094,
+        -0.03159,
+        -0.0446,
+        0.00605,
+        0.0203
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": ". Actually, fusion feature from different layer has different robustness against appearance changes, therefore, we need to ﬁnd the most stable fusion feature. In implementation, th",
+      "overlap_with_next": " LAYERS OF GAB AND THEIR OUTPUT DIMENSIONALITY . Layer Dimensions Layer Dimensions Conv1 256x256x64 Uconv1 64x64x256 Conv2 128x128x128 Uconv2 128x128x128 Conv3 64x64x256 Uconv3 256",
+      "text": ". Actually, fusion feature from different layer has different robustness against appearance changes, therefore, we need to ﬁnd the most stable fusion feature. In implementation, the feature extraction network GAB includes ﬁfteen layers with their sizes shown in Table I. With three scenes (summer, fall, winter) for example, we computer each layer’s fusion feature with Eq. (4). Fig. 4 shows ﬁve fusion features for each scene to visualize what our network learns. It can be seen that the lower-level fusion feature from Conv1 typically varies signiﬁcantly under different seasons. While the higher- level fusion feature from Conv3 focuses mostly on geometric information and is comparatively invariant. Furthermore, we use the F1-score to quantitatively ﬁnd the layer robust against environment changes. Firstly, we select paired summer and fall image sets, each of which composed of 400 images. Then, we obtain 15 fusion features (each for one layer) for each image in the two image sets using Eq. [Page 5] TABLE I THE LAYERS OF GAB AND THEIR OUTPUT DIMENSIONALITY . Layer Dimensions Layer Dimensions Conv1 256x256x64 Uconv1 64x64x256 Conv2 128x128x128 Uconv2 128x128x128 Conv3 64x64x256 Uconv3 256",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00087,
+        -0.03317,
+        -0.05646,
+        -0.00674,
+        0.00874
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " LAYERS OF GAB AND THEIR OUTPUT DIMENSIONALITY . Layer Dimensions Layer Dimensions Conv1 256x256x64 Uconv1 64x64x256 Conv2 128x128x128 Uconv2 128x128x128 Conv3 64x64x256 Uconv3 256",
+      "overlap_with_next": "of our appearance-invariant features in cross-time place recognition and visual localization. A. Datasets Nordland dataset [26] has been recorded from the per- spective of the trai",
+      "text": " LAYERS OF GAB AND THEIR OUTPUT DIMENSIONALITY . Layer Dimensions Layer Dimensions Conv1 256x256x64 Uconv1 64x64x256 Conv2 128x128x128 Uconv2 128x128x128 Conv3 64x64x256 Uconv3 256x256x3 Res1-9 64x64x256 Fig. 5. F1-score of different layer on Nordland dataset. 15 layers’ F1- scores are computed based on summer and fall image sets each composed of 400 images, with only 8 listed here. (4). Finally, we compute each layer’s F1-score by analyzing the similarity between summer images’ features and fall images’ features, which is shown in Fig. 5. It is easy to ﬁnd that Conv3 layer has the maximal F1-score, which means that fusion feature from Conv3 layer is appearance-invariant across season. Therefore, we select the fusion feature from Conv3 layer as our appearance-invariant feature. IV. E XPERIMENTAL RESULTS In this section, we ﬁrstly give a brief introduction on the challenge datasets, and then describe the training details of our feature extraction and localization models. At last we evaluate the robustness of our appearance-invariant features in cross-time place recognition and visual localization. A. Datasets Nordland dataset [26] has been recorded from the per- spective of the trai",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03481,
+        -0.0312,
+        -0.04714,
+        -0.0277,
+        -0.00168
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "of our appearance-invariant features in cross-time place recognition and visual localization. A. Datasets Nordland dataset [26] has been recorded from the per- spective of the trai",
+      "overlap_with_next": " method. This allows for the quantitative study of special effects to simulate different lighting and weather conditions in our case. Fig. 6. Training loss of feature extraction. X",
+      "text": "of our appearance-invariant features in cross-time place recognition and visual localization. A. Datasets Nordland dataset [26] has been recorded from the per- spective of the train over four-different seasons: summer, winter, fall and spring. It consists of about 10 hours of video under each weather condition. Nordland is regarded as a perfect experimentation dataset to test place recognition algorithms on pure appearance changes. Oxford RobotCar dataset [27] contains almost 20 million images collected from 6 cameras mounted to the vehicle. By frequently traversing the same route over the period of a year, Oxford Robotcar datasets have made a great contribution to long-term localization in real-world, dynamic urban environments. Virtual KITTI dataset [28] generates large, photo real- istic, varied datasets of synthetic videos (21,260 frames), automatically and densely labeled for various video under- standing tasks. These videos were created using the Unity game engine and a novel real-to-virtual cloning method. This allows for the quantitative study of special effects to simulate different lighting and weather conditions in our case. Fig. 6. Training loss of feature extraction. X",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05116,
+        -0.02463,
+        -0.04767,
+        0.00144,
+        -0.05435
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " method. This allows for the quantitative study of special effects to simulate different lighting and weather conditions in our case. Fig. 6. Training loss of feature extraction. X",
+      "overlap_with_next": "3) with ω=20, which contains the loss of image domain A to domain B, domain B to domain A and the cycle loss. Meanwhile, we select Adam solver as the optimization algorithm with β1",
+      "text": " method. This allows for the quantitative study of special effects to simulate different lighting and weather conditions in our case. Fig. 6. Training loss of feature extraction. X axis corresponds to iterations while Y axis corresponds to the loss deﬁned in Eq. (3). B. Implementation Details Our experiments run on a desktop with an Intel core i7- 6700K CPU @4.00GHz×8, and all the models are trained with Tensorﬂow deep learning framework on a NVIDIA GeForce GTX 1070. Our network includes two parts: feature extraction model and pose regression model. Feature extrac- tion network is used to obtain the stable features, which then used as the inputs of place recognition and visual localiza- tion tasks under illumination variations or different season conditions. For higher training speed and better results, we use instance normalization after convolution operation when training our feature extraction model. At the same time, Relu is used to activate these layers. We design our feature extraction loss as Eq. (3) with ω=20, which contains the loss of image domain A to domain B, domain B to domain A and the cycle loss. Meanwhile, we select Adam solver as the optimization algorithm with β1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01287,
+        -0.02968,
+        -0.03456,
+        -0.0044,
+        -0.01508
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "3) with ω=20, which contains the loss of image domain A to domain B, domain B to domain A and the cycle loss. Meanwhile, we select Adam solver as the optimization algorithm with β1",
+      "overlap_with_next": " the feature map to 256×256. We train our localization network with a ﬁxed learning rate of 0.0001 with a batch size of 75. To accelerate convergence, we initialize the weights wit",
+      "text": "3) with ω=20, which contains the loss of image domain A to domain B, domain B to domain A and the cycle loss. Meanwhile, we select Adam solver as the optimization algorithm with β1=0.9,β 2=0.999 ande = 10−10. For all experiments, we train our feature extraction network using a ﬁxed learning rate 0.0002, and the batch size is set to 1. The image fed into our feature extraction network is resized to 256×256. We set a minimum loss, and Fig. 6 shows the loss curve as a function of iterations when training our network. We can see that the loss converges at 20 after about 45000 iterations, which costs about 48 hours. After training the feature extraction network, we freeze the weights and feed its output into a pose regression network. The pose regression network based on GoogLeNet, whose input is image with 256 ×256 resolution and output is the corresponding pose. However, the feature extraction network outputs feature map with 64×64 resolution, which is different from 256×256. To solve this problem, we resize the feature map to 256×256. We train our localization network with a ﬁxed learning rate of 0.0001 with a batch size of 75. To accelerate convergence, we initialize the weights wit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0426,
+        -0.02994,
+        -0.02955,
+        -0.01959,
+        0.00866
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " the feature map to 256×256. We train our localization network with a ﬁxed learning rate of 0.0001 with a batch size of 75. To accelerate convergence, we initialize the weights wit",
+      "overlap_with_next": "s of experiments for place recognition, and each includes 400 query images and 400 database images. SeqSLAM [11], NetVLAD [29] and Naseer et al. [12] are chosen to compare with our",
+      "text": " the feature map to 256×256. We train our localization network with a ﬁxed learning rate of 0.0001 with a batch size of 75. To accelerate convergence, we initialize the weights with a Gauss function, and set a maximum iteration of 15000. C. Cross-Time Place Recognition Our appearance invariant feature can be used for place recognition when the environment changes, such as weather, illumination and season variation. Experiments on Nordland and VKITTI dataset are used to evaluate our feature extrac- tion network when season and illumination change. When training feature extraction model, we divide the four seasons in Nordland dataset into two domains. One domain consists of winter, summer and fall, and the other is made up of spring. The training set of VKITTI consists of morning, rain [Page 6] and overcast images in the sixth scene. Similar to Nordland dataset, we divide the images into two domains, one consists of morning and overcast images while the other contains rain images. There are total nine groups of experiments for place recognition, and each includes 400 query images and 400 database images. SeqSLAM [11], NetVLAD [29] and Naseer et al. [12] are chosen to compare with our",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04862,
+        0.00432,
+        -0.03453,
+        0.00115,
+        -0.02974
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "s of experiments for place recognition, and each includes 400 query images and 400 database images. SeqSLAM [11], NetVLAD [29] and Naseer et al. [12] are chosen to compare with our",
+      "overlap_with_next": "g-Winter, Summer-Fall, Summer-Winter, Fall-Winter scenes. (g)- (i) represent results on VKITTI dataset, which respectively correspond to Morning-Overcast, Morning-Rain, Overcast-Ra",
+      "text": "s of experiments for place recognition, and each includes 400 query images and 400 database images. SeqSLAM [11], NetVLAD [29] and Naseer et al. [12] are chosen to compare with our feature extraction network in place recognition task. SeqSLAM is a place recognition algorithm based on image sequence, which can recognize the same scene when season and illumination change. We select open SeqSLAM to compare with our network. By combining normal CNN network with VLAD layer, NetVLAD realizes an end-to-end place recognition. We select high performance NetVLAD combination (VGG-16, NetVLAD with whiten- ing) as compared method. Naseer et al. [12] proposed a HOG feature based data association method with network ﬂow for place recognition, and we use the open code on github for test. Fig. 7. PR-curve of four place recognition networks. X axis represents recall value and Y axis represents precision value. (a)-(f) represent results on Nordland dataset, which respectively correspond to Spring-Summer, Spring- Fall, Spring-Winter, Summer-Fall, Summer-Winter, Fall-Winter scenes. (g)- (i) represent results on VKITTI dataset, which respectively correspond to Morning-Overcast, Morning-Rain, Overcast-Ra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01689,
+        -0.0249,
+        -0.02233,
+        0.00519,
+        -0.00129
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "g-Winter, Summer-Fall, Summer-Winter, Fall-Winter scenes. (g)- (i) represent results on VKITTI dataset, which respectively correspond to Morning-Overcast, Morning-Rain, Overcast-Ra",
+      "overlap_with_next": "e. The closer to (1, 1) the curve approaches, the better matching result the method has. It is easily to ﬁnd our P-R is closer to (1,1) on most scenes, prove that our network can e",
+      "text": "g-Winter, Summer-Fall, Summer-Winter, Fall-Winter scenes. (g)- (i) represent results on VKITTI dataset, which respectively correspond to Morning-Overcast, Morning-Rain, Overcast-Rain scenes. We extract the stable feature of all query and database image with our feature extraction network, and then compute the similarity score between query image and database image according to the SSIM of their stable features. By doing this, we can get the similarity score between any two query and database images, which can be described as a 400×400 score matrix. The other three advanced methods can also get a matching score matrix in the same way. By setting different threshold on score matrix, we can compute the precision and recall value. Here, we provide the P-R curves of these four methods in Fig. 7. We can visually observe the performance of these four methods with P-R curve. P-R curve is always used for evaluate classiﬁcation algorithms, whose x axis and y axis respectively correspond to recall and precision value. The closer to (1, 1) the curve approaches, the better matching result the method has. It is easily to ﬁnd our P-R is closer to (1,1) on most scenes, prove that our network can e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05055,
+        -0.01634,
+        -0.02887,
+        0.01917,
+        -0.00916
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "e. The closer to (1, 1) the curve approaches, the better matching result the method has. It is easily to ﬁnd our P-R is closer to (1,1) on most scenes, prove that our network can e",
+      "overlap_with_next": " NetVLAD SeqSLAM Nordland Spring-Summer 0.84 0.83 0.82 0.75 Spring-Fall 0.86 0.84 0.83 0.74 Spring-Winter 0.76 0.80 0.74 0.73 Summer-Fall 0.95 0.91 0.90 0.78 Summer-Winter 0.73 0.6",
+      "text": "e. The closer to (1, 1) the curve approaches, the better matching result the method has. It is easily to ﬁnd our P-R is closer to (1,1) on most scenes, prove that our network can exactly rec- ognize the same scene when season or illumination changes. We also compute the F1-score of the P-R curve for a quantitative comparison. When computing F1-score, we set the weights of recall and precision value to 1. The F1-score results are shown in Table II. We can know that F1-scores on VKITTI dataset are higher than Nordland dataset. This is because Nordland images are shot in real scene and it is impossible to keep the same scene invariant at different time. However, VKITTI images are generated artiﬁcially and the content of image does not change too much. Besides, when experiments include winter images, the F1-score will decrease. The reason is that there is snow in winter scene, which leads to great changes in appearance. TABLE II F1- SCORE OF THE FOUR PLACE RECOGNITION NETWORKS . Dataset Scene Ours Naseer [12] NetVLAD SeqSLAM Nordland Spring-Summer 0.84 0.83 0.82 0.75 Spring-Fall 0.86 0.84 0.83 0.74 Spring-Winter 0.76 0.80 0.74 0.73 Summer-Fall 0.95 0.91 0.90 0.78 Summer-Winter 0.73 0.6",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07609,
+        -0.01424,
+        -0.0268,
+        -0.01,
+        -0.00667
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " NetVLAD SeqSLAM Nordland Spring-Summer 0.84 0.83 0.82 0.75 Spring-Fall 0.86 0.84 0.83 0.74 Spring-Winter 0.76 0.80 0.74 0.73 Summer-Fall 0.95 0.91 0.90 0.78 Summer-Winter 0.73 0.6",
+      "overlap_with_next": "er et al. [12]. At the same time, our results are much better than SeqSLAM. The experimental results prove that the feature extracted by our network is robust to season and illumin",
+      "text": " NetVLAD SeqSLAM Nordland Spring-Summer 0.84 0.83 0.82 0.75 Spring-Fall 0.86 0.84 0.83 0.74 Spring-Winter 0.76 0.80 0.74 0.73 Summer-Fall 0.95 0.91 0.90 0.78 Summer-Winter 0.73 0.69 0.68 0.62 Fall-Winter 0.74 0.75 0.70 0.63 Average 0.81 0.80 0.78 0.71 VKITTI morning-overcast 0.88 0.90 0.86 0.85 Morning-Rain 0.89 0.87 0.90 0.84 Rain-Overcast 0.95 0.89 0.93 0.86 Average 0.91 0.89 0.90 0.85 On Nordland dataset, our network has a great promotion up to 0.1 compared with SeqSLAM network. NetVLAD has a good result, however, its results are still about 0.03 lower than ours. Naseer et al. [12] uses image sequence information for place recognition, which makes it less affected across season. Therefore, it has the best performance on spring- winter and fall-winter experiments. However, on the rest four groups of experiments, our network has better result compared with Naseer et al. [12]. On VKITTI dataset, all methods have a good result expect SeqSLAM. In summary, our network is slightly better than NetVLAD and Naseer et al. [12]. At the same time, our results are much better than SeqSLAM. The experimental results prove that the feature extracted by our network is robust to season and illumin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04387,
+        0.00553,
+        -0.04835,
+        -0.02404,
+        -0.0031
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "er et al. [12]. At the same time, our results are much better than SeqSLAM. The experimental results prove that the feature extracted by our network is robust to season and illumin",
+      "overlap_with_next": "dicate correct and incorrect matching, respectively. in the database scene, which makes it harder to ﬁnd the best matching image. Even so, our network can accurately ﬁnd the matchi",
+      "text": "er et al. [12]. At the same time, our results are much better than SeqSLAM. The experimental results prove that the feature extracted by our network is robust to season and illumination variation, which can promote the development of place recognition. For some challenging images, we show the matching result of the four methods in Fig. 8. Query images in Fig. 8 usually include two kinds of situations: one is that there are many similar images in the database, the other is that the content of the scene changes. Fig. 8 includes ﬁve challenge query images, and our network has the right matching results except the 2nd rows. At second example, there are several images in database similar to query image. Furthermore, there is snow [Page 7] Fig. 8. Five challenging matching results on Nordland and VKITTI. Each row contains query image (1st column), actual matching image(2nd column) and matching result of different place recognition network (3rd, 4th, 5th and 6th column). The green and red border around result indicate correct and incorrect matching, respectively. in the database scene, which makes it harder to ﬁnd the best matching image. Even so, our network can accurately ﬁnd the matchi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02,
+        -0.02453,
+        -0.04533,
+        -0.00726,
+        0.00381
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "dicate correct and incorrect matching, respectively. in the database scene, which makes it harder to ﬁnd the best matching image. Even so, our network can accurately ﬁnd the matchi",
+      "overlap_with_next": "them. Traditional PoseNet is designed to compute the absolute pose in the scene without considering environment variety. In fairness, we add a group of experiment named PoseNet++, ",
+      "text": "dicate correct and incorrect matching, respectively. in the database scene, which makes it harder to ﬁnd the best matching image. Even so, our network can accurately ﬁnd the matching image at other four examples, which is hard for the other three networks. D. Cross-Time Localization In this section, we design the experiment to evaluate our feature-based localization network across season, and then compare our results with the most frequently used pose estimation network PoseNet [9]. The comparison experi- ments run on VKITTI and Oxford Robotcar dataset. VKITTI dataset provides paired images and absolute pose, therefore, we directly use overcast images as training set and morning images as test set. Different from VKITTI dataset, Oxford Robotcar images are non-aligned. To validate our network has exact localization result across season, we select the images shot in February and May as training and test set separately. Then, we need to ﬁnd the common overlap part of the two groups of images, and then align them. Traditional PoseNet is designed to compute the absolute pose in the scene without considering environment variety. In fairness, we add a group of experiment named PoseNet++, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0503,
+        -0.0238,
+        -0.05626,
+        0.03135,
+        -0.03099
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "them. Traditional PoseNet is designed to compute the absolute pose in the scene without considering environment variety. In fairness, we add a group of experiment named PoseNet++, ",
+      "overlap_with_next": "VKITTI 42.2m, 2.5◦ 22.1m,2.0◦ 12.7m,1.3◦ Average 35.4m, 2.2◦ 20.7m,1.6◦ 11.6m,1.1◦ network gets the most exact results, while traditional PoseNet has a poorest performance. Compare",
+      "text": "them. Traditional PoseNet is designed to compute the absolute pose in the scene without considering environment variety. In fairness, we add a group of experiment named PoseNet++, whose training set is composed of images under different envi- ronment condtions. We evaluate visual localization model with the mean value of translation error and orientation error. Table III shows the localization results on VKITTI and Oxford Robotcar datasets, each column includes mean translation(m) and orientation( ◦) error. It is easy to ﬁnd that our localization accuracy on Oxford Robotcar dataset is higher than on VKITTI dataset, the rea- son is that motion speed between adjacent images on VKITTI dataset is faster, which leads to a larger error. In brief, our TABLE III RESULTS OF THREE VISUAL LOCALIZATION NETWORKS ON VKITTI AND OXFORD ROBOTCAR WITH ENVIRONMENT CHANGES . N UMBERS SHOW THE MEAN TRANSLATION (METER ) AND ORIENTATION (DEGREE ) ERROR . Dataset PoseNet PoseNet++ Ours Robotcar 28.6m, 1.8◦ 19.3m,1.1◦ 10.5m,0.8◦ VKITTI 42.2m, 2.5◦ 22.1m,2.0◦ 12.7m,1.3◦ Average 35.4m, 2.2◦ 20.7m,1.6◦ 11.6m,1.1◦ network gets the most exact results, while traditional PoseNet has a poorest performance. Compare",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07083,
+        -0.04793,
+        -0.06843,
+        0.00577,
+        -0.0137
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "VKITTI 42.2m, 2.5◦ 22.1m,2.0◦ 12.7m,1.3◦ Average 35.4m, 2.2◦ 20.7m,1.6◦ 11.6m,1.1◦ network gets the most exact results, while traditional PoseNet has a poorest performance. Compare",
+      "overlap_with_next": "draw their trajectories as Fig.8 shows. Due to Oxford Robotcar images are non-aligned, we only circle the overlap trajectory between February and May. It is easy to see that our tr",
+      "text": "VKITTI 42.2m, 2.5◦ 22.1m,2.0◦ 12.7m,1.3◦ Average 35.4m, 2.2◦ 20.7m,1.6◦ 11.6m,1.1◦ network gets the most exact results, while traditional PoseNet has a poorest performance. Compared with PoseNet, our network has a promotion of 67% in translation and 50% in orientation. PoseNet++ gets a better result than PoseNet, even so, the localization error of PoseNet++ is up to 20m in translation, which is about twice bigger than ours. In a word, our model has a great improvement compared with the other two models. Reason for this result is that varieties in illumination and season make the training and test images have big differences in appearance. However, their stable features are similar to each other because they are taken in same scene. Our pose estimation network computes pose with stable features while the other models feed the network with RGB images. In summary, our localization network can estimate pose across season and illumination changes, which brings a great progress for visual localization. We also draw their trajectories as Fig.8 shows. Due to Oxford Robotcar images are non-aligned, we only circle the overlap trajectory between February and May. It is easy to see that our tr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0728,
+        -0.0628,
+        -0.03808,
+        0.00948,
+        -0.01562
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "draw their trajectories as Fig.8 shows. Due to Oxford Robotcar images are non-aligned, we only circle the overlap trajectory between February and May. It is easy to see that our tr",
+      "overlap_with_next": "racted features can be used for place recognition. Experi- ments on public datasets demonstrate that our network has a better performance compared with the state-of-the-art pose es",
+      "text": "draw their trajectories as Fig.8 shows. Due to Oxford Robotcar images are non-aligned, we only circle the overlap trajectory between February and May. It is easy to see that our trajectory is closer to ground truth trajectory, which further proves that our network has accurate localization results. Fig. 9. Trajectories of three visual localization networks and ground truth(GT) on VKITTI and Robotcar datasets. V. CONCLUSION In this paper, we pay close attention to solve place recog- nition and visual localization problems when environment changes a lot. An end-to-end visual localization network is proposed, which includes a feature extraction subnetwork extracting features robust against appearance changes caused by weather, illumination and season changes, and a pose regression subnetwork computing the 6-DoF pose based on such network as PoseNet. The feature extraction subnetwork [Page 8] is obtained by training the CycleGAN with various image sets captured in different conditions. Additionally, the ex- tracted features can be used for place recognition. Experi- ments on public datasets demonstrate that our network has a better performance compared with the state-of-the-art pose es",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04214,
+        -0.06723,
+        -0.03677,
+        0.00192,
+        -0.02777
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "racted features can be used for place recognition. Experi- ments on public datasets demonstrate that our network has a better performance compared with the state-of-the-art pose es",
+      "overlap_with_next": "nolige, and G. Bradski, “Orb: An efﬁcient alternative to sift or surf,” 2011. [5] K. M. Yi, E. Trulls, V . Lepetit, and P. Fua, “Lift: Learned invariant feature transform,” in Euro",
+      "text": "racted features can be used for place recognition. Experi- ments on public datasets demonstrate that our network has a better performance compared with the state-of-the-art pose estimation and place recognition networks in the condition of environment changes. Considering that environment change is inevitable in daily life, our work will be important for practical applications. REFERENCES [1] N. Piasco, D. Sidib ´e, C. Demonceaux, and V . Gouet-Brunet, “A survey on visual-based localization: On the beneﬁt of heterogeneous data,” Pattern Recognition, vol. 74, pp. 90–109, 2018. [2] S. Lowry, N. S ¨underhauf, P. Newman, J. J. Leonard, D. Cox, P. Corke, and M. J. Milford, “Visual place recognition: A survey,” IEEE Trans- actions on Robotics , vol. 32, no. 1, pp. 1–19, 2016. [3] L. Kunze, N. Hawes, T. Duckett, M. Hanheide, and T. Krajn ´ık, “Artiﬁcial intelligence for long-term robot autonomy: A survey,” IEEE Robotics and Automation Letters , vol. 3, no. 4, pp. 4023–4030, 2018. [4] E. Rublee, V . Rabaud, K. Konolige, and G. Bradski, “Orb: An efﬁcient alternative to sift or surf,” 2011. [5] K. M. Yi, E. Trulls, V . Lepetit, and P. Fua, “Lift: Learned invariant feature transform,” in Euro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03596,
+        0.01744,
+        -0.0202,
+        0.03309,
+        -0.00448
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "nolige, and G. Bradski, “Orb: An efﬁcient alternative to sift or surf,” 2011. [5] K. M. Yi, E. Trulls, V . Lepetit, and P. Fua, “Lift: Learned invariant feature transform,” in Euro",
+      "overlap_with_next": "al-time 6-dof camera relocalization,” in Proceedings of the IEEE international conference on computer vision , 2015, pp. 2938–2946. [10] J. Sivic and A. Zisserman, “Video google: A",
+      "text": "nolige, and G. Bradski, “Orb: An efﬁcient alternative to sift or surf,” 2011. [5] K. M. Yi, E. Trulls, V . Lepetit, and P. Fua, “Lift: Learned invariant feature transform,” in European Conference on Computer Vision . Springer, 2016, pp. 467–483. [6] J. L. Schonberger, H. Hardmeier, T. Sattler, and M. Pollefeys, “Com- parative evaluation of hand-crafted and learned local features,” in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2017, pp. 1482–1491. [7] I. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley, S. Ozair, A. Courville, and Y . Bengio, “Generative adversarial nets,” in Advances in neural information processing systems , 2014, pp. 2672– 2680. [8] J.-Y . Zhu, T. Park, P. Isola, and A. A. Efros, “Unpaired image-to-image translation using cycle-consistent adversarial networks,” in Proceed- ings of the IEEE International Conference on Computer Vision , 2017, pp. 2223–2232. [9] A. Kendall, M. Grimes, and R. Cipolla, “Posenet: A convolutional network for real-time 6-dof camera relocalization,” in Proceedings of the IEEE international conference on computer vision , 2015, pp. 2938–2946. [10] J. Sivic and A. Zisserman, “Video google: A",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04693,
+        0.01601,
+        -0.01851,
+        0.00801,
+        0.01983
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "al-time 6-dof camera relocalization,” in Proceedings of the IEEE international conference on computer vision , 2015, pp. 2938–2946. [10] J. Sivic and A. Zisserman, “Video google: A",
+      "overlap_with_next": " on Robotics and Automation (ICRA) . IEEE, 2017, pp. 3223–3230. [15] Z. Chen, F. Maffra, I. Sa, and M. Chli, “Only look once, mining distinctive landmarks from convnet for visual p",
+      "text": "al-time 6-dof camera relocalization,” in Proceedings of the IEEE international conference on computer vision , 2015, pp. 2938–2946. [10] J. Sivic and A. Zisserman, “Video google: A text retrieval approach to object matching in videos,” in null. IEEE, 2003, p. 1470. [11] M. J. Milford and G. F. Wyeth, “Seqslam: Visual route-based naviga- tion for sunny summer days and stormy winter nights,” in 2012 IEEE International Conference on Robotics and Automation . IEEE, 2012, pp. 1643–1649. [12] T. Naseer, W. Burgard, and C. Stachniss, “Robust visual localization across seasons,” IEEE Transactions on Robotics , vol. 34, no. 2, pp. 289–302, 2018. [13] N. S ¨underhauf, F. Dayoub, S. Shirazi, B. Upcroft, and M. Milford, “On the performance of convnet features for place recognition,” arXiv preprint arXiv:1501.04158, 2015. [14] Z. Chen, A. Jacobson, N. S ¨underhauf, B. Upcroft, L. Liu, C. Shen, I. Reid, and M. Milford, “Deep learning features at scale for visual place recognition,” in 2017 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2017, pp. 3223–3230. [15] Z. Chen, F. Maffra, I. Sa, and M. Chli, “Only look once, mining distinctive landmarks from convnet for visual p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05157,
+        -0.01702,
+        -0.0043,
+        0.02478,
+        -0.00573
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " on Robotics and Automation (ICRA) . IEEE, 2017, pp. 3223–3230. [15] Z. Chen, F. Maffra, I. Sa, and M. Chli, “Only look once, mining distinctive landmarks from convnet for visual p",
+      "overlap_with_next": "g appearance change in outdoor robotics with adversarial domain adaptation,” in 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE, 2017, pp. 155",
+      "text": " on Robotics and Automation (ICRA) . IEEE, 2017, pp. 3223–3230. [15] Z. Chen, F. Maffra, I. Sa, and M. Chli, “Only look once, mining distinctive landmarks from convnet for visual place recognition,” in 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE, 2017, pp. 9–16. [16] J. L. Sch ¨onberger, M. Pollefeys, A. Geiger, and T. Sattler, “Seman- tic visual localization,” in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , 2018, pp. 6896–6906. [17] T. Naseer, G. L. Oliveira, T. Brox, and W. Burgard, “Semantics-aware visual localization under challenging perceptual conditions,” in 2017 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2017, pp. 2614–2620. [18] E. Stenborg, C. Toft, and L. Hammarstrand, “Long-term visual localization using semantically segmented images,” in 2018 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2018, pp. 6484–6490. [19] M. Wulfmeier, A. Bewley, and I. Posner, “Addressing appearance change in outdoor robotics with adversarial domain adaptation,” in 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE, 2017, pp. 155",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05549,
+        0.02463,
+        0.0061,
+        0.01636,
+        -0.01231
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "g appearance change in outdoor robotics with adversarial domain adaptation,” in 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE, 2017, pp. 155",
+      "overlap_with_next": "relation,” in Proceedings of the IEEE International Conference on Computer Vision , 2017, pp. 627–637. [24] A. Valada, N. Radwan, and W. Burgard, “Deep auxiliary learning for visua",
+      "text": "g appearance change in outdoor robotics with adversarial domain adaptation,” in 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE, 2017, pp. 1551–1558. [20] M. Mancini, S. R. Bul `o, B. Caputo, and E. Ricci, “Robust place categorization with deep domain generalization,” IEEE Robotics and Automation Letters, vol. 3, no. 3, pp. 2093–2100, 2018. [21] H. Porav, W. Maddern, and P. Newman, “Adversarial training for adverse conditions: Robust metric localisation using appearance trans- fer,” in 2018 IEEE International Conference on Robotics and Automa- tion (ICRA) . IEEE, 2018, pp. 1011–1018. [22] Y . Latif, R. Garg, M. Milford, and I. Reid, “Addressing challenging place recognition tasks using generative adversarial networks,” in 2018 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2018, pp. 2349–2355. [23] F. Walch, C. Hazirbas, L. Leal-Taixe, T. Sattler, S. Hilsenbeck, and D. Cremers, “Image-based localization using lstms for structured fea- ture correlation,” in Proceedings of the IEEE International Conference on Computer Vision , 2017, pp. 627–637. [24] A. Valada, N. Radwan, and W. Burgard, “Deep auxiliary learning for visua",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05417,
+        -0.00184,
+        0.0122,
+        -0.01055,
+        0.00075
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "relation,” in Proceedings of the IEEE International Conference on Computer Vision , 2017, pp. 627–637. [24] A. Valada, N. Radwan, and W. Burgard, “Deep auxiliary learning for visua",
+      "overlap_with_next": "tual worlds as proxy for multi-object tracking analysis,” in Proceedings of the IEEE conference on computer vision and pattern recognition , 2016, pp. 4340–4349. [29] R. Arandjelov",
+      "text": "relation,” in Proceedings of the IEEE International Conference on Computer Vision , 2017, pp. 627–637. [24] A. Valada, N. Radwan, and W. Burgard, “Deep auxiliary learning for visual localization and odometry,” in 2018 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2018, pp. 6939–6946. [25] E. Brachmann and C. Rother, “Learning less is more-6d camera localization via 3d surface regression,” in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , 2018, pp. 4654–4662. [26] N. S ¨underhauf, P. Neubert, and P. Protzel, “Are we there yet? challeng- ing seqslam on a 3000 km journey across all four seasons,” in Proc. of Workshop on Long-Term Autonomy, IEEE International Conference on Robotics and Automation (ICRA) , 2013, p. 2013. [27] W. Maddern, G. Pascoe, C. Linegar, and P. Newman, “1 year, 1000 km: The oxford robotcar dataset,” The International Journal of Robotics Research, vol. 36, no. 1, pp. 3–15, 2017. [28] A. Gaidon, Q. Wang, Y . Cabon, and E. Vig, “Virtual worlds as proxy for multi-object tracking analysis,” in Proceedings of the IEEE conference on computer vision and pattern recognition , 2016, pp. 4340–4349. [29] R. Arandjelov",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06906,
+        -2e-05,
+        -0.00747,
+        -0.00176,
+        -0.01222
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37123,
+      "length": 403,
+      "overlap_with_previous": "tual worlds as proxy for multi-object tracking analysis,” in Proceedings of the IEEE conference on computer vision and pattern recognition , 2016, pp. 4340–4349. [29] R. Arandjelov",
+      "overlap_with_next": "",
+      "text": "tual worlds as proxy for multi-object tracking analysis,” in Proceedings of the IEEE conference on computer vision and pattern recognition , 2016, pp. 4340–4349. [29] R. Arandjelovic, P. Gronat, A. Torii, T. Pajdla, and J. Sivic, “Netvlad: Cnn architecture for weakly supervised place recognition,” in Pro- ceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016, pp. 5297–5307.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.054,
+        0.02666,
+        0.00304,
+        0.03636,
+        -0.00454
+      ]
+    }
+  ]
+}

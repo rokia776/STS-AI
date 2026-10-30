@@ -1,0 +1,878 @@
+{
+  "paper_id": "6083a37e-6bc1-44da-acb0-d3cd20c23fc6",
+  "filename": "089_Machine_Learning_Learning-based_Prediction_and_Uplink_Retransmission_for_Wireless_Virtual_Reality_VR_Network.pdf",
+  "title": "089_Machine_Learning_Learning-based_Prediction_and_Uplink_Retransmission_for_Wireless_Virtual_Reality_VR_Network.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 51,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "the parameters of the online learning algorithm to further improve the prediction accuracy. To guarantee the reliability of the uplink transmission, we integrate the Proactive retr",
+      "text": "[Page 1] 1 Learning-based Prediction and Uplink Retransmission for Wireless Virtual Reality (VR) Network Xiaonan Liu, Xinyu Li, Student Member, IEEE, Yansha Deng, Member, IEEE Abstract—Wireless Virtual Reality (VR) users are able to enjoy immersive experience from anywhere at anytime. However, providing full spherical VR video with high quality under limited VR interaction latency is challenging. If the viewpoint of the VR user can be predicted in advance, only the required viewpoint is needed to be rendered and delivered, which can reduce the VR interaction latency. Therefore, in this paper, we use ofﬂine and online learning algorithms to predict viewpoint of the VR user using real VR dataset. For the ofﬂine learning algorithm, the trained learning model is directly used to predict the viewpoint of VR users in continuous time slots. While for the online learning algorithm, based on the VR user’s actual viewpoint delivered through uplink transmission, we compare it with the predicted viewpoint and update the parameters of the online learning algorithm to further improve the prediction accuracy. To guarantee the reliability of the uplink transmission, we integrate the Proactive retr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07102,
+        -0.01047,
+        0.00236,
+        0.01758,
+        -0.01077
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "the parameters of the online learning algorithm to further improve the prediction accuracy. To guarantee the reliability of the uplink transmission, we integrate the Proactive retr",
+      "overlap_with_next": "ects the experience of VR users. To address this issue, wireless connected HMDs can be used to provide immersive experience from anywhere at anytime. However, one of the main chall",
+      "text": "the parameters of the online learning algorithm to further improve the prediction accuracy. To guarantee the reliability of the uplink transmission, we integrate the Proactive retransmission scheme into our proposed online learning algorithm. Simulation results show that our proposed online learning algorithm for uplink wireless VR network with the proactive retransmission scheme only exhibits about 5 % prediction error. Index Terms —Viewpoint prediction, uplink retransmission, ofﬂine and online learning, virtual reality (VR). I. I NTRODUCTION Since 2015, virtual reality (VR) has become increasingly popular, and the interactions between VR users and their world are being revolutionized with the development of VR technology [1], [2]. This vision has driven the commercial re- lease of various VR hardware devices, including head-mounted displays (HMDs) such as HTC Vive [3] and Facebook Oculus Rift [4]. One of the main disadvantages of the wired HMDs is the constrained mobility of VR users, which severely affects the experience of VR users. To address this issue, wireless connected HMDs can be used to provide immersive experience from anywhere at anytime. However, one of the main chall",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08399,
+        -0.00934,
+        -0.00151,
+        -0.00997,
+        0.00378
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "ects the experience of VR users. To address this issue, wireless connected HMDs can be used to provide immersive experience from anywhere at anytime. However, one of the main chall",
+      "overlap_with_next": "ts corresponding FoV part of the VR video is required to be rendered and delivered in advance, rather than rendering and transmitting the whole spherical video, which can further r",
+      "text": "ects the experience of VR users. To address this issue, wireless connected HMDs can be used to provide immersive experience from anywhere at anytime. However, one of the main challenges is to provide seamless and spherical VR video with high quality under limited VR interaction latency via ﬂuctuated wireless channels [5]. Meanwhile, when the VR user enjoys the VR video frame, it mainly focus on a certain direction at any given time slot. Based on the viewing direction, the corresponding portion of the image, deﬁned by the Field of View (FoV) [6], needs to be rendered and delivered. The FoV determines the extent of the virtual environment that can be viewed. The center of the X. Liu, X. Li and Y . Deng are with the Department of Engineering, King’s College London, London, WC2R 2LS, U.K. (e-mail: {xiaonan.liu, xinyu.1.li, yansha.deng}@kcl.ac.uk). (Corresponding author: Yansha Deng). FoV that the VR user is watching is called Viewpoint [7]. If the viewpoint of the VR user is able to be well predicted, only its corresponding FoV part of the VR video is required to be rendered and delivered in advance, rather than rendering and transmitting the whole spherical video, which can further r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06673,
+        -0.0347,
+        -0.00782,
+        -0.02011,
+        -0.01666
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ts corresponding FoV part of the VR video is required to be rendered and delivered in advance, rather than rendering and transmitting the whole spherical video, which can further r",
+      "overlap_with_next": "udied in [7], [12]–[16]. The authors in [12] considered viewpoint prediction via constant angular velocity and constant acceleration after every 20 ms. In [13], the authors propose",
+      "text": "ts corresponding FoV part of the VR video is required to be rendered and delivered in advance, rather than rendering and transmitting the whole spherical video, which can further reduce the VR interaction latency [8]. There are growing research interests in the wireless VR system. The authors in [9] and [10] proposed an echo state network (ESN) in wireless VR transmission to maximize the quality of service (QoS) and success transmission probability of VR users, respectively. While in [11], the joint caching and computing optimization problem of VR video frames was formulated to minimize the average required transmission rate to reduce communication bandwidth. Nevertheless, the authors in [9]–[11] mainly focused on the resource allocation in the wireless VR system, and assumed that the tracking information, such as the VR users’ head motion was sent to the small-cell base station (SBS) through uplink transmission without transmission error. The viewpoint prediction problem in wireless VR system has been studied in [7], [12]–[16]. The authors in [12] considered viewpoint prediction via constant angular velocity and constant acceleration after every 20 ms. In [13], the authors propose",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03427,
+        -0.00439,
+        -0.00724,
+        0.01202,
+        -0.02997
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "udied in [7], [12]–[16]. The authors in [12] considered viewpoint prediction via constant angular velocity and constant acceleration after every 20 ms. In [13], the authors propose",
+      "overlap_with_next": " such predictions in [7], [15] and [16], the authors minimized the multicast bandwidth consumption by sending the predicted part of the spherical VR video. Because of the random na",
+      "text": "udied in [7], [12]–[16]. The authors in [12] considered viewpoint prediction via constant angular velocity and constant acceleration after every 20 ms. In [13], the authors proposed a double exponential smoothing method to predict users’ head position and rotation after every 50 ms. In [14], the authors considered Brownian Motion to simulate the eye movement and used Recurrent Neural Network (RNN) to predict viewpoint preference in continuous time slots. However, the methods in [12] and [14] were not data-driven, and prediction results obtained in [12] and [13] would be unaligned with the viewpoint preference of VR users, which may not ﬁt for real-time VR video transmission. In [7], [15] and [16], the authors only used ofﬂine Linear Regression (LR) [17] and Neural Network (NN) [18] to predict the viewpoint of VR users in continuous time slots with real VR dataset, and assumed that all the viewpoint requests are available at the SBS, which is not possible without 100% reliable uplink transmission. Based on such predictions in [7], [15] and [16], the authors minimized the multicast bandwidth consumption by sending the predicted part of the spherical VR video. Because of the random na",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05433,
+        -0.00306,
+        -0.01416,
+        0.02963,
+        -0.02897
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": " such predictions in [7], [15] and [16], the authors minimized the multicast bandwidth consumption by sending the predicted part of the spherical VR video. Because of the random na",
+      "overlap_with_next": "rning algorithm, online learning model is updated with each FoV request received, and can automatically adjust the model itself according to the change of the received data. In [14",
+      "text": " such predictions in [7], [15] and [16], the authors minimized the multicast bandwidth consumption by sending the predicted part of the spherical VR video. Because of the random nature of the head motion of VR users, viewpoint prediction based on delayed uplink viewpoint transmission may be prone to error, and only using trained LR and NN cannot guarantee the highest prediction accuracy and capture the complex dynamics viewpoint preference over time, which may further degrade the quality of experience (QoE) [5] arXiv:2012.12725v1 [eess.SP] 16 Dec 2020 [Page 2] 2 of VR users. To address this issue, a RNN based on the state- of-the-art Long Short-Term Memory (LSTM) [19] or Gated Recurrent Units (GRU) [20] architecture can be designed to predict the viewpoint of the VR user. However, the trained LR, NN, LSTM and GRU learning models, namely, ofﬂine learning models, cannot adapt to the dynamic changing environment, and has poor adaptibility to viewpoint prediction of new VR users. In contrast to the ofﬂine learning algorithm, online learning model is updated with each FoV request received, and can automatically adjust the model itself according to the change of the received data. In [14",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05717,
+        0.00745,
+        0.00361,
+        -0.00059,
+        -0.02234
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "rning algorithm, online learning model is updated with each FoV request received, and can automatically adjust the model itself according to the change of the received data. In [14",
+      "overlap_with_next": "e unstable wireless channels and the interference from other VR users, it is possible that the uplink transmission between the VR user and the SBS fails. Nevertheless, in the afore",
+      "text": "rning algorithm, online learning model is updated with each FoV request received, and can automatically adjust the model itself according to the change of the received data. In [14], through transmitting the FoV request to the mobile edge computing (MEC)-enabled SBS in the wireless VR network, the MEC was able to accurately predict the required FoV of the VR user over time, render and deliver the FoV in advance, which could decrease the VR interaction latency and improve the QoE of the VR user. Therefore, the online learning algorithm has the potential to learn and update the best predictor for future FoV preference at each time slot, and can be updated instantly once the FoV request of new VR user is received [21]–[23]. To update the hyper-parameters in an online fashion, the VR users need to transmit its actual viewpoint to the SBS through uplink transmission, and the SBS will compare the actual viewpoint with the predicted viewpoint to reduce the loss between them. In the wireless VR network, due to the unstable wireless channels and the interference from other VR users, it is possible that the uplink transmission between the VR user and the SBS fails. Nevertheless, in the afore",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05353,
+        -0.02204,
+        -0.01469,
+        0.00177,
+        -0.00769
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "e unstable wireless channels and the interference from other VR users, it is possible that the uplink transmission between the VR user and the SBS fails. Nevertheless, in the afore",
+      "overlap_with_next": "real VR dataset, we develop ofﬂine and online learning algorithms to predict the viewpoint of the VR user in continuous time slots, in order to capture the dynamical viewpoint pref",
+      "text": "e unstable wireless channels and the interference from other VR users, it is possible that the uplink transmission between the VR user and the SBS fails. Nevertheless, in the aforementioned wireless VR systems [7], [9]–[16], the authors did not consider the potential uplink transmission failure caused by the wireless ﬂuctuation to the online training, and the potential uplink transmission enhancement for better online training. To deal with this issue, the Proactive retransmission scheme [24]– [27] is ﬁrst proposed for the uplink viewpoint transmission to achieve ultra-reliable low-latency communication (URLLC) requirement for this type of small data transmission. Motivated by above, in this paper, we develop ofﬂine and online learning algorithms for a wireless uplink VR system under proactive retransmission scheme to efﬁciently maximize the viewpoint prediction accuracy of VR users. The main contributions can be summarized as follows: • Based on the historical and current viewpoint of the VR user in the real VR dataset, we develop ofﬂine and online learning algorithms to predict the viewpoint of the VR user in continuous time slots, in order to capture the dynamical viewpoint pref",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07511,
+        0.01119,
+        -0.02354,
+        -0.00125,
+        0.00488
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "real VR dataset, we develop ofﬂine and online learning algorithms to predict the viewpoint of the VR user in continuous time slots, in order to capture the dynamical viewpoint pref",
+      "overlap_with_next": " on the historical viewpoint of each VR user. For the ofﬂine learning algorithms, we train the n-order Linear Regression (LR), Neural Network (NN), and Recurrent Neural Network (RN",
+      "text": "real VR dataset, we develop ofﬂine and online learning algorithms to predict the viewpoint of the VR user in continuous time slots, in order to capture the dynamical viewpoint preference of VR users over time. • There are 16 VR videos in the real VR dataset, each VR video has its own property, and we ﬁrst learn separate learning model for each VR video to predict the view- point of its corresponding VR users. When the number of VR videos increases, one learning model for each VR video may occupy much more computation resource and memory of the SBS. Therefore, to evaluate the generality of the viewpoint prediction model, we further propose one learning model for all VR videos. To ensure that the FoV request of each VR user in the VR dataset has the opportunity to be tested and avoid any biased performance, we use K Cross Validation to train the learning model. • According to [7], the viewpoint of each VR user has strong short-term auto-correlation, which means that the viewpoint can be well predicted based on the historical viewpoint of each VR user. For the ofﬂine learning algorithms, we train the n-order Linear Regression (LR), Neural Network (NN), and Recurrent Neural Network (RN",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02276,
+        -0.01324,
+        -0.01893,
+        0.0109,
+        -0.04705
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " on the historical viewpoint of each VR user. For the ofﬂine learning algorithms, we train the n-order Linear Regression (LR), Neural Network (NN), and Recurrent Neural Network (RN",
+      "overlap_with_next": "lgorithm for uplink wireless VR network with the proposed retransmission scheme can achieve 95 % prediction accuracy. The rest of this paper is organized as follows. The VR data de",
+      "text": " on the historical viewpoint of each VR user. For the ofﬂine learning algorithms, we train the n-order Linear Regression (LR), Neural Network (NN), and Recurrent Neural Network (RNN) based on the state-of-the-art Long-short Term Memory (LSTM)/Gated Recurrent Unit (GRU) architec- ture to predict the viewpoint of the VR user over time. However, the ofﬂine learning model cannot adapt to the dynamic changing environment when new VR users exist. • In the online learning algorithms, we take into account the effect of the failure during the uplink transmission on viewpoint prediction. The uplink transmission may fail because of the unstable wireless channels and in- terference, which can result in incomplete training data, and may decrease the prediction accuracy of the learning model. To guarantee the reliability of the uplink transmis- sion, we introduce the proactive retransmission scheme to the uplink VR viewpoint transmission during the online learning. Interestingly, our results shown that the online GRU algorithm for uplink wireless VR network with the proposed retransmission scheme can achieve 95 % prediction accuracy. The rest of this paper is organized as follows. The VR data de",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08948,
+        -0.00201,
+        0.00977,
+        -0.01427,
+        -0.01783
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "lgorithm for uplink wireless VR network with the proposed retransmission scheme can achieve 95 % prediction accuracy. The rest of this paper is organized as follows. The VR data de",
+      "overlap_with_next": "(6) Boxing 4k 4.4 Mbps (7) Dancing Girl 4k 6.58 Mbps (8) The Underwater World 4k 23.47 Mbps (9) Flying Kite 4k 10.98 Mbps (10) Football Team 4k 8.24 Mbps (11) Giant Dinosaur 1080p ",
+      "text": "lgorithm for uplink wireless VR network with the proposed retransmission scheme can achieve 95 % prediction accuracy. The rest of this paper is organized as follows. The VR data description and analysis are proposed in Section II. The system model and problem formulation are presented in Section III. Learning algorithms for viewpoint prediction is proposed in Section IV . The simulation results and conclusions are described in Section V and Section VI, respectively. Y X Z Yaw Pitch Roll Fig. 1. VR user viewing direction. II. VR D ATA DESCRIPTION AND ANALYSIS The VR dataset obtained from [28] includes 16 clips of VR videos with 153 VR users, and 969 data samples of the motion in three dimensions, pitch, yaw, and roll, namely, X,Y andZ [Page 3] 3 Fig. 2. VR video screenshot. TABLE I VR V IDEO INFORMATION Video Number VR Video Scene Resolution Bitrate (1) Airplane Flight 4k 13.04 Mbps (2) Surﬁng 4k 23.2 Mbps (3) Basketball Game 4k 9.2 Mbps (4) Basketball Flying 4k 5.42 Mbps (5) Roller Coaster1 4k 31.85 Mbps (6) Boxing 4k 4.4 Mbps (7) Dancing Girl 4k 6.58 Mbps (8) The Underwater World 4k 23.47 Mbps (9) Flying Kite 4k 10.98 Mbps (10) Football Team 4k 8.24 Mbps (11) Giant Dinosaur 1080p ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03044,
+        -0.02358,
+        -0.02822,
+        0.00991,
+        -0.00604
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "(6) Boxing 4k 4.4 Mbps (7) Dancing Girl 4k 6.58 Mbps (8) The Underwater World 4k 23.47 Mbps (9) Flying Kite 4k 10.98 Mbps (10) Football Team 4k 8.24 Mbps (11) Giant Dinosaur 1080p ",
+      "overlap_with_next": " are downloaded from YouTube. The duration of each VR video is 30 seconds and each VR video is divided into 300 equal parts, which means that each sample \u0014 \u0015 \u0016 \u0017 \u0018 \u0019 \u001a \u001b \u0014\u0013 \u0014\u0014 \u0014\u0015 \u0014",
+      "text": "(6) Boxing 4k 4.4 Mbps (7) Dancing Girl 4k 6.58 Mbps (8) The Underwater World 4k 23.47 Mbps (9) Flying Kite 4k 10.98 Mbps (10) Football Team 4k 8.24 Mbps (11) Giant Dinosaur 1080p 1.35 Mbps (12) Grand Canyon 2k 5.12 Mbps (13) Roller Coaster2 4k 22.87 Mbps (14) Skiing 4k 21.08 Mbps (15) Soccer 4k 12.76 Mbps (16) Survivorman 4k 29.1 Mbps viewing angles, which are shown in Fig. 1. Each dimension is presented by an angle (−180◦ to 180◦), and each data includes theX,Y andZ viewing angles of each VR user at each time slot. A. VR Video Description The scene of the VR video is shown in Fig. 2. From Fig. 2, we can observe that the VR videos can be divided into three categories: 1) 7 of them are sports content, including Surﬁng, Basketball, Boxing, Football, Skiing, and Soccer; 2) 2 of them are Landscapes content, including Grand Canyon, and Survivorman; and 3) 5 of them are Entertainment, including Airplane ﬂight, Underwater game, Roller coaster, Dancing girl, Flying Kite, and Glant Dinosaur. The 16 VR video clips are downloaded from YouTube. The duration of each VR video is 30 seconds and each VR video is divided into 300 equal parts, which means that each sample \u0014 \u0015 \u0016 \u0017 \u0018 \u0019 \u001a \u001b \u0014\u0013 \u0014\u0014 \u0014\u0015 \u0014",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03371,
+        -0.04627,
+        -0.02046,
+        -0.00303,
+        -0.01694
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " are downloaded from YouTube. The duration of each VR video is 30 seconds and each VR video is divided into 300 equal parts, which means that each sample \u0014 \u0015 \u0016 \u0017 \u0018 \u0019 \u001a \u001b \u0014\u0013 \u0014\u0014 \u0014\u0015 \u0014",
+      "overlap_with_next": "Fig. 4, we can see that more than half of VR users are between 20 and 30. In addition, for all the VR users, 38% VR users are female, and 34% VR users wear glasses. [Page 4] 4 \u0014\u0013\u0010\u0015",
+      "text": " are downloaded from YouTube. The duration of each VR video is 30 seconds and each VR video is divided into 300 equal parts, which means that each sample \u0014 \u0015 \u0016 \u0017 \u0018 \u0019 \u001a \u001b \u0014\u0013 \u0014\u0014 \u0014\u0015 \u0014\u0016 \u0014\u0017 \u0014\u0018 \u0014\u0019 95\u00039LGHR\u0003,QGH[ \u0013 \u0014\u0013 \u0015\u0013 \u0016\u0013 \u0017\u0013 \u0018\u0013 \u0019\u0013 \u001a\u0013 \u001b\u00131XPEHU\u0003RI\u000395\u00038VHUV \u0019\u0018 \u0018\u001a \u0017\u0019 \u0017 \u0019\u0016 \u0018\u0014 \u0017\u0019 \u001b\u0017 \u0018\u0015 \u0019\u0017 \u001a\u0016 \u001a \u0018\u001a \u0017\u001b \u0018\u0019 \u0018 Fig. 3. The detailed number of VR users watching each VR video. point of the VR video lasts for 0.1 second. Among these VR videos, 14 of them are 4 K resolution, one of them is 2 K resolution, and one of them is 1080 P. The detailed attributes of each VR video are shown in Table I. In the experimental data, 153 VR users watched these VR videos, where 35 of them enjoyed all 16 VR video clips, and 118 of them enjoyed 3 to 5 randomly selected VR video clips. The detailed number of VR users watching each VR video is shown in Fig. 3. We can obtain that each VR video is watched by an average of 60 VR users, with a minimum of 46, and a maximum of 84. Meanwhile, the age distribution of all VR users is shown in Fig. 4. From Fig. 4, we can see that more than half of VR users are between 20 and 30. In addition, for all the VR users, 38% VR users are female, and 34% VR users wear glasses. [Page 4] 4 \u0014\u0013\u0010\u0015",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00714,
+        -0.02014,
+        -0.03569,
+        0.00477,
+        -0.02978
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "Fig. 4, we can see that more than half of VR users are between 20 and 30. In addition, for all the VR users, 38% VR users are female, and 34% VR users wear glasses. [Page 4] 4 \u0014\u0013\u0010\u0015",
+      "overlap_with_next": " to serve K VR VR users via wireless links as shown in Fig. 8. The SBS is equipped with M antennas and each VR user is equipped with a single antenna, respectively. A. Uplink Trans",
+      "text": "Fig. 4, we can see that more than half of VR users are between 20 and 30. In addition, for all the VR users, 38% VR users are female, and 34% VR users wear glasses. [Page 4] 4 \u0014\u0013\u0010\u0015\u0013 \u0003\u0016\u0019\b \u0015\u0013\u0010\u0016\u0013 \u0003\u0018\u0017\b \u0016\u0013\u0010\u0017\u0013 \u0003\u0003\u0017\b \u0017\u0013\u0010\u0018\u0013 \u0003\u0003\u0017\b \u0018\u0013\u0010\u0019\u0013\u0003\u0003\u0015\b Fig. 4. Age distribution of all VR users. Fig. 5. X angle distribution of all VR users. B. Viewpoint Distribution In the VR dataset, most VR users have similar viewpoint when enjoying the same video. We plot the viewpoint of all VR users for the 16 VR videos in X, Y and Z angles, respectively, which are shown in Fig. 5, 6 and 7, respectively. The X-axis and Y-axis of the viewpoint distribution ﬁgure are VR video playout time and degree of angles at each time slot, respectively. From Fig. 5, 6 and 7, we can know that the viewpoint range ofX,Y andZ angles are (-50◦, 50◦), (-150◦, 150◦) and (- 50◦, 50◦), respectively. III. S YSTEM MODEL AND PROBLEM FORMULATION We consider a wireless VR system, where a small-cell base station (SBS) is connected to the core network through a ﬁber link to serve K VR VR users via wireless links as shown in Fig. 8. The SBS is equipped with M antennas and each VR user is equipped with a single antenna, respectively. A. Uplink Trans",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02415,
+        0.00244,
+        -0.05381,
+        -0.00286,
+        -0.03059
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": " to serve K VR VR users via wireless links as shown in Fig. 8. The SBS is equipped with M antennas and each VR user is equipped with a single antenna, respectively. A. Uplink Trans",
+      "overlap_with_next": "and α is the large-scale fading coefﬁcient. uk,t∈ C1×M is the beamforming vector at the SBS, which can be denoted as uk,t = hk,t‖hk,t‖ [29]. xupk,t∈ CM×1 is the transmit message of",
+      "text": " to serve K VR VR users via wireless links as shown in Fig. 8. The SBS is equipped with M antennas and each VR user is equipped with a single antenna, respectively. A. Uplink Transmission Model At the (t−1)th time slot, the SBS will predict the viewpoint ˆV kt = ( ˆX kt, ˆY kt , ˆZ kt ) of the kth VR user for the tth time slot. Then, at the tth time slot, the VR user will transmit its Fig. 6. Y angle distribution of all VR users. Fig. 7. Z angle distribution of all VR users. SBS Cloud Network Cloud Network Optical Fiber Control Centre VR User Wireless Link Fig. 8. Wireless VR network. actual viewpoint V kt = (X kt,Y kt ,Z kt ) to the SBS via uplink transmission. The uplink transmission signal from the kth VR user to the SBS at the tth time slot can be denoted as yupk,t = uHk,thk,txupk,t + KVR∑ i=1,i⁄=k uHk,thi,txupi,t + nupk,t, (1) where hk,t ∈ C1×M is the uncorrelated Rayleigh fading channel vector between the kth VR user and the SBS at the tth time slot, M is the number of antennas equipped at the SBS, and α is the large-scale fading coefﬁcient. uk,t∈ C1×M is the beamforming vector at the SBS, which can be denoted as uk,t = hk,t‖hk,t‖ [29]. xupk,t∈ CM×1 is the transmit message of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03708,
+        -0.01153,
+        -0.05451,
+        -2e-05,
+        -0.02505
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "and α is the large-scale fading coefﬁcient. uk,t∈ C1×M is the beamforming vector at the SBS, which can be denoted as uk,t = hk,t‖hk,t‖ [29]. xupk,t∈ CM×1 is the transmit message of",
+      "overlap_with_next": "sion scheme. If the actual viewpoint from the VR user is successfully transmitted via the uplink transmisson, the SBS will send an ACK feedback, otherwise, it will send a NACK feed",
+      "text": "and α is the large-scale fading coefﬁcient. uk,t∈ C1×M is the beamforming vector at the SBS, which can be denoted as uk,t = hk,t‖hk,t‖ [29]. xupk,t∈ CM×1 is the transmit message of the kth VR user at the tth time slot. ∑Ki=1,i⁄=k uHk,thi,txupi,t [Page 5] 5 is the interference from other VR users at the tth time slot. In addition, nupk,t∼CN (0,σ 2kIM) is the additive white Gaussian noise at the SBS at the tth time slot. Furthermore, at the tth time slot, the data rate between the kth VR user and the SBS can be written as Rupk,t = log2 ⏐⏐⏐⏐⏐⏐⏐⏐⏐I + |uHk,thk,t|2KVR∑i=1,i⁄=k|uHk,thi,t|2 +σ2kIM⏐⏐⏐⏐⏐⏐⏐⏐⏐. (2) To guarantee the successful uplink transmission, the uplink transmission rate should larger than a threshold Rupth , namely, Rupk,t ≥ Rupth . However, it is possible that the uplink trans- mission rate of the kth VR user is smaller than the threshold because of the interference or the poor channel state informa- tion. To guarantee the reliability of uplink transmission, we consider the proactive retransmission scheme. If the actual viewpoint from the VR user is successfully transmitted via the uplink transmisson, the SBS will send an ACK feedback, otherwise, it will send a NACK feed",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06485,
+        -0.00405,
+        -0.04507,
+        -0.0145,
+        -0.01558
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "sion scheme. If the actual viewpoint from the VR user is successfully transmitted via the uplink transmisson, the SBS will send an ACK feedback, otherwise, it will send a NACK feed",
+      "overlap_with_next": "he kth VR user cannot obtain the ACK during the initial transmission, it needs to continue repetitions until either it receives ACK from the SBS, or the latency is larger than the ",
+      "text": "sion scheme. If the actual viewpoint from the VR user is successfully transmitted via the uplink transmisson, the SBS will send an ACK feedback, otherwise, it will send a NACK feedback. According to the proactive scheme, the kth VR user will re- peat the uplink transmission in consecution transmission time intervals (TTIs) with a maximum number of Kre repetitions, but can receive the feedback after each repetition. The kth VR user is allowed to stop repetitions once receiving the positive feedback (ACK). We assume that the processing time of the received viewpoint and feedback time at the SBS are one transmission time interval (TTI), respectively. For example, when Kre = 8, as shown in Fig. 9, we can observe that the kth VR user is able to receive the 1st feedback in 4TTIs after the 1st repetition, which means that the minimum round trip time is 4TTIs. Nevertheless, if the kth VR user cannot obtain the ACK at the ﬁrst round trip time, it will continue waiting for the ACK until (Kre + 3)TTIs. However, if the kth VR user cannot obtain the ACK during the initial transmission, it needs to continue repetitions until either it receives ACK from the SBS, or the latency is larger than the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03822,
+        -0.01086,
+        -0.02819,
+        0.01973,
+        -0.00961
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "he kth VR user cannot obtain the ACK during the initial transmission, it needs to continue repetitions until either it receives ACK from the SBS, or the latency is larger than the ",
+      "overlap_with_next": "r SBS A Time Time T1 P1 U1 P2 P1 Actual Viewpoint Uplink Latency Threshold Initial Transmission 1st Tx Retransmission2nd Tx T2 T3 T4 U2 U3 U4 P3 P4 T1 T2 T3 T4 U1 T5 U5 P5 F1 F2 F3",
+      "text": "he kth VR user cannot obtain the ACK during the initial transmission, it needs to continue repetitions until either it receives ACK from the SBS, or the latency is larger than the uplink transmission latency threshold. If the 1st successful uplink transmission of the kth VR user occurs in the lth repetition during the ﬁrst round trip, the uplink latency of the kth VR user can be computed as Tk,l = (l + 3)TTIs, (3) Furthermore, the latency after m round trips for the Proactive scheme with a maximum Kre repetitions can be derived as T mk,l = (m− 1)Tk,Kre +Tk,l (4) = [(m− 1)(Kre + 3) + (l + 3)]TTIs, where (m− 1)Tk,Kre means that the uplink transmissions in former (m−1) round trips are not successful, and Tk,l denotes the successful uplink retransmission in the ﬁnalmth round trip given in (3). B. Viewpoint Prediction Methods When the VR user enjoys the VR video frame, the viewpoint has three degrees of freedom (pitch, yaw, and roll) and is de- termined by the rotation angles inX,Y andZ axis. Therefore, VR User SBS A Time Time T1 P1 U1 P2 P1 Actual Viewpoint Uplink Latency Threshold Initial Transmission 1st Tx Retransmission2nd Tx T2 T3 T4 U2 U3 U4 P3 P4 T1 T2 T3 T4 U1 T5 U5 P5 F1 F2 F3",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03328,
+        0.00119,
+        -0.01946,
+        0.01159,
+        -0.00268
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "r SBS A Time Time T1 P1 U1 P2 P1 Actual Viewpoint Uplink Latency Threshold Initial Transmission 1st Tx Retransmission2nd Tx T2 T3 T4 U2 U3 U4 P3 P4 T1 T2 T3 T4 U1 T5 U5 P5 F1 F2 F3",
+      "overlap_with_next": " Prediction Timeline Prediction Window Sliding Window t1 tn-Tw… … tn … tn … tn+d Fig. 10. Sliding window. To predict the future viewpoint (Xt+d,Y t+d,Z t+d) at the tth time slot, w",
+      "text": "r SBS A Time Time T1 P1 U1 P2 P1 Actual Viewpoint Uplink Latency Threshold Initial Transmission 1st Tx Retransmission2nd Tx T2 T3 T4 U2 U3 U4 P3 P4 T1 T2 T3 T4 U1 T5 U5 P5 F1 F2 F3 F4 F5 F1 Received Viewpoint Predicted Viewpoint P6 P7 P8 F6 F7 F8 T6 T7 T8 U6 U7 U8 P2 Fig. 9. Proactive retransmission scheme. predicting the viewpoint of the VR user is equal to predicting the X, Y and Z angles. We consider a sliding window to predict the viewpoint of the VR user over time, which is shown in Fig. 10. According to Fig. 10, the future viewpoint of the VR user is predicted based on the current and past rotation status. We assume that the pitch, yaw and roll angles of the VR user at the tth time slot are Xt, Yt, and Zt, respectively. Fur- thermore, we use Xt:(t+d) = (Xt,X t+1,...,X t+d), Yt:(t+d) = (Yt,Y t+1,...,Y t+d) and Zt:(t+d) = ( Zt,Z t+1,...,Z t+d) to denote the continuous viewpoints in X,Y andZ angles from the tth time slot to the (t +d)th time slot. Prediction Model Input Data Output Data Actual Timeline Prediction Timeline Prediction Window Sliding Window t1 tn-Tw… … tn … tn … tn+d Fig. 10. Sliding window. To predict the future viewpoint (Xt+d,Y t+d,Z t+d) at the tth time slot, w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0515,
+        0.00623,
+        -0.03996,
+        0.03325,
+        0.02456
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": " Prediction Timeline Prediction Window Sliding Window t1 tn-Tw… … tn … tn … tn+d Fig. 10. Sliding window. To predict the future viewpoint (Xt+d,Y t+d,Z t+d) at the tth time slot, w",
+      "overlap_with_next": "ning and testing dataset, the VR user data in the training dataset are used to train the models for three ofﬂine methods, where the trained models are used to predict the viewpoint",
+      "text": " Prediction Timeline Prediction Window Sliding Window t1 tn-Tw… … tn … tn … tn+d Fig. 10. Sliding window. To predict the future viewpoint (Xt+d,Y t+d,Z t+d) at the tth time slot, we use previous viewpoint X(t−Tw):t, Y(t−Tw):t and Z(t−Tw):t, where Tw is the size of the sliding window. Then, the predicted viewpoint at the (t +d)th time slot can be presented as ˆXt+d =fx,t+d(X(t−Tw):t), (5) ˆYt+d =fy,t+d(Y(t−Tw):t), (6) and ˆZt+d = fz,t+d(Z(t−Tw):t), (7) where fx,t+d(.), fy,t+d(.), and fz,t+d(.) are prediction func- tion. To predict the viewpoint of the VR user accurately, we consider two learning algorithms, namely, ofﬂine learning and online learning. [Page 6] 6 1) Ofﬂine Learning: In the ofﬂine learning algorithms, we propose three methods, which are trained n-order Lin- ear Regression (LR), Neural Network (NN), and Recurrent Neural Network (RNN) based on Long-short Term Mem- ory(LSTM)/Gated Recurrent Unit (GRU) architecture to pre- dict the viewpoint of VR users. Through dividing the VR dataset into training and testing dataset, the VR user data in the training dataset are used to train the models for three ofﬂine methods, where the trained models are used to predict the viewpoint",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06265,
+        0.00541,
+        -0.03394,
+        0.0283,
+        0.00538
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ning and testing dataset, the VR user data in the training dataset are used to train the models for three ofﬂine methods, where the trained models are used to predict the viewpoint",
+      "overlap_with_next": " viewpoint of the VR user is predicted via ofﬂine or online learning algorithms, the SBS will render the predicted viewpoint and transmit it to the VR user through downlink transmi",
+      "text": "ning and testing dataset, the VR user data in the training dataset are used to train the models for three ofﬂine methods, where the trained models are used to predict the viewpoint of the VR user directly. 2) Online Learning: In the online learning algorithms, we still use n-order LR, NN and LSTM/GRU algorithms. Meanwhile, we use Mean Square Error (MSE) [30] as cost function in the training step to update the parameters in the online learning model, and predict the viewpoint of new VR users. The MSE of the VR users at the tth time slot can be presented as MSEt = 1K VR KVR∑ k=1 ( ˆV kt −V kt )2. (8) At the tth time slot, the SBS will predict the viewpoint of the VR user for the (t + 1)th time slot. At the (t + 1)th time slot, the VR user will transmit the actual viewpoint to the SBS via uplink transmission. Through comparing it with the predicted viewpoint, the SBS will further update the trained learning model to improve the prediction accuracy. C. Rendering and Downlink Transmission Model When the future viewpoint of the VR user is predicted via ofﬂine or online learning algorithms, the SBS will render the predicted viewpoint and transmit it to the VR user through downlink transmi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06536,
+        -0.0135,
+        -0.02863,
+        0.01096,
+        -0.00269
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " viewpoint of the VR user is predicted via ofﬂine or online learning algorithms, the SBS will render the predicted viewpoint and transmit it to the VR user through downlink transmi",
+      "overlap_with_next": "n continuous time slots. However, for the online learning, the VR user will deliver the actual viewpoint to the SBS via uplink transmission in real-time to further update the model",
+      "text": " viewpoint of the VR user is predicted via ofﬂine or online learning algorithms, the SBS will render the predicted viewpoint and transmit it to the VR user through downlink transmission in advance. Therefore, the VR inter- action latency can be reduced [14]. In this paper, we mainly focus on prediction and uplink retransmission in the wireless VR system, which can be easily integrated into the rendering and downlink transmission in our previous work [14]. D. Problem Formulation For the viewpoint prediction, we use ofﬂine and online learning algorithms to minimize the average prediction error of VR users, the optimization problem can be formulated as min 1 T toti ~Ni T toti∑ t=1 ~Ni∑ k=1 ( ˆV kt −V kt )2, (9) where ~Ni is the number of the VR users watching the ith VR video, and T toti is the total time slots of the ith VR video. IV. L EARNING ALGORITHMS FOR VIEWPOINT PREDICTION In the ofﬂine learning, we directly use the trained n-order LR, NN and LSTM/GRU network to predict the viewpoint of the VR user in continuous time slots. However, for the online learning, the VR user will deliver the actual viewpoint to the SBS via uplink transmission in real-time to further update the model",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02685,
+        -0.00257,
+        -0.01307,
+        0.02888,
+        -0.02366
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "n continuous time slots. However, for the online learning, the VR user will deliver the actual viewpoint to the SBS via uplink transmission in real-time to further update the model",
+      "overlap_with_next": "efore. The classic approach is to do a simple 80 %-20% [31], which means that we randomly select 80 % data samples of the dataset to construct training dataset, while the remaining",
+      "text": "n continuous time slots. However, for the online learning, the VR user will deliver the actual viewpoint to the SBS via uplink transmission in real-time to further update the models in the NN and LSTM/GRU learning algorithms and the input of the sliding window, which can improve the prediction accuracy. If the actual viewpoint at a speciﬁc time slot has not been successfully delivered to the SBS, the learning algorithms will predict the viewpoint in the next time slot based on the models trained in the previous time slots, and the input of the sliding window at the current time slot is set to be null. A. Ofﬂine Learning Algorithm According to Fig. 3, VR dataset contains dozens of VR users enjoy each VR video, and there are 16 VR videos and 969 VR user samples. To train the learning model, we split the data samples of the VR dataset into the training and the testing datasets. The training dataset is used to train the learning model, and the testing dataset is used to validate it on data it has never seen before. The classic approach is to do a simple 80 %-20% [31], which means that we randomly select 80 % data samples of the dataset to construct training dataset, while the remaining",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07677,
+        -0.01366,
+        -0.01291,
+        0.0088,
+        -0.02763
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "efore. The classic approach is to do a simple 80 %-20% [31], which means that we randomly select 80 % data samples of the dataset to construct training dataset, while the remaining",
+      "overlap_with_next": "r VR dataset, there are 16 different VR videos. According to Fig 5, 6 and 7, the viewpoint distribution of VR users in each VR video are different. Therefore, for each VR video, we",
+      "text": "efore. The classic approach is to do a simple 80 %-20% [31], which means that we randomly select 80 % data samples of the dataset to construct training dataset, while the remaining 20 % data samples of the dataset are the testing dataset. However, with a simple 80-20 split, there is a possibility of high bias if we have limited data. More importantly, we will miss some important information about the data samples which are not used for training, which is able to get good or bad performance only due to chance. To ensure that each data sample from the original dataset has the chance of appearing in the training and testing dataset, we use K Cross Validation [32]. Through using the K Cross Validation to train the learning models in the VR dataset, each VR user sample has the opportunity of being tested. We split the VR dataset into Kcross datasets: one dataset is used for validation, and the remaining (Kcross− 1) datasets are merged into a training dataset for prediction learning model evaluation [33]. In our VR dataset, there are 16 different VR videos. According to Fig 5, 6 and 7, the viewpoint distribution of VR users in each VR video are different. Therefore, for each VR video, we",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04679,
+        -0.01593,
+        -0.04036,
+        0.01684,
+        -0.0321
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "r VR dataset, there are 16 different VR videos. According to Fig 5, 6 and 7, the viewpoint distribution of VR users in each VR video are different. Therefore, for each VR video, we",
+      "overlap_with_next": "h sub dataset is ~Nk/Kcross, and randomly select ( Kcross− 1) sub datasets to train the learning model and one sub dataset to test the trained learning model. Through Kcross times ",
+      "text": "r VR dataset, there are 16 different VR videos. According to Fig 5, 6 and 7, the viewpoint distribution of VR users in each VR video are different. Therefore, for each VR video, we can use its corresponding VR user samples to train a viewpoint prediction learning model. However, if the number of the VR videos increases, training one model for one VR video may cost much more energy and occupy much more computation resource and memory of the SBS. Therefore, in order to evaluate the generality of the trained models, we propose two viewpoint prediction learning models, namely, one for single VR video, and the other for all VR videos. The detailed K Cross Validation for the proposed two viewpoint prediction schemes are introduced as follows: (a) One Model for One VR Video: For each VR video, there are dozens of VR user samples, and we assume that the number of the VR user samples of the kth VR video is ~Nk. We split these dozens of VR user samples intoKcross datasets, where the number of VR user samples in each sub dataset is ~Nk/Kcross, and randomly select ( Kcross− 1) sub datasets to train the learning model and one sub dataset to test the trained learning model. Through Kcross times ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00664,
+        -0.02353,
+        -0.03471,
+        0.01007,
+        -0.03469
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "h sub dataset is ~Nk/Kcross, and randomly select ( Kcross− 1) sub datasets to train the learning model and one sub dataset to test the trained learning model. Through Kcross times ",
+      "overlap_with_next": " average prediction error of these 4 trained learning models. V1 V2 V3 V4 V13 V14 V15 V16V13 V14 V15 V16V9 V10 V11 V12V9 V10 V11 V12V5 V6 V7 V8V5 V6 V7 V8 V1 V2 V3 V4 V13 V14 V15 V",
+      "text": "h sub dataset is ~Nk/Kcross, and randomly select ( Kcross− 1) sub datasets to train the learning model and one sub dataset to test the trained learning model. Through Kcross times training and testing, we can obtain the average prediction error of the K-folder cross validation. (b) One Model for All VR Videos: For all 16 VR videos and 969 VR user samples, we split these VR user samples [Page 7] 7 according to the index of VR video. Therefore, there are 16 VR sub datasets. At each training round of the K cross validation, 16/Kcross VR sub datasets are used for testing, and the remaining (16− 16/Kcross) VR sub datasets are merged into a training VR sub dataset to train the viewpoint prediction model. For example, in Fig. 11, we consider 4 cross validation, namely, Kcross = 4. At each training iteration, 12 VR sub datasets will be randomly selected to train the learning model, and the remaining 4 VR sub dataset will be used to test the trained learning model. After 4 training iterations, we can calculate the average prediction error of these 4 trained learning models. V1 V2 V3 V4 V13 V14 V15 V16V13 V14 V15 V16V9 V10 V11 V12V9 V10 V11 V12V5 V6 V7 V8V5 V6 V7 V8 V1 V2 V3 V4 V13 V14 V15 V",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02305,
+        -0.03792,
+        -0.05032,
+        -0.00456,
+        -0.03483
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": " average prediction error of these 4 trained learning models. V1 V2 V3 V4 V13 V14 V15 V16V13 V14 V15 V16V9 V10 V11 V12V9 V10 V11 V12V5 V6 V7 V8V5 V6 V7 V8 V1 V2 V3 V4 V13 V14 V15 V",
+      "overlap_with_next": "n. The online learning algorithms are introduced in detail as follows. 1) n-order Linear Regression: n-order LR algorithm uses the least square function to model the nolinear relat",
+      "text": " average prediction error of these 4 trained learning models. V1 V2 V3 V4 V13 V14 V15 V16V13 V14 V15 V16V9 V10 V11 V12V9 V10 V11 V12V5 V6 V7 V8V5 V6 V7 V8 V1 V2 V3 V4 V13 V14 V15 V16V13 V14 V15 V16V9 V10 V11 V12V9 V10 V11 V12V5 V6 V7 V8V5 V6 V7 V8 V1 V2 V3 V4 V9 V10 V11 V12V9 V10 V11 V12V13 V14 V15 V16V13 V14 V15 V16V5 V6 V7 V8V5 V6 V7 V8 V1 V2 V3 V4 V5 V6 V7 V8V5 V6 V7 V8V13 V14 V15 V16V13 V14 V15 V16V9 V10 V11 V12V9 V10 V11 V12 V5 V6 V7 V8 V1 V2 V3 V4V1 V2 V3 V4V13 V14 V15 V16V13 V14 V15 V16V9 V10 V11 V12V9 V10 V11 V12 Original Dataset Iteration 1 Iteration 2 Iteration 3 Iteration 4 Training Data Testing Data Fig. 11. 4 cross validation for training learning models. B. Online Learning Algorithm In the online learning algorithms, the learning model will ﬁrst be trained via the training dataset through the K Cross Validation described in Section IV-A. Then, for the VR user samples in the testing dataset, at each time slot, each VR user will update its actual viewpoint to the SBS through uplink transmission. The online learning algorithms are introduced in detail as follows. 1) n-order Linear Regression: n-order LR algorithm uses the least square function to model the nolinear relat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03753,
+        -0.00415,
+        -0.0592,
+        -0.01245,
+        -0.01555
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "n. The online learning algorithms are introduced in detail as follows. 1) n-order Linear Regression: n-order LR algorithm uses the least square function to model the nolinear relat",
+      "overlap_with_next": "roactive retransmission scheme integrated into the online n-order LR is illustrated in Algorithm 1. . . . . . . …… . . . . . . Input measured viewpoint Output predicted viewpoint I",
+      "text": "n. The online learning algorithms are introduced in detail as follows. 1) n-order Linear Regression: n-order LR algorithm uses the least square function to model the nolinear relationship between the input sliding window and the predicted viewpoint. It is able to ﬁt the nonlinear relationship between the input and output, and can be written as ˆV = WLRgH +bLR, (10) where WLR = [wLR1 ,w LR2 ,...,w LRn ] andbLR are parameters of then-order LR model. In (10), g = [ˆg, ˆg2,..., ˆgn] is the input of the n-order LR, where ˆg = (X(t−Tw):t, Y(t−Tw):t, Z(t−Tw):t) is the vector which includes the X, Y and Z viewing angles in Tw time slots. ˆVt+1 = ( ˆXt+1, ˆYt+1, ˆZt+1) is the predicted viewing angles for the (t + 1)th time slot. The loss function of the n-order LR can be calculated as LLRt = 1KVR KVR∑ k=1 (V kt − ˆV kt )2. (11) Through gradient descent method [34], the parameters θLR = {WLR,b LR} can be updated as θLRt+1 =θLRt − ∆LLRt (θLRt ), (12) where ∆LLR(.) is the gradient of the loss function. The proposed Proactive retransmission scheme integrated into the online n-order LR is illustrated in Algorithm 1. . . . . . . …… . . . . . . Input measured viewpoint Output predicted viewpoint I",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07534,
+        0.01515,
+        -0.02441,
+        -0.01096,
+        -0.00727
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "roactive retransmission scheme integrated into the online n-order LR is illustrated in Algorithm 1. . . . . . . …… . . . . . . Input measured viewpoint Output predicted viewpoint I",
+      "overlap_with_next": "At the tth time slot, we input the historical viewpoint of the VR user and obtain the predicted viewpoint via the feedforward function in the L-layer NN. Then, we use the MSE crite",
+      "text": "roactive retransmission scheme integrated into the online n-order LR is illustrated in Algorithm 1. . . . . . . …… . . . . . . Input measured viewpoint Output predicted viewpoint Input Layer Output LayerHidden Layer (Xt, Yt, Zt) (Xt-1, Yt-1, Zt-1) (Xt-Tw+1, Yt-Tw+1, Zt-Tw+1) (Xt-Tw, Yt-Tw, Zt-Tw) (Xt+1, Yt+1, Zt+1) Fig. 12. Proposed multi-layer NN architecture. 2) Neural Network: In the L-layer NN shown in Fig. 12, we assume that ΘNN ={θNN1 ,θNN2 ,...,θNNL } contains L sets of parameters, and the parameters at the lth ( 1 ≤ l ≤ L) layer can be denoted as θNNl ={W NNl ,bNNl }, where W NNl and bNNl are the neurons’ weights and bias vector at the lth layer. A feedforward NN with L layers describes a mapping f NN(rNN,θNN), where rNN is the input vector. We can obtain the output of the NN through L iterative processing steps, and the output of the lth layer in NN can be written as rNNl =f NNl (rNNl−1;θNNl ),l = 1, 2,...,L, (13) where f NNl (rNNl−1;θNNl ) is the mapping function calculated by the lth NN layer. At the tth time slot, we input the historical viewpoint of the VR user and obtain the predicted viewpoint via the feedforward function in the L-layer NN. Then, we use the MSE crite",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04164,
+        0.00833,
+        0.01092,
+        0.00729,
+        0.02015
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "At the tth time slot, we input the historical viewpoint of the VR user and obtain the predicted viewpoint via the feedforward function in the L-layer NN. Then, we use the MSE crite",
+      "overlap_with_next": "for the (t + 1) th time slot, we use not only the most re- cent observation Ot = {O1t,O 2t,...,O Kt}, where Okt = {(X kt,Y kt ,Z kt )} is the actual viewpoint of the kth VR user at",
+      "text": "At the tth time slot, we input the historical viewpoint of the VR user and obtain the predicted viewpoint via the feedforward function in the L-layer NN. Then, we use the MSE criterion among the predicted viewpoint and the actual viewpoint of the (t + 1)th time slot to compute the loss of the NN, which can be denoted as LNNt,l (θNNt,l ) =‖φNNt,l − ˆφNNt,l‖2, (14) where φNNt,l is the desired output of the lth layer in NN, ˆφNNt,l is the dependence of the NN’s output to the lth layer’s parameters. To minimize the loss function, we adopt the backpropagation method based on stochastic gradient descent (SGD) [35]. The parameters at the lth layer can be updated as θNNt+1,l =θNNt,l −λNN∆LNNt.l (θNNt,l ), (15) where λNN∈ (0, 1] denotes the learning rate of the NN and ∆LNN(.) is the gradient of the loss function. The proposed Proactive retransmission scheme integrated into the online NN is presented in Algorithm 1. 3) Long-short Term Memory/Gated Recurrent Unit: To capture the dynamics in viewpoint of the VR user for the (t + 1) th time slot, we use not only the most re- cent observation Ot = {O1t,O 2t,...,O Kt}, where Okt = {(X kt,Y kt ,Z kt )} is the actual viewpoint of the kth VR user at",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0539,
+        -0.00519,
+        -0.02521,
+        0.00821,
+        0.0029
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "for the (t + 1) th time slot, we use not only the most re- cent observation Ot = {O1t,O 2t,...,O Kt}, where Okt = {(X kt,Y kt ,Z kt )} is the actual viewpoint of the kth VR user at",
+      "overlap_with_next": ",...,O t−1,O t] at the tth time slot and is connected to an output layer with a Relu non-linearity activation function, which is shown in Fig. 13. The Relu layer outputs the predic",
+      "text": "for the (t + 1) th time slot, we use not only the most re- cent observation Ot = {O1t,O 2t,...,O Kt}, where Okt = {(X kt,Y kt ,Z kt )} is the actual viewpoint of the kth VR user at the tth time slot, but also the previous observations Ht = {Ot−To+1,...,O t−2,O t−1}, where To is the size of the memory window. In order to recognize the viewpoint [Page 8] 8 LSTM/GRU LSTM/GRU LSTM/GRU Ot-T0+1 Ot-1 Ot[Ot-T0+1,…,Ot-1 ,Ot ] Relu Predicted Viewpoint UnfoldingLSTM/GRU Relu Predicted Viewpoint Fig. 13. Proposed LSTM/GRU architecture (left) with its unfolding structure (right). in continuous time slots, we leverage a RNN model with parameters θRNN = {W RNN,bRNN}, where W RNN and bRNN are the neurons’ weights and bias vector of the RNN. The RNN is capable of capturing time correlation of the viewpoint of the VR user, which can help learn the time- varying viewpoint for better prediction accuracy. The LSTM/GRU layer contains multiple standard LSTM/GRU units and receives the current and historical observations [Ot−To+1,...,O t−1,O t] at the tth time slot and is connected to an output layer with a Relu non-linearity activation function, which is shown in Fig. 13. The Relu layer outputs the predic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04555,
+        0.01787,
+        -0.03583,
+        -0.00051,
+        -0.01323
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": ",...,O t−1,O t] at the tth time slot and is connected to an output layer with a Relu non-linearity activation function, which is shown in Fig. 13. The Relu layer outputs the predic",
+      "overlap_with_next": "ULTS In this section, we examine the effectiveness of our proposed ofﬂine and online learning algorithms on the upink viewpoint prediction of VR users under the Proactive retransmi",
+      "text": ",...,O t−1,O t] at the tth time slot and is connected to an output layer with a Relu non-linearity activation function, which is shown in Fig. 13. The Relu layer outputs the predicted viewpoint of the VR user for the (t + 1)th time slot. To update the model parameter θRNN, we ﬁrst use MSE to calculate the loss function, and then use the standard SGD via BackPropagation Through Time (BPTT) [36]. At the (t + 1)th time slot, θRNN can be updated as θRNNt+1,l =θRNNt,l −λRNN∆LRNNt,l (θRNNt,l ), (16) where λRNN ∈ (0, 1] is the learning rate of the RNN, ∆LRNNt,l (θRNNt,l ) is the gradient of the loss function LRNNt,l (θRNNt,l ) to train parameters of the RNN. LRNNt,l (θRNNt,l ) can be computed by the MSE as LRNNt,l (θRNNt,l ) =‖φRNNt,l − ˆφRNNt,l ‖2, (17) where φRNNt,l is the desired output of the lth layer in RNN, ˆφRNNt,l is the dependence of the RNN’s output to the lth layer’s parameters. The proposed Proactive retransmission scheme integrated into the online RNN is presented in Algorithm 1. V. S IMULATION RESULTS In this section, we examine the effectiveness of our proposed ofﬂine and online learning algorithms on the upink viewpoint prediction of VR users under the Proactive retransmi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07861,
+        -0.00374,
+        -0.00703,
+        -0.01592,
+        0.00603
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "ULTS In this section, we examine the effectiveness of our proposed ofﬂine and online learning algorithms on the upink viewpoint prediction of VR users under the Proactive retransmi",
+      "overlap_with_next": " θRNN , and sliding window size Tw. 2: Use K Cross Validation to train the parameters of the n- order LR, NN and RNN learning model. 3: for t = 1,...,T do 4: Get historical viewpoi",
+      "text": "ULTS In this section, we examine the effectiveness of our proposed ofﬂine and online learning algorithms on the upink viewpoint prediction of VR users under the Proactive retransmission scheme. We set the size of the sliding window as 10, and the size of the prediction window as 1. For the n-order LR, we consider n = 15. For the NN, we use the fully-connected NN with two hidden layers, where the ﬁrst and second layers have 12 and 10 neurons, respectively. For the RNN, it has one hidden layer with 12 units. The learning rate for learning al- gorithm is 0.001. For the uplink transmission, we set M = 30, α = 3, TTI = 0.125 ms, Rupth = 2 MB/s, σ2 =−110 dBm, and Kre = 8 . Consider a limited square area whose side length is 100 meters. For simplicity, we use “w/ Proac” and “w/o Proac” to represent “with Proactive Retransmission” and Algorithm 1 The Proactive retransmission scheme integrated into Online Learning Algorithms with n-order LR, NN and LSTM/GRU 1: Initialize the order n of LR, parameters θLR or θNN or θRNN , and sliding window size Tw. 2: Use K Cross Validation to train the parameters of the n- order LR, NN and RNN learning model. 3: for t = 1,...,T do 4: Get historical viewpoi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07659,
+        -0.00678,
+        -0.00949,
+        -0.01072,
+        -0.00077
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " θRNN , and sliding window size Tw. 2: Use K Cross Validation to train the parameters of the n- order LR, NN and RNN learning model. 3: for t = 1,...,T do 4: Get historical viewpoi",
+      "overlap_with_next": "l is trained with the correct actual viewpoint of each VR user at each time slot, which is the upper bound of the online learning algorithm with proactive retransmission scheme and",
+      "text": " θRNN , and sliding window size Tw. 2: Use K Cross Validation to train the parameters of the n- order LR, NN and RNN learning model. 3: for t = 1,...,T do 4: Get historical viewpoint from the (t−Tw)th time slot to the (t−1)th time slot from the updated sliding window. 5: Use the updated online n-order LR, NN, LSTM/GRU to predict the viewpoint of the VR user for the tth time slot. 6: The VR user transmits its actual viewpoint of the tth time slot via uplink transmission with the Proactive retransmission scheme. 7: if the uplink transmission is successful then 8: Update parameters θLRt or θNNt or θRNNt of the n- order LR, NN and RNN learning model via (12), (15) and (16). 9: Update the sliding window with the actual required viewpoint of the tth time slot. 10: else 11: θLRt−1→θLRt orθNNt−1→θNNt orθRNNt−1 →θRNNt . 12: Update the sliding window with null of the tth time slot. 13: end if 14: end for “without Proactive Retransmission”, respectively. Meanwhile, in the Genie-aided scheme, the online learning model is trained with the correct actual viewpoint of each VR user at each time slot, which is the upper bound of the online learning algorithm with proactive retransmission scheme and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07383,
+        -0.00499,
+        0.00848,
+        -0.00786,
+        -0.01014
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "l is trained with the correct actual viewpoint of each VR user at each time slot, which is the upper bound of the online learning algorithm with proactive retransmission scheme and",
+      "overlap_with_next": " the prediction of X and Z angles. B. Viewpoint Prediction The simulation results of our proposed two viewpoint prediction learning models, namely, one training model for [Page 9] ",
+      "text": "l is trained with the correct actual viewpoint of each VR user at each time slot, which is the upper bound of the online learning algorithm with proactive retransmission scheme and cannot be reached in the practical wireless VR system. A. VR Dataset Processing We ﬁrst save all the VR user samples in a MATLAB ﬁle. Then, we use Python 3.6 to delete the useless rows and columns, and import the VR user data into training and testing datasets. According to [7], the motion of the VR user has strong short-term auto-correlations in all three dimensions. Due to the fact that auto-correlations are much stronger than the correlation between these three dimensions, the angles in each direction can be trained independently and separately. According to Fig. 5, 6 and 7, we can obtain that the range of Y angle distribution is much larger than that of X and Z. Therefore, for simplicity, we use ofﬂine and online learning algorithms to predict Y angle of VR users in this section, however, our algorithms can also be used for the prediction of X and Z angles. B. Viewpoint Prediction The simulation results of our proposed two viewpoint prediction learning models, namely, one training model for [Page 9] ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03726,
+        -0.01885,
+        -0.00908,
+        0.01944,
+        -0.02624
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": " the prediction of X and Z angles. B. Viewpoint Prediction The simulation results of our proposed two viewpoint prediction learning models, namely, one training model for [Page 9] ",
+      "overlap_with_next": "\u0018 \u0017\u0013 6OLGLQJ\u0003:LQGRZ\u00036L]H \u001a \u001b \u0014\u0013 \u0014\u0014 \u0014\u0015 \u0014\u0016 \u0014\u0017$YHUDJH\u00033UHGLFWLRQ\u0003(UURU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003/670 2IIOLQH\u0003*58 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003/670\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u0010",
+      "text": " the prediction of X and Z angles. B. Viewpoint Prediction The simulation results of our proposed two viewpoint prediction learning models, namely, one training model for [Page 9] 9 single VR video, and one training model for all VR videos, are introduced as follows: (a) One Training Model for One VR Video: In this scheme, for each VR video, we use the VR user samples in the training datasets to train the ofﬂine and online learning models to predict the Y angle of VR users in the testing datasets, and average the prediction error of all VR videos. \u0013 \u0014\u0013 \u0015\u0013 \u0016\u0013 \u0017\u0013 \u0018\u0013 (SRFK \u0015\u0013 \u0016\u0013 \u0017\u0013 \u0018\u0013 \u0019\u001306( 11 /670 *58 Fig. 14. Loss of ofﬂine NN, LSTM and GRU algorithms of each epoch. Fig. 14 plots the loss of ofﬂine NN, LSTM and GRU algorithms of each epoch. It is seen that the performance of ofﬂine GRU algorithm outperforms that of LSTM and NN. This is because the structure of the LSTM is more complex than that of GRU, so that the parameters of the GRU can be trained faster and easier to be modiﬁed [37]. \u0018 \u0014\u0013 \u0014\u0018 \u0015\u0013 \u0015\u0018 \u0016\u0013 \u0016\u0018 \u0017\u0013 6OLGLQJ\u0003:LQGRZ\u00036L]H \u001a \u001b \u0014\u0013 \u0014\u0014 \u0014\u0015 \u0014\u0016 \u0014\u0017$YHUDJH\u00033UHGLFWLRQ\u0003(UURU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003/670 2IIOLQH\u0003*58 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003/670\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u0010",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06677,
+        -0.00072,
+        -0.01493,
+        -0.01618,
+        -0.02004
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "\u0018 \u0017\u0013 6OLGLQJ\u0003:LQGRZ\u00036L]H \u001a \u001b \u0014\u0013 \u0014\u0014 \u0014\u0015 \u0014\u0016 \u0014\u0017$YHUDJH\u00033UHGLFWLRQ\u0003(UURU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003/670 2IIOLQH\u0003*58 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003/670\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u0010",
+      "overlap_with_next": "ne 15-order LR, NN, LSTM and GRU with Proactive retransmission scheme. is not signiﬁcantly affected by changing the size of sliding window due to their capability to adapt to the v",
+      "text": "\u0018 \u0017\u0013 6OLGLQJ\u0003:LQGRZ\u00036L]H \u001a \u001b \u0014\u0013 \u0014\u0014 \u0014\u0015 \u0014\u0016 \u0014\u0017$YHUDJH\u00033UHGLFWLRQ\u0003(UURU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003/670 2IIOLQH\u0003*58 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003/670\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003Z\u0012\u00033URDF Fig. 15. Average prediction error of ofﬂine/online learning algorithms via different size of sliding window with Proactive retransmission scheme. Fig. 15 shows the average prediction error of ofﬂine/online learning algorithms via different size of sliding window for uplink VR viewpoint transmission with proactive retransmis- sion scheme. It is noted that the average prediction error of the ofﬂine/online 15-order LR, NN, LSTM and GRU algorithms \u0018 \u0014\u0013 \u0014\u0018 \u0015\u0013 \u0015\u0018 \u0016\u0013 \u0016\u0018 \u0017\u0013 1XPEHU\u0003RI\u00037UDLQLQJ\u00038VHUV \u001b \u0014\u0013 \u0014\u0015 \u0014\u0017 \u0014\u0019 \u0014\u001b$YHUDJH\u00033UHGLFWLRQ\u0003(UURU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003/670 2IIOLQH\u0003*58 2IIOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003/670\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003Z\u0012\u00033URDF Fig. 16. Average prediction error of different number of VR users in the training dataset to train the learning model via ofﬂine/online 15-order LR, NN, LSTM and GRU with Proactive retransmission scheme. is not signiﬁcantly affected by changing the size of sliding window due to their capability to adapt to the v",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07173,
+        0.00431,
+        -0.03358,
+        -0.03403,
+        -0.0074
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "ne 15-order LR, NN, LSTM and GRU with Proactive retransmission scheme. is not signiﬁcantly affected by changing the size of sliding window due to their capability to adapt to the v",
+      "overlap_with_next": "n be seen that the average prediction error of 15-order LR algorithm is much higher than that of ofﬂine/online NN, LSTM and GRU. It is because the learning structure of the LR algo",
+      "text": "ne 15-order LR, NN, LSTM and GRU with Proactive retransmission scheme. is not signiﬁcantly affected by changing the size of sliding window due to their capability to adapt to the viewpoint preference. When the size of the sliding window is 10, it can obtain the best performance. Fig. 16 plots the average prediction error of different number of VR users in the training dataset to train the learning model via ofﬂine/online 15-order LR, NN, LSTM and GRU for up- link VR viewpoint transmission with proactive retransmission scheme. For the ofﬂine learning algorithms, we observe that the average prediction error becomes smaller with increasing number of VR users. With increasing number of VR users, the ofﬂine learning algorithms can be trained to adapt to the viewpoint of the VR users much more accurately. It is also seen that the performance of the LSTM/GRU is better than that of the NN. This is because the LSTM/GRU is able to capture the correlation of the viewpoint in continuous time slots. In addition, it can be seen that the average prediction error of 15-order LR algorithm is much higher than that of ofﬂine/online NN, LSTM and GRU. It is because the learning structure of the LR algo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05665,
+        -0.01314,
+        -0.02786,
+        -0.0259,
+        -0.02183
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "n be seen that the average prediction error of 15-order LR algorithm is much higher than that of ofﬂine/online NN, LSTM and GRU. It is because the learning structure of the LR algo",
+      "overlap_with_next": "dataset to train the learning model via online 15-order LR, NN, LSTM and GRU for uplink VR viewpoint transmission with/without proactive retransmission [Page 10] 10 \u0018 \u0014\u0013 \u0014\u0018 \u0015\u0013 \u0015\u0018 \u0016",
+      "text": "n be seen that the average prediction error of 15-order LR algorithm is much higher than that of ofﬂine/online NN, LSTM and GRU. It is because the learning structure of the LR algorithm is simplier than that of NN, LSTM and GRU, and its ability to be ﬁt for the nonlinear VR data is worse than that of the NN, LSTM and GRU. In addition, LR algorithm may get overﬁt with so many VR users training the LR model. Meanwhile, for the proactive retransmission scheme inte- grated into the online learning algorithm in Fig. 16, it is interesting to note that its average prediction error is much smaller than that of ofﬂine learning algorithms and changes slightly with the increasing number of VR users. This is due to that through updating the parameters in the trained learning model, the online learning algorithm is able to adapt to the viewpoint preference of new VR users over time. Thus, the prediction accuracy can be improved. Fig. 17 plots the average prediction error for various number of VR users in the training dataset to train the learning model via online 15-order LR, NN, LSTM and GRU for uplink VR viewpoint transmission with/without proactive retransmission [Page 10] 10 \u0018 \u0014\u0013 \u0014\u0018 \u0015\u0013 \u0015\u0018 \u0016",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06559,
+        -0.02779,
+        -0.01399,
+        -0.02404,
+        -0.01493
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "dataset to train the learning model via online 15-order LR, NN, LSTM and GRU for uplink VR viewpoint transmission with/without proactive retransmission [Page 10] 10 \u0018 \u0014\u0013 \u0014\u0018 \u0015\u0013 \u0015\u0018 \u0016",
+      "overlap_with_next": "nt transmission without proac- tive retransmission, each VR user only transmits its actual viewpoint to the SBS once even this transmission fails. This transmission failure is usua",
+      "text": "dataset to train the learning model via online 15-order LR, NN, LSTM and GRU for uplink VR viewpoint transmission with/without proactive retransmission [Page 10] 10 \u0018 \u0014\u0013 \u0014\u0018 \u0015\u0013 \u0015\u0018 \u0016\u0013 \u0016\u0018 \u0017\u0013 1XPEHU\u0003RI\u00037UDLQLQJ\u00038VHUV \u001b \u0014\u0013 \u0014\u0015 \u0014\u0017 \u0014\u0019$YHUDJH\u00033UHGLFWLRQ\u0003(UURU\u0003 \b 2QOLQH\u000311\u000f\u0003Z\u0012R\u00033URDF 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u000311\u000f\u0003*HQLH\u0010DLGHG 2QOLQH\u0003/670\u000f\u0003Z\u0012R\u00033URDF 2QOLQH\u0003/670\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003/670\u000f\u0003*HQLH\u0010DLGHG 2QOLQH\u0003*58\u000f\u0003Z\u0012R\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003*HQLH\u0010DLGHG 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003Z\u0012R\u00033URDF 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003*HQLH\u0010DLGHG Fig. 17. Average prediction error of different number of VR users in the training dataset to train the learning model via online 15-order LR, NN, LSTM and GRU with/without Proactive retransmission scheme. scheme. We can observe that the performance of the proactive retransmission scheme integrated into the online learning algorithm is better than that without proactive retransmission scheme and is close to the performance of the Genie-aided scheme. In the uplink viewpoint transmission without proac- tive retransmission, each VR user only transmits its actual viewpoint to the SBS once even this transmission fails. This transmission failure is usua",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08295,
+        -0.02212,
+        -0.0205,
+        -0.05034,
+        -0.02247
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "nt transmission without proac- tive retransmission, each VR user only transmits its actual viewpoint to the SBS once even this transmission fails. This transmission failure is usua",
+      "overlap_with_next": "ediction error of ofﬂine/online 15- order LR, NN and GRU integrated with proactive retrans- mission scheme over continuous time slots. For the ofﬂine learning algorithms, it can be",
+      "text": "nt transmission without proac- tive retransmission, each VR user only transmits its actual viewpoint to the SBS once even this transmission fails. This transmission failure is usually because of the unstable channel state and the interference from other VR users. To cope with this, the proactive retransmission scheme is applied here to improve the success transmission of uplink transmission [38], and the online learning algorithms are capable of better capturing historical trends of viewpoint preference of the VR user, which can further improve the prediction accuracy. While in the Genie-aided scheme, the uplink transmission at each time slot for each VR user is assumed to be successful. (b) One Training Model for All VR Videos: In this model, for all 16 VR videos, we consider 4 Cross Validation shown in Fig. 11 and use the VR user samples in the training datasets to train ofﬂine/online 15-order LR, NN and GRU learning models to predict Y angle of VR users in the testing datasets. Fig. 18 plots average prediction error of ofﬂine/online 15- order LR, NN and GRU integrated with proactive retrans- mission scheme over continuous time slots. For the ofﬂine learning algorithms, it can be",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07816,
+        -0.02578,
+        -0.00518,
+        -0.01807,
+        -0.00363
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "ediction error of ofﬂine/online 15- order LR, NN and GRU integrated with proactive retrans- mission scheme over continuous time slots. For the ofﬂine learning algorithms, it can be",
+      "overlap_with_next": "URU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003*58 2IIOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003Z\u0012\u00033URDF Fig. 18. Average prediction error of ofﬂine/online 15-order ",
+      "text": "ediction error of ofﬂine/online 15- order LR, NN and GRU integrated with proactive retrans- mission scheme over continuous time slots. For the ofﬂine learning algorithms, it can be seen that the performance of the GRU is a bit better than that of the NN. Meanwhile, it can be observed that at the beginning 30 time slots, the performance of the 15-order LR is better than that of NN and GRU. It is because according to Fig. 6, at the beginning, when the VR user watches the VR video, its viewpoint mainly focus on the zero point and the 15-order LR ﬁts well at the beginning. However, after 50 time slots, the performance of GRU is much better than that of 15-order LR. This is due to that after 50 time slots, the viewpoint of the VR user will change substantially as shown in Fig. 6, and the GRU is able to capture the correlation of the viewpoint of the VR user over continuous time slots. Furthermore, it is also noted that at the beginning, there are \u0013 \u0018\u0013 \u0014\u0013\u0013 \u0014\u0018\u0013 \u0015\u0013\u0013 \u0015\u0018\u0013 7LPH\u00036ORW \u0013 \u0018 \u0014\u0013 \u0014\u0018 \u0015\u0013$YHUDJH\u00033UHGLFWLRQ\u0003(UURU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003*58 2IIOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003Z\u0012\u00033URDF Fig. 18. Average prediction error of ofﬂine/online 15-order ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05533,
+        -0.03051,
+        -0.00543,
+        -0.01633,
+        -0.00711
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "URU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003*58 2IIOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003Z\u0012\u00033URDF Fig. 18. Average prediction error of ofﬂine/online 15-order ",
+      "overlap_with_next": "e retransmission scheme in continuous time slots. Fig. 19 plots the average prediction error of online GRU algorithms of uplink viewpoint transmission with/without proactive retran",
+      "text": "URU\u0003 \b 2IIOLQH\u000311 2IIOLQH\u0003*58 2IIOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5 2QOLQH\u000311\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003\u0014\u0018\u00102UGHU\u0003/5\u000f\u0003Z\u0012\u00033URDF Fig. 18. Average prediction error of ofﬂine/online 15-order LR, NN and GRU with Proactive retransmission scheme in continuous time slots. large ﬂuctuations in the performance of the proactive retrans- mission scheme integrated into the online learning algorithms. It is because the parameters in the online learning algorithms should be modiﬁed to capture the viewpoint preference of the VR user. In addition, when the viewpoint of the VR user changes over time, the online learning algorithms need to further update their parameters to be ﬁt for the viewpoint changing of the VR users. Therefore, there are small ﬂuc- tuations in the performance of the online learning algorithms. \u0013 \u0018\u0013 \u0014\u0013\u0013 \u0014\u0018\u0013 \u0015\u0013\u0013 \u0015\u0018\u0013 7LPH\u00036ORW \u0013 \u0018 \u0014\u0013 \u0014\u0018 \u0015\u0013$YHUDJH\u00033UHGLFWLRQ\u0003(UURU\u0003 \b 2QOLQH\u0003*58\u000f\u0003Z\u0012R\u00033URDF 2QOLQH\u0003*58\u000f\u0003Z\u0012\u00033URDF 2QOLQH\u0003*58\u000f\u0003*HQLH\u0010DLGHG Fig. 19. Average prediction error of online GRU algorithms with/without Proactive retransmission scheme in continuous time slots. Fig. 19 plots the average prediction error of online GRU algorithms of uplink viewpoint transmission with/without proactive retran",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06928,
+        -0.012,
+        -0.00724,
+        -0.03378,
+        -0.00544
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "e retransmission scheme in continuous time slots. Fig. 19 plots the average prediction error of online GRU algorithms of uplink viewpoint transmission with/without proactive retran",
+      "overlap_with_next": "eos. The trained ofﬂine learning algorithms were used to directly predict the viewpoint of the VR user. In the online learning algorithms, the online n-order LR, NN and LSTM/GRU al",
+      "text": "e retransmission scheme in continuous time slots. Fig. 19 plots the average prediction error of online GRU algorithms of uplink viewpoint transmission with/without proactive retransmission scheme in continuous time slots. We can obtain that the performance of the proactive retransmission scheme with the online GRU algorithm is still better than that of the scheme without proactive retransmission scheme. Meanwhile, it can be seen that the performance of the Genie- aided online GRU algorithm slightly outperforms that of the online GRU algorithm with the proactive retransmission [Page 11] 11 scheme, while their gap is small. VI. C ONCLUSIONS In this paper, ofﬂine and online learning algorithms for uplink wireless VR network with proactive retransmission scheme were developed to predict viewpoint of wireless VR users with real VR dataset. Speciﬁcally, for the ofﬂine learning algorithm, K Cross Validation was used to train ofﬂine n- order LR, NN and LSTM/GRU learning algorithms for each VR video and all VR videos. The trained ofﬂine learning algorithms were used to directly predict the viewpoint of the VR user. In the online learning algorithms, the online n-order LR, NN and LSTM/GRU al",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07713,
+        -0.0054,
+        0.00116,
+        -0.0231,
+        -0.00107
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "eos. The trained ofﬂine learning algorithms were used to directly predict the viewpoint of the VR user. In the online learning algorithms, the online n-order LR, NN and LSTM/GRU al",
+      "overlap_with_next": ",” https://techcrunch.com/2017/01/11/the- reality-of-vrar-growth/., Jan, 2017. [3] HTC, “Htc vive,” Available: https://www.vive.com/. [4] Facebook, “Oculus rift,” Available: https:",
+      "text": "eos. The trained ofﬂine learning algorithms were used to directly predict the viewpoint of the VR user. In the online learning algorithms, the online n-order LR, NN and LSTM/GRU algorithms would update their parameters according to the actual viewpoints delivered from the new VR users through uplink transmission, which could further improve the prediction accuracy. Meanwhile, a proactive retransmission scheme was introduced to the online learning algorithms to guarantee the reliability of uplink trans- mission. Simulation results shown that our proposed online GRU algorithm with the proactive retransmission scheme can achieve the highest prediction accuracy. Meanwhile, the single training model for each VR video, and for all VR videos achieved similar prediction accuracy. REFERENCES [1] “Virtual reality and augmented reality device sales to hit 99 million devices in 2021,” https://www.capacitymedia.com/articles/3755961/VR- and-AR-device-shipments-to-hit-99m-by-2021., 2017. [2] “The reality of VR/AR growth,” https://techcrunch.com/2017/01/11/the- reality-of-vrar-growth/., Jan, 2017. [3] HTC, “Htc vive,” Available: https://www.vive.com/. [4] Facebook, “Oculus rift,” Available: https:",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06559,
+        -0.00297,
+        -0.01073,
+        -0.0048,
+        -0.01162
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": ",” https://techcrunch.com/2017/01/11/the- reality-of-vrar-growth/., Jan, 2017. [3] HTC, “Htc vive,” Available: https://www.vive.com/. [4] Facebook, “Oculus rift,” Available: https:",
+      "overlap_with_next": "less Comm. , vol. 66, no. 11, pp. 5621 – 5635, Nov. 2018. [10] M. Chen, W. Saad, C. Yin, and M. Debbah, “Data correlation-aware resource management in wireless virtual reality (VR)",
+      "text": ",” https://techcrunch.com/2017/01/11/the- reality-of-vrar-growth/., Jan, 2017. [3] HTC, “Htc vive,” Available: https://www.vive.com/. [4] Facebook, “Oculus rift,” Available: https://www.oculus.com/. [5] F. Hu, Y . Deng, W. Saad, M. Bennis, and A. H. Aghvami, “Cellular- connected wireless virtual reality: Requirements, challenges, and solu- tions,” IEEE Commun. Mag. , vol. 58, no. 5, pp. 105 – 111, May 2020. [6] Wikipedia, “Field of view,” available at https://en.wikipedia.org/wiki/ Field of view . [7] Y . Bao, H. Wu, T. Zhang, A. A. Ramli, and X. Liu, “Shooting a moving target: Motion-prediction-based transmission for 360-degree videos,” in Proc. IEEE Int. Conf. Big Data , pp. 1161 – 1170, 2017. [8] “3rd generation partnership project; Technical speciﬁcation group ser- vices and system aspects; Extended reality (XR) in 5G,” 3GPP TR 26.928, Feb. 2020. [9] M. Chen, W. Saad, and C. Yin, “Virtual reality over wireless networks: Quality-of-service model and learning-based resource management,” IEEE Trans. Wireless Comm. , vol. 66, no. 11, pp. 5621 – 5635, Nov. 2018. [10] M. Chen, W. Saad, C. Yin, and M. Debbah, “Data correlation-aware resource management in wireless virtual reality (VR)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05443,
+        0.00501,
+        -0.02372,
+        -0.01038,
+        -0.0277
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "less Comm. , vol. 66, no. 11, pp. 5621 – 5635, Nov. 2018. [10] M. Chen, W. Saad, C. Yin, and M. Debbah, “Data correlation-aware resource management in wireless virtual reality (VR)",
+      "overlap_with_next": " . Bao, T. Zhang, A. Pande, H. Wu, and X. Liu, “Motion prediction based multicast for 360-degree video transmissions,” in Proc. IEEE SECON, pp. 1 – 9, Jun. 2017. [16] Y . Bao, H. W",
+      "text": "less Comm. , vol. 66, no. 11, pp. 5621 – 5635, Nov. 2018. [10] M. Chen, W. Saad, C. Yin, and M. Debbah, “Data correlation-aware resource management in wireless virtual reality (VR): An echo state transfer learning approach,” IEEE Trans. Comm. , vol. 67, no. 6, pp. 4267 – 4280, Jun. 2019. [11] Y . Sun, Z. Chen, M. Tao, and H. Liu, “Communications, caching, and computing for mobile virtual reality: Modeling and tradeoff,” IEEE Trans. Comm., vol. 67, no. 11, pp. 7573 – 7586, Nov. 2019. [12] S. M. LaValle, A. Yershova, M. Katsev, and M. Antonov, “Head tracking for the oculus rift,” in Proc. IEEE Int. Conf. Robot. Autom. (ICRA) , pp. 187 – 194, May/Jun. 2014. [13] J. J. LaViola, “Double exponential smoothing: an alternative to kalman ﬁlter-based predictive tracking,” in Proc. Workshop on Virtual Environ- ments, pp. 199 – 206, 2003. [14] X. Liu and Y . Deng, “Learning-based prediction, rendering and as- sociation optimization for MEC-enabled wireless virtual reality (VR) network,” arxiv:2005.08332, 2020. [15] Y . Bao, T. Zhang, A. Pande, H. Wu, and X. Liu, “Motion prediction based multicast for 360-degree video transmissions,” in Proc. IEEE SECON, pp. 1 – 9, Jun. 2017. [16] Y . Bao, H. W",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04925,
+        -0.01789,
+        -0.01737,
+        0.00339,
+        -0.01586
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": " . Bao, T. Zhang, A. Pande, H. Wu, and X. Liu, “Motion prediction based multicast for 360-degree video transmissions,” in Proc. IEEE SECON, pp. 1 – 9, Jun. 2017. [16] Y . Bao, H. W",
+      "overlap_with_next": "Tao, M. P. Reyes, M. L. Shyu, S. C. Chen, and S. S. Lyengar, “A survey on deep learning: Algorithms, techniques, and applications,” ACM Comput. Surveys., vol. 52, p. 1–92, Sep. 201",
+      "text": " . Bao, T. Zhang, A. Pande, H. Wu, and X. Liu, “Motion prediction based multicast for 360-degree video transmissions,” in Proc. IEEE SECON, pp. 1 – 9, Jun. 2017. [16] Y . Bao, H. Wu, A. A. Ramli, B. Wang, and X. Liu, “Viewing 360 degree videos: Motion prediction and bandwidth optimization,” in Proc. IEEE ICNP, pp. 1161 – 1170, Nov. 2016. [17] T. Hastie, R. Tibshirani, and J. Friedman, “The Elements of Statistical Learning: Data Mining, Inference, and Prediction,” Springer, 2009. [18] M. A. Nielsen, “Neural Networks and Deep Learning,” Determination Press, 2014. [19] S. Hochreiter and J. Schmidhuber, “Long short-term memory,” Neural computation, vol. 9, no. 8, pp. 1735 – 1780, Nov. 1997. [20] J. Chung, C. Gulcehre, K. Cho, and Y . Bengio, “Empirical eval- uation of gated recurrent neural networks on sequence modeling,” arXiv:1412.3555, 2014. [21] S. C. H. Hoi, D. Sahoo, J. Lu, and P. Zhao, “Online learning: A comprehensive survey,” arXiv:1802.02871, 2018. [22] S. Pouyanfar, S. Sadiq, Y . Yan, H. Tian, Y . Tao, M. P. Reyes, M. L. Shyu, S. C. Chen, and S. S. Lyengar, “A survey on deep learning: Algorithms, techniques, and applications,” ACM Comput. Surveys., vol. 52, p. 1–92, Sep. 201",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05573,
+        -0.02506,
+        -0.03929,
+        0.01651,
+        -0.02138
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "Tao, M. P. Reyes, M. L. Shyu, S. C. Chen, and S. S. Lyengar, “A survey on deep learning: Algorithms, techniques, and applications,” ACM Comput. Surveys., vol. 52, p. 1–92, Sep. 201",
+      "overlap_with_next": "3v2nv8x/AAACwzDFYwYJzIMrTs8jgM09a. [29] Y . Deng, M. Elkashlan, N. Yang, P. L. Yeoh, and R. K. Mallik, “Impact of primary network on secondary network with generalized selection co",
+      "text": "Tao, M. P. Reyes, M. L. Shyu, S. C. Chen, and S. S. Lyengar, “A survey on deep learning: Algorithms, techniques, and applications,” ACM Comput. Surveys., vol. 52, p. 1–92, Sep. 2018. [23] C. Zhang, P. Patras, and H. Haddadi, “Deep learning in mobile and wireless networking: A survey,” IEEE Commun. Surveys Tuts. , vol. 21, no. 3, pp. 2224 – 2287, 3rd Quart. 2019. [24] “Study on scenarios and requirements for next generation access tech- nologies (release 15),” 3GPP , TS 38.913 v.15.2.0, Jun. 2018. [25] M. Series, “IMT vision-framework and overall objectives of the future development of IMT for 2020 and beyond,” Recommendation ITU, pp. 2083 – 2095, Sep. 2015. [26] H. Zhang, N. Liu, X. Chu, K. Long, A. Aghvami, and V . C. M. Leung, “Network slicing based 5g and future mobile networks: Mobility, resource management, and challenges,” IEEE Commun. Mag. , vol. 55, no. 8, pp. 138 – 145, Aug. 2017. [27] “Discussion on HARQ support for urllc,” R1-1612246, 3GPP TR-RAN1 87, Nov. 2016. [28] www.dropbox.com/sh/78ff9djp3v2nv8x/AAACwzDFYwYJzIMrTs8jgM09a. [29] Y . Deng, M. Elkashlan, N. Yang, P. L. Yeoh, and R. K. Mallik, “Impact of primary network on secondary network with generalized selection co",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03564,
+        -0.0053,
+        -0.01333,
+        -0.0199,
+        0.00566
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "3v2nv8x/AAACwzDFYwYJzIMrTs8jgM09a. [29] Y . Deng, M. Elkashlan, N. Yang, P. L. Yeoh, and R. K. Mallik, “Impact of primary network on secondary network with generalized selection co",
+      "overlap_with_next": ", 2018. [34] S. Ruder, “An overview of gradient descent optimization algorithms,” arXiv:1609.04747, 2016. [35] L. Bottou, “Large-scale machine learning with stochastic gradient de-",
+      "text": "3v2nv8x/AAACwzDFYwYJzIMrTs8jgM09a. [29] Y . Deng, M. Elkashlan, N. Yang, P. L. Yeoh, and R. K. Mallik, “Impact of primary network on secondary network with generalized selection combining,” IEEE Trans. Veh. Technol., vol. 64, no. 7, pp. 3280 – 3285, Jul. 2015. [30] A. Botchkarev, “A new typology design of performance metrics to measure errors in machine learning regression algorithms,” Interdiscipl. J. Inf., Knowl. Manage. , vol. 14, p. 45–76, Jan. 2019. [31] S. Ayoubi, N. Limam, M. A. Salahuddin, N. Shahriar, R. Boutaba, F. E. Solano, and O. M. Caicedo, “Machine learning for cognitive network management,” IEEE Commun. Mag., vol. 56, no. 1, pp. 158 – 165, Jan. 2018. [32] J. D. Rodriguez, A. Perez, and J. A. Lozano, “Sensitivity analysis of k- fold cross validation in prediction error estimation,” IEEE Trans. Pattern Anal. Mach. Intell. , vol. 32, no. 3, p. 569–575, Mar. 2010. [33] S. Raschka, “Model evaluation, model selection, and algorithm selection in machine learning,” https://arxiv.org/abs/1811.12808, 2018. [34] S. Ruder, “An overview of gradient descent optimization algorithms,” arXiv:1609.04747, 2016. [35] L. Bottou, “Large-scale machine learning with stochastic gradient de-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03874,
+        -0.03763,
+        -0.02043,
+        -0.02924,
+        -0.00053
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 51698,
+      "length": 698,
+      "overlap_with_previous": ", 2018. [34] S. Ruder, “An overview of gradient descent optimization algorithms,” arXiv:1609.04747, 2016. [35] L. Bottou, “Large-scale machine learning with stochastic gradient de-",
+      "overlap_with_next": "",
+      "text": ", 2018. [34] S. Ruder, “An overview of gradient descent optimization algorithms,” arXiv:1609.04747, 2016. [35] L. Bottou, “Large-scale machine learning with stochastic gradient de- scent,” Proc. 19th Int. Conf. Comput. Statist. , p. 177–186, Sep. 2010. [36] P. J. Werbos, “Backpropagation through time: what it does and how to do it,” Proceedings of the IEEE , vol. 78, no. 10, pp. 1550 – 1560, Oct. 1990. [37] D. Britz, A. Goldie, M. T. Luong, and Q. Le, “Massive exploration of neural machine translation architectures,” arxiv:1703.03906, 2017. [38] Y . Liu, Y . Deng, M. Elkashlan, A. Nallanathan, and G. K. Karagiannidis, “Analyzing grant-free access for URLLC service,” arxiv:2002.07842, 2020.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05348,
+        0.01931,
+        -0.01632,
+        0.00493,
+        -0.0101
+      ]
+    }
+  ]
+}

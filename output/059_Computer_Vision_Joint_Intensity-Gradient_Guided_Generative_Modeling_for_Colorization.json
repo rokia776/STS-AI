@@ -1,0 +1,1031 @@
+{
+  "paper_id": "7a0bf08b-6064-436d-bdad-7cccf97830c5",
+  "filename": "059_Computer_Vision_Joint_Intensity-Gradient_Guided_Generative_Modeling_for_Colorization.pdf",
+  "title": "Joint Intensity-Gradient Guided Generative Modeling for Colorization",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 60,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "e experiments demonstrated that the system out- performed state-of-the-art methods whether in quantitative comparisons or user study. 1 Index Terms —Automatic colorization, unsuper",
+      "text": "[Page 1] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 1 Abstract—This paper proposes a n iterative generative model fo r solving the automatic colorization problem. Although previous researches have shown the capability to generate plausible color, the edge color overflow and the requirement of the reference images still exist. The starting point of the unsupervised learni ng in this study is the ob- servation that the gradient map possesses latent infor- mation of the image. Therefore, the inference process of the generative modeling is conducted in joint intensity-gradient domain. Specifically, a set of intensity -gradient form ed high-dimensional tensors, as the network input, are used to train a powerful noise conditional score network at the training phase . Furthermore, the joint intensity -gradient constraint in data -fidelity term is proposed to limit the degree of freedom wit hin generative model at the iterative colorization stage, and it is conducive to edge-preserving. Extensive experiments demonstrated that the system out- performed state-of-the-art methods whether in quantitative comparisons or user study. 1 Index Terms —Automatic colorization, unsuper",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06094,
+        -0.02174,
+        -0.02194,
+        -0.01617,
+        0.01606
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "e experiments demonstrated that the system out- performed state-of-the-art methods whether in quantitative comparisons or user study. 1 Index Terms —Automatic colorization, unsuper",
+      "overlap_with_next": "s in il- lumination, variations in viewpoints, and occlusions. Therefore, colorization is still confronting challenges and waiting to be explored in image processing and computer v",
+      "text": "e experiments demonstrated that the system out- performed state-of-the-art methods whether in quantitative comparisons or user study. 1 Index Terms —Automatic colorization, unsuperv ised learning, generative model, intensity-gradient domain, gradient constraint I. INTRODUCTION olorization is the task of assig ning color to each pixel of the target grayscale image. It has abundant applications in a variety of computer vision tasks, such as image compression [1], outline and cartoon creation colorization [2], [3], and re- mote sensing images colorization [4], [5]. Practically, coloring grayscale image is hard to address because the colorization results could be multiple viable for a single g rey-level image [6]. Different colors can be assigned to the gray pixels of an input image, making the problem ill -posed and inherently am- biguous (e.g., the color of an apple can be red, green or irra- tional purple). Besides, the colorization problem also inherits the c hallenges of image enhancement, such as changes in il- lumination, variations in viewpoints, and occlusions. Therefore, colorization is still confronting challenges and waiting to be explored in image processing and computer v",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06141,
+        -0.01607,
+        -0.02182,
+        -0.00914,
+        0.00387
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "s in il- lumination, variations in viewpoints, and occlusions. Therefore, colorization is still confronting challenges and waiting to be explored in image processing and computer v",
+      "overlap_with_next": " chosen . Furthermore, because the system purely relies on user inputs for colors, ev en regions with little color uncertainty need to be specified . Hence , the scribbling process",
+      "text": "s in il- lumination, variations in viewpoints, and occlusions. Therefore, colorization is still confronting challenges and waiting to be explored in image processing and computer vision. At present, many methods have been developed to tackle the issues of colorization, which can be roughly divided into two categories: Interactive methods [7]-[14] and automatic methods [15]-[26]. Generally speaking, some of interactive met hods require users to provide considerable scribbles, then determine the colors of the remaining pixels automatically [8]. The results This work was supported by National Natural Science Foundation of China (61871206, 61601450). K. Hong, J. Li, W. Li, C. Yang, M. Zhang, Y. Wang and Q. Liu are with the Department of El ectronic Informat ion En gineering, Nanchang University, Nanchang 330031, China. ({ hongkai, lijin, liwanyun, yangcaili- an}@email.ncu.edu.cn, {zhangminghui, wangyuhao, liuqiegen}@ncu.edu.cn). of the colorization can differ greatly depending upon how the color scribbles are chosen . Furthermore, because the system purely relies on user inputs for colors, ev en regions with little color uncertainty need to be specified . Hence , the scribbling process",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06427,
+        -0.01884,
+        -0.01995,
+        -0.01214,
+        -0.00021
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": " chosen . Furthermore, because the system purely relies on user inputs for colors, ev en regions with little color uncertainty need to be specified . Hence , the scribbling process",
+      "overlap_with_next": "future direction of the colorization problem . It has the characteristics of obtain ing implicit prior inform ation and generating natural coloring results with diversity [27]. For",
+      "text": " chosen . Furthermore, because the system purely relies on user inputs for colors, ev en regions with little color uncertainty need to be specified . Hence , the scribbling process is time -consuming and requires expertise . Exam- ple-based colorization is another reliable interactive method, which automatically searches for the most similar image patch/pixel for colorization [9]. The key point to the success of example-based colorization is how similar the reference image to the grayscale input. Regretfully, finding a suitable reference image becomes an obstacle for users. To address these limitations , researchers have also explored deep learning in supervised or unsupervised manners for au- tomatic colorization . These methods have achieved fantastic success in large -scale data . In addition, some methods intro- duced auxiliary tasks like image segmentation and fusion [20], auxiliary input text [10], [11], etc. to improve the colorization performance. Unsupervised learning is widely considered as the future direction of the colorization problem . It has the characteristics of obtain ing implicit prior inform ation and generating natural coloring results with diversity [27]. For",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05426,
+        -0.01052,
+        -0.02573,
+        0.00945,
+        -0.01174
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "future direction of the colorization problem . It has the characteristics of obtain ing implicit prior inform ation and generating natural coloring results with diversity [27]. For",
+      "overlap_with_next": "y has shown that the human visual system (HVS) cannot perceive absolute pixel values but relies on the local contrast ratio [29], which is directly related to the gradient informat",
+      "text": "future direction of the colorization problem . It has the characteristics of obtain ing implicit prior inform ation and generating natural coloring results with diversity [27]. For instance, Vitoria et al. [22] proposed an automatic end-to-end adversarial approach that joint s the advantages of generative adversarial networks (GANs) with semantic class distribu tion learning. As mentioned above, most existing automatic colorization methods are usually optimized for intensity-level information. Nevertheless, since the grayscale image lacks detailed colorful characteristics, the results often contain incorrect colors and obvious artifacts. Currently, some methods try to extract se- mantic-level information to improve colorization performance [20], [28]. But this kind of high -level image understanding is difficult to be captured and may result in unsuitable effects. Therefore, we attempt to extract the features in gradient domain of the grayscale image as “guidance” information. On the one hand, recent study has shown that the human visual system (HVS) cannot perceive absolute pixel values but relies on the local contrast ratio [29], which is directly related to the gradient informat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06099,
+        -0.00874,
+        -0.00177,
+        0.00242,
+        -0.00725
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "y has shown that the human visual system (HVS) cannot perceive absolute pixel values but relies on the local contrast ratio [29], which is directly related to the gradient informat",
+      "overlap_with_next": "nghui Zhang, Yuhao Wang, Senior Member, IEEE, Qiegen Liu, Senior Member, IEEE C [Page 2] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 2 processes, which adapt s to ",
+      "text": "y has shown that the human visual system (HVS) cannot perceive absolute pixel values but relies on the local contrast ratio [29], which is directly related to the gradient information. Gradient domain information has a wide range of applications in many works of image processing. It has achieved great success in image enhancement [30]-[32], image restoration [33], [ 34], and image fusion [35], etc. Learning the gradient distribution of natural images can im- prove the quality of subjective images. Furthermore, equalizing histogram in the gradient domain can also achieve the effects of image deblurring and smoothing [36]. On the other hand, as one of the basic information of the image, conducting unsupervised learning in gradient domain can expand the dimensionality of the data density distribution. Especially, this strategy adds more prosperous prior information on the learn ing and inference Joint Intensity-Gradient Guided Generative Modeling for Colorization Kai Hong, Jin Li, Wanyun Li, Cailian Yang, Minghui Zhang, Yuhao Wang, Senior Member, IEEE, Qiegen Liu, Senior Member, IEEE C [Page 2] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 2 processes, which adapt s to ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05745,
+        -0.00945,
+        -0.01871,
+        -0.01062,
+        -0.01419
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "nghui Zhang, Yuhao Wang, Senior Member, IEEE, Qiegen Liu, Senior Member, IEEE C [Page 2] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 2 processes, which adapt s to ",
+      "overlap_with_next": "t domain to unsuper- vised automatic colorization is still a blank area worth explor- ing. This study focuses on the field of automatic image coloriza- tion and p resents a novel J",
+      "text": "nghui Zhang, Yuhao Wang, Senior Member, IEEE, Qiegen Liu, Senior Member, IEEE C [Page 2] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 2 processes, which adapt s to the characteristics of the unsuper- vised learning process. For instance, Pan et al. [37] proposed a simple yet effective 0L -regularized prior b ased on intensity and gradient for text image deblurring. The y pointed out that this image prior was based on distinctive properties of text images and did not require any heuristic edge selection methods which were critical to state -of-the-art edge -based deblurring methods. In this work, we study how to effectively employ generative model in joint intensity-gradient domain to improve the per- formance of automatic colorization and the visual perception of colorized images. As far as we know, gradient informa tion has already been exploited in supervised learning manner fo r col- orization [38], while only enforced in loss function . The ap- plication of prior information in gradient domain to unsuper- vised automatic colorization is still a blank area worth explor- ing. This study focuses on the field of automatic image coloriza- tion and p resents a novel J",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07169,
+        -0.01185,
+        -0.01921,
+        -0.00834,
+        -0.00011
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "t domain to unsuper- vised automatic colorization is still a blank area worth explor- ing. This study focuses on the field of automatic image coloriza- tion and p resents a novel J",
+      "overlap_with_next": " (b) (c) Fig. 1. Visualization o f th e colorization results with different generative modelings. (a) The reference grayscale image. (b) The top line is the coloriza- tion result w",
+      "text": "t domain to unsuper- vised automatic colorization is still a blank area worth explor- ing. This study focuses on the field of automatic image coloriza- tion and p resents a novel Joint intensity -gradient domain guided Generative Model for satisfactory colorization, coined JGM. In this work, we approach this task from the generative network of noise conditional score networks [39]. It uses Langevin dynamics to generate the gradients of data distribu- tion. The colorization problem can be viewed as an im- age-generative problem enforce d with linear constraints to generate a sound result. The rationality of the underlying idea in JGM is listed in Fig. 1. In Fig. 1(b), the generative model in joint intensity-gradient field achieves a more colorful result than only in intensity domain. Moreover, by enforcing linear constraints in both intensity and gradient d omains, the degree of freedom of the generative model is better exploited, thus the colorization result in Fig. 1(c) exhibits more natural effects. (a) (b) (c) Fig. 1. Visualization o f th e colorization results with different generative modelings. (a) The reference grayscale image. (b) The top line is the coloriza- tion result w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07061,
+        -0.04819,
+        -0.03202,
+        -0.0186,
+        0.01582
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " (b) (c) Fig. 1. Visualization o f th e colorization results with different generative modelings. (a) The reference grayscale image. (b) The top line is the coloriza- tion result w",
+      "overlap_with_next": " image intensity -gradient field: Aid by the linearity property of the gradient operator, linear data-fidelity constraint is also enforced in gradient domain. The constraints in jo",
+      "text": " (b) (c) Fig. 1. Visualization o f th e colorization results with different generative modelings. (a) The reference grayscale image. (b) The top line is the coloriza- tion result with generative modeling in intensity domain, and the bottom line is with the generative model ing in joint intensity-gradient domain. (c) The col- orization result of the proposed JGM. Particularly, the generative modeling of JGM is conducted in 9-channel (intensity-gradient) domain, largely reduces the color ambiguity in intensity and attains a more natural and realistic result. The major contributions of this paper are: ⚫ Iterative generative modelin g in joint intensity -gradient domain: A novel automatic colorization via score -based generative modeling is used for exploring the prior infor- mation in joint intensity -gradient domain. Learning prior knowledge in redundant and high -dimensional subspace paves the wa y for producing more chances to attain diver- sity and possible colorization. ⚫ Enforcing linear constraints in image intensity -gradient field: Aid by the linearity property of the gradient operator, linear data-fidelity constraint is also enforced in gradient domain. The constraints in jo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06587,
+        -0.01957,
+        -0.01874,
+        -0.01408,
+        0.00932
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " image intensity -gradient field: Aid by the linearity property of the gradient operator, linear data-fidelity constraint is also enforced in gradient domain. The constraints in jo",
+      "overlap_with_next": " the assignment of color information. Mathematically, the common approach in the literature to solve the problem relies on the following linear observation model: y Fx n=+ (1) wher",
+      "text": " image intensity -gradient field: Aid by the linearity property of the gradient operator, linear data-fidelity constraint is also enforced in gradient domain. The constraints in joint intensity-gradient domain leverage the visual appearance of results, leading to pref- erable colorization in high-dimensional space. The res t of this paper is presented as follows. Section II briefly describes some relevant works o n colorization, gradi- ent-based processing and denoising score matching (DSM) [40]. In section III, we elaborate on the formulation of the p roposed method. Section IV presents the colorization performance of the present JGM, including the experimental setup, colorization diversity, and comparisons with the state-of-the-art methods. In section V , some variants of the standard JGM are discussed. Finally, Section V I summaries our contri butions, and fut ure works are given for the end. II. RELATED WORK A. Colorization Colorization is an ill-posed problem due to the large degree of freedom during the assignment of color information. Mathematically, the common approach in the literature to solve the problem relies on the following linear observation model: y Fx n=+ (1) wher",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06718,
+        -0.03435,
+        -0.03014,
+        -0.03419,
+        2e-05
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": " the assignment of color information. Mathematically, the common approach in the literature to solve the problem relies on the following linear observation model: y Fx n=+ (1) wher",
+      "overlap_with_next": "a colorization method based upon an optimization problem. Li et al. [13] proposed a novel cross-scale texture matching method to improve the robustness and quality of the examples ",
+      "text": " the assignment of color information. Mathematically, the common approach in the literature to solve the problem relies on the following linear observation model: y Fx n=+ (1) where Ny and Nx denote the gray -level image and the original color image, resp ectively. Nn denotes the additive white Gaussian noise. NNF  denotes the degra- dation matrix for graying x . With regard to the forward oper- ator, some researchers assume the lightness channel L in CIE Lab color space [21] or the luminance channel Y in YUV color space as the grayscale observation [15]. In this work, the grayscale image is represented by ( ) / 3r g bFx x x x= + + . Existing work on colorization fall into two major categories: interactive methods [7]-[14] and automatic methods [15]-[26]. Interactive colorization m ethods depend on user-provided guidances, such as color scribbles [8], [10], [11] or reference images [9], [12]-[14], which are the key point of obtaining the satisfactory result of colorization. Levin et al. [8] proposed a colorization method based upon an optimization problem. Li et al. [13] proposed a novel cross-scale texture matching method to improve the robustness and quality of the examples ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06623,
+        -0.05196,
+        -0.0185,
+        -0.01221,
+        0.02043
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "a colorization method based upon an optimization problem. Li et al. [13] proposed a novel cross-scale texture matching method to improve the robustness and quality of the examples ",
+      "overlap_with_next": "42] is an essential ly unsupervised tool to describe t he dataset. ChromaGAN [22] exploited the semantic understand- [Page 3] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx",
+      "text": "a colorization method based upon an optimization problem. Li et al. [13] proposed a novel cross-scale texture matching method to improve the robustness and quality of the examples -based colorization resu lts. These methods can achieve impressive results but often require intensive user inte raction, as each different color region must be explicitly indicated by the user. Simultaneously, finding a suitable reference image is also a severe obstacle. Deep learning for automatic approaches has shown the abil- ity to capture more intricate color pro perties on a huge amount of grayscale and color image pairs [15]-[26]. Cheng et al. [17] proposed the first deep neural network model for fully auto- matic image colorizat ion. It used adaptive image clustering technique to incorporate the global image inform ation through joint bilateral filtering. Zhang et al. [21] utilized the self-supervised classification network in different color spaces to achieve autom atic colorizatio n. Besides, generative model [41], [ 42] is an essential ly unsupervised tool to describe t he dataset. ChromaGAN [22] exploited the semantic understand- [Page 3] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0535,
+        -0.03728,
+        -0.0421,
+        0.00354,
+        -0.00487
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "42] is an essential ly unsupervised tool to describe t he dataset. ChromaGAN [22] exploited the semantic understand- [Page 3] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx",
+      "overlap_with_next": "o the reference distribution. Besides, gradient histogram equalization of the image is another widely used image enhancement method. Wang et al. [33] suggested t ackling image enha",
+      "text": "42] is an essential ly unsupervised tool to describe t he dataset. ChromaGAN [22] exploited the semantic understand- [Page 3] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 3 ing of the real scenes via GAN. Messaoud et al. [23] developed a conditional random field -based variational a utoencoder for- mulation to achieve diversity. The generative model is capable to learn probability distributions over different color spaces of data and has been widely used for many tasks. B. Gradient-based Image Processing Since the HVS is more sensitive to the gradient map than to the absolute intensity of an image, gradient domain information is widely used in image process to attain satisfactory visual effect [29]. Gong et al. [30] proposed a method called \"image naturalization\", learning the specified gradient distribution and remapping the image to match it. Cho et al. [34] proposed an iterative distribution reweighting (IDR) method, which made gradient distribution of the reconstructed images similar to the reference distribution. Besides, gradient histogram equalization of the image is another widely used image enhancement method. Wang et al. [33] suggested t ackling image enha",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04776,
+        -0.00146,
+        -0.00299,
+        0.00048,
+        -0.01366
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "o the reference distribution. Besides, gradient histogram equalization of the image is another widely used image enhancement method. Wang et al. [33] suggested t ackling image enha",
+      "overlap_with_next": "- signed prior, the unsupervised methods learn general and ex- plicated prior functions to infer the missing details from the observed image. By taking advantage of the high nonlin",
+      "text": "o the reference distribution. Besides, gradient histogram equalization of the image is another widely used image enhancement method. Wang et al. [33] suggested t ackling image enhance- ment and restoration problems in the gradient domain instead of the traditional intensity domain. Petrovic et al. [35] represented the input image as a gradient map and then merged it to gen- erate a new fused image wi thout losing information or intro- ducing distortion. Although the usage of gradient information is wide in vari- ous image processing applications , the rese arch on using th e gradient in automatic image colorization is few. It is predictable that introducing g enerative modeling in gradient domain is a promising direction. For instance, the specified distribution of gradient domain is independent of image conte nt [30], [38], so that the generative model can adapt to a wider range of images with different objects. C. Prior Learning: From DAE to DSM Unlike the supervised metho ds that rely on a carefully de- signed prior, the unsupervised methods learn general and ex- plicated prior functions to infer the missing details from the observed image. By taking advantage of the high nonlin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06277,
+        -0.02714,
+        -0.03032,
+        -0.0129,
+        -0.00678
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "- signed prior, the unsupervised methods learn general and ex- plicated prior functions to infer the missing details from the observed image. By taking advantage of the high nonlin",
+      "overlap_with_next": "k output ()Ax is related to the true data density ()p x as follows: () log ( ) ( )+= +gA x x x pd    (3) where ()g  represents a local Gaussian kernel with standard devia",
+      "text": "- signed prior, the unsupervised methods learn general and ex- plicated prior functions to infer the missing details from the observed image. By taking advantage of the high nonlinearity and capacity of neural networks, autoencoder (AE) has become one of the most important unsupervised learning methods for the task of representation learni ng [42], [43]. Denoising auto- encoder (DAE) is a simple modification of the classical auto- encoder that not t o reconstruct their input itself, but to denoise an artificially corru pted version . It essentially act s as a regu- larized criterion for learning to capture useful structure from the input data. [44]-[46]. Bigdeli et al . [47] used the magnitude of the autoencoder error as a prior (DAEP) for image recovery and the DAE A is trained to minimize the expectation over all input images x : 2 , ( ) [ ( ) ]DAE xL A E A x x  = + − (2) where the output ()Ax is trained by adding artificial Gaussian noise  with standard deviation  . According to [48], the network output ()Ax is related to the true data density ()p x as follows: () log ( ) ( )+= +gA x x x pd    (3) where ()g  represents a local Gaussian kernel with standard devia",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03517,
+        -0.03744,
+        -0.01288,
+        -0.00892,
+        -0.02692
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "k output ()Ax is related to the true data density ()p x as follows: () log ( ) ( )+= +gA x x x pd    (3) where ()g  represents a local Gaussian kernel with standard devia",
+      "overlap_with_next": "g., CVAE [49], [25]), the generative model of iGM is exploited in multi -color spaces (e.g., RGB, YCbCr) jointl y. It benefits from the high-dimensional inference process of genera",
+      "text": "k output ()Ax is related to the true data density ()p x as follows: () log ( ) ( )+= +gA x x x pd    (3) where ()g  represents a local Gaussian kernel with standard deviation  . To link to the score matching, Vincent proposed the DSM, which is equivalent to DAE [40]. Furthermore, Bloc k et al . shed new light on w hat the DAE learns from a distribut ion, showing that optimizing DAE loss is equal to optimizing DSM loss [48] (e.g., let p be a differentiable density). The DSM loss is as follows: 2 ( ) [ ( ) log ( ) ]DSM pL s E s x p x = − (4) with 2 ()() A x xsx  −= (5) The DAE loss and the DSM loss are equivalent to a term that does not depend on A or s . It is seen that DSM optimizes data distribution more directly. III. PROPOSED JGM MODEL A. Motivation of JGM The present JGM is motivated by our pr evious work in iter- ative generati ve model ( iGM) [50]. Specifically, unlike the traditional generative models that often encode the input to be a latent variable in lower-dimensional spaces (e.g., CVAE [49], [25]), the generative model of iGM is exploited in multi -color spaces (e.g., RGB, YCbCr) jointl y. It benefits from the high-dimensional inference process of genera",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06176,
+        -0.03807,
+        -0.06424,
+        -0.03877,
+        -0.03782
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "g., CVAE [49], [25]), the generative model of iGM is exploited in multi -color spaces (e.g., RGB, YCbCr) jointl y. It benefits from the high-dimensional inference process of genera",
+      "overlap_with_next": "tool to describe the inherent property in the image itself , JGM exp loits high-dimensional prior informati on in join t intensity -gradient domain. To facilitate the exposition, t",
+      "text": "g., CVAE [49], [25]), the generative model of iGM is exploited in multi -color spaces (e.g., RGB, YCbCr) jointl y. It benefits from the high-dimensional inference process of generative modeling . It should be mentioned that t he hig h-dimensional learning schemes have been studied in se veral recent works [50], [52]. They pointed out that the prior informat ion learned from high-dimensional tensors is more effective than the information obtained from low-dimensional objects. JGM inherits the great p otential of iGM that conducting generative modeling in high-dimensional space. In iGM, as the multi-color space information cannot be captured d irectly in grayscale image, it needs to conduct generative model ing pro- gressively. Hence, computational cost wil l increase largely as more multi-color spaces are utilized. To alleviate the issue, finding a high-dimensional variable that can be extracted from the grayscale image directly is urgent. Motivated by the ob- servation that image gradient is an effective tool to describe the inherent property in the image itself , JGM exp loits high-dimensional prior informati on in join t intensity -gradient domain. To facilitate the exposition, t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05734,
+        -0.01688,
+        -0.0205,
+        0.00874,
+        0.00209
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "tool to describe the inherent property in the image itself , JGM exp loits high-dimensional prior informati on in join t intensity -gradient domain. To facilitate the exposition, t",
+      "overlap_with_next": "colorization stages. At the prior learning stage, a set of high-dimensional tenors is used to learn the prior information from the gradient of data distri- [Page 4] IEEE TRANSACTIO",
+      "text": "tool to describe the inherent property in the image itself , JGM exp loits high-dimensional prior informati on in join t intensity -gradient domain. To facilitate the exposition, the visual comparison of CVAE [25], iGM [50] and JGM is shown in Fig. 2. In Fig. 2(a), CVAE learns a multi -modal conditional model (z | )Py , between the low-dimensional embedding mapping z and the grayscale image y . Under the mixture of Gaussians i s used as the input [51], the conditional probability distribution of target vectors is modeled by mixture density networks. The one-to-many map- ping allows the ta rget vectors to take multiple values for the same input vector, which provides diversit y. It can be seen in Fig. 2 (b) that the iGM expands the freedom of color by high-dimensional tensor and then adopts the intermediate to obtain linearly autocorrelative constraint that guides the direc- tion of the color more precisely. The diagram of JGM is depicted in Fig. 2(c). As seen, JGM consists of prior learning and iterative colorization stages. At the prior learning stage, a set of high-dimensional tenors is used to learn the prior information from the gradient of data distri- [Page 4] IEEE TRANSACTIO",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.081,
+        -0.03278,
+        -0.01891,
+        -0.00899,
+        -0.00361
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "colorization stages. At the prior learning stage, a set of high-dimensional tenors is used to learn the prior information from the gradient of data distri- [Page 4] IEEE TRANSACTIO",
+      "overlap_with_next": "odel architectures , avoids using adversarial methods and does not require sampling dur- ing training. Besides, it also provides a learning obje ctive that can be used for principl",
+      "text": "colorization stages. At the prior learning stage, a set of high-dimensional tenors is used to learn the prior information from the gradient of data distri- [Page 4] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 4 bution in the joint inten sity-gradient domain. At the ite rative colorization stage, under the linear constraint of the intensi- ty-gradient domain, we utilize Langevin dy namics to generate more accurate colorizations. B. JGM: Prior Learning in Intensity-Gradient Domain In recent years , likelihood -based models (e.g., variational autoencoder (VAE), AE) and GANs have achieved great suc- cess, but they al ways have some intrinsic l imitations about forming g ood prior knowledge to inform parameter learning [15], [22], [25]. Lately, Song et al. [39] introduced a new gen- erative model named noi se conditional score networks . The model estimates the gradients of data distribution by DSM and then produce s samples progre ssively via Langevin dynamics. The framework allows flexible model architectures , avoids using adversarial methods and does not require sampling dur- ing training. Besides, it also provides a learning obje ctive that can be used for principl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06722,
+        -0.03458,
+        -0.0253,
+        -0.00458,
+        0.0095
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "odel architectures , avoids using adversarial methods and does not require sampling dur- ing training. Besides, it also provides a learning obje ctive that can be used for principl",
+      "overlap_with_next": " score matching [53], [54]. In this process, the key insight is to perturb the data using multiple noise levels to help the sc ore network capture both coarse and fine-grained imag",
+      "text": "odel architectures , avoids using adversarial methods and does not require sampling dur- ing training. Besides, it also provides a learning obje ctive that can be used for principled model comparisons. (a) (b) (c) Fig. 2. Visual comparison of CVAE (a), iGM (b) and JGM (c). Rather than the CVAE that optimally encode the compressible latent space to achieve the colori- zation goal, both iGM and JGM utilize the generative modeling in high-dimensional space to optimize the colorization target. Particularly by taking advantage of the joint intensity-gradient field, the proposed JGM learns prior information and iteratively approaches to color image. Through score functions, the score-based generative model explores a new principle, which progressively denoise s an initial white noise into an image with the output of score-based network. It directly trains a score network ()sx to estim ate the gradient of d ata prior log ( )x data px instead of data prior ()datapx . The score functio n is learned via denoising score matching [53], [54]. In this process, the key insight is to perturb the data using multiple noise levels to help the sc ore network capture both coarse and fine-grained imag",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.1021,
+        -0.0086,
+        -0.02022,
+        -0.01171,
+        -0.00893
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " score matching [53], [54]. In this process, the key insight is to perturb the data using multiple noise levels to help the sc ore network capture both coarse and fine-grained imag",
+      "overlap_with_next": "ient function depending on i . As a conical combination of DSM objectives, one can imagine that Eq. (7) achieves the minimum v alue if and only if * ( , ) log ( ) iixs x p x   ",
+      "text": " score matching [53], [54]. In this process, the key insight is to perturb the data using multiple noise levels to help the sc ore network capture both coarse and fine-grained image features. The noise distribution is chosen to be 2( | ) ( | , )p x x N x x = ; therefore 2log ( | ) ( ) /x p x x x x  =− − . The score -based generative model aims to train a conditional score network to estimate the scores of all perturbed data distributions jointly , i.e., unde r a sequence of noise levels 1{} Lii = . More specifically, for a given  , it estimates the score function of each ()px by training a single neural network ( , )sx  with the DSM loss: 2 () 2 2 () () 2 2 () () 2 2 1( ; ) [ ( , ) log ( ) ]21 ( , ) log ( | )2 1 ( , )2 − = − −=+ data data data p x x p x x p x x px p x x E s x p x E E s x p x x xxE E s x            (6) Then, Eq (6) is combined for all 1{} Lii = to get one unified objective: 1 1 1( ;{ } ) ( ) ( ; ) LLi i i i i L L     = = (7) where ( ) 0i  is a coefficient function depending on i . As a conical combination of DSM objectives, one can imagine that Eq. (7) achieves the minimum v alue if and only if * ( , ) log ( ) iixs x p x   ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03596,
+        -0.01609,
+        -0.06172,
+        -0.00683,
+        -0.00092
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "ient function depending on i . As a conical combination of DSM objectives, one can imagine that Eq. (7) achieves the minimum v alue if and only if * ( , ) log ( ) iixs x p x   ",
+      "overlap_with_next": " every continuously differentiable probabil- ity density ()pX of 12[ , ] [ , , ]X x x x x x=  =   , we call log ( )X pX as its score function. At the training p hase, we implem",
+      "text": "ient function depending on i . As a conical combination of DSM objectives, one can imagine that Eq. (7) achieves the minimum v alue if and only if * ( , ) log ( ) iixs x p x   = for a ll { 1,2, , }iL . Indeed, per- turbing the data with various noise levels and tr aining a single conditional score network by simultaneously using the est i- mated scores corresponding to all the levels largely improve the performance of score-based generative model. In this work, we introduce the gradient information of image into the aut omatic colorization. In short, we estimate the gra- dients of the RGB data distribution and its gradient distribution with DSM. The score -based network is cond ucted in intensi- ty-gradient domain. Specifically, denoting the target color image containing the R , G and B components to be ( , , )= r g bx x x x , then, its gradients in ve rtical and horizontal directions are as follows: 1 1 1 1 2 2 2 2 ( , , ) ( , , )  =     =    r g b r g b x x x x x x x x (8) Accordingly, for every continuously differentiable probabil- ity density ()pX of 12[ , ] [ , , ]X x x x x x=  =   , we call log ( )X pX as its score function. At the training p hase, we implem",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06308,
+        -0.0175,
+        -0.03481,
+        -0.01245,
+        -0.02183
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " every continuously differentiable probabil- ity density ()pX of 12[ , ] [ , , ]X x x x x x=  =   , we call log ( )X pX as its score function. At the training p hase, we implem",
+      "overlap_with_next": " and the gradient domain as cha nnels through channel con catenation and setting them as network inputs for joint training. [Page 5] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx,",
+      "text": " every continuously differentiable probabil- ity density ()pX of 12[ , ] [ , , ]X x x x x x=  =   , we call log ( )X pX as its score function. At the training p hase, we implement 9-channel (9C) high-dimensional tensor X as input of the ne twork to learn the gradients of the data distributio n log ( ) iX pX by training a sing le neur al network ( , )sX  with the following loss: 2 () ( ) 2 1 2 1 ( ) ( , )2 = −+ data i L p X i i p X X i i XXE E s XL      (9) The essence of stacking to be X is to obtain much more data information at high -dimensional manifold and high -density regions, thus avoiding some difficulties in score estimation of DSM [39], [40]. Subsequently, the JGM is trained over data X in high -dimensional space as net work input and the parame- terized ( , )sX  is obtained. The visualization of the prior learning stage is depicted in the top region of Fig. 3. Generally speaking, we try to lear n existing information on a high- er-dimensional basis by combining the image domain and the gradient domain as cha nnels through channel con catenation and setting them as network inputs for joint training. [Page 5] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03923,
+        -0.05369,
+        -0.03097,
+        -0.00283,
+        -0.01671
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " and the gradient domain as cha nnels through channel con catenation and setting them as network inputs for joint training. [Page 5] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx,",
+      "overlap_with_next": "eratively evaluate the following: 1 log ( )+  +  +t t X t tX X p X z  (10) where : (0, )tt z N I . Supposing we have a neural network ()sX parameterized by  , and it has bee",
+      "text": " and the gradient domain as cha nnels through channel con catenation and setting them as network inputs for joint training. [Page 5] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 5 C. JGM: Iterative Colorization in Intensity-Gradient Field The entire colorization proc edure mainly involves three in- gredients in the testing phase: Annealed La ngevin dynamics , intensity-gradient constraints, and linear minimization. Annealed Langevin dynamics i s introduced as a sampling approach. Once the score function is known, the Langevin dynamics can be applied to sample from the corresponding distribution. In the iterative colorization process, samples of each disturbance noise level are used as the initial input of next noise level until reaching the sm allest one which provides samples for the network to generate final c olorization resu lt gradually. Specifically, g iven a step size 0  , the total number of iterations T , and an initial sample tX from any prior distribution, Langevin dynamics iteratively evaluate the following: 1 log ( )+  +  +t t X t tX X p X z  (10) where : (0, )tt z N I . Supposing we have a neural network ()sX parameterized by  , and it has bee",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07463,
+        -0.0434,
+        -0.00579,
+        0.00254,
+        0.03012
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "eratively evaluate the following: 1 log ( )+  +  +t t X t tX X p X z  (10) where : (0, )tt z N I . Supposing we have a neural network ()sX parameterized by  , and it has bee",
+      "overlap_with_next": "nstraints in intensity and gradient domain s, respectively, i.e., 12( ) ( ) ( )=+DC X DC X DC X and 11 22 ( ) ( ) ( ) ( ) ( ) ( ) DC X DC x Fx y DC X DC x F x y = = − =  =  − (1",
+      "text": "eratively evaluate the following: 1 log ( )+  +  +t t X t tX X p X z  (10) where : (0, )tt z N I . Supposing we have a neural network ()sX parameterized by  , and it has been trained such that ( , ) log ( , )i X is X p X  for all { 1,2, , }iL . By decreasing the i -value (accordingly i -value), w e can approxi mately generate sam ples from ()pX using annealed Langevin dynamics by replacing log ( ) iXt pX with ( , )tisX  iteratively, i.e., +1 + ( , )2+ it t t i i tX X s X z   (11) Because of the great randomness of generative model, a new constraint called data-consistency flow that imposes on the iteration process is proposed to make the colorization process more co ntrollable and the colorization effect more natural . Thus, the mod ified Annealed Langev in dynamics combined with intensity-gradient data-consistency flow can be expressed as: 1 [ ( , ) ( )]2+  + − +it t t i t i tX X s X DC X z     (12) where the data -consistency term ()DC X contains the linear data-fidelity constraints in intensity and gradient domain s, respectively, i.e., 12( ) ( ) ( )=+DC X DC X DC X and 11 22 ( ) ( ) ( ) ( ) ( ) ( ) DC X DC x Fx y DC X DC x F x y = = − =  =  − (1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05142,
+        -0.04653,
+        -0.02888,
+        0.02093,
+        -0.00367
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "nstraints in intensity and gradient domain s, respectively, i.e., 12( ) ( ) ( )=+DC X DC X DC X and 11 22 ( ) ( ) ( ) ( ) ( ) ( ) DC X DC x Fx y DC X DC x F x y = = − =  =  − (1",
+      "overlap_with_next": "- ized image from joint intensity-gradient field can be attained by direct intensity-gradient integration with solving Poisson [Page 6] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. ",
+      "text": "nstraints in intensity and gradient domain s, respectively, i.e., 12( ) ( ) ( )=+DC X DC X DC X and 11 22 ( ) ( ) ( ) ( ) ( ) ( ) DC X DC x Fx y DC X DC x F x y = = − =  =  − (13) The visualization of the iterative colorization sta ge is de- picted in the bottom region of Fig. 3. Fig. 3. The pipeline of the prior learning stage and the iterative colorization procedure of JGM. More specifically, the prior training stage learns the data distribution (including images domain and gradients domain) from the reference dataset, which acts as prior information for later colorization. The colorization stage generates samples from the high-dimensional noisy data distribution by annealed La ngevin dynamics, under the given intensity-gradient data-consistency constraint. Here symbol “⊕” stands for the sum operator and “DC” stands for the data-consistency in intensity-gradient domain. Finally, we apply the intermediate result to update the image 1tx + and the gradient maps 1 1 2 1[ , ] ttxx++ . Intuitively, color- ized image from joint intensity-gradient field can be attained by direct intensity-gradient integration with solving Poisson [Page 6] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04619,
+        -0.04861,
+        -0.0319,
+        -0.00993,
+        0.01417
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "- ized image from joint intensity-gradient field can be attained by direct intensity-gradient integration with solving Poisson [Page 6] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. ",
+      "overlap_with_next": " to Poisson integr ation that relies purel y on the com- puted gradients with a boundary c ondition, our iterative color- ization finds a balance between reference image and comput",
+      "text": "- ized image from joint intensity-gradient field can be attained by direct intensity-gradient integration with solving Poisson [Page 6] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 6 equation [55]. However, considering that solving the Poisson equation is an ill -posed problem and may i ntroduce a large error, we sort to a weighting strategy. The approach is a linear minimization with gradient fide lity and image consistency. Obviously, the linear summation incorporates the local infor- mation in gradient domain and global information in i ntensity domain si multaneously. Denoting the fin al output as x , t he mixed minimization is formulated as: 2 2 2 1 1 1 1 2 2 1min{|| || [|| || || || ]}t t tx x x x x x x + + +− +  − +  − (14) where the first term is the color conf idence to use the latest image to guide the image colorization. The second term is the gradient confidence that is close to the intermediate gradient results.  is a paramet er balancing the two -loss functions. Contrary to Poisson integr ation that relies purel y on the com- puted gradients with a boundary c ondition, our iterative color- ization finds a balance between reference image and comput",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02717,
+        -0.01547,
+        -0.01044,
+        -0.02063,
+        -0.0108
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": " to Poisson integr ation that relies purel y on the com- puted gradients with a boundary c ondition, our iterative color- ization finds a balance between reference image and comput",
+      "overlap_with_next": "ics. As the level of artificial noise becomes smaller, the colorization results tend to more natural color effects. IV. EXPERIMENTAL RESULTS In this section, the proposed method is",
+      "text": " to Poisson integr ation that relies purel y on the com- puted gradients with a boundary c ondition, our iterative color- ization finds a balance between reference image and computed gradients, which is especially usef ul when gradients ar e not integrable. In summary, as explained in Algorithm 1, the whole color- ization procedure consists of two-level loops: The outer loop handles log ( ) iX pX to approximate log ( )X data pX of the intensity and gradient domain s with decreasing i -value, while the inner loop decouples to be an alternating process of the updating estimated gradient of data prior log ( )X pX and the least square scheme. To intuit the procedure of annealed Langevin dynamics, we provide intermediate samples and the associate PSNR values in Fig. 4 . As can be seen, the samples are ge nerated from the high-dimensional noisy data distributi on, evolving from pure random noise to colorful images. Fig. 4. Visualization of the intermediate colorization process with annealed Langevin dynamics. As the level of artificial noise becomes smaller, the colorization results tend to more natural color effects. IV. EXPERIMENTAL RESULTS In this section, the proposed method is",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04912,
+        -0.02777,
+        -0.01439,
+        0.02424,
+        0.00513
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "ics. As the level of artificial noise becomes smaller, the colorization results tend to more natural color effects. IV. EXPERIMENTAL RESULTS In this section, the proposed method is",
+      "overlap_with_next": "tage Dataset: Intensity-gradient domain dataset: 12[ , ] [ , , ]X x x x x x=  =   Outputs: Trained JGM ( , )sX  Iterative colorization stage Initialize:   1 , L i i L   =",
+      "text": "ics. As the level of artificial noise becomes smaller, the colorization results tend to more natural color effects. IV. EXPERIMENTAL RESULTS In this section, the proposed method is evaluated both quan- titatively and qualitatively. First, the performance of JGM is compared against sev eral st ate-of-the-art automati c coloriza- tion methods on different datasets and calculated their quanti- tative index values. A subjective user study is then performed to evaluate the results of different methods qualit atively. Finally, a set of colorization results are exhibited to validate the diver- sity ability of JGM. For convenient reproducibility, the source code of JGM is available at https://github.com/yqx7150/JGM. A. Experiment Setup Datasets: We choose three datasets for experiments. LSUN [5 6] (bedroom and church): LSUN is a large color image dataset. It contains around one millio n l abeled images for each of 10 scene categories and 20 object categories. Algorithm 1. JGM for Iterative Colorization Training stage Dataset: Intensity-gradient domain dataset: 12[ , ] [ , , ]X x x x x x=  =   Outputs: Trained JGM ( , )sX  Iterative colorization stage Initialize:   1 , L i i L   =",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0666,
+        -0.03188,
+        -0.03201,
+        -0.0264,
+        -0.01116
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "tage Dataset: Intensity-gradient domain dataset: 12[ , ] [ , , ]X x x x x x=  =   Outputs: Trained JGM ( , )sX  Iterative colorization stage Initialize:   1 , L i i L   =",
+      "overlap_with_next": "set, which originally annotated many complex daily t hings while neglec ting stuff annotations. T here are 164k images in COCO-stuff dataset that span over 172 categories, includin",
+      "text": "tage Dataset: Intensity-gradient domain dataset: 12[ , ] [ , , ]X x x x x x=  =   Outputs: Trained JGM ( , )sX  Iterative colorization stage Initialize:   1 , L i i L   = , , and x For 1i to L do 22= /i i L    (0, ) tz N I For 1t to T do Stack [ , ]t t tX x x= and Sample (0, )tz N I 1 [ ( , ) ( )]2+  + − +it t t i t i tX X s X DC X z     End for 2 2 2 2 1 1 1 1 2 2 1argmin{|| || [|| || || || ]}t t t t xx x x x x x x + + + += − +  − +  − End for Output: Tx [Page 7] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 7 Among them, we choose the indoor scene LSUN -bedroom dataset, which has enough samples (more than 3 million) and various colors to verify the effectiveness of JGM. On the other hand, in the outdoor scene LSUN-church dataset, the trees are almost all green and the sky is always blue. Most of the images fall into the same scene category. COCO-stuff [5 7]: The Common Objects in COntext -stuff (COCO-stuff) is constructed by anno tating the original COCO dataset, which originally annotated many complex daily t hings while neglec ting stuff annotations. T here are 164k images in COCO-stuff dataset that span over 172 categories, includin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07805,
+        -0.0376,
+        -0.04127,
+        -0.01224,
+        0.00414
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "set, which originally annotated many complex daily t hings while neglec ting stuff annotations. T here are 164k images in COCO-stuff dataset that span over 172 categories, includin",
+      "overlap_with_next": "00 iterations. Subsequently, the JGM model is trained for 15e iterations with the batch size of 8 that t akes around 20 hours. The model is performed with Pytorch interface on 2 NV",
+      "text": "set, which originally annotated many complex daily t hings while neglec ting stuff annotations. T here are 164k images in COCO-stuff dataset that span over 172 categories, including 80 things, 91 stuff, and one unlabeled class. ImageNet [58]: The l argest clean image dataset for image classification in computer vision community, currently con- tains 3.2 mil lion images with c lear annotations and extremely rich types. ImageNet is widely used to validate the colorization performance to the most diverse im ages and various complex scenes. In experiments of prior learning , we use 150 ,000 images randomly picked from each dataset. We reshape each image into 128 128 pixels as preprocessing. At the test s tage, we randomly choose 100 images from the validation set for each dataset. Model Training: The proposed JGM selects the UNet-type architectures with instance normalization and dilated convolu- tions as the network structure. Adam is chosen as an optimizer with a learning rate of 0.005 and halved every 5,000 iterations. Subsequently, the JGM model is trained for 15e iterations with the batch size of 8 that t akes around 20 hours. The model is performed with Pytorch interface on 2 NV",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08859,
+        -0.06577,
+        -0.02431,
+        0.01101,
+        0.00109
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "00 iterations. Subsequently, the JGM model is trained for 15e iterations with the batch size of 8 that t akes around 20 hours. The model is performed with Pytorch interface on 2 NV",
+      "overlap_with_next": "proposed method JGM is com- pared with four state-of-the-art methods, including Zhang et al. [21], MemoPainter [26], ChromaGAN [22] and iGM [50]. B. Comparisons with State-of-the-a",
+      "text": "00 iterations. Subsequently, the JGM model is trained for 15e iterations with the batch size of 8 that t akes around 20 hours. The model is performed with Pytorch interface on 2 NVIDIA Titan XP GPUs, 12GB RAM. Quality Metr ics: The main me trics used for comparisons among different methods in all reported experiments are the PSNR (P eak-Signal-to-Noise-Ratio), SSIM (St ructural Simi- larity) and Naturalness [59]. Denoting x and ˆx to be the col- orized image and ground-truth, the PSNR is defined as: 10 2ˆ ˆ ˆ( , ) 20log Max( )PSNR x x x x x=− (15) The SSIM is defined as: ˆ ˆ12 2 2 2 2 ˆ ˆ12 (2 )(2 )ˆ( , ) ( )( ) x x xx x x x x x x c cSSIM x x cc      ++= + + + + (16) Besides, as the ultimate goal of image colorization is to ob- tain satisfactory results for the obse rver, we introduce the user study method to test reality and naturalness of results directly. This criterion will further test whether the algorithm can pro- duce realistic, natural and reasonable coloring effects. Compared Methods : The proposed method JGM is com- pared with four state-of-the-art methods, including Zhang et al. [21], MemoPainter [26], ChromaGAN [22] and iGM [50]. B. Comparisons with State-of-the-a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05812,
+        -0.04733,
+        -0.03228,
+        -0.02929,
+        -0.03489
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "proposed method JGM is com- pared with four state-of-the-art methods, including Zhang et al. [21], MemoPainter [26], ChromaGAN [22] and iGM [50]. B. Comparisons with State-of-the-a",
+      "overlap_with_next": "ily aim to r estore the ground-truth color of the original image to pursu e high PSNR and SSIM. Even so, JGM performs favorabl y against recent methods, highlighting its effectiven",
+      "text": "proposed method JGM is com- pared with four state-of-the-art methods, including Zhang et al. [21], MemoPainter [26], ChromaGAN [22] and iGM [50]. B. Comparisons with State-of-the-arts Quantitative comparisons are performed for the LSUN (i.e. , bedroom and church) dataset, ImageNet dataset and COCO-stuff dataset to evaluate the compared algorithms. We randomly use 100 grayscales as input for each method and take the average score of PSNR and SSIM of the 100 final colorized images as the final result. The res ults are tabulated in Table 1 . For both PSNR and SSIM indexes, JGM achieves the highest value of 29.46 dB and 0.9365 on the LSUN -bedroom dataset. The PSNR r esult is almost 4 dB higher than th e current state -of-the-art methods , such as ChromaGAN and iGM. For more complicated dataset COCO-stuff, JGM also achieves satisfactory performance. Since colorization is regarded as a one -to-many task tha t multiple feasible colorized results may be given under the same grayscale input, JGM does not necessarily aim to r estore the ground-truth color of the original image to pursu e high PSNR and SSIM. Even so, JGM performs favorabl y against recent methods, highlighting its effectiven",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07375,
+        -0.03558,
+        -0.04594,
+        -0.03417,
+        -0.0148
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "ily aim to r estore the ground-truth color of the original image to pursu e high PSNR and SSIM. Even so, JGM performs favorabl y against recent methods, highlighting its effectiven",
+      "overlap_with_next": "ng et al. [21]. Besides, rationality is another key point, which is especially important in some images such as human portrait. Compared with the unnatural overall yellow or red in",
+      "text": "ily aim to r estore the ground-truth color of the original image to pursu e high PSNR and SSIM. Even so, JGM performs favorabl y against recent methods, highlighting its effectiveness. TABLE I COLORIZATION COMPARISON OF OUR SYSTEM TO STATE-OF-THE-ART TECHNIQUES, IN TERMS OF PSNR AND SSIM PERFORMANCE. Algorithms LSUN-church LSUN-bedroom COCO-stuff Zhang et al. 23.65/0.9228 20.89/0.8946 20.21/0.8844 MemoPainter 22.85/0.9034 23.08/0.9004 20.47/0.8492 ChromaGAN 24.63/0.9106 24.16/0.8899 19.85/0.8101 iGM-6C 23.12/0.9251 24.83/0.9221 21.95/0.8871 JGM 23.76/0.8931 29.46/0.9365 20.72/0.7254 The colorization results of different approaches are shown in Fig. 5 for the qualitativ e comparison. Although most of the methods can achieve basic colorization, the deficiency of un- clear color range and low saturation still exists. It can be found that in the LSUN-bedroom dataset, the results of MemoPainter and iGM are gloomy and only locally colorized. Similarly, a mass of inharmonious yellow appea rs in the result of Zhang et al. [21]. Besides, rationality is another key point, which is especially important in some images such as human portrait. Compared with the unnatural overall yellow or red in",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09594,
+        -0.02373,
+        -0.03003,
+        -0.04025,
+        -0.02397
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ng et al. [21]. Besides, rationality is another key point, which is especially important in some images such as human portrait. Compared with the unnatural overall yellow or red in",
+      "overlap_with_next": " conduct a user study to qua ntify the naturalness comparison of colorized images. In the experiment, the colorized images synthesized by different methods are presented to partici",
+      "text": "ng et al. [21]. Besides, rationality is another key point, which is especially important in some images such as human portrait. Compared with the unnatural overall yellow or red in the baby of previous methods, JGM p rovides a more natural result. Furthermore, benefi ting from the constraint of gradient infor- mation, JGM can achieve high -quality co lorization results while avoiding undesirable phenomena such as color pollution and overflow. In general, JGM attains high PSNR and SSIM values for the colorization of a scene that is either simple or complex, which indicates that it has sound coloring effects and robust ness. Besides, JGM has pleasure visual effects that can meet the colorization needs in various s ituations. More colorization results of JGM are provided in Supplementary Materials. C. Naturalness of Colorization Results Generally speaking, the purpose of image colorizat ion is to visually present a natural and reas onable effect, rather than recover the g round-truth precisely. Therefore, we conduct a user study to qua ntify the naturalness comparison of colorized images. In the experiment, the colorized images synthesized by different methods are presented to partici",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06655,
+        -0.01057,
+        -0.03746,
+        -0.01384,
+        -0.01504
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": " conduct a user study to qua ntify the naturalness comparison of colorized images. In the experiment, the colorized images synthesized by different methods are presented to partici",
+      "overlap_with_next": "of-the-arts. From left to right: Grayscale, Zhang et al., MemoPainter, ChromaGAN, iGM and JGM. Our method with gradient domain and high-dimensional can predict pleasing colors visu",
+      "text": " conduct a user study to qua ntify the naturalness comparison of colorized images. In the experiment, the colorized images synthesized by different methods are presented to participants, and then they are asked to choose the most natural candidate images. More specifically, we show the 100 observers the results and ask them to evaluate the naturalness of images based on the three indicators , including Saturab ility, Semantic Correctness and Edge Keeping. Among the three indicators, Saturability is used to reflect the vividness of the p icture, Semantic correct- ness is an examination of reasonable color ization of method and Edge Keep ing can describe the degre e of co lor overflow and edges blur. After these indicators are evaluated, the overall naturalness is defined as the equally weighted sum of the three values. [Page 8] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 8 (a) Grayscale (b) Zhang et al. (c) MemoPainter (d) ChromGAN (e) iGM (g) JGM Fig. 5. Visual comparisons with the state-of-the-arts. From left to right: Grayscale, Zhang et al., MemoPainter, ChromaGAN, iGM and JGM. Our method with gradient domain and high-dimensional can predict pleasing colors visu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0454,
+        -0.0242,
+        -0.02504,
+        -0.05361,
+        -0.02034
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "of-the-arts. From left to right: Grayscale, Zhang et al., MemoPainter, ChromaGAN, iGM and JGM. Our method with gradient domain and high-dimensional can predict pleasing colors visu",
+      "overlap_with_next": "enges in terms of color saturation and semantic correctness, all of which have achieved low values. As can be seen from the re- sults that t he iGM effects are dim, Zhang et al. [2",
+      "text": "of-the-arts. From left to right: Grayscale, Zhang et al., MemoPainter, ChromaGAN, iGM and JGM. Our method with gradient domain and high-dimensional can predict pleasing colors visually. There are 100 participants in the experiment and 1,000 votes in total. We re cord their selection results and calculate the percentage of th e four criteria for each image. The results are recorded in Table 2. To facilitate observation, we draw the error bar figures for comparing the images generated by different approaches as in Fig. 6. The naturalness of iGM, Zhang et al. , ChromaGAN and MemoPainter is 88.96%, 88.84%, 90.44% and 89.94% , re- spectively. This phenomenon indicates that all the methods can achieve the goal of global naturalness but being less sensitive to local colorization. For instance, in the result of MemoPainter, there is a large area of unreasonable blue on the bedroom wall, and in Zh ang et al. [21], strange green appears on the ch urch ground. In addition, other colorization methods face great challenges in terms of color saturation and semantic correctness, all of which have achieved low values. As can be seen from the re- sults that t he iGM effects are dim, Zhang et al. [2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07003,
+        -0.02599,
+        -0.02991,
+        -0.04397,
+        -0.01124
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "enges in terms of color saturation and semantic correctness, all of which have achieved low values. As can be seen from the re- sults that t he iGM effects are dim, Zhang et al. [2",
+      "overlap_with_next": "n the bed from the surrou ndings. In the second image, each item on the table is given a different color instead of the same overall color. At the same time, we enlarge the part of",
+      "text": "enges in terms of color saturation and semantic correctness, all of which have achieved low values. As can be seen from the re- sults that t he iGM effects are dim, Zhang et al. [21] and ChromGAN appear desaturat ed yellow, MemoPainter cannot achieve spatially consistent colorization. It is commendable that JGM reaches the best results of 93.97%, 92.89% and 92.66% on the three indicators, indicating high saturation, contrast and semantic accuracy, without edge overflow. It can achieve distinct colors on different objects. The model with gradie nt information helps to achieve the highest performance and produce convincing colorizations while re- taining global color consistency. In summary, it is self-evident that the results obtained by JGM have a better perception of the object color and generate the highes t naturalness effect, which can be considered as the real color by subjects. Some colorization results are zoomed in Fig. 7. In the first image, JGM can separate the small and dense complex patterns on the bed from the surrou ndings. In the second image, each item on the table is given a different color instead of the same overall color. At the same time, we enlarge the part of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04904,
+        -0.02701,
+        -0.03412,
+        -0.05303,
+        -0.0133
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "n the bed from the surrou ndings. In the second image, each item on the table is given a different color instead of the same overall color. At the same time, we enlarge the part of",
+      "overlap_with_next": "s by JGM are showing high naturalness and contrast. TABLE II COMPARISON OF NATURALNESS BETWEEN JGM AND OTHER STATE-OF-THE-ARTS. THE MEAN V ALUE OF EACH CRITERION IS RECORDED. Algor",
+      "text": "n the bed from the surrou ndings. In the second image, each item on the table is given a different color instead of the same overall color. At the same time, we enlarge the part of the spire and the wall of churches, and it is diffic ult to observe any [Page 9] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 9 spillover phenomenon in the results of JGM. As seen in the third image, even the leave s with twisty edges are colored ac- curately. In summary, due to t he addition of gradient domain information, JGM exhibits amazing colorization effects, which realizes the semantic correctness and the accurate color range. (a) Grayscale (b) Zhang et al. (c) MemoPainter (d) ChromGAN (e) iGM (g) JGM Fig. 6. The exemplar of the naturalness of the state-of-the-art automatic colorization methods includes three aspects: Saturability, Semantic Correctness and Edge Keeping. JGM can produce more natural results. Fig. 7. The zoomed version of colorization results in JGM. It can be seen that the colorized images by JGM are showing high naturalness and contrast. TABLE II COMPARISON OF NATURALNESS BETWEEN JGM AND OTHER STATE-OF-THE-ARTS. THE MEAN V ALUE OF EACH CRITERION IS RECORDED. Algor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06456,
+        -0.01894,
+        -0.05077,
+        -0.03847,
+        -0.00049
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "s by JGM are showing high naturalness and contrast. TABLE II COMPARISON OF NATURALNESS BETWEEN JGM AND OTHER STATE-OF-THE-ARTS. THE MEAN V ALUE OF EACH CRITERION IS RECORDED. Algor",
+      "overlap_with_next": "for outdo or scenes. The impro ved diversified per- formances of JGM are presented as follows: Distinct Styles: In general, each image has its only style, and all the images are di",
+      "text": "s by JGM are showing high naturalness and contrast. TABLE II COMPARISON OF NATURALNESS BETWEEN JGM AND OTHER STATE-OF-THE-ARTS. THE MEAN V ALUE OF EACH CRITERION IS RECORDED. Algorithms Saturability (%) Semantic Correctness (%) Edge Keeping (%) Naturalness (%) Zhang et al. 88.48 89.02 89.02 88.84 MemoPainter 90.02 90.12 89.68 89.94 ChromaGAN 90.30 90.95 90.06 90.44 iGM-6C 87.38 88.47 90.04 88.96 JGM 93.97 92.89 92.66 93.17 D. Diversity of Colorization Results Diverse colorization aims to gen erate different colorized images rather than restore the original color , which is often achieved via GANs [41] or VAE [42]. Due to the joi nt high-dimensional intensity and gradient of image information, the proposed JGM can improve the original performance of the generative model, generating multiple feasible colorizations. As shown in Fig. 8, the diverse colorizations have reasonable effects for indoor and o utdoor scenes. We observe different tones and background colors for indoor scenes and different rivers, sky for outdo or scenes. The impro ved diversified per- formances of JGM are presented as follows: Distinct Styles: In general, each image has its only style, and all the images are di",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07777,
+        -0.04899,
+        -0.04346,
+        -0.05094,
+        -0.01644
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "for outdo or scenes. The impro ved diversified per- formances of JGM are presented as follows: Distinct Styles: In general, each image has its only style, and all the images are di",
+      "overlap_with_next": "the joint learning in intensity-gradient domain and inten- sity-gradient fidelity constraint are two key factors to success of the algorithm, here we discuss the importance and sup",
+      "text": "for outdo or scenes. The impro ved diversified per- formances of JGM are presented as follows: Distinct Styles: In general, each image has its only style, and all the images are different in both global color contrast and chrominance. JGM reliably produces various distinct styles, such as red, blue, and yellow tones. Compared with other di- versified colorization methods that appear chaotic style, JGM can bring better visual impressions. Uniform and No -Overflow: With the c haracteristic of in- tensity-gradient d omain information, JGM shows more spa- tially coherent. The consistent overall tone of the image and no improper color pollu tion or ove rflow m ake our imag e more vivid. [Page 10] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 10 High Saturation: JGM reduces the unnatural effect of brightness reduction and presents a rich and colorful style while maintaining high saturation and dynamic effect. (a) (b) Fig. 8. Diversified colorization effects of the proposed JGM. V. DISCUSSIONS As the joint learning in intensity-gradient domain and inten- sity-gradient fidelity constraint are two key factors to success of the algorithm, here we discuss the importance and sup",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07079,
+        -0.03795,
+        -0.03391,
+        -0.021,
+        -0.02124
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "the joint learning in intensity-gradient domain and inten- sity-gradient fidelity constraint are two key factors to success of the algorithm, here we discuss the importance and sup",
+      "overlap_with_next": "Fx y=− is the data -consistency o f image domain, and ( ) ( )DC x F x y =  − is the data-consistency of gradient domain. Compared with the standard JGM, although JGM-divide can ",
+      "text": "the joint learning in intensity-gradient domain and inten- sity-gradient fidelity constraint are two key factors to success of the algorithm, here we discuss the importance and superio rity of high -dimensionality learning and constraints in gradient domain. A. Comparison of Joint/Separate Learning In the algorithm of the JGM-divide, two networks 1 ()sx and 2 ()sx are trained in th e image domain and gradient domain separately. Then, using the annealed Langevin dynamics with the prior informa tion, image domain and gradient domain samples can be obtained from these trained networks. Since the use of two separate models, both the image domain x and the gradient domain x need to be taken into consid- eration during the iterative colorization process. Thus, the modified annealed Langevin dynamics combined with DC flow can be rewritten as follows: 1 2 +1 1 1 1 2 2 [ ( ) ( )]2 [ ( ) ( )]2 i t t t t i i t t t t i x x s x DC x z x x s x DC x z      +  + − +   +  −  + (17) where the ( ) ( )DC x Fx y=− is the data -consistency o f image domain, and ( ) ( )DC x F x y =  − is the data-consistency of gradient domain. Compared with the standard JGM, although JGM-divide can ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06392,
+        -0.04876,
+        -0.03728,
+        -0.01821,
+        0.0035
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "Fx y=− is the data -consistency o f image domain, and ( ) ( )DC x F x y =  − is the data-consistency of gradient domain. Compared with the standard JGM, although JGM-divide can ",
+      "overlap_with_next": "IZATION COMPARISON OF SEPARATE AND JOINT LEARNING UNDER GRADIENT CONSTRAINTS, IN TERMS OF PSNR AND SSIM PERFORMANCE. Algorithms Church Bedroom COCO-stuff ImageNet JGM-divide 23.26/",
+      "text": "Fx y=− is the data -consistency o f image domain, and ( ) ( )DC x F x y =  − is the data-consistency of gradient domain. Compared with the standard JGM, although JGM-divide can alleviate the issues of uneven colorization and insu fficient contrast to some exte nt, it needs to train two pri or information of gradient domain and image domain separately. Thus in turn, it increases the training complexity and extends the computa- tional cost for colorization. More importantly, considering the lack of data samples in areas with low data density, DSM ma y not have enough evidence to accurately estimate the scori ng function and the complexity of multiple models. This observa- tion prompt s us to imp rove performance by sampling in a high-dimensional embedding space. It can be seen from Fig. 9 that sampling in the high -dimensional embedding space can produce better re sults, and the contrast is higher. In brief, the visual effect and rationality of the standard JGM are better than JGM-divide. TABLE III COLORIZATION COMPARISON OF SEPARATE AND JOINT LEARNING UNDER GRADIENT CONSTRAINTS, IN TERMS OF PSNR AND SSIM PERFORMANCE. Algorithms Church Bedroom COCO-stuff ImageNet JGM-divide 23.26/",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08343,
+        -0.07355,
+        -0.0602,
+        -0.03678,
+        0.00864
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "IZATION COMPARISON OF SEPARATE AND JOINT LEARNING UNDER GRADIENT CONSTRAINTS, IN TERMS OF PSNR AND SSIM PERFORMANCE. Algorithms Church Bedroom COCO-stuff ImageNet JGM-divide 23.26/",
+      "overlap_with_next": "is not very s at- isfactory because of the lack of sufficient data-fidelity con- straints. Th erefore, enforcing more appropriate constraints at the iterative colorization stage is",
+      "text": "IZATION COMPARISON OF SEPARATE AND JOINT LEARNING UNDER GRADIENT CONSTRAINTS, IN TERMS OF PSNR AND SSIM PERFORMANCE. Algorithms Church Bedroom COCO-stuff ImageNet JGM-divide 23.26/0.9269 22.23/0.9059 19.45/0.8477 15.13/0.8227 JGM 23.76/0.8931 29.46/0.9365 20.72/0.7254 18.71/0.6821 B. Comparison of with/without Gradient Data-Fidelity To testify the influence of data-consistency constraints, we try to add gradient information without the relevant constraints to the trained model . Due to the influence of the generative model, if there is no added data-fidelity constraint of the gra- dient domain, the degree of freed om of image coloring will be abnormally high. It may cause the phenome non of color over- flow and unreasonable results. We provide a few failure cases in Fig. 9 (c) . It is believed that incorr ect gradient information will lead to low saturation and a single color of the colorization result. Although the gradient information in high-dimensional prior learning is used to improve the effect, it is not very s at- isfactory because of the lack of sufficient data-fidelity con- straints. Th erefore, enforcing more appropriate constraints at the iterative colorization stage is",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07774,
+        -0.03734,
+        -0.06206,
+        -0.01018,
+        -0.02773
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "is not very s at- isfactory because of the lack of sufficient data-fidelity con- straints. Th erefore, enforcing more appropriate constraints at the iterative colorization stage is",
+      "overlap_with_next": "effe ct has some devia tions in details such as [Page 11] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 11 brightness and saturation . D ue to the robustness of the ",
+      "text": "is not very s at- isfactory because of the lack of sufficient data-fidelity con- straints. Th erefore, enforcing more appropriate constraints at the iterative colorization stage is necessary. (a) (b) (c) (d) Fig. 9. Colorization visualization results of the JGM with different variants. (a) Grayscale, (b) JGM-divide, (c) JGM without data-fidelity constraint in gradient domain and (d) JGM. C. Colorization without Known Forward Operator F In some practical scenarios, the grayscale image y without known forward model F is observed. In this circumstance, the task of “blind” colorization is more challenging. At present, two prevailing processing methods of forming F are: ( ) / 3r g bFx x x x= + + (18) and (0.3 0.59 0.11 )= + +r g bFx x x x (19) In the following, we use a set of old historical photos to test the “blind” colorization result of JGM under these two popular forward operators F . Some of the results are shown in Fig. 10. It can be seen that, by assuming two different forward operators, the co loring effe ct has some devia tions in details such as [Page 11] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 11 brightness and saturation . D ue to the robustness of the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07516,
+        -0.03654,
+        -0.02529,
+        -0.01554,
+        0.03225
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "effe ct has some devia tions in details such as [Page 11] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 11 brightness and saturation . D ue to the robustness of the ",
+      "overlap_with_next": "- vided diverse probable colorizations. Additionally, enforcing data-fidelity in joint intensity-gradient field produced substan- tially improved re sults, as validated by extensiv",
+      "text": "effe ct has some devia tions in details such as [Page 11] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 11 brightness and saturation . D ue to the robustness of the net- work-based prior info rmation and the flexibility of the prior information to different forward models, both effects are rea- sonable. (a) (b) (c) Fig. 10. “Blind” colorization results of historical black and white photographs from the early 20th century. These pictures [60] are Textile Mill, June 1937 and Scott’s Run, Mar. 1937 taken from the US National Archives (Public Domain). (a) The observed image. (b) JGM with Eq (18). (c) JGM with Eq (19). VI. CONCLUSIONS In this work, an iterative generati ve model for automatic colorization with two major characteristics was proposed, namely, prior learning in joint intensity-gradient domain and iterative colorizat ion in joint intensity -gradient field . More specifically, g enerative modeling in high -dimensional space has addressed major limitations of ex isting methods and pro- vided diverse probable colorizations. Additionally, enforcing data-fidelity in joint intensity-gradient field produced substan- tially improved re sults, as validated by extensiv",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07581,
+        -0.00946,
+        -0.02435,
+        -0.00388,
+        -0.00301
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "- vided diverse probable colorizations. Additionally, enforcing data-fidelity in joint intensity-gradient field produced substan- tially improved re sults, as validated by extensiv",
+      "overlap_with_next": "ural networks,\" in Proc. IEEE Int. Conf. Mach. Learn . Appl. (ICMLA), 2016, pp. 61-68. [5] J. Guo, Z. Pan, B. Lei, and C. Ding , \"Automatic color correction for multisource remote ",
+      "text": "- vided diverse probable colorizations. Additionally, enforcing data-fidelity in joint intensity-gradient field produced substan- tially improved re sults, as validated by extensive comparisons with state-of-the-art methods. The proposed JGM only involves a couple of insensitive par ameters, which are fixed in all ex- periments. In the forthcoming study, we h ope to apply the se critical factors in wavelet domain, etc. Besides, extending the core idea used in colorization to hyperspectral imaging is also a promising direction [61]. REFERENCES [1] M. H. Baig, and L. Torresani , \"Multiple hypothesis colorization and its application t o im age co mpression,\" Comput. Vi s. Image Understand., 2017, pp. 111-123. [2] K. Frans, \"Outline colorization through tandem adversarial networks,\" In arXiv:1704.08834, 2017. [3] Y. Qu, T. T. Wong, and P. A. Heng, \"Manga colorization,\" ACM Trans. Graph., vol. 25, no. 3, pp. 1214-1220, 2006. [4] M. Limmer, and H. P. Lensch, \"Infrar ed colorization using deep convo- lutional neural networks,\" in Proc. IEEE Int. Conf. Mach. Learn . Appl. (ICMLA), 2016, pp. 61-68. [5] J. Guo, Z. Pan, B. Lei, and C. Ding , \"Automatic color correction for multisource remote ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06408,
+        -0.03609,
+        -0.03485,
+        0.01108,
+        -0.01694
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "ural networks,\" in Proc. IEEE Int. Conf. Mach. Learn . Appl. (ICMLA), 2016, pp. 61-68. [5] J. Guo, Z. Pan, B. Lei, and C. Ding , \"Automatic color correction for multisource remote ",
+      "overlap_with_next": "North American Chapter of the A ssociation for Computational Linguistics (NAACL), 2018, pp. 764-769. [11] H. Bahng, S. Yoo, W. Cho, D. Keetae Park, Z. Wu, X. Ma, and J. Choo, \"Colo",
+      "text": "ural networks,\" in Proc. IEEE Int. Conf. Mach. Learn . Appl. (ICMLA), 2016, pp. 61-68. [5] J. Guo, Z. Pan, B. Lei, and C. Ding , \"Automatic color correction for multisource remote sensing images with Wasserstein CNN,\" Remote Sensing, vol. 9, no. 5, pp. 483, 2017. [6] C. Lei, and Q. Chen , \"Fully automatic video colori zation w ith self-regularization and diversity ,\" in Proc. IEEE Conf. Comput. Vis. Pattern Recognit., 2019, pp. 3753-3761. [7] P. Isola, J. Y. Zhu, T. Zhou, and A. A. Efros, \"Image-to-image translation with conditional adversarial networks,\" in Proc. IEEE Conf. Comput. Vis. Pattern Recognit., 2017, pp. 1125-1134. [8] A. Levin, D. Lischinski, and Y. Weiss, \"Colorization using optimization,\" ACM SIGGRAPH 2004 Papers, vol. 23, no. 3, pp. 689-694, 2004. [9] T. Welsh, M. Ashikhmin, and K. Mueller , \"Transferring color to grey- scale images,\" ACM Trans. Graph., vol. 21, no. 3, pp. 277-280, Jul. 2002. [10] V. Manjunatha, M. Iyyer, J . Boyd-Graber, and L. Davis, \" Learning to color from language ,\" North American Chapter of the A ssociation for Computational Linguistics (NAACL), 2018, pp. 764-769. [11] H. Bahng, S. Yoo, W. Cho, D. Keetae Park, Z. Wu, X. Ma, and J. Choo, \"Colo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0432,
+        -0.00346,
+        0.00558,
+        -0.00883,
+        -0.00229
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "North American Chapter of the A ssociation for Computational Linguistics (NAACL), 2018, pp. 764-769. [11] H. Bahng, S. Yoo, W. Cho, D. Keetae Park, Z. Wu, X. Ma, and J. Choo, \"Colo",
+      "overlap_with_next": "pervised diverse coloriza- tion via generative adversarial networks,\" in Proc. Joint Eur. Conf. Mach. Learn. Knowl. Discovery Databases. Cham, Switzerland: Springer, 2017, pp. 151-",
+      "text": "North American Chapter of the A ssociation for Computational Linguistics (NAACL), 2018, pp. 764-769. [11] H. Bahng, S. Yoo, W. Cho, D. Keetae Park, Z. Wu, X. Ma, and J. Choo, \"Coloring with words: Guiding i mage colorization thro ugh text -based palette generation,\" in Proc. Euro Conf. Comput. Vis., 2018, pp. 431-447. [12] J. Lee, E. Kim, Y. Lee, D. Kim, J. Chang, and J. Choo, \"Reference-based sketch image colorization using augmented -self reference and den se se- mantic correspondence,\" in Proc. IEEE Conf. Comput. Vis. Pattern Recognit., 2020, pp. 5801-5810. [13] B. Li, Y. K. Lai, M. John , and P. L. Rosin, \"Automatic example-based image colorization using location -aware cross -scale matching,\" IEEE Trans. Image Process., vol. 28, no. 9 pp. 4606-4619, 2019. [14] Z. Xu, T. Wang, F. F ang, Y. Sheng, and G. Zhang, \"Styl ization-based architecture for fast deep exemplar colorizatio n,\" in P roc. IEEE Conf. Comput. Vis. Pattern Recognit., 2020, pp. 9363-9372. [15] Y. Cao, Z. Zhou, W. Zhang, and Y. Yu, \"Unsupervised diverse coloriza- tion via generative adversarial networks,\" in Proc. Joint Eur. Conf. Mach. Learn. Knowl. Discovery Databases. Cham, Switzerland: Springer, 2017, pp. 151-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03819,
+        -0.01105,
+        -0.00933,
+        0.01232,
+        -0.00683
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "pervised diverse coloriza- tion via generative adversarial networks,\" in Proc. Joint Eur. Conf. Mach. Learn. Knowl. Discovery Databases. Cham, Switzerland: Springer, 2017, pp. 151-",
+      "overlap_with_next": ", P. Isola, and A.A. Efros, \"Colorful image colorization,\" in Proc. Euro Conf. Comput. Vis., 2016, pp. 649-666. [22] P. Vitoria, L. Raad, a nd C. Ballester, \"ChromaGAN: ad versaria",
+      "text": "pervised diverse coloriza- tion via generative adversarial networks,\" in Proc. Joint Eur. Conf. Mach. Learn. Knowl. Discovery Databases. Cham, Switzerland: Springer, 2017, pp. 151-166. [16] G. Charpiat, M. Hofmann, and B. Schö lkopf, “Automatic image colori- zation via multim odal predictions,” in Proc. Eur o Conf. Comput. Vis. , Berlin, Germany: Springer, 2008, pp. 126-139. [17] Z. Cheng, Q. Yang, and B. S heng, \"Deep colorization,\" In IEEE Inter- national Conference on Computer Vision, 2015, pp. 415-423. [18] S. Guadarrama, R. Dahl, D. Bieb er, M. Norouzi, J. Shlens, and K. Mur- phy, \"Pixcolor: Pixel recurs ive colorization,\" British Mach ine Vision Conference (BMVC), 2017. [19] Y. Morimotoand, Y. Taguchii, and T. Naemura, \"Automatic colorization of grayscale images usi ng m ultiple images on the web,\" in Proc. SIGGRAPH, 2009, pp. 59-59. [20] J.W. Su, H.K. Chu, and J.B. Hua ng, \"Instance-aware Image Color iza- tion,\" in Proc. IEEE Conf. Comput. Vis. Pattern Recognit ., 2020, pp. 7968-7977. [21] R. Zhang, P. Isola, and A.A. Efros, \"Colorful image colorization,\" in Proc. Euro Conf. Comput. Vis., 2016, pp. 649-666. [22] P. Vitoria, L. Raad, a nd C. Ballester, \"ChromaGAN: ad versaria",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05581,
+        -0.01862,
+        -0.01176,
+        0.00822,
+        0.00513
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": ", P. Isola, and A.A. Efros, \"Colorful image colorization,\" in Proc. Euro Conf. Comput. Vis., 2016, pp. 649-666. [22] P. Vitoria, L. Raad, a nd C. Ballester, \"ChromaGAN: ad versaria",
+      "overlap_with_next": "rn Recognit ., 2019, pp. 11283-11292. [27] S. Anwar, M. Tahir, C. Li, A. Mian, F. S . Khan, and A. W. Muzaffar, \"Image colorization: A survey and dataset,\" arXiv preprint arXiv:200",
+      "text": ", P. Isola, and A.A. Efros, \"Colorful image colorization,\" in Proc. Euro Conf. Comput. Vis., 2016, pp. 649-666. [22] P. Vitoria, L. Raad, a nd C. Ballester, \"ChromaGAN: ad versarial image colorization with semantic class distribution,\" In IEEE Winter Confer- ence on Applications of Computer Vision, 2020, pp. 2445-2454. [23] S. Messaoud, D. Forsyth, and A.G. Schwing, \"Structural consistency and controllability for diverse colorization,\" in Proc. Euro Conf. Comput. Vis., 2018, pp. 596-612. [24] G. Larsson, M. Maire, and G. Shakhnarovich, \"Learning representations for automatic colorization,\" in Proc. Euro Conf. Comput. Vis., 2016, pp. 577-593. [25] A. Deshpande, J. Lu, M. C. Yeh, M. J. Chong, and D. Forsyth, \"Learning diverse image colorization,\" in Proc. IEEE Conf. Comput. Vis. Pattern Recognit., 2017, pp. 6837-6845. [26] S. Yoo, H. Bahng, S. Chung, J . Lee, J. Chang, and J. Choo, \"Col oring with limited data: Few -shot colorization via memory augment ed net- works,\" in Proc. IEEE Co nf. Comput. Vis. Pattern Recognit ., 2019, pp. 11283-11292. [27] S. Anwar, M. Tahir, C. Li, A. Mian, F. S . Khan, and A. W. Muzaffar, \"Image colorization: A survey and dataset,\" arXiv preprint arXiv:200",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04343,
+        0.00321,
+        -0.01266,
+        0.00923,
+        0.00246
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "rn Recognit ., 2019, pp. 11283-11292. [27] S. Anwar, M. Tahir, C. Li, A. Mian, F. S . Khan, and A. W. Muzaffar, \"Image colorization: A survey and dataset,\" arXiv preprint arXiv:200",
+      "overlap_with_next": "be Techno-Oceans (OTO), May. 2018, pp. 1-5. [33] H. Wang, Y. Chen, T. Fang, J. Tyan, and N. Ahuja , \"Gradient adaptive image restoration and enhancement,\" In Proc. IEEE Int. Conf. ",
+      "text": "rn Recognit ., 2019, pp. 11283-11292. [27] S. Anwar, M. Tahir, C. Li, A. Mian, F. S . Khan, and A. W. Muzaffar, \"Image colorization: A survey and dataset,\" arXiv preprint arXiv:2008.10774, 2020. [28] L. Yatziv, and G . Sapiro, \"Fast image and vide o colori zation using chrominance blending.\" IEEE Trans. Image Process., vol. 15, no.5, pp. 1120-1129, 2006. [29] H. R. Sheikh, and A. C. Bovik , \"Information theoretic approaches to image quality asse ssment,\" Handbook of Image and Video Processing. Academic Press, 2005, pp. 975-989. [30] Y. Gong and I. F. Sbalzarini, \"Image enhancement by gradient distribu- tion specification,\" in Proc. Asian Conf. Comput. Vis., 2014, pp. 47-62. [31] Z. Sun, W. Feng, Q. Zhao, and L . Huang, \"Brightness preserving image enhancement based on a gradient and intensity histogram,\" J. Electron. Imag., vol. 24, no. 5, pp. 053006-053006, 2015. [32] Z. Mi, Z. L iang, Y. Wang, X. F u, and Z. Chen, \"Multi -scale gradient domain underwater image enhance ment,\" in Proc. OCEANS -MTS/IEEE Kobe Techno-Oceans (OTO), May. 2018, pp. 1-5. [33] H. Wang, Y. Chen, T. Fang, J. Tyan, and N. Ahuja , \"Gradient adaptive image restoration and enhancement,\" In Proc. IEEE Int. Conf. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0483,
+        -0.0009,
+        -0.00524,
+        -0.01183,
+        -0.01375
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "be Techno-Oceans (OTO), May. 2018, pp. 1-5. [33] H. Wang, Y. Chen, T. Fang, J. Tyan, and N. Ahuja , \"Gradient adaptive image restoration and enhancement,\" In Proc. IEEE Int. Conf. ",
+      "overlap_with_next": "nal. Mach. Intell., vol. 39, no. 2, pp. 342-355, 2016. [38] A. A. Gooch, S. C. Olsen, J. Tumblin, and B. Gooc h, \"Color2gray: Sa- lience-preserving color removal,\" ACM Trans. Graph",
+      "text": "be Techno-Oceans (OTO), May. 2018, pp. 1-5. [33] H. Wang, Y. Chen, T. Fang, J. Tyan, and N. Ahuja , \"Gradient adaptive image restoration and enhancement,\" In Proc. IEEE Int. Conf. on Image Processing, 2006, pp. 2893-2896. [Page 12] IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. xx, NO. xx, 2020 12 [34] T. S. Cho, C. L. Zitnick, N. Joshi, S. B. Kang, R. Szeliski, and W. T. Freeman, \"Image restoration by matching gradient distributions,\" IEEE. Trans. Pattern Anal. Mach. Intell., vol. 34, no. 4, pp. 683-694, Apr.2012. [35] V. S. Petrovic, and C. S. Xydeas, \"Gradient-based multiresolution image fusion,\" IEEE Trans. Image Pro cess., vol. 13, no. 2 , pp. 228-237, Feb. 2004. [36] J. Pan, Z. Hu, Z. Su, and M. H. Yang , \"Deblurring tex t im ages via L0-regularized intensity and gradient prior,\" in Proc. IEEE Conf. Comput. Vis. Pattern Recognit., 2014, pp. 2901-2908. [37] J. Pan, Z. Hu, Z. Su, a nd M. H. Yang, \"L0-regularized intensity and gradient prior for deblurring text images and beyond ,\" IEEE. Tr ans. Pattern Anal. Mach. Intell., vol. 39, no. 2, pp. 342-355, 2016. [38] A. A. Gooch, S. C. Olsen, J. Tumblin, and B. Gooc h, \"Color2gray: Sa- lience-preserving color removal,\" ACM Trans. Graph",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02534,
+        -0.00292,
+        -0.02516,
+        -0.01626,
+        -0.00895
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": "nal. Mach. Intell., vol. 39, no. 2, pp. 342-355, 2016. [38] A. A. Gooch, S. C. Olsen, J. Tumblin, and B. Gooc h, \"Color2gray: Sa- lience-preserving color removal,\" ACM Trans. Graph",
+      "overlap_with_next": "in Proc. Int. Conf. Inf . Process. Med. Imag., May. 2017, pp. 647-658. [44] G. Lin, A. Milan, C. Shen, and I. Reid, \"Refinenet: Multi-path refinement networks for high resolution s",
+      "text": "nal. Mach. Intell., vol. 39, no. 2, pp. 342-355, 2016. [38] A. A. Gooch, S. C. Olsen, J. Tumblin, and B. Gooc h, \"Color2gray: Sa- lience-preserving color removal,\" ACM Trans. Graph., vol. 24, no. 3, pp. 634-639, 2005. [39] Y. Song, and S. Ermon, \"Generative modeling by estimating gradients of the data distribution,\" in Proc. Adv. Neural Inf. Process. Syst., 2019, pp. 11918-11930. [40] P. Vincent, \"A conne ction between score matching and denoising auto- encoders,\" Neural Comput., vol. 23, no. 7, pp. 1661-1674, May. 2011. [41] I. Goodfellow, J. P. Abadie, M. Mirza, B. Xu, D. W. Farley, S. Ozair, A. Courville, and Y. Bengio, \"Generative adversarial nets,\" in Proc. Adv. Neural Inf. Process. Syst., 2014, pp. 2672-2680. [42] D. P. Kingma, and M. Welling, \"Auto -encoding va riational bayes,\" International Conference on Learning Representations (ICLR), 2014. [43] J. Schlemper, J. Caballero, J. V. Hajnal, A. Price, and D. Rueckert, \"A deep ca scade of convolutional neural networks for MR image recon- struction,\" in Proc. Int. Conf. Inf . Process. Med. Imag., May. 2017, pp. 647-658. [44] G. Lin, A. Milan, C. Shen, and I. Reid, \"Refinenet: Multi-path refinement networks for high resolution s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07291,
+        -0.03501,
+        -0.01408,
+        -0.00673,
+        -0.00617
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "in Proc. Int. Conf. Inf . Process. Med. Imag., May. 2017, pp. 647-658. [44] G. Lin, A. Milan, C. Shen, and I. Reid, \"Refinenet: Multi-path refinement networks for high resolution s",
+      "overlap_with_next": "coding variational bayes,\" In- ternational Conference on Learning Representations, 2014. [50] J. Zhou, K. Hong, T. Deng, Y. Wang, and Q. Liu, “Progressive coloriza- tion via iterat",
+      "text": "in Proc. Int. Conf. Inf . Process. Med. Imag., May. 2017, pp. 647-658. [44] G. Lin, A. Milan, C. Shen, and I. Reid, \"Refinenet: Multi-path refinement networks for high resolution semant ic segmentation,\" Proc. IEEE Conf. Comput. Vis. Pattern Recognit., 2017, pp. 1925-1934. [45] Q. Liu, S. W ang, L. Ying, X. Peng, Y. Z hu, and D. Liang, \"Adaptive dictionary learning in sparse gradient domain for image recovery,\" IEEE Trans. Image Process., vol. 22, no. 12, pp. 4652-4663, Dec .2013. [46] K. C. Tezcan, C. F. Baumgartner, R. Luechinge, K. P. Pruessmann, and E. Konukoglu, \"MR image reconstruction using deep density priors,\" IEEE Trans. Med. Imag., vol. 38, no. 7, pp. 1633-1642, Jul. 2019. [47] S. A. Bigdeli, an d M. Zwi cker, \"Image restoration using autoencoding priors,\" arXiv preprint arXiv:1703.09964,2017. [48] A. Block, Y. Mroueh, and A. Rakhlin, \"Generative modeling with de- noising auto -encoders and Langev in sampling,\" arXiv preprint- arXiv:2002.00107, 2020. [49] D. P. Ki ngma and M. Welling, \"Auto -encoding variational bayes,\" In- ternational Conference on Learning Representations, 2014. [50] J. Zhou, K. Hong, T. Deng, Y. Wang, and Q. Liu, “Progressive coloriza- tion via iterat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05077,
+        -0.02697,
+        -0.01431,
+        -0.00849,
+        -0.00964
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "coding variational bayes,\" In- ternational Conference on Learning Representations, 2014. [50] J. Zhou, K. Hong, T. Deng, Y. Wang, and Q. Liu, “Progressive coloriza- tion via iterat",
+      "overlap_with_next": " Yu, A. Seff, Y. Zhang, S. Song , T. Funkhouser, and J. Xiao, \"LSUN: Construction of a large -scale image dataset using deep learning with humans in the loop,\" arXiv preprint arXiv",
+      "text": "coding variational bayes,\" In- ternational Conference on Learning Representations, 2014. [50] J. Zhou, K. Hong, T. Deng, Y. Wang, and Q. Liu, “Progressive coloriza- tion via iterative generative models,” IEEE Signal Process. Letter, vol. 27, pp. 2054-2058, 2020. [51] C. M. Bishop, \"Mixture density networks,\" Aston University, Birming- ham, U.K., Tech. Rep. NCRG/94/004, Feb. 1994. [52] Q. Liu, Q. Yang, H. Cheng, S. Wang, M. Zhang, and D. Liang, \"Highly undersampled mag netic resonance imaging reconstructi on using auto- encoding priors,\" Magn. Reson. Med., vol. 83, no. 1, pp. 322-336, 2020. [53] L. Zhang, X. Wu, A. Bua des, and X. Li, \"Color demosaicking by local directional interpolation and nonlocal adaptive thresholding,\" J. Electron. Imag., vol. 20, no. 2, pp. 023016, 2011. [54] V. Jayaram, and J. Thickstun, \"Source separation with deep generative priors,\" arXiv preprint arXiv: 2002.07942, 2020. [55] P. Pé rez, M. Gangnet, and A. Blake, \"Poisson image editin g,\" ACM SIGGRAPH, 2003, pp. 313-318. [56] F. Yu, A. Seff, Y. Zhang, S. Song , T. Funkhouser, and J. Xiao, \"LSUN: Construction of a large -scale image dataset using deep learning with humans in the loop,\" arXiv preprint arXiv",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04355,
+        -0.03268,
+        -0.01124,
+        -0.02915,
+        -0.01015
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": " Yu, A. Seff, Y. Zhang, S. Song , T. Funkhouser, and J. Xiao, \"LSUN: Construction of a large -scale image dataset using deep learning with humans in the loop,\" arXiv preprint arXiv",
+      "overlap_with_next": " [61] Q. Liu, and H. Leung, “Variable augmented neural network for decolor- ization and multi -exposure fusion ,” Information Fusio n, vol. 46, pp.114-127, 2019. Kai Hong is studyi",
+      "text": " Yu, A. Seff, Y. Zhang, S. Song , T. Funkhouser, and J. Xiao, \"LSUN: Construction of a large -scale image dataset using deep learning with humans in the loop,\" arXiv preprint arXiv:1506.03365 ,2015. [57] H. Caesar, J. Uijli ngs, and V. Ferrari, \"Coco -stuff: Thing and stuff classes in context,\" in Proc. IEEE Conf. Comput. Vis. Pattern Recognit., pp. 1209-1218, 2018. [58] O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. Bernstein, A. C. Berg, and F. Li,\" ImageNet Large Scale Visual Recognition Challenge,\" Int. J. Comput. Vision, vol. 115, no. 3, pp. 211-252, 2015. [59] J. Zhao, L. Liu, C. G. M. Snoek, J. Han, and L. Shao , \"Pixel-level se- mantics guided image colorization ,\" arXiv preprint arXiv:1808.01597, 2018. [60] S. Iizuka, E. Simo-Serra, and H. Ishikawa, \"Let t here be color! Joint end-to-end learning of global and local image priors for automatic image colorization with simultaneous classification,\" ACM Trans. Graph., vol. 35, no. 4, pp 1-11, 2016. [61] Q. Liu, and H. Leung, “Variable augmented neural network for decolor- ization and multi -exposure fusion ,” Information Fusio n, vol. 46, pp.114-127, 2019. Kai Hong is studyi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03487,
+        -0.05041,
+        -0.03851,
+        0.0013,
+        -0.00966
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": " [61] Q. Liu, and H. Leung, “Variable augmented neural network for decolor- ization and multi -exposure fusion ,” Information Fusio n, vol. 46, pp.114-127, 2019. Kai Hong is studyi",
+      "overlap_with_next": "Information Engineering, Nanchang University. Her current research interests include sparse representation theory, deep learning and its application in image pro- cessing and color",
+      "text": " [61] Q. Liu, and H. Leung, “Variable augmented neural network for decolor- ization and multi -exposure fusion ,” Information Fusio n, vol. 46, pp.114-127, 2019. Kai Hong is studying for the M. S. degree in the School of Information Engineering, Nanchang University. H is cur- rent research interests include sparse representation theory, deep learning and its application in image processing and colorization. Jin Li was born in Jiangxi, China, in 2000. He is pursuing a bachelor's degree in the School of Information Engi- neering, Nanchang University, Nanchang, China. His current r esearch interests in clude deep learning and its application in image processing and colorization Wanyun Li was born in Sichuan, China, in 2000. She is pursuing a bachelor's degree in the School of Information Engineering, Nanchang University, Nanchang, China. Her current research interests include deep learning and its application in image processing and colorization Cailian Yang is studying for the M. S. degree in the School of Information Engineering, Nanchang University. Her current research interests include sparse representation theory, deep learning and its application in image pro- cessing and color",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.028,
+        -0.04974,
+        -0.02872,
+        0.01647,
+        -0.02598
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": "Information Engineering, Nanchang University. Her current research interests include sparse representation theory, deep learning and its application in image pro- cessing and color",
+      "overlap_with_next": "ation. Qiegen Liu (SM’19) received the Ph.D . degree in Bio- medical Engineering from Shanghai Jiao Tong University. Since 2012, he has been with School of Information En- gineerin",
+      "text": "Information Engineering, Nanchang University. Her current research interests include sparse representation theory, deep learning and its application in image pro- cessing and colorization. Minghui Zhang was born in1963. He received the M.S. degree from Chongqing University, Chongqing, in 199 0, majored in Biomedical engin eering. Professor Zhang’s research interest includes MRI reconstruction, image compression and restoration, pattern recognition, etc. Yuhao Wang (SM’14) received the Ph.D. degree from Wuhan University. He was a Visiting Professor at Uni- versity of Cal gary in 2008, and also wit h China National Mobile Communication Research Laboratory, Sou theast University from 2010 to 2011. He is currently a Professor in School of Information Engineering, Nanchang Univer- sity. His current re search i nterests include wideb and wireless communication and radar sensing fusion system, channel measurement and modeling, smart sensor, image and video processing, and machine learning, visible light communication. Qiegen Liu (SM’19) received the Ph.D . degree in Bio- medical Engineering from Shanghai Jiao Tong University. Since 2012, he has been with School of Information En- gineerin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03344,
+        -0.01311,
+        -0.00714,
+        -0.03123,
+        -0.00242
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 60680,
+      "length": 500,
+      "overlap_with_previous": "ation. Qiegen Liu (SM’19) received the Ph.D . degree in Bio- medical Engineering from Shanghai Jiao Tong University. Since 2012, he has been with School of Information En- gineerin",
+      "overlap_with_next": "",
+      "text": "ation. Qiegen Liu (SM’19) received the Ph.D . degree in Bio- medical Engineering from Shanghai Jiao Tong University. Since 2012, he has been with School of Information En- gineering, Nanchang University, Nanchang, China, where he is currently an Associate Professor. During 2015-2017, he is also a postdo c in UIUC and University of Ca lgary. His current research interest is sparse representations, deep learning and their app lications in imag e proc essing, computer vision and MRI reconstruction.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05013,
+        -0.02917,
+        0.00101,
+        -0.04111,
+        -0.0048
+      ]
+    }
+  ]
+}

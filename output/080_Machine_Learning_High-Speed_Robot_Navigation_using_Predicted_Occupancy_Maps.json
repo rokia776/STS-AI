@@ -1,0 +1,538 @@
+{
+  "paper_id": "7cf5a839-a8f1-4a58-8874-4c39133428b9",
+  "filename": "080_Machine_Learning_High-Speed_Robot_Navigation_using_Predicted_Occupancy_Maps.pdf",
+  "title": "080_Machine_Learning_High-Speed_Robot_Navigation_using_Predicted_Occupancy_Maps.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 31,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " improved performance at 4 m/s compared to a controller not operating on predicted regions of the map. I. I NTRODUCTION A key objective of mobile robotic systems is to execute safe",
+      "text": "[Page 1] High-Speed Robot Navigation using Predicted Occupancy Maps Kapil D. Katyal 1,2, Adam Polevoy 1, Joseph Moore 1, Craig Knuth 1, Katie M. Popek 1 Abstract— Safe and high-speed navigation is a key enabling capability for real world deployment of robotic systems. A sig- niﬁcant limitation of existing approaches is the computational bottleneck associated with explicit mapping and the limited ﬁeld of view (FOV) of existing sensor technologies. In this paper, we study algorithmic approaches that allow the robot to predict spaces extending beyond the sensor horizon for robust planning at high speeds. We accomplish this using a generative neural network trained from real-world data without requiring human annotated labels. Further, we extend our existing control algorithms to support leveraging the predicted spaces to improve collision-free planning and navigation at high speeds. Our experiments are conducted on a physical robot based on the MIT race car using an RGBD sensor where were able to demonstrate improved performance at 4 m/s compared to a controller not operating on predicted regions of the map. I. I NTRODUCTION A key objective of mobile robotic systems is to execute safe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.1082,
+        -0.03876,
+        -0.00693,
+        0.02032,
+        -0.00946
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " improved performance at 4 m/s compared to a controller not operating on predicted regions of the map. I. I NTRODUCTION A key objective of mobile robotic systems is to execute safe",
+      "overlap_with_next": "aces based on ob- servations, (ii) make predictions of occupied spaces beyond line of sight and (iii) use these predictions for navigation to help improve robustness and agility [1",
+      "text": " improved performance at 4 m/s compared to a controller not operating on predicted regions of the map. I. I NTRODUCTION A key objective of mobile robotic systems is to execute safe, reliable motion while avoiding obstacles in the shortest amount of time possible. While mobile robots have demon- strated considerable success in recent years, they still fail to maneuver in environments at the speed and agility of hu- mans. Traditional navigation algorithms require explicit per- ception, mapping, localization and control for collision free motion. Often, high-speed navigation using these traditional approaches is severely limited by the sensor’s ﬁeld of view (FOV) as well as the computational requirements needed for explicit mapping. This requires a robot to frequently reduce its speed to rescan the environment, construct a map and replan a new trajectory. This is in contrast to human navigation where cognitive psychologists have hypothesized that humans (i) actively differentiate between occupied and free spaces based on ob- servations, (ii) make predictions of occupied spaces beyond line of sight and (iii) use these predictions for navigation to help improve robustness and agility [1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06835,
+        -0.03099,
+        -0.02989,
+        0.00069,
+        -0.00593
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "aces based on ob- servations, (ii) make predictions of occupied spaces beyond line of sight and (iii) use these predictions for navigation to help improve robustness and agility [1",
+      "overlap_with_next": "lan more robust trajectories at higher speeds compared to those limited by the sensor horizon. Our speciﬁc contributions include: • Novel perception algorithms that predict future ",
+      "text": "aces based on ob- servations, (ii) make predictions of occupied spaces beyond line of sight and (iii) use these predictions for navigation to help improve robustness and agility [1], [2], [3]. In this paper, we lay the foundation for developing al- gorithms that provide these capabilities to robotic systems. Our intuition is that as humans navigate, they leverage spatial cues within the environment to generate predictions of future spaces and use that as part of the planning process. Our objective is to mimic this predictive capability in robotic systems (see Fig. 1). Our approach similarly learns to predict spaces beyond the line of sight and further uses the predicted areas as part of the robot controller for planning. 1Johns Hopkins University Applied Physics Lab, Lau- rel, MD, USA. Kapil.Katyal@jhuapl.edu, Adam.Polevoy@jhuapl.edu 2Dept. of Comp. Sci., Johns Hopkins University, Baltimore, MD, USA. Fig. 1: A motivating example of our approach. We leverage occupancy map prediction to allow the robot to plan more robust trajectories at higher speeds compared to those limited by the sensor horizon. Our speciﬁc contributions include: • Novel perception algorithms that predict future ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03925,
+        -0.01528,
+        -0.02387,
+        0.02661,
+        0.00279
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "lan more robust trajectories at higher speeds compared to those limited by the sensor horizon. Our speciﬁc contributions include: • Novel perception algorithms that predict future ",
+      "overlap_with_next": "ta augmentation and noise suppression techniques required to generate accurate predictions using real data. An alternative to map prediction is presented in [9]; this method predic",
+      "text": "lan more robust trajectories at higher speeds compared to those limited by the sensor horizon. Our speciﬁc contributions include: • Novel perception algorithms that predict future occu- pancy maps using generative neural networks. • A controller that leverages the predicted occupancy map during planning. • Real-world hardware experiments using a robotic car to demonstrate higher speed navigation with improved reliability compared to a controller not operating on predicted regions of the map. II. R ELATED WORK Previous work has presented different strategies to predict unknown parts of the map. A variety of methods incorporate map predictions to speed exploration of an environment [4], [5], [6], [7], [8]. Predominantly, these methods are applied to exploration and therefore do not stress the capability of the map prediction module with respect to the control pipeline. In particular, this paper extends our prior work, [6], by using a balanced classiﬁcation loss instead of a regression loss in addition to data augmentation and noise suppression techniques required to generate accurate predictions using real data. An alternative to map prediction is presented in [9]; this method predic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05977,
+        -0.00065,
+        -0.02405,
+        0.03588,
+        -0.01918
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "ta augmentation and noise suppression techniques required to generate accurate predictions using real data. An alternative to map prediction is presented in [9]; this method predic",
+      "overlap_with_next": "nment to inform motion planning. For example, in [10], they learn how to plan waypoints to a goal using a partial map of the environment. Unlike our method, this approach does not ",
+      "text": "ta augmentation and noise suppression techniques required to generate accurate predictions using real data. An alternative to map prediction is presented in [9]; this method predicts the next best viewpoint for exploration by utilizing experience from previously mapped environments. Our method shows that map prediction effectively increases the amount of information available from the map and improves point-to-point high speed navigation. arXiv:2012.12142v1 [cs.RO] 22 Dec 2020 [Page 2] Fig. 2: This diagram describes the overall perception and control pipeline. The perception module receives on-board sensor data from the car and produces a predicted occupancy map using a U-Net style generative neural network. The control algorithm receives the robot state, predicted occupancy map and goal point and generates collision-free trajectories. Adjacent to map prediction is the problem of planning the shortest path to a goal in an unknown environment. These methods perform some level of inference over the en- vironment to inform motion planning. For example, in [10], they learn how to plan waypoints to a goal using a partial map of the environment. Unlike our method, this approach does not ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05202,
+        -0.01585,
+        -0.02614,
+        0.0289,
+        -0.03254
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "nment to inform motion planning. For example, in [10], they learn how to plan waypoints to a goal using a partial map of the environment. Unlike our method, this approach does not ",
+      "overlap_with_next": "ke an end-to-end approach to navigate to a goal. Additionally the method presented in [16] uses a partial map as inputs to a deep RL policy to navigate in unknown environments. Whi",
+      "text": "nment to inform motion planning. For example, in [10], they learn how to plan waypoints to a goal using a partial map of the environment. Unlike our method, this approach does not consider robot dynamics. Both [11] and [12] use prior experience to reduce the size of viable environment hypotheses. Speciﬁcally, [11] learns the probability of colli- sion of motion primitives whereas [12] utilizes experience- based map predictions in a belief space planner. Similar to our approach, Elfhafsi et al. [13] incorporate map prediction with global path planning that respects the system dynamics, but all of their veriﬁcation was done in simulation. Existing work has also considered applying reinforcement learning (RL) in tandem with occupancy maps or depth information to navigate an unknown environment. In [14], the method uses RGB images and predicts the probability and variance of collision while navigating towards a goal, but is incapable of global planning. In [15], the approach models the world as a POMDP and take an end-to-end approach to navigate to a goal. Additionally the method presented in [16] uses a partial map as inputs to a deep RL policy to navigate in unknown environments. Whi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06144,
+        0.01492,
+        -0.00745,
+        0.03669,
+        -0.04117
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ke an end-to-end approach to navigate to a goal. Additionally the method presented in [16] uses a partial map as inputs to a deep RL policy to navigate in unknown environments. Whi",
+      "overlap_with_next": ", [20] and [21] plan trajectories and verify safety using only point clouds, similar to [18]. As mentioned earlier, our strategy differs from these methods as they all focus on sho",
+      "text": "ke an end-to-end approach to navigate to a goal. Additionally the method presented in [16] uses a partial map as inputs to a deep RL policy to navigate in unknown environments. While these methods have shown success in application, the data requirements of deep RL policies are large and often impractical in real world scenarios. In addition, our method offers insight in the process by intermediately predicting a map. A key challenge in high-speed navigation in unknown environments is balancing the speed of navigation against the information gained from its sensors. Our method alleviates this tension by learning to infer beyond the FOV of our sensor, but many other methods alter the planning and control pipelines to be reactive to changes in the environment. For instance [17], [18] focus on quickly planning trajectories in order to react to new obstacles. In [19], the method simultaneously plans two trajectories, a safe trajectory in known space and an aggressive trajectory into unknown space. For instance, [20] and [21] plan trajectories and verify safety using only point clouds, similar to [18]. As mentioned earlier, our strategy differs from these methods as they all focus on sho",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04952,
+        -0.00719,
+        -0.02445,
+        0.00407,
+        -0.03193
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": ", [20] and [21] plan trajectories and verify safety using only point clouds, similar to [18]. As mentioned earlier, our strategy differs from these methods as they all focus on sho",
+      "overlap_with_next": "y map. Components of the function f include an encoder fenc(Min)↦→h∈H which maps the input occupancy map to a hidden state andfdec(h)↦→ (Mout), which is a decoding [Page 3] Fig. 3:",
+      "text": ", [20] and [21] plan trajectories and verify safety using only point clouds, similar to [18]. As mentioned earlier, our strategy differs from these methods as they all focus on shortening the time between sensor reading and control generation, whereas our method infers beyond the sensor FOV to amplify the information available. III. P RELIMINARIES A. Problem F ormulation Our objective is to enable an unmanned ground vehicle (UGV) to navigate, at a high speed to a goal position in an unknown environment using RGBD and tracking cameras for perception. Our approach makes use of RGBD mapping, map prediction, and a receding-horizon controller to achieve this objective. For map prediction, the goal of our network architecture is to learn a function that maps an input occupancy map to an expanded occupancy map that extends beyond the FOV of the sensor. More formally, we are learning the function f :Min↦→Mout where Min represents the input occupancy map, and Mout represents the predicted, expanded output occupancy map. Components of the function f include an encoder fenc(Min)↦→h∈H which maps the input occupancy map to a hidden state andfdec(h)↦→ (Mout), which is a decoding [Page 3] Fig. 3:",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07367,
+        -0.02187,
+        -0.01669,
+        -0.00482,
+        -0.01756
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "y map. Components of the function f include an encoder fenc(Min)↦→h∈H which maps the input occupancy map to a hidden state andfdec(h)↦→ (Mout), which is a decoding [Page 3] Fig. 3:",
+      "overlap_with_next": "vehicle state information and receives commands including desired velocity and turn angle. IV. A PPROACH A. Perception The objective of the perception algorithm is to observe co- r",
+      "text": "y map. Components of the function f include an encoder fenc(Min)↦→h∈H which maps the input occupancy map to a hidden state andfdec(h)↦→ (Mout), which is a decoding [Page 3] Fig. 3: MIT Racecar with Intel Realsense Cameras function mapping the hidden state to an expanded, predicted occupancy map. The controller accepts robot odometry state, xrobot, the desired goal, Grobot, a dynamics model of the robot, VDMrobot, and the predicted occupancy map, Mout to produce the desired robot velocity, v and turn angle, θ. B. Platform The platform we use for our evaluation is the MIT Race car [22] built on the 1/10-scale Traxxas Rally Car platform, as shown in Fig. 3. This RC car has a reported maximum speed of 40 m/s and contains Intel Realsense D435 and T265 cameras. The onboard Nvidia® Jetson TX2 computer runs our perception, mapping and planning software integrated with the Robot Operating System (ROS) [23]. Our main interface to the RC car is the variable electronic speed controller (VESC) interface that provides vehicle state information and receives commands including desired velocity and turn angle. IV. A PPROACH A. Perception The objective of the perception algorithm is to observe co- r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06404,
+        -0.03403,
+        -0.01482,
+        0.01759,
+        -0.00024
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "vehicle state information and receives commands including desired velocity and turn angle. IV. A PPROACH A. Perception The objective of the perception algorithm is to observe co- r",
+      "overlap_with_next": "receive the occu- pancy map provided by RTAB-Map and predict an expanded occupancy map. The U-Net neural network is a generative architecture used in several image completion algor",
+      "text": "vehicle state information and receives commands including desired velocity and turn angle. IV. A PPROACH A. Perception The objective of the perception algorithm is to observe co- registered RGB and depth data to produce an occupancy map for planning. As demonstrated in Fig. 2, RTAB-Map [24] is used to create 2D occupancy maps using the RGB and depth images from a Realsense D435 and visual inertial odometry from a Realsense T265. To improve our mapping performance, we limit the D435’s depth sensor range to 3 meters, and we apply gradient ﬁltering on the raw depth images. The depth image gradients are calculated using a Sobel ﬁlter with a 5 × 5 kernel. All pixels with a gradient magnitude larger than twice the median are discarded. This removes ”ghost noise” near sharp edges in the image. We use RTAB-Map to generate an updated map at approximately 3 Hz while running on the Nvidia ® Jetson TX2 hardware on the car. 1) Neural Network Architecture: We use a U-Net style neural network architecture [25], [26] to receive the occu- pancy map provided by RTAB-Map and predict an expanded occupancy map. The U-Net neural network is a generative architecture used in several image completion algor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04122,
+        -0.04355,
+        -0.02251,
+        0.00847,
+        -0.02725
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "receive the occu- pancy map provided by RTAB-Map and predict an expanded occupancy map. The U-Net neural network is a generative architecture used in several image completion algor",
+      "overlap_with_next": "ribed in [30]. The discrete classes used for labeling each pixel of the occupancy map include occupied, unoccupied and unknown spaces. Because there are signiﬁcantly more pixels as",
+      "text": "receive the occu- pancy map provided by RTAB-Map and predict an expanded occupancy map. The U-Net neural network is a generative architecture used in several image completion algorithms including [26], [27], [28]. The U-Net network consists of skip connections allowing a direct connection between the layersi andn−i. These skip connections enable the option to bypass the bottleneck associated with the downsampling layers and signiﬁcantly increases the accuracy of predicted occupancy regions [29]. Our implementation of the encoder network consists of 7 convolution, batch normalization and ReLU layers where each convolution consists of a 4× 4 ﬁlter and stride length of 2. The number of ﬁlters for the 7 layers in the encoder network are: (64, 128, 256, 512, 512, 512, 512). Similarly, the decoder network consists of 7 upsampling layers with the following number of ﬁlters: (512, 1024, 1024, 1024, 512, 256, 128). 2) Loss Function: To train our network, we use a class- balanced cross-entropy loss function as described in [30]. The discrete classes used for labeling each pixel of the occupancy map include occupied, unoccupied and unknown spaces. Because there are signiﬁcantly more pixels as",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05206,
+        -0.03499,
+        -0.05762,
+        0.0133,
+        0.00591
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "ribed in [30]. The discrete classes used for labeling each pixel of the occupancy map include occupied, unoccupied and unknown spaces. Because there are signiﬁcantly more pixels as",
+      "overlap_with_next": "a 5 × 5 kernel to suppress the noise generated by the neural network with results shown in Fig. 5. The observed map and the ﬁltered predictive map are combined to create the planni",
+      "text": "ribed in [30]. The discrete classes used for labeling each pixel of the occupancy map include occupied, unoccupied and unknown spaces. Because there are signiﬁcantly more pixels associated with unoccupied and unknown spaces versus obstacles, we apply class balancing techniques on the cross entropy loss with additional 5 × weight added to the occupied space loss. This results in predictions where the edges representing obstacles are far more pronounced as seen in Fig. 4. 3) Post Processing: During our testing on the robotic car, we frequently observed small noise artifacts being generated by the neural network, a condition commonly found in generative neural networks [31]. While seemingly minor and transient, these artifacts caused signiﬁcant instability issues during control as the trajectory planner would often abruptly change the planned path in response to these artiﬁcial ob- stacles or would fail to ﬁnd a valid trajectory. To alleviate this, we apply a traditional morphological closing operation with a 5 × 5 kernel to suppress the noise generated by the neural network with results shown in Fig. 5. The observed map and the ﬁltered predictive map are combined to create the planni",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05899,
+        -0.03877,
+        -0.00102,
+        0.02171,
+        -0.0076
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "a 5 × 5 kernel to suppress the noise generated by the neural network with results shown in Fig. 5. The observed map and the ﬁltered predictive map are combined to create the planni",
+      "overlap_with_next": " size of 150 × 150 provided the optimal accuracy and performance characteristics for the controller. Further, due to limited amounts of real world data available, we perform data a",
+      "text": "a 5 × 5 kernel to suppress the noise generated by the neural network with results shown in Fig. 5. The observed map and the ﬁltered predictive map are combined to create the planning map; any unknown space from the observed map is ﬁlled in with data from the predictive map. 4) Training Details: We generate the datasets in an unsu- pervised manner. As the robot navigates a new environment, the robot collects data that consists of a submap that corre- sponds to the current occupancy map based on the sensor’s horizon as well as the expanded ground truth map after the environment has been explored. We explored various sizes of the submap and found a map corresponding to 6 m× 6 m provided by best geometric size of the submap given the characteristics of the sensor. We used a map resolution of 0.05 meters per pixel so the input occupancy map image resolution was 120 × 120 pixels. Further, we experimented with various predicted region sizes and found predicting a region of 7.5 m × 7.5 m corresponding to an image size of 150 × 150 provided the optimal accuracy and performance characteristics for the controller. Further, due to limited amounts of real world data available, we perform data a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04772,
+        -0.02556,
+        -0.03102,
+        0.01216,
+        -0.01334
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " size of 150 × 150 provided the optimal accuracy and performance characteristics for the controller. Further, due to limited amounts of real world data available, we perform data a",
+      "overlap_with_next": "ajectories to waypoints, and send control commands to the mobile robot to follow the computed trajectory. We adapt the controller proposed in our prior work, [32]. While initially ",
+      "text": " size of 150 × 150 provided the optimal accuracy and performance characteristics for the controller. Further, due to limited amounts of real world data available, we perform data augmentation techniques to apply random rotations to the occupancy map training data. This allows us to be more robust to various hallway conﬁgurations as shown in Fig. 6. B. Control Algorithm The objective of the control algorithm as described in Fig. 2 is to compute a collision free path to the goal, [Page 4] Fig. 4: Predicted occupancy map generated without class bal- ancing weight (Left) and with class balancing weight (Right) where white represents unoccupied space, grey is occupied and black is unknown. The class balancing weight produces stronger edges for obstacles in the predicted occupancy map. Fig. 5: (Left) Generated occupancy map with noise artifacts. (Right) Predicted occupancy map after morphological close operation (white is unoccupied space, grey is occupied and black is unknown). generate a series of feasible trajectories to waypoints, and send control commands to the mobile robot to follow the computed trajectory. We adapt the controller proposed in our prior work, [32]. While initially ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04462,
+        -0.01643,
+        -0.0325,
+        0.01732,
+        -0.01872
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ajectories to waypoints, and send control commands to the mobile robot to follow the computed trajectory. We adapt the controller proposed in our prior work, [32]. While initially ",
+      "overlap_with_next": "mposed into three main stages. In the ﬁrst stage, a path to goal is generated using a stan- dard rapidly-exploring random tree (RRT) [33]. The resulting path is pruned and then smo",
+      "text": "ajectories to waypoints, and send control commands to the mobile robot to follow the computed trajectory. We adapt the controller proposed in our prior work, [32]. While initially developed for ﬁxed-wing ﬂight, we believe it is particularly well suited for high-speed navigation. The receding horizon allows for rapid replanning while using a dynamically built map, and the trajectory generation and tracking allows for a high-rate, dynamically feasible control output. 1) Dynamics Model: We use a simple bicycle acceleration model to describe the robot’s dynamics. The equations of motion are as follows: ˙x =v∗cos(θ) ˙y =v∗sin(θ) ˙v =u0 (1) ˙θ =v∗tan(δ)/L ˙δ =u1 The state is written as x = [x,y,v,θ,δ ] wherex andy are 2D position, v is forward velocity, θ is orientation, and δ is turn angle. The input, u = [u0,u 1], represents acceleration and turn angle velocity, respectively, andL is the wheel base length. 2) Control Strategy: Here, we review the receding horizon controller proposed in [32], which can be decomposed into three main stages. In the ﬁrst stage, a path to goal is generated using a stan- dard rapidly-exploring random tree (RRT) [33]. The resulting path is pruned and then smo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04566,
+        -0.01766,
+        -0.02404,
+        -0.00245,
+        -0.00177
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "mposed into three main stages. In the ﬁrst stage, a path to goal is generated using a stan- dard rapidly-exploring random tree (RRT) [33]. The resulting path is pruned and then smo",
+      "overlap_with_next": "e second stage, a dynamically feasible trajectory from the current state to a horizon point is generated. The horizon point is selected as a time horizon selected along the param- ",
+      "text": "mposed into three main stages. In the ﬁrst stage, a path to goal is generated using a stan- dard rapidly-exploring random tree (RRT) [33]. The resulting path is pruned and then smoothed using G2 Continuous Cubic B ´ezier Spiral Path Smoothing (G2CBS) [34]. The curvature along the smoothed path, [x(s),y (s)], is calculated as: κ(s) = (y′′(s)x′(s)−x′′(s)y′(s)) (x′(s)2 +y′(s)2) 32 This curvature is then mapped to velocity based upon vmax and vmin, the maximum and minimum velocity. v(s) = dxdt (s) = vmax−κ(s)∗ vmax−vmin2 The path’s velocity parameterization is used to reparametrize the path by time. t = ∫ s 0 1 v(s)ds In our implementation, we modiﬁed the RRT to improve performance in a dynamically built map by initializing the RRT tree with the raw RRT path to goal from the previous control iteration. Before initialization, we check the path for collisions and truncate it if a collision is detected. This initialization results in faster RRT computation and increased path consistency between iterations. In the second stage, a dynamically feasible trajectory from the current state to a horizon point is generated. The horizon point is selected as a time horizon selected along the param- ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01901,
+        0.01601,
+        -0.00985,
+        0.00504,
+        -0.01284
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "e second stage, a dynamically feasible trajectory from the current state to a horizon point is generated. The horizon point is selected as a time horizon selected along the param- ",
+      "overlap_with_next": "re K(tk) is the optimal gain matrix. [Page 5] Fig. 6: Three examples from our training set of occupancy maps and their resulting expanded predictive map along with the ground truth",
+      "text": "e second stage, a dynamically feasible trajectory from the current state to a horizon point is generated. The horizon point is selected as a time horizon selected along the param- eterized RRT path. We utilize the same direct transcription feasibility problem as formulated in [32] and refer the reader to their formulation. This approach discretizes the trajectory into N knot points using a variable time interval dt. Let x0(tk) be the position of the robot and u0(tk), k < N, be the input at the kth knot point where tk+1 = tk +dt. We modify this feasibility problem by introducing a cost function to penalize large dt (therefore encouraging high speeds) as well as slightly penalizing the input to encourage smoother trajectories. The objective function is shown below. J(x0(tk), u0(tk),dt ) = N−1∑ k=0 u0(tk)T Rc u0(tk) +dt In order to track the dynamically feasible trajectory, time- varying LQR (TVLQR) is performed in the third stage. The control signal is generated as: u(tk, x) = K(tk)(x− x0(tk)) + u0(tk). where K(tk) is the optimal gain matrix. [Page 5] Fig. 6: Three examples from our training set of occupancy maps and their resulting expanded predictive map along with the ground truth",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0269,
+        -0.00764,
+        -0.00148,
+        0.01254,
+        -0.01824
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "re K(tk) is the optimal gain matrix. [Page 5] Fig. 6: Three examples from our training set of occupancy maps and their resulting expanded predictive map along with the ground truth",
+      "overlap_with_next": "m allowed velocity speciﬁed in each hardware trial. For RRT sampling, we use an an obstacle avoidance radius of 0.4 m. For direct transcription, we used N = 10 knot points and a ti",
+      "text": "re K(tk) is the optimal gain matrix. [Page 5] Fig. 6: Three examples from our training set of occupancy maps and their resulting expanded predictive map along with the ground truth (white is unoccupied space, light grey is occupied and dark grey unknown). Augmenting our training data with random rotations, allows the network prediction to be more robust to different environment conﬁgurations encountered by the robot. Fig. 7: Visualization of system during hardware experiment. Known map is enclosed by the red boundary. The brown path is the smoothed RRT path to goal, and the purple path is the local optimized direct transcription trajectory. 3) Control Parameters: The control pipeline executes at a rate of 5 Hz, or a control interval of T = 0.2 seconds. The control signal is calculated from the odometry and TVLQR gains at a rate of 50 Hz. The max time and max iterations for the RRT search were set to 0.05 seconds and 20000 iterations. The maximum velocity for RRT path parameterization was set to the maximum allowed velocity speciﬁed in each hardware trial. For RRT sampling, we use an an obstacle avoidance radius of 0.4 m. For direct transcription, we used N = 10 knot points and a ti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04477,
+        0.03012,
+        -0.03008,
+        0.02674,
+        -0.04496
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "m allowed velocity speciﬁed in each hardware trial. For RRT sampling, we use an an obstacle avoidance radius of 0.4 m. For direct transcription, we used N = 10 knot points and a ti",
+      "overlap_with_next": "riments, we evaluate the performance on new environments (Fig. 8) not seen by the robot. In the continual learning evaluation, we allow the robot to collect data in a semi-supervis",
+      "text": "m allowed velocity speciﬁed in each hardware trial. For RRT sampling, we use an an obstacle avoidance radius of 0.4 m. For direct transcription, we used N = 10 knot points and a time horizon of H = 2 seconds. We set δf =[ 0.1, 0.1, 0.1, 0.25, 100.0 ] , Rc = diag(0.1, 0.1) and use an obstacle radius of 0.35 m. The costs for TVLQR are as follows: Q =diag(10, 10, 10, 10, 10) Qf =diag(1, 1, 5, 1, 1) R =diag(1, 1) The acceleration and turn angle control bounds were set to [-2.5, 2.5] m/s and [-1.5, 1.5] rad/s respectively. The velocity minimum bound was set to 0.5 m/s and turn angle state bounds were set to [-0.3, 0.3] rad. V. E XPERIMENTAL EVALUATION We conduct preliminary hardware experiments to validate our approach using a robotic car based on MIT’s open- source race car [22] as described in III-B. Our map prediction network was trained on indoor scenes consisting primarily of straight and turning corridors. Similar to [35], we conduct both zero-shot and continual learning scenarios. In our zero- shot experiments, we evaluate the performance on new environments (Fig. 8) not seen by the robot. In the continual learning evaluation, we allow the robot to collect data in a semi-supervis",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05415,
+        -0.00207,
+        -0.00092,
+        0.02551,
+        0.00074
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "riments, we evaluate the performance on new environments (Fig. 8) not seen by the robot. In the continual learning evaluation, we allow the robot to collect data in a semi-supervis",
+      "overlap_with_next": "sults are summarized in Table I. Without map prediction, the robot’s maximum speed, vmax, was 3 m/s without collision. When evaluating without map prediction with the maximum speed",
+      "text": "riments, we evaluate the performance on new environments (Fig. 8) not seen by the robot. In the continual learning evaluation, we allow the robot to collect data in a semi-supervised manner from the new environment, ﬁne tune the network ofﬂine and reevaluate performance. We assessed the maximum speed allowed by the robot and the number of successful trials, which we deﬁned as reaching the target goal without collision. A visualization of our system during [Page 6] Fig. 8: This sequence of images represents a trajectory taken by the robot during our experimental evaluation. Algorithm Max Speed Success Rate Without Map Prediction 3 m/s 5/5 Without Map Prediction 4 m/s 1/5 With Map Prediction (Zero-shot) 4 m/s 3/5 With Map Prediction (Fine Tuned) 4 m/s 4/5 TABLE I: This table captures the results of our preliminary hardware experiments on our modiﬁed MIT race car. Fig. 9: Example trajectories of car with max velocity of 4 m/s with and without map prediction. the hardware experiment is shown in Fig. 7. The results are summarized in Table I. Without map prediction, the robot’s maximum speed, vmax, was 3 m/s without collision. When evaluating without map prediction with the maximum speed",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06072,
+        -0.03317,
+        -0.00806,
+        0.03407,
+        -0.01987
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "sults are summarized in Table I. Without map prediction, the robot’s maximum speed, vmax, was 3 m/s without collision. When evaluating without map prediction with the maximum speed",
+      "overlap_with_next": "SCUSSION AND CONCLUSION In this paper, we describe an approach that enables high speed navigation based on predicted occupancy maps. Speciﬁcally, we present a generative neural net",
+      "text": "sults are summarized in Table I. Without map prediction, the robot’s maximum speed, vmax, was 3 m/s without collision. When evaluating without map prediction with the maximum speed of 4 m/s, the robot was only able to successfully reach the goal 1/5 attempts. With map prediction, we were able to achieve success 3/5 trials. After allowing the network to ﬁne tune on the new environment, we were able to increase the ratio to 4/5 successful trials showing the ability to continually learn as the robot explores new environments. For comparison, the trajectories with and without prediction for one of the trials where vmax = 4 m/s is shown in Fig. 9. Without map prediction, the robot limited by the sensor’s ﬁeld of view, plans a waypoint in unknown space and is not able to react in time once the map has been updated to reﬂect the true occupied space. In contrast, with map prediction, we are able to plan with longer horizons resulting in smoother trajectories that allow the robot to reach the desired goal. VI. D ISCUSSION AND CONCLUSION In this paper, we describe an approach that enables high speed navigation based on predicted occupancy maps. Speciﬁcally, we present a generative neural net",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05622,
+        -0.02055,
+        -0.01569,
+        0.01242,
+        -0.03358
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "SCUSSION AND CONCLUSION In this paper, we describe an approach that enables high speed navigation based on predicted occupancy maps. Speciﬁcally, we present a generative neural net",
+      "overlap_with_next": "p prediction with these parameters. When max velocity is increased to 4 m/s, planned trajectories will often be within unknown space of the map (outside of the sensor range). This ",
+      "text": "SCUSSION AND CONCLUSION In this paper, we describe an approach that enables high speed navigation based on predicted occupancy maps. Speciﬁcally, we present a generative neural network archi- tecture approach to collect self-supervised training data and training methodology that allows the robot to predict occu- pied spaces beyond the line of sight of the camera. Further, we present several engineering solutions in the perception algorithm that were required for prediction to work on real data on the physical hardware including data augmentation, using a class-balanced loss function and traditional computer vision methods for noise suppression. In addition, we also present a real-time controller that leverages the predicted occupancy map as part of the plan- ning algorithm. At a max velocity of 3 m/s, 3 Hz mapping rate, 3 m sensor range, and 1 sec time horizon, planned trajectories will almost always be within the known region of the map. It isn’t surprising, thus, that the system is successful without map prediction with these parameters. When max velocity is increased to 4 m/s, planned trajectories will often be within unknown space of the map (outside of the sensor range). This ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05686,
+        -0.02948,
+        -0.02663,
+        0.0227,
+        -0.02014
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "p prediction with these parameters. When max velocity is increased to 4 m/s, planned trajectories will often be within unknown space of the map (outside of the sensor range). This ",
+      "overlap_with_next": "pective. Another area to explore is to improve continual learning techniques as the robot enters new environments. It is unrealistic to expect the training data to capture the full",
+      "text": "p prediction with these parameters. When max velocity is increased to 4 m/s, planned trajectories will often be within unknown space of the map (outside of the sensor range). This can cause trajectories to plan through unseen walls, causing failure. The predicted occupancy map is able to help address this limitation by providing a longer horizon for planning which accounts for the improved performance at 4 m/s in our preliminary hardware evaluation. While the results are promising, there are many opportu- nities for future work. One area to explore is to extend our preliminary hardware experiments to more thorough training and testing in various indoor and outdoor environments to assess the impact of map prediction for high speed naviga- tion. Another area of future work is to attempt to bypass explicit mapping completely and develop prediction tech- niques on raw sensor data. We believe this would improve the performance signiﬁcantly as map prediction is currently the bottleneck from a computational perspective. Another area to explore is to improve continual learning techniques as the robot enters new environments. It is unrealistic to expect the training data to capture the full",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05481,
+        0.01911,
+        -0.04506,
+        0.02583,
+        -0.00937
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "pective. Another area to explore is to improve continual learning techniques as the robot enters new environments. It is unrealistic to expect the training data to capture the full",
+      "overlap_with_next": "ogy , vol. 61, pp. 27–48, 2010. [3] P. Schwartenbeck, J. Passecker, T. Hauser, T. H. B. FitzGerald, M. Kronbichler, and K. J. Friston, “Computational mechanisms of curiosity and go",
+      "text": "pective. Another area to explore is to improve continual learning techniques as the robot enters new environments. It is unrealistic to expect the training data to capture the full distribution of the environments that the robot will expect to see. We believe further research is needed to improve the data efﬁciency of continual learning techniques so that the robot can improve performance in real time as it explores new environments. In spite of these limitations, we believe we have shown the promise of developing predictive capabilities that improve navigation performance of mobile robots and are continually developing techniques to further extend these capabilities as described above. [Page 7] REFERENCES [1] H. V oicu and N. Schmajuk, “Exploration, navigation and cognitive mapping,” Adaptive Behavior , vol. 8, no. 3-4, pp. 207–223, 2000. [Online]. Available: https://doi.org/10.1177/105971230000800301 [2] R. L. Buckner, “The role of the hippocampus in prediction and imagination,” Annual review of psychology , vol. 61, pp. 27–48, 2010. [3] P. Schwartenbeck, J. Passecker, T. Hauser, T. H. B. FitzGerald, M. Kronbichler, and K. J. Friston, “Computational mechanisms of curiosity and go",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08914,
+        -0.01121,
+        -0.0154,
+        0.02016,
+        -0.0134
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "ogy , vol. 61, pp. 27–48, 2010. [3] P. Schwartenbeck, J. Passecker, T. Hauser, T. H. B. FitzGerald, M. Kronbichler, and K. J. Friston, “Computational mechanisms of curiosity and go",
+      "overlap_with_next": " Engineers Inc., may 2019, pp. 5453–5459. [7] K. D. Katyal, K. M. Popek, C. Paxton, J. L. Moore, K. C. Wolfe, P. Burlina, and G. D. Hager, “Occupancy map prediction using generativ",
+      "text": "ogy , vol. 61, pp. 27–48, 2010. [3] P. Schwartenbeck, J. Passecker, T. Hauser, T. H. B. FitzGerald, M. Kronbichler, and K. J. Friston, “Computational mechanisms of curiosity and goal-directed exploration,” bioRxiv, 2018. [Online]. Available: https://www.biorxiv.org/content/early/2018/09/07/411272 [4] H. J. Chang, C. G. Lee, Y .-H. Lu, and Y . C. Hu, “P-slam: Simultaneous localization and mapping with environmental-structure prediction,” IEEE Transactions on Robotics , vol. 23, no. 2, pp. 281–293, 2007. [5] R. Shrestha, F.-P. Tian, W. Feng, P. Tan, and R. Vaughan, “Learned map prediction for enhanced mobile robot exploration,” in 2019 International Conference on Robotics and Automation (ICRA) . IEEE, 2019, pp. 1197–1204. [6] K. Katyal, K. Popek, C. Paxton, P. Burlina, and G. D. Hager, “Uncertainty-aware occupancy map prediction using generative net- works for robot navigation,” in Proceedings - IEEE International Conference on Robotics and Automation , vol. 2019-May. Institute of Electrical and Electronics Engineers Inc., may 2019, pp. 5453–5459. [7] K. D. Katyal, K. M. Popek, C. Paxton, J. L. Moore, K. C. Wolfe, P. Burlina, and G. D. Hager, “Occupancy map prediction using generativ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06222,
+        0.00202,
+        -0.02835,
+        0.0062,
+        0.01076
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": " Engineers Inc., may 2019, pp. 5453–5459. [7] K. D. Katyal, K. M. Popek, C. Paxton, J. L. Moore, K. C. Wolfe, P. Burlina, and G. D. Hager, “Occupancy map prediction using generativ",
+      "overlap_with_next": "onference on Robotics and Automation (ICRA). IEEE, 2014, pp. 6114–6121. [12] O. Asraf and V . Indelman, “Experience-based prediction of unknown environments for enhanced belief spa",
+      "text": " Engineers Inc., may 2019, pp. 5453–5459. [7] K. D. Katyal, K. M. Popek, C. Paxton, J. L. Moore, K. C. Wolfe, P. Burlina, and G. D. Hager, “Occupancy map prediction using generative and fully convolutional networks for vehicle navigation,” CoRR, vol. abs/1803.02007, 2018. [Online]. Available: http://arxiv.org/abs/1803.02007 [8] S. K. Ramakrishnan, Z. Al-Halah, and K. Grauman, “Occupancy anticipation for efﬁcient exploration and navigation,” 2020. [9] D. P. Str ¨om, F. Nenci, and C. Stachniss, “Predictive exploration consid- ering previously mapped environments,” in 2015 IEEE international conference on robotics and automation (ICRA) . IEEE, 2015, pp. 2761–2766. [10] G. J. Stein, C. Bradley, and N. Roy, “Learning over subgoals for efﬁ- cient navigation of structured, unknown environments,” in Conference on Robot Learning , 2018, pp. 213–222. [11] C. Richter, J. Ware, and N. Roy, “High-speed autonomous navigation of unknown environments using learned probabilities of collision,” in 2014 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2014, pp. 6114–6121. [12] O. Asraf and V . Indelman, “Experience-based prediction of unknown environments for enhanced belief spa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05525,
+        0.00141,
+        -0.02787,
+        0.03001,
+        -0.01127
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "onference on Robotics and Automation (ICRA). IEEE, 2014, pp. 6114–6121. [12] O. Asraf and V . Indelman, “Experience-based prediction of unknown environments for enhanced belief spa",
+      "overlap_with_next": "tions on neural networks and learning systems , 2019. [17] S. Kousik, S. Vaskov, F. Bu, M. Johnson-Roberson, and R. Vasude- van, “Bridging the gap between safety and real-time perf",
+      "text": "onference on Robotics and Automation (ICRA). IEEE, 2014, pp. 6114–6121. [12] O. Asraf and V . Indelman, “Experience-based prediction of unknown environments for enhanced belief space planning,” 10 2020. [13] A. Elhafsi, B. Ivanovic, L. Janson, and M. Pavone, “Map-Predictive Motion Planning in Unknown Environments,” in Proceedings - IEEE International Conference on Robotics and Automation . Institute of Electrical and Electronics Engineers Inc., may 2020, pp. 8552–8558. [14] G. Kahn, A. Villaﬂor, V . Pong, P. Abbeel, and S. Levine, “Uncertainty-aware reinforcement learning for collision avoidance,” CoRR, vol. abs/1702.01182, 2017. [Online]. Available: http://arxiv. org/abs/1702.01182 [15] P. Karkus, D. Hsu, and W. S. Lee, “Qmdp-net: Deep learning for plan- ning under partial observability,” in Advances in Neural Information Processing Systems, 2017, pp. 4694–4704. [16] H. Li, Q. Zhang, and D. Zhao, “Deep reinforcement learning-based automatic exploration for navigation in unknown environment,” IEEE transactions on neural networks and learning systems , 2019. [17] S. Kousik, S. Vaskov, F. Bu, M. Johnson-Roberson, and R. Vasude- van, “Bridging the gap between safety and real-time perf",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04333,
+        0.0126,
+        -0.00605,
+        0.01837,
+        -0.00697
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "tions on neural networks and learning systems , 2019. [17] S. Kousik, S. Vaskov, F. Bu, M. Johnson-Roberson, and R. Vasude- van, “Bridging the gap between safety and real-time perf",
+      "overlap_with_next": "-030-43089-4 { }20 [22] B. Cain, “High speed autonomous vehicles using the mit racecar platform,” 2017. [23] Stanford Artiﬁcial Intelligence Laboratory et al., “Robotic operating s",
+      "text": "tions on neural networks and learning systems , 2019. [17] S. Kousik, S. Vaskov, F. Bu, M. Johnson-Roberson, and R. Vasude- van, “Bridging the gap between safety and real-time performance in receding-horizon trajectory design for mobile robots,” arXiv preprint arXiv:1809.06746, 2018. [18] B. T. Lopez and J. P. How, “Aggressive 3-d collision avoidance for high-speed navigation.” in ICRA, 2017, pp. 5759–5765. [19] J. Tordesillas, B. T. Lopez, M. Everett, and J. P. How, “Faster: Fast and safe trajectory planner for ﬂights in unknown environments,” 2020. [20] F. Gao, W. Wu, W. Gao, and S. Shen, “Flying on point clouds: Online trajectory generation and autonomous navigation for quadrotors in cluttered environments,” Journal of Field Robotics , vol. 36, no. 4, pp. 710–733, 2019. [21] P. Florence, J. Carter, and R. Tedrake, “Integrated Perception and Control at High Speed: Evaluating Collision Avoidance Maneuvers Without Maps.” Springer, Cham, 2020, pp. 304–319. [Online]. Available: https://doi.org/10.1007/978-3-030-43089-4 { }20 [22] B. Cain, “High speed autonomous vehicles using the mit racecar platform,” 2017. [23] Stanford Artiﬁcial Intelligence Laboratory et al., “Robotic operating s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04409,
+        -0.01823,
+        0.00804,
+        0.00416,
+        -0.00586
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "-030-43089-4 { }20 [22] B. Cain, “High speed autonomous vehicles using the mit racecar platform,” 2017. [23] Stanford Artiﬁcial Intelligence Laboratory et al., “Robotic operating s",
+      "overlap_with_next": " (South), October 27 - November 2, 2019 . IEEE, 2019, pp. 8857–8866. [28] Z. Yan, X. Li, M. Li, W. Zuo, and S. Shan, “Shift-net: Image inpainting via deep feature rearrangement,” i",
+      "text": "-030-43089-4 { }20 [22] B. Cain, “High speed autonomous vehicles using the mit racecar platform,” 2017. [23] Stanford Artiﬁcial Intelligence Laboratory et al., “Robotic operating system.” [Online]. Available: https://www.ros.org [24] M. Labb ´e and F. Michaud, “Rtab-map as an open-source lidar and visual simultaneous localization and mapping library for large-scale and long-term online operation,” Journal of Field Robotics , vol. 36, no. 2, pp. 416–446, 2019. [25] O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks for biomedical image segmentation,” CoRR, vol. abs/1505.04597, 2015. [Online]. Available: http://arxiv.org/abs/1505. 04597 [26] P. Isola, J.-Y . Zhu, T. Zhou, and A. A. Efros, “Image-to-image translation with conditional adversarial networks,” CVPR, 2017. [27] C. Xie, S. Liu, C. Li, M. Cheng, W. Zuo, X. Liu, S. Wen, and E. Ding, “Image inpainting with learnable bidirectional attention maps,” in2019 IEEE/CVF International Conference on Computer Vision, ICCV 2019, Seoul, Korea (South), October 27 - November 2, 2019 . IEEE, 2019, pp. 8857–8866. [28] Z. Yan, X. Li, M. Li, W. Zuo, and S. Shan, “Shift-net: Image inpainting via deep feature rearrangement,” i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06732,
+        -0.02325,
+        -0.01613,
+        0.02141,
+        -0.01117
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": " (South), October 27 - November 2, 2019 . IEEE, 2019, pp. 8857–8866. [28] Z. Yan, X. Li, M. Li, W. Zuo, and S. Shan, “Shift-net: Image inpainting via deep feature rearrangement,” i",
+      "overlap_with_next": "nition , 2020. [32] M. Basescu and J. Moore, “Direct nmpc for post-stall motion planning with ﬁxed-wing uavs,” arXiv preprint arXiv:2001.11478 , 2020. [33] S. M. LaValle, “Rapidly-",
+      "text": " (South), October 27 - November 2, 2019 . IEEE, 2019, pp. 8857–8866. [28] Z. Yan, X. Li, M. Li, W. Zuo, and S. Shan, “Shift-net: Image inpainting via deep feature rearrangement,” in Computer Vision - ECCV 2018 - 15th European Conference, Munich, Germany, September 8-14, 2018, Proceedings, Part XIV , ser. Lecture Notes in Computer Science, V . Ferrari, M. Hebert, C. Sminchisescu, and Y . Weiss, Eds., vol. 11218. Springer, 2018, pp. 3–19. [29] K. D. Katyal, K. M. Popek, C. Paxton, J. L. Moore, K. C. Wolfe, P. Burlina, and G. D. Hager, “Occupancy map prediction using generative and fully convolutional networks for vehicle navigation,” CoRR, vol. abs/1803.02007, 2018. [Online]. Available: http://arxiv.org/abs/1803.02007 [30] Y . Cui, M. Jia, T.-Y . Lin, Y . Song, and S. Belongie, “Class-balanced loss based on effective number of samples,” in CVPR, 2019. [31] T. Kaneko and T. Harada, “Noise robust generative adversarial net- works,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , 2020. [32] M. Basescu and J. Moore, “Direct nmpc for post-stall motion planning with ﬁxed-wing uavs,” arXiv preprint arXiv:2001.11478 , 2020. [33] S. M. LaValle, “Rapidly-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07968,
+        -0.0192,
+        -0.01447,
+        0.01662,
+        -0.00989
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31203,
+      "length": 603,
+      "overlap_with_previous": "nition , 2020. [32] M. Basescu and J. Moore, “Direct nmpc for post-stall motion planning with ﬁxed-wing uavs,” arXiv preprint arXiv:2001.11478 , 2020. [33] S. M. LaValle, “Rapidly-",
+      "overlap_with_next": "",
+      "text": "nition , 2020. [32] M. Basescu and J. Moore, “Direct nmpc for post-stall motion planning with ﬁxed-wing uavs,” arXiv preprint arXiv:2001.11478 , 2020. [33] S. M. LaValle, “Rapidly-exploring random trees: A new tool for path planning,” 1998. [34] K. Yang and S. Sukkarieh, “An analytical continuous-curvature path- smoothing algorithm,” IEEE Transactions on Robotics , vol. 26, no. 3, pp. 561–568, 2010. [35] G. Kahn, P. Abbeel, and S. Levine, “BADGR: an autonomous self-supervised learning-based navigation system,” CoRR, vol. abs/2002.05700, 2020. [Online]. Available: https://arxiv.org/abs/2002. 05700",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0815,
+        -0.02057,
+        -0.00393,
+        -0.00287,
+        -0.00544
+      ]
+    }
+  ]
+}

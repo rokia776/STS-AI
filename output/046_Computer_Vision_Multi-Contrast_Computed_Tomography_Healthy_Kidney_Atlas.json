@@ -1,0 +1,657 @@
+{
+  "paper_id": "3a80e355-af9e-418e-8396-6813f3c79264",
+  "filename": "046_Computer_Vision_Multi-Contrast_Computed_Tomography_Healthy_Kidney_Atlas.pdf",
+  "title": "Multi-Contrast Computed Tomography Healthy Kidney Atlas",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 38,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " kidney ac ross non -contrast CT and early arterial, late arterial, venous and delayed contrast enhanced CT. Briefly, we introduce a deep learning -based volume of interest extract",
+      "text": "[Page 1] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 1 Abstract— The construction of three -dimensional multi-modal tissue maps provides an opportunity to spur interdisciplinary innovations across temporal and sp atial scales through information integration. While the preponderance of effort is allocated to the cellular level and explore the changes in cell interactions and organizations, contextualizing findings within organs and systems is essential to visualize and interpret higher resolution linkage across scales. There is a substantial normal variation of kidney morphometry and appearance across body size, sex, and imaging protocols in abdominal computed tomography (CT). A volumetric atlas framework is needed t o integrate and visualize the variability across scales. However, there is no abdominal and retroperitoneal organs atlas framework for multi -contrast CT. Hence, we proposed a high - resolution CT retroperitoneal atlas specifically optimized for the kidney ac ross non -contrast CT and early arterial, late arterial, venous and delayed contrast enhanced CT. Briefly, we introduce a deep learning -based volume of interest extract",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01201,
+        -0.02906,
+        -0.04181,
+        0.02554,
+        -0.01341
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " kidney ac ross non -contrast CT and early arterial, late arterial, venous and delayed contrast enhanced CT. Briefly, we introduce a deep learning -based volume of interest extract",
+      "overlap_with_next": "d HuBMAP from NIH. Ho Hin Lee, Yucheng Tang, Xu Kaiwen, Shunxing Bao, Yuankai Huo and Bennett A. Landman are with the Department of Electrical Engineering and Computer Science, Van",
+      "text": " kidney ac ross non -contrast CT and early arterial, late arterial, venous and delayed contrast enhanced CT. Briefly, we introduce a deep learning -based volume of interest extraction method and an automated two -stage hierarchal registration pipeline to register abdomi nal volumes to a high -resolution CT atlas template. To generate and evaluate the atlas, multi -contrast modality CT scans of 500 subjects (without reported history of renal disease, age: 15 -50 years, 250 males & 250 females) were processed. We demonstrate a stable generalizability of the atlas template for integrating the normal kidney variation from small to large, across contrast modalities and populations with great variability of demographics. The linkage of atlas and demographics provided a better understanding of the variation of kidney anatomy across populations. Index Terms —Retroperitoneal atlas, deep learning, multi - contrast computed tomography, medical image registration, kidney atlas This work is supported by a research fund HuBMAP from NIH. Ho Hin Lee, Yucheng Tang, Xu Kaiwen, Shunxing Bao, Yuankai Huo and Bennett A. Landman are with the Department of Electrical Engineering and Computer Science, Van",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00572,
+        -0.04841,
+        -0.04056,
+        0.01352,
+        -0.00106
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "d HuBMAP from NIH. Ho Hin Lee, Yucheng Tang, Xu Kaiwen, Shunxing Bao, Yuankai Huo and Bennett A. Landman are with the Department of Electrical Engineering and Computer Science, Van",
+      "overlap_with_next": "allenging to analyze. Extensive studies mapping the organization and molecular profiles of cells within tissues or organs are needed across the human body. While the majority of ef",
+      "text": "d HuBMAP from NIH. Ho Hin Lee, Yucheng Tang, Xu Kaiwen, Shunxing Bao, Yuankai Huo and Bennett A. Landman are with the Department of Electrical Engineering and Computer Science, Vanderbilt University, Tennessee, United States. Jeffery M. Spraggins is with the Department of Biochemistry, Vanderbilt University, Tennessee, United States. Agnes B. Fogo is with the Department of Pathology, Microbiology and Immunology, Vanderbilt University Medical Center, Tennessee, United States. Raymond Harris and Mark P. de Caestecker are with the division of Nephrology and Hypertension in Department of Medicine, Vanderbilt University Medical Center, Tennessee, United States. Mattias Heinrich is with the Institute of Medical Informatics , University of Lübeck, Germany. *First authors, †Corresponding author, Email: ho.hin.lee@vanderbilt.edu I. INTRODUCTION hysiological and metabolic processes are perform ed in parallel in the human body. Complicated relationships between cells are required for proper organ function but are challenging to analyze. Extensive studies mapping the organization and molecular profiles of cells within tissues or organs are needed across the human body. While the majority of ef",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00888,
+        -0.03634,
+        -0.04042,
+        0.00284,
+        -0.02776
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "allenging to analyze. Extensive studies mapping the organization and molecular profiles of cells within tissues or organs are needed across the human body. While the majority of ef",
+      "overlap_with_next": "t agent before imaging procedures. Five different contrast phases are typically generated corresponding to the timing of the contrast agent in the imaging cycle: 1) non-contrast, 2",
+      "text": "allenging to analyze. Extensive studies mapping the organization and molecular profiles of cells within tissues or organs are needed across the human body. While the majority of efforts are distributed to the cellular and molecular perspectives [1], generalizing information from cell to organ level is essential to provide a better understanding of the functionality and linkage across scales [2]. The use of computed tomography provides an opportunity to contextualize the anatomical characteristics of organs and systems in the human body. In addition, by creating a generalizable framework with integration of micro -scale information and sy stem-scale information, this will provide clinicians and researchers the ability to visualize the complex organization of tissues from a cellular to tissue level. Abdominal CT provides information about abdominal organs at a system scale. Contrast enhancement demonstrates additional anatomical and structural details of organs and neighboring vessels by injecting a contrast agent before imaging procedures. Five different contrast phases are typically generated corresponding to the timing of the contrast agent in the imaging cycle: 1) non-contrast, 2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01978,
+        -0.02321,
+        -0.06563,
+        0.01832,
+        0.01906
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "t agent before imaging procedures. Five different contrast phases are typically generated corresponding to the timing of the contrast agent in the imaging cycle: 1) non-contrast, 2",
+      "overlap_with_next": "enging and no atlas framework for abdominal or retroperitoneal organs is currently publicly available. Creating an atlas for particular anatomical regions has widely been used with",
+      "text": "t agent before imaging procedures. Five different contrast phases are typically generated corresponding to the timing of the contrast agent in the imaging cycle: 1) non-contrast, 2) early arterial, 3) late arterial, 4) portal venous and 5) delayed. The intensity range of organs fluctuates across the contrast enhanced imaging cycle and the variation of intensity helps to capt ure and specify contextual features of each specific organ. The kidneys, which are located retroperitoneally, also have challenges in imaging. From the anatomical information provided from the contrast enhanced CT of large clinical cohorts, healthy kidney morphometry and appearance may vary. An atlas reference framework is needed to generalize the anatomical and contextual features across the variations in sex, body size, and imaging protocols. However, due to the large variability in anatomy and morphology of various abdominal and retroperitoneal organs, generating a standard reference template for each of these organs is still challenging and no atlas framework for abdominal or retroperitoneal organs is currently publicly available. Creating an atlas for particular anatomical regions has widely been used with",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01989,
+        -0.01152,
+        -0.04229,
+        0.0524,
+        0.02383
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "enging and no atlas framework for abdominal or retroperitoneal organs is currently publicly available. Creating an atlas for particular anatomical regions has widely been used with",
+      "overlap_with_next": "d the original source image space. brain atlas with brain MRI. Kuklisova-Murgasova et al. generated multiple atlases for early developing babies with age ranging from 29 to 44 week",
+      "text": "enging and no atlas framework for abdominal or retroperitoneal organs is currently publicly available. Creating an atlas for particular anatomical regions has widely been used with magnetic resonance imaging (MRI). Extensive efforts are allocated in multiple perspectives of Multi-Contrast Computed Tomography Healthy Kidney Atlas Ho Hin Lee*†, Yucheng Tang, Kaiwen Xu, Shunxing Bao, Agnes B. Fogo, Raymond Harris, Mark P. de Caestecker, Mattias Heinrich, Jeffrey M. Spraggins, Yuankai Huo, Bennett A. Landman P [Page 2] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 2 Fig. 1. Illustration of multi -contrast phase CT atlas. The color grid in the three -dimensional atlas space represents the defined spatial reference for the abdominal-to-retroperitoneal volume of interest and localizes abdominal and retroperitoneal organs with each contrast phase characteristic s. Blue arrows represent the bi-directional transformation across the atlas target defined spatial reference and the original source image space. brain atlas with brain MRI. Kuklisova-Murgasova et al. generated multiple atlases for early developing babies with age ranging from 29 to 44 week",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01592,
+        0.00108,
+        -0.04435,
+        0.02639,
+        -0.0111
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "d the original source image space. brain atlas with brain MRI. Kuklisova-Murgasova et al. generated multiple atlases for early developing babies with age ranging from 29 to 44 week",
+      "overlap_with_next": "hile, limited s tudies have proposed creating a standard reference framework for abdominal and retroperitoneal organs. Development of abdominal and retroperitoneal organ atlases is",
+      "text": "d the original source image space. brain atlas with brain MRI. Kuklisova-Murgasova et al. generated multiple atlases for early developing babies with age ranging from 29 to 44 weeks using affine registrati on [3], while Shi et al. proposed an infant brain atlas using unbiased group-wise registration with three varying scanning time points of brain MRI from 56 males and 39 females normal infants [4]. Unbiased spatiotemporal 4 -dimensional MRI atlas and time-variable longitudinal MRI atlas for infant brain were also proposed by Ali et al. with diffeomorphic deformable registration with kernel regression in age, and by Yuyao et al. patch-based registrat ion in spatial -temporal wavelet domain respectively [5]. Apart from genera ting atlas framework for normal brain, Rajashekar et al. generated two high -resolution normative disease -related brain atlases in FLAIR MRI and non-contrast CT modalities, to investigate lesion -related diseases such as stroke and multiple sclerosis in elde rly population [6]. Meanwhile, limited s tudies have proposed creating a standard reference framework for abdominal and retroperitoneal organs. Development of abdominal and retroperitoneal organ atlases is",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00416,
+        -0.00169,
+        -0.01538,
+        0.02523,
+        0.00114
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "hile, limited s tudies have proposed creating a standard reference framework for abdominal and retroperitoneal organs. Development of abdominal and retroperitoneal organ atlases is",
+      "overlap_with_next": "h BPR model and generate a value ranging from -12 to +12, corresponding to the upper lung region and the pelvis region respective ly in the body. By limiting the range of values fo",
+      "text": "hile, limited s tudies have proposed creating a standard reference framework for abdominal and retroperitoneal organs. Development of abdominal and retroperitoneal organ atlases is challenging across multi - modality images (CT and MRI) due to the limited robustness of the registration methods and significant morphology variations in multiple organs associated with patients’ demographics [7]. In this work, we present a contrast -preserving CT retroperitoneal atlas framework, optimized for healthy kidne y organs with contrast -characterized variability and the generalizable features across a large population of clinical cohorts as shown in Fig. 1. Specifically, as to reduce the failure rate of transferring the morphological and contrastive characteristics of kidney organs, we initially extracted the abdominal-to-retroperitoneal volume of interest with a similar field of view to the atlas target image, using a deep neural network called body part regression (BPR) [8]. 2D slices of the CT volume assessed with BPR model and generate a value ranging from -12 to +12, corresponding to the upper lung region and the pelvis region respective ly in the body. By limiting the range of values fo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02265,
+        -0.00293,
+        -0.0426,
+        0.02126,
+        0.0043
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "h BPR model and generate a value ranging from -12 to +12, corresponding to the upper lung region and the pelvis region respective ly in the body. By limiting the range of values fo",
+      "overlap_with_next": "ng for kidney organs, and generalized the anatomical context of kidneys with significant variation of morphological and contrastive characteristics across demographics and imaging ",
+      "text": "h BPR model and generate a value ranging from -12 to +12, corresponding to the upper lung region and the pelvis region respective ly in the body. By limiting the range of values for both abdominal and retroperitoneal regions, each CT volume is cropped and excludes other regions apart from the abdomen and retroperitoneum, such as the lung and pelvis. A two -stage hierarchical registration pipeline is then performed, registering the extracted volume interest to the high -resolution atlas target with affine and non -rigid registration [9, 10] . To ensure the stability and the variation localized in the atlas template, average and variance mappings across the multi -contrast registered output is c omputed to demonstrate a better understanding of anatomical details of kidney organs across different contrasts. Overall, our main contributions are summarized as: • We constructed the first multi -contrast CT healthy kidney atlas framework for the public usage domain. • We proposed a standardized framework optimizing for kidney organs, and generalized the anatomical context of kidneys with significant variation of morphological and contrastive characteristics across demographics and imaging ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02234,
+        -0.03316,
+        -0.04471,
+        0.03248,
+        -0.00517
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ng for kidney organs, and generalized the anatomical context of kidneys with significant variation of morphological and contrastive characteristics across demographics and imaging ",
+      "overlap_with_next": "imension of the atlas template and performed 2 -stages hierarchical registration. The successfully registered scans are finally used to compute the average template and the varianc",
+      "text": "ng for kidney organs, and generalized the anatomical context of kidneys with significant variation of morphological and contrastive characteristics across demographics and imaging protocols. • We evalua te the generalizability of the atlas template by transferring the atlas target label to the 13 organs well-annotated CT space with inverse transformation. An unlabeled multi-contrast phase CT cohort is used to compute average and variance mapping to demons trate the effectiveness and stability of the proposed atlas framework. Our proposed atlas framework demonstrates a stable transfer ability in both left and right kidneys with median Dice above 0.8. [Page 3] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 3 Figure 2. The overview of the complete pipeline to create kidney atlas template is illustrated. The input volume is initially cropped to a similar field of view with the atlas target. The extracted volume s of interest are resampled to the same r esolution and dimension of the atlas template and performed 2 -stages hierarchical registration. The successfully registered scans are finally used to compute the average template and the varianc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01435,
+        -0.00398,
+        -0.04146,
+        0.0471,
+        0.01142
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "imension of the atlas template and performed 2 -stages hierarchical registration. The successfully registered scans are finally used to compute the average template and the varianc",
+      "overlap_with_next": "eep learning -based body part regression algorithm to obtain a similar field of view with the atlas target image, increasing the stability of registration in the abdominal body and",
+      "text": "imension of the atlas template and performed 2 -stages hierarchical registration. The successfully registered scans are finally used to compute the average template and the variance maps. This work is a significant extension of our prior confere nce paper [11]. First, we compute th e quantitative measures with different registrations methods and evaluate the registration performance of the atlas framework with 13 organs corresponding label transfer using an external portal venous phase labeled cohort. Second, we compute surface rende rings with 2D color -space checkerboard pattern to reveal t he actual correspondence of the atlas inverse transferred label and the atlas label, visualizing the horizontal and vertical deformation to evaluate the stability of registration. In addition, we provide a more detailed analysis of our proposed atlas framework. II. METHODS Fig. 2 presents an overview of the complete pipeline for generating the kidney atlas framework. The volume of interest is first extracted with a deep learning -based body part regression algorithm to obtain a similar field of view with the atlas target image, increasing the stability of registration in the abdominal body and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00227,
+        0.00866,
+        -0.03235,
+        0.04101,
+        -0.01141
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "eep learning -based body part regression algorithm to obtain a similar field of view with the atlas target image, increasing the stability of registration in the abdominal body and",
+      "overlap_with_next": "re retrieved in de-identified form. A. Deep Body Part Regression Network The use of deep learning in the medical imaging domain contributed to a great increase in automatic models ",
+      "text": "eep learning -based body part regression algorithm to obtain a similar field of view with the atlas target image, increasing the stability of registration in the abdominal body and kidneys. Here, we define the stability as the atlas not changing with randomized subjects and measure the stability with the mean or variance mapping of the atlas template. The integrati on of deep learning -based volume of interest extraction and classical registration provided an opportunity to reduce the subjectivity of choosing the field of view between source and target image, and increase the 1robustness of the image registration acr oss the clinical cohorts. 1 This study with protocol s 141368, 160764 and 161515 was approved on 30th August, 2016 , 10th October, 2019, and 10 th July, 2019 respectively, by Vanderbilt University Institutional Review Board. The imaging dataset(s) used for the analysis described were obtained from Vanderbilt’s research repository of medical imaging data and image-related metadata. All data were retrieved in de-identified form. A. Deep Body Part Regression Network The use of deep learning in the medical imaging domain contributed to a great increase in automatic models ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03854,
+        -0.05162,
+        -0.01921,
+        0.01189,
+        -0.0039
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "re retrieved in de-identified form. A. Deep Body Part Regression Network The use of deep learning in the medical imaging domain contributed to a great increase in automatic models ",
+      "overlap_with_next": "tinuous score for each axial slice of CT volumes as the normalized body coordinate value without any labels [8]. The self-supervised model predicts scores in the range of -12 to +1",
+      "text": "re retrieved in de-identified form. A. Deep Body Part Regression Network The use of deep learning in the medical imaging domain contributed to a great increase in automatic models for classification and segmentation. Due to the shift of various domains and the variation of imaging protocols, medical images usually present with different visual appearances and fields of view. The goal of the body part regression network (BPR) is to narrow the difference of field of view between the source images and the atlas target image for reducing the failure rate of registration. Formally, given an unlabeled dataset {𝑥𝑖𝑚}𝑖=1𝑁 from the moving image domain, and a labeled dataset {𝑥𝑖𝑎, 𝑦𝑖𝑎}𝑖=11 from the atlas target domain, we aim to crop the original volume of interest 𝑥𝑚 to an approximate field of view with the atlas target 𝑥𝑎. The obtained volume of interest only consists of abdomen regions and is resampled to the same voxel resolution as the atlas target. Yan et al. proposed a self -supervised method to predict a continuous score for each axial slice of CT volumes as the normalized body coordinate value without any labels [8]. The self-supervised model predicts scores in the range of -12 to +1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07947,
+        -0.0305,
+        -0.0375,
+        0.01792,
+        -0.00917
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "tinuous score for each axial slice of CT volumes as the normalized body coordinate value without any labels [8]. The self-supervised model predicts scores in the range of -12 to +1",
+      "overlap_with_next": "BLE -CLICK HERE TO EDIT) < 4 B. 2-Stage Hierarchal Registration Pipeline Before we performed registrations, each source image (moving/floating) is resampled to the same voxel resol",
+      "text": "tinuous score for each axial slice of CT volumes as the normalized body coordinate value without any labels [8]. The self-supervised model predicts scores in the range of -12 to +12 and each bo dy part region corresponds well to an approximate score (e.g., -12: upper chest, -5: diaphragm / upper liver, 4: lower retroperitoneum, 6: pelvis). Linear regression is performed to correct the discontinuity of the predicted score, and we use the regressed output as the self - supervised label to train a new refined model. Both the atlas target image and the unlabeled dataset are input into the well - trained model and compute scores for each slices of the volume. To extract the abdominal -to-retroperitoneal reg ions only for each dataset, we limit the slices with a range of scores from -5 to 5 and crop the slices that are out of this range. All unlabeled datasets 𝑥𝑚 are then enforced to have a closer field of view to the atlas target image 𝑥𝑎. [Page 4] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 4 B. 2-Stage Hierarchal Registration Pipeline Before we performed registrations, each source image (moving/floating) is resampled to the same voxel resol",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07138,
+        -0.00485,
+        -0.03096,
+        0.01146,
+        0.01284
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "BLE -CLICK HERE TO EDIT) < 4 B. 2-Stage Hierarchal Registration Pipeline Before we performed registrations, each source image (moving/floating) is resampled to the same voxel resol",
+      "overlap_with_next": "id registrations’ input. The DEEDS non -rigid registration is refined with the spatial context as the local voxel -wise correspondence with its specific similarity metric, which wi",
+      "text": "BLE -CLICK HERE TO EDIT) < 4 B. 2-Stage Hierarchal Registration Pipeline Before we performed registrations, each source image (moving/floating) is resampled to the same voxel resolution and the 3 -dimensional shape of the atlas target (fixed/target) with cropping/padding slices. Our registration pipelin e is composed of 2 hierarchal stages: 1) affine registration and 2) non-rigid registration. Dense displacement sampling (DEEDS) is a 3D medical registration tool with a discretized sampling space that has been shown to yield a great performance in abdominal and retroperitoneal organs registration, is used for both affine non -rigid registration in this pipeline [7, 9 , 10] . The DEEDS affine registration is first performed to initially align both moving images and the atlas target to preserve 12 degrees of freed om of transformation and provide a prior definition of the spatial context and each affine component. An affine transformation matrix is generated as the output and become the second stage non -rigid registrations’ input. The DEEDS non -rigid registration is refined with the spatial context as the local voxel -wise correspondence with its specific similarity metric, which wi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02225,
+        -0.05178,
+        -0.02423,
+        0.02295,
+        0.01409
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "id registrations’ input. The DEEDS non -rigid registration is refined with the spatial context as the local voxel -wise correspondence with its specific similarity metric, which wi",
+      "overlap_with_next": "patches [12]. The self-similarity metric S is optimizing a distance function D between the image patches extracted from the moving image M. A function q2 is computed to estimate bo",
+      "text": "id registrations’ input. The DEEDS non -rigid registration is refined with the spatial context as the local voxel -wise correspondence with its specific similarity metric, which will be illustrated below. Five different scale levels are used with grid spacing ranging from 8 to 4 voxels to extract patches and displace ment search radii from six to two steps between 5 and 1 voxels [7, 9, 10, 12] . Deformed scans with the displacement data from selecting control points is generated and transfer the source image space voxel i nformation to the atlas target space after deformation. To ensure the stability of the atlas generated, all successfully deformed scans are averaged and variance mapping is used to visualize the intensity fluctuation and variation around the abdominal body and kidney organs. The similarity metric defined in DEEDS registration tool is self-similarity context with the patches extracted from moving images. Such a similarity metric aims to find a similar context around neighboring voxels in patches [12]. The self-similarity metric S is optimizing a distance function D between the image patches extracted from the moving image M. A function q2 is computed to estimate bo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03302,
+        -0.01722,
+        -0.0411,
+        0.01323,
+        -0.02495
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "patches [12]. The self-similarity metric S is optimizing a distance function D between the image patches extracted from the moving image M. A function q2 is computed to estimate bo",
+      "overlap_with_next": "TS We evaluated the stability of our kidney atlas with a large cohort of multi -contrast unlabeled CT and a public portal venous contrast phase multi-organ labeled dataset. All CT ",
+      "text": "patches [12]. The self-similarity metric S is optimizing a distance function D between the image patches extracted from the moving image M. A function q2 is computed to estimate both the noise in local and global perspectives. Meanwhile, a certain number of neighborhood relations N is also defined as to determine the kinds of self - similarities in the neighborhood. As extracting an image patch with a center at x, the measurement calculation of the self - similarity can be demonstrated as follows: D(M, x, y) = exp (S(x,y)q2 ) x, y ∈ N (1) where y is defined as the center of another patch from one of the neighborhood N. This similarity me tric helps to avoid the negative influence of image artifacts or random noise from the central patch extracted and prevent a direct adverse effect in calculation. Twelve distances between pairwise patches are calculated within six neighborhoods and concent rate in extracting the contextual neighboring information, instead of the direct shape representation. III. EXPERIMENTS We evaluated the stability of our kidney atlas with a large cohort of multi -contrast unlabeled CT and a public portal venous contrast phase multi-organ labeled dataset. All CT ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03111,
+        0.01017,
+        -0.02882,
+        0.02101,
+        0.00226
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "TS We evaluated the stability of our kidney atlas with a large cohort of multi -contrast unlabeled CT and a public portal venous contrast phase multi-organ labeled dataset. All CT ",
+      "overlap_with_next": " and extract the corresponding contrast phase abdominal CT scans, which included 290 unlabeled CT volumes in total with: 1) non - contrast: 50 volumes, 2) early arterial: 30, 3) la",
+      "text": "TS We evaluated the stability of our kidney atlas with a large cohort of multi -contrast unlabeled CT and a public portal venous contrast phase multi-organ labeled dataset. All CT data are unpaired and collected from different cohorts. With the use of both labeled and unlabeled datasets, we conducted comprehensive qualitative and quantitative evaluations for generalizing cross -modality information of kidney organs in CT. A. Datasets Clinical Multi-Contrast Abdominal CT Cohort : A large clinical cohort of multi -contrast CT was employed for abdominal and retroperitoneal organs registration. In total, 2000 patients’ de-identified CT data were initially re trieved in de-identified form from ImageVU with the approval of Institutional Review Board (IRB). In these 2000 patients, since some had renal disease, criteria in ICD -9 codes and age range from 18 -50 years old were set and applied to extract scans with he althy kidneys from all subjects. 720 subjects out of 2000 were identified after quality assessment and extract the corresponding contrast phase abdominal CT scans, which included 290 unlabeled CT volumes in total with: 1) non - contrast: 50 volumes, 2) early arterial: 30, 3) la",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00173,
+        -0.02529,
+        -0.06313,
+        0.0367,
+        -0.00273
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " and extract the corresponding contrast phase abdominal CT scans, which included 290 unlabeled CT volumes in total with: 1) non - contrast: 50 volumes, 2) early arterial: 30, 3) la",
+      "overlap_with_next": ") esophagus, 6) liver, 7) stomach, 8) aorta, 9) inferior vena cava (IVC), 10) portal splenic vein (PSV), 11) pancreas, 12) right adrenal gland (RAD), 13) left adrenal gland ( LAD),",
+      "text": " and extract the corresponding contrast phase abdominal CT scans, which included 290 unlabeled CT volumes in total with: 1) non - contrast: 50 volumes, 2) early arterial: 30, 3) late arterial: 80 volumes, 4) portal venous: 100 volumes, 5) delayed: 30 volumes. All CT volumes are initially reoriented to standard orientation before further processing [13]. BPR was performed to each modality volumes and obtain the similar fie ld of view with the atlas target. They were then resampled to the same resolution and dimensions with the atlas target for performing registration pipeline. We aim to adapt a generalized atlas framework for localizing the anatomical and contextual characteristics of kidney organs across multi-contrast. Multi-Organ Labeled Portal Venous Abdominal CT Cohort: We used a separate healthy clinical cohort with 100 portal venous contrast phase abdominal CT volumes. The ground truth labels of 13 multiple organs are provided including: 1) spleen, 2) right kidney, 3) left kidney, 4) gall bladder, 5) esophagus, 6) liver, 7) stomach, 8) aorta, 9) inferior vena cava (IVC), 10) portal splenic vein (PSV), 11) pancreas, 12) right adrenal gland (RAD), 13) left adrenal gland ( LAD),",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.0049,
+        -0.01842,
+        -0.04086,
+        0.03356,
+        -0.00731
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": ") esophagus, 6) liver, 7) stomach, 8) aorta, 9) inferior vena cava (IVC), 10) portal splenic vein (PSV), 11) pancreas, 12) right adrenal gland (RAD), 13) left adrenal gland ( LAD),",
+      "overlap_with_next": "n and the ground truth segmentation label: 𝐷𝐼𝐶𝐸(𝑃, 𝐺) = 2|P∩G||P|+|G| (2) [Page 5] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 5 Figure",
+      "text": ") esophagus, 6) liver, 7) stomach, 8) aorta, 9) inferior vena cava (IVC), 10) portal splenic vein (PSV), 11) pancreas, 12) right adrenal gland (RAD), 13) left adrenal gland ( LAD), with which we conduct label transfer on this dataset to evaluate the generalizability and stability of the atlas template. In order to reduce the number of failed registrations to the atlas target, BPR is performed on abdominal and retroperitoneal re gions only with soft -tissue window. To evaluate the atlas framework, the inverse transformation was applied to the multi -organ atlas label, and labels were transferred back to the spatial space of each portal venous phase CT. B. Evaluation Metrics We employed three commonly used metrics to evaluate the similarity between the prediction label from automatic models and the original ground truth label: 1) Dice score, 2) mean surface distance (MSD), and 3) Hausdorff distance (HD). The definition of Dice is to me asure the overlapping of volume between the segmentation label prediction and the ground truth segmentation label: 𝐷𝐼𝐶𝐸(𝑃, 𝐺) = 2|P∩G||P|+|G| (2) [Page 5] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 5 Figure",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04514,
+        -0.0127,
+        -0.04587,
+        0.02166,
+        0.00086
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "n and the ground truth segmentation label: 𝐷𝐼𝐶𝐸(𝑃, 𝐺) = 2|P∩G||P|+|G| (2) [Page 5] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 5 Figure",
+      "overlap_with_next": "Vg represents the vertices coordinates of prediction label and ground truth label respectively, while avg refers to average, and sup and inf refers to the greatest lower bound and ",
+      "text": "n and the ground truth segmentation label: 𝐷𝐼𝐶𝐸(𝑃, 𝐺) = 2|P∩G||P|+|G| (2) [Page 5] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 5 Figure 3. DEEDS registration outperforms the other two methods in an organ-wise manner. Significant increase of DICE is also demonstrated with median Dice score over 0.8 in the transferring result of both left and right kidneys using DEEDS (**: p < 0.01, ****: p < 0.0001, Wilcoxon signed-rank test). where P is the predicte d label from models and G is the original ground truth segmentation label, while || is the L1 norm operation. The rendered surface is another perspective which used to evaluate result. The 3 -dimensional coordinates of vertices were initially extracted fr om both the prediction label and the ground truth label. The average distance and the Hausdorff distance between the sets of vertices coordinate were calculated as follows: 𝑀𝑆𝐷(𝑉𝑝, 𝑉𝑔) = 𝑎𝑣𝑔 inf 𝐷𝑖𝑠𝑡( 𝑉𝑝, 𝑉𝑔) (3) 𝐻𝐷(𝑉𝑝, 𝑉𝑔) = 𝑠𝑢𝑝 inf 𝐷𝑖𝑠𝑡( 𝑉𝑝, 𝑉𝑔) (4) where Vp and Vg represents the vertices coordinates of prediction label and ground truth label respectively, while avg refers to average, and sup and inf refers to the greatest lower bound and ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04722,
+        -0.02973,
+        -0.03128,
+        -0.0011,
+        0.00624
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "Vg represents the vertices coordinates of prediction label and ground truth label respectively, while avg refers to average, and sup and inf refers to the greatest lower bound and ",
+      "overlap_with_next": "tering liver organ, while ANTs performed registration with inferiority across all organs comparing to the other two methods . As the atlas template is optimized for kidney organs, ",
+      "text": "Vg represents the vertices coordinates of prediction label and ground truth label respectively, while avg refers to average, and sup and inf refers to the greatest lower bound and least upper bound of the distance function measure Dist. IV. RESULTS Registrations were performed to the atlas target image with the pre -processed cropped volume of interest. We performed three registration methods to ensure the highest accuracy for the localization of both left and right kidneys: 1) ANTS [7, 14], 2) NiftyReg (NIFTYR) [7, 15], 3) DEEDS [7, 9, 10, 12]. The quantitative representation of each organ in the registered output was the n demonstrated in terms of Dice score, MSD and HD, and illustrated the distribution of the performance across the multi-organ labeled portal venous cohort with Fig. 3 and Table 1. As shown in Table I, DEEDS achieved the best overall mean Dice with the 2 -stage registration pipeline across all 13 organs. From the demonstration of Fig.3, NiftyReg demonstrated a better performance in registering liver organ, while ANTs performed registration with inferiority across all organs comparing to the other two methods . As the atlas template is optimized for kidney organs, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04186,
+        -0.04552,
+        -0.04492,
+        0.047,
+        -0.01215
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "tering liver organ, while ANTs performed registration with inferiority across all organs comparing to the other two methods . As the atlas template is optimized for kidney organs, ",
+      "overlap_with_next": "ter result of using DEEDS (p < 0.0001). The median Dice of both transferred left and right kidney are above 0.8, while it is a significant boost comparing with the other two method",
+      "text": "tering liver organ, while ANTs performed registration with inferiority across all organs comparing to the other two methods . As the atlas template is optimized for kidney organs, the Dice score of both left and right kidneys are separately computed to obtain the ability of kidneys localization with the atlas template. DEEDS demonstrated the best performance in transferring the kidney information to the atlas space. NiftyReg and ANTs illustrated the lack of generalizability of transferring kidney organs and computed significant variance of Dice across all registrations. The reduction of variance and population of outliers are sh own from boxplots with DEEDS, leading to a significant improvement of Dice score, MSD, and HD for both left and right kidneys comparing to the other two methods. The Wilcoxon signed -rank test showed that DEEDS was significantly better (p < 0.0001) than al l other methods in Dice [16]. Meanwhile, both left and right kidneys are registered to the atlas template with significant better result of using DEEDS (p < 0.0001). The median Dice of both transferred left and right kidney are above 0.8, while it is a significant boost comparing with the other two method",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04939,
+        -0.01261,
+        -0.04336,
+        0.04142,
+        -0.01196
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "ter result of using DEEDS (p < 0.0001). The median Dice of both transferred left and right kidney are above 0.8, while it is a significant boost comparing with the other two method",
+      "overlap_with_next": ",5 NIFTYR (A) 0.270 ± 0.222 13.1 ± 11.1 62.1 ± 50.1 DEEDS (A) 0.200 ± 0.199 19.6 ± 18.2 80.9 ± 59.3 ANTS 0.319 ± 0.252 10.1 ± 9.00 51.6 ± 45.3 NIFTYR 0.406 ± 0.279 10.9 ± 13.8 55.0",
+      "text": "ter result of using DEEDS (p < 0.0001). The median Dice of both transferred left and right kidney are above 0.8, while it is a significant boost comparing with the other two methods. Apart from the quantitative result, the qualitative representations of registrations across multiple contrast phases are shown in terms of single subject reg istration, average template and variance mapping in Fig. 4. The multi -organ label provided general localization information of anatomical structures in atlas target image and compared with the deformed output from each contrast phase. The qualitative representation of the single subject registration demonstrated good localization ability of kidneys organ with the corresponding contrast characteristics, while the kidney organs in the early and late arterial phase subject is shown with small TABLE I EVALUATION METRIC ON 100 REGISTRATION FOR THREE REGISTRATION METHODS ON 13 ORGANS (MEAN ± STD) Methods Dice Score MSD (mm) HD (mm) ANTS (A) 0.246 ± 0.224 12.8 ± 10.2 60.2 ± 47,5 NIFTYR (A) 0.270 ± 0.222 13.1 ± 11.1 62.1 ± 50.1 DEEDS (A) 0.200 ± 0.199 19.6 ± 18.2 80.9 ± 59.3 ANTS 0.319 ± 0.252 10.1 ± 9.00 51.6 ± 45.3 NIFTYR 0.406 ± 0.279 10.9 ± 13.8 55.0",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02565,
+        -0.02724,
+        -0.06302,
+        0.01021,
+        -0.01617
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": ",5 NIFTYR (A) 0.270 ± 0.222 13.1 ± 11.1 62.1 ± 50.1 DEEDS (A) 0.200 ± 0.199 19.6 ± 18.2 80.9 ± 59.3 ANTS 0.319 ± 0.252 10.1 ± 9.00 51.6 ± 45.3 NIFTYR 0.406 ± 0.279 10.9 ± 13.8 55.0",
+      "overlap_with_next": "ng volumes. Each average template is shown with stable abdominal body registration and a significant clear boundary of both left and ri ght kidneys. The contrast characteristics of",
+      "text": ",5 NIFTYR (A) 0.270 ± 0.222 13.1 ± 11.1 62.1 ± 50.1 DEEDS (A) 0.200 ± 0.199 19.6 ± 18.2 80.9 ± 59.3 ANTS 0.319 ± 0.252 10.1 ± 9.00 51.6 ± 45.3 NIFTYR 0.406 ± 0.279 10.9 ± 13.8 55.0 ± 51.8 DEEDS * 0.496 ± 0.284 8.52 ± 17.1 41.6 ± 51.2 Note that p < 0.0001 with Wilcoxon signed -rank test *, A: affine registration only [Page 6] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 6 Figure 4. Qualitative representation of the single subject registrations, average mapping and variance mapping of contrast phases. The contrastive and morphological characteristics of kidney organs are demonstrated in the single subject registration and average mapping of each phases. Small variations are shown surrounding the kidney organs region in the variance mapping, while great variations are located in the diaphragm region nearby with liver and spleen. level of over-deformed. The average mapping of each contrast phase was then computed with all successfully registered contrast-corresponding volumes. Each average template is shown with stable abdominal body registration and a significant clear boundary of both left and ri ght kidneys. The contrast characteristics of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03776,
+        -0.01739,
+        -0.02312,
+        0.00159,
+        0.00155
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "ng volumes. Each average template is shown with stable abdominal body registration and a significant clear boundary of both left and ri ght kidneys. The contrast characteristics of",
+      "overlap_with_next": "istics of kidney organs can be both preserved and transferred to the atlas template with good stability. V. DISCUSSION In this study, we const ructed a healthy kidney atlas for fiv",
+      "text": "ng volumes. Each average template is shown with stable abdominal body registration and a significant clear boundary of both left and ri ght kidneys. The contrast characteristics of the kidneys were demonstrated and well allocated in the similar anatomical location of the atlas template. Apart from the contrast characteristics, the anatomy of kidney sub-structure and renal-related vessels can appear in the average template of early arterial, late arterial and delayed phase. To ensure the stability of transferring the kidneys’ anatomical information, a variance map of each contrast phase template is also computed to demonstrate the voxel vari ability of each organ across the clinical cohort. The small variation in the kidney is illustrated with a color range from yellow to green, while significant variation in voxels is shown near the diaphragm region and the color range from orange to red indicated the highly deformed variability across the registered outputs. Overall, the anatomical and contrast characteristics of kidney organs can be both preserved and transferred to the atlas template with good stability. V. DISCUSSION In this study, we const ructed a healthy kidney atlas for fiv",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00917,
+        -0.04809,
+        -0.04237,
+        0.03449,
+        0.00424
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "istics of kidney organs can be both preserved and transferred to the atlas template with good stability. V. DISCUSSION In this study, we const ructed a healthy kidney atlas for fiv",
+      "overlap_with_next": "00 cc to 308 cc) are demonstrated with the deformed checkerboard. information to other organs’ anatomical locations. The l ow variance score in both the left and right kidney regio",
+      "text": "istics of kidney organs can be both preserved and transferred to the atlas template with good stability. V. DISCUSSION In this study, we const ructed a healthy kidney atlas for five different contrast phases CT and generalized the kidney anatomical context across population demographics and the variation of contrast characteristics. High variance score is located near the diaphragm regions and th e boundary of the abdominal body (see Fig. 4). Such variability is contributed to the large deformation of the lower and upper boundary of the volume interest and transfer specific organs’ contextual [Page 7] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 7 Figure 5. The surface rendering of the registered kidney with significant morphological variation are also illustrated . The 2D checkerboard pattern demonstrate the correspondence of the deformation from atlas space to the moving image space. A stable deformation ac ross the change in volumetric morphology of kidney (100 cc to 308 cc) are demonstrated with the deformed checkerboard. information to other organs’ anatomical locations. The l ow variance score in both the left and right kidney regio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02079,
+        -0.00978,
+        -0.05124,
+        0.01442,
+        -0.0036
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "00 cc to 308 cc) are demonstrated with the deformed checkerboard. information to other organs’ anatomical locations. The l ow variance score in both the left and right kidney regio",
+      "overlap_with_next": "aracteristics of localizing kidneys. The high - resolution characteristics of the atlas template preserve highly detailed voxel -wise information across all organs. DEEDS provided ",
+      "text": "00 cc to 308 cc) are demonstrated with the deformed checkerboard. information to other organs’ anatomical locations. The l ow variance score in both the left and right kidney region indicated the stable registration of structural information, as the kidney organs are localized in the middle region of the volume interest with contrast. The surface rendering of the kidney across the morphological sizes visualizes the generalizability of the atlas template across shape variability (see Fig. 5) . We adapt a 2D color -space checkerboard to visualize the deformation on the surface. The color of each box in the checkerboard pattern changes both horizontally and vertically. The color-boxes in atlas space are equivalent to that in the inverse original space. A stable deformation is demonstrated across small to large kidneys. We choose the atlas template according to three conditions: 1) high -resolution (0.86 × 0.86 × 0.86 mm), 2) significant appearance of the morphological structure of kidneys, and 3) contrast characteristics of localizing kidneys. The high - resolution characteristics of the atlas template preserve highly detailed voxel -wise information across all organs. DEEDS provided ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00056,
+        -0.01375,
+        -0.05491,
+        0.01042,
+        -0.00547
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "aracteristics of localizing kidneys. The high - resolution characteristics of the atlas template preserve highly detailed voxel -wise information across all organs. DEEDS provided ",
+      "overlap_with_next": " one of the bottlenecks of providing a stable anatomical information transfer for organs is the registration method. The registration performance of kidneys may be affected by the ",
+      "text": "aracteristics of localizing kidneys. The high - resolution characteristics of the atlas template preserve highly detailed voxel -wise information across all organs. DEEDS provided the best overall performance with mean Dice of 0.50 [7]. However, the DEEDS performance cannot provide accurate measures towards the organ of interests due to high sensitivity of field of view, leading to significant deformation. Among the average template of each contrast phase in the presented figu re, the portal venous phase average template provides a sharper and smoother abdominal body comparing to that of the other four phases. However, the portal venous phase average template is not suitable to be an unbiased template for registration. The small tissue voxels are difficult to represent and cannot provide sufficient accurate information for registration. Large population of clinical cohorts may need to be used to obtain a higher confidence level of voxel representation that is as sharp as the atlas target image. Initially, one of the bottlenecks of providing a stable anatomical information transfer for organs is the registration method. The registration performance of kidneys may be affected by the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0041,
+        0.00313,
+        -0.04759,
+        0.03896,
+        -0.01473
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": " one of the bottlenecks of providing a stable anatomical information transfer for organs is the registration method. The registration performance of kidneys may be affected by the ",
+      "overlap_with_next": " high -quality atlas multi -organ label can be transferred with the inverse transformation and use to provide ac curate measures for abdominal and retroperitoneal organs. Also, hig",
+      "text": " one of the bottlenecks of providing a stable anatomical information transfer for organs is the registration method. The registration performance of kidneys may be affected by the secondary targets such as liver and spleen. Further optimization of the registration pipeline is needed for reducing the possibility of significant deformation. Instead of relying on similarity metric (mutual information, cross correlation, Hamming distances of the self -similarity context) as the loss function [17, 18], a learning -based method may be another promising direction to learn a registration function and predict the registration field for the moving images [19, 20] . However, most of the proposed learning -based pipeline is focused on the brain [21, 22] . The kidney atlas template provides an opportunity to further investigate learning -based approaches in abdominal and retroperitoneal regions. The kidney atlas template also provides contributions in the segmentation of other abdominal and retroperitoneal organs. The high -quality atlas multi -organ label can be transferred with the inverse transformation and use to provide ac curate measures for abdominal and retroperitoneal organs. Also, hig",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0341,
+        -0.01199,
+        -0.03487,
+        0.02953,
+        -0.00474
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": " high -quality atlas multi -organ label can be transferred with the inverse transformation and use to provide ac curate measures for abdominal and retroperitoneal organs. Also, hig",
+      "overlap_with_next": "rther exploration can be investigated in the abdominal and retroperitoneal domain with the use of the high-quality atlas label. VI. CONCLUSION This manuscript presents a healthy ki",
+      "text": " high -quality atlas multi -organ label can be transferred with the inverse transformation and use to provide ac curate measures for abdominal and retroperitoneal organs. Also, high quality labels can help perform training strategies to innovate automatic learning-based model. Huo et al. proposed a whole brain segmentation using spatially localized network tiles with the atlas -transferred label [23]. Dong et al. proposed left ventricle segmentation network, which integrate the ventricle atlas at echocardiogram into learning framework and provides consistency constraints with atlas label to perform accurate segmentations [24]. Bai et al. presented a population study of relating the phenome -wide association to the function of cardiac and aortic structures using machine -learning-based segmentation pipeline [25]. Clinical validation and phenotypic analysis can be performed and reve al biomarkers of specific organs in certain conditions such as disease pathogenesis, with high-quality segmentation labels. Further exploration can be investigated in the abdominal and retroperitoneal domain with the use of the high-quality atlas label. VI. CONCLUSION This manuscript presents a healthy ki",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03503,
+        -0.02193,
+        -0.03405,
+        0.03135,
+        -0.0172
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "rther exploration can be investigated in the abdominal and retroperitoneal domain with the use of the high-quality atlas label. VI. CONCLUSION This manuscript presents a healthy ki",
+      "overlap_with_next": "WLEDGEMENT This research is supported by HuBMAP, NIH Common Fund and National Institute of Diabetes, Digestive and Kidney Diseases U54DK120058 (Spraggins), NSF CAREER 1452485, NIH ",
+      "text": "rther exploration can be investigated in the abdominal and retroperitoneal domain with the use of the high-quality atlas label. VI. CONCLUSION This manuscript presents a healthy kidney atlas to generalize the contrastive and morphological characteristics across patients with significant variability in demographics and imaging protocols. Specifically, the healthy kidney atlas provides a s table reference standard for both left and right kidney organs in 3 -dimensional space to transfer kidney information using an adapted registration pipeline. Significant variance on the field of view and the organ shape can be [Page 8] > REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER (DOUBLE -CLICK HERE TO EDIT) < 8 focused as the optimization pa rameters to reduce the possibility of failure registration. Potential future exploration with the use of the atlas template can be further investigated in both engineering and clinical perspectives, to provide better understandings and measures towards the kidneys. ACKNOWLEDGEMENT This research is supported by HuBMAP, NIH Common Fund and National Institute of Diabetes, Digestive and Kidney Diseases U54DK120058 (Spraggins), NSF CAREER 1452485, NIH ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03709,
+        -0.01836,
+        -0.05829,
+        0.01735,
+        -0.00802
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "WLEDGEMENT This research is supported by HuBMAP, NIH Common Fund and National Institute of Diabetes, Digestive and Kidney Diseases U54DK120058 (Spraggins), NSF CAREER 1452485, NIH ",
+      "overlap_with_next": "lar Atlas Program,\" Nature, vol. 574, no. 7777, p. 187, 2019. [3] M. Kuklisova-Murgasova et al., \"A dynamic 4D probabilistic atlas of the developing brain,\" NeuroImage, vol. 54, no",
+      "text": "WLEDGEMENT This research is supported by HuBMAP, NIH Common Fund and National Institute of Diabetes, Digestive and Kidney Diseases U54DK120058 (Spraggins), NSF CAREER 1452485, NIH 2R01EB006136, NIH 1R01EB017230 (Landman), and NIH R01NS09529. This study was in part using the resources of the Advanced Computing Center for Research and Education (ACCRE) at Vanderbilt University, Nashville, TN. The identified datasets used for the analysis described were obtained from the Research Derivative (RD) , database of clinical and related data. ImageVU and RD are supported by the VICTR CTSA award (ULTR000445 from NCATS/NIH) and Vanderbilt University Medical Center institutional funding. ImageVU pilot work was also funded by PCORI (contract CDRN-1306-04869). REFERENCES [1] O. Rozenblatt -Rosen, M. J. Stubbington, A. Regev, and S. A. Teichmann, \"The Human Cell Atlas: from vision to reality,\" Nature News, vol. 550, no. 7677, p. 451, 2017. [2] H. Consortium, \"The human body at cellular resolution: the NIH Human Biomolecular Atlas Program,\" Nature, vol. 574, no. 7777, p. 187, 2019. [3] M. Kuklisova-Murgasova et al., \"A dynamic 4D probabilistic atlas of the developing brain,\" NeuroImage, vol. 54, no",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0127,
+        -0.00821,
+        -0.03641,
+        -0.00921,
+        -0.02388
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "lar Atlas Program,\" Nature, vol. 574, no. 7777, p. 187, 2019. [3] M. Kuklisova-Murgasova et al., \"A dynamic 4D probabilistic atlas of the developing brain,\" NeuroImage, vol. 54, no",
+      "overlap_with_next": "l networks,\" in 2018 IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018), 2018: IEEE, pp. 1022-1025. [9] M. P. Heinrich, M. Jenkinson, B. W. Papież, M. Brady, and J",
+      "text": "lar Atlas Program,\" Nature, vol. 574, no. 7777, p. 187, 2019. [3] M. Kuklisova-Murgasova et al., \"A dynamic 4D probabilistic atlas of the developing brain,\" NeuroImage, vol. 54, no. 4, pp. 2750 - 2763, 2011. [4] F. Shi et al., \"Infant brain atlases from neonates to 1-and 2-year- olds,\" PloS one, vol. 6, no. 4, p. e18746, 2011. [5] Y. Zhang, F. Shi, G. Wu, L. Wang, P. -T. Yap, and D. Shen, \"Consistent spatial -temporal longitudinal atlas construction for developing infant brains,\" IEEE transactions on medical imaging, vol. 35, no. 12, pp. 2568-2577, 2016. [6] D. Rajashekar et al., \"High-resolution T2-FLAIR and non-contrast CT brain atlas of the elderly,\" Scientific Data, vol. 7, no. 1, pp. 1-7, 2020. [7] Z. Xu et al., \"Evaluation of six registration methods for the human abdomen on clinically acquired CT,\" IEEE Transactions on Biomedical Engineering, vol. 63, no. 8, pp. 1563-1572, 2016. [8] K. Yan, L. Lu, and R. M. Summers, \"Unsupervised body part regression via spatially self -ordering convolutional neural networks,\" in 2018 IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018), 2018: IEEE, pp. 1022-1025. [9] M. P. Heinrich, M. Jenkinson, B. W. Papież, M. Brady, and J",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03595,
+        0.00638,
+        -0.03094,
+        0.0179,
+        0.00653
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "l networks,\" in 2018 IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018), 2018: IEEE, pp. 1022-1025. [9] M. P. Heinrich, M. Jenkinson, B. W. Papież, M. Brady, and J",
+      "overlap_with_next": "d S. M. Smith, \"Fsl,\" Neuroimage, vol. 62, no. 2, pp. 782 -790, 2012. [14] B. B. Avants, C. L. Epstein, M. Grossman, and J. C. Gee, \"Symmetric diffeomorphic image registration with",
+      "text": "l networks,\" in 2018 IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018), 2018: IEEE, pp. 1022-1025. [9] M. P. Heinrich, M. Jenkinson, B. W. Papież, M. Brady, and J. A. Schnabel, \"Towards realtime multimodal fusion for image -guided interventions using sel f-similarities,\" in International conference on medical image computing and computer -assisted intervention, 2013: Springer, pp. 187-194. [10] M. P. Heinrich, O. Maier, and H. Handels, \"Multi -modal Multi - Atlas Segmentation using Discrete Optimisation and S elf- Similarities,\" VISCERAL Challenge@ ISBI, vol. 1390, p. 27, 2015. [11] H. H. Lee et al. , \"Construction of a Multi -Phase Contrast Computed Tomography Kidney Atlas,\" SPIE 2021: Medical Imaging, 2020. [12] M. P. Heinrich, M. Jenkinson, M. Brady, and J. A. Schnabel, \"MRF-based deformable registration and ventilation estimation of lung CT,\" IEEE transactions on medical imaging, vol. 32, no. 7, pp. 1239-1248, 2013. [13] M. Jenkinson, C. F. Beckmann, T. E. Behrens, M. W. Woolrich, and S. M. Smith, \"Fsl,\" Neuroimage, vol. 62, no. 2, pp. 782 -790, 2012. [14] B. B. Avants, C. L. Epstein, M. Grossman, and J. C. Gee, \"Symmetric diffeomorphic image registration with",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0141,
+        -0.01865,
+        -0.00703,
+        -0.0115,
+        -0.01208
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "d S. M. Smith, \"Fsl,\" Neuroimage, vol. 62, no. 2, pp. 782 -790, 2012. [14] B. B. Avants, C. L. Epstein, M. Grossman, and J. C. Gee, \"Symmetric diffeomorphic image registration with",
+      "overlap_with_next": ", vol. 45, no. 1, pp. S61-S72, 2009. [19] T. C. Mok and A. C. Chung, \"Large Deformation Diffeomorphic Image Registration with Laplacian Pyramid Networks,\" in International Conferen",
+      "text": "d S. M. Smith, \"Fsl,\" Neuroimage, vol. 62, no. 2, pp. 782 -790, 2012. [14] B. B. Avants, C. L. Epstein, M. Grossman, and J. C. Gee, \"Symmetric diffeomorphic image registration with cross - correlation: evaluating automated labeling of elderly and neurodegenerative brain,\" Medical image analysis, vol. 12, no. 1, pp. 26-41, 2008. [15] M. Modat et al. , \"Fast free -form deformation using graphics processing units,\" Computer methods and programs in biomedicine, vol. 98, no. 3, pp. 278-284, 2010. [16] B. Rosner, R. J. Glynn, and M. L. T. Lee, \" The Wilcoxon signed rank test for paired comparisons of clustered data,\" Biometrics, vol. 62, no. 1, pp. 185-192, 2006. [17] M. Urschler, M. Werlberger, E. Scheurer, and H. Bischof, \"Robust optical flow based deformable registration of thoracic CT images,\" Medical Image Analysis for the Clinic: A Grand Challenge, pp. 195-204, 2010. [18] T. Vercauteren, X. Pennec, A. Perchant, and N. Ayache, \"Diffeomorphic demons: Efficient non -parametric image registration,\" NeuroImage, vol. 45, no. 1, pp. S61-S72, 2009. [19] T. C. Mok and A. C. Chung, \"Large Deformation Diffeomorphic Image Registration with Laplacian Pyramid Networks,\" in International Conferen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05846,
+        -0.00886,
+        -0.02659,
+        -0.015,
+        -0.00733
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": ", vol. 45, no. 1, pp. S61-S72, 2009. [19] T. C. Mok and A. C. Chung, \"Large Deformation Diffeomorphic Image Registration with Laplacian Pyramid Networks,\" in International Conferen",
+      "overlap_with_next": "le brain segmentation using spatially localized atlas network tiles,\" NeuroImage, vol. 194, pp. 105 -119, 2019. [24] S. Dong et al., \"Deep atlas network for efficient 3d left ventr",
+      "text": ", vol. 45, no. 1, pp. S61-S72, 2009. [19] T. C. Mok and A. C. Chung, \"Large Deformation Diffeomorphic Image Registration with Laplacian Pyramid Networks,\" in International Conference on Medical Image Computing and Computer-Assisted Intervention, 2020: Springer, pp. 211-221. [20] M. P. Heinri ch, \"Closing the gap between deep and conventional image registration using probabilistic dense displacement networks,\" in International Conference on Medical Image Computing and Computer -Assisted Intervention , 2019: Springer, pp. 50-58. [21] G. Balakrish nan, A. Zhao, M. R. Sabuncu, J. Guttag, and A. V. Dalca, \"Voxelmorph: a learning framework for deformable medical image registration,\" IEEE transactions on medical imaging, vol. 38, no. 8, pp. 1788-1800, 2019. [22] B. D. de Vos, F. F. Berendsen, M. A. Vier gever, H. Sokooti, M. Staring, and I. Išgum, \"A deep learning framework for unsupervised affine and deformable image registration,\" Medical image analysis, vol. 52, pp. 128-143, 2019. [23] Y. Huo et al. , \"3D whole brain segmentation using spatially localized atlas network tiles,\" NeuroImage, vol. 194, pp. 105 -119, 2019. [24] S. Dong et al., \"Deep atlas network for efficient 3d left ventr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01153,
+        -0.01222,
+        -0.00951,
+        -0.01002,
+        -0.01635
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38162,
+      "length": 422,
+      "overlap_with_previous": "le brain segmentation using spatially localized atlas network tiles,\" NeuroImage, vol. 194, pp. 105 -119, 2019. [24] S. Dong et al., \"Deep atlas network for efficient 3d left ventr",
+      "overlap_with_next": "",
+      "text": "le brain segmentation using spatially localized atlas network tiles,\" NeuroImage, vol. 194, pp. 105 -119, 2019. [24] S. Dong et al., \"Deep atlas network for efficient 3d left ventricle segmentation on echocardiography,\" Medical image analysis, vol. 61, p. 101638, 2020. [25] W. Bai et al. , \"A population -based phenome -wide association study of cardiac and aortic structure and function,\" Nature Medicine, pp. 1-9, 2020.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00173,
+        -0.01748,
+        -0.01522,
+        -0.01467,
+        0.00496
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1048 @@
+{
+  "paper_id": "f5bba017-fdd8-4a5a-bf97-d32b8a14167b",
+  "filename": "077_Machine_Learning_Data_Assimilation_in_the_Latent_Space_of_a_Neural_Network.pdf",
+  "title": "Data Assimilation in the Latent Space of a Neural Network",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 61,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "lutional neural network to reduce the dimensionality of the problem, a Long-Short-Term- Memory to build a surrogate model of the dynamic system and an Optimal Interpolated Kalman F",
+      "text": "[Page 1] Data Assimilation in the Latent Space of a Neural Network Maddalena Amendolaa, Rossella Arcucci a,∗, Laetitia Mottet c, C´ esar Quilodr´ an Casasa, Shiwei Fanb, Christopher Pain a,c, Paul Linden d, Yi-Ke Guoa aData Science Institute, Department of Computing, Imperial College London, UK bDepartment of Chemistry, University of Cambridge, UK cDepartment of Earth Science & Engineering, Imperial College London, UK dDepartment of Applied Mathematics and Theoretical Physics, University of Cambridge, UK Abstract There is an urgent need to build models to tackle Indoor Air Quality issue. Since the model should be accurate and fast, Reduced Order Modelling tech- nique is used to reduce the dimensionality of the problem. The accuracy of the model, that represent a dynamic system, is improved integrating real data coming from sensors using Data Assimilation techniques. In this paper, we formulate a new methodology called Latent Assimilation that combines Data Assimilation and Machine Learning. We use a Convolutional neural network to reduce the dimensionality of the problem, a Long-Short-Term- Memory to build a surrogate model of the dynamic system and an Optimal Interpolated Kalman F",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08095,
+        -0.01918,
+        -0.00568,
+        -0.02809,
+        -0.01943
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "lutional neural network to reduce the dimensionality of the problem, a Long-Short-Term- Memory to build a surrogate model of the dynamic system and an Optimal Interpolated Kalman F",
+      "overlap_with_next": " urban areas. Urbanisation process has led to an increase in building, human activities and energy consump- tion causing environmental degradation. High building densities and the ",
+      "text": "lutional neural network to reduce the dimensionality of the problem, a Long-Short-Term- Memory to build a surrogate model of the dynamic system and an Optimal Interpolated Kalman Filter to incorporate real data. Experimental results are provided for CO 2 concentration within an indoor space. This methodol- ogy can be used for example to predict in real-time the load of virus, such as the SARS-COV-2, in the air by linking it to the concentration of CO 2. Keywords: Data Assimilation, Autoencoder, LSTM, Reduced Order Modelling, Indoor Air Pollution, Latent space ∗Corresponding author Email address: r.arcucci@imperial.ac.uk (Rossella Arcucci) Preprint submitted to December 23, 2020 arXiv:2012.12056v1 [cs.LG] 22 Dec 2020 [Page 2] 1. Introduction Urbanisation is the process for which people move from rural zone to urban zone changing their habits. This process grows year by year: about half of the global population already lives in urban areas and by 2050 two-thirds of the world’s people are expected to live in urban areas. Urbanisation process has led to an increase in building, human activities and energy consump- tion causing environmental degradation. High building densities and the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08212,
+        0.00067,
+        -0.01787,
+        0.00436,
+        -0.03015
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " urban areas. Urbanisation process has led to an increase in building, human activities and energy consump- tion causing environmental degradation. High building densities and the ",
+      "overlap_with_next": "Fluids Dynamics (CFD) software: Fluidity [2]. Fluidity is an open source, general purpose, multi-phase computational ﬂuid dynamics code capable of numer- ically solving the Navier-",
+      "text": " urban areas. Urbanisation process has led to an increase in building, human activities and energy consump- tion causing environmental degradation. High building densities and the low presence of vegetation impair the air quality and circulation. People who live in such areas are hesitant to open the windows of their house thinking that this can led to an increment of pollution in their habitation. A solution from their point of view is to use air-conditioning increasing in this way the energy consumption. This is a vicious cycle of increased urban emissions of heat, pollutants and greenhouse gases and an associated increase in energy demand. The scope of the MAGIC1 (Managing Air for Green Inner Cities) project is to study and build systems to assist reduction in energy demand through natural ventilation [1]. To this aim, there is the need to use systems with high accu- racy in predicting air ﬂows and air pollution concentration. These systems use the Large Eddy Simulation method within the Computational Fluids Dynamics (CFD) software: Fluidity [2]. Fluidity is an open source, general purpose, multi-phase computational ﬂuid dynamics code capable of numer- ically solving the Navier-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08287,
+        0.02052,
+        -0.02091,
+        -0.02369,
+        0.00124
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "Fluids Dynamics (CFD) software: Fluidity [2]. Fluidity is an open source, general purpose, multi-phase computational ﬂuid dynamics code capable of numer- ically solving the Navier-",
+      "overlap_with_next": " up by Data Assimilation techniques. Data Assimilation (DA) is an approach for fusing data (observations) with prior knowledge (e.g., mathematical representations of physical laws;",
+      "text": "Fluids Dynamics (CFD) software: Fluidity [2]. Fluidity is an open source, general purpose, multi-phase computational ﬂuid dynamics code capable of numer- ically solving the Navier-Stokes equations and advection-diﬀusion equations on arbitrary unstructured ﬁnite-element meshes. Fluidity is used in a num- ber of diﬀerent scientiﬁc areas including geophysical ﬂuid dynamics, ocean modelling, mantle convection and air pollution. Numerical simulation has been widely applied in many ﬁelds including en- vironmental sciences, aerospace engineering, bio-medicine and industrial de- sign. It provides powerful technical support for solving industrial problems and making scientiﬁc research in these ﬁelds. However, high ﬁdelity nu- merical simulations of complex systems consume vast time and computing resources. When real data collected by instruments (i.e. sensors) are avail- able, it is possible to use them to improve the accuracy of the prediction. 1http://www.magic-air.uk/home.html 2 [Page 3] The integration is made up by Data Assimilation techniques. Data Assimilation (DA) is an approach for fusing data (observations) with prior knowledge (e.g., mathematical representations of physical laws;",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05014,
+        -0.02499,
+        -0.04127,
+        -0.01365,
+        -0.01682
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": " up by Data Assimilation techniques. Data Assimilation (DA) is an approach for fusing data (observations) with prior knowledge (e.g., mathematical representations of physical laws;",
+      "overlap_with_next": "sim- plicity and the analytic derivation of those approaches are the main reasons behind their popularity in atmospheric and ocean science. However, despite those powerful approach",
+      "text": " up by Data Assimilation techniques. Data Assimilation (DA) is an approach for fusing data (observations) with prior knowledge (e.g., mathematical representations of physical laws; model output) to obtain an estimate of the distribution of the true state of a pro- cess [3]. In order to perform DA, one needs observations (i.e., a data or measurement model), a background (i.e., a priori state or process model) and information about the distribution of the errors on these two. For those applications, where the background is deﬁned in big computational grids which lead to a big data problem sometimes impossible to handle without introducing approximations or space reductions, Reduced Order Modelling (ROM) techniques are used [4, 5]. ROM allows to speed up the dynamic model and the DA process. Popu- lar approaches to reduce the domain are the Principal Component Analysis (PCA) and the Empirical Orthogonal Functions (EOF) technique both based on a Truncated Singular Value Decomposition (TSVD) analysis [6]. The sim- plicity and the analytic derivation of those approaches are the main reasons behind their popularity in atmospheric and ocean science. However, despite those powerful approach",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07692,
+        -0.03093,
+        -0.02667,
+        0.00707,
+        -0.02027
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "sim- plicity and the analytic derivation of those approaches are the main reasons behind their popularity in atmospheric and ocean science. However, despite those powerful approach",
+      "overlap_with_next": "s deﬁned in time, can be learned using Re- current Neural Networks (RNN) [10, 11]. In the present work, we propose a new methodology which we called Latent Assimilation (LA). It co",
+      "text": "sim- plicity and the analytic derivation of those approaches are the main reasons behind their popularity in atmospheric and ocean science. However, despite those powerful approaches, the accuracy of the obtained solution exhibits a severe sensibility to the variation of the value of the truncation parameters. This issue introduces a severe drawback to the reliability of these approaches, hence their usability in operative software in diﬀerent scenarios [7]. An approach to reduce the dimensionality maintaining information of the data is the Neural Network (NN), precisely the AutoEncoders [8, 9]. NNs have the ability to ﬁt functions and they can ﬁt almost any unknown function theoretically. That is the ability which makes it possible for neural networks to face complex problems. AutoEncoders with non-linear encoder functions and non-linear decoder functions can thus learn a more powerful non-linear generalisation of methods based on TSVD. In the latent space, the evolution of the transformed state variables deﬁned in time, can be learned using Re- current Neural Networks (RNN) [10, 11]. In the present work, we propose a new methodology which we called Latent Assimilation (LA). It co",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08198,
+        -0.03506,
+        0.0075,
+        -0.00055,
+        0.00065
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "s deﬁned in time, can be learned using Re- current Neural Networks (RNN) [10, 11]. In the present work, we propose a new methodology which we called Latent Assimilation (LA). It co",
+      "overlap_with_next": "rk for integration of NN with physical models by Data Assimi- lation (DA) algorithms is described in [16]: the NNs are iteratively trained when observed data are updated. Unfortuna",
+      "text": "s deﬁned in time, can be learned using Re- current Neural Networks (RNN) [10, 11]. In the present work, we propose a new methodology which we called Latent Assimilation (LA). It consists in reducing the dimensionality with NN and perform both prediction through a surrogate dynamic model and DA directly in the latent space. In the latent space, the surrogate dynamic system is built by a RNN. 3 [Page 4] 2. Related Work and contribution of the present work The future challenges of Numerical Weather Prediction (NWP) is to include more accurate initial conditions that take advantage of the increasing volume of real-time observations, and improve the post-processing of model outputs, amongst others [12]. To answer this need, Neural network (NN) for correction of error in forecasting have been extensively studied [13, 14, 15]. However, the error correction by NN does not have a direct relation with the updated model system at each step and the training is not on the results of the assimilation process. A framework for integration of NN with physical models by Data Assimi- lation (DA) algorithms is described in [16]: the NNs are iteratively trained when observed data are updated. Unfortuna",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09696,
+        -0.00702,
+        0.0213,
+        0.00122,
+        -0.03395
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "rk for integration of NN with physical models by Data Assimi- lation (DA) algorithms is described in [16]: the NNs are iteratively trained when observed data are updated. Unfortuna",
+      "overlap_with_next": " the structural model uncertainty. The NN is implemented in an End-to-End (E2E) approach and its parameters are iteratively updated with coming observations by applying the DA meth",
+      "text": "rk for integration of NN with physical models by Data Assimi- lation (DA) algorithms is described in [16]: the NNs are iteratively trained when observed data are updated. Unfortunately, this approach presents a limit due to the time complexity of the numerical models involved, which limits the use of the forecast model for large data problems. An approach for employing artiﬁcial neural networks (NNs) to emulate the Local Ensem- ble Transform Kalman Filter (LETKF) as a method of data assimilation is presented in [17]. Deep learning and Data Assimilation technologies are also combined to predict the production of gas from mature gas wells in [18]. The authors used a modiﬁed deep Long Short-Term Memory (LSTM) model as their prediction model in the Ensemble KF framework for parameter es- timation. A Neural Network is integrated into a conventional DA in [16]: deep learning shows great advantage in function approximations which have unknown model and strong non-linearity. The authors used NNs to char- acterise the structural model uncertainty. The NN is implemented in an End-to-End (E2E) approach and its parameters are iteratively updated with coming observations by applying the DA meth",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02026,
+        -0.02646,
+        -0.00577,
+        -0.00968,
+        -0.02155
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " the structural model uncertainty. The NN is implemented in an End-to-End (E2E) approach and its parameters are iteratively updated with coming observations by applying the DA meth",
+      "overlap_with_next": "ions, which are designed so that only a few of these functions are needed in lower- dimensional approximations. Furthermore, since EOFs are the eigenvectors of the error co-varianc",
+      "text": " the structural model uncertainty. The NN is implemented in an End-to-End (E2E) approach and its parameters are iteratively updated with coming observations by applying the DA method. A framework which performs fast data assimilation with suﬃcient accuracy for open ocean is proposed in [19]. Speed improvement is achieved by per- forming the data assimilation on a reduced-space rather than on a full-space. A dimension reduction of the full-state is made by an Empirical Orthogo- nal Function (EOF) analysis while retaining most of the explained variance. Analysis of EOFs can be used to identify structures in geophysical data which hold a large part of the variance. In this framework, the assimilation is per- formed in the control space. EOFs analysis has become a fundamental tool in atmosphere, ocean, and climate science for data diagnostics and dynami- cal mode reduction. Each of these applications exploits the fact that EOFs 4 [Page 5] allow a decomposition of a data function into a set of orthogonal functions, which are designed so that only a few of these functions are needed in lower- dimensional approximations. Furthermore, since EOFs are the eigenvectors of the error co-varianc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06379,
+        -0.0207,
+        -0.016,
+        0.00075,
+        -0.0016
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ions, which are designed so that only a few of these functions are needed in lower- dimensional approximations. Furthermore, since EOFs are the eigenvectors of the error co-varianc",
+      "overlap_with_next": "sing the representation deriving a latent state used from the Kalman Filter in [20]. The authors also used a linear dynamic model to compute, i.e predict, the next timestep. A vari",
+      "text": "ions, which are designed so that only a few of these functions are needed in lower- dimensional approximations. Furthermore, since EOFs are the eigenvectors of the error co-variance matrix, its condition number is reduced as well. Nev- ertheless, the accuracy of the solution obtained by truncating EOFs exhibits a severe sensibility to the variation of the value of the truncation parameter, so that a suitably choice of the number of EOFs is strongly recommended. This issue introduces a severe drawback to the reliability of EOFs trunca- tion, hence to the usability of the operative software in diﬀerent scenarios. A powerful solution to this is to use a Tikhonov regularisation which reveals to be more appropriate than truncation of EOFs [4]. Neural networks have tremendous ability to ﬁt functions and they can ﬁt al- most any unknown function theoretically. That is the ability which makes it possible for neural networks to model complex ﬂows. The complex computa- tions involving matrices is reduced by factorising the representation deriving a latent state used from the Kalman Filter in [20]. The authors also used a linear dynamic model to compute, i.e predict, the next timestep. A vari",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02795,
+        -0.01707,
+        -0.03609,
+        -0.00016,
+        -0.0088
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "sing the representation deriving a latent state used from the Kalman Filter in [20]. The authors also used a linear dynamic model to compute, i.e predict, the next timestep. A vari",
+      "overlap_with_next": "oder to reduce the space where the surrogate model will work and where we perform the as- similation of the observation using the Optimal Interpolated Kalman Filter. We have chosen",
+      "text": "sing the representation deriving a latent state used from the Kalman Filter in [20]. The authors also used a linear dynamic model to compute, i.e predict, the next timestep. A vari- ational AutoEncoder capable to generate trajectories from a latent space where the dynamics is linear is presented in [21]. In this paper, we propose a new methodology that use the NNs to reduce the space and perform the assimilation of the sensors data in the latent space. Speciﬁcally, we use a Convolutional AutoEncoder to reduce the domain and we perform an Optimal Interpolated Kalman Filter in the latent space. In this paper, we make the following contributions: • We have designed a novel data assimilation technology, we called Latent Assimilation (LA), mainly composed by an AutoEncoder, a surrogate model and an Optimal Kalman Filter. The Latent Assimilation model performs the prediction of the ﬂows and the assimilation of observed data through a Kalman Filter in the latent space. • We have developed a Convolutional AutoEncoder to reduce the space where the surrogate model will work and where we perform the as- similation of the observation using the Optimal Interpolated Kalman Filter. We have chosen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05959,
+        -0.01599,
+        -0.0249,
+        0.02029,
+        -0.00446
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "oder to reduce the space where the surrogate model will work and where we perform the as- similation of the observation using the Optimal Interpolated Kalman Filter. We have chosen",
+      "overlap_with_next": "r space. This methodology can be used for example to predict in real-time the load of virus, such as the SARS-COV-2, in indoor spaces by linking it to the concentration of CO 2 [22",
+      "text": "oder to reduce the space where the surrogate model will work and where we perform the as- similation of the observation using the Optimal Interpolated Kalman Filter. We have chosen to use an encoder-decoder model instead of Principal Component Analysis (PCA) since neural networks maintain non-linearities and perform better in modelling ﬂows; 5 [Page 6] • We have built a Recurrent Neural Network (LSTM) to emulate a Com- putational Fluid Dynamics (CFD) simulation in the latent space of an AutoEncoder: the trained LSTM represents the surrogate model to predict the CO 2 concentration in a room; • We prove that our novel Latent Assimilation model answers the needs of accuracy, stability and eﬃciency required by real-time applications. • We have developed a software written in python to test the Latent Assimilation model. The LA code and the pre-processed data can be downloaded using the link: https://github.com/DL-WG/LatentAssimilation. Experimental results are provided for pollutant dispersion within an indoor space. This methodology can be used for example to predict in real-time the load of virus, such as the SARS-COV-2, in indoor spaces by linking it to the concentration of CO 2 [22",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08202,
+        -0.01309,
+        -0.02475,
+        0.01735,
+        -0.01065
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "r space. This methodology can be used for example to predict in real-time the load of virus, such as the SARS-COV-2, in indoor spaces by linking it to the concentration of CO 2 [22",
+      "overlap_with_next": "volution of a system, if we have some measured data yt and a model M of the underlying mechanism that generated the data?”. This is the Bayesian context, where we seek a quantiﬁcat",
+      "text": "r space. This methodology can be used for example to predict in real-time the load of virus, such as the SARS-COV-2, in indoor spaces by linking it to the concentration of CO 2 [22]. 3. Data Assimilation In this section, we introduce the concept of Data Assimilation (DA) and the Kalman Filter (KF) which is one of the most used approach for DA. DA merges the estimated state xt∈ Rn of a discrete-time dynamic process at time t: xt+1 =Mt+1xt +wt (1) with an observation yt∈ Rm: yt =Htxt +vt (2) whereMt+1 is a dynamic linear operator and Ht is the observation operator. The vectors wt and vt represent the process and observation errors, respec- tively. They are usually assumed to be independent, white-noise processes with Gaussian probability distributions: wt∼N (0,Q t), vt∼N (0,R t) where Qt and Rt are called errors covariance matrices of the model and the observations, respectively. 6 [Page 7] DA tries to answer questions such as ”what can be said about the value of an unknown variable xt that represents the evolution of a system, if we have some measured data yt and a model M of the underlying mechanism that generated the data?”. This is the Bayesian context, where we seek a quantiﬁcat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04676,
+        -0.0104,
+        -0.05051,
+        0.04073,
+        -0.00582
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "volution of a system, if we have some measured data yt and a model M of the underlying mechanism that generated the data?”. This is the Bayesian context, where we seek a quantiﬁcat",
+      "overlap_with_next": "teps. The goal of the KF is to compute an optimal a posteriori estimate,xat , which is a linear combination of an a priori estimate, xt, and a weighted diﬀerence between the actual",
+      "text": "volution of a system, if we have some measured data yt and a model M of the underlying mechanism that generated the data?”. This is the Bayesian context, where we seek a quantiﬁcation of the uncertainty in our knowledge of the parameters that, according to Bayes’ rule takes the form p (xt|yt) = p (yt|xt)p (xt)p (yt) (3) Here, the physical model is represented by the conditional probability (also known as the likelihood) p (yt|xt), and the prior knowledge of the system by the term p (xt). The denominator is considered as a normalising factor and represents the total probability of yt. DA is a Bayesian inference that combines the statext withyt at each given time. The Bayes theorem conducts to the estimation of xat which maximise a probability density function given the observationyt and a prior from xt. This approach is implemented in one of the most popular DA methods which is the Kalman Filter (KF) [23] which mainly consists of two steps: a prediction (equation (4)) and a correction (equations (5)-(6)) steps. The goal of the KF is to compute an optimal a posteriori estimate,xat , which is a linear combination of an a priori estimate, xt, and a weighted diﬀerence between the actual",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01687,
+        -0.02502,
+        -0.07258,
+        0.02845,
+        -0.00366
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "teps. The goal of the KF is to compute an optimal a posteriori estimate,xat , which is a linear combination of an a priori estimate, xt, and a weighted diﬀerence between the actual",
+      "overlap_with_next": "del built with a RNN. 4. Latent Assimilation Latent Assimilation is a model that implements the idea of assimilating real data in the Latent Space of a Neural Network (NN). Instead",
+      "text": "teps. The goal of the KF is to compute an optimal a posteriori estimate,xat , which is a linear combination of an a priori estimate, xt, and a weighted diﬀerence between the actual measurement, yt, and the measurement prediction, Htxt as described in equation (6). 1. Prediction: xt+1 =Mt+1xat (4) 2. Correction: Kt+1 =Qt+1H Tt+1(Ht+1Qt+1H Tt+1 +Rt+1)−1 (5) xat+1 =xt+1 +Kt+1(yt+1−Hx t+1) (6) For big data problems, KF is usually implemented in a simpliﬁed version as an Optimal Interpolation method [24] for which the covariance matrix Qt =Q is ﬁxed at each timestep t. The prediction-correction cycle is complex and time-consuming and it man- dates the introduction of simpliﬁcations, approximations or data reductions techniques. In the next section, we present the Latent Assimilation approach which consists in performing KF in the latent space of an Autoencoder with 7 [Page 8] nonlinear encoder and nonlinear decoder functions. In the latent space, the dynamic system in equation (4) is replaced by a surrogate model built with a RNN. 4. Latent Assimilation Latent Assimilation is a model that implements the idea of assimilating real data in the Latent Space of a Neural Network (NN). Instead",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0601,
+        -0.02565,
+        -0.02743,
+        0.00835,
+        -0.00691
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "del built with a RNN. 4. Latent Assimilation Latent Assimilation is a model that implements the idea of assimilating real data in the Latent Space of a Neural Network (NN). Instead",
+      "overlap_with_next": "we want to predict the state of the system at time t and we assume that the LSTM needs one observation back to predict the next timestep. The input of the system is the state xt−1.",
+      "text": "del built with a RNN. 4. Latent Assimilation Latent Assimilation is a model that implements the idea of assimilating real data in the Latent Space of a Neural Network (NN). Instead of using PCA or others mathematical approaches to reduce the space, we model the reduction with non-linear transformations using Deep NNs. Speciﬁcally, we choose to use Convolutional Autoencoder to reduce the space. The model is divided into four main parts: 1. Dimensionality reduction: the physical space is transformed in a latent space of smaller dimension by a Convolutional Autoencoder; 2. Surrogate model: a surrogate of the CFD is built in the latent space by a Recurrent Neural Network; 3. Data Assimilation: observed data are assimilate in the surrogate of the CFD by a Kalman Filter; 4. Physical space: the results of the DA in the latent space are then reported in the physical space through a Decoder. Figure 1 shows the work ﬂows of the Latent Assimilation model. Figure 1: Latent Assimilation model workﬂow. Let assume that we want to predict the state of the system at time t and we assume that the LSTM needs one observation back to predict the next timestep. The input of the system is the state xt−1.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07096,
+        -0.0079,
+        -0.00458,
+        0.02926,
+        -0.01706
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "we want to predict the state of the system at time t and we assume that the LSTM needs one observation back to predict the next timestep. The input of the system is the state xt−1.",
+      "overlap_with_next": " most salient features of the training data. One type of undercomplete autoencoder is the Convolutional autoencoder. As we can deduce from the name, this autoencoder uses the Convo",
+      "text": "we want to predict the state of the system at time t and we assume that the LSTM needs one observation back to predict the next timestep. The input of the system is the state xt−1. We encode xt−1 producing its encoded version ht−1. From ht−1 we compute ht through LSTM. To perform the Kalman Filter, we need the observation ˆ yt at timestep t. We encode yt and we combine the result, ˆht, with the prediction ht through the KF. The result hat is the updated prediction. We report the updated prediction in its physical space through the Decoder, producing xat . 8 [Page 9] 4.1. Dimensionality reduction The dimensionality reduction is implemented by an AutoEncoder (AE). AEs are usually used for dimensionality reduction or feature learning. To use the autoencoder for dimensionality reduction, the encoder function must re- turns an output with lower dimension with respect to the input. This kind of autoencoder are called undercomplete. Learning an undercomplete repre- sentation forces the autoencoder to capture the most salient features of the training data. One type of undercomplete autoencoder is the Convolutional autoencoder. As we can deduce from the name, this autoencoder uses the Convo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01875,
+        -0.02845,
+        -0.03087,
+        0.01331,
+        0.01948
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": " most salient features of the training data. One type of undercomplete autoencoder is the Convolutional autoencoder. As we can deduce from the name, this autoencoder uses the Convo",
+      "overlap_with_next": "ough a Long Short Term Memory (LSTM) function l : Rp×q→ Rp ht+1 =l(ht,q) (8) where ht,q ={hi}i=t,...,t−q is a sequence of q encoded timesteps up to time t. The LSTM is a Recurrent ",
+      "text": " most salient features of the training data. One type of undercomplete autoencoder is the Convolutional autoencoder. As we can deduce from the name, this autoencoder uses the Convolutional operation. Thanks to the convolutional operation, the net- work takes into account the spatial information: they are specially used with images or grid data. Usually, the Convolutional AutoEncoders are composed by more than one convolutional layers, each followed by pooling layer to reduce the input [25]. Latent Assimilation implements a Convolutional Au- toencoder which produces a representation of the state vector xt∈ Rn in (1) in a “latent” state vector ht∈ Rp deﬁned in a Latent Space where p < n. We denote with f : Rn→ Rp the Encoder function ht =f(xt) (7) which transforms the state xt in a latent variable ht. Figure 2: Latent Assimilation - Encoder: xt−1 is the input state and ht−1 is the corre- sponding encoded state at timestep t− 1. 9 [Page 10] 4.2. Surrogate model In the latent space we perform a regression through a Long Short Term Memory (LSTM) function l : Rp×q→ Rp ht+1 =l(ht,q) (8) where ht,q ={hi}i=t,...,t−q is a sequence of q encoded timesteps up to time t. The LSTM is a Recurrent ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07127,
+        -0.02291,
+        -0.02043,
+        0.03348,
+        -0.00937
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "ough a Long Short Term Memory (LSTM) function l : Rp×q→ Rp ht+1 =l(ht,q) (8) where ht,q ={hi}i=t,...,t−q is a sequence of q encoded timesteps up to time t. The LSTM is a Recurrent ",
+      "overlap_with_next": "(t)i σ(bi + ∑ j Ui,jh(t)j + ∑ j Wi,ju(t−1)j ) (11) 4. Output Gate: it decides what the value of the next hidden state using a sigmoid function on the previous hidden state and the ",
+      "text": "ough a Long Short Term Memory (LSTM) function l : Rp×q→ Rp ht+1 =l(ht,q) (8) where ht,q ={hi}i=t,...,t−q is a sequence of q encoded timesteps up to time t. The LSTM is a Recurrent Neural Network (RNN) with good performance with time-series data [26]. It is composed by gates and cells as shown if Figure 3. The gates decide which information should pass using a sigmoid function. The LSTM is composed by four elements described below. In all formulas, b, U and W denote respectively the biases, input weights and recurrent weights for corresponding gate. 1. Forget gate: it decides what information should pass via a logistic sigmoid σ(x) = (1/(1 +e−x)) unit d(t)i =σ(bdi + ∑ j U di,jh(t)j + ∑ j W di,ju(t−1)j ) (9) where h(t) is the input and u(t) is the hidden layer. 2. Input Gate: it is similar to the Forget Gate but with its own param- eters c(t)i =σ(bci + ∑ j U ci,jh(t)j + ∑ j W ci,ju(t−1)j ) (10) 3. Cell State: the cell state is then updated using sigmoid and hyperbolic tangent functions sii =d(t)i s(t−1)i +c(t)i σ(bi + ∑ j Ui,jh(t)j + ∑ j Wi,ju(t−1)j ) (11) 4. Output Gate: it decides what the value of the next hidden state using a sigmoid function on the previous hidden state and the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02963,
+        0.00437,
+        -0.03676,
+        -0.01662,
+        0.01476
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "(t)i σ(bi + ∑ j Ui,jh(t)j + ∑ j Wi,ju(t−1)j ) (11) 4. Output Gate: it decides what the value of the next hidden state using a sigmoid function on the previous hidden state and the ",
+      "overlap_with_next": " assimilated by the prediction-correction steps as described in equa- tions (15)-(17) ad as shown in Figure 4: 1. Prediction: ht+1 =l(ht,q) (15) 2. Correction: ˆKt+1 = ˆQ ˆH T ( ˆH",
+      "text": "(t)i σ(bi + ∑ j Ui,jh(t)j + ∑ j Wi,ju(t−1)j ) (11) 4. Output Gate: it decides what the value of the next hidden state using a sigmoid function on the previous hidden state and the current input and an hyperbolic tangent function on the newly modiﬁed cell state. q(t)i =σ(boi + ∑ j U oi,jh(t)j + ∑ j W oi,ju(t−1)j ) (12) h(t+1)i = tanh(s(t)i )q(t)i (13) 10 [Page 11] Figure 3: Latent Assimilation - LSTM. 4.3. Data Assimilation The assimilation is performed in the latent space. In order to merge the observations in (2) with the “latent” state vector ht, the observations are processed by the Encoder in the same way as the state vector. As yt∈ Rm where usually m≤ n, i.e. the observations are usually held or measured in just few point in space, the observations vector yt is interpolated in the state space Rn obtaining ˆyt∈ Rn. The observations ˆyt are then processed in the same way as the state vector trough f: ˆht =f(ˆyt) (14) The “latent” observationsˆht, transformed by the Encoder in the latent space, are then assimilated by the prediction-correction steps as described in equa- tions (15)-(17) ad as shown in Figure 4: 1. Prediction: ht+1 =l(ht,q) (15) 2. Correction: ˆKt+1 = ˆQ ˆH T ( ˆH",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01244,
+        -0.01769,
+        -0.03408,
+        0.02228,
+        0.00542
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " assimilated by the prediction-correction steps as described in equa- tions (15)-(17) ad as shown in Figure 4: 1. Prediction: ht+1 =l(ht,q) (15) 2. Correction: ˆKt+1 = ˆQ ˆH T ( ˆH",
+      "overlap_with_next": "e matrix ˆR can be estimated by evaluations of measurements (in- struments) errors ˆR =σI∈ Rp×p (20) where 0 < σ <1 and I∈ Rp×p denotes the identity matrix [24]. ˆK is the Kalman G",
+      "text": " assimilated by the prediction-correction steps as described in equa- tions (15)-(17) ad as shown in Figure 4: 1. Prediction: ht+1 =l(ht,q) (15) 2. Correction: ˆKt+1 = ˆQ ˆH T ( ˆH ˆQ ˆH T + ˆRt+1)−1 (16) hat+1 =ht+1 + ˆKt+1(ˆht+1− ˆHh t+1) (17) wherel in (15) is the surrogate model deﬁned in (8) computed by the LSTM, ˆQ and ˆR are the errors covariance matrices of the transformed background ht and observations ˆht respectively: they are computed directly in the latent space. The background covariance matrix ˆQ is computed with a sample of s 11 [Page 12] model state forecasts h that we set aside as background such that: h = [h1,...,h s]∈ Rp×s, V = (h− ¯h)∈ Rp×s (18) where ¯h is the mean of the sample of background states, then ˆQ = VV T . The observations errors covariance matrix ˆR can be computed with the same process than in equation (18) by replacing ht with ˆht∀t ˆh = [ˆh1,..., ˆhs]∈ Rp×s, ˆV = (ˆh− ¯ˆh)∈ Rp×s (19) where ¯ˆh is the mean of the sample of observations, then ˆR = ˆV ˆV T . The covariance matrix ˆR can be estimated by evaluations of measurements (in- struments) errors ˆR =σI∈ Rp×p (20) where 0 < σ <1 and I∈ Rp×p denotes the identity matrix [24]. ˆK is the Kalman G",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04116,
+        0.01974,
+        -0.03183,
+        -0.00554,
+        0.01063
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "e matrix ˆR can be estimated by evaluations of measurements (in- struments) errors ˆR =σI∈ Rp×p (20) where 0 < σ <1 and I∈ Rp×p denotes the identity matrix [24]. ˆK is the Kalman G",
+      "overlap_with_next": "r is composed by diﬀerent subfolders: • DataSet: it contains the Structured dataset divided in train and test; • PreProcess: it contains all the code written to extract the Structu",
+      "text": "e matrix ˆR can be estimated by evaluations of measurements (in- struments) errors ˆR =σI∈ Rp×p (20) where 0 < σ <1 and I∈ Rp×p denotes the identity matrix [24]. ˆK is the Kalman Gain matrix deﬁned in the latent space and ˆH is the observation operator. Figure 4: Latent Assimilation - Kalman Filter loop: the yellow block is the prediction phase (LSTM) and the green block is the correction phase (KF). 4.4. Physical space The results of the DA in the latent space are then reported in the physical space through the Decoder, applying the function g : Rp→ Rn to compute xat+1 =g(hat+1). (21) 12 [Page 13] The Decoder is almost a mirror of the Encoder: it is composed of a Fully Connected Layer followed by some Convolutional Layers. Figure 5: Latent Assimilation - Decoder: hat is the encoded updated state and xat is the decoded updated state. 4.5. Latent Assimilation code The code is written in Python and is available at the following link: https: //github.com/DL-WG/LatentAssimilation. The LatentAssimilation folder is composed by diﬀerent subfolders: • DataSet: it contains the Structured dataset divided in train and test; • PreProcess: it contains all the code written to extract the Structu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04502,
+        -0.02473,
+        -0.03579,
+        0.00313,
+        -0.00613
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "r is composed by diﬀerent subfolders: • DataSet: it contains the Structured dataset divided in train and test; • PreProcess: it contains all the code written to extract the Structu",
+      "overlap_with_next": "model step by step and we compare results with a standard DA performed in the physical space. 13 [Page 14] Figure 6: Test case room located in Clarence Centre building, London, UK.",
+      "text": "r is composed by diﬀerent subfolders: • DataSet: it contains the Structured dataset divided in train and test; • PreProcess: it contains all the code written to extract the Structured dataset starting from the unstructured meshes. We used the python libraries math, numpy, vtktools and pyvista. • AutoEncoder and LSTM: both folders contain the code used to ﬁnd the structure of the model and the hyper-parameters for the Struc- tured dataset. All results are stored and also visualized in AnalysisLS7 jupyter notebook. We used python libraries such as numpy, sklearn, pandas and tensorﬂow. • Data Assimilation: here there is all the observation data preprocessing, the Kalman Filter and the LatentAssimilation module which performs the assimilation in the Latent Space and it prints the table of the results. In the next Section we apply Latent Assimilation to the problem of assimilat- ing data to improve the prediction of air ﬂows and indoor pollution transport in a real scenario [1]. We show the performance of the model step by step and we compare results with a standard DA performed in the physical space. 13 [Page 14] Figure 6: Test case room located in Clarence Centre building, London, UK.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05576,
+        -0.02127,
+        -0.02537,
+        0.03578,
+        0.00495
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "model step by step and we compare results with a standard DA performed in the physical space. 13 [Page 14] Figure 6: Test case room located in Clarence Centre building, London, UK.",
+      "overlap_with_next": "ed during 25 minutes to look at cross ventilation eﬀect on the decay of temperature and CO 2 concentration. During the whole period of the experiment, the predominant wind was a so",
+      "text": "model step by step and we compare results with a standard DA performed in the physical space. 13 [Page 14] Figure 6: Test case room located in Clarence Centre building, London, UK. Red dots denote the location of the 7 sensors used during the ﬁeld experiment. Blue rectangles show the location of the three windows [1]. 5. Set up of a real test case 5.1. CFD simulation The LA model presented in Section 4 is applied to real data collected in the context of the MAGIC project [1]: external and internal air quality mea- surements were performed within a naturally ventilated oﬃce room located at the top ﬂoor of the three-storey Clarence Centre building, Borough of Southwark, London, UK (Figure 6). The room has two windows facing a busy road (London Road), one window facing a traﬃc-free courtyard and a skylight in the ceiling. Seven sensors located in diﬀerent positions were used to record, amongst others, the indoor temperature and CO 2 concentration, with a sampling rate of 1 minute. The three windows were opened during 25 minutes to look at cross ventilation eﬀect on the decay of temperature and CO 2 concentration. During the whole period of the experiment, the predominant wind was a so",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05118,
+        0.00184,
+        -0.05433,
+        -0.03646,
+        0.01537
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "ed during 25 minutes to look at cross ventilation eﬀect on the decay of temperature and CO 2 concentration. During the whole period of the experiment, the predominant wind was a so",
+      "overlap_with_next": "showing the Clarence Centre and the upwind building as well as the test case room. The blue arrows denote the wind direction. from the indoor sensors and the weather station used d",
+      "text": "ed during 25 minutes to look at cross ventilation eﬀect on the decay of temperature and CO 2 concentration. During the whole period of the experiment, the predominant wind was a south-westerly wind. To replicate the ﬁeld study experiment, a numerical simulation has been performed using the Computational Fluid Dynamics (CFD) software Flu- idity (http://fluidityproject.github.io/). The same CFD simulation has been used in a previous paper [27] and only the main details of the CFD setup are re-called here. The computational domain includes the Clarence Centre building as well as the immediate upwind building, and the test room oﬃce as shown in Figure 7 in order to replicate the cross ventilation scenario done during the ﬁeld study. The mesh generated is an unstructured tetrahe- dral mesh composed by 400,000 nodes (Figure 7). The initial and boundary conditions are set to replicate the experimental conditions and are derived 14 [Page 15] Figure 7: Computational domain and surface mesh of the area of interest showing the Clarence Centre and the upwind building as well as the test case room. The blue arrows denote the wind direction. from the indoor sensors and the weather station used d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05972,
+        0.01358,
+        -0.05351,
+        0.00812,
+        -0.01659
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "showing the Clarence Centre and the upwind building as well as the test case room. The blue arrows denote the wind direction. from the indoor sensors and the weather station used d",
+      "overlap_with_next": "A model presented in Section 4. Indeed, convolutional kernels work on the assumption that adjacent states are equally spaced. As a ﬁrst step, only the nodes located within the test",
+      "text": "showing the Clarence Centre and the upwind building as well as the test case room. The blue arrows denote the wind direction. from the indoor sensors and the weather station used during the ﬁeld study. The initial indoor CO 2 concentration is set equal to 1420 ppm, while the outdoor background CO 2 level is set equal to 400 ppm. The initial indoor and outdoor temperatures are equal to 19.5 oC and 9.1 oC, respectively. The inlet velocity is following a log-law proﬁle reaching 2.58 m/s at 28.5 m height. The simulation was run in parallel on 20 CPU and 15 minutes were simu- lated rendering approximately 3,500 timesteps. In this paper, the working variable of interest is the CO 2 concentration. It is worth noting that after the timestep 2,500 the concentration of CO 2 is low everywhere in the room since the room is completely ventilated. 5.2. CFD data pre-processing The data generated by the CFD simulation are stored on an unstructured mesh and need to be converted into structured data in order to apply the LA model presented in Section 4. Indeed, convolutional kernels work on the assumption that adjacent states are equally spaced. As a ﬁrst step, only the nodes located within the test",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04493,
+        -0.00602,
+        -0.07628,
+        0.01919,
+        -0.00137
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "A model presented in Section 4. Indeed, convolutional kernels work on the assumption that adjacent states are equally spaced. As a ﬁrst step, only the nodes located within the test",
+      "overlap_with_next": "id. The values stored in the ﬁnal matrix corresponds to actual values of CO 2 concentration as shown in Figure 9. • “RGB dataset” Data from the unstructured 2D slice are directly c",
+      "text": "A model presented in Section 4. Indeed, convolutional kernels work on the assumption that adjacent states are equally spaced. As a ﬁrst step, only the nodes located within the test room were selected to work with, thus excluding the rest of the domain to the working dataset as shown in Figure 8. As a second step, we choose to extract and work with the data from a 2D slice located at half height of the room: this location being a good compromise 15 [Page 16] Figure 8: Unstructured mesh of the room coloured by CO 2 concentration. Blue colour means low CO 2 concentration, i.e. 400 ppm, and red colour indicates high value of con- centration, i.e. 1420 ppm. between the diﬀerent heights of sensors used during the ﬁeld experiment. Finally, two diﬀerent pre-processing approaches were adopted: • “Structured dataset” Data from the unstructured 2D slice are pro- jected on a structured grid. The “Structured dataset” is generated by interpolating the CO2 concentration values of the unstructured grid on a structured grid. The values stored in the ﬁnal matrix corresponds to actual values of CO 2 concentration as shown in Figure 9. • “RGB dataset” Data from the unstructured 2D slice are directly c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06656,
+        -0.02041,
+        -0.03263,
+        0.00982,
+        -0.00898
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "id. The values stored in the ﬁnal matrix corresponds to actual values of CO 2 concentration as shown in Figure 9. • “RGB dataset” Data from the unstructured 2D slice are directly c",
+      "overlap_with_next": "ge 17] (a) (b) (c) (d) (e) (f) Figure 9: “Structured dataset” coloured by CO 2 concentration at timesteps (a) 509, (b) 643 (c) 1062, (d) 1359, (e) 1485 and (f) 1741. Blue colour me",
+      "text": "id. The values stored in the ﬁnal matrix corresponds to actual values of CO 2 concentration as shown in Figure 9. • “RGB dataset” Data from the unstructured 2D slice are directly converted into a RGB image: a screenshot of the 2D slice coloured based on the CO2 concentration values is created. The scalar bar of the RGB images is set based on the minimum and maximum CO2 concentration, i.e. 400 ppm and 1420 ppm, respectively. This transformation allows to move from unstructured mesh to structured data since the RGB image is a 3D structured matrix of pixel values. The values stored in the ﬁnal matrix corresponds to RGB values being between 0 and 255 as shown in Figure 10. Both pre-processing approaches are performed for each timestep and the ﬁnal size of the working matrix is a 180×250 regular grid. As a ﬁnal step, all the data are normalised between 0 and 1. The “RGB dataset” is divided by 255, while the “Structured dataset” is normalised based on the minimum and maximum values of CO 2 concentration. 16 [Page 17] (a) (b) (c) (d) (e) (f) Figure 9: “Structured dataset” coloured by CO 2 concentration at timesteps (a) 509, (b) 643 (c) 1062, (d) 1359, (e) 1485 and (f) 1741. Blue colour me",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0454,
+        -0.03244,
+        -0.02781,
+        0.00239,
+        -0.014
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "ge 17] (a) (b) (c) (d) (e) (f) Figure 9: “Structured dataset” coloured by CO 2 concentration at timesteps (a) 509, (b) 643 (c) 1062, (d) 1359, (e) 1485 and (f) 1741. Blue colour me",
+      "overlap_with_next": "2D structured grid as shown in Figure 12. This pre-processing is performed to be consistent with both the “Structured dataset” and the “RGB dataset”, i.e. is done in terms of CO 2 ",
+      "text": "ge 17] (a) (b) (c) (d) (e) (f) Figure 9: “Structured dataset” coloured by CO 2 concentration at timesteps (a) 509, (b) 643 (c) 1062, (d) 1359, (e) 1485 and (f) 1741. Blue colour means low CO 2 concentration, i.e. 400 ppm, and red colour indicates high value of concentration, i.e. 1420 ppm. 5.3. Sensors data pre-processing The location of the sensors during the ﬁeld experiment are shown in Fig- ure 6 and are reported in our 180×250 matrix at the corresponding timestep. Based on the sampling rate of the sensors, 10 CFD output were selected corresponding to time levels for which we have sensors data. As a ﬁrst pre- processing step, considering that the area of inﬂuence of one sensor has a radius of about 15 cm, a zone of 10 pixels × 10 pixels centred on the sensor location is deﬁned and the value given by the sensor at that location is as- signed to this whole area. The rendering of this process is shown in Figure 11. The second step consists in interpolating linearly the values of the sensors to the entire 2D structured grid as shown in Figure 12. This pre-processing is performed to be consistent with both the “Structured dataset” and the “RGB dataset”, i.e. is done in terms of CO 2 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07856,
+        -0.05279,
+        -0.04994,
+        -0.01587,
+        -0.01655
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "2D structured grid as shown in Figure 12. This pre-processing is performed to be consistent with both the “Structured dataset” and the “RGB dataset”, i.e. is done in terms of CO 2 ",
+      "overlap_with_next": " Rendering of the linear interpolation of the sensor values coloured by CO 2 concentration (in ppm) at timesteps (a) 509, (b) 643, (c) 1062, (d) 1359, (e) 1485 and (f) 1741. 6. Res",
+      "text": "2D structured grid as shown in Figure 12. This pre-processing is performed to be consistent with both the “Structured dataset” and the “RGB dataset”, i.e. is done in terms of CO 2 concentration and RGB values scaled using the CO2 concentration, respectively. As a ﬁnal step, all the data are normalised between 0 and 1 as for the CFD pre-processing. 17 [Page 18] (a) (b) (c) (d) (e) (f) Figure 10: “RGB dataset” colored by RGB values scaled using the CO 2 concentration at timesteps (a) 509, (b) 643 (c) 1062, (d) 1359, (e) 1485 and (f) 1741. Blue colour means low CO2 concentration, i.e. 400 ppm, and corresponds to RGB values equal to 0. Red colour indicates high value of concentration, i.e. 1420 ppm, and corresponds to RGB values equal to 255. 18 [Page 19] (a) (b) (c) (d) (e) (f) Figure 11: Rendering of the sensor values expanding to a radius of 15 cm coloured by CO 2 concentration (in ppm) at timesteps (a) 509, (b) 643, (c) 1062, (d) 1359, (e) 1485 and (f) 1741. 19 [Page 20] (a) (b) (c) (d) (e) (f) Figure 12: Rendering of the linear interpolation of the sensor values coloured by CO 2 concentration (in ppm) at timesteps (a) 509, (b) 643, (c) 1062, (d) 1359, (e) 1485 and (f) 1741. 6. Res",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0808,
+        -0.04332,
+        -0.04646,
+        -0.021,
+        -0.02622
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": " Rendering of the linear interpolation of the sensor values coloured by CO 2 concentration (in ppm) at timesteps (a) 509, (b) 643, (c) 1062, (d) 1359, (e) 1485 and (f) 1741. 6. Res",
+      "overlap_with_next": "formed. The jumped data, i.e the ones not considered yet, are assigned to the validation and testing sets alternately. Considering a jump equal to 1, this process is summarised in ",
+      "text": " Rendering of the linear interpolation of the sensor values coloured by CO 2 concentration (in ppm) at timesteps (a) 509, (b) 643, (c) 1062, (d) 1359, (e) 1485 and (f) 1741. 6. Results and Discussions In this section, the procedure to determine the optimal network architectures of both the AutoEncoder and the LSTM is ﬁrst presented. Then the results of the novel Latent Assimilation model developed in this paper are discussed based on the assimilation of the sensors data in both latent and physical space. The data set is decomposed into training, validation and testing sets. In the CFD simulation, the ﬂow ﬁeld and the associated CO 2 concentration does not change much between consecutive steps. For this reason, we decide to divide the data in training, validation and testing sets making jumps. First, the CFD output at timesteps corresponding to sensors data are excluded and are assigned to the testing set. For the remaining data, two consecutive timesteps are considered for the training, then a jump is performed. The jumped data, i.e the ones not considered yet, are assigned to the validation and testing sets alternately. Considering a jump equal to 1, this process is summarised in ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08347,
+        -0.05048,
+        -0.03968,
+        0.00592,
+        -0.00705
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "formed. The jumped data, i.e the ones not considered yet, are assigned to the validation and testing sets alternately. Considering a jump equal to 1, this process is summarised in ",
+      "overlap_with_next": "ers For each CAE network architecture tested, 5-fold cross-validation are per- formed for which the data are shuﬄed to make the neural network indepen- dent from the order of the d",
+      "text": "formed. The jumped data, i.e the ones not considered yet, are assigned to the validation and testing sets alternately. Considering a jump equal to 1, this process is summarised in Figure 13. 20 [Page 21] Figure 13: Training, Validation and Testing sets. Two consecutive timesteps are consid- ered for the training. The jumped data are assigned to the validation and testing sets alternately. 6.1. AutoEncoder network architecture The AutoEncoder implemented in this paper is a Convolutional AutoEncoder (CAE). Speciﬁcally, the encoder is composed by several convolutional layers followed by a ﬂattened layer then a regular densely-connected layer which determine the shape of the latent space. In our CAE, the decoder architecture has almost the same structure than the encoder one: indeed, an additional convolutional layer is used in the decoder. Finding the optimal construction of the CAE architecture is divided in two steps: 1. Finding the optimal numbers of layers 2. Grid search: Finding the optimal hyperparameters For each CAE network architecture tested, 5-fold cross-validation are per- formed for which the data are shuﬄed to make the neural network indepen- dent from the order of the d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01461,
+        -0.03269,
+        -0.03197,
+        0.03068,
+        0.02019
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "ers For each CAE network architecture tested, 5-fold cross-validation are per- formed for which the data are shuﬄed to make the neural network indepen- dent from the order of the d",
+      "overlap_with_next": "re is using the following ﬁxed parame- ters: • Convolutional layers parameters 21 [Page 22] – Number of ﬁlters: 32 – Activation function: Last decoder layer: sigmoid function to re",
+      "text": "ers For each CAE network architecture tested, 5-fold cross-validation are per- formed for which the data are shuﬄed to make the neural network indepen- dent from the order of the data. Both the training and validation sets are used for the cross-validation. The evaluation of the CAE network architec- ture is estimated based on the mean and the standard deviation of the Mean Squared Error between the CAE prediction and the CFD output, i.e Mean- MSE and Std-MSE, respectively; the mean and the standard deviation of the Mean Absolute Error between the CAE prediction and the CFD output, i.e Mean-MAE and Std-MAE; and the mean and the standard deviation of the CAE execution time, i.e. Mean-Time and Std-Time. A low MSE/MAE standard deviation reﬂects that the model is stable and does not depend on the data used to train and validate it, while a low MSE/MAE means that the prediction is close to the real input, i.e has a good accuracy. 6.1.1. Optimal structure and number of layers The baseline CAE network architecture is using the following ﬁxed parame- ters: • Convolutional layers parameters 21 [Page 22] – Number of ﬁlters: 32 – Activation function: Last decoder layer: sigmoid function to re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00823,
+        -0.04014,
+        -0.05547,
+        0.00424,
+        0.02501
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "re is using the following ﬁxed parame- ters: • Convolutional layers parameters 21 [Page 22] – Number of ﬁlters: 32 – Activation function: Last decoder layer: sigmoid function to re",
+      "overlap_with_next": "kernel size. 4. Encoder: 4 convolutional layers. Decoder: 5 transpose convolutional layers. 3×3 kernel size. 5. Encoder: 4 convolutional layers. Decoder: 5 convolutional layers. 5 ",
+      "text": "re is using the following ﬁxed parame- ters: • Convolutional layers parameters 21 [Page 22] – Number of ﬁlters: 32 – Activation function: Last decoder layer: sigmoid function to re- strict the output in a range [0, 1] as the input; Rectiﬁed Linear Unit (ReLU) otherwise. • Regular densely-connected layer Latent Space: 7 • Training conﬁguration – Losses and metrics optimiser: Adam, learning rate of 1 .10−3. Adam optimisation is a stochastic gradient descent method based on adaptive estimation of ﬁrst-order and second-order moments well suited for problems with large data. – Number of epochs: 300 – Batch size: 32 The following diﬀerent CAE network architectures are tested using the “Struc- tured dataset” in order to ﬁnd the optimal numbers and structure of layers: 1. Encoder: 3 convolutional layers. Decoder: 4 convolutional layers. 3 ×3 kernel size. 2. Encoder: 4 convolutional layers. Decoder: 5 convolutional layers. 3 ×3 kernel size. 3. Encoder: 5 convolutional layers. Decoder: 6 convolutional layers. 3 ×3 kernel size. 4. Encoder: 4 convolutional layers. Decoder: 5 transpose convolutional layers. 3×3 kernel size. 5. Encoder: 4 convolutional layers. Decoder: 5 convolutional layers. 5 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.03308,
+        -0.025,
+        -0.05299,
+        -0.03388,
+        -0.00557
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "kernel size. 4. Encoder: 4 convolutional layers. Decoder: 5 transpose convolutional layers. 3×3 kernel size. 5. Encoder: 4 convolutional layers. Decoder: 5 convolutional layers. 5 ",
+      "overlap_with_next": "e conﬁguration number as listed in the main text. Time is given in sec- onds. The bold row, i.e. conﬁguration 2, is the conﬁguration highlighting the best overall performance. Numb",
+      "text": "kernel size. 4. Encoder: 4 convolutional layers. Decoder: 5 transpose convolutional layers. 3×3 kernel size. 5. Encoder: 4 convolutional layers. Decoder: 5 convolutional layers. 5 ×5 kernel size. 6. Encoder: 4 convolutional layers; 5 ×5, 5×5, 3×3 and 3×3 kernel sizes. Decoder: 5 convolutional layers; 3×3, 3×3, 5×5, 5×5 and 5×5 kernel sizes. Results of the evaluation of the six CAE network architectures are reported in Table 1 where the conﬁguration number N are given by the list above. 22 [Page 23] N Mean-MSE Std-MSE Mean-MAE Std-MAE Mean-Time Std-Time 1 1.324e-02 2.072e-02 5.573e-02 7.575e-02 775.665 5.606e+00 2 2.435e-04 3.851e-05 1.034e-02 8.776e-04 812.293 1.436e+00 3 2.293e-02 2.763e-02 8.887e-02 9.818e-02 828.328 1.574e+00 4 2.587e-04 4.114e-05 1.041e-02 9.384e-04 746.804 3.089e+00 5 1.055e-02 2.099e-02 4.460e-02 7.922e-02 1222.251 6.627e+00 6 1.058e-02 2.094e-02 4.650e-02 7.826e-02 1164.464 4.605e+00 Table 1: Convolutional AutoEncoder performance evaluation for 6 network architectures. N denotes the conﬁguration number as listed in the main text. Time is given in sec- onds. The bold row, i.e. conﬁguration 2, is the conﬁguration highlighting the best overall performance. Numb",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        7e-05,
+        -0.02849,
+        -0.03616,
+        -0.03029,
+        -0.00663
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "e conﬁguration number as listed in the main text. Time is given in sec- onds. The bold row, i.e. conﬁguration 2, is the conﬁguration highlighting the best overall performance. Numb",
+      "overlap_with_next": "n the decoder The accuracy (Mean-MSE/Mean-MAE) and the stability (Std-MSE/Std-MAE) are slightly better, while the execution time is slightly longer, when using convolutional layers",
+      "text": "e conﬁguration number as listed in the main text. Time is given in sec- onds. The bold row, i.e. conﬁguration 2, is the conﬁguration highlighting the best overall performance. Number of layers Comparing conﬁgurations 1, 2 and 3 for which only the number of convolutional layers is changing, conﬁguration 2, i.e. 4 convolu- tional layers for the encoder and 5 convolutional layers for the decoder, is the one highlighting the best performance in terms of both Mean-MSE and Mean-MAE with MSE two order of magnitude lower than conﬁgurations 1 and 3. Moreover, conﬁguration 2 is the most stable regarding the standard deviations, reﬂecting well that this CAE network architecture does not de- pend on the data used to train and validate it. In addition, the execution time of conﬁguration 2 is relatively acceptable to answer real-time problems. Hence, in the following, the number of layers is taken as the same than conﬁguration 2: 4 for the encoder and 5 for the decoder. Convolutional vs transpose convolutional layers in the decoder The accuracy (Mean-MSE/Mean-MAE) and the stability (Std-MSE/Std-MAE) are slightly better, while the execution time is slightly longer, when using convolutional layers",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.0095,
+        -0.03465,
+        -0.04665,
+        0.01113,
+        0.01906
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "n the decoder The accuracy (Mean-MSE/Mean-MAE) and the stability (Std-MSE/Std-MAE) are slightly better, while the execution time is slightly longer, when using convolutional layers",
+      "overlap_with_next": "n used as the optimal kernel size in the following. 6.1.2. Grid search for the optimal hyperparameters The grid search is now performed in order to ﬁnd the optimal hyperparam- eter",
+      "text": "n the decoder The accuracy (Mean-MSE/Mean-MAE) and the stability (Std-MSE/Std-MAE) are slightly better, while the execution time is slightly longer, when using convolutional layers (conﬁg. 2) rather than transpose convolutional layers (conﬁg. 4) in the decoder. As no major improvements in terms of MSE/MAE is observed when switching from convolutional (conﬁg. 2) to transpose con- volutional layers in the decoder (conﬁg. 4), convolutional layers are used for the decoder. Size of the kernel Conﬁgurations 2, 5 and 6 have the same layer number and the size of the kernel is changed. Using a 5 ×5 kernel size for all the layers (conﬁg. 5) or using a mix of 3 ×3 and 5×5 kernel sizes (conﬁg. 6) both increase the MSE/MAE by two order of magnitude compared to using 23 [Page 24] a 3×3 kernel size for all the layers (conﬁg. 2). In addition, the execution cost is considerably increased, about 50 % less eﬃcient, when the kernel size is larger as the complexity scales with k3 wherek is the kernel size. Overall, 3×3 is then used as the optimal kernel size in the following. 6.1.2. Grid search for the optimal hyperparameters The grid search is now performed in order to ﬁnd the optimal hyperparam- eter",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00016,
+        -0.02234,
+        -0.05716,
+        0.00304,
+        -0.00687
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "n used as the optimal kernel size in the following. 6.1.2. Grid search for the optimal hyperparameters The grid search is now performed in order to ﬁnd the optimal hyperparam- eter",
+      "overlap_with_next": "i.e. 64 number of ﬁlters, a ReLU activation function and 400 epochs. Only the batch size diﬀers: 32 for the “Structured dataset” and 16 for the “RGB dataset”. The fact that “RGB da",
+      "text": "n used as the optimal kernel size in the following. 6.1.2. Grid search for the optimal hyperparameters The grid search is now performed in order to ﬁnd the optimal hyperparam- eters for both the “Structured dataset” and the “RGB dataset”. The CAE network architecture is using the following ﬁxed parameters: • Convolutional layers parameters – Number of encoder/decoder convolutional layers: 4 and 5 – Kernel size: 3x3 • Regular densely-connected layer Latent Space: 7 • Training conﬁguration Adam optimiser: learning rate of 1 .10−3. The hyperparameters tested for the grid search are as follows: • Convolutional layers parameters – Number of ﬁlters: 16, 32, 64 – Activation function: Rectiﬁed Linear Unit (ReLU), Exponential Linear Unit (ELU). • Training conﬁguration – Number of epochs: 250, 300, 400 – Batch size: 16, 32, 64 Table 2 shows the optimal hyperparameters found for each input dataset, while the evaluation performance are reported in Table 3. The optimal hy- perparameters are the same for both dataset, i.e. 64 number of ﬁlters, a ReLU activation function and 400 epochs. Only the batch size diﬀers: 32 for the “Structured dataset” and 16 for the “RGB dataset”. The fact that “RGB da",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01898,
+        -0.02544,
+        -0.05704,
+        -0.02095,
+        -0.02557
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "i.e. 64 number of ﬁlters, a ReLU activation function and 400 epochs. Only the batch size diﬀers: 32 for the “Structured dataset” and 16 for the “RGB dataset”. The fact that “RGB da",
+      "overlap_with_next": "arameters determined by a grid search when using “Structured dataset” or “RGB dataset” as input. Dataset Mean-MSE Std-MSE Mean-MAE Std-MAE Mean-Time Std-Time Structured 8.509e-05 1",
+      "text": "i.e. 64 number of ﬁlters, a ReLU activation function and 400 epochs. Only the batch size diﬀers: 32 for the “Structured dataset” and 16 for the “RGB dataset”. The fact that “RGB dataset” needs less batch size than the “Structured dataset” can be potentially attributed to the fact that the former has 3 channels (R, G and B colours), so requiring less batch size. The results show that both datasets 24 [Page 25] have very similar accuracy and stability: low MSE and low standard devia- tion, of the order of 10−5, meaning that the CAE is not dependent on the set of input chosen to train it. Using “RGB dataset” highlights better perfor- mance, with Mean-MSE 57 % lower than when using “Structured dataset”. However, using the “RGB dataset”, more time is needed to train the CAE because an element of this dataset is composed by three channels, i.e. the R, G and B colour values. Dataset Filters Activation Epochs Batch size Structured 64 ReLU 400 32 RGB 64 ReLU 400 16 Table 2: Optimal Convolutional AutoEncoder hyperparameters determined by a grid search when using “Structured dataset” or “RGB dataset” as input. Dataset Mean-MSE Std-MSE Mean-MAE Std-MAE Mean-Time Std-Time Structured 8.509e-05 1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03929,
+        -0.06915,
+        -0.04871,
+        0.00062,
+        -0.00941
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "arameters determined by a grid search when using “Structured dataset” or “RGB dataset” as input. Dataset Mean-MSE Std-MSE Mean-MAE Std-MAE Mean-Time Std-Time Structured 8.509e-05 1",
+      "overlap_with_next": "the optimal numbers of layers 2. Grid search: Finding the optimal hyperparameters For each LSTM network architecture tested, the ﬁtting and the evaluation of the model is repeating",
+      "text": "arameters determined by a grid search when using “Structured dataset” or “RGB dataset” as input. Dataset Mean-MSE Std-MSE Mean-MAE Std-MAE Mean-Time Std-Time Structured 8.509e-05 1.577e-05 6.182e-03 8.714e-04 1887.612 6.845e+00 RGB 3.670e-05 9.261e-06 3.601e-03 4.333e-04 2490.920 1.825e+01 Table 3: Convolutional AutoEncoder performance using “Structured dataset” or “RGB dataset” as input and the optimal hyperparameters found with the grid search (Table 2. Time is given in seconds. 6.2. LSTM network architecture In this model, the training set is used for the ﬁtting step and the validation set for the validation step. An extra splitting of the training set is performed: the data are split in small sequences such that one timestep is predicted and 3 timesteps are used as “look back” values as shown in Figure 14. All data are encoded with the AutoEncoder: each input sample of the LSTM is then a vector of 7 scalars. Finding the optimal construction of the LSTM architecture is divided in two steps: 1. Finding the optimal numbers of layers 2. Grid search: Finding the optimal hyperparameters For each LSTM network architecture tested, the ﬁtting and the evaluation of the model is repeating",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06534,
+        -0.03801,
+        -0.03984,
+        0.01105,
+        -0.01281
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "the optimal numbers of layers 2. Grid search: Finding the optimal hyperparameters For each LSTM network architecture tested, the ﬁtting and the evaluation of the model is repeating",
+      "overlap_with_next": " to see if the model gains in accuracy, stability and eﬃciency: the results are shown in Table 4. The single layer LSTM is the one highlighting the best accuracy with the lowest Me",
+      "text": "the optimal numbers of layers 2. Grid search: Finding the optimal hyperparameters For each LSTM network architecture tested, the ﬁtting and the evaluation of the model is repeating 5 times. As for the CAE network architecture, the 25 [Page 26] LSTM network architecture performance is evaluated based on the Mean- MSE, Std-MSE, Mean-MAE, Std-MAE, Mean-Time and Std-Time. Figure 14: Data splitting for LSTM model. Timesteps in black are the ones used to make the prediction and the red ones are the timesteps predicted. 6.2.1. Optimal number of layers The baseline LSTM network architecture, tested with the “Structured dataset”, is using the following ﬁxed parameters: • LSTM layers parameters – Number of neurons: 30, i.e the dimensionality of the output space – Activation function: ReLU – Number of steps: 3 • Regular densely-connected layer Latent Space: 7 • Training conﬁguration – Optimiser: Adam with a learning rate of 1 .10−3 – Number of epochs: 300 – Batch size: 32 LSTMs are stacked from 1 to 5 times in order to see if the model gains in accuracy, stability and eﬃciency: the results are shown in Table 4. The single layer LSTM is the one highlighting the best accuracy with the lowest Me",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00927,
+        -0.03304,
+        -0.05051,
+        -0.00713,
+        0.00688
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": " to see if the model gains in accuracy, stability and eﬃciency: the results are shown in Table 4. The single layer LSTM is the one highlighting the best accuracy with the lowest Me",
+      "overlap_with_next": "m- ber of stacked LSTMs. Time is given in seconds. The bold row, i.e. 1 LSTM, is the conﬁguration highlighting the best overall performance. 6.2.2. Grid Search The grid search is n",
+      "text": " to see if the model gains in accuracy, stability and eﬃciency: the results are shown in Table 4. The single layer LSTM is the one highlighting the best accuracy with the lowest Mean-MSE and Mean-MAE values. Indeed, the input of the LSTM consists of a 7×1 vector and adding more LSTM layer introduces overﬁtting bias. In addition, the standard deviation, reﬂecting the stability, of the single layer 26 [Page 27] LSTM are about one order of magnitude lower than the other tested LSTM. Finally, as expected, the single layer LSTM is also the most eﬃcient in term of computation cost. N Mean-MSE Std-MSE Mean-MAE Std-MAE Mean-Time Std-Time 1 1.634e-02 2.510e-03 7.822e-02 8.553e-03 230.355 1.050e+00 2 2.822e-02 7.244e-03 1.060e-01 1.679e-02 360.877 6.618e-01 3 4.619e-02 1.942e-02 1.381e-01 3.034e-02 494.254 2.258e+00 4 5.020e-02 1.675e-02 1.414e-01 2.778e-02 658.039 2.632e+00 5 4.742e-02 1.183e-02 1.459e-01 2.075e-02 806.001 5.921e+00 Table 4: LSTM performance evaluation for 5 network architectures. N denotes the num- ber of stacked LSTMs. Time is given in seconds. The bold row, i.e. 1 LSTM, is the conﬁguration highlighting the best overall performance. 6.2.2. Grid Search The grid search is n",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03603,
+        0.01438,
+        -0.06168,
+        -0.01516,
+        0.02305
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "m- ber of stacked LSTMs. Time is given in seconds. The bold row, i.e. 1 LSTM, is the conﬁguration highlighting the best overall performance. 6.2.2. Grid Search The grid search is n",
+      "overlap_with_next": "ochs of 400 and a batch size of 16 for both the input dataset. The results show that the “RGB dataset” needs more neurons and more back observations than the “Structured dataset”. ",
+      "text": "m- ber of stacked LSTMs. Time is given in seconds. The bold row, i.e. 1 LSTM, is the conﬁguration highlighting the best overall performance. 6.2.2. Grid Search The grid search is now performed in order to ﬁnd the optimal hyperparame- ters for both the “Structured dataset” and the “RGB dataset”. The LSTM network architecture is using the following ﬁxed parameters: • LSTM layers parameters Number of layers: 1 • Regular densely-connected layer Latent Space: 7 • Training conﬁguration Optimiser: Adam, learning rate of 1 .10−3 The hyperparameters tested for the grid search are as follows: • LSTM layers parameters – Number of neurons: 30, 50, 70 – Activation function: ReLU, ELU – Number of steps: 3, 5, 7 • Training conﬁguration – Number of epochs: 200, 300, 400 – Batch size: 16, 32, 64 27 [Page 28] Table 5 shows the optimal hyperparameters found for each input dataset, while the evaluation performance are reported in Table 6. Exponential Linear Unit (ELU) appears to be the optimal activation function, with an epochs of 400 and a batch size of 16 for both the input dataset. The results show that the “RGB dataset” needs more neurons and more back observations than the “Structured dataset”. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01448,
+        -0.02905,
+        -0.05867,
+        -0.00762,
+        -0.01916
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "ochs of 400 and a batch size of 16 for both the input dataset. The results show that the “RGB dataset” needs more neurons and more back observations than the “Structured dataset”. ",
+      "overlap_with_next": " search (Table 5). Time given in seconds. 6.3. Latent Assimilation model In this section, results of our novel Latent Assimilation (LA) model are pre- sented: the assimilation take",
+      "text": "ochs of 400 and a batch size of 16 for both the input dataset. The results show that the “RGB dataset” needs more neurons and more back observations than the “Structured dataset”. From Table 6, it can be seen that the LSTM with “RGB dataset” as input has better accuracy and takes also less time than when using “Structured dataset” input. Indeed, the accuracy is about 45 % higher when using input “RGB dataset”, while the execution time is reduced by approximately 27 %. Dataset Neurons Activation Steps Epochs Batch size Structured 30 Elu 3 400 16 RGB 50 Elu 7 400 16 Table 5: Optimal LSTM hyperparameters determined by a grid search when using “Struc- tured dataset” or “RGB dataset” as input. DataSet Mean-MSE Std-MSE Mean-MAE Std-MAE Mean-Time Std-Time Structured 1.233e-02 1.398e-03 6.743e-02 3.428e-03 949.328 7.508e+00 RGB 6.712e-03 6.704e-04 4.661e-02 3.004e-03 690.594 2.743e+00 Table 6: LSTM performance using “Structured dataset” or “RGB dataset” as input and the optimal hyperparameters found with the grid search (Table 5). Time given in seconds. 6.3. Latent Assimilation model In this section, results of our novel Latent Assimilation (LA) model are pre- sented: the assimilation take",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04923,
+        -0.04572,
+        -0.038,
+        0.00781,
+        -0.03386
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": " search (Table 5). Time given in seconds. 6.3. Latent Assimilation model In this section, results of our novel Latent Assimilation (LA) model are pre- sented: the assimilation take",
+      "overlap_with_next": " ˆR = 0.01I, 0.001I, 0.0001I where I ∈ Rp×p denotes the identity matrix. This last assumption is usually made to give higher ﬁdelity and trust to the observations [24]. 6.3.1. Late",
+      "text": " search (Table 5). Time given in seconds. 6.3. Latent Assimilation model In this section, results of our novel Latent Assimilation (LA) model are pre- sented: the assimilation takes place in the latent space. The Testing set is considered and both dataset, i.e. “Structured dataset” and “RGB dataset”, are encoded using the AutoEncoders with optimal network architecture as presented in Section 6.1.2. The predictions are performed through the LSTM and are updated using the corresponding observations through Optimal In- terpolated Kalman Filter (KF). In the KF, the error covariance matrix ˆQ is computed as ˆQ = VV T , where V is as deﬁned in equation (18). Since both predictions of the model and observations are values of CO 2 or pixels, i.e. the observations do not have 28 [Page 29] to be transformed, the operator ˆH is an identity matrix. We studied how KF improves the accuracy of the prediction by testing diﬀerent forms of the observation error covariance matrix ˆR: computed using equation (18) or, ﬁxed as ˆR = 0.01I, 0.001I, 0.0001I where I ∈ Rp×p denotes the identity matrix. This last assumption is usually made to give higher ﬁdelity and trust to the observations [24]. 6.3.1. Late",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03186,
+        -0.035,
+        -0.03099,
+        0.00852,
+        -0.0093
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": " ˆR = 0.01I, 0.001I, 0.0001I where I ∈ Rp×p denotes the identity matrix. This last assumption is usually made to give higher ﬁdelity and trust to the observations [24]. 6.3.1. Late",
+      "overlap_with_next": "e form 0.0001I allows to improve the accuracy by up to 4 order of magnitude. ˆR cov-matrix eq. (18) 0.01I 0.001I 0.0001I MSE Structured 3.215e-01 1.250e-02 1.787e-03 3.722e-05RGB 2",
+      "text": " ˆR = 0.01I, 0.001I, 0.0001I where I ∈ Rp×p denotes the identity matrix. This last assumption is usually made to give higher ﬁdelity and trust to the observations [24]. 6.3.1. Latent space The MSE between the background data and the observed data in the latent space for the “Structured dataset” and the “RGB dataset”, without per- forming data assimilation, are 7 .220× 10−1 and 5.447× 10−1, respectively. Table 7 shows values of MSE in the latent space between the assimilated data hat and the observed data as well as the execution time of the assimi- lation for both input dataset. As expected, we can observe an improvement in the execution time of the assimilation in assuming ˆR as a diagonal matrix instead of a full matrix. In addition, the assimilation increases the accuracy of the model, whatever the input dataset used, with MSE values about 2.2 times lower compared to without assimilation, highlighting that our novel Latent Assimilation model is behaving as expected. Using ˆR as an identity matrix of the form 0.0001I allows to improve the accuracy by up to 4 order of magnitude. ˆR cov-matrix eq. (18) 0.01I 0.001I 0.0001I MSE Structured 3.215e-01 1.250e-02 1.787e-03 3.722e-05RGB 2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06556,
+        -0.03423,
+        -0.01374,
+        0.0111,
+        -0.00703
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "e form 0.0001I allows to improve the accuracy by up to 4 order of magnitude. ˆR cov-matrix eq. (18) 0.01I 0.001I 0.0001I MSE Structured 3.215e-01 1.250e-02 1.787e-03 3.722e-05RGB 2",
+      "overlap_with_next": " (f) Updated state t=1062 (g) Predicted state t=1485 (h) Observation t=1485 (i) Updated state t=1485 Figure 15: Assimilation results colored by CO 2 concentration (in ppm) at times",
+      "text": "e form 0.0001I allows to improve the accuracy by up to 4 order of magnitude. ˆR cov-matrix eq. (18) 0.01I 0.001I 0.0001I MSE Structured 3.215e-01 1.250e-02 1.787e-03 3.722e-05RGB 2.444e-01 1.002e-02 4.409e-03 1.640e-03 Time Structured 1.541e-03 5.410e-04 4.854e-04 4.823e-04RGB 2.145e-03 5.388e-04 4.847e-04 4.807e-04 Table 7: MSE values in the latent space and execution time of the assimilation in seconds of the Latent Assimilation model for diﬀerent form of the observations error covariance matrix ˆR in the latent space when using the “Structured dataset” or the “RGB dataset” as input. 6.3.2. Physical space After having performed the DA in the latent space, the resultshat are reported in the physical space through the decoder which givesxat . Figure 15 shows in the physical space the results of the assimilation for the timesteps 509, 1062 and 1485 using our novel LA model. 29 [Page 30] (a) Predicted state t=509 (b) Observation t=509 (c) Updated state t=509 (d) Predicted state t=1062 (e) Observation t=1062 (f) Updated state t=1062 (g) Predicted state t=1485 (h) Observation t=1485 (i) Updated state t=1485 Figure 15: Assimilation results colored by CO 2 concentration (in ppm) at times",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05329,
+        -0.03563,
+        -0.02112,
+        -0.00749,
+        -0.0049
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": " (f) Updated state t=1062 (g) Predicted state t=1485 (h) Observation t=1485 (i) Updated state t=1485 Figure 15: Assimilation results colored by CO 2 concentration (in ppm) at times",
+      "overlap_with_next": "ed data in the physical space, without performing data assimilation, is 6 .491× 10−2. Both 30 [Page 31] LA and sDA improve the accuracy of the forecasting as shown in Table 8: howe",
+      "text": " (f) Updated state t=1062 (g) Predicted state t=1485 (h) Observation t=1485 (i) Updated state t=1485 Figure 15: Assimilation results colored by CO 2 concentration (in ppm) at timesteps 509, 1062 and 1485. (a) LSTM predicted state, (b) interpolated observation and (c) updated state obtained using the latent assimilation. Blue colour means low CO 2 concentration, i.e. 400 ppm, and red colour indicates high value of concentration, i.e. 1420 ppm. The MSE in the physical space using our LA model is then compared with the one using a standard Data Assimilation (sDA) procedure. sDA is performed in the physical space using a Kalman Filter approach (equations (4)- (6)), where R∈ Rn×n is deﬁned in the physical space. Table 8 shows values of MSE in the physical space between the assimilated data xat and the observed data as well as the execution time of the assimilation for our LA model and the standard methodology (sDA) when using the “Structured dataset” as input. The MSE between the background data and the observed data in the physical space, without performing data assimilation, is 6 .491× 10−2. Both 30 [Page 31] LA and sDA improve the accuracy of the forecasting as shown in Table 8: howe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07522,
+        -0.05025,
+        -0.03007,
+        -0.02427,
+        -0.02308
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "ed data in the physical space, without performing data assimilation, is 6 .491× 10−2. Both 30 [Page 31] LA and sDA improve the accuracy of the forecasting as shown in Table 8: howe",
+      "overlap_with_next": " this section, the impact of increasing the size of the latent space is dis- cussed. Results are presented for the “Structured dataset” only. Table 9 and Table 10 give the MSE valu",
+      "text": "ed data in the physical space, without performing data assimilation, is 6 .491× 10−2. Both 30 [Page 31] LA and sDA improve the accuracy of the forecasting as shown in Table 8: however it can be observed that the LA model gives 35 % more accuracy than a sDA model. In addition, LA performs better in terms of execution time with respect to a sDA: indeed sDA works directly with big matrices making it slower by six order of magnitude. ˆR cov-matrix eq. (18) 0.01I 0.001I 0.0001I MSE LA 3.356e-02 6.933e-04 1.211e-04 2.691e-06sDA 5.179e-02 6.928e-03 6.928e-03 6.997e-03 Time LA 1.541e-03 5.410e-04 4.854e-04 4.823e-04sDA 2.231e+03 2.148e+03 2.186e+03 2.159e+03 Table 8: MSE values of xat using our novel Latent Assimilation (LA) model or using a standard Data Assimilation (sDA) procedure for diﬀerent form of the observations error covariance matrix ˆR when using the “Structured dataset” as input. MSE are computed in the physical space . Execution time of the assimilation in seconds. 6.3.3. Size of the latent space In this section, the impact of increasing the size of the latent space is dis- cussed. Results are presented for the “Structured dataset” only. Table 9 and Table 10 give the MSE valu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06298,
+        -0.0252,
+        -0.03858,
+        -0.01772,
+        -0.02821
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": " this section, the impact of increasing the size of the latent space is dis- cussed. Results are presented for the “Structured dataset” only. Table 9 and Table 10 give the MSE valu",
+      "overlap_with_next": "er size. Finding the optimal parameters of our LA depends the expectancy of the user as a balance needs to be taken between accuracy and eﬃciency. Regarding the small accuracy gain",
+      "text": " this section, the impact of increasing the size of the latent space is dis- cussed. Results are presented for the “Structured dataset” only. Table 9 and Table 10 give the MSE values of the Latent Assimilation model with diﬀerent latent space sizes, from 1000 to 20000, computed in the latent and physical space, respectively. The column “No DA” reports the MSE values without the assimilation. Table 11 reports the execution time of the assimilation. Deﬁning ˆR as an identity matrix always highlights better accuracy what- ever the latent space size. Increasing the latent space size tends to decrease the MSE, i.e. gain in accuracy, in both the latent and the physical space. Overall, a latent space size equal to 18000 seems optimal for this problem, whatever the form of the observations error covariance matrix ˆR, which rep- resents about 40 % of the original data. However, the execution time of the assimilation can be up to 5 order of magnitude higher when using the optimal latent space size compared to a lower size. Finding the optimal parameters of our LA depends the expectancy of the user as a balance needs to be taken between accuracy and eﬃciency. Regarding the small accuracy gain",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04145,
+        -0.01098,
+        -0.02748,
+        0.01642,
+        -0.04089
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": "er size. Finding the optimal parameters of our LA depends the expectancy of the user as a balance needs to be taken between accuracy and eﬃciency. Regarding the small accuracy gain",
+      "overlap_with_next": " the other columns indicate the MSE of the LA model with diﬀerent observation error covariance matrix ˆR. Latent Space No DA 0.01 I 0.001 I 0.0001 I 1000 3.532e-02 1.347e-03 1.278e",
+      "text": "er size. Finding the optimal parameters of our LA depends the expectancy of the user as a balance needs to be taken between accuracy and eﬃciency. Regarding the small accuracy gain while increasing the latent space size, it is recommended to work with the smallest latent space size as possible in order to beneﬁt of the best eﬃciency while still keeping a high accuracy. 31 [Page 32] Latent Space No DA 0.01 I 0.001 I 0.0001 I 1000 4.363e-03 5.141e-04 4.980e-04 4.961e-04 3000 6.472e-04 9.933e-05 9.566e-05 9.501e-05 5000 6.012e-04 1.009e-04 9.184e-05 9.076e-05 7000 7.295e-04 1.179e-04 1.146e-04 1.142e-04 12000 1.727e-04 3.651e-05 3.540e-05 3.531e-05 15000 1.660e-04 3.529e-05 3.463e-05 3.457e-05 18000 2.941e-04 3.141e-05 3.086e-05 3.085e-05 20000 3.465e-04 6.506e-05 6.177e-05 6.073e-05 Table 9: MSE values of LA model in the latent space with diﬀerent latent space sizes. The column Latent Space indicates the size of the latent space, the column “No DA” indicates the MSE of the model without the assimilation and the other columns indicate the MSE of the LA model with diﬀerent observation error covariance matrix ˆR. Latent Space No DA 0.01 I 0.001 I 0.0001 I 1000 3.532e-02 1.347e-03 1.278e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03585,
+        0.00453,
+        -0.0639,
+        -0.00646,
+        -0.01257
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": " the other columns indicate the MSE of the LA model with diﬀerent observation error covariance matrix ˆR. Latent Space No DA 0.01 I 0.001 I 0.0001 I 1000 3.532e-02 1.347e-03 1.278e",
+      "overlap_with_next": "1.125e+01 1.136e+01 12000 4.289e+01 4.353e+01 4.375e+01 15000 7.960e+01 8.072e+01 8.180e+01 18000 1.432e+02 1.441e+02 1.443e+02 20000 2.096e+02 2.124e+02 1.997e+02 Table 11: Execut",
+      "text": " the other columns indicate the MSE of the LA model with diﬀerent observation error covariance matrix ˆR. Latent Space No DA 0.01 I 0.001 I 0.0001 I 1000 3.532e-02 1.347e-03 1.278e-03 1.278e-03 3000 3.261e-02 1.828e-03 1.694e-03 1.653e-03 5000 2.822e-02 1.975e-03 1.689e-03 1.667e-03 7000 3.352e-02 1.248e-03 1.171e-03 1.155e-03 12000 2.479e-02 1.248e-03 1.171e-03 1.155e-03 15000 1.734e-02 1.325e-03 1.262e-03 1.253e-03 18000 3.703e-02 1.080e-03 9.848e-04 9.743e-04 20000 2.514e-02 1.621e-03 1.424e-03 1.365e-03 Table 10: MSE values of LA model in the physical space with diﬀerent latent space sizes. The column Latent Space indicates the size of the latent space, the column “No DA” indicates the MSE of the model without the assimilation and the other columns indicate the MSE of the LA model with diﬀerent observation error covariance matrix ˆR. 32 [Page 33] Latent Space 0.01 I 0.001 I 0.0001 I 1000 5.637e-01 5.525e-01 5.637e-01 3000 2.272e+00 2.260e+00 2.147e+00 5000 5.197e+00 5.301e+00 5.358e+00 7000 1.104e+01 1.125e+01 1.136e+01 12000 4.289e+01 4.353e+01 4.375e+01 15000 7.960e+01 8.072e+01 8.180e+01 18000 1.432e+02 1.441e+02 1.443e+02 20000 2.096e+02 2.124e+02 1.997e+02 Table 11: Execut",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06828,
+        -0.02586,
+        -0.04345,
+        -0.01237,
+        -0.01086
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "1.125e+01 1.136e+01 12000 4.289e+01 4.353e+01 4.375e+01 15000 7.960e+01 8.072e+01 8.180e+01 18000 1.432e+02 1.441e+02 1.443e+02 20000 2.096e+02 2.124e+02 1.997e+02 Table 11: Execut",
+      "overlap_with_next": "the real data coming from the sensors are both processed through the AutoEncoder. We applied the methodology to a real test case and we have shown that the LA performs better than ",
+      "text": "1.125e+01 1.136e+01 12000 4.289e+01 4.353e+01 4.375e+01 15000 7.960e+01 8.072e+01 8.180e+01 18000 1.432e+02 1.441e+02 1.443e+02 20000 2.096e+02 2.124e+02 1.997e+02 Table 11: Execution time in seconds of the assimilation in our LA model with diﬀerent latent space sizes. The column Latent Space indicates the size of the latent space and the other columns indicate the execution time of the assimilation with diﬀerent observation error covariance matrix ˆR. 7. Conclusion and Future Work In this paper, we proposed a new methodology called Latent Assimilation (LA) to eﬃciently and accurately perform Data Assimilation (DA). LA con- sists in performing the Optimal Kalman Filter in the latent space obtained by a Convolutional AutoEncoder with non-linear encoder functions and non- linear decoder functions. In the latent space, the dynamic system is repre- sented by a surrogate model built by an LSTM network to train a function that emulates the dynamic system in the latent space. The data from the dynamic model and the real data coming from the sensors are both processed through the AutoEncoder. We applied the methodology to a real test case and we have shown that the LA performs better than ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04967,
+        -0.02736,
+        -0.04717,
+        0.01137,
+        -0.00829
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": "the real data coming from the sensors are both processed through the AutoEncoder. We applied the methodology to a real test case and we have shown that the LA performs better than ",
+      "overlap_with_next": "el for both datasets as input. We tested also the standard data assimi- lation in the physical space and we have shown that LA performs better in terms of both eﬃciency and accurac",
+      "text": "the real data coming from the sensors are both processed through the AutoEncoder. We applied the methodology to a real test case and we have shown that the LA performs better than a standard DA in terms of both accuracy and eﬃciency. The data of the real test case was time-series data representing the airﬂow within a naturally ventilated oﬃce room. The data was provided by CFD on an unstructured mesh and we pre-processed these data to ex- tract two diﬀerent structured datasets: one composed of 2D matrices of CO 2 concentration (“Structured dataset”) and the other one composed of RGB images colored by CO 2 concentration (“RGB dataset”). We pre-processed also the data coming from sensors in the same manner. 33 [Page 34] We tried diﬀerent AutoEncoder conﬁgurations and we performed a grid search for both input datasets in order to determine the optimal conﬁgu- rations. The same was done for the LSTM: it is the surrogate model. We performed the assimilation in the latent space using the Latent Assimilation model for both datasets as input. We tested also the standard data assimi- lation in the physical space and we have shown that LA performs better in terms of both eﬃciency and accurac",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07312,
+        -0.03705,
+        -0.05069,
+        -0.00339,
+        -0.02463
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "el for both datasets as input. We tested also the standard data assimi- lation in the physical space and we have shown that LA performs better in terms of both eﬃciency and accurac",
+      "overlap_with_next": " We will develop an extended version of LA able to assimilate set of distributed observations for each timestep and, then, able to perform a 4DVar; • Add a third dimension, i.e. te",
+      "text": "el for both datasets as input. We tested also the standard data assimi- lation in the physical space and we have shown that LA performs better in terms of both eﬃciency and accuracy. In conclusion, we have successfully proposed and developed a novel model able to assimilate data in the latent space, thus answering the needs of accu- racy, stability and eﬃciency required by real-time systems. This methodology can be used for example to predict in real-time the load of virus, such as the SARS-COV-2, in indoor spaces by linking it to the concentration of CO2 [22]. There are diﬀerent improvements that could be applied to the model to be used with more challenging applications: • Develop an implementation of LA to emulate a variational DA [24] which is often applied to big data problems. In particular, we will focus on a 4D Variational (4DVar) method. 4DVar is a computational expensive method as it is developed to assimilate several observations (distributed in time) for each timestep of the forecasting model. We will develop an extended version of LA able to assimilate set of distributed observations for each timestep and, then, able to perform a 4DVar; • Add a third dimension, i.e. te",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02996,
+        0.00362,
+        -0.04509,
+        0.0342,
+        -0.02701
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": " We will develop an extended version of LA able to assimilate set of distributed observations for each timestep and, then, able to perform a 4DVar; • Add a third dimension, i.e. te",
+      "overlap_with_next": "llution ex- posure and its mitigation (INHALE). Bibliography [1] J. Song, S. Fan, W. Lin, L. Mottet, H. Woodward, M. Davies Wykes, R. Arcucci, D. Xiao, J.-E. Debay, H. ApSimon, et ",
+      "text": " We will develop an extended version of LA able to assimilate set of distributed observations for each timestep and, then, able to perform a 4DVar; • Add a third dimension, i.e. test the methodology on a 3D space us- ing a 3D Convolutional Autoencoder. Instead of cutting a slice, the 3D Convolutional Autoencoder will work on the complete room space without losing information; • Recent research studies has started in the direction of working directly with unstructured meshes. It will be challenging developing Latent Assimilation with an Encoder-Decoder which works directly on a 3D adaptive and unstructured mesh; • Instead of using only indoor data, the methodology could be applied considering the exchange with the outdoor environment or tested in diﬀerent applications, i.e ocean. 34 [Page 35] Acknowledgments This work is supported by the EPSRC Grand Challenge grant Managing Air for Green Inner Cities (MAGIC) EP/N010221/1 and the EP/T003189/1 Health assessment across biological length scales for personal pollution ex- posure and its mitigation (INHALE). Bibliography [1] J. Song, S. Fan, W. Lin, L. Mottet, H. Woodward, M. Davies Wykes, R. Arcucci, D. Xiao, J.-E. Debay, H. ApSimon, et ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03907,
+        0.00393,
+        -0.03741,
+        0.01677,
+        -0.00475
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "llution ex- posure and its mitigation (INHALE). Bibliography [1] J. Song, S. Fan, W. Lin, L. Mottet, H. Woodward, M. Davies Wykes, R. Arcucci, D. Xiao, J.-E. Debay, H. ApSimon, et ",
+      "overlap_with_next": "2006. [7] A. Hannachi, A primer for eof analysis of climate data, Department of Meteorology, University of Reading (2004) 1–33. [8] J. Mack, R. Arcucci, M. Molina-Solana, Y.-K. Guo",
+      "text": "llution ex- posure and its mitigation (INHALE). Bibliography [1] J. Song, S. Fan, W. Lin, L. Mottet, H. Woodward, M. Davies Wykes, R. Arcucci, D. Xiao, J.-E. Debay, H. ApSimon, et al., Natural ventila- tion in cities: the implications of ﬂuid mechanics, Building Research & Information 46 (2018) 809–828. [2] I. C. L. AMCG, Fluidity manual v4.1.12, Imperial College London (2015). URL: https://figshare.com/articles/Fluidity_Manual/ 1387713. [3] C. K. Wikle, L. M. Berliner, A bayesian tutorial for data assimilation, Physica D: Nonlinear Phenomena 230 (2007) 1–16. [4] R. Arcucci, L. Mottet, C. Pain, Y.-K. Guo, Optimal reduced space for variational data assimilation, Journal of Computational Physics 379 (2019) 51–69. [5] R. Arcucci, C. Q. Casas, D. Xiao, L. Mottet, F. Fang, P. Wu, C. C. Pain, Y.-K. Guo, A domain decomposition reduced order model with data assimilation (dd-roda)., in: PARCO, 2019, pp. 189–198. [6] P. C. Hansen, J. G. Nagy, D. P. O’leary, Deblurring images: matrices, spectra, and ﬁltering, SIAM, 2006. [7] A. Hannachi, A primer for eof analysis of climate data, Department of Meteorology, University of Reading (2004) 1–33. [8] J. Mack, R. Arcucci, M. Molina-Solana, Y.-K. Guo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07243,
+        0.01269,
+        -0.02582,
+        0.00871,
+        -0.02096
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": "2006. [7] A. Hannachi, A primer for eof analysis of climate data, Department of Meteorology, University of Reading (2004) 1–33. [8] J. Mack, R. Arcucci, M. Molina-Solana, Y.-K. Guo",
+      "overlap_with_next": "ng and nwp: Beneﬁts and challenges, Bulletin of the American Meteorological Society 100 (2019) ES473–ES491. [13] V. Babovic, M. Keijzer, M. Bundzel, From global to local modelling:",
+      "text": "2006. [7] A. Hannachi, A primer for eof analysis of climate data, Department of Meteorology, University of Reading (2004) 1–33. [8] J. Mack, R. Arcucci, M. Molina-Solana, Y.-K. Guo, Attention-based convolutional autoencoders for 3d-variational data assimilation, Com- puter Methods in Applied Mechanics and Engineering 372 (2020) 113291. 35 [Page 36] [9] P. Wu, J. Sun, X. Chang, W. Zhang, R. Arcucci, Y. Guo, C. C. Pain, Data-driven reduced order model with temporal convolutional neural network, Computer Methods in Applied Mechanics and Engineering 360 (2020) 112766. [10] C. Q. Casas, R. Arcucci, P. Wu, C. Pain, Y.-K. Guo, A reduced order deep data assimilation model, Physica D: Nonlinear Phenomena 412 (2020) 132615. [11] R. Arcucci, L. Moutiq, Y.-K. Guo, Neural assimilation, in: International Conference on Computational Science, Springer, 2020, pp. 155–168. [12] S.-A. Boukabara, V. Krasnopolsky, J. Q. Stewart, E. S. Maddy, N. Shahroudi, R. N. Hoﬀman, Leveraging modern artiﬁcial intelligence for remote sensing and nwp: Beneﬁts and challenges, Bulletin of the American Meteorological Society 100 (2019) ES473–ES491. [13] V. Babovic, M. Keijzer, M. Bundzel, From global to local modelling:",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06032,
+        -0.03666,
+        -0.01921,
+        0.00683,
+        -0.01957
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": "ng and nwp: Beneﬁts and challenges, Bulletin of the American Meteorological Society 100 (2019) ES473–ES491. [13] V. Babovic, M. Keijzer, M. Bundzel, From global to local modelling:",
+      "overlap_with_next": "al Neural Networks (2018) 265. [18] K. Loh, P. S. Omrani, R. van der Linden, Deep learning and data assimilation for real-time production prediction in natural gas wells, arXiv pre",
+      "text": "ng and nwp: Beneﬁts and challenges, Bulletin of the American Meteorological Society 100 (2019) ES473–ES491. [13] V. Babovic, M. Keijzer, M. Bundzel, From global to local modelling: a case study in error correction of deterministic models, in: Proceedings of fourth international conference on hydroinformatics, 2000. [14] V. Babovic, R. Caˇ nizares, H. R. Jensen, A. Klinting, Neural networks as routine for error updating of numerical models, Journal of Hydraulic Engineering 127 (2001) 181–193. [15] V. Babovic, D. R. Fuhrman, Data assimilation of local model error forecasts in a deterministic model, International journal for numerical methods in ﬂuids 39 (2002) 887–918. [16] J. Zhu, S. Hu, R. Arcucci, C. Xu, J. Zhu, Y.-k. Guo, Model error correction in data assimilation by integrating neural networks, Big Data Mining and Analytics 2 (2019) 83–91. [17] R. S. Cintra, H. Campos Velho, Data assimilation by artiﬁcial neu- ral networks for an atmospheric general circulation model, Advanced Applications for Artiﬁcial Neural Networks (2018) 265. [18] K. Loh, P. S. Omrani, R. van der Linden, Deep learning and data assimilation for real-time production prediction in natural gas wells, arXiv pre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05925,
+        -0.00789,
+        -0.00602,
+        0.01917,
+        -0.02106
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "al Neural Networks (2018) 265. [18] K. Loh, P. S. Omrani, R. van der Linden, Deep learning and data assimilation for real-time production prediction in natural gas wells, arXiv pre",
+      "overlap_with_next": "approach to linear ﬁltering and prediction prob- lems, Journal of Basic Engineering (1960). [24] M. Asch, M. Bocquet, M. Nodet, Data assimilation: methods, algo- rithms, and applic",
+      "text": "al Neural Networks (2018) 265. [18] K. Loh, P. S. Omrani, R. van der Linden, Deep learning and data assimilation for real-time production prediction in natural gas wells, arXiv preprint arXiv:1802.05141 (2018). 36 [Page 37] [19] C. A. Quilodr´ an Casas, Fast ocean data assimilation and forecasting using a neural-network reduced-space regional ocean model of the north Brazil current, Ph.D. thesis, Imperial College London, 2018. [20] P. Becker, H. Pandya, G. Gebhardt, C. Zhao, J. Taylor, G. Neumann, Recurrent kalman networks: Factorized inference in high-dimensional deep feature spaces, arXiv preprint arXiv:1905.07357 (2019). [21] M. Watter, J. Springenberg, J. Boedecker, M. Riedmiller, Embed to control: A locally linear latent dynamics model for control from raw images, in: Advances in neural information processing systems, 2015, pp. 2746–2754. [22] Z. Peng, J. L. Jimenez, Exhaled co2 as covid-19 infection risk proxy for diﬀerent indoor environments and activities, medRxiv (2020). [23] R. E. Kalman, A new approach to linear ﬁltering and prediction prob- lems, Journal of Basic Engineering (1960). [24] M. Asch, M. Bocquet, M. Nodet, Data assimilation: methods, algo- rithms, and applic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03496,
+        -0.00645,
+        -0.03036,
+        -0.00492,
+        -0.0332
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 61802,
+      "length": 602,
+      "overlap_with_previous": "approach to linear ﬁltering and prediction prob- lems, Journal of Basic Engineering (1960). [24] M. Asch, M. Bocquet, M. Nodet, Data assimilation: methods, algo- rithms, and applic",
+      "overlap_with_next": "",
+      "text": "approach to linear ﬁltering and prediction prob- lems, Journal of Basic Engineering (1960). [24] M. Asch, M. Bocquet, M. Nodet, Data assimilation: methods, algo- rithms, and applications, SIAM, 2016. [25] I. Goodfellow, Y. Bengio, A. Courville, Y. Bengio, Deep learning, vol- ume 1, MIT press Cambridge, 2016. [26] S. Hochreiter, J. Schmidhuber, Long short-term memory, Neural com- putation 9 (1997) 1735–1780. [27] G. Tajnafoi, R. Arcucci, L. Mottet, C. Vouriot, M. M. Solana, C. Pain, Y.-K. Guo, Variational Gaussian Process for Optimal Sensor Place- ment., Applied Mathematics 66 (2021) In press. 37",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0505,
+        -0.02474,
+        -0.03744,
+        0.0172,
+        -0.01376
+      ]
+    }
+  ]
+}

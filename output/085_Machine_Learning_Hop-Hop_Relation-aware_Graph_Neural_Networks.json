@@ -1,0 +1,725 @@
+{
+  "paper_id": "5ce09cf5-df04-4e37-8d9e-179f96a1b642",
+  "filename": "085_Machine_Learning_Hop-Hop_Relation-aware_Graph_Neural_Networks.pdf",
+  "title": "085_Machine_Learning_Hop-Hop_Relation-aware_Graph_Neural_Networks.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 42,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "e cost per training epoch on large heterogeneous graphs. 1. Introduction Graphs, such as social networks, knowledge graphs and citation networks, are ubiquitous data structures cap",
+      "text": "[Page 1] Hop-Hop Relation-aware Graph Neural Networks Li Zhang 1 Yan Ge1 Haiping Lu 1 Abstract Graph Neural Networks (GNNs) are widely used in graph representation learning. However, most GNN methods are designed for either homoge- neous or heterogeneous graphs. In this paper, we propose a new model, Hop-Hop Relation-aware Graph Neural Network (HHR-GNN), to unify rep- resentation learning for these two types of graphs. HHR-GNN learns a personalized receptive ﬁeld for each node by leveraging knowledge graph embedding to learn relation scores between the central node’s representations at different hops. In neighborhood aggregation, our model simul- taneously allows for hop-aware projection and aggregation. This mechanism enables the central node to learn a hop-wise neighborhood mixing that can be applied to both homogeneous and het- erogeneous graphs. Experimental results on ﬁve benchmarks show the competitive performance of our model compared to state-of-the-art GNNs, e.g., up to 13K faster in terms of time cost per training epoch on large heterogeneous graphs. 1. Introduction Graphs, such as social networks, knowledge graphs and citation networks, are ubiquitous data structures cap",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05815,
+        -0.0176,
+        0.01102,
+        0.00901,
+        -0.02059
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "e cost per training epoch on large heterogeneous graphs. 1. Introduction Graphs, such as social networks, knowledge graphs and citation networks, are ubiquitous data structures cap",
+      "overlap_with_next": " multi-layer perceptrons (MLPs) in the feature transformation step to get the node’s new representation (Hornik et al., 1989). Based on the basic GNN framework, improved GNNs for h",
+      "text": "e cost per training epoch on large heterogeneous graphs. 1. Introduction Graphs, such as social networks, knowledge graphs and citation networks, are ubiquitous data structures capturing interactions between individual nodes. They can be broadly divided into homogeneous (one type of nodes and edges) and heterogeneous (multiple types of nodes and edges) graphs (Yang et al., 2020). Graph Neural Networks (GNNs) have been widely used in graph representation learning and achieved impressive performance in various applications, such as academic citation networks (Kipf & Welling, 2017; Velickovic et al., 2018), social networks (Hamilton et al., 2017), knowledge graphs (Schlichtkrull et al., 2018) and recommender systems (van den Berg et al., 2017; Ying et al., 2018). A general GNN framework mainly consists of two key steps: neighborhood aggregation and feature transformation. In neighborhood aggregation, a given node ﬁrst aggregates (such as sum, mean and pooling) its neighbors, followed by a linear mapping or a multi-layer perceptrons (MLPs) in the feature transformation step to get the node’s new representation (Hornik et al., 1989). Based on the basic GNN framework, improved GNNs for h",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05822,
+        -0.05106,
+        -0.01884,
+        0.00324,
+        0.00254
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " multi-layer perceptrons (MLPs) in the feature transformation step to get the node’s new representation (Hornik et al., 1989). Based on the basic GNN framework, improved GNNs for h",
+      "overlap_with_next": "al., 2019; Seongjun Yun, 2019). Two key differences or issues in neighborhood aggregation step of GNNs-HO and GNNs-HE are: • How to deﬁne the receptive ﬁeld. In GNNs-HO, the re- ce",
+      "text": " multi-layer perceptrons (MLPs) in the feature transformation step to get the node’s new representation (Hornik et al., 1989). Based on the basic GNN framework, improved GNNs for ho- mogeneous and heterogeneous graphs have been proposed for better network representation learning. The majority of current GNNs assume graphs as HOmogeneous graphs (GNNs-HO), and they usually aggregate central node’s one- hop neighbors (Kipf & Welling, 2017; Velickovic et al., 2018), neighbors sampled from ﬁxed-length random walks (Hamilton et al., 2017) or multi-scale neighbors (Abu-El- Haija et al., 2019; Liao et al., 2018; Atwood & Towsley, 2016) in the neighborhood aggregation step. In recent years, there are some attempts to apply GNNs to HEterogeneous graphs (GNNs-HE) (Schlichtkrull et al., 2018; Wang et al., 2019), in which different types of nodes are connected under unique relations (Yang et al., 2020). Most existing methods aggregate the neighbors from manually designed or automat- ically learned meta-paths (Wang et al., 2019; Seongjun Yun, 2019). Two key differences or issues in neighborhood aggregation step of GNNs-HO and GNNs-HE are: • How to deﬁne the receptive ﬁeld. In GNNs-HO, the re- ce",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02913,
+        -0.02554,
+        -0.00653,
+        0.00588,
+        0.00189
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "al., 2019; Seongjun Yun, 2019). Two key differences or issues in neighborhood aggregation step of GNNs-HO and GNNs-HE are: • How to deﬁne the receptive ﬁeld. In GNNs-HO, the re- ce",
+      "overlap_with_next": "Thus, they should be treated differently. GNNs-HE only aggre- gate the two end nodes in the meta-path and discard all intermediate nodes along the meta-path, which results in infor",
+      "text": "al., 2019; Seongjun Yun, 2019). Two key differences or issues in neighborhood aggregation step of GNNs-HO and GNNs-HE are: • How to deﬁne the receptive ﬁeld. In GNNs-HO, the re- ceptive ﬁeld is determined by the powers of adjacency matrix, and it is a meta-path in GNNs-HE. However, the receptive ﬁelds in GNNs-HO and GNNs-HE are ﬁxed. In GNNs-HO, some nodes with sparse connec- tion may need to aggregate more (higher-order) neigh- bors, while one-hop neighborhood information may be enough for some nodes with dense connectivity. The manually deﬁned or learned meta-path is a general re- ceptive ﬁeld, which may not be suitable for each node in a graph. • How to aggregate the neighbors. GNNs-HO treat all neighbors in the receptive ﬁeld equally in the aggre- gation. However, different hops of neighbors show different importance in central node’s representation learning, e.g., the directly linked (one-hop) neighbors have a closer relationship with the central node than undirectly linked (higher-order) neighbors. Thus, they should be treated differently. GNNs-HE only aggre- gate the two end nodes in the meta-path and discard all intermediate nodes along the meta-path, which results in infor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00717,
+        -0.03053,
+        -0.00018,
+        0.01839,
+        -0.00135
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "Thus, they should be treated differently. GNNs-HE only aggre- gate the two end nodes in the meta-path and discard all intermediate nodes along the meta-path, which results in infor",
+      "overlap_with_next": "ently during aggregation. • D4 & D5: Efﬁciency and interpretability. For practical applications where efﬁciency and interpretability are needed (Ying et al., 2019), the model shoul",
+      "text": "Thus, they should be treated differently. GNNs-HE only aggre- gate the two end nodes in the meta-path and discard all intermediate nodes along the meta-path, which results in information loss. arXiv:2012.11147v1 [cs.LG] 21 Dec 2020 [Page 2] Hop-Hop Relation-aware Graph Neural Networks Can we unify GNNs-HO and GNNs-HE in a general frame- work while satisfying the following Desirables? • D1: A personalized receptive ﬁeld. The connectivity for each node varies greatly in a graph (Velickovic et al., 2018; Murphy et al., 2019). Fixing the aggre- gation receptive ﬁeld size for each node (a ﬁxed hops or a general meta-path) tends to result in suboptimal performance. • D2 & D3: Hop-aware projection and Hop-aware ag- gregation. Different hops or types of neighbors have different traits and their embeddings should be mapped in different feature spaces (Schlichtkrull et al., 2018). Besides, these neighbors have different relationships with the central node (Abu-El-Haija et al., 2019) so they should be treated differently during aggregation. • D4 & D5: Efﬁciency and interpretability. For practical applications where efﬁciency and interpretability are needed (Ying et al., 2019), the model shoul",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03074,
+        -0.01577,
+        -0.01379,
+        0.01537,
+        -0.02764
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ently during aggregation. • D4 & D5: Efﬁciency and interpretability. For practical applications where efﬁciency and interpretability are needed (Ying et al., 2019), the model shoul",
+      "overlap_with_next": ", we utilize differ- ent weight matrices for different hops of neighbors to learn central node’s representations at different hops ( D2). In the KGE module, we feed the low-dimensi",
+      "text": "ently during aggregation. • D4 & D5: Efﬁciency and interpretability. For practical applications where efﬁciency and interpretability are needed (Ying et al., 2019), the model should be able to explain which hops or types of neighbors play an important role for the central node’s representation learning. Moreover, the model should deal with the complex neighborhood in an efﬁcient way, especially for large size and heterogeneous graphs (Dong et al., 2020; Wang et al., 2019). To this end, we propose a universal GNN approach ad- dressing the above desirables for both homogeneous and heterogeneous graphs by leveraging a key concept from Knowledge Graph Embedding (KGE), relation-score, which captures the interaction between head and tail entities in a knowledge graph (KG) (Wang et al., 2017). Our model mainly contains three modules: GNN, KGE and concatena- tion. Motivated by the observation that different types of neighbors along a meta-path in a heterogeneous graph can be treated as different hops of neighbors, we utilize differ- ent weight matrices for different hops of neighbors to learn central node’s representations at different hops ( D2). In the KGE module, we feed the low-dimensi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03588,
+        -0.0071,
+        -2e-05,
+        0.00987,
+        -0.01422
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": ", we utilize differ- ent weight matrices for different hops of neighbors to learn central node’s representations at different hops ( D2). In the KGE module, we feed the low-dimensi",
+      "overlap_with_next": "ion-scores α01,α 02,...,α 0p beneﬁts interpretability (D5). In summary, the key contributions of this paper are: 1. We propose Hop-Hop Relation-aware Graph Neural Network (HHR-GNN)",
+      "text": ", we utilize differ- ent weight matrices for different hops of neighbors to learn central node’s representations at different hops ( D2). In the KGE module, we feed the low-dimensional embeddings from the GNN module to a neural tensor network (NTN) (Socher et al., 2013) to simultaneously learn the relation- scores1 (e.g.,α01,α 02,...,α 0p) between a central node (e.g., node 0) and its embeddings at different hops (e.g.,1, 2,...,p - hop). This will enable the central node to softly aggregate neighborhood information at different hops ( D1) and this can be done efﬁciently ( D4). Finally, instead of directly concatenating these embeddings, we concatenate a central node’s embedding and its embeddings at different hops weighted by their corresponding relation-scores (D3) to get the central node’s new embedding. This will enable our 1For a given node, neighbors in the same hop have the same relation-score. model to mix latent information from neighbors at various distances and types. Analysing the learned relation-scores α01,α 02,...,α 0p beneﬁts interpretability (D5). In summary, the key contributions of this paper are: 1. We propose Hop-Hop Relation-aware Graph Neural Network (HHR-GNN)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03442,
+        0.00333,
+        0.00026,
+        0.01522,
+        -0.01736
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ion-scores α01,α 02,...,α 0p beneﬁts interpretability (D5). In summary, the key contributions of this paper are: 1. We propose Hop-Hop Relation-aware Graph Neural Network (HHR-GNN)",
+      "overlap_with_next": "s graph (Yang et al., 2020). Het- erogeneous graph is a graph with multiple types of nodes and links, each node is associated with a node type, and each link is associated with a l",
+      "text": "ion-scores α01,α 02,...,α 0p beneﬁts interpretability (D5). In summary, the key contributions of this paper are: 1. We propose Hop-Hop Relation-aware Graph Neural Network (HHR-GNN), a new class of GNNs, to unify GNN-based homogeneous and heterogeneous graph representation learning. 2. We comprehensively evaluate the superiority of our model on both homogeneous and heterogeneous graphs for the popular node classiﬁcation task. 3. We demonstrate the proposed model to be efﬁcient (up to 13K faster in terms of time cost) while providing interpretable explanation for the prediction. 2. Preliminaries In this section, we ﬁrst give formal notations and deﬁnitions of some important terminologies. A graph withN nodes can be represented asG= (V,E, X), where nodevi∈V , edges (vi,v j)∈E (i,j = 1,...,N ), and a feature matrix X∈ RN×D containingN D-dimensional feature vectors. A hidden representation of nodevi learned by thek-th layer of a GNN model is denoted by H(k)i and we initialize H(0) = X. deﬁnition 1 Heterogeneous graph (Yang et al., 2020). Het- erogeneous graph is a graph with multiple types of nodes and links, each node is associated with a node type, and each link is associated with a l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05198,
+        -0.03033,
+        -0.00502,
+        0.01921,
+        -0.00099
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "s graph (Yang et al., 2020). Het- erogeneous graph is a graph with multiple types of nodes and links, each node is associated with a node type, and each link is associated with a l",
+      "overlap_with_next": "ural Networks 3.1. Homogeneous and Heterogeneous Graphs This section ﬁrst introduces how to represent the two types of graphs and the relationship between hops in homoge- neous gra",
+      "text": "s graph (Yang et al., 2020). Het- erogeneous graph is a graph with multiple types of nodes and links, each node is associated with a node type, and each link is associated with a link type. It is worth noting that the type of a linkEij automatically deﬁnes the types of nodesvi andvj on its two ends. In heterogeneous graph, two nodes can be connected via different semantic paths, which are called meta-paths. deﬁnition 2 Meta-path (Sun & Han, 2012). A is a path deﬁned on the network schema in a form ofv1 r1 −→v2 r2 −→ ... rp −→vp+1, wherev andr are node types and link types, respectively. 3. Proposed Approach We start from a theoretical study of the two types of graphs and their neighborhood aggregation to reveal the relation- ship between neighborhood aggregations in GNNs-HO and GNNs-HE. This enables us to derive a general framework that is suitable for both homogeneous and heterogeneous graphs representation learning and satisﬁes all the desirables mentioned above. [Page 3] Hop-Hop Relation-aware Graph Neural Networks 3.1. Homogeneous and Heterogeneous Graphs This section ﬁrst introduces how to represent the two types of graphs and the relationship between hops in homoge- neous gra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02994,
+        -0.04043,
+        -0.0077,
+        0.04054,
+        -0.01702
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ural Networks 3.1. Homogeneous and Heterogeneous Graphs This section ﬁrst introduces how to represent the two types of graphs and the relationship between hops in homoge- neous gra",
+      "overlap_with_next": "in citation graphs, which can be represented as A AP −→P P C −→C, generates an adjacency matrix AAP C by the multiplication of AAP and AP C. In homogeneous graph, AR = Ap, (2) beca",
+      "text": "ural Networks 3.1. Homogeneous and Heterogeneous Graphs This section ﬁrst introduces how to represent the two types of graphs and the relationship between hops in homoge- neous graph and types in heterogeneous graph. Heterogeneous graph is associated with a node type map- ping functionfv:V→T v and a link type mapping function fe:E→T e, where|Tv| +|Te| > 1. If both |Tv| =1 and |Te| =1, it is a homogeneous graph with the same type of nodes and edges. The heterogeneous graph can be repre- sented by a set of adjacency matrices {Ar}Rr=1 (R=|Te|), and Ar∈ RN×N is an adjacency matrix where Ar[i,j ] is non-zero when there is a r-th type edge from vj tovi. In homogeneous graph, the adjacency matrix is simpliﬁed to A∈ RN×N (R=1). Deﬁnition 2 deﬁnes a composite relationR =r1◦r2...◦rp between nodev1 andvp+1. Given the composite relationR, the adjacency matrix of the meta-path can be obtained by multiplications of adjacency matrices as: AR = Ar1 Ar2...Arp. (1) For example, the meta-path Author-Paper-Conference (APC ) in citation graphs, which can be represented as A AP −→P P C −→C, generates an adjacency matrix AAP C by the multiplication of AAP and AP C. In homogeneous graph, AR = Ap, (2) beca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04874,
+        -0.04183,
+        -0.00724,
+        0.04032,
+        0.00752
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "in citation graphs, which can be represented as A AP −→P P C −→C, generates an adjacency matrix AAP C by the multiplication of AAP and AP C. In homogeneous graph, AR = Ap, (2) beca",
+      "overlap_with_next": "ng its neighbors’ represen- tations. To mathematically formalize the above insight, the Ai1Xі Aip Ai0 . . . 𝐡i(1)0 . . . W0 𝐡i(1)1 𝐡i(1)p W1 Wp NTN d0 d0 p 𝛼i1 𝛼ip . . . 𝐡i(1) powe",
+      "text": "in citation graphs, which can be represented as A AP −→P P C −→C, generates an adjacency matrix AAP C by the multiplication of AAP and AP C. In homogeneous graph, AR = Ap, (2) because Ar1 = Ar2... = Arp. Equations 1 and 2 illustrate the relation between types in heterogeneous graph and hops in homogeneous graph. Therefore, we can view a meta-path as high-order proximity between two nodes. The adjacency matrix AAP C can be viewed as the two-hop connectivity matrix for A type node. 3.2. Theoretical Studies of Neighborhood Aggregation After revealing the relationship between homogeneous and heterogeneous graphs, this section mainly studies the neigh- borhood aggregation in GNNs-HO and GNNs-HE. A general GNN layer can be deﬁned as: H(k) =σ(ApH(k−1)W(k)), (3) whereσ can be any activation function,H(k−1)∈ RN×dk−1 and H(k) ∈ RN×dk is the input and output for layer k, W(k)∈ Rdk×dk−1 is the trainable transformation matrix. The neighborhood aggregation iteratively updates the repre- sentation of a node by aggregating its neighbors’ represen- tations. To mathematically formalize the above insight, the Ai1Xі Aip Ai0 . . . 𝐡i(1)0 . . . W0 𝐡i(1)1 𝐡i(1)p W1 Wp NTN d0 d0 p 𝛼i1 𝛼ip . . . 𝐡i(1) powe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02217,
+        -0.03051,
+        -0.00851,
+        0.03221,
+        -0.01008
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "ng its neighbors’ represen- tations. To mathematically formalize the above insight, the Ai1Xі Aip Ai0 . . . 𝐡i(1)0 . . . W0 𝐡i(1)1 𝐡i(1)p W1 Wp NTN d0 d0 p 𝛼i1 𝛼ip . . . 𝐡i(1) powe",
+      "overlap_with_next": "nction in thek-th layer of a model,Ni is the deﬁned neighborhood and s(k)i is the aggregation result. One key part is how to deﬁne the neighborhoodNi. In GNNs-HO,Ni is mainly based",
+      "text": "ng its neighbors’ represen- tations. To mathematically formalize the above insight, the Ai1Xі Aip Ai0 . . . 𝐡i(1)0 . . . W0 𝐡i(1)1 𝐡i(1)p W1 Wp NTN d0 d0 p 𝛼i1 𝛼ip . . . 𝐡i(1) powers of adjacency matrix GNN module Hop-aware projection KGE module relation-scores node feature new node embedding trainable weight matrix Hop-aware concatenation 𝛼i0 Figure 1. HHR-GNN architecture (the ﬁrst layer): HHR-GNN ﬁrst calculates its representations at different hops, e.g., h (1)p i is p- hop representation that aggregates neighbors in the p-hop. Then the central node’s representation h(1)0i and its representations at different hops (h(1)1i , h(1)2i , ..., h(1)pi ) will be fed to a NTN model to learn the relation-scores. Finally, we concatenate each node’s embedding with its representations at different hops weighted by their corresponding relation-scores to get the new embedding. aggregation process can be generically written as follows: s(k)i =f (k)ag (h(k−1)j ,j ∈N i), (4) wheref (k)ag is the predeﬁned aggregation function in thek-th layer of a model,Ni is the deﬁned neighborhood and s(k)i is the aggregation result. One key part is how to deﬁne the neighborhoodNi. In GNNs-HO,Ni is mainly based",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00547,
+        0.00907,
+        -0.00044,
+        0.02823,
+        -0.02058
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "nction in thek-th layer of a model,Ni is the deﬁned neighborhood and s(k)i is the aggregation result. One key part is how to deﬁne the neighborhoodNi. In GNNs-HO,Ni is mainly based",
+      "overlap_with_next": "uming, especially for large scale graphs. Eq.5 in GTN deﬁnes a general meta-path (receptive ﬁeld) for all nodes in a graph, which may not be suitable for each node. 3.3. Proposed A",
+      "text": "nction in thek-th layer of a model,Ni is the deﬁned neighborhood and s(k)i is the aggregation result. One key part is how to deﬁne the neighborhoodNi. In GNNs-HO,Ni is mainly based on the powers of adja- cency matrix Ap.Ni means one-hop neighbors (p = 1) or high-order neighbors (p> 1). Oncep is ﬁxed, the receptive ﬁelds will also be ﬁxed. In GNNs-HE, neighborhood is deﬁned by the manually de- ﬁned meta-path as Eq. 1. If the meta-path is deﬁned as APA (The APA meta-path associates two co-authors), A type nodes only aggregate A type nodes or its second-order neighbors, soNi is the second-order neighbors, while the P type (one-hop) neighbors are discarded, resulting in infor- mation loss. GTN learns the meta-path by multiplications of softly selected adjacency matrices as following: AR = (α1Ar1 )(α2Ar2 )...(αpArp ), (5) whereα1,α 2,...,α p are learnable parameters who have to be updated in each training epoch, and AR in Eq.5 also needs to be recalculated in each training epoch. This process is very time consuming, especially for large scale graphs. Eq.5 in GTN deﬁnes a general meta-path (receptive ﬁeld) for all nodes in a graph, which may not be suitable for each node. 3.3. Proposed A",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01429,
+        -0.01668,
+        -0.01858,
+        0.01291,
+        0.00088
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "uming, especially for large scale graphs. Eq.5 in GTN deﬁnes a general meta-path (receptive ﬁeld) for all nodes in a graph, which may not be suitable for each node. 3.3. Proposed A",
+      "overlap_with_next": "D . A personalized receptive ﬁeld ( D1) is the foundation for hop-aware projection (D2) and hop-aware aggregation (D3). So, we start from how to design our model for D1. The purpos",
+      "text": "uming, especially for large scale graphs. Eq.5 in GTN deﬁnes a general meta-path (receptive ﬁeld) for all nodes in a graph, which may not be suitable for each node. 3.3. Proposed Algorithm After the theoretical studies, we carefully design our model and propose a new GNN: Hop-Hop Relation-aware Graph [Page 4] Hop-Hop Relation-aware Graph Neural Networks Neural Network (HHR-GNN). Our ultimate goal is to de- sign a model that can be suitable for both homogeneous and heterogeneous graphs and satisfy all the desirables. Fig. 1 shows the architecture of our model. GNN module is the hop-aware projection part that maps different hop neighbor- hood information to different latent space, followed by the NTN in KGE module to learn the relation-scores used for a personalized receptive ﬁeld. The ﬁnal step is the hop-aware aggregation, where the central node aggregates different hops embeddings with different attention coefﬁcients based on the learned relation-score in KGE module. 3.3.1. A P ERSONALIZED RECEPTIVE FIELD . A personalized receptive ﬁeld ( D1) is the foundation for hop-aware projection (D2) and hop-aware aggregation (D3). So, we start from how to design our model for D1. The purpos",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03015,
+        -0.02334,
+        -0.00161,
+        0.00969,
+        -0.0086
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "D . A personalized receptive ﬁeld ( D1) is the foundation for hop-aware projection (D2) and hop-aware aggregation (D3). So, we start from how to design our model for D1. The purpos",
+      "overlap_with_next": " in the receptive module (amounting to transformations of the features in each node without diffusion across nodes in GNN). The difference is that the convolution ﬁlter in CNN conv",
+      "text": "D . A personalized receptive ﬁeld ( D1) is the foundation for hop-aware projection (D2) and hop-aware aggregation (D3). So, we start from how to design our model for D1. The purpose of learning a personalized receptive ﬁeld is that the central node can combine information from differ- ent hops neighborhood to assist its representation learning. Based on the theoretical study and analysis, we need a smarter way to combine neighborhood information from different hops. Instead of learning the combination of ad- jacency matrices (Seongjun Yun, 2019), we learn a soft combination of different hops’ embeddings as following: h(k)i =f (k)ag (αirh(k)ri ,r∈ (0, 1,...,p )) (6) whereαir are learnable parameters and h(k)ri isvi’sr-hop representation,αi0 = 1. Eq. 6 is analogous to the popular receptive module (Szegedy et al., 2015) for classic Convolutional Neural Networks (CNN) architectures: it consists of convolutional ﬁlters of different sizes determined by the parameterp, wherep = 0 corresponds to 1× 1 convolutions in the receptive module (amounting to transformations of the features in each node without diffusion across nodes in GNN). The difference is that the convolution ﬁlter in CNN conv",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01682,
+        -0.02667,
+        -0.02509,
+        0.0135,
+        0.00446
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " in the receptive module (amounting to transformations of the features in each node without diffusion across nodes in GNN). The difference is that the convolution ﬁlter in CNN conv",
+      "overlap_with_next": "hidden representation of the (k− 1)-th layer and Ari is thei row or line ofr-th power of adjacency matrix A. h(k)ri is ther-hop representation. As for heterogeneous graph,r-hop rep",
+      "text": " in the receptive module (amounting to transformations of the features in each node without diffusion across nodes in GNN). The difference is that the convolution ﬁlter in CNN convolve all within the p×p receptive ﬁeld, and we useαir to combine different hops information to deﬁne a ﬂexible receptive ﬁeld for each node (D1) withinp-hop neighborhood. For example,vi only aggregates its one-hope and three-hop neighbors, whenp = 3 and the learned parametersαi0,α i1,α i3 > 0,α i2 = 0. Two natural follow-up questions: how to learn h(k)ri and αir. 3.3.2. H OP-AWARE PROJECTION . Considering different hops or types neighbors have different traits and their embeddings should fall in different feature space, we design a hop-speciﬁc transformation matrix (Wr) to project the node features for each hop (or type) nodes (D2). Ther-hop representation can be expressed as: h(k)ri =σ(Ari h(k−1)i W(k)r ), (7) whereσ can be any activation function, W(k)r ∈ Rdk×dk−1 is the trainable transformation matrix, h(k−1)i ∈ Rdk−1 is the hidden representation of the (k− 1)-th layer and Ari is thei row or line ofr-th power of adjacency matrix A. h(k)ri is ther-hop representation. As for heterogeneous graph,r-hop rep",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02327,
+        -0.02089,
+        0.0069,
+        0.04613,
+        -0.0119
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "hidden representation of the (k− 1)-th layer and Ari is thei row or line ofr-th power of adjacency matrix A. h(k)ri is ther-hop representation. As for heterogeneous graph,r-hop rep",
+      "overlap_with_next": " ﬁne a personalized receptive ﬁelds as shown in Eq. 6. αir(r = 1,..,p ) should be high if ther-hop representation has a close relationship with central node in homogeneous graph, o",
+      "text": "hidden representation of the (k− 1)-th layer and Ari is thei row or line ofr-th power of adjacency matrix A. h(k)ri is ther-hop representation. As for heterogeneous graph,r-hop representation can also be interpreted as a certain type of neighbors’ representation. Because Ar can be seen as ther-th step in the meta-path, as deﬁned in Def 2, which also automatically deﬁnes the node type (or edge type), as we deﬁned in Def 1. So, Eq. 7 is a general expression and can be used in both homogeneous and heterogeneous graphs to represent a certain hop or type of representation. Note, if there are different types of nodes in the same hop in heterogeneous graph, we use different transformation matrices to learn the embeddings. For exam- ple, there are two types of nodes in the one-hop neighbors, and we will use W(k)r1 and W(k)r2 to mapping the two types of neighbors. 3.3.3. R ELATION -SCORE LEARNING . After obtaining representations at different hops, we will illustrate how to calculate αi1,α i2,...,α ip that can de- ﬁne a personalized receptive ﬁelds as shown in Eq. 6. αir(r = 1,..,p ) should be high if ther-hop representation has a close relationship with central node in homogeneous graph, o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00374,
+        -0.01483,
+        -0.00016,
+        0.04957,
+        -0.00685
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": " ﬁne a personalized receptive ﬁelds as shown in Eq. 6. αir(r = 1,..,p ) should be high if ther-hop representation has a close relationship with central node in homogeneous graph, o",
+      "overlap_with_next": "e want to model the relationship between central node with itsp types of representations simultaneously and usually p> 1. So, we introduce an expressive neural tensor network (NTN)",
+      "text": " ﬁne a personalized receptive ﬁelds as shown in Eq. 6. αir(r = 1,..,p ) should be high if ther-hop representation has a close relationship with central node in homogeneous graph, orr-type neighbors should be considered more. In other words, αi1,α i2,...,α ip reﬂect the central node and its different hops relationship. Therefore, we transfer this problem to how to model the relationship betweenh(k)0i and h(k)ri (r = 1,2,...,p), which inspires us to apply Knowledge Graph Embedding (KGE) method to solve this problem. KGE methods aim to model the relationship betweenhead entity andtailentity in knowledge graph (KG) and assign a score of how likely it is that two entities are in a certain relationship (Socher et al., 2013). In our scenario, we deﬁne the relation-score as: deﬁnition 3 Relation-score. Relation-score is to model the relationship between central node’s embedding and a certain hop or type representation, such as αir = fr(h(k)0i , h(k)ri ) is the relation-score of vi with its r-hop representation. We want to model the relationship between central node with itsp types of representations simultaneously and usually p> 1. So, we introduce an expressive neural tensor network (NTN)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0262,
+        -0.04742,
+        0.00859,
+        0.02447,
+        -0.01752
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "e want to model the relationship between central node with itsp types of representations simultaneously and usually p> 1. So, we introduce an expressive neural tensor network (NTN)",
+      "overlap_with_next": "sly. It should be note that NTN only needs to calculate the relation-scores of h(k)0i and h(k)1i , h(k)2i ,..., h(k)pi , these low-dimensional embeddings, not central node with all",
+      "text": "e want to model the relationship between central node with itsp types of representations simultaneously and usually p> 1. So, we introduce an expressive neural tensor network (NTN) (Socher et al., 2013) that can relate two input entities vectors across multiple dimensions and each slice of the [Page 5] Hop-Hop Relation-aware Graph Neural Networks tensor is responsible for one type of entity pair. So, after getting the embeddings, we compute the relation-score by the following NTN-based function: α(k)i =f (h(k)0i W[1:p]R χ), (8) where f is a nonlinear activation function, W[1:p]R ∈ Rdk×dk×p is a tensor and each slice of the tensor is re- sponsible for instantiation of a relation. p types of represen- tations h(k)1i , h(k)2i ,..., h(k)pi can be written as χ∈ Rdk×p. α(k)i ∈ Rp is the learned relation-score vector for each rela- tion type, where each entry is computed by on slice of the tensor W[1:p]R , such asα(k)ir =f (h(k)0i W[r]R h(k)ri ). Eq. 8 allows to learn multiple types of relationship simulta- neously. It should be note that NTN only needs to calculate the relation-scores of h(k)0i and h(k)1i , h(k)2i ,..., h(k)pi , these low-dimensional embeddings, not central node with all",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04817,
+        -0.02477,
+        0.02349,
+        0.0339,
+        -0.00916
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "sly. It should be note that NTN only needs to calculate the relation-scores of h(k)0i and h(k)1i , h(k)2i ,..., h(k)pi , these low-dimensional embeddings, not central node with all",
+      "overlap_with_next": "used in different downstream tasks. For multi-class node classiﬁcation, H(k) will be passed to a fully-connected layer with asoftmax activation function. The loss function is deﬁne",
+      "text": "sly. It should be note that NTN only needs to calculate the relation-scores of h(k)0i and h(k)1i , h(k)2i ,..., h(k)pi , these low-dimensional embeddings, not central node with all the nodes (Np is the number of nodes and generally N p≫p) withinp-hop neighborhood, which is very efﬁciency (D4). 3.3.4. H OP-AWARE AGGREGATION . After learning the relation-score, we multiply different hop- representations with their corresponding relation-score, then concatenate them with central node’s embedding to get the new embedding h(k+1)i . This allows for a hop discrimina- tion when central node aggregates different hops’ embed- dings (D3) and can be written as: h(k)i =σ(‖pr=0 αirh(k)ri ), (9) where‖ denotes column-wise concatenation, αir is the relation-score for r-hop embedding of vi. Analysing αir can show which hops have an important inﬂuence toh(k+1)i , leading to beneﬁts in interpretability (D4). After applying components introduced in the previous sec- tion, we obtain the ﬁnal node representation, which can be used in different downstream tasks. For multi-class node classiﬁcation, H(k) will be passed to a fully-connected layer with asoftmax activation function. The loss function is deﬁne",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01759,
+        -0.00223,
+        0.00114,
+        0.03011,
+        -0.00573
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "used in different downstream tasks. For multi-class node classiﬁcation, H(k) will be passed to a fully-connected layer with asoftmax activation function. The loss function is deﬁne",
+      "overlap_with_next": ",...,K do for eachvi∈V l do Calculate h(k)0i , h(k)1i ,..., h(k)pi Calculate the relation-scores:αi1,α i2,...,α ip Concatenate the central node and its p-hop neigh- bors embeddings",
+      "text": "used in different downstream tasks. For multi-class node classiﬁcation, H(k) will be passed to a fully-connected layer with asoftmax activation function. The loss function is deﬁned as the cross-entropy error over all labeled examples: L =− ∑ l∈Vl F∑ f =1 Ylf ln H(K)lf , (10) whereVl is the set of node indices that have labels anddK is the dimension of output features equaling to the number of classes. Ylf∈ R|Vl|×F is a label indicator matrix. With the guide of labeled data, we can optimize the our model via back propagation and learn the embeddings of nodes and relation-score. The overall process of HHR-GNN in shown in Algorithm 1. Algorithm 1 The overeall process of HHR-GNN Input:G= (V,E, X) withN nodes, A set of adjacency matrices{Ar}pr=1. Feature matrix X∈ RN×D, Labeled nodesVl, Label indicator matrix Ylf ∈ R|Vl|×F , The number of hops:p, The number of layers K. Output: The ﬁnal embedding h(K)i , andp-hop relation- scores α(K)i . Calculate different powers of adjacency matrix A1,A2,...,Ap. for k = 1,2,...,K do for eachvi∈V l do Calculate h(k)0i , h(k)1i ,..., h(k)pi Calculate the relation-scores:αi1,α i2,...,α ip Concatenate the central node and its p-hop neigh- bors embeddings",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06597,
+        -0.02613,
+        -0.01491,
+        -0.00622,
+        -0.00927
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": ",...,K do for eachvi∈V l do Calculate h(k)0i , h(k)1i ,..., h(k)pi Calculate the relation-scores:αi1,α i2,...,α ip Concatenate the central node and its p-hop neigh- bors embeddings",
+      "overlap_with_next": "nd we perform mini-batch training to deal with this issue. 4. Related Works Our model draws inspiration from GNNs-HO, GNNs-HE and KGE. we provide a brief overview on all related wo",
+      "text": ",...,K do for eachvi∈V l do Calculate h(k)0i , h(k)1i ,..., h(k)pi Calculate the relation-scores:αi1,α i2,...,α ip Concatenate the central node and its p-hop neigh- bors embeddings with multiplying the correspond- ing relation-scores to get h(k)i end for end for CalculateL =− ∑l∈Vl ∑Ff =1 Ylf ln h(K)lf .Back propagation and update parameters in HHR-GNN. 3.3.5. C OMPUTATIONAL COMPLEXITY . Two key parts arep-hop representation (Eq. 7) learning and relation-score learning (Eq. 8). The powers of adjacency matrix in Eq. 7 can be easily precomputed, because they do not depend on the learnable model parameters, and this effectively reduces the computational complexity of the overall model. Each type or hop of neighbors share the same weight and the relation-score function is also shared by all nodes in a graph. So, the computation can be parallelized across all nodes. The computational complexity of Eq. 7 and 8 isO(p×N×dk×dk−1 +p×N×dk×dk). As for memory requirement, it grows linearly in the size of the dataset and we perform mini-batch training to deal with this issue. 4. Related Works Our model draws inspiration from GNNs-HO, GNNs-HE and KGE. we provide a brief overview on all related wo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02043,
+        0.01968,
+        -0.00204,
+        0.01829,
+        -0.02623
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "nd we perform mini-batch training to deal with this issue. 4. Related Works Our model draws inspiration from GNNs-HO, GNNs-HE and KGE. we provide a brief overview on all related wo",
+      "overlap_with_next": "e information based on powers of adjacency matrix. Graph diffusion convolu- tion (GDC) (Klicpera et al., 2019) transforms the original adjacency matrix via graph diffusion to indir",
+      "text": "nd we perform mini-batch training to deal with this issue. 4. Related Works Our model draws inspiration from GNNs-HO, GNNs-HE and KGE. we provide a brief overview on all related works. Most existing GNNs follow a neighborhood aggregation or “message passing” scheme. Graph convolutional network (GCN) is derived from spectral graph convolutions (Shu- man et al., 2013; Bruna et al., 2014; Cho et al., 2014) and simpliﬁes the K-localized Chebynet (Defferrard et al., 2016; Bronstein et al., 2017) by only aggregating one-hop neigh- bors. Graph Attention Networks (GAT) (Velickovic et al., 2018) learns to assign different edge weights at each layer. However, limiting node’s receptive ﬁelds to only one-hop neihgbors seems arbitrary (Klicpera et al., 2019). Some works generalize GCN to incorporate higher-order neigh- [Page 6] Hop-Hop Relation-aware Graph Neural Networks bors. GraphSAGE (Hamilton et al., 2017) aggregates neigh- bors sampled from a ﬁxed-length random work. MixHop and Lanczosnet [18] explore multi-scale information based on powers of adjacency matrix. Graph diffusion convolu- tion (GDC) (Klicpera et al., 2019) transforms the original adjacency matrix via graph diffusion to indir",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04611,
+        -0.01253,
+        -0.03222,
+        -0.01457,
+        0.00193
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "e information based on powers of adjacency matrix. Graph diffusion convolu- tion (GDC) (Klicpera et al., 2019) transforms the original adjacency matrix via graph diffusion to indir",
+      "overlap_with_next": "d by manually meta-paths in Heterogeneous Graph Attention Network (HAN) (Wang et al., 2019) or learning a soft selection of edge types for generating useful multi meta-paths in Gra",
+      "text": "e information based on powers of adjacency matrix. Graph diffusion convolu- tion (GDC) (Klicpera et al., 2019) transforms the original adjacency matrix via graph diffusion to indirecly leverage high-order neighborhood information. But all these methods only deﬁne a ﬁxed neighborhood, and the information from different hops is not treated differently during the aggrega- tion. Besides, many real-world problems often can not be presented as a single homogeneous graph and most graphs with various types of nodes and edges (Seongjun Yun, 2019; Yang et al., 2020), where GNNs-HO can not be applied to directly. Recently, some works have attempted to model the het- erogeneous graph by using GNNs. RGCN (Schlichtkrull et al., 2018) and HetGNN (Zhang et al., 2019) use either distinct linear projection weight or type-speciﬁc RNN to encode features for each type of adjacent neighbors, without considering the high-order neighbors. Another type of algo- rithms transform a heterogeneous graph into a homogeneous graph deﬁned by manually meta-paths in Heterogeneous Graph Attention Network (HAN) (Wang et al., 2019) or learning a soft selection of edge types for generating useful multi meta-paths in Gra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05022,
+        -0.02014,
+        0.00834,
+        0.01664,
+        -0.01563
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "d by manually meta-paths in Heterogeneous Graph Attention Network (HAN) (Wang et al., 2019) or learning a soft selection of edge types for generating useful multi meta-paths in Gra",
+      "overlap_with_next": "ferent hops’ embeddings. Exploring different KGE mod- els, such as translational distance models (TransE (Bordes et al., 2013), TransH (Wang et al., 2014), TransR (Lin et al., 2015",
+      "text": "d by manually meta-paths in Heterogeneous Graph Attention Network (HAN) (Wang et al., 2019) or learning a soft selection of edge types for generating useful multi meta-paths in Graph Transformer Networks (GTN) (Seongjun Yun, 2019). However, they discard all intermedi- ate nodes along the meta-path by only considering two end nodes, which results in information loss. Besides, the in- trinsic design and implementation in GNNs-HE make them very slow of modeling large-scale heterogeneous graphs. In this paper, we don’t dig deep into Knowledge Graph Embedding (KGE). Generally, KGE is used to learn a scor- ing function of head andtail entities which evaluates an arbitrary triplet and outputs a scalar to measure the accept- ability of this triplet. In our methods, the central node’s and its different hops embeddings are corresponding to the head and differenttail vectors respectively. We apply the popular and expressive NTN (Socher et al., 2013) model to learn the relation-scores between central node and its different hops’ embeddings. Exploring different KGE mod- els, such as translational distance models (TransE (Bordes et al., 2013), TransH (Wang et al., 2014), TransR (Lin et al., 2015",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04411,
+        -0.04709,
+        0.00988,
+        0.01256,
+        -0.00487
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "ferent hops’ embeddings. Exploring different KGE mod- els, such as translational distance models (TransE (Bordes et al., 2013), TransH (Wang et al., 2014), TransR (Lin et al., 2015",
+      "overlap_with_next": "ogeneous graphs. We consider two commonly used citation network datasets: Cora and Citeseer. Each dataset only contains one type of nodes (docu- ments) and edges (citation). Node f",
+      "text": "ferent hops’ embeddings. Exploring different KGE mod- els, such as translational distance models (TransE (Bordes et al., 2013), TransH (Wang et al., 2014), TransR (Lin et al., 2015)) and semantic matching models (RESCAL (Nickel et al., 2011), DistMult (Yang et al., 2014)), is an important direction for future work. 5. Experiments 5.1. Datasets We conduct semi-supervised node classiﬁcation experiments on both homogeneous and heterogeneous graphs. Follow- ing (Kipf & Welling, 2017; Seongjun Yun, 2019), we split Table 1. Overview of the datasets. (E.T. means edge type) Dataset Nodes Edges Features Classes E.T. Cora 2,708 5,429 1,433 7 1 Citeseer 3,327 4,732 3,703 6 1 DBLP 18,405 67,946 334 3 4 ACM 8,994 25,922 1,902 3 4 IMDB 12,772 37,288 1,256 3 4 the Train/Validation/Test as for the two types of graphs as shown in Table 1.We report the mean accuracy (for homo- geneous graph) and f1 score (for heterogeneous graph) of 15 runs with random weight matrix initialization for all of our experimental results. • Homogeneous graphs. We consider two commonly used citation network datasets: Cora and Citeseer. Each dataset only contains one type of nodes (docu- ments) and edges (citation). Node f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05904,
+        -0.03869,
+        -0.02173,
+        0.03544,
+        0.02109
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "ogeneous graphs. We consider two commonly used citation network datasets: Cora and Citeseer. Each dataset only contains one type of nodes (docu- ments) and edges (citation). Node f",
+      "overlap_with_next": ".2. Baselines and Experimental Setup For homogeneous graph, we choose four mostly related methods, GCN (Kipf & Welling, 2017), GAT (Velickovic et al., 2018), GraphSAGE (Hamilton et",
+      "text": "ogeneous graphs. We consider two commonly used citation network datasets: Cora and Citeseer. Each dataset only contains one type of nodes (docu- ments) and edges (citation). Node features correspond to elements of a sparse bag-of-words representation of a document. Each node has one class label (Sen et al., 2008). • Heterogeneous graphs. We use two citation network datasets DBLP and ACM, and a movie dataset IMDB. DBLP contains three types of nodes (papers (P), au- thors (A), conferences (C)), four types of edges (PA, AP, PC, CP), and research areas of Authors as labels. ACM contains three types of nodes (papers(P), authors (A), subject (S)), four types of edges (PA, AP, PS, SP), and categories of Papers as labels. Each node in is represented as bag-of-words of keywords in DBLP and ACM. IMDB contains three types of nodes (movies (M), actors (A), and directors (D)), and four types of edges (MA, AM, MD, DM) and labels are genres of Movies. Node features are given as bag-of-words rep- resentations of plots. 5.2. Baselines and Experimental Setup For homogeneous graph, we choose four mostly related methods, GCN (Kipf & Welling, 2017), GAT (Velickovic et al., 2018), GraphSAGE (Hamilton et",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05424,
+        -0.02095,
+        -0.03812,
+        0.02084,
+        -0.00363
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": ".2. Baselines and Experimental Setup For homogeneous graph, we choose four mostly related methods, GCN (Kipf & Welling, 2017), GAT (Velickovic et al., 2018), GraphSAGE (Hamilton et",
+      "overlap_with_next": ".74 ± 0.60 one-hop and two-hop respectively. For Citeseer, we use one layer and set the embedding dimension to 32. We use the same architecture as in the original papers for GCN, G",
+      "text": ".2. Baselines and Experimental Setup For homogeneous graph, we choose four mostly related methods, GCN (Kipf & Welling, 2017), GAT (Velickovic et al., 2018), GraphSAGE (Hamilton et al., 2017) and Mix- Hop (Abu-El-Haija et al., 2019). In our model, we model the central node with its tow-hop representation for Cora and Citeseer. Throughout experi- ments, we use the Adam optimizer (Kingma & Ba, 2015) with learning rate 0.008, and set the regularization parame- ter to 5×10−4, the dropout is 0.6. We train all models for a maximum of 500 epochs and use early stopping with a pa- tience of 20. We use two layers for Cora, and the dimension for each layer are 32 and 8, with two NTN (32× 32× 2, 8 ×8×2) to learn the relationships between central with its [Page 7] Hop-Hop Relation-aware Graph Neural Networks Table 2. Node classiﬁcation for homogeneous graph. Methods Cora Citeseer GCN 81.5 ± 0.42 70.3 ± 0.46 GAT 83.0 ± 0.70 72.5 ± 0.67 GraphSAGE 82.2 ± 2.70 71.4 ± 1.70 MixHop 81.9 ± 0.62 71.4 ± 0.81 Ours 83.84± 0.77 72.74 ± 0.60 one-hop and two-hop respectively. For Citeseer, we use one layer and set the embedding dimension to 32. We use the same architecture as in the original papers for GCN, G",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02407,
+        -0.03748,
+        -0.02953,
+        0.01922,
+        0.0134
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": ".74 ± 0.60 one-hop and two-hop respectively. For Citeseer, we use one layer and set the embedding dimension to 32. We use the same architecture as in the original papers for GCN, G",
+      "overlap_with_next": "for the three datasets DBLP, ACM and IMDB respectively, based on the tasks. It should be emphasized that in heterogeneous graph, we use different weight matrices to learn embedding",
+      "text": ".74 ± 0.60 one-hop and two-hop respectively. For Citeseer, we use one layer and set the embedding dimension to 32. We use the same architecture as in the original papers for GCN, GAT, GraphSAGE and MixHop, because these algorithms have many hyperparameters. For heterogeneous graph , following (Seongjun Yun, 2019), we compare with conventional network embedding methods: DeepWalk (Perozzi et al., 2014), metapaht2Vec (Dong et al., 2017), and GNN-based methods: GCN (Kipf & Welling, 2017), GAT (Velickovic et al., 2018), HAN (Wang et al., 2019) and GTN (Seongjun Yun, 2019). DeepWalk, GCN and GAT is originally designed for homogeneous graphs and we ignore the nodes(edges) types and perform these methods on the whole graph. These three graphs have three types of nodes, and two-hop neighborhood already contains all types of nodes in the three graphs. Thus, we model central node with its one- hop and two-hop neighbors relationships: AP, AC(A-P-C), AA(A-P-A); PA, PS, PP (P-A-P, P-S-P)) and MA, MD, MM (M-A-M, M-D-M) for the three datasets DBLP, ACM and IMDB respectively, based on the tasks. It should be emphasized that in heterogeneous graph, we use different weight matrices to learn embedding",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04159,
+        -0.04014,
+        -0.01405,
+        0.02392,
+        0.0151
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "for the three datasets DBLP, ACM and IMDB respectively, based on the tasks. It should be emphasized that in heterogeneous graph, we use different weight matrices to learn embedding",
+      "overlap_with_next": "tion Table 3. Node classiﬁcation for heterogeneous graph. Methods DBLP ACM IMDB DeepWalk 63.18 67.42 32.08 metapath2vec 85.53 87.61 35.21 GCN 87.30 91.60 56.89 GAT 93.71 92.33 58.1",
+      "text": "for the three datasets DBLP, ACM and IMDB respectively, based on the tasks. It should be emphasized that in heterogeneous graph, we use different weight matrices to learn embeddings for different types of nodes in the same hop. For example, P has two types of neighbors in one-hop neighborhood: A and S in ACM dataset and we use two weight matrices to learn the two types of node’s embeddings. We use the following sets of hyperparameters DBLP, ACM and IMDB: 0.5 (dropout rate), 5×10−4 (weight decay), two HHR layer with the hidden dimension 32. The learning rate are 0.004 (DBLP, ACM) and 0.006 (IMDB). 5.3. Experimental Results 5.3.1. N ODE CLASSIFICATION RESULTS . Based on results in Table 2 and Table 3, we conclude that our method is very competitive on both homogeneous and heterogeneous graphs. For homogeneous graph , our method leverages an en- larged (two-hop) neighborhood, meanwhile each node has their personalized receptive ﬁeld, which can provide more and useful information for central node’s representation Table 3. Node classiﬁcation for heterogeneous graph. Methods DBLP ACM IMDB DeepWalk 63.18 67.42 32.08 metapath2vec 85.53 87.61 35.21 GCN 87.30 91.60 56.89 GAT 93.71 92.33 58.1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02469,
+        -0.03587,
+        -0.03613,
+        0.00648,
+        -0.00206
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "tion Table 3. Node classiﬁcation for heterogeneous graph. Methods DBLP ACM IMDB DeepWalk 63.18 67.42 32.08 metapath2vec 85.53 87.61 35.21 GCN 87.30 91.60 56.89 GAT 93.71 92.33 58.1",
+      "overlap_with_next": "n the graph. We encourage all types of nodes to appear within a ﬁxed-hop neighborhood, meanwhile treat different types of nodes differently in the aggregation. Compared with HAN an",
+      "text": "tion Table 3. Node classiﬁcation for heterogeneous graph. Methods DBLP ACM IMDB DeepWalk 63.18 67.42 32.08 metapath2vec 85.53 87.61 35.21 GCN 87.30 91.60 56.89 GAT 93.71 92.33 58.14 HAN 92.83 90.96 52.33 GTN 94.18 92.68 60.92 Ours 94.65 ± 0.26 91.83± 0.54 61.67 ± 0.62 learning. This is especially beneﬁcial for sparse graphs. 2 For heterogeneous graph , the results for other methods come from (Seongjun Yun, 2019). Our method is about 1.5% better than GTN and 9.3% better than HAN on IMDB dataset. We reason this improvement is caused by that our model can provide a personalized context for each node, and utilize different types of neighbors to learn the new representation for central node. HAN utilizes the manually designed meta-path to generate the homogeneous graph and other types nodes information has been lost, which may damage the central node’s representation learning and make the performance unstable. The key idea of GTN is to learn a general meta-path, while this path is not suitable for every node in the graph. We encourage all types of nodes to appear within a ﬁxed-hop neighborhood, meanwhile treat different types of nodes differently in the aggregation. Compared with HAN an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0383,
+        -0.05291,
+        -0.02484,
+        -0.00416,
+        0.02226
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "n the graph. We encourage all types of nodes to appear within a ﬁxed-hop neighborhood, meanwhile treat different types of nodes differently in the aggregation. Compared with HAN an",
+      "overlap_with_next": " softly select adjacency matrices, which makes the ﬁnal adjacency matri- ces are very dense and later computations (multiplication of the selected matrices and GCN operation) are v",
+      "text": "n the graph. We encourage all types of nodes to appear within a ﬁxed-hop neighborhood, meanwhile treat different types of nodes differently in the aggregation. Compared with HAN and GTN, our method can provide a customized receptive ﬁeld for each node and absorb useful information from other types of nodes. 5.3.2. E FFICIENCY . In Fig. 2a and Fig. 2b, we plot the performance of the state-of-the-arts GNNs-HE over their training time relative to that of our model on IMDB, and DBLP datasets. The ﬁgures shows our model gets competitive performance in both accuracy and efﬁciently. Fig. 2a and Fig. 2b show that GCN is the most efﬁcient, but can not ensure the accuracy. Simply aggregating the neighbors is not suitable for heterogeneous graphs that con- tain more complex neighborhood information than homo- geneous graphs. Compared with other methods, GTN has an obvious advantage in accuracy, while does not perform good in efﬁciency. Because GTN aims to learn an optimal meta-path by utilizing a 1× 1 convolution to softly select adjacency matrices, which makes the ﬁnal adjacency matri- ces are very dense and later computations (multiplication of the selected matrices and GCN operation) are v",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0274,
+        -0.03518,
+        -0.04057,
+        0.01865,
+        0.00236
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " softly select adjacency matrices, which makes the ﬁnal adjacency matri- ces are very dense and later computations (multiplication of the selected matrices and GCN operation) are v",
+      "overlap_with_next": "odel need more mapping matri- ces and slices of the NTN model, and this will slow the computation, which we will future explore in the future works. 5.3.3. I NTERPRETABILITY . A ke",
+      "text": " softly select adjacency matrices, which makes the ﬁnal adjacency matri- ces are very dense and later computations (multiplication of the selected matrices and GCN operation) are very time consuming, especially for large graphs. While our method learns the meta-path by utilizing the low-dimension hidden representations and a light-weight NTN model, which is 2The average node degree for Cora and Citeseer are 4.9 and 3.7 respectively. [Page 8] Hop-Hop Relation-aware Graph Neural Networks GCN 0.41× Ours 1× GAT 12k × GTN 13k ×HAN1.5k × Test accuracy (%) Relative Training Time (per epoch) (a) DBLP GCN 0.33× Ours 1× GAT 286× GTN 2517× HAN 38× Test accuracy (%) Relative Training Time (per epoch) (b) IMDB Figure 2. Performance over training time on DBLP and IMDB. (a) Cora. (b) IMDB. Figure 3. Cora 0−1 relation-score and 0−2 relation-score. IMDB MA, MD and MM relation-score. very efﬁcient, especially for heterogeneous with a few types of nodes. For heterogeneous graphs with more types of nodes and relations, our model need more mapping matri- ces and slices of the NTN model, and this will slow the computation, which we will future explore in the future works. 5.3.3. I NTERPRETABILITY . A ke",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06121,
+        -0.03371,
+        -0.00041,
+        0.02422,
+        -0.00129
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "odel need more mapping matri- ces and slices of the NTN model, and this will slow the computation, which we will future explore in the future works. 5.3.3. I NTERPRETABILITY . A ke",
+      "overlap_with_next": "ee types of relation-scores in Fig 3b. Compared with Fig 3a, the relation-score is much more complexed, due to the central node is connected by different types of nodes. Fig 3b sho",
+      "text": "odel need more mapping matri- ces and slices of the NTN model, and this will slow the computation, which we will future explore in the future works. 5.3.3. I NTERPRETABILITY . A key part of our model is the hop-aware aggregation by the learned relation-scores. We ﬁrst visualize the one-hop (0-1 relation-score ) and two- hop (0-1 relation-score ) of the ﬁrst 20 nodes on Cora, as shown in Fig. 3a. For a better comparison, we use the 100% stacked column chart and more proportions means higher relation-score in each bar. Fig. 3a shows that 0-1 relation-score is generally higher than 0-2 relation-score, which veriﬁes that directly linked (one-hop) neighbors have more closed relationship than indirectly connected (two- hop) neighbors. Besides, we also show the learned relation-score of the ﬁrst 20 nodes on IMDB, who contains four types of edges (MA, AM, MD, DM). We model the relationships of MA, MD (two types of one-hop neighbors) and MM (two-hop neigh- bors that formed by M-A-M and M-D-M) and visualize the three types of relation-scores in Fig 3b. Compared with Fig 3a, the relation-score is much more complexed, due to the central node is connected by different types of nodes. Fig 3b sho",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03352,
+        0.0202,
+        0.00821,
+        0.01385,
+        0.00103
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ee types of relation-scores in Fig 3b. Compared with Fig 3a, the relation-score is much more complexed, due to the central node is connected by different types of nodes. Fig 3b sho",
+      "overlap_with_next": "tter in accuracy and efﬁciency. Besides, it can identify the useful and personalized context for each node, which leads to beneﬁts in interpretability and provides insight on the e",
+      "text": "ee types of relation-scores in Fig 3b. Compared with Fig 3a, the relation-score is much more complexed, due to the central node is connected by different types of nodes. Fig 3b shows that each node has their preference for the different types of nodes, e.g., Node11 has a much closer relationship with Director (the red part takes a big proportion in the bar), while Node10 with Movie. 6. Conclusion We proposed Hop-Hop Relation-aware Graph Neural Net- works (HHR-GNN), a new class of Graph Neural Networks, that can be used for both homogeneous and heterogeneous graphs’ representation learning. We introduced the knowl- edge graph embedding technical to learn the relation-score that can be used to deﬁne a personalized receptive ﬁelds for each node and applied both hop-aware projection and aggregation to distinguish different hops or types nodes in neighborhood aggregation. We evaluated HHR-GNN against state-of-the-art GNNs on node classiﬁcation task. Experimental results showed that HHR-GNN is competitive no matter in accuracy and efﬁciency. Besides, it can identify the useful and personalized context for each node, which leads to beneﬁts in interpretability and provides insight on the e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0617,
+        -0.0285,
+        0.0112,
+        0.02408,
+        0.00275
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "tter in accuracy and efﬁciency. Besides, it can identify the useful and personalized context for each node, which leads to beneﬁts in interpretability and provides insight on the e",
+      "overlap_with_next": "42, 2017. Bruna, Joan, Zaremba, Wojciech, Szlam, Arthur, and LeCun, Yann. Spectral networks and locally connected networks on graphs. In ICLR, 2014. Cho, Kyunghyun, van Merrienboer",
+      "text": "tter in accuracy and efﬁciency. Besides, it can identify the useful and personalized context for each node, which leads to beneﬁts in interpretability and provides insight on the effective hops or types neighbors for prediction. References Abu-El-Haija, Sami, Perozzi, Bryan, Kapoor, Amol, Haru- tyunyan, Hrayr, Alipourfard, Nazanin, Lerman, Kristina, Steeg, Greg Ver, and Galstyan, Aram. Mixhop: Higher- order graph convolutional architectures via sparsiﬁed neighborhood mixing. In ICML, 2019. Atwood, James and Towsley, Don. Diffusion-convolutional neural networks. In NeurIPS, 2016. [Page 9] Hop-Hop Relation-aware Graph Neural Networks Bordes, Antoine, Usunier, Nicolas, Garcia-Duran, Alberto, Weston, Jason, and Yakhnenko, Oksana. Translating em- beddings for modeling multi-relational data. In NeurIPS, pp. 2787–2795, 2013. Bronstein, Michael M, Bruna, Joan, LeCun, Yann, Szlam, Arthur, and Vandergheynst, Pierre. Geometric deep learn- ing: going beyond euclidean data. IEEE Signal Process- ing Magazine, 34(4):18–42, 2017. Bruna, Joan, Zaremba, Wojciech, Szlam, Arthur, and LeCun, Yann. Spectral networks and locally connected networks on graphs. In ICLR, 2014. Cho, Kyunghyun, van Merrienboer",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02901,
+        -0.01798,
+        -0.00608,
+        0.03811,
+        -0.00032
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "42, 2017. Bruna, Joan, Zaremba, Wojciech, Szlam, Arthur, and LeCun, Yann. Spectral networks and locally connected networks on graphs. In ICLR, 2014. Cho, Kyunghyun, van Merrienboer",
+      "overlap_with_next": "Halbert. Multilayer feedforward networks are universal approxi- mators. Neural networks, 1989. Kingma, Diederik P and Ba, Jimmy. Adam: A method for stochastic optimization. In ICLR",
+      "text": "42, 2017. Bruna, Joan, Zaremba, Wojciech, Szlam, Arthur, and LeCun, Yann. Spectral networks and locally connected networks on graphs. In ICLR, 2014. Cho, Kyunghyun, van Merrienboer, Bart, C ¸aglar G¨ulc ¸ehre, Bahdanau, Dzmitry, Bougares, Fethi, Schwenk, Holger, and Bengio, Yoshua. Learning phrase representations using rnn encoder-decoder for statistical machine transla- tion. In EMNLP, 2014. Defferrard, Micha¨el, Bresson, Xavier, and Vandergheynst, Pierre. Convolutional neural networks on graphs with fast localized spectral ﬁltering. In NeurIPS, 2016. Dong, Yuxiao, Chawla, Nitesh V , and Swami, Ananthram. metapath2vec: Scalable representation learning for het- erogeneous networks. In SIGKDD, pp. 135–144, 2017. Dong, Yuxiao, Hu, Ziniu, Wang, Kuansan, Sun, Yizhou, and Tang, Jie. Heterogeneous network representation learning. In IJCAI, 2020. Hamilton, Will, Ying, Zhitao, and Leskovec, Jure. Induc- tive representation learning on large graphs. In NeurIPS, 2017. Hornik, Kurt, Stinchcombe, Maxwell, and White, Halbert. Multilayer feedforward networks are universal approxi- mators. Neural networks, 1989. Kingma, Diederik P and Ba, Jimmy. Adam: A method for stochastic optimization. In ICLR",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05771,
+        0.00563,
+        0.0153,
+        -0.01852,
+        -0.00809
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "Halbert. Multilayer feedforward networks are universal approxi- mators. Neural networks, 1989. Kingma, Diederik P and Ba, Jimmy. Adam: A method for stochastic optimization. In ICLR",
+      "overlap_with_next": "el, Maximilian, Tresp, V olker, and Kriegel, Hans- Peter. A three-way model for collective learning on multi- relational data. In ICML, 2011. Perozzi, Bryan, Al-Rfou, Rami, and Ski",
+      "text": "Halbert. Multilayer feedforward networks are universal approxi- mators. Neural networks, 1989. Kingma, Diederik P and Ba, Jimmy. Adam: A method for stochastic optimization. In ICLR, 2015. Kipf, Thomas N and Welling, Max. Semi-supervised clas- siﬁcation with graph convolutional networks. In ICLR, 2017. Klicpera, Johannes, Weißenberger, Stefan, and G¨unnemann, Stephan. Diffusion improves graph learning. In NeurIPS, 2019. Liao, Renjie, Brockschmidt, Marc, Tarlow, Daniel, Gaunt, Alexander L., Urtasun, Raquel, and Zemel, Richard S. Graph partition neural networks for semi-supervised clas- siﬁcation. In ICLR workshop, 2018. Lin, Yankai, Liu, Zhiyuan, Sun, Maosong, Liu, Yang, and Zhu, Xuan. Learning entity and relation embeddings for knowledge graph completion. In Twenty-ninth AAAI conference on artiﬁcial intelligence, 2015. Murphy, Ryan L., Srinivasan, Balasubramaniam, Rao, Vinayak, and Ribeiro, Bruno. Janossy pooling: Learn- ing deep permutation-invariant functions for variable-size inputs. In ICLR, 2019. Nickel, Maximilian, Tresp, V olker, and Kriegel, Hans- Peter. A three-way model for collective learning on multi- relational data. In ICML, 2011. Perozzi, Bryan, Al-Rfou, Rami, and Ski",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06726,
+        -0.02262,
+        -0.00618,
+        0.01188,
+        -0.02449
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "el, Maximilian, Tresp, V olker, and Kriegel, Hans- Peter. A three-way model for collective learning on multi- relational data. In ICML, 2011. Perozzi, Bryan, Al-Rfou, Rami, and Ski",
+      "overlap_with_next": " Richard, Chen, Danqi, Manning, Christopher D, and Ng, Andrew. Reasoning with neural tensor networks for knowledge base completion. In NeurIPS, 2013. Sun, Yizhou and Han, Jiawei. M",
+      "text": "el, Maximilian, Tresp, V olker, and Kriegel, Hans- Peter. A three-way model for collective learning on multi- relational data. In ICML, 2011. Perozzi, Bryan, Al-Rfou, Rami, and Skiena, Steven. Deep- walk: Online learning of social representations. In SIGKDD, 2014. Schlichtkrull, Michael, Kipf, Thomas N, Bloem, Peter, van den Berg, Rianne, Titov, Ivan, and Welling, Max. Modeling relational data with graph convolutional net- works. In ESWC, 2018. Sen, Prithviraj, Namata, Galileo, Bilgic, Mustafa, Getoor, Lise, Galligher, Brian, and Eliassi-Rad, Tina. Collective classiﬁcation in network data. AI magazine, 2008. Seongjun Yun, Minbyul Jeong, Raehyun Kim Jaewoo Kang Hyunwoo J. Kim. Graph transformer networks. In NeurIPS, 2019. Shuman, David I., Narang, Sunil K., Frossard, Pascal, Or- tega, Antonio, and Vandergheynst, Pierre. The emerging ﬁeld of signal processing on graphs: Extending high- dimensional data analysis to networks and other irregular domains. IEEE Signal Processing Magazine, 30:83–98, 2013. Socher, Richard, Chen, Danqi, Manning, Christopher D, and Ng, Andrew. Reasoning with neural tensor networks for knowledge base completion. In NeurIPS, 2013. Sun, Yizhou and Han, Jiawei. M",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08558,
+        -0.01493,
+        -0.00573,
+        0.00124,
+        -0.00192
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": " Richard, Chen, Danqi, Manning, Christopher D, and Ng, Andrew. Reasoning with neural tensor networks for knowledge base completion. In NeurIPS, 2013. Sun, Yizhou and Han, Jiawei. M",
+      "overlap_with_next": "aph embedding: A survey of approaches and applications. IEEE Transactions on Knowledge and Data Engineering, 29(12):2724–2743, 2017. Wang, Xiao, Ji, Houye, Shi, Chuan, Wang, Bai, Y",
+      "text": " Richard, Chen, Danqi, Manning, Christopher D, and Ng, Andrew. Reasoning with neural tensor networks for knowledge base completion. In NeurIPS, 2013. Sun, Yizhou and Han, Jiawei. Mining heterogeneous infor- mation networks: principles and methodologies. Synthe- sis Lectures on Data Mining and Knowledge Discovery, 3(2):1–159, 2012. Szegedy, Christian, Liu, Wei, Jia, Yangqing, Sermanet, Pierre, Reed, Scott, Anguelov, Dragomir, Erhan, Dumitru, Vanhoucke, Vincent, and Rabinovich, Andrew. Going deeper with convolutions. In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 1–9, 2015. van den Berg, Rianne, Kipf, Thomas N, and Welling, Max. Graph convolutional matrix completion. arXiv preprint arXiv:1706.02263, 2017. Velickovic, Petar, Cucurull, Guillem, Casanova, Aran- txa, Romero, Adriana, Lio, Pietro, and Bengio, Yoshua. Graph attention networks. In ICLR, 2018. [Page 10] Hop-Hop Relation-aware Graph Neural Networks Wang, Quan, Mao, Zhendong, Wang, Bin, and Guo, Li. Knowledge graph embedding: A survey of approaches and applications. IEEE Transactions on Knowledge and Data Engineering, 29(12):2724–2743, 2017. Wang, Xiao, Ji, Houye, Shi, Chuan, Wang, Bai, Y",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01687,
+        -0.02454,
+        0.00545,
+        -6e-05,
+        0.00321
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "aph embedding: A survey of approaches and applications. IEEE Transactions on Knowledge and Data Engineering, 29(12):2724–2743, 2017. Wang, Xiao, Ji, Houye, Shi, Chuan, Wang, Bai, Y",
+      "overlap_with_next": ". In SIGKDD, 2018. Ying, Rex, Bourgeois, Dylan, You, Jiaxuan, Zitnik, Marinka, and Leskovec, Jure. Gnn explainer: A tool for post-hoc explanation of graph neural networks. In NeurI",
+      "text": "aph embedding: A survey of approaches and applications. IEEE Transactions on Knowledge and Data Engineering, 29(12):2724–2743, 2017. Wang, Xiao, Ji, Houye, Shi, Chuan, Wang, Bai, Ye, Yan- fang, Cui, Peng, and Yu, Philip S. Heterogeneous graph attention network. In WWW, 2019. Wang, Zhen, Zhang, Jianwen, Feng, Jianlin, and Chen, Zheng. Knowledge graph embedding by translating on hyperplanes. In Twenty-Eighth AAAI conference on artiﬁ- cial intelligence, 2014. Yang, Bishan, Yih, Wen-tau, He, Xiaodong, Gao, Jianfeng, and Deng, Li. Embedding entities and relations for learn- ing and inference in knowledge bases. arXiv preprint arXiv:1412.6575, 2014. Yang, Carl, Xiao, Yuxin, Zhang, Yu, Sun, Yizhou, and Han, Jiawei. Heterogeneous network representation learn- ing: Survey, benchmark, evaluation, and beyond. arXiv preprint arXiv:2004.00216, 2020. Ying, Rex, He, Ruining, Chen, Kaifeng, Eksombatchai, Pong, Hamilton, William L, and Leskovec, Jure. Graph convolutional neural networks for web-scale recom- mender systems. In SIGKDD, 2018. Ying, Rex, Bourgeois, Dylan, You, Jiaxuan, Zitnik, Marinka, and Leskovec, Jure. Gnn explainer: A tool for post-hoc explanation of graph neural networks. In NeurI",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05816,
+        -0.04062,
+        0.01086,
+        -0.02145,
+        -0.0036
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 42149,
+      "length": 329,
+      "overlap_with_previous": ". In SIGKDD, 2018. Ying, Rex, Bourgeois, Dylan, You, Jiaxuan, Zitnik, Marinka, and Leskovec, Jure. Gnn explainer: A tool for post-hoc explanation of graph neural networks. In NeurI",
+      "overlap_with_next": "",
+      "text": ". In SIGKDD, 2018. Ying, Rex, Bourgeois, Dylan, You, Jiaxuan, Zitnik, Marinka, and Leskovec, Jure. Gnn explainer: A tool for post-hoc explanation of graph neural networks. In NeurIPS. 2019. Zhang, Chuxu, Song, Dongjin, Huang, Chao, Swami, Anan- thram, and Chawla, Nitesh V . Heterogeneous graph neu- ral network. In SIGKDD, 2019.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07275,
+        -0.01895,
+        -0.00084,
+        -0.00929,
+        0.00648
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1558 @@
+{
+  "paper_id": "8dd0da21-d326-412b-a380-deda9c6db117",
+  "filename": "084_Machine_Learning_Fairness_Welfare_and_Equity_in_Personalized_Pricing.pdf",
+  "title": "084_Machine_Learning_Fairness_Welfare_and_Equity_in_Personalized_Pricing.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 91,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " disentangle these different normative considerations and propose a taxonomy of different objectives with mathematical definitions. We focus on observational metrics that do not as",
+      "text": "[Page 1] Fairness, Welfare, and Equity in Personalized Pricing Nathan Kallus Cornell University and Cornell Tech kallus@cornell.edu Angela Zhou* Cornell University and Cornell Tech az434@cornell.edu ABSTRACT We study the interplay of fairness, welfare, and equity consider- ations in personalized pricing based on customer features. Sell- ers are increasingly able to conduct price personalization based on predictive modeling of demand conditional on covariates: setting customized interest rates, targeted discounts of consumer goods, and personalized subsidies of scarce resources with positive exter- nalities like vaccines and bed nets. These different application areas may lead to different concerns around fairness, welfare, and equity on different objectives: price burdens on consumers, price envy, firm revenue, access to a good, equal access, and distributional con- sequences when the good in question further impacts downstream outcomes of interest. We conduct a comprehensive literature review in order to disentangle these different normative considerations and propose a taxonomy of different objectives with mathematical definitions. We focus on observational metrics that do not as",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06421,
+        0.01287,
+        -0.03457,
+        -0.01391,
+        -0.03222
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " disentangle these different normative considerations and propose a taxonomy of different objectives with mathematical definitions. We focus on observational metrics that do not as",
+      "overlap_with_next": "e idealized construction of economic theory, is now squarely within the realm of possibility for firms newly equipped with a deluge of fine-grained information about individuals an",
+      "text": " disentangle these different normative considerations and propose a taxonomy of different objectives with mathematical definitions. We focus on observational metrics that do not assume access to an underlying valuation distribution which is either un- observed due to binary feedback or ill-defined due to overriding behavioral concerns regarding interpreting revealed preferences. In the setting of personalized pricing for the provision of goods with positive benefits, we discuss how price optimization may provide unambiguous benefit by achieving a “triple bottom line”: personal- ized pricing enables expanding access, which in turn may lead to gains in welfare due to heterogeneous utility, and improve revenue or budget utilization. We empirically demonstrate the potential ben- efits of personalized pricing in two settings: pricing subsidies for an elective vaccine, and the effects of personalized interest rates on downstream outcomes in microcredit. 1 INTRODUCTION Personalized pricing, once restricted to the idealized construction of economic theory, is now squarely within the realm of possibility for firms newly equipped with a deluge of fine-grained information about individuals an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06523,
+        -0.0033,
+        -0.03226,
+        0.02248,
+        -0.03263
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "e idealized construction of economic theory, is now squarely within the realm of possibility for firms newly equipped with a deluge of fine-grained information about individuals an",
+      "overlap_with_next": "articu- larly interesting because it fundamentally involves considerations of both resource allocation in response to price; as well as predic- tive models for such a price respons",
+      "text": "e idealized construction of economic theory, is now squarely within the realm of possibility for firms newly equipped with a deluge of fine-grained information about individuals and prediction modeling of demand or willing- ness to pay based on this information. Given both the ubiquity of prices and their relevance in important domains such as hiring, lending, and credit subject to antidiscrimination regulation, price personalization remains an area of increasing scrutiny and caution, as well as tentative optimism due to competitive considerations [31, 34]. The potential of expanded reliance on predictive models in do- mains affecting individuals is cause for concern. After all, the ex- tensive study of fairness considerations in predictive models high- lights how the joint structure of protected attributes and other information can lead algorithmic decisions, even based only on non-attribute information, to nonetheless lead to disparate impacts on individuals [8]. The setting of personalized pricing is particu- larly interesting because it fundamentally involves considerations of both resource allocation in response to price; as well as predic- tive models for such a price respons",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05501,
+        0.00305,
+        -0.02749,
+        0.03426,
+        -0.0331
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "articu- larly interesting because it fundamentally involves considerations of both resource allocation in response to price; as well as predic- tive models for such a price respons",
+      "overlap_with_next": "9]. In particular, distributional concerns regarding price optimization reflect overall concern for differen- tially adept/prepared/educated negotiating customers in insurance and ",
+      "text": "articu- larly interesting because it fundamentally involves considerations of both resource allocation in response to price; as well as predic- tive models for such a price response. Auditing challenges arise precisely because valuations are in general not known or observed; rather only binary-feedback demand response is observed. Studying the case of personalized pricing is conceptually chal- lenging because prices are a shared tool in drastically different domains: we consider lending/insurance, consumer goods, and pub- lic provision. A crucial distinction is between value-based pricing that offers different prices to customers based on their estimated willingness to pay, and risk-based pricing which offers different prices to customers based on their estimated costs, as in lending and insurance [ 34]. While discrimination law is strongest in in- surance and lending, in lending, discrimination concerns often arise from individual agents providing offers from an actuarially- fair securitized rate sheet [9]. In particular, distributional concerns regarding price optimization reflect overall concern for differen- tially adept/prepared/educated negotiating customers in insurance and ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05708,
+        0.00591,
+        -0.01245,
+        0.01349,
+        -0.02191
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "9]. In particular, distributional concerns regarding price optimization reflect overall concern for differen- tially adept/prepared/educated negotiating customers in insurance and ",
+      "overlap_with_next": "ere are not clear anti-discrimination principles that govern the setting of value-based pricing, understanding the tradeoffs introduced by considering constraints or fairness penal",
+      "text": "9]. In particular, distributional concerns regarding price optimization reflect overall concern for differen- tially adept/prepared/educated negotiating customers in insurance and lending, but slight optimism in value-based pricing since low- income individuals may be more price-sensitive [ 9]. Hence, the majority of our analysis will focus on value-based pricing, which lends itself more readily to price optimization. In the case of value-based pricing, incidents where price targeting leads to disparities are often subject to media coverage and public outcry. We recollect just a few of these incidents: Staples changed prices based on available brick-and-mortar locations of competitors leading to higher prices for rural areas [57] and Asians faced higher prices as a result of the Princeton Review’s zip-code based price- targeting [45, 56]. While these covariate-based pricing schemes were based on non-group contextual information, nonetheless they induced disparities in prices along group lines. Although there are not clear anti-discrimination principles that govern the setting of value-based pricing, understanding the tradeoffs introduced by considering constraints or fairness penal",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06188,
+        -0.02406,
+        -0.00585,
+        0.03341,
+        -0.01574
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ere are not clear anti-discrimination principles that govern the setting of value-based pricing, understanding the tradeoffs introduced by considering constraints or fairness penal",
+      "overlap_with_next": "cations of the good itself, may be optimized based on noisy predictors, and the good itself may have downstream impacts of interest. In Section 4, we taxonomize these consideration",
+      "text": "ere are not clear anti-discrimination principles that govern the setting of value-based pricing, understanding the tradeoffs introduced by considering constraints or fairness penalties on a myopic price optimization problem can shed light on tradeoffs between various intuitive notions to inform algorithm design. In this paper, we study the interplay of fairness and welfare considerations as they arise in the setting of personalized pricing. Our first task is conceptual: we square these real-world problem settings alongside previously expressed concerns regarding price optimization. For example, acknowledging the empirical reality of economic inequality informs the expected distributional impacts of covariate-conditional pricing schemes along racial and economic segments. We then turn to analytical modeling to identify the mul- tiple objectives which pricing decisions affect with fairness and/or welfare implications. Prices impose a burden on customers (per- haps only on those who purchase), result in allocations of the good itself, may be optimized based on noisy predictors, and the good itself may have downstream impacts of interest. In Section 4, we taxonomize these consideration",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03386,
+        -0.02189,
+        -0.01905,
+        0.02476,
+        -0.02474
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "cations of the good itself, may be optimized based on noisy predictors, and the good itself may have downstream impacts of interest. In Section 4, we taxonomize these consideration",
+      "overlap_with_next": "insights on tradeoffs. In Section 6 we build empirical case studies on datasets related to the “public-interest goods” set- ting based on a study of willingness-to-pay for an elect",
+      "text": "cations of the good itself, may be optimized based on noisy predictors, and the good itself may have downstream impacts of interest. In Section 4, we taxonomize these considerations into price parity (marginal and conditional), model error fairness, preferences for access, allocative efficiency, and actuarial fairness; we offer these operationalizations arXiv:2012.11066v2 [cs.LG] 27 Dec 2020 [Page 2] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* (all of which may in themselves not be novel) alongside contex- tual discussion. We propose operationalizations of these normative considerations which avoid classical assumptions of known valua- tions, focusing on identifiability based on available information. In Section 5 we provide further characterization of implications for fairness and welfare considerations for considering modifications to price optimization in order to improve on some of these notions, in particular price parity and market share. Where possible, we pro- vide analytical insights on tradeoffs. In Section 6 we build empirical case studies on datasets related to the “public-interest goods” set- ting based on a study of willingness-to-pay for an elect",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02296,
+        0.0149,
+        -0.01011,
+        0.04974,
+        -0.02127
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "insights on tradeoffs. In Section 6 we build empirical case studies on datasets related to the “public-interest goods” set- ting based on a study of willingness-to-pay for an elect",
+      "overlap_with_next": "chased but does not differ across consumers, such as bulk discounts. Third-degree price discrimi- nation charges different prices to different groups of consumers, such as offering",
+      "text": "insights on tradeoffs. In Section 6 we build empirical case studies on datasets related to the “public-interest goods” set- ting based on a study of willingness-to-pay for an elective vaccine and interest rates for microcredit loans. 2 RELATED WORK The study of algorithmic pricing and revenue management is very extensive and spans economics, operations research [30], and com- puter science. Price discrimination has also been studied for ethical and normative considerations, especially in relation to privacy [50, 51]. We now highlight methodological and empirical work of particular relevance to algorithmic considerations. In Appendix A we discuss domain-level considerations and more broad related work in greater detail. We first briefly overview the classical economic taxonomy of price discrimination [59]. First-degree price discrimination offers individual prices to customers exactly at their willingness to pay, which is assumed to be known. Second-degree price discrimina- tion depends on the quantity purchased but does not differ across consumers, such as bulk discounts. Third-degree price discrimi- nation charges different prices to different groups of consumers, such as offering",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03426,
+        -0.03144,
+        -0.00774,
+        0.01973,
+        -0.00991
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "chased but does not differ across consumers, such as bulk discounts. Third-degree price discrimi- nation charges different prices to different groups of consumers, such as offering",
+      "overlap_with_next": "mentations that can achieve any com- bination of increase/decrease in consumer surplus; [20] study the theoretical computational efficiency of finding such segmentations. This clas",
+      "text": "chased but does not differ across consumers, such as bulk discounts. Third-degree price discrimi- nation charges different prices to different groups of consumers, such as offering senior or student discounts. We focus on analyz- ing covariate-conditional prices, which are a form of third-degree pricing but draw nearer to first-degree pricing (up to the noise of random valuations). The economic literature studies welfare (consumer and producer surpluses) implications of idealized first-degree personalized pric- ing, assuming valuation distributions are known. This classical notion of welfare is hence pegged to the valuation distribution (e.g., consumer welfare is valuation minus price). [58] studies third- degree price discrimination; using first-order conditions of valua- tion distributions, they show that consumer welfare increases with additional price discrimination as long as total output increases. [2] provide analogous conditions for similar analysis. [10] shows that a seller can choose various segmentations that can achieve any com- bination of increase/decrease in consumer surplus; [20] study the theoretical computational efficiency of finding such segmentations. This clas",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07502,
+        -0.0342,
+        -0.02021,
+        -0.00531,
+        -0.01413
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "mentations that can achieve any com- bination of increase/decrease in consumer surplus; [20] study the theoretical computational efficiency of finding such segmentations. This clas",
+      "overlap_with_next": "iness-to-business marketing setting; they find that finer-grained personalized pricing overall increases consumer welfare; though this is not monotonic in segmentation granularity.",
+      "text": "mentations that can achieve any com- bination of increase/decrease in consumer surplus; [20] study the theoretical computational efficiency of finding such segmentations. This classical theory suggests that ideal personalized pricing may improve welfare relative to uniform monopoly pricing, but that different segmentations lead to possibly indeterminate outcomes for consumer welfare. The empirical literature indicates this inde- terminacy in important settings. [29] empirically study implications of machine learning predictors of default probability on disparities not only for predictive performance, but on using these predic- tions to set interest rates for loans via risk-based pricing. While richer machine learning predictors expand access to credit; they also result in greater price dispersion for the minority borrower on the margin. Hence, greater access comes at the cost of a greater price burden. [24] study personalized pricing in a Bayesian setting with posterior uncertainty quantification in a business-to-business marketing setting; they find that finer-grained personalized pricing overall increases consumer welfare; though this is not monotonic in segmentation granularity.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05388,
+        -0.02156,
+        -0.03203,
+        0.01271,
+        -0.0327
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "iness-to-business marketing setting; they find that finer-grained personalized pricing overall increases consumer welfare; though this is not monotonic in segmentation granularity.",
+      "overlap_with_next": "g with rich covariates, and propose metrics that are completely independent of the valuation distribution. Our analytical insights focus on covariate-personalized prices and implic",
+      "text": "iness-to-business marketing setting; they find that finer-grained personalized pricing overall increases consumer welfare; though this is not monotonic in segmentation granularity. Pricing in the context of mechanism design follows another ap- proach and assumes elicitation of ontologically valid valuations from strategic participants due to narrowly bracketed contexts such as auctions, kidney exchanges, and matching markets. [27] show that for a two-sided market, market-clearing competitive equilib- rium pricing is not necessarily optimal if a market designer has distributional preferences. Noting that classical theory on quasi- linear utility “implicitly embeds the assumption that each agent values money equally, ” they study implications of dispersion in mar- ginal values for money of market participants for optimal market mechanisms. [18] study fairness considerations when each protected group is assigned one price and the valuation distribution is known. In contrast, we focus on the prediction setting with rich covariates, and propose metrics that are completely independent of the valuation distribution. Our analytical insights focus on covariate-personalized prices and implic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.10489,
+        -0.01244,
+        -0.02259,
+        0.04732,
+        -0.02982
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "g with rich covariates, and propose metrics that are completely independent of the valuation distribution. Our analytical insights focus on covariate-personalized prices and implic",
+      "overlap_with_next": " using the protected attribute information in the predictor or in algorith- mic interventions, may be in fundamental tension with achieving proposed fairness notions. [ 46] studies",
+      "text": "g with rich covariates, and propose metrics that are completely independent of the valuation distribution. Our analytical insights focus on covariate-personalized prices and implications of joint structure of covariate distributions and group variability on fairness considerations. Finally, we mention work that studies tensions in fair machine learning, specifically the role of algorithms in allocating decisions or conferring utility, to highlight questions of interest that have analo- gies in the pricing setting. [33, 35, 42, 48] broadly study tensions between fairness and welfare when machine learning enacts allo- cations, e.g., via classification. An interest of this work is to study analogous considerations for price optimization, under correspond- ing notions of fairness and welfare. Longer-term considerations of fairness constraints have also been studied [ 19, 21], typically with the formalism of dynamical systems. In machine learning, regulatory considerations barring “disparate treatment, ” e.g., using the protected attribute information in the predictor or in algorith- mic interventions, may be in fundamental tension with achieving proposed fairness notions. [ 46] studies",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.045,
+        -0.02733,
+        -0.04089,
+        0.02124,
+        -0.01456
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " using the protected attribute information in the predictor or in algorith- mic interventions, may be in fundamental tension with achieving proposed fairness notions. [ 46] studies",
+      "overlap_with_next": "p at price𝑝. In section 4.4, we further restrict 𝐷(𝑝) = I[𝑉≤𝑝] to be given by a customer valuation. Otherwise, we do not make this restriction, allowing arbitrary, possibly non-rat",
+      "text": " using the protected attribute information in the predictor or in algorith- mic interventions, may be in fundamental tension with achieving proposed fairness notions. [ 46] studies tensions that arise from interventions that do not use attribute information. Again, these broad concerns may additionally be of interest in the setting of price optimization. 3 PROBLEM SETUP We let𝑋 denote customer covariates (features) and𝐴 the protected attribute. To simplify discussion we focus on binary comparisons between two protected groups,𝐴 =𝑎 and𝐴 =𝑏. A personalized pricing policy is a function mapping covariates and possibly pro- tected attribute information to a real-valued price,𝑝(𝑋,𝐴)∈ R+ (or, 𝑝(𝑋) for attribute-blind pricing rules). Each sale instance is associ- ated with a hypothetical and unknown demand curve representing the demand for each possible price,𝐷(𝑝)∈ R+. Often, when each sale instance is with an individual customer,𝐷(𝑝)∈{ 0, 1} is binary where𝐷(𝑝) = 1 denotes the individual would purchase or take-up at price𝑝. In section 4.4, we further restrict 𝐷(𝑝) = I[𝑉≤𝑝] to be given by a customer valuation. Otherwise, we do not make this restriction, allowing arbitrary, possibly non-rat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01982,
+        -0.02471,
+        -0.05977,
+        0.04893,
+        -0.03892
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "p at price𝑝. In section 4.4, we further restrict 𝐷(𝑝) = I[𝑉≤𝑝] to be given by a customer valuation. Otherwise, we do not make this restriction, allowing arbitrary, possibly non-rat",
+      "overlap_with_next": "d has an effect on some outcome in itself, such as repeat purchasing behavior, health benefits, downstream welfare, so that𝐷(𝑝) is also itself a treatment. We denote the correspond",
+      "text": "p at price𝑝. In section 4.4, we further restrict 𝐷(𝑝) = I[𝑉≤𝑝] to be given by a customer valuation. Otherwise, we do not make this restriction, allowing arbitrary, possibly non-rational behavior. [Page 3] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, We are primarily interested in studying the question ofcovariate- based pricing. One approach is to estimate personalized demand at a price, given covariates, via a parametric or semi/non-parametric model, which we will denote as𝐷(𝑝|𝑥,𝑎) = E[𝐷(𝑝)| 𝑋 =𝑥]. A personalized pricing function satisfies: 𝑝∗(𝑥,𝑎)∈ argmax 𝑝(𝑥,𝑎) E[𝐷(𝑝(𝑋,𝐴))𝑝(𝑋,𝐴)] Often, policy or domain-level restrictions may prohibit prices that directly use the attribute𝐴: 𝑝∗(𝑥)∈ argmax 𝑝(𝑥) E[𝐷(𝑝(𝑋))𝑝(𝑋)] We define𝑃 = 𝑝(𝑋,𝐴) as the per-individual personalized price; it may sometimes also refer to 𝑃 = 𝑝(𝑋). We additionally intro- duce notation for the revenue, 𝑅(𝑃) = 𝑃𝐷(𝑃), and its covariate- conditional counterpart. We will also consider cases where the good has an effect on some outcome in itself, such as repeat purchasing behavior, health benefits, downstream welfare, so that𝐷(𝑝) is also itself a treatment. We denote the correspond",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04364,
+        0.00367,
+        -0.02702,
+        -0.00978,
+        -0.05432
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "d has an effect on some outcome in itself, such as repeat purchasing behavior, health benefits, downstream welfare, so that𝐷(𝑝) is also itself a treatment. We denote the correspond",
+      "overlap_with_next": "utcomes due to the good 𝑌(𝐷(𝑝)). In Appendix A we provide further discussion on why, if we are concerned about fairness in the first place, we might be skeptical about defining fai",
+      "text": "d has an effect on some outcome in itself, such as repeat purchasing behavior, health benefits, downstream welfare, so that𝐷(𝑝) is also itself a treatment. We denote the correspondingpotential outcomes as𝑌(𝐷(𝑝)). These represent the causal outcomes of take-up/non-take-up, e.g., the effect on contracting malaria of purchasing/not purchasing a bed net. 4 DEFINITIONS AND METRICS We now introduce definitions of different aspects of fairness or welfare in personalized pricing, addressing normative considera- tions motivated by different contexts, and offer formalisms and operationalizations of these. We consider a generic personalized price function𝑃 which may reflect either first or third degree price discrimination. In Section 5 we discuss these operationalizations in more depth and analyze potential trade-offs. Observational metrics. We introduce the following notions of allocative fairness based on what we may observe: prices 𝑝, de- mand outcome 𝐷(𝑝) (e.g., purchase/no purchase), and potential downstream outcomes due to the good 𝑌(𝐷(𝑝)). In Appendix A we provide further discussion on why, if we are concerned about fairness in the first place, we might be skeptical about defining fai",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00123,
+        -0.01077,
+        -0.0524,
+        -0.00171,
+        -0.02081
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "utcomes due to the good 𝑌(𝐷(𝑝)). In Appendix A we provide further discussion on why, if we are concerned about fairness in the first place, we might be skeptical about defining fai",
+      "overlap_with_next": " functionality being the same for a product 1Notably, while legislation has been proposed to try to address the pink tax, this has not been established as gender-based discriminati",
+      "text": "utcomes due to the good 𝑌(𝐷(𝑝)). In Appendix A we provide further discussion on why, if we are concerned about fairness in the first place, we might be skeptical about defining fairness relative to valuations or other unrevealed latent prefer- ences/valuations. 4.1 Price parity Context. A customer always benefits from a lower price. The difference between distributions of prices faced by different groups measures potential unfairness in price burdens. An extreme exam- ple is the so-called “pink tax”: [22], commissioned by the Mayor’s office in New York City, studies gender-based pricing differentials and finds an average of 7% higher prices paid by women; for ex- ample, women’s pink razors are more expensive, for the exact same product1. This highlights the capacity of price optimization to extract consumer value from behavioral failures of economic regarding valuations. In particular, using “pinkness” to segment products corresponds to extracting valuation from social construc- tions of gender, all other functionality being the same for a product 1Notably, while legislation has been proposed to try to address the pink tax, this has not been established as gender-based discriminati",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07611,
+        0.00447,
+        -0.02894,
+        0.03016,
+        0.00702
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " functionality being the same for a product 1Notably, while legislation has been proposed to try to address the pink tax, this has not been established as gender-based discriminati",
+      "overlap_with_next": " however, that satisfying definition 3 generally does not ensure satisfying definitions 1 and 2 due to differing distributions of covariates between groups. Indeed, in general cont",
+      "text": " functionality being the same for a product 1Notably, while legislation has been proposed to try to address the pink tax, this has not been established as gender-based discrimination. See [37] for more discussion. with no signaling value. While the “pink razor” is an extreme exam- ple, considerations regarding price parity are a common intuitive objection to personalized pricing. Operationalization. We introduce a definition based on distribu- tional equivalence of prices for each group. Definition 1 (Price parity). 𝑃⊥ ⊥𝐴 We may also consider parity in moments of the price distribution, which also enables a simple way to give a scalar metric to disparity. Definition 2 (Marginal price parity). E[𝑃|𝐴 =𝑎] = E[𝑃|𝐴 =𝑏] Correspondingly, the marginal price disparity is E[𝑃|𝐴 =𝑎]− E[𝑃|𝐴 =𝑏]. The notion of “disparate treatment” in fair machine learning suggests that the following notion of covariate-conditional price parity is intuitively appealing. Definition 3 (𝑥-conditional price parity). 𝑝(𝑥,𝑎) =𝑝(𝑥,𝑏) Notice, however, that satisfying definition 3 generally does not ensure satisfying definitions 1 and 2 due to differing distributions of covariates between groups. Indeed, in general cont",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05826,
+        -0.03251,
+        -0.04156,
+        0.02835,
+        0.00448
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": " however, that satisfying definition 3 generally does not ensure satisfying definitions 1 and 2 due to differing distributions of covariates between groups. Indeed, in general cont",
+      "overlap_with_next": "er to the discount. Conditioning on responsiveness accounts for the possibil- ity that different groups have different valuations or willingness to pay, and to the extent that one ",
+      "text": " however, that satisfying definition 3 generally does not ensure satisfying definitions 1 and 2 due to differing distributions of covariates between groups. Indeed, in general contexts, it is well- understood that equal treatment need not lead to equal impact; this remains true in personalized pricing. Finally, it is often helpful to consider price parity conditional on take-up, or more generally on demand. Conditioning on take-up reflects that price only affects consumer utility if the customer purchases. Definition 4 (Take-up-conditional parity). 𝑃⊥ ⊥𝐴|𝐷(𝑃) More generally, we may wish to condition on theeffect of pricing. Consider the case where there is a nominal price𝑝0 and𝑃≤𝑝0 rep- resents a personalized potential discount. The event𝐷(𝑃) >𝐷(𝑝0) is the event that demand increases as an effect of the discount. In the binary demand case: that an individual purchases if and only if given the discount (rather than purchasing irrespective of discount or not purchasing irrespective), which we term a responder to the discount. Conditioning on responsiveness accounts for the possibil- ity that different groups have different valuations or willingness to pay, and to the extent that one ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01692,
+        0.0372,
+        -0.04904,
+        0.01809,
+        -0.01331
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "er to the discount. Conditioning on responsiveness accounts for the possibil- ity that different groups have different valuations or willingness to pay, and to the extent that one ",
+      "overlap_with_next": "|𝑥,𝑎). In practice how- ever, only an estimate ˆ𝐷(𝑝|𝑥,𝑎) is available from observed data. For example, for the pricing problem: ˆ𝑝∗(𝑥)∈ argmin E[ ˆ𝐷(𝑝(𝑋))𝑝(𝑋))] Price suboptimality",
+      "text": "er to the discount. Conditioning on responsiveness accounts for the possibil- ity that different groups have different valuations or willingness to pay, and to the extent that one deems it acceptable to personalize to leverage such differences (and often it is not) parity conditional on response requires we do not price-discriminate more than is justified by response to discount. 4.2 Model error fairness Context. Given that fairness in machine learning studies how predictive models may exhibit differential model performance (pre- dictive accuracy, error distributions) by group, a natural question is how such disparities in predictive model performance might affect the suboptimality of different prices; and whether different groups might experience different price suboptimality burdens due to error patterns of the predictive model. [Page 4] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* Operationalization. The rest of this paper studies pricing based on a true conditional demand model,𝐷(𝑝|𝑥,𝑎). In practice how- ever, only an estimate ˆ𝐷(𝑝|𝑥,𝑎) is available from observed data. For example, for the pricing problem: ˆ𝑝∗(𝑥)∈ argmin E[ ˆ𝐷(𝑝(𝑋))𝑝(𝑋))] Price suboptimality",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07346,
+        -0.01539,
+        -0.03429,
+        0.02785,
+        -0.03585
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "|𝑥,𝑎). In practice how- ever, only an estimate ˆ𝐷(𝑝|𝑥,𝑎) is available from observed data. For example, for the pricing problem: ˆ𝑝∗(𝑥)∈ argmin E[ ˆ𝐷(𝑝(𝑋))𝑝(𝑋))] Price suboptimality",
+      "overlap_with_next": " form of parity in market shares or take-up probabilities by group. Personalized pricing schemes may in fact enhance both of these measures by allowing revenue extraction from high",
+      "text": "|𝑥,𝑎). In practice how- ever, only an estimate ˆ𝐷(𝑝|𝑥,𝑎) is available from observed data. For example, for the pricing problem: ˆ𝑝∗(𝑥)∈ argmin E[ ˆ𝐷(𝑝(𝑋))𝑝(𝑋))] Price suboptimality fairness is concerned with the decision subop- timality of a price based on a risk model vs. the price derived from the actuarially fair “true risk”, ˆ𝑝∗(𝑥)− 𝑝∗(𝑥). For example, ˆ𝑝∗(𝑥) may differ from 𝑝∗(𝑥) when we learn the prediction ˆ𝐷(𝑝| 𝑥,𝑎) from finite samples and differential accuracy thereof could lead to fairness concerns. In Section 5 we will focus on the revenue objective. 4.3 Access and equal access Context. We are often concerned about access to the good being sold, especially when the good has benefits that are deemed cru- cial such as vaccines (see also our empirical study in section 6.1), loans, or broadband internet. In terms of welfare, it is important to consider the total access that personalized schemes lead to, namely the total demand. In terms of fairness, we may be concerned with allocative parity in the form of parity in market shares or take-up probabilities by group. Personalized pricing schemes may in fact enhance both of these measures by allowing revenue extraction from high",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02269,
+        0.02098,
+        -0.03797,
+        0.01376,
+        -0.04831
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " form of parity in market shares or take-up probabilities by group. Personalized pricing schemes may in fact enhance both of these measures by allowing revenue extraction from high",
+      "overlap_with_next": " due to latent valuations, efficiency considerations are concerned with how prices sort individuals by their valuations and ensure that a good may be targeted towards those who val",
+      "text": " form of parity in market shares or take-up probabilities by group. Personalized pricing schemes may in fact enhance both of these measures by allowing revenue extraction from high-valuation groups to enable offering lower price offers to low-valuation individuals, hence “pricing people into the market. ” High-valuation groups are usually those with financial means that allows them to have a higher willingness to pay, and low-valuation groups are usually those with less financial means. Operationalization. Total access is simply the marginal demand. When demand is binary, this is the fraction of individuals who take-up the good. Definition 5 (Total access). E[𝐷(𝑃)]. The idea of access parity suggests requiring equal allocation of access / market share / take-up. Definition 6 (Access parity). E[𝐷(𝑃)| 𝐴 =𝑎] = E[𝐷(𝑃)| 𝐴 =𝑏]. Correspondingly, access disparity is E[𝐷(𝑃)| 𝐴 =𝑎]− E[𝐷(𝑃)| 𝐴 =𝑏]. 4.4 Allocative efficiency and fairness Context. In settings where interpreting revealed preferences as rational choices due to latent valuations, efficiency considerations are concerned with how prices sort individuals by their valuations and ensure that a good may be targeted towards those who val",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01111,
+        0.01429,
+        -0.04139,
+        0.03517,
+        -0.01771
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " due to latent valuations, efficiency considerations are concerned with how prices sort individuals by their valuations and ensure that a good may be targeted towards those who val",
+      "overlap_with_next": "e as in Asn. 1 is equivalent to assuming a random latent threshold model, i.e., 𝐷(𝑝) = I[𝑉 ≤ 𝑝]. This perspective recognizes that observations of the binary event𝐷(𝑝), under Asn. 1",
+      "text": " due to latent valuations, efficiency considerations are concerned with how prices sort individuals by their valuations and ensure that a good may be targeted towards those who value it the most. For example, the literature on pricing health interven- tions in development is particularly interested in the difference between free and low-price provisions based on whether prices bet- ter target households who are more likely to use a product [16]. An important further concern is whether errors in sorting individuals disproportionately affect one group more than another so that, on average, certain groups are more often incorrectly given priority over others. Operationalization. We focus on providing observational metrics which assess sorting/targeting without assuming access to the full valuation distribution. For this section, we focus on the binary feedback setting where𝐷(𝑝)∈{ 0, 1}. Assumption 1 (Monotonicity). For any𝑝,𝑝′ : 𝑝 >𝑝′ =⇒ 𝐷(𝑝)≥ 𝐷(𝑝′) Assuming monotonicity of binary demand with respect to price as in Asn. 1 is equivalent to assuming a random latent threshold model, i.e., 𝐷(𝑝) = I[𝑉 ≤ 𝑝]. This perspective recognizes that observations of the binary event𝐷(𝑝), under Asn. 1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02837,
+        -0.02403,
+        -0.03792,
+        0.03204,
+        -0.01667
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "e as in Asn. 1 is equivalent to assuming a random latent threshold model, i.e., 𝐷(𝑝) = I[𝑉 ≤ 𝑝]. This perspective recognizes that observations of the binary event𝐷(𝑝), under Asn. 1",
+      "overlap_with_next": " following probabilistic inter- pretation. The term P(𝑉𝑏 >𝑉𝑎|𝑃𝑎 <𝑃𝑏) can be interpreted as: of those whose valuations can be ordered under Asn. 1, what is the probability that valu",
+      "text": "e as in Asn. 1 is equivalent to assuming a random latent threshold model, i.e., 𝐷(𝑝) = I[𝑉 ≤ 𝑝]. This perspective recognizes that observations of the binary event𝐷(𝑝), under Asn. 1, are censored observations of the underlying valuation. The question is whether a given pricing scheme (for which we have observed the binary outcomes) appropriately ranks valua- tions of individuals. A marginal measure of such efficiency may be concordance: Definition 7 (Concordance). Given two individuals drawn inde- pendently at random, concordance is P(𝑉1 >𝑉2|𝑃1 >𝑃2). While concordance captures how efficiently prices sort individ- uals by valuation, such efficiency may have disparate effects. To capture this disparity, we propose the class-crossed concordance disparity metric. Definition 8 (Class-crossed concordance disparity). Given two individuals drawn independently at random from groups𝐴 =𝑎 and 𝐴 =𝑏, respectively, class-crossed concordance disparity is P(𝑉𝑏 >𝑉𝑎|𝑃𝑎 <𝑃𝑏)− P(𝑉𝑎 >𝑉𝑏|𝑃𝑏 <𝑃𝑎) Class-crossed concordance has the following probabilistic inter- pretation. The term P(𝑉𝑏 >𝑉𝑎|𝑃𝑎 <𝑃𝑏) can be interpreted as: of those whose valuations can be ordered under Asn. 1, what is the probability that valu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00447,
+        -0.02048,
+        -0.04649,
+        0.009,
+        0.00407
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " following probabilistic inter- pretation. The term P(𝑉𝑏 >𝑉𝑎|𝑃𝑎 <𝑃𝑏) can be interpreted as: of those whose valuations can be ordered under Asn. 1, what is the probability that valu",
+      "overlap_with_next": "nce for expanding market shares. The possibility of a “triple bottom line”. Price personalization may be beneficial due to its increasing take-up of a good which is beneficial for ",
+      "text": " following probabilistic inter- pretation. The term P(𝑉𝑏 >𝑉𝑎|𝑃𝑎 <𝑃𝑏) can be interpreted as: of those whose valuations can be ordered under Asn. 1, what is the probability that valuations drawn from one group are stochastically greater than valuations from another group? Class-crossed concor- dance measures a groupwise disparity in the difference in these probabilities. 4.5 Targeting long-run dynamics Context. A key domain-level consideration that justifies preferring take-up is that take-up of the good is itself a treatment with a downstream outcome, such as future purchases/customer loyalty in e-commerce, net present value of continued borrowing [ 40], or usage and downstream health outcomes of a preventive health intervention in development economics [16, 26, 38]. Therefore, price impacts an allocation which itself may have heterogeneous effects on longer-term outcomes for the customer and/or decision-maker: we identify this as targeting long-run dynamics. This, for example, justifies an overall preference for expanding market shares. The possibility of a “triple bottom line”. Price personalization may be beneficial due to its increasing take-up of a good which is beneficial for ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04701,
+        -0.02441,
+        -0.02458,
+        0.0688,
+        -0.02718
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "nce for expanding market shares. The possibility of a “triple bottom line”. Price personalization may be beneficial due to its increasing take-up of a good which is beneficial for ",
+      "overlap_with_next": "namics ✓ ✓ ✓ ✓ Table 1: Different problem settings and what fairness/welfare notions are relevant when. Operationalization. We recognize the firm’s objective function as population",
+      "text": "nce for expanding market shares. The possibility of a “triple bottom line”. Price personalization may be beneficial due to its increasing take-up of a good which is beneficial for individuals and the decision-maker, targeted price subsidies enable budget-balanced public provision (in contrast to a complete subsidy), and the access expansion might particularly those who would benefit the most. Of course, whether these benefits compound (or whether certain contributors are irrelevant) need to be assessed in the data of any particular setting, as in [18, 25]. [Page 5] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, Insurance Lending Consumer goods Public-interest goods Moral hazard/Adverse selection ✓ ✓ ✗ ✗ Revenue-driven price optimization ✗ ✗ ✓ ✓ Risk-driven price optimization ✓ ✓ ✗ ✗ Prefer marginal price parity ✗ ✗ ✓ ✗ Prefer conditional price parity ✓ ✓ ✗ ✗ Prefer access ✓ ✓ ✓ ✓ Actuarial fairness ✓ ✓ ✗ ✗ Allocative efficiency/sorting ✗ ✗ ✓ ✓ Targeting long-run dynamics ✓ ✓ ✓ ✓ Table 1: Different problem settings and what fairness/welfare notions are relevant when. Operationalization. We recognize the firm’s objective function as population",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08245,
+        0.00398,
+        -0.03148,
+        0.02225,
+        -0.0403
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "namics ✓ ✓ ✓ ✓ Table 1: Different problem settings and what fairness/welfare notions are relevant when. Operationalization. We recognize the firm’s objective function as population",
+      "overlap_with_next": "ia summarizes how different problem settings differ in the presence of moral hazard/adverse selection that jus- tifies risk-based pricing), and the capacity for price optimization.",
+      "text": "namics ✓ ✓ ✓ ✓ Table 1: Different problem settings and what fairness/welfare notions are relevant when. Operationalization. We recognize the firm’s objective function as population welfare downstream of a price allocation: E[𝑌(𝐷(𝑃))]. 4.6 Summary of problem settings and relevant notions Abstractly, we might summarize some of the above considerations by considering a𝜆−scalarized multi-objective optimization problem, which represents the expansion of considerations beyond myopic revenue maximization: max 𝑃(·) E[𝑃𝐷(𝑃)]+ 𝜆1(˝𝑎∈A E[𝐷(𝑃)| 𝐴 =𝑎])+ 𝜆2E[𝑌(𝑃)] s.t. E[𝑃|𝐴 =𝑎]− E[𝑃|𝐴 =𝑏]≤ Γ E[𝐷(𝑃)(𝑃−𝑐)]≥ 0 (1) Sections 4.1 and 4.3 and ?? (price parity, access, long-run welfare) might conceivably be included in a conceptual “multi-objective” version of the firm’s problem, while Sections 4.2 and 4.4 (price suboptimality, class-crossed concordance ) are idealized measures. In table 1 we apply our conceptual taxonomy of problem do- mains to these different fairness/welfare notions in pricing. The first category of criteria summarizes how different problem settings differ in the presence of moral hazard/adverse selection that jus- tifies risk-based pricing), and the capacity for price optimization.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05664,
+        -0.00465,
+        -0.03424,
+        0.03659,
+        -0.02996
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "ia summarizes how different problem settings differ in the presence of moral hazard/adverse selection that jus- tifies risk-based pricing), and the capacity for price optimization.",
+      "overlap_with_next": " design. To simplify the analysis, we make the follow- ing assumptions. We assume a partially linear demand model with a link function of the non-price, covariate-driven demand𝐷(𝑥,",
+      "text": "ia summarizes how different problem settings differ in the presence of moral hazard/adverse selection that jus- tifies risk-based pricing), and the capacity for price optimization. The second category identifies which notions of fairness or equity are more or less relevant in different settings. We caution that the above optimization problem is a concep- tual device to illustrate how these notions might justify revenue sub-optimal allocations. Table 1 suggests that in any particular ap- plication setting, these notions may not be simultaneously relevant. 5 ANALYSIS OF DEFINITIONS AND METRICS In this section, we expand further on each definition. Where possi- ble, e.g. by making additional assumptions, we provide analytical insight on implications of these fairness notions for price optimiza- tion or corresponding specializations of eq. (1). 5.1 Price-parity We study the price optimization problem with additional price par- ity constraints, focusing on highlighting tradeoffs with implications for algorithm design. To simplify the analysis, we make the follow- ing assumptions. We assume a partially linear demand model with a link function of the non-price, covariate-driven demand𝐷(𝑥,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03514,
+        -0.02167,
+        -0.01802,
+        0.0443,
+        -0.02304
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": " design. To simplify the analysis, we make the follow- ing assumptions. We assume a partially linear demand model with a link function of the non-price, covariate-driven demand𝐷(𝑥,",
+      "overlap_with_next": "only personalize on𝑥. We derive the parity-constrained optimal price. Theorem 1. Let 𝜉(𝐴) =(P[𝐴 =𝑎]−1I[𝐴 =𝑎]− P[𝐴 =𝑏]−1I[𝐴 =𝑏]). The optimal attribute-based personalized price unde",
+      "text": " design. To simplify the analysis, we make the follow- ing assumptions. We assume a partially linear demand model with a link function of the non-price, covariate-driven demand𝐷(𝑥,𝑎) and a linear component for price elasticity. Assumption 2 (Partially linear demand model). 𝐷(𝑝|𝑥,𝑎) =𝛽𝑎𝑝+𝐷(𝑥,𝑎). Assumption 3 (Downward sloping linear demand with respect to price.). 𝛽𝑎 < 0,∀𝑎∈A For example, the linear model corresponds to𝐷(𝑥,𝑎) =𝛼+𝛾⊤𝑥. Linear demand is a common assumption for contextual pricing [6, 11, 52]. We also assume that price elasticities are negative. Without loss of generality, assume group𝑎 has higher average price at the unconstrained solution). The marginal parity 2 con- strained revenue maximization problem, is a specialization of eq. (1). Let𝑝∗(𝑥,𝑎 ; Γ) denote the corresponding Γ−parametrized solution. 𝑝∗(𝑥,𝑎 ; Γ)∈ argmax 𝑝(·) E[𝑝(𝑋,𝐴)𝐷(𝑝(𝑋,𝐴))] s.t. E[𝑝(𝑋,𝐴)| 𝐴 =𝑎]− E[𝑝(𝑋,𝐴)| 𝐴 =𝑏]≤ Γ (2) The attribute-blind personalized price is𝑝∗(𝑥; Γ), which restricts the above optimization to prices which only personalize on𝑥. We derive the parity-constrained optimal price. Theorem 1. Let 𝜉(𝐴) =(P[𝐴 =𝑎]−1I[𝐴 =𝑎]− P[𝐴 =𝑏]−1I[𝐴 =𝑏]). The optimal attribute-based personalized price unde",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05409,
+        0.024,
+        -0.04467,
+        0.00435,
+        -0.00948
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "only personalize on𝑥. We derive the parity-constrained optimal price. Theorem 1. Let 𝜉(𝐴) =(P[𝐴 =𝑎]−1I[𝐴 =𝑎]− P[𝐴 =𝑏]−1I[𝐴 =𝑏]). The optimal attribute-based personalized price unde",
+      "overlap_with_next": " on an equality constraint in eq. (2). Interpreting the solution,𝑝∗(𝑥,𝑎) differs from the uncon- strained personalized price by a penalty whose size depends on the discrepancy of t",
+      "text": "only personalize on𝑥. We derive the parity-constrained optimal price. Theorem 1. Let 𝜉(𝐴) =(P[𝐴 =𝑎]−1I[𝐴 =𝑎]− P[𝐴 =𝑏]−1I[𝐴 =𝑏]). The optimal attribute-based personalized price under marginal parity solving eq. (2) is: 𝑝∗(𝑥,𝑎 ; Γ) =−𝐷(𝑥,𝑎)+ 𝜉(𝑎)𝜆∗𝑥𝑎 2𝛽𝑎 , where𝜆∗𝑥𝑎 = E[𝐷(𝑋,𝐴)𝜉(𝐴)+ 2𝛽𝐴Γ]E[𝜉(𝐴)2] . 2We discuss constraining first moments of the price distributions (marginal parity) to provide analytical insights. Constraining higher order moments via e.g. a set con- strained by Kolmogorov-Smirnov statistic [49], or a moment-based hierarchy as in [4], is computationally possible. [Page 6] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* The optimal attribute-blind personalized price is 𝑝∗(𝑥; Γ) =−𝐷(𝑥)+ 𝜆∗𝑥 E[𝜉(𝐴)| 𝑋 =𝑥]2E[𝛽𝐴|𝑋 =𝑥] , where𝜆∗𝑥 = E[𝐷(𝑋)𝜉(𝐴)+ 2𝛽𝐴Γ]E[E[𝜉(𝐴)| 𝑋]2] . □ The proof is included in Appendix B; the key idea is to study the Lagrangian dual of the knapsack-constrained quadratic program and solve by swapping the order of minimum and maximum. In the following analysis, we focus on an equality constraint in eq. (2). Interpreting the solution,𝑝∗(𝑥,𝑎) differs from the uncon- strained personalized price by a penalty whose size depends on the discrepancy of t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01735,
+        0.00532,
+        -0.03677,
+        -0.01342,
+        -0.00768
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": " on an equality constraint in eq. (2). Interpreting the solution,𝑝∗(𝑥,𝑎) differs from the uncon- strained personalized price by a penalty whose size depends on the discrepancy of t",
+      "overlap_with_next": "ition, for example, is if for some𝑥, P(𝐴 =𝑎| 𝑋 =𝑥) >> P(𝐴 =𝑏| 𝑋 =𝑥) and P[𝐴 =𝑎] = P[𝐴 =𝑏]: then𝑝∗(𝑥,𝑎 ; 0)− 𝑝∗(𝑥; 0) < 0. Hence, for𝑥−outliers within group𝑎 satisfying this conditi",
+      "text": " on an equality constraint in eq. (2). Interpreting the solution,𝑝∗(𝑥,𝑎) differs from the uncon- strained personalized price by a penalty whose size depends on the discrepancy of the price-independent covariate-based demand within groups. We highlight some tradeoffs induced by marginal price parity against other fairness considerations. We first consider a very spe- cial setting where the demand function is invariant across groups; it is only the group-conditional covariate distribution which induces price disparity. Proposition 1 (Attribute-based vs. attribute-blind pricing under marginal parity ). Suppose Asns. 2,3, and further that: (1) 𝐷(𝑥,𝑎) =𝐷(𝑥,𝑏) =𝐷(𝑥), (2) 𝐷(𝑥) is linear in𝑥, (3) and 𝛽𝑎 =𝛽𝑏. Then we have 𝑝∗(𝑥,𝑎 ; 0)− 𝑝∗(𝑥; 0) < 0 ⇐⇒ 𝜆∗𝑥𝑎 𝜆∗𝑥 < P(𝐴 =𝑎|𝑋 =𝑥)− P[𝐴 =𝑎]P[𝐴 =𝑏] P(𝐴 =𝑏|𝑋 =𝑥), and𝑝∗(𝑥,𝑏 ; 0)− 𝑝∗(𝑥; 0) < 0. In this very special case, we find that group𝑏 would uniformly prefer attribute-based marginal parity pricing. The relationship is not necessarily uniform for group𝑎. A sufficient condition, for example, is if for some𝑥, P(𝐴 =𝑎| 𝑋 =𝑥) >> P(𝐴 =𝑏| 𝑋 =𝑥) and P[𝐴 =𝑎] = P[𝐴 =𝑏]: then𝑝∗(𝑥,𝑎 ; 0)− 𝑝∗(𝑥; 0) < 0. Hence, for𝑥−outliers within group𝑎 satisfying this conditi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0297,
+        0.03039,
+        -0.03327,
+        -0.01001,
+        -0.00606
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ition, for example, is if for some𝑥, P(𝐴 =𝑎| 𝑋 =𝑥) >> P(𝐴 =𝑏| 𝑋 =𝑥) and P[𝐴 =𝑎] = P[𝐴 =𝑏]: then𝑝∗(𝑥,𝑎 ; 0)− 𝑝∗(𝑥; 0) < 0. Hence, for𝑥−outliers within group𝑎 satisfying this conditi",
+      "overlap_with_next": "m design. (1) A firm may generically prefer attribute-blind pricing to attribute- based pricing schemes due to regulatory considerations or x-conditional price parity (definition 3",
+      "text": "ition, for example, is if for some𝑥, P(𝐴 =𝑎| 𝑋 =𝑥) >> P(𝐴 =𝑏| 𝑋 =𝑥) and P[𝐴 =𝑎] = P[𝐴 =𝑏]: then𝑝∗(𝑥,𝑎 ; 0)− 𝑝∗(𝑥; 0) < 0. Hence, for𝑥−outliers within group𝑎 satisfying this condition, attribute- based pricing is Pareto optimal relative to attribute-blind pricing for both groups. Since however price disparity in this special case is exactly driven by variability in P(𝐴 =𝑎|𝑋 =𝑥), we might also expect that𝑝∗(𝑥,𝑎 ; 0)− 𝑝∗(𝑥; 0) > 0 for some other𝑥. Building on the results of Theorem 1 and Proposition 1, we also provide bounds on the revenue loss due to attribute-blind pricing, now in the setting where the non-price-based demand may differ across groups. Corollary 1 (Revenue loss of 𝑝∗(𝑥)). Suppose Asn. 3, 𝛽𝑎 =𝛽𝑏 and𝐷(𝑥,𝑎) ≠𝐷(𝑥,𝑏). Then, E[𝑅(𝑝∗(𝑋,𝐴))− 𝑅(𝑝∗(𝑋))]≥ 14𝛽 E[𝐷2(𝑋)− 𝐷2(𝑋,𝐴)]≥ 0. We now use these characterizations from Theorem 1, Proposi- tion 1, and Corollary 1 to study tradeoffs between price parity and other desiderata, in particular x-conditional parity, and summarize some implications for algorithm design. (1) A firm may generically prefer attribute-blind pricing to attribute- based pricing schemes due to regulatory considerations or x-conditional price parity (definition 3",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03627,
+        0.00952,
+        -0.01457,
+        0.00654,
+        -0.00183
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "m design. (1) A firm may generically prefer attribute-blind pricing to attribute- based pricing schemes due to regulatory considerations or x-conditional price parity (definition 3",
+      "overlap_with_next": " vs. fair prediction in machine learning. Proposition 2 (Price suboptimality error decomposition). Assume that∇ ˆ𝐷( ˆ𝑝∗(𝑥)| 𝑥) ≠∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥). Up to first order terms, ˆ𝑝∗(𝑥)− 𝑝∗(",
+      "text": "m design. (1) A firm may generically prefer attribute-blind pricing to attribute- based pricing schemes due to regulatory considerations or x-conditional price parity (definition 3). (2) If achieving marginal parity is of interest in view of price disparities, attribute-blind marginal parity achieves lower firm revenue than attribute-based marginal parity. We pro- vide a quantitative bound on the gap in a simple case in Corollary 1. (3) Under the special case of Proposition 1, for some𝑥, attribute- based marginal parity is strictly preferable to attribute-blind marginal parity for both groups. These considerations might outweigh an intuitive preference for attribute-blind pricing in the case of marginal parity. 5.2 Price suboptimality fairness We provide a decomposition that gives structural conditions on when the sign of the prediction error is informative of the sign of the mispricing or decision error. In particular, this highlights a distinction between analyzing fairness in data-driven optimal prices vs. fair prediction in machine learning. Proposition 2 (Price suboptimality error decomposition). Assume that∇ ˆ𝐷( ˆ𝑝∗(𝑥)| 𝑥) ≠∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥). Up to first order terms, ˆ𝑝∗(𝑥)− 𝑝∗(",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05337,
+        -0.01638,
+        -0.01552,
+        0.02775,
+        -0.00456
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " vs. fair prediction in machine learning. Proposition 2 (Price suboptimality error decomposition). Assume that∇ ˆ𝐷( ˆ𝑝∗(𝑥)| 𝑥) ≠∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥). Up to first order terms, ˆ𝑝∗(𝑥)− 𝑝∗(",
+      "overlap_with_next": "n esti- mation error of the gradient, and the difference in gradients due to suboptimality. It is more difficult to conclude implications of pricing decisions (and more broadly, op",
+      "text": " vs. fair prediction in machine learning. Proposition 2 (Price suboptimality error decomposition). Assume that∇ ˆ𝐷( ˆ𝑝∗(𝑥)| 𝑥) ≠∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥). Up to first order terms, ˆ𝑝∗(𝑥)− 𝑝∗(𝑥) = ˆ𝐷(𝑝∗(𝑥)| 𝑥)− 𝐷(𝑝∗(𝑥)| 𝑥) ∇ ˆ𝐷( ˆ𝑝∗(𝑥)| 𝑥)−∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥) +𝑝∗ 1+∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥)−∇ 𝐷(𝑝∗(𝑥)| 𝑥) ∇ ˆ𝐷( ˆ𝑝∗(𝑥)| 𝑥)−∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥) ! The decomposition is not computable from observed data (since some quantities depend on the unknown𝑝∗(𝑥)). One implication is that the sign of( ˆ𝑝∗(𝑥)− 𝑝∗(𝑥)) ultimately depends on the sign of a few quantities: 1 ˆ𝐷(𝑝∗(𝑥)| 𝑥)− 𝐷(𝑝∗(𝑥)| 𝑥) estimation error 2 ∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥)−∇ 𝐷(𝑝∗(𝑥)| 𝑥) gradient est. error 3 ∇ ˆ𝐷( ˆ𝑝∗(𝑥)| 𝑥)−∇ ˆ𝐷(𝑝∗(𝑥)| 𝑥) price elast. subopt. There are some cases where we may be able to conclude the sign of decision error ˆ𝑝∗(𝑥)−𝑝∗(𝑥): we can conclude ˆ𝑝∗(𝑥)−𝑝∗(𝑥) > 0 if 1, 2, 3 are all positive. However, in general, the main implication of the above propo- sition is that the direction of decision disparity is not immediate from prediction error of𝐷(𝑝(𝑥)| 𝑥) alone: it also depends on esti- mation error of the gradient, and the difference in gradients due to suboptimality. It is more difficult to conclude implications of pricing decisions (and more broadly, op",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04828,
+        -0.05054,
+        -0.03582,
+        0.01495,
+        -0.03272
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "n esti- mation error of the gradient, and the difference in gradients due to suboptimality. It is more difficult to conclude implications of pricing decisions (and more broadly, op",
+      "overlap_with_next": "ce optimization pro- gram is log-concavity of valuation distributions. Assumption 4 (Log-concave valuation distribution). Suppose that 𝑉 =𝑔(𝑥,𝑎)+ 𝜖, where𝜖 has a log-concave probab",
+      "text": "n esti- mation error of the gradient, and the difference in gradients due to suboptimality. It is more difficult to conclude implications of pricing decisions (and more broadly, optimization decisions) based on uncertain nuisance predictions. Applying the above result to𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) allows us to make a similar conclusion for the discrepancy of pricing with respect to attribute-based𝐷(𝑝(𝑥)| 𝑥,𝑎) vs. the attribute-blind𝐷(𝑝(𝑥)| 𝑥) setting. 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) = 𝐷(𝑝∗(𝑥)| 𝑥,𝑎)− 𝐷(𝑝∗(𝑥)| 𝑥)∇𝐷(𝑝∗(𝑥,𝑎)| 𝑥,𝑎)−∇ 𝐷(𝑝∗(𝑥)| 𝑥,𝑎) +𝑝∗ \u0012 1+ ∇𝐷(𝑝∗(𝑥)| 𝑥,𝑎)−∇ 𝐷(𝑝∗(𝑥)| 𝑥)∇𝐷(𝑝∗(𝑥,𝑎)| 𝑥,𝑎)−∇ 𝐷(𝑝∗(𝑥)| 𝑥,𝑎) \u0013 [Page 7] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, 5.3 Market share We study a multi-objective version of eq. (1) with additional weights on group-conditional market share objectives. We consider demand that arises from an underlying valuation distribution. (This is true without loss of generality under Asn. 1 of monotonicity.) The most general assumption that admits a concave price optimization pro- gram is log-concavity of valuation distributions. Assumption 4 (Log-concave valuation distribution). Suppose that 𝑉 =𝑔(𝑥,𝑎)+ 𝜖, where𝜖 has a log-concave probab",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04823,
+        0.00444,
+        -0.02876,
+        0.01813,
+        -0.00271
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ce optimization pro- gram is log-concavity of valuation distributions. Assumption 4 (Log-concave valuation distribution). Suppose that 𝑉 =𝑔(𝑥,𝑎)+ 𝜖, where𝜖 has a log-concave probab",
+      "overlap_with_next": "oblem, where some𝜆 is the optimal dual Lagrange mul- tiplier for the constraints E[𝐷(𝑝)| 𝐴 =𝑎]≥ Γ. max{E[𝑝(𝑋,𝐴)𝐷(𝑝(𝑋,𝐴))] : E[𝐷(𝑝(𝑋,𝐴))| 𝐴 =𝑎]≥ Γ𝑎} (5) Correspondingly, the attribu",
+      "text": "ce optimization pro- gram is log-concavity of valuation distributions. Assumption 4 (Log-concave valuation distribution). Suppose that 𝑉 =𝑔(𝑥,𝑎)+ 𝜖, where𝜖 has a log-concave probability density function. We assume log-concavity so that the cdf and cumulative cdf of𝜖 (effectively𝐷(𝑝|𝑥,𝑎)) are also log-concave. Log-concavity is quite general; log-concave pdfs include the normal, exponential, logistic, extreme value, Laplace, gamma, Weibull, etc. Then the population-level market share personalized-price spe- cialization of eq. (1) is a concave program under Asn. 4, since maximization is equivalent under the monotonic increasing log transformation: 𝑝∗(𝑥,𝑎 ;𝜆)∈ argmax 𝑝(·) E[(𝑝(𝑋,𝐴)+ 𝜆)𝐷(𝑝(𝑋,𝐴))] (3) We may consider the attribute-blind restriction of the above: 𝑝∗(𝑥;𝜆)∈ argmax 𝑝(·) E[(𝑝(𝑋)+ 𝜆)𝐷(𝑝(𝑋))] (4) The above problems consider apopulation-level market share penalty; we also consider group-conditional market share penalties. These may arise from the penalty formulation of the market-share con- strained problem, where some𝜆 is the optimal dual Lagrange mul- tiplier for the constraints E[𝐷(𝑝)| 𝐴 =𝑎]≥ Γ. max{E[𝑝(𝑋,𝐴)𝐷(𝑝(𝑋,𝐴))] : E[𝐷(𝑝(𝑋,𝐴))| 𝐴 =𝑎]≥ Γ𝑎} (5) Correspondingly, the attribu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04503,
+        -0.01267,
+        -0.0166,
+        -0.00343,
+        -0.00027
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "oblem, where some𝜆 is the optimal dual Lagrange mul- tiplier for the constraints E[𝐷(𝑝)| 𝐴 =𝑎]≥ Γ. max{E[𝑝(𝑋,𝐴)𝐷(𝑝(𝑋,𝐴))] : E[𝐷(𝑝(𝑋,𝐴))| 𝐴 =𝑎]≥ Γ𝑎} (5) Correspondingly, the attribu",
+      "overlap_with_next": "ute-blind sensitivity is ∇𝜆𝑝∗(𝑥; 0) =𝑅′′(𝑝∗(𝑥; 0)| 𝑥)−1𝑝∗(𝑥; 0)−2. (3) Group-level market share, attribute-based sensitivity is ∇𝜆𝑝∗(𝑥,𝑎 ; 0) = 1𝜌𝑎𝑅′′(𝑝∗(𝑥,𝑎 ; 0)| 𝑥,𝑎)−1𝑝∗(𝑥,𝑎 ; 0",
+      "text": "oblem, where some𝜆 is the optimal dual Lagrange mul- tiplier for the constraints E[𝐷(𝑝)| 𝐴 =𝑎]≥ Γ. max{E[𝑝(𝑋,𝐴)𝐷(𝑝(𝑋,𝐴))] : E[𝐷(𝑝(𝑋,𝐴))| 𝐴 =𝑎]≥ Γ𝑎} (5) Correspondingly, the attribute-based group-conditional market share price𝑝∗(𝑥,𝑎 ;𝜆𝑎) solves, pointwise over𝑥,𝑎 : 𝑝∗(𝑥,𝑎 ;𝜆𝑎)∈ argmax 𝑝(·) (𝑝+𝜆𝑎/𝜌𝑎)𝐷(𝑝|𝑥,𝑎), ∀𝑥,𝑎 (6) We study the sensitivity of the unconstrained-optimal attribute- blind and attribute-based personalized price to local increases in the penalty parameter,𝜆, relative from the unconstrained optimal price, i.e.∇𝜆𝑝∗(𝑥,𝑎 ; 0). This describes how much the price changes in response to implementing distributional preferences for market share. Quantifying these sensitivities sheds light on the dependence on𝑅′′, the second derivative of the (conditional) revenue function. Lemma 1 (Optimality conditions for different penalties ). Suppose Asn. 4. (1) Population-level market share, attribute-based sensitivity is ∇𝜆𝑝∗(𝑥,𝑎 ; 0) =𝑅′′(𝑝∗(𝑥,𝑎 ; 0)| 𝑥,𝑎)−1𝑝∗(𝑥,𝑎 ; 0)−2. (2) Population-level market share, attribute-blind sensitivity is ∇𝜆𝑝∗(𝑥; 0) =𝑅′′(𝑝∗(𝑥; 0)| 𝑥)−1𝑝∗(𝑥; 0)−2. (3) Group-level market share, attribute-based sensitivity is ∇𝜆𝑝∗(𝑥,𝑎 ; 0) = 1𝜌𝑎𝑅′′(𝑝∗(𝑥,𝑎 ; 0)| 𝑥,𝑎)−1𝑝∗(𝑥,𝑎 ; 0",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04088,
+        -0.02847,
+        -0.00168,
+        0.00082,
+        0.00027
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "ute-blind sensitivity is ∇𝜆𝑝∗(𝑥; 0) =𝑅′′(𝑝∗(𝑥; 0)| 𝑥)−1𝑝∗(𝑥; 0)−2. (3) Group-level market share, attribute-based sensitivity is ∇𝜆𝑝∗(𝑥,𝑎 ; 0) = 1𝜌𝑎𝑅′′(𝑝∗(𝑥,𝑎 ; 0)| 𝑥,𝑎)−1𝑝∗(𝑥,𝑎 ; 0",
+      "overlap_with_next": " optimizing over a parametrized pricing pol- icy via M-estimation [44]. Hence, finite-sample variability of the optimal price (which may be assessed empirically by boot- strapping)",
+      "text": "ute-blind sensitivity is ∇𝜆𝑝∗(𝑥; 0) =𝑅′′(𝑝∗(𝑥; 0)| 𝑥)−1𝑝∗(𝑥; 0)−2. (3) Group-level market share, attribute-based sensitivity is ∇𝜆𝑝∗(𝑥,𝑎 ; 0) = 1𝜌𝑎𝑅′′(𝑝∗(𝑥,𝑎 ; 0)| 𝑥,𝑎)−1𝑝∗(𝑥,𝑎 ; 0)−2. Observe that these sensitivities are negative, under Asn. 4. The proof, included in the appendix, identifies the (pointwise) optimality conditions of the constrained optimizations, eq. (4), eq. (6), and applies the implicit function theorem. We highlight some implications of Lemma 1 for algorithm design. (1) For larger|𝑅′′| (greater curvature), the less price decrease is required to increase market share, and conversely for smaller |𝑅′′|, the larger price decrease is required. (2) Quantifying these sensitivities in terms of𝑅′′ highlights the revenue implications of these price fairness changes. Con- sidering a second-order expansion of the revenue, smaller |𝑅′′| suggests that the larger price decrease may not have extreme revenue decrease. (3) Curvature also quantifies the rate of convergence of the opti- mal price, e.g. if optimizing over a parametrized pricing pol- icy via M-estimation [44]. Hence, finite-sample variability of the optimal price (which may be assessed empirically by boot- strapping)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06468,
+        -0.01702,
+        -0.00427,
+        0.02948,
+        0.01056
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": " optimizing over a parametrized pricing pol- icy via M-estimation [44]. Hence, finite-sample variability of the optimal price (which may be assessed empirically by boot- strapping)",
+      "overlap_with_next": "1) = 0,𝐷(𝑝2) = 1} ⇐⇒ {𝑣1 <𝑝1 <𝑝2 <𝑣2} Using this observation (which is highly dependent on almost sure monotonicity), we can identify a lower bound on concordance from observationa",
+      "text": " optimizing over a parametrized pricing pol- icy via M-estimation [44]. Hence, finite-sample variability of the optimal price (which may be assessed empirically by boot- strapping) may suggest low curvature. This suggests a robust approach which ensures out-of-sample market share may incur small revenue tradeoff in the low-curvature regime. 5.4 Allocative efficiency: concordance Assumption 1, of almost sure monotonicity, suggests that the combi- nation of continuous treatment and binary outcome can be viewed as a censored observation of the valuation. Again, we do not assume access to the underlying realizations of valuation distribution, but study what may be concluded about valuations given that we only observe the censored realizations𝐷(𝑃) = I[𝑉 >𝑃]. Consider ranking the prices and valuations of two generic price- valuation-demand triples,(𝑝1,𝑣 1,𝐷(𝑝1)),(𝑝2,𝑣 2,𝐷(𝑝2)). The only joint outcome of demands and prices that admits concluding an ordering on the underlying valuations 𝑣1,𝑣 2 is that {𝑝1 <𝑝2,𝐷(𝑝1) = 0,𝐷(𝑝2) = 1} ⇐⇒ {𝑣1 <𝑝1 <𝑝2 <𝑣2} Using this observation (which is highly dependent on almost sure monotonicity), we can identify a lower bound on concordance from observationa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05577,
+        -0.00592,
+        -0.00973,
+        0.04757,
+        -0.015
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "1) = 0,𝐷(𝑝2) = 1} ⇐⇒ {𝑣1 <𝑝1 <𝑝2 <𝑣2} Using this observation (which is highly dependent on almost sure monotonicity), we can identify a lower bound on concordance from observationa",
+      "overlap_with_next": "e ordered. [54] observe that two subjects’ survival times can be ordered not only if both of them are uncensored; but also if the uncensored time of one is smaller than the censore",
+      "text": "1) = 0,𝐷(𝑝2) = 1} ⇐⇒ {𝑣1 <𝑝1 <𝑝2 <𝑣2} Using this observation (which is highly dependent on almost sure monotonicity), we can identify a lower bound on concordance from observational data. Theorem 2. Assume Asn. 1 and 𝐷(𝑝)∈{ 0, 1}. P(𝐷𝑏(𝑃𝑏) >𝐷𝑎(𝑃𝑎)| 𝑃𝑎 <𝑃𝑏)≤ P(𝑉𝑎 >𝑉𝑏|𝑃𝑎 <𝑃𝑏) Note that P(𝐷𝑏(𝑃𝑏) >𝐷𝑎(𝑃𝑎)| 𝑃𝑎 <𝑃𝑏) is related to the con- cordance index of sensitivity analysis, in particular the perspective studied by [54] who suggest a ranking-based approach to survival analysis. In survival analysis, right-censoring occurs when there is a finite horizon end to data collection for the survival time of patients, so that the observed survival times are the minimum of the cen- soring time and the actual survival time. The concordance score is a generalization of Wilcoxon-Mann-Whitney statistics and the AUC that applies to continuous output variables, and accounts for censoring of the data. It is the fraction of all pairs of subjects whose predicted survival times are correctly ordered among all subjects that can be ordered. [54] observe that two subjects’ survival times can be ordered not only if both of them are uncensored; but also if the uncensored time of one is smaller than the censore",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01417,
+        -0.02631,
+        -0.05247,
+        0.01326,
+        -0.02134
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "e ordered. [54] observe that two subjects’ survival times can be ordered not only if both of them are uncensored; but also if the uncensored time of one is smaller than the censore",
+      "overlap_with_next": " amortized net present value of customers over a long time-horizon after they take-up a microcredit loan. Their analysis suggests that while price discrimination to expand take-up ",
+      "text": "e ordered. [54] observe that two subjects’ survival times can be ordered not only if both of them are uncensored; but also if the uncensored time of one is smaller than the censored time of another. [Page 8] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* Relative to the concordance index of right-censored survival analysis, the setting of allocative efficiency is more difficult: we are required to further restrict attention to pairs𝑝1 <𝑝2, and we can at best order𝑣1 <𝑝1 <𝑝2 <𝑣2. 5.5 Targeting for long-run dynamics: optimal encouragement designs An important justification for cross-subsidy (preferring take-up) is in recognizing that take-up of the good, 𝐷(𝑝) may itself be a treatment for downstream outcomes. Such outcomes of interest might include long-term customer value, social learning, repeated purchase behavior, “compliance”, attrition, etc. We highlight that one might view𝑝 as either a continuous treatment or instrument. For example, this is a major focus of [40] which considers the amortized net present value of customers over a long time-horizon after they take-up a microcredit loan. Their analysis suggests that while price discrimination to expand take-up ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05325,
+        -0.03455,
+        -0.03506,
+        0.03434,
+        -0.03419
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": " amortized net present value of customers over a long time-horizon after they take-up a microcredit loan. Their analysis suggests that while price discrimination to expand take-up ",
+      "overlap_with_next": "ich prevent endogenizing the full health benefits of a product [ 7], or for far more practical reasons since they may simply have lower incomes. As a result, they may be more price",
+      "text": " amortized net present value of customers over a long time-horizon after they take-up a microcredit loan. Their analysis suggests that while price discrimination to expand take-up may result in losses in short-term profits, this can be outweighed by clients “aging into” a loan portfolio and becoming more profitable. This is also of concern for health interventions in development: take-up of the good is not the final outcome of interest, but rather health outcomes are. In particular, the possibility of such a “triple bottom line” high- lights a situation where non-ideal theory that propagates the effects of known inequality to the expected failures of classical economic theory may highlights possible opportunities for personalized pric- ing to achieve practical benefit. For example, a plausible narrative recognizes that poorer households “undervalue” preventive health- care not because of some fundamental “underlying preference” for poor health, but due to behavioral considerations and cognitive burdens which prevent endogenizing the full health benefits of a product [ 7], or for far more practical reasons since they may simply have lower incomes. As a result, they may be more price",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04253,
+        -0.00686,
+        -0.01915,
+        0.01178,
+        -0.03453
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "ich prevent endogenizing the full health benefits of a product [ 7], or for far more practical reasons since they may simply have lower incomes. As a result, they may be more price",
+      "overlap_with_next": "welfare. Crucially, price satisfies the main assumptions for instrumental variables; relevance, that it pre- dicts treatment (loan take-up), and more importantly the exclusion rest",
+      "text": "ich prevent endogenizing the full health benefits of a product [ 7], or for far more practical reasons since they may simply have lower incomes. As a result, they may be more price sensitive. And, they may receive outsized additional health benefits from using the preventive health intervention if they are indeed liquidity constrained due to lack of other ancillary health interven- tions. Personalized price offers allow making lower price offers, increasing take-up, and if indeed these households “priced in on the margin” receive greater heterogeneous benefits, larger welfare improvements. There are two perspectives. In Figure 1b, price is a continuous instrument for treatment, and hence, outcome3. That is, recognizing that one cannot directly assign the actual treatment of interest – one can neither force loans upon individuals nor ethically randomly reject individuals who apply for loans, exogenous price variation may be the only tool from observational data for assessing the causal impacts of loans on welfare. Crucially, price satisfies the main assumptions for instrumental variables; relevance, that it pre- dicts treatment (loan take-up), and more importantly the exclusion rest",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03335,
+        0.0167,
+        -0.04326,
+        0.0115,
+        -0.01847
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "welfare. Crucially, price satisfies the main assumptions for instrumental variables; relevance, that it pre- dicts treatment (loan take-up), and more importantly the exclusion rest",
+      "overlap_with_next": "fect default event, or the amount borrowed. Another perspective views price as continuous treatment, e.g. Figure 1a. There are some posited behavioral economics effects which may l",
+      "text": "welfare. Crucially, price satisfies the main assumptions for instrumental variables; relevance, that it pre- dicts treatment (loan take-up), and more importantly the exclusion restriction: that𝑌(𝐷(𝑝)) =𝑌(𝐷),∀𝑝, the only effect of the price on outcome is via its impact on treatment [36]. This may be plausible when the outcome of interest is a quantity such as health impacts of a bednet on malaria incidence [ 13], impacts of sanitation on health outcomes, [38], or social learning for sustained use of the 3Estimating a covariate-conditional local instrumental variable curve, or optimal policy when the price instrument is the control variable, remains an open problem. See [43] for doubly robust estimation of the continuous instrument or [55] for policy optimization with heterogeneous effects and discrete instruments. 𝑋 𝑃 𝐷 𝑌 (a) Price as treatment 𝑋 𝑃 𝐷 𝑌 (b) Price as instrument intervention via subsidized first use [26]. In the lending setting, this may be plausible if it is believed interest rates do not affect default event, or the amount borrowed. Another perspective views price as continuous treatment, e.g. Figure 1a. There are some posited behavioral economics effects which may l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03526,
+        0.01263,
+        -0.07527,
+        0.03364,
+        -0.01451
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "fect default event, or the amount borrowed. Another perspective views price as continuous treatment, e.g. Figure 1a. There are some posited behavioral economics effects which may l",
+      "overlap_with_next": "e as a treatment and optimize for corresponding downstream outcomes, e.g. conduct an “intention to treat” analysis. 6 CASE STUDIES 6.1 Willingness to pay for elective vaccine We bu",
+      "text": "fect default event, or the amount borrowed. Another perspective views price as continuous treatment, e.g. Figure 1a. There are some posited behavioral economics effects which may lead to a failure of the exclusion restriction such that price affects outcome, such as anchoring to reference prices (which attenuates future take-up) or sunk-cost fallacies (when high prices encourage usage/non-wastage); this is explored in [ 26]. Alterna- tively, interest rates might affect default probability if individuals are liquidity-constrained. Evidence is mixed in lending: [ 29] as- sumes this, [3] finds no effect, and [41] finds some effect of rates on default. Alternatively, interest rates might have an effect on the extensive demand margin (amount borrowed). In this setting, we might instead consider price as a continuous treatment with a composite outcome of take-up and observed outcome, conditional on take-up (such as amount borrowed or default outcome). From the perspective of optimization, we generally view price as a treatment and optimize for corresponding downstream outcomes, e.g. conduct an “intention to treat” analysis. 6 CASE STUDIES 6.1 Willingness to pay for elective vaccine We bu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03519,
+        -0.02602,
+        -0.02264,
+        0.01734,
+        -0.02184
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "e as a treatment and optimize for corresponding downstream outcomes, e.g. conduct an “intention to treat” analysis. 6 CASE STUDIES 6.1 Willingness to pay for elective vaccine We bu",
+      "overlap_with_next": "a contingent valuation study which asked individuals about take-up at a random price of 100, 250, 500, 750, or 1000 SEK. The study finds that “The current market price of the TBE v",
+      "text": "e as a treatment and optimize for corresponding downstream outcomes, e.g. conduct an “intention to treat” analysis. 6 CASE STUDIES 6.1 Willingness to pay for elective vaccine We build a case study from [53], a willingness-to-pay study for vac- cination against tick-borne encephalitis in Sweden. The vaccine for tick-borne encephalitis (TBE) is elective and the study is interested in assessing determinants of willingness to pay to inform health policy. Demand is associated with price and income; as well as individual contextual factors such as age, geographic risk factors, trust, perceptions and knowledge about tick-borne disease. The health policy recommendation uses the learned demand model to estimate the vaccination rate under a free, completely subsidized vaccine. This setting corresponds to the setting of public provision, where a decision-maker has a preference for higher take-up due to dynamic externalities of vaccines (which are nonetheless difficult to precisely estimate or target). The study was a contingent valuation study which asked individuals about take-up at a random price of 100, 250, 500, 750, or 1000 SEK. The study finds that “The current market price of the TBE v",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03281,
+        -0.00154,
+        -0.00869,
+        0.02879,
+        0.00974
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "a contingent valuation study which asked individuals about take-up at a random price of 100, 250, 500, 750, or 1000 SEK. The study finds that “The current market price of the TBE v",
+      "overlap_with_next": "05normalized frequency A=b A=a (b) Distribution of 𝑝∗(𝑋)| 𝐴 =𝑎,𝑝∗(𝑋)| 𝐴 =𝑏 4 6 8 constant interest rate 35 40 45 50 55 60 65Estimated revenue, E[Y(p)] personalized price (c) Estima",
+      "text": "a contingent valuation study which asked individuals about take-up at a random price of 100, 250, 500, 750, or 1000 SEK. The study finds that “The current market price of the TBE vaccine deters a substantial share of at-risk people with low incomes from getting vaccinated. ” In Figures 2a and 2b, we compare distributional considerations of segmented vs personalized pricing. Let𝐴 =𝑏 indicate low-income. We follow [ 53] and learn a logistic regression model of binary demand by simply appending the price covariate with the other covariates, so that 𝐷(𝑥,𝑝) = 𝜎(𝛾⊤𝑥+ 𝛽𝑝). A natural approach in the setting where a free subsidy is not feasible due to budget constraints, is third-degree price discrimination: segment based on [Page 9] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, 0 200 400 600 800 price 0.0 0.5 1.0 1.5 2.0 2.5 3.0expected segment revenue 1e5 agg maj min (a) Revenue curves for 𝐴 ={𝑎,𝑏},𝑎,𝑏 segments 600 700 800 900 1000 price 0.000 0.001 0.002 0.003 0.004 0.005normalized frequency A=b A=a (b) Distribution of 𝑝∗(𝑋)| 𝐴 =𝑎,𝑝∗(𝑋)| 𝐴 =𝑏 4 6 8 constant interest rate 35 40 45 50 55 60 65Estimated revenue, E[Y(p)] personalized price (c) Estima",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08165,
+        -0.00315,
+        -0.02673,
+        -0.012,
+        0.00536
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "05normalized frequency A=b A=a (b) Distribution of 𝑝∗(𝑋)| 𝐴 =𝑎,𝑝∗(𝑋)| 𝐴 =𝑏 4 6 8 constant interest rate 35 40 45 50 55 60 65Estimated revenue, E[Y(p)] personalized price (c) Estima",
+      "overlap_with_next": "y group can be substantially increased without much extra cost. We next consider a covariate-driven personalization approach. In Figure 2b, we plot histograms of the group-conditio",
+      "text": "05normalized frequency A=b A=a (b) Distribution of 𝑝∗(𝑋)| 𝐴 =𝑎,𝑝∗(𝑋)| 𝐴 =𝑏 4 6 8 constant interest rate 35 40 45 50 55 60 65Estimated revenue, E[Y(p)] personalized price (c) Estimated revenue comparison 4 6 8 10 interest rate 0.05 0.06 0.07 0.08 0.09 0.10E[D(p) A] F non-F Low I non-Low I (d) Comparing take-up Figure 2: Willingness to pay for elective vaccine (Figures 2a and 2b) and Microcredit (Figures 2c and 2d). income and offer a price to low-income and high-income groups separately. We consider such a group-segmented approach in Fig- ure 2a. The blue curve (“agg”) represents the revenue curve for a uniform price. The red (“maj”) and green (“min”) curves are revenue curves from the majority (high-income) and minority (low-income) groups, respectively. We indicate the resulting optimal prices for each of these curves with vertical dashed lines. Notably, the𝐴 =𝑎 revenue curve has greater second-degree curvature than the𝐴 =𝑏 revenue curve. Because of the flat revenue curve, the market share of the minority group can be substantially increased without much extra cost. We next consider a covariate-driven personalization approach. In Figure 2b, we plot histograms of the group-conditio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06819,
+        -0.00942,
+        -0.04131,
+        0.00854,
+        -0.0176
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "y group can be substantially increased without much extra cost. We next consider a covariate-driven personalization approach. In Figure 2b, we plot histograms of the group-conditio",
+      "overlap_with_next": " able to achieve greater market share for the minority group. While the group-based segmentation results in a lower price for the minority group, it is overall not incentive-compat",
+      "text": "y group can be substantially increased without much extra cost. We next consider a covariate-driven personalization approach. In Figure 2b, we plot histograms of the group-conditional distri- butions of these optimal prices, 𝑝∗(𝑋)| 𝐴 =𝑎 and𝑝∗(𝑋)| 𝐴 =𝑏. The optimal group-based prices are indicated by the vertical lines for reference. We solve 𝑝∗(𝑥)∈ argmax 𝑝(·) E[𝐷(𝑝(𝑋))𝑝]. Notably, the optimal prices for the low-income group are overall lower than those for the high-income group. Expected take-up in this segment increases to 27.5% from 24.2% under the uniform monopoly price or 26.7% under𝑝∗(𝑏), the optimal group-based price of Figure 2a. Compared to the uniform monopoly price which obtains expected optimal revenue of 313.6· 103, the group-based segment scheme𝑝∗(𝐴) obtains expected revenue of282.2·103, and the personalized pricing scheme𝑝∗(𝑋) obtains expected revenue of 318.8· 103. In this setting, covariate-based personalized pricing is strictly beneficial in terms of (mild) revenue benefits that are also able to achieve greater market share for the minority group. While the group-based segmentation results in a lower price for the minority group, it is overall not incentive-compat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07281,
+        -0.01478,
+        -0.05272,
+        0.01093,
+        -0.01791
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": " able to achieve greater market share for the minority group. While the group-based segmentation results in a lower price for the minority group, it is overall not incentive-compat",
+      "overlap_with_next": " preferences, e.g. for financial inclusion for women or lower-income individuals, such potential mild profit losses could be offset by expanded inclusion of these target groups due",
+      "text": " able to achieve greater market share for the minority group. While the group-based segmentation results in a lower price for the minority group, it is overall not incentive-compatible for a decision- maker to use this segmentation because it attains less revenue than even uniform monopoly pricing. 6.2 Credit Elasticities [41] randomize prices for a microfinance lender for repeat bor- rowers. An extensive literature on microfinance sought to assess whether microcredit was able to provide longer term benefits in improving outcomes for household. The rise of the sector led to partially subsidized lenders as well as interest from the private sec- tor. The question of the study was to leverage price randomization in the microcredit setting and assess the effects of lower, or higher, interest rates on revenue for the lender. Overalal, the findings sug- gest lower rates could decrease profits by a small amount. But the paper considers that at the domain level, since microfinance initia- tives may have targeting preferences, e.g. for financial inclusion for women or lower-income individuals, such potential mild profit losses could be offset by expanded inclusion of these target groups due",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06874,
+        0.0053,
+        -0.0263,
+        0.02559,
+        -0.02388
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": " preferences, e.g. for financial inclusion for women or lower-income individuals, such potential mild profit losses could be offset by expanded inclusion of these target groups due",
+      "overlap_with_next": "vide some comparison of the estimated rev- enue and market shares under the personalized policy. We consider a 50/25/25 training/nuisance estimation/validation split, training a ra",
+      "text": " preferences, e.g. for financial inclusion for women or lower-income individuals, such potential mild profit losses could be offset by expanded inclusion of these target groups due to heterogeneity in take-up. This setting could present an opportunity for personalized pric- ing to differentially lower interest rates and expand revenue to targeted groups. Adopting an “intention to treat” analysis, we use the method of [39] to consider off-policy evaluation and optimiza- tion of a continuous linear personalized pricing policy from the randomized controlled trial data. The policy parametrization is linear in the covariates, which include income, demographics, loca- tion, and loan history information. The method of [39] considers a kernel-based estimator of the counterfactual value of a pricing policy. We use the Epanechnikov kernel and a bandwidth of0.3; the optimization is non-convex. Because of the fundamental problem of causal inference, we lack the ability to directly assess outcomes. Nonetheless, we provide some comparison of the estimated rev- enue and market shares under the personalized policy. We consider a 50/25/25 training/nuisance estimation/validation split, training a ra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05483,
+        -0.01741,
+        -0.01927,
+        0.02133,
+        0.00318
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": "vide some comparison of the estimated rev- enue and market shares under the personalized policy. We consider a 50/25/25 training/nuisance estimation/validation split, training a ra",
+      "overlap_with_next": "ng the direct method reduces variance. [Page 10] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* (indicated in black dashed, plotting one standard error), compar- ",
+      "text": "vide some comparison of the estimated rev- enue and market shares under the personalized policy. We consider a 50/25/25 training/nuisance estimation/validation split, training a random forest on the nuisance estimation split, and learning an op- timal policy on the training data with a doubly robust estimator. We use the random forest to estimate the revenue of the personalized policy in comparison to constant interest rates on the validation set.4 Finally, to indicate the sampling variation in our comparison induced by training the benchmark model, we repeat draws of the nuisance/validation sets, and report the sampling variation in revenue estimates via confidence bands of one standard error. We include the results in Figure 2c and Figure 2d. Figure 2c plots the random-forest imputed revenue of the personalized allocation 4This is in general a biased “direct method”, and we take care to avoid extrapolation from interest rates. However, for the sake of comparing against constant treatment assignment, using the direct method reduces variance. [Page 10] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* (indicated in black dashed, plotting one standard error), compar- ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04597,
+        -0.00313,
+        -0.04233,
+        -0.00096,
+        -0.03722
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "ng the direct method reduces variance. [Page 10] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* (indicated in black dashed, plotting one standard error), compar- ",
+      "overlap_with_next": ", the personalized pricing allocation rule is able to increase access for female and low-income borrowers, relative to the optimal constant interest rate (around 7.2). The unconstr",
+      "text": "ng the direct method reduces variance. [Page 10] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* (indicated in black dashed, plotting one standard error), compar- ing against the imputed revenue via the random forest model of constant interest rates (on the x-axis), in blue. The personalized allocation rule increases estimated revenue (as expected). We assess some of the distributional characteristics of the resulting allocation. In Figure 2d, we compare the access properties of the personal- ized decision rules for subgroups of interest, namely female and non-female borrowers and low-income and non-low-income bor- rowers. The estimates of access in Figure 2d are based on a logistic regression of demand, learned on the nuisance estimation dataset. In horizontal dashed lines, we plot the access estimates for these subgroups under the personalized allocation rule. Note the achiev- able subgroup access levels correspond to intersections of vertical lines with the demand curves. In comparison, the personalized pricing allocation rule is able to increase access for female and low-income borrowers, relative to the optimal constant interest rate (around 7.2). The unconstr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07135,
+        -0.02483,
+        -0.04146,
+        -0.01017,
+        -0.05694
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": ", the personalized pricing allocation rule is able to increase access for female and low-income borrowers, relative to the optimal constant interest rate (around 7.2). The unconstr",
+      "overlap_with_next": "eriment. The Review of Financial Studies , 26(9):2353–2374, 2013. [4] A. Aswani and M. Olfat. Optimization hierarchy for fair statistical decision problems. arXiv preprint arXiv:19",
+      "text": ", the personalized pricing allocation rule is able to increase access for female and low-income borrowers, relative to the optimal constant interest rate (around 7.2). The unconstrained optimal personalized price however achieves lower takeup for non-low income borrowers (i.e. it increased interest rates for them). Stronger distributional guaran- tees may be possible by further constraining the price optimization problem. Overall, the goal is to highlight that personalized pricing can improve firm revenue, as well as increase access and improving targeting abilities. REFERENCES [1] Case c-236/09 association belge des consommateurs test-achats asbl and others v conseil des ministres, 2011. https://eur- lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:62009CJ0236:EN:HTML. [2] I. Aguirre, S. Cowan, and J. Vickers. Monopoly price discrimination and demand curvature. American Economic Review, 100(4):1601–15, 2010. [3] S. Alan and G. Loranth. Subprime consumer credit demand: Evidence from a lender’s pricing experiment. The Review of Financial Studies , 26(9):2353–2374, 2013. [4] A. Aswani and M. Olfat. Optimization hierarchy for fair statistical decision problems. arXiv preprint arXiv:19",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08317,
+        -0.00257,
+        -0.04638,
+        0.0143,
+        -0.03058
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": "eriment. The Review of Financial Studies , 26(9):2353–2374, 2013. [4] A. Aswani and M. Olfat. Optimization hierarchy for fair statistical decision problems. arXiv preprint arXiv:19",
+      "overlap_with_next": "Morris. The limits of price discrimination. American Economic Review, 105(3):921–57, 2015. [11] O. Besbes and A. Zeevi. On the (surprising) sufficiency of linear models for dynamic",
+      "text": "eriment. The Review of Financial Studies , 26(9):2353–2374, 2013. [4] A. Aswani and M. Olfat. Optimization hierarchy for fair statistical decision problems. arXiv preprint arXiv:1910.08520, 2019. [5] R. Avraham, K. D. Logue, and D. Schwarcz. Understanding insurance antidis- crimination law. S. Cal. L. Rev., 87:195, 2013. [6] G.-Y. Ban and N. B. Keskin. Personalized dynamic pricing with machine learning: High dimensional features and heterogeneous elasticity. A vailable at SSRN 2972985, 2020. [7] O. Bar-Gill. Algorithmic price discrimination: When demand is a function of both preferences and (mis) perceptions. The Harvard John M. Olin Discussion Paper Series, (05):18–32, 2018. [8] S. Barocas, M. Hardt, and A. Narayanan. Fairness and Machine Learning . fairml- book.org, 2018. http://www.fairmlbook.org. [9] R. Bartlett, A. Morse, R. Stanton, and N. Wallace. Consumer-lending discrimina- tion in the fintech era. Technical report, National Bureau of Economic Research, 2019. [10] D. Bergemann, B. Brooks, and S. Morris. The limits of price discrimination. American Economic Review, 105(3):921–57, 2015. [11] O. Besbes and A. Zeevi. On the (surprising) sufficiency of linear models for dynamic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05719,
+        -0.02238,
+        0.00461,
+        0.00451,
+        -0.01916
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "Morris. The limits of price discrimination. American Economic Review, 105(3):921–57, 2015. [11] O. Besbes and A. Zeevi. On the (surprising) sufficiency of linear models for dynamic",
+      "overlap_with_next": "f Economics , 125 (1):1, 2010. [17] J. Cohen, P. Dupas, and S. Schaner. Price subsidies, diagnostic tests, and targeting of malaria treatment: evidence from a randomized controlled",
+      "text": "Morris. The limits of price discrimination. American Economic Review, 105(3):921–57, 2015. [11] O. Besbes and A. Zeevi. On the (surprising) sufficiency of linear models for dynamic pricing with demand learning. Management Science, 61(4):723–739, 2015. [12] J. Beshears, J. J. Choi, D. Laibson, and B. C. Madrian. Behavioral household finance. In Handbook of Behavioral Economics: Applications and Foundations 1 , volume 1, pages 177–276. Elsevier, 2018. [13] D. Bhattacharya and P. Dupas. Inferring welfare maximizing treatment assign- ment under budget constraints. Journal of Econometrics, 167(1):168–196, 2012. [14] S. Block-Lieb and E. J. Janger. The myth of the rational borrower: Rationality, behavioralism, and the misguided reform of bankruptcy law. Tex. L. Rev., 84:1481, 2005. [15] S. Boyd and L. Vandenberghe. Convex optimization. Cambridge university press, 2004. [16] J. Cohen, P. Dupas, et al. Free distribution or cost-sharing? evidence from a randomized malaria prevention experiment. Quarterly journal of Economics , 125 (1):1, 2010. [17] J. Cohen, P. Dupas, and S. Schaner. Price subsidies, diagnostic tests, and targeting of malaria treatment: evidence from a randomized controlled",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06861,
+        -0.02768,
+        -0.02412,
+        -0.01016,
+        -0.01426
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "f Economics , 125 (1):1, 2010. [17] J. Cohen, P. Dupas, and S. Schaner. Price subsidies, diagnostic tests, and targeting of malaria treatment: evidence from a randomized controlled",
+      "overlap_with_next": "he cost of being a female consumer. a study of gender pricing in new york city. The New York Department of Consumer Affairs, 2015. [23] A. L. Dontchev and R. T. Rockafellar. Implic",
+      "text": "f Economics , 125 (1):1, 2010. [17] J. Cohen, P. Dupas, and S. Schaner. Price subsidies, diagnostic tests, and targeting of malaria treatment: evidence from a randomized controlled trial. American Economic Review, 105(2):609–45, 2015. [18] M. Cohen, A. N. Elmachtoub, and X. Lei. Pricing with fairness. A vailable at SSRN 3459289, 2019. [19] E. Creager, D. Madras, T. Pitassi, and R. Zemel. Causal modeling for fairness in dynamical systems. arXiv preprint arXiv:1909.09141, 2019. [20] R. Cummings, N. R. Devanur, Z. Huang, and X. Wang. Algorithmic price dis- crimination. In Proceedings of the Fourteenth Annual ACM-SIAM Symposium on Discrete Algorithms, pages 2432–2451. SIAM, 2020. [21] A. D’Amour, H. Srinivasan, J. Atwood, P. Baljekar, D. Sculley, and Y. Halpern. Fairness is not static: deeper understanding of long term fairness via simulation studies. In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, pages 525–534, 2020. [22] B. De Blasio and J. Menin. From cradle to cane: the cost of being a female consumer. a study of gender pricing in new york city. The New York Department of Consumer Affairs, 2015. [23] A. L. Dontchev and R. T. Rockafellar. Implic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0449,
+        -0.03129,
+        -0.04247,
+        -0.02371,
+        -0.01366
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "he cost of being a female consumer. a study of gender pricing in new york city. The New York Department of Consumer Affairs, 2015. [23] A. L. Dontchev and R. T. Rockafellar. Implic",
+      "overlap_with_next": "oldsmith-Pinkham, T. Ramadorai, and A. Walther. Predictably unequal? the effects of machine learning on credit markets.The Effects of Machine Learning on Credit Markets (November 6",
+      "text": "he cost of being a female consumer. a study of gender pricing in new york city. The New York Department of Consumer Affairs, 2015. [23] A. L. Dontchev and R. T. Rockafellar. Implicit functions and solution mappings , volume 543. Springer, 2009. [24] J.-P. Dubé and S. Misra. Personalized pricing and customer welfare. A vailable at SSRN 2992257, 2019. [25] P. Dupas. What matters (and what does not) in households’ decision to invest in malaria prevention? American Economic Review, 99(2):224–30, 2009. [26] P. Dupas. Short-run subsidies and long-run adoption of new health products: Evidence from a field experiment. Econometrica, 82(1):197–228, 2014. [27] P. Dworczak, S. D. Kominers, and M. Akbarpour. Redistribution through markets. Becker Friedman Institute for Research in Economics Working Paper , (2018-16), 2019. [28] D. Fernandes, J. G. Lynch Jr, and R. G. Netemeyer. Financial literacy, financial education, and downstream financial behaviors. Management Science , 60(8): 1861–1883, 2014. [29] A. Fuster, P. Goldsmith-Pinkham, T. Ramadorai, and A. Walther. Predictably unequal? the effects of machine learning on credit markets.The Effects of Machine Learning on Credit Markets (November 6",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06274,
+        -0.0049,
+        -0.05516,
+        -0.00299,
+        -0.00014
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": "oldsmith-Pinkham, T. Ramadorai, and A. Walther. Predictably unequal? the effects of machine learning on credit markets.The Effects of Machine Learning on Credit Markets (November 6",
+      "overlap_with_next": "es/docs/Big_Data_Re port_Nonembargo_v2. pdf, 2015. [35] L. Hu and Y. Chen. Fair classification and social welfare. arXiv preprint arXiv:1905.00147, 2019. [36] G. W. Imbens and D. B",
+      "text": "oldsmith-Pinkham, T. Ramadorai, and A. Walther. Predictably unequal? the effects of machine learning on credit markets.The Effects of Machine Learning on Credit Markets (November 6, 2018) , 2018. [30] G. Gallego, H. Topaloglu, et al.Revenue management and pricing analytics, volume 209. Springer, 2019. [31] P. Gonzaga. Personalised pricing in the digital era: Background note by the secretariat. Technical report, Directorate for Financial and Enterprise Affairs Competition Committee, 2018. [32] K. L. Haws and W. O. Bearden. Dynamic pricing and consumer fairness percep- tions. Journal of Consumer Research , 33(3):304–311, 2006. [33] H. Heidari, C. Ferrari, K. Gummadi, and A. Krause. Fairness behind a veil of ignorance: A welfare analysis for automated decision making. In Advances in Neural Information Processing Systems , pages 1265–1276, 2018. [34] W. House. Big data and differential pricing. White House Council of Economic Advisers ( https://obamawhitehouse. archives. gov/sites/default/files/whitehouse_files/docs/Big_Data_Re port_Nonembargo_v2. pdf, 2015. [35] L. Hu and Y. Chen. Fair classification and social welfare. arXiv preprint arXiv:1905.00147, 2019. [36] G. W. Imbens and D. B",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08885,
+        0.0007,
+        -0.0231,
+        -0.01025,
+        -0.00698
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": "es/docs/Big_Data_Re port_Nonembargo_v2. pdf, 2015. [35] L. Hu and Y. Chen. Fair classification and social welfare. arXiv preprint arXiv:1905.00147, 2019. [36] G. W. Imbens and D. B",
+      "overlap_with_next": "e. American Economic Review, 98(3):1040–68, 2008. [42] M. Kasy and R. Abebe. Fairness, equality, and power in algorithmic decision making. Technical report, Working paper, 2020. [4",
+      "text": "es/docs/Big_Data_Re port_Nonembargo_v2. pdf, 2015. [35] L. Hu and Y. Chen. Fair classification and social welfare. arXiv preprint arXiv:1905.00147, 2019. [36] G. W. Imbens and D. B. Rubin. Causal inference in statistics, social, and biomedical sciences. Cambridge University Press, 2015. [37] K. A. Jacobsen. Rolling back the pink tax: Dim prospects for eliminating gender- based price discrimination in the sale of consumer goods and services. Cal. WL Rev., 54:241, 2017. [38] T. R. Johnson and M. Lipscomb. Pricing people into the market: Targeting through mechanism design. Dec. 2019. [39] N. Kallus and A. Zhou. Policy evaluation and optimization with continuous treatments. arXiv preprint arXiv:1802.06037, 2018. [40] D. Karlan and J. Zinman. Long-run price elasticities of demand for credit: evidence from a countrywide field experiment in mexico. The Review of Economic Studies , 86(4):1704–1746, 2019. [41] D. S. Karlan and J. Zinman. Credit elasticities in less-developed economies: Implications for microfinance. American Economic Review, 98(3):1040–68, 2008. [42] M. Kasy and R. Abebe. Fairness, equality, and power in algorithmic decision making. Technical report, Working paper, 2020. [4",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06901,
+        -0.00893,
+        -0.01418,
+        0.00809,
+        -0.00121
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "e. American Economic Review, 98(3):1040–68, 2008. [42] M. Kasy and R. Abebe. Fairness, equality, and power in algorithmic decision making. Technical report, Working paper, 2020. [4",
+      "overlap_with_next": "ir machine learning. Proceedings of the 35th International Conference on Machine Learning (ICML), Stockholm, Sweden , 2018. [Page 11] Fairness, Welfare, and Equity in Personalized ",
+      "text": "e. American Economic Review, 98(3):1040–68, 2008. [42] M. Kasy and R. Abebe. Fairness, equality, and power in algorithmic decision making. Technical report, Working paper, 2020. [43] E. H. Kennedy, S. Lorch, and D. S. Small. Robust causal inference with continuous instruments using the local instrumental variable curve. Journal of the Royal Statistical Society: Series B (Statistical Methodology) , 81(1):121–143, 2019. [44] M. R. Kosorok. Introduction to empirical processes and semiparametric inference . Springer Science & Business Media, 2007. [45] J. Larson, S. Mattu, and J. Angwin. Unintended consequences of geographic targeting. Technology Science, 2015. [46] Z. Lipton, J. McAuley, and A. Chouldechova. Does mitigating ml’s impact disparity require treatment disparity? InAdvances in Neural Information Processing Systems, pages 8125–8135, 2018. [47] Z. Liscow. Is efficiency biased? University of Chicago Law Review , 2018. [48] L. T. Liu, S. Dean, E. Rolf, M. Simchowitz, and M. Hardt. Delayed impact of fair machine learning. Proceedings of the 35th International Conference on Machine Learning (ICML), Stockholm, Sweden , 2018. [Page 11] Fairness, Welfare, and Equity in Personalized ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06352,
+        0.02991,
+        0.00705,
+        0.00695,
+        -0.00688
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 62400,
+      "length": 1200,
+      "overlap_with_previous": "ir machine learning. Proceedings of the 35th International Conference on Machine Learning (ICML), Stockholm, Sweden , 2018. [Page 11] Fairness, Welfare, and Equity in Personalized ",
+      "overlap_with_next": ". Dehing-Oberije, P. Lambin, and V. C. Raykar. On ranking in survival analysis: Bounds on the concordance index. In Advances in neural information processing systems , pages 1209–1",
+      "text": "ir machine learning. Proceedings of the 35th International Conference on Machine Learning (ICML), Stockholm, Sweden , 2018. [Page 11] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, [49] F. Luo and S. Mehrotra. Distributionally robust optimization with decision dependent ambiguity sets. Optimization Letters, pages 1–30, 2020. [50] A. A. Miller. What do we worry about when we worry about price discrimination- the law and ethics of using personal information for pricing. J. Tech. L. & Pol’y , 19:41, 2014. [51] A. Odlyzko. Privacy, economics, and price discrimination on the internet. In Economics of information security , pages 187–211. Springer, 2004. [52] S. Qiang and M. Bayati. Dynamic pricing with demand covariates. A vailable at SSRN 2765257, 2016. [53] D. Slunge. The willingness to pay for vaccination against tick-borne encephalitis and implications for public health policy: evidence from sweden. PloS one, 10 (12):e0143875, 2015. [54] H. Steck, B. Krishnapuram, C. Dehing-Oberije, P. Lambin, and V. C. Raykar. On ranking in survival analysis: Bounds on the concordance index. In Advances in neural information processing systems , pages 1209–1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07524,
+        -0.01583,
+        -0.00843,
+        0.0078,
+        -0.02521
+      ]
+    },
+    {
+      "chunk_index": 61,
+      "start_char": 62220,
+      "end_char": 63420,
+      "length": 1200,
+      "overlap_with_previous": ". Dehing-Oberije, P. Lambin, and V. C. Raykar. On ranking in survival analysis: Bounds on the concordance index. In Advances in neural information processing systems , pages 1209–1",
+      "overlap_with_next": "e. NYUJL & Liberty , 2:470, 2006. [Page 12] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* Overview of the appendix. • Appendix A provides a literature review of ",
+      "text": ". Dehing-Oberije, P. Lambin, and V. C. Raykar. On ranking in survival analysis: Bounds on the concordance index. In Advances in neural information processing systems , pages 1209–1216, 2008. [55] V. Syrgkanis, V. Lei, M. Oprescu, M. Hei, K. Battocchi, and G. Lewis. Machine learning estimation of heterogeneous treatment effects with instruments. In Advances in Neural Information Processing Systems , pages 15193–15202, 2019. [56] K. Vafa, C. Haigh, A. Leung, and N. Yonack. Price discrimination in the princeton review’s online sat tutoring service. Technology Science, 2015090101, 2015. [57] J. Valentino-Devries, J. Singer-Vine, and A. Soltani. Websites vary prices, deals based on users’ information. [58] H. R. Varian. Price discrimination and social welfare. The American Economic Review, 75(4):870–875, 1985. [59] H. R. Varian. Price discrimination.Handbook of industrial organization, 1:597–654, 1989. [60] J. D. Wright. Behavioral law and economics, paternalism, and consumer contracts: An empirical perspective. NYUJL & Liberty , 2:470, 2006. [Page 12] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* Overview of the appendix. • Appendix A provides a literature review of ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06102,
+        -0.02874,
+        -0.01762,
+        0.02531,
+        0.00181
+      ]
+    },
+    {
+      "chunk_index": 62,
+      "start_char": 63240,
+      "end_char": 64440,
+      "length": 1200,
+      "overlap_with_previous": "e. NYUJL & Liberty , 2:470, 2006. [Page 12] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* Overview of the appendix. • Appendix A provides a literature review of ",
+      "overlap_with_next": "es based on local operating costs and competitive factors, may lead to disparate impacts due to, e.g. differential consumer bargaining leverage or discrimination. There is extensiv",
+      "text": "e. NYUJL & Liberty , 2:470, 2006. [Page 12] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* Overview of the appendix. • Appendix A provides a literature review of how considerations regarding price personalization have arisen in different problem settings. • Appendix B provides proofs of the analysis in Section 5. • Appendix C provides further details on the empirics. A LITERATURE REVIEW A.1 Different problem settings (summary) Lending. Discrimination in lending is an important problem subject to regulation by the CFPB. Not only do banks decide whether or not to offer loans or extend credit (previously considered as classification problems), they also decide on the terms, i.e. interest rates, of the loan or credit, using risk-based pricing. These rates have significant welfare implications for individuals if discrimination leads to differences in rate terms. Standard discretionary pricing practices, where individual loan agents have some discretion to set rates above/below securitized rates based on local operating costs and competitive factors, may lead to disparate impacts due to, e.g. differential consumer bargaining leverage or discrimination. There is extensiv",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06094,
+        -0.02955,
+        -0.04399,
+        0.01211,
+        -0.02343
+      ]
+    },
+    {
+      "chunk_index": 63,
+      "start_char": 64260,
+      "end_char": 65460,
+      "length": 1200,
+      "overlap_with_previous": "es based on local operating costs and competitive factors, may lead to disparate impacts due to, e.g. differential consumer bargaining leverage or discrimination. There is extensiv",
+      "overlap_with_next": "ae-securitized rate schedule on controls (e.g. for location-varying costs of lending); the coefficient on race in such a regression corresponds to unexplained disparate impact in p",
+      "text": "es based on local operating costs and competitive factors, may lead to disparate impacts due to, e.g. differential consumer bargaining leverage or discrimination. There is extensive literature studying household finance, including credit constraints of subprime borrowers with heterogeneity. For example, firms may find via price optimization that they are able to raise prices on subprime borrowers without affecting demand for credit-constrained consumers. Price optimization in the lending setting is primarily based on discretionary markups/discounts, e.g. negotiated on an individual basis with consumers. There are subsets of loans that are securitized by the government, which are presumed to be actuarially fair prices. Price dispersion beyond this can be explained a combination of individual discretionary pricing (negotiation) or market concentration (price optimization). A common strategy in papers that study potential discriminatory pricing in lending (e.g. [9]) is to regress deviations from the Fannie Mae-securitized rate schedule on controls (e.g. for location-varying costs of lending); the coefficient on race in such a regression corresponds to unexplained disparate impact in p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07591,
+        -0.02348,
+        -0.03454,
+        0.01449,
+        -0.0184
+      ]
+    },
+    {
+      "chunk_index": 64,
+      "start_char": 65280,
+      "end_char": 66480,
+      "length": 1200,
+      "overlap_with_previous": "ae-securitized rate schedule on controls (e.g. for location-varying costs of lending); the coefficient on race in such a regression corresponds to unexplained disparate impact in p",
+      "overlap_with_next": "eptions of price unfairness (perception is an important mediator, because different formats for the same posted price tend to have different fairness perceptions). This consumer ba",
+      "text": "ae-securitized rate schedule on controls (e.g. for location-varying costs of lending); the coefficient on race in such a regression corresponds to unexplained disparate impact in pricing. Insurance. Insurance is the one of the originating domains of risk-assessment. However; it has the least available data. Our analysis correspondingly does not focus on or shed light on important questions in this area. Consumer products. There are growing concerns regarding the use of price optimization for consumer goods. Many concerns in consumer product pricing are complicated due to the difficulty of disambiguating consumer valuation based on “legitimate” aspects such as individual preferences (which may be culturally conditioned; hence associated with categories) vs. aspects that may seem “illegitimate” or repugnant to extract rent from consumers on the basis of. A different source of concern arises when universal provision of a good is expected. However, studies show that consumers react strongly negatively to perceptions of price unfairness (perception is an important mediator, because different formats for the same posted price tend to have different fairness perceptions). This consumer ba",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04168,
+        0.00879,
+        -0.02966,
+        0.00501,
+        -0.00737
+      ]
+    },
+    {
+      "chunk_index": 65,
+      "start_char": 66300,
+      "end_char": 67500,
+      "length": 1200,
+      "overlap_with_previous": "eptions of price unfairness (perception is an important mediator, because different formats for the same posted price tend to have different fairness perceptions). This consumer ba",
+      "overlap_with_next": "lated to ability to pay, which is commonly discussed in development economics with regards to credit-constrained consumers. A.2 Implications of price optimization in lending Lendin",
+      "text": "eptions of price unfairness (perception is an important mediator, because different formats for the same posted price tend to have different fairness perceptions). This consumer backlash may be so strong it is posited as a reason that retailers do not wish to conduct extremely fine first-degree price discrimination. Therefore, we might be interested in general notions of price equity. Goods with public externalities. In this setting which arises in development, public, or health economics, a centralized decision-maker (DM) has some utility or preference for individuals receiving the good in addition to individuals’ idiosyncratic distributions of willingness to pay. Price optimization is beneficial because it can subsidize participation in the market and take-up of the good by pricing at willingness-to-pay for individuals with high valuations to subsidize lower price offers to lower willingness-to-pay [16, 25, 38]. Cross-subsidy is particularly beneficial when understanding willingness-to-pay is in part related to ability to pay, which is commonly discussed in development economics with regards to credit-constrained consumers. A.2 Implications of price optimization in lending Lendin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07207,
+        -0.02022,
+        -0.02122,
+        0.01644,
+        -0.0196
+      ]
+    },
+    {
+      "chunk_index": 66,
+      "start_char": 67320,
+      "end_char": 68520,
+      "length": 1200,
+      "overlap_with_previous": "lated to ability to pay, which is commonly discussed in development economics with regards to credit-constrained consumers. A.2 Implications of price optimization in lending Lendin",
+      "overlap_with_next": "ill persists (as measured by residual coefficients on race in a regression of interest rates on controls). Nonetheless, concerns about actuarial risk may still arise when actuarial",
+      "text": "lated to ability to pay, which is commonly discussed in development economics with regards to credit-constrained consumers. A.2 Implications of price optimization in lending Lending and implications of regulation. In this setting, such as risk-based pricing in insurance and discretionary pricing in mortgage lending, discretionary pricing is highly regulated and the leeway for discretionary pricing or “price optimization” (rent extraction from consumers) is severely limited. Limited discretion is given to lending agents, for example to match competing offers or possibly (under interpretations of fair lending law) to cover operating costs (for example in certain geographic regions), e.g. “justified business necessity”. [9] study mortgage lending for loans bought by Fannie Mae, which are subject to price schedules based on creditworthiness, and find that while financial tech companies that engage in algorithmic pricing reduce discrimination on LatinX and African-American borrowers by 40%, nonetheless bias still persists (as measured by residual coefficients on race in a regression of interest rates on controls). Nonetheless, concerns about actuarial risk may still arise when actuarial",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0637,
+        -0.00652,
+        -0.0104,
+        0.00028,
+        -0.0329
+      ]
+    },
+    {
+      "chunk_index": 67,
+      "start_char": 68340,
+      "end_char": 69540,
+      "length": 1200,
+      "overlap_with_previous": "ill persists (as measured by residual coefficients on race in a regression of interest rates on controls). Nonetheless, concerns about actuarial risk may still arise when actuarial",
+      "overlap_with_next": "Achats ASBL and Others v. Conseil des ministres\" ([ 1]), the EU banned the use of sex for pricing in insurance policies. [ 5] points out some aspects in which the redistributive tr",
+      "text": "ill persists (as measured by residual coefficients on race in a regression of interest rates on controls). Nonetheless, concerns about actuarial risk may still arise when actuarial risk is estimated from covariates. [9] summarizes their interpre- tation of discrimination law and its implications for the legitimacy of personalized pricing: (a) Scoring or pricing loans explicitly on credit-risk macro-fundamental variables is legitimate; (b) Scoring or pricing on a proxy variable that only correlates with race or ethnicity through hidden fundamental variables is legitimate; (c) Scoring or pricing on a proxy variable that has significant residual correlation with race or ethnicity after orthogonalizing with respect to hidden fundamental credit-risk variables is illegitimate. [Page 13] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, Distributional concerns of interest in insurance/lending and risk-based pricing. In a recent case “Association belge des Consommateurs Test-Achats ASBL and Others v. Conseil des ministres\" ([ 1]), the EU banned the use of sex for pricing in insurance policies. [ 5] points out some aspects in which the redistributive tr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09237,
+        0.01143,
+        0.00992,
+        0.01238,
+        -0.04242
+      ]
+    },
+    {
+      "chunk_index": 68,
+      "start_char": 69360,
+      "end_char": 70560,
+      "length": 1200,
+      "overlap_with_previous": "Achats ASBL and Others v. Conseil des ministres\" ([ 1]), the EU banned the use of sex for pricing in insurance policies. [ 5] points out some aspects in which the redistributive tr",
+      "overlap_with_next": "re is some concern that underprivileged borrowers may also be less equipped to leverage competition as such. This points to the importance of using non-ideal theory and domain-spec",
+      "text": "Achats ASBL and Others v. Conseil des ministres\" ([ 1]), the EU banned the use of sex for pricing in insurance policies. [ 5] points out some aspects in which the redistributive transfers which result may be preferred to transfers implemented through the typical public economics perspective of tax-and-transfer because the magnitude is pegged to the difference in marginal risk by group; and the transfer does not distort labor incentives as do changes in tax schedules. [9] points out that regulators may have distributional concerns about price discretion in lending that differ from other settings (such as revenue management and pricing). In revenue management and pricing, and more generally settings with high fixed costs and lower marginal costs, price inelastic customers such as business-class travelers may subsidize access to a service via fare or price discrimination. In contrast, price-sensitive consumers in insurance and lending may be more fiscally savvy and/or “shop around” more for better terms; there is some concern that underprivileged borrowers may also be less equipped to leverage competition as such. This points to the importance of using non-ideal theory and domain-spec",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06994,
+        0.00344,
+        -0.01972,
+        0.04001,
+        -0.02535
+      ]
+    },
+    {
+      "chunk_index": 69,
+      "start_char": 70380,
+      "end_char": 71580,
+      "length": 1200,
+      "overlap_with_previous": "re is some concern that underprivileged borrowers may also be less equipped to leverage competition as such. This points to the importance of using non-ideal theory and domain-spec",
+      "overlap_with_next": "oncerns about price optimization: rent extraction from behavioral bias. A key concern in household finance is in explaining empirical puzzles that contradict predictions from conve",
+      "text": "re is some concern that underprivileged borrowers may also be less equipped to leverage competition as such. This points to the importance of using non-ideal theory and domain-specific considerations in motivating considerations of fairness. Underlying normative considerations barring risk classification based on protected attribute. [5] points out that normative grounds for arguments against risk classification based on protected attribute include luck egalitarian arguments (not holding individuals responsible for factors out of their control, which is difficult with risk to operationalize), as well as the ontological invalidity of social classifications for absolute risk except insofar as social categories designate the effects of inequities in history. Additionally, the consequences of inequity in accuracy of risk classification, arguments regarding causality (which however are more effectively levied along the lines of differential accuracy due to the presence of unobserved confounders) and privacy. Concerns about price optimization: rent extraction from behavioral bias. A key concern in household finance is in explaining empirical puzzles that contradict predictions from conve",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04392,
+        0.014,
+        -0.00819,
+        0.02563,
+        -0.02981
+      ]
+    },
+    {
+      "chunk_index": 70,
+      "start_char": 71400,
+      "end_char": 72600,
+      "length": 1200,
+      "overlap_with_previous": "oncerns about price optimization: rent extraction from behavioral bias. A key concern in household finance is in explaining empirical puzzles that contradict predictions from conve",
+      "overlap_with_next": "rom economic theory lead suboptimally rational borrowers to overborrow relative to their actual marginal returns to credit. Whether or not consumers are behaviorally biased, or sub",
+      "text": "oncerns about price optimization: rent extraction from behavioral bias. A key concern in household finance is in explaining empirical puzzles that contradict predictions from conventional economic theory. To this end, behavioral household finance considers implications of behavioral economics for explaining some of these puzzles. However, the expansion of the consumer credit market in the 1970s and 1980s led to concerns regarding rising debt, and many puzzles in household finance where empirical phenomena contradicted the assumptions of classical economic theory. [14] studies the “myth of the rational borrower” in the context of the discussion about bankruptcy law. The central controversy was about whether or not the law provides incentives to declare bankruptcy, or if increases in the number of bankruptcies are instead driven by circumstances typically out of a borrower’s control such as income shocks. They argue that a key counter-argument is “the myth of the rational borrower”; that behavioral biases from economic theory lead suboptimally rational borrowers to overborrow relative to their actual marginal returns to credit. Whether or not consumers are behaviorally biased, or sub",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.10004,
+        -0.02539,
+        -0.01703,
+        -0.00439,
+        -0.0138
+      ]
+    },
+    {
+      "chunk_index": 71,
+      "start_char": 72420,
+      "end_char": 73620,
+      "length": 1200,
+      "overlap_with_previous": "rom economic theory lead suboptimally rational borrowers to overborrow relative to their actual marginal returns to credit. Whether or not consumers are behaviorally biased, or sub",
+      "overlap_with_next": "eholds. • Price optimization based on behavioral considerations may be profit-maximizing, but value-based pricing in this setting may be suspect (or may introduce distributional co",
+      "text": "rom economic theory lead suboptimally rational borrowers to overborrow relative to their actual marginal returns to credit. Whether or not consumers are behaviorally biased, or suboptimal in ways predicted by behavioral economics, is a research topic: [60] counter-argues that empirical evidence is not so strong that deviations from predictions of economic theory are explained by behavioral economics. Behavioral household finance remains an active area of study; although a meta-analysis on the evidence for the effectiveness of financial education interventions suggests that they are overall ineffective [28]. We refer to [12] for a fuller discussion. We argue that the main takeaways to guide our analysis are therefore: • Conventional pricing theory and welfare analysis that assumes revealed purchasing behavior reflects valuation may be inappropriate under strong evidence of behaviorally suboptimal consumers, and in particular concerns about credit- and liquidity-constrained customers, especially poorer households. • Price optimization based on behavioral considerations may be profit-maximizing, but value-based pricing in this setting may be suspect (or may introduce distributional co",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07319,
+        -0.0113,
+        -0.01919,
+        0.00232,
+        -0.0306
+      ]
+    },
+    {
+      "chunk_index": 72,
+      "start_char": 73440,
+      "end_char": 74640,
+      "length": 1200,
+      "overlap_with_previous": "eholds. • Price optimization based on behavioral considerations may be profit-maximizing, but value-based pricing in this setting may be suspect (or may introduce distributional co",
+      "overlap_with_next": "itive perceptions of fairness in pricing do not reflect rational economic behavior; but rather that behavioral considerations interact with the predictions of standard expected uti",
+      "text": "eholds. • Price optimization based on behavioral considerations may be profit-maximizing, but value-based pricing in this setting may be suspect (or may introduce distributional concerns opposite the slight favor in revenue management for price optimization). Competitive considerations may support the utility of price optimization, but we will abstract away from most competitive considerations and focus on implications for an idealized actuarially-fair pricing problem. A.3 Perceptions of unfairness from consumers due to different prices (equal treatment) It is unclear whether there is sufficient regulation to merit equal treatment as a normative rule for pricing, or to understand this squarely within the sphere of discrimination law. Some consumer research such as [ 32] studies consumer perceptions of fairness. Since in fact consumer reaction may differ to personalized pricing based on salience – e.g. showing prices vs. showing discounts – the inconsistency of these reactions themselves suggests that intuitive perceptions of fairness in pricing do not reflect rational economic behavior; but rather that behavioral considerations interact with the predictions of standard expected uti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05326,
+        -0.0125,
+        -0.01465,
+        0.03172,
+        -0.02653
+      ]
+    },
+    {
+      "chunk_index": 73,
+      "start_char": 74460,
+      "end_char": 75660,
+      "length": 1200,
+      "overlap_with_previous": "itive perceptions of fairness in pricing do not reflect rational economic behavior; but rather that behavioral considerations interact with the predictions of standard expected uti",
+      "overlap_with_next": "ore difficult to levy on the level of homophily or taste associated with “pinkness”, than it would be to levy on the objection that societal expectations regarding grooming have le",
+      "text": "itive perceptions of fairness in pricing do not reflect rational economic behavior; but rather that behavioral considerations interact with the predictions of standard expected utility frameworks. There are many high-profile instances where differential pricing appears exploitative but we would argue that what is doing the normative work is more broadly related to concerns regarding perpetuating historical injustices or overt extraction of customer rent for reasons beyond their agency and correlated with historical inequity. In that light, the normative force is really in the \"leakage\" of structural considerations and the correlation between price optimization and these specific aspects. Conversely, it is difficult to reason abstractly about these settings without further grounded context. We posit some examples. Consider the razor tax. The razor tax is objectionable because it extracts customer welfare on the grounds of gender roles for functionally the same product. At some level, our objection is far more difficult to levy on the level of homophily or taste associated with “pinkness”, than it would be to levy on the objection that societal expectations regarding grooming have le",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07334,
+        -0.00308,
+        -0.01301,
+        0.01297,
+        -0.008
+      ]
+    },
+    {
+      "chunk_index": 74,
+      "start_char": 75480,
+      "end_char": 76680,
+      "length": 1200,
+      "overlap_with_previous": "ore difficult to levy on the level of homophily or taste associated with “pinkness”, than it would be to levy on the objection that societal expectations regarding grooming have le",
+      "overlap_with_next": "her counterfactual notions, is likely a very difficult task to operationalize. A.4 Personalized pricing and public provision In this specialized setting, price optimization allows ",
+      "text": "ore difficult to levy on the level of homophily or taste associated with “pinkness”, than it would be to levy on the objection that societal expectations regarding grooming have led to endogenizing higher willingness to pay. Another example is higher prices for shipping/delivery to certain zip codes (or not providing service at all: Here, there is some expectation of equitable service provision, or not reifying historical disadvantages due to location; even though antitrust [Page 14] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* provisions would allow charging different prices based on differential costs of doing business. Another important point contrasts price optimization based on first party vs. third-party data. Here, there is a violation of privacy norms. Consumers may object to certain kinds of data being used for price optimization vs. other kinds of data. Disentangling aspects of valuations driven by the social constructions of race and gender, e.g. via mediation analysis or other counterfactual notions, is likely a very difficult task to operationalize. A.4 Personalized pricing and public provision In this specialized setting, price optimization allows ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0592,
+        -0.00988,
+        -0.01051,
+        0.01601,
+        -0.02836
+      ]
+    },
+    {
+      "chunk_index": 75,
+      "start_char": 76500,
+      "end_char": 77700,
+      "length": 1200,
+      "overlap_with_previous": "her counterfactual notions, is likely a very difficult task to operationalize. A.4 Personalized pricing and public provision In this specialized setting, price optimization allows ",
+      "overlap_with_next": "s are also realized only by “compliance” of the consumer in using it (preventive healthcare, bednets, contraceptives), the DM prefers subsidies to increase access to those who woul",
+      "text": "her counterfactual notions, is likely a very difficult task to operationalize. A.4 Personalized pricing and public provision In this specialized setting, price optimization allows significant benefit for cross-subsidizing allocation of a good. Cross-subsidization is particularly beneficial when a central decision-maker has a utility preference for more individuals obtaining the good vs. not; for example in situations with positive externalities. These pricing schemes are of particular relevance for provision of health interventions in development, where targeting can ensure take-up of households of distributional interest [ 38]. A natural question is, why not provide the good for free? The answer is due to a combination of scarce resources and efficacy that requires take-up/compliance. In these scarce-resource settings in health and development, if free provision to all were possible and feasible, that would be optimal. However, when resource constraints are binding, and the effects of health interventions are also realized only by “compliance” of the consumer in using it (preventive healthcare, bednets, contraceptives), the DM prefers subsidies to increase access to those who woul",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.029,
+        0.01038,
+        -0.03121,
+        0.02983,
+        -0.01658
+      ]
+    },
+    {
+      "chunk_index": 76,
+      "start_char": 77520,
+      "end_char": 78720,
+      "length": 1200,
+      "overlap_with_previous": "s are also realized only by “compliance” of the consumer in using it (preventive healthcare, bednets, contraceptives), the DM prefers subsidies to increase access to those who woul",
+      "overlap_with_next": "T to evaluate out-of-sample the effects of personalized pricing on take-up as well as overall health outcomes. A.5 Research questioning the ontological stability of valuations Onto",
+      "text": "s are also realized only by “compliance” of the consumer in using it (preventive healthcare, bednets, contraceptives), the DM prefers subsidies to increase access to those who would use the intervention if offered. So there are additional targeting concerns that prefer allocation to individuals who would take-up and use the health intervention; that is, the DM is interested in balancing over-provision and over-exclusion [17]. To this end, price discrimination is considered a tool to screen-in individuals who would use the good, rather than simply allocating for free. This setting is common in development and public economics. [ 38] conceive a pricing mechanism to price individuals into a market for mechanical desludging in Kenya; a health intervention that has positive externalities but which may be out of reach for the poorest households. Estimating a demand and reservation price model, they learn personalized prices, estimate the personalized price solution via a multinomial logistic model, and run a RCT to evaluate out-of-sample the effects of personalized pricing on take-up as well as overall health outcomes. A.5 Research questioning the ontological stability of valuations Onto",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00723,
+        -0.00193,
+        -0.04354,
+        0.00723,
+        -0.03085
+      ]
+    },
+    {
+      "chunk_index": 77,
+      "start_char": 78540,
+      "end_char": 79740,
+      "length": 1200,
+      "overlap_with_previous": "T to evaluate out-of-sample the effects of personalized pricing on take-up as well as overall health outcomes. A.5 Research questioning the ontological stability of valuations Onto",
+      "overlap_with_next": "e concerns for fairness. These settings are not merely pathological or point failures of economic theory, but rather exactly how structural inequities manifest in price optimizatio",
+      "text": "T to evaluate out-of-sample the effects of personalized pricing on take-up as well as overall health outcomes. A.5 Research questioning the ontological stability of valuations Ontological stability of valuations. While a typical economic rejoinder to these concerns highlights that first-degree price discrimination achieves a Pareto-efficient allocation of goods to individuals at their valuation and universal access, we would note the actual distributional implications of personalized pricing depend on how consumer behavior does or does not reflect an implicitly assumed ontologically stable and valid idiosyncratic “valuation”. While there is strong mechanism design theory for soliciting individual valuations in, for example, auctions, we argue that many of the domains where consumer-facing personalized pricing has faced pushback are different from the restricted domains where auctions are deployed in practice. We propose a taxonomy of types of failures of the “ideal theory” of willingness to pay which raise concerns for fairness. These settings are not merely pathological or point failures of economic theory, but rather exactly how structural inequities manifest in price optimizatio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03104,
+        -0.00724,
+        -0.0007,
+        0.01779,
+        0.00845
+      ]
+    },
+    {
+      "chunk_index": 78,
+      "start_char": 79560,
+      "end_char": 80760,
+      "length": 1200,
+      "overlap_with_previous": "e concerns for fairness. These settings are not merely pathological or point failures of economic theory, but rather exactly how structural inequities manifest in price optimizatio",
+      "overlap_with_next": "gh (perhaps even irrationally high) interest rates because of lack of other options. [3] [Page 15] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10,",
+      "text": "e concerns for fairness. These settings are not merely pathological or point failures of economic theory, but rather exactly how structural inequities manifest in price optimization settings. A first concern is behavioral biases (and price optimization which extracts rent from them). For example, credit card contracts with promotional offers but high terms afterwards. This motivates the use of mandatory disclosure notices in that setting. A second concern is that of differential endowments which surface via different incomes or credit constraints, budget constraints, and liquidity constraints. This is a concern when individuals’ reflected purchase behavior is not a realization of their ideal valuation or willingness to pay, of the item, but rather of their ability to pay. [47] discusses a similar argument against Kaldor-Hicks efficiency arguments for welfare analysis in empirical legal studies. In settings with credit constraints, individuals are credit or liquidity-constrained, and therefore borrow at high (perhaps even irrationally high) interest rates because of lack of other options. [3] [Page 15] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05196,
+        -0.00981,
+        -0.03978,
+        0.01708,
+        -0.03905
+      ]
+    },
+    {
+      "chunk_index": 79,
+      "start_char": 80580,
+      "end_char": 81780,
+      "length": 1200,
+      "overlap_with_previous": "gh (perhaps even irrationally high) interest rates because of lack of other options. [3] [Page 15] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10,",
+      "overlap_with_next": "ain the first order necessary condition for optimality, letting 𝑝∗(𝜆) =𝑝∗(𝑋,𝐴 ;𝜆),𝐷 =𝐷(𝑋,𝐴) for brevity is: 0 = E \u0014 −𝑝∗(𝜆) 𝑑𝑑𝜆𝐷(𝑝∗(𝜆))+−( 𝑑𝑑𝜆𝑝∗(𝜆))𝐷(𝑝∗(𝜆))+( 𝑝∗(𝜆)𝜉− Γ)+ 𝜆𝜉 22𝛽 \u0015 =",
+      "text": "gh (perhaps even irrationally high) interest rates because of lack of other options. [3] [Page 15] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, B PROOFS B.1 Proofs for price parity Proof of theorem 1 . Optimizing over attribute-based personalized prices 𝑝∗(𝑥): We consider the Lagrangian dual of eq. (2). We then applying Sion’s minimax theorem to swap the order of min and max operations, which is valid under compactness [15]: min 𝑝(𝑥,𝑎) max 𝜆 E[−𝑝𝐷(𝑝)+ 𝜆(𝑝𝜉(𝐴)− Γ)] = max 𝜆 min 𝑝(𝑥) E[−𝑝𝐷(𝑝)+ 𝜆(𝑝𝜉(𝐴)− Γ)] (7) For a linear demand model, observing that when𝑝∗(𝑥,𝑎) is unrestricted, we let𝑝∗(𝑥,𝑎 ;𝜆) be the optimal solution parameterized by𝜆: 𝑝∗(𝑥,𝑎 ;𝜆)∈ argmax E[−𝑝𝐷(𝑝)+ 𝜆(𝑝𝜉(𝐴)− Γ)| 𝑋 =𝑥,𝐴 =𝑎]. (8) The optimal price with the𝜆 penalty is computable in closed form: 𝑝∗(𝑥,𝑎 ;𝜆) =−𝐷(𝑥,𝑎)+ 𝜆𝜉(𝑎)2𝛽 . Plugging in this solution: max 𝜆 𝐿(𝜆,𝑝∗(𝑋,𝐴 ;𝜆)) = max 𝜆 E \u0002 −𝑝∗(𝑋,𝐴 ;𝜆)𝐷(𝑝∗(𝑋,𝐴 ;𝜆))+ 𝜆(𝑝∗(𝑋,𝐴 ;𝜆)𝜉− Γ)\u0003 We maximize the above over𝜆. Taking derivatives with respect to𝜆, we obtain the first order necessary condition for optimality, letting 𝑝∗(𝜆) =𝑝∗(𝑋,𝐴 ;𝜆),𝐷 =𝐷(𝑋,𝐴) for brevity is: 0 = E \u0014 −𝑝∗(𝜆) 𝑑𝑑𝜆𝐷(𝑝∗(𝜆))+−( 𝑑𝑑𝜆𝑝∗(𝜆))𝐷(𝑝∗(𝜆))+( 𝑝∗(𝜆)𝜉− Γ)+ 𝜆𝜉 22𝛽 \u0015 =",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03516,
+        0.00913,
+        -0.01893,
+        -0.00783,
+        -0.02227
+      ]
+    },
+    {
+      "chunk_index": 80,
+      "start_char": 81600,
+      "end_char": 82800,
+      "length": 1200,
+      "overlap_with_previous": "ain the first order necessary condition for optimality, letting 𝑝∗(𝜆) =𝑝∗(𝑋,𝐴 ;𝜆),𝐷 =𝐷(𝑋,𝐴) for brevity is: 0 = E \u0014 −𝑝∗(𝜆) 𝑑𝑑𝜆𝐷(𝑝∗(𝜆))+−( 𝑑𝑑𝜆𝑝∗(𝜆))𝐷(𝑝∗(𝜆))+( 𝑝∗(𝜆)𝜉− Γ)+ 𝜆𝜉 22𝛽 \u0015 =",
+      "overlap_with_next": "|𝑋 =𝑥]+ E[𝑔(𝑥,𝐴)| 𝑥]. The optimal𝜆− parametrized price is 𝑝∗(𝑥;𝜆) =−𝐷(𝑥)+ 𝜆E[𝜉(𝐴)| 𝑋 =𝑥]2E[𝛽𝐴|𝑋 =𝑥] =−𝐷(𝑥)+ 𝜆 Δ𝑓(𝑥|𝑎)𝑓(𝑥)2E[𝛽𝐴|𝑋 =𝑥] . We correspondingly solve (analogous to the pr",
+      "text": "ain the first order necessary condition for optimality, letting 𝑝∗(𝜆) =𝑝∗(𝑋,𝐴 ;𝜆),𝐷 =𝐷(𝑋,𝐴) for brevity is: 0 = E \u0014 −𝑝∗(𝜆) 𝑑𝑑𝜆𝐷(𝑝∗(𝜆))+−( 𝑑𝑑𝜆𝑝∗(𝜆))𝐷(𝑝∗(𝜆))+( 𝑝∗(𝜆)𝜉− Γ)+ 𝜆𝜉 22𝛽 \u0015 = E \" − −𝐷+𝜆𝜉 2𝛽 ! 𝜉 2− 𝜉2𝛽(𝐷+ 12(−𝐷+𝜆𝜉))+( 𝑝∗(𝜆)𝜉− Γ)+ 𝜆𝜉 22𝛽 # = E \" 𝐷𝜉 4𝛽− 𝐷𝜉4𝛽−𝜆𝜉 22𝛽+(𝑝∗(𝜆)𝜉− Γ)+ 𝜆𝜉 22𝛽 # (9) = E \" −𝐷+𝜆𝜉 2𝛽 𝜉− Γ !# (10) From eq. (11) we conclude 𝜆∗ = E[𝐷(𝑋,𝐴)𝜉(𝐴)+ 2𝛽Γ]E[𝜉 2(𝐴)] . Note that further taking the derivative of eq. 11 with respect to𝜆 verifies𝐿(𝜆,𝑝∗(𝜆)) is concave in𝜆, 𝑑 2𝐿(𝜆,𝑝∗(𝜆))𝑑𝜆 2 = E[𝜉 22𝛽] < 0 under Asn. 3. Therefore the first-order necessary condition is also sufficient. Optimizing over attribute-blind personalized prices 𝑝∗(𝑥): The counterpart of eq. (8) is, scaling by a constant𝑓(𝑥), the covariate density of𝑥, to simplify Δ𝑓(𝑥|𝑎)··= P(𝑋 =𝑥|𝐴 =𝑎)− P(𝑋 =𝑥|𝐴 =𝑏) = E[𝜉(𝐴)| 𝑋 =𝑥]𝑓(𝑥) =(𝜌−1𝑎 P(𝐴 =𝑎|𝑋 =𝑥)− 𝜌−1𝑏 P(𝐴 =𝑏|𝑋 =𝑥))𝑔(𝑥) 𝑝∗(𝑥;𝜆)∈ argmin−𝑝𝐷(𝑝|𝑥)+ 𝜆(𝑝E[𝜉(𝐴)| 𝑋 =𝑥]− Γ) 𝑝∗(𝑥;𝜆)∈ argmin−𝑝𝐷(𝑝|𝑥)𝑓(𝑥)+ 𝜆(𝑝E[𝜉(𝐴)| 𝑋 =𝑥]− Γ)𝑓(𝑥) ⇐⇒ 𝑝∗(𝑥;𝜆)∈ argmin−𝑝𝐷(𝑝|𝑥)𝑓(𝑥)+ 𝜆𝑝Δ𝑓(𝑥|𝑎) Note𝐷(𝑝|𝑥) =𝐷−𝛼+ E[𝛽𝐴|𝑋 =𝑥]+ E[𝑔(𝑥,𝐴)| 𝑥]. The optimal𝜆− parametrized price is 𝑝∗(𝑥;𝜆) =−𝐷(𝑥)+ 𝜆E[𝜉(𝐴)| 𝑋 =𝑥]2E[𝛽𝐴|𝑋 =𝑥] =−𝐷(𝑥)+ 𝜆 Δ𝑓(𝑥|𝑎)𝑓(𝑥)2E[𝛽𝐴|𝑋 =𝑥] . We correspondingly solve (analogous to the pr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07713,
+        0.00544,
+        -0.02398,
+        -0.01969,
+        0.00237
+      ]
+    },
+    {
+      "chunk_index": 81,
+      "start_char": 82620,
+      "end_char": 83820,
+      "length": 1200,
+      "overlap_with_previous": "|𝑋 =𝑥]+ E[𝑔(𝑥,𝐴)| 𝑥]. The optimal𝜆− parametrized price is 𝑝∗(𝑥;𝜆) =−𝐷(𝑥)+ 𝜆E[𝜉(𝐴)| 𝑋 =𝑥]2E[𝛽𝐴|𝑋 =𝑥] =−𝐷(𝑥)+ 𝜆 Δ𝑓(𝑥|𝑎)𝑓(𝑥)2E[𝛽𝐴|𝑋 =𝑥] . We correspondingly solve (analogous to the pr",
+      "overlap_with_next": "distribution across groups. We only included conclusions for case 1 in the main text. In this appendix we also provide a sufficient condition for case 2 (though this is less interp",
+      "text": "|𝑋 =𝑥]+ E[𝑔(𝑥,𝐴)| 𝑥]. The optimal𝜆− parametrized price is 𝑝∗(𝑥;𝜆) =−𝐷(𝑥)+ 𝜆E[𝜉(𝐴)| 𝑋 =𝑥]2E[𝛽𝐴|𝑋 =𝑥] =−𝐷(𝑥)+ 𝜆 Δ𝑓(𝑥|𝑎)𝑓(𝑥)2E[𝛽𝐴|𝑋 =𝑥] . We correspondingly solve (analogous to the previous): max 𝜆 𝐿(𝜆,𝑝∗(𝑋 ;𝜆)) = max 𝜆 E \u0002 −𝑝∗(𝑋 ;𝜆)𝐷(𝑝∗(𝑋 ;𝜆))+ 𝜆(𝑝∗(𝑋 ;𝜆)𝜉− Γ)\u0003 [Page 16] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* with the corresponding first-order conditions 0 = E \u0014 −𝑝∗(𝜆) 𝑑𝑑𝜆𝐷(𝑝∗(𝜆))+−( 𝑑𝑑𝜆𝑝∗(𝜆))𝐷(𝑝∗(𝜆))+( 𝑝∗(𝜆)𝜉− Γ)+ 𝜆 𝜉 22E[𝛽𝐴|𝑋 =𝑥] \u0015 = E \" −𝐷+𝜆E[𝜉(𝐴)| 𝑋 =𝑥] 2E[𝛽𝐴|𝑋 =𝑥] E[𝜉(𝐴)| 𝑋 =𝑥]− Γ !# (11) Analogously we conclude 𝜆∗ = E[𝐷(𝑋)E[𝜉(𝐴)| 𝑋]+ 2E[𝛽𝐴|𝑋]Γ]E[E[𝜉(𝐴)| 𝑋]2] . □ Proof of Proposition 1. We would like to derive conditions that might inform of the sign of𝑝∗(𝑥)− 𝑝∗(𝑥,𝑎). There are a few extreme cases which might be informative (of one regime or another). (1) 𝛽𝑎 =𝛽𝑏,𝐷(𝑥,𝑎) =𝐷(𝑥,𝑏) Disparities are solely due to covariate distributions across groups. (2) 𝛽𝑎 >𝛽𝑏,𝐷(𝑥,𝑎) =𝐷(𝑥,𝑏) =𝐷(𝑥) Disparities are solely due to group-level differences in price elasticity or differences in covariate distribution across groups. We only included conclusions for case 1 in the main text. In this appendix we also provide a sufficient condition for case 2 (though this is less interp",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04605,
+        -0.00705,
+        -0.03973,
+        -0.00745,
+        -0.00776
+      ]
+    },
+    {
+      "chunk_index": 82,
+      "start_char": 83640,
+      "end_char": 84840,
+      "length": 1200,
+      "overlap_with_previous": "distribution across groups. We only included conclusions for case 1 in the main text. In this appendix we also provide a sufficient condition for case 2 (though this is less interp",
+      "overlap_with_next": "𝜌𝑎, and concluding based on nonnegativity of𝜌𝑎,𝜌𝑏. Therefore, identifying signs of terms in eq. (12): 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) = 1𝛽 |{z} <0 '››› « 𝜉(𝑎)(𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥)) | {z } ≤0 +𝜆∗(𝑥)|{z} ≤",
+      "text": "distribution across groups. We only included conclusions for case 1 in the main text. In this appendix we also provide a sufficient condition for case 2 (though this is less interpretable; hence less useful). Under case 1, 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) =−𝐷(𝑥)+ 𝜆∗(𝑥,𝑎)𝜉(𝑎)𝛽 −−𝐷(𝑥)+ 𝜆∗(𝑎)E[𝜉(𝐴)| 𝑋 =𝑥]𝛽 = 𝜉(𝑎)𝜆∗(𝑥,𝑎)− E[𝜉(𝐴)| 𝑋 =𝑥]𝜆∗(𝑥))𝛽 = 𝜉(𝑎)𝜆∗(𝑥,𝑎)− 𝜉(𝑎)𝜆∗(𝑥)+ 𝜉(𝑎)𝜆∗(𝑥)− E[𝜉(𝐴)| 𝑋 =𝑥]𝜆∗(𝑥))𝛽 = 1𝛽 \u0000𝜉(𝑎)(𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥))+ 𝜆∗(𝑥)(𝜉(𝑎)− E[𝜉(𝐴)| 𝑋 =𝑥])\u0001 (12) We conclude the signs of the following terms: (1)(𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥))≤ 0, by assumption of linearity of demand, Jensen’s inequality, since𝑓(𝑥) =𝑥 2 is a convex function, and by iterated expectation: E[E[𝜉(𝐴)| 𝑋]2]≤ E[E[𝜉(𝐴)2|𝑋]] = E[𝜉(𝐴)2] (13) Note that𝜆∗(𝑥,𝑎)≤ 𝜆∗(𝑥) ⇐⇒E[E[𝜉(𝐴)| 𝑋]2]≤ E[𝜉(𝐴)2]. (2) 𝜆∗(𝑥) < 0, under assumption for theorem 1 that group𝑎 faces the higher unrestricted personalized prices. (3)(𝜉(𝑎)− E[𝜉(𝐴)| 𝑋 =𝑥]) > 0 and(𝜉(𝑏)− E[𝜉(𝐴)| 𝑋 =𝑥]) < 0. This may be verified by observing 1 𝜌𝑎 > P(𝐴=𝑎|𝑋 =𝑥)𝜌𝑎 − P(𝐴=𝑏|𝑋 =𝑥)𝜌𝑏 ⇐⇒ 1− P(𝐴 =𝑎|𝑋 =𝑥) >−P(𝐴 =𝑏|𝑋 =𝑥)𝜌𝑎𝜌𝑏 ⇐⇒ 𝜌𝑏 >−𝜌𝑎, and concluding based on nonnegativity of𝜌𝑎,𝜌𝑏. Therefore, identifying signs of terms in eq. (12): 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) = 1𝛽 |{z} <0 '››› « 𝜉(𝑎)(𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥)) | {z } ≤0 +𝜆∗(𝑥)|{z} ≤",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04224,
+        0.01808,
+        -0.05381,
+        -0.02458,
+        0.00489
+      ]
+    },
+    {
+      "chunk_index": 83,
+      "start_char": 84660,
+      "end_char": 85860,
+      "length": 1200,
+      "overlap_with_previous": "𝜌𝑎, and concluding based on nonnegativity of𝜌𝑎,𝜌𝑏. Therefore, identifying signs of terms in eq. (12): 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) = 1𝛽 |{z} <0 '››› « 𝜉(𝑎)(𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥)) | {z } ≤0 +𝜆∗(𝑥)|{z} ≤",
+      "overlap_with_next": " Δ𝑓(𝑥;𝑎,𝑏) < 0 ⇐⇒ P(𝐴 =𝑎|𝑋 =𝑥)P(𝐴 =𝑏|𝑋 =𝑥) < 𝜌𝑎𝜌𝑏 ⇐⇒ P(𝑋 =𝑥|𝐴 =𝑎)P(𝑋 =𝑥|𝐴 =𝑏 < 1, i.e. the sign of Δ𝑓(𝑥;𝑎,𝑏) depends on the covariate likelihood under the two classes (and the magn",
+      "text": "𝜌𝑎, and concluding based on nonnegativity of𝜌𝑎,𝜌𝑏. Therefore, identifying signs of terms in eq. (12): 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) = 1𝛽 |{z} <0 '››› « 𝜉(𝑎)(𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥)) | {z } ≤0 +𝜆∗(𝑥)|{z} ≤0 (𝜉(𝑎)− E[𝜉(𝐴)| 𝑋 =𝑥]) | {z } ≥0 “ﬁﬁﬁ ‹ 𝑝∗(𝑥,𝑏)− 𝑝∗(𝑥) = 1𝛽 |{z} <0 '››› « 𝜉(𝑏) |{z} <0 (𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥))| {z } ≤0 +𝜆∗(𝑥)|{z} ≤0 (𝜉(𝑏)− E[𝜉(𝐴)| 𝑋 =𝑥]) | {z } ≤0 “ﬁﬁﬁ ‹ (14) [Page 17] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, The claim for𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) < 0 follows by simplifying and factoring out𝜌𝑎 and𝜆∗(𝑥)/𝛽𝑎 > 0: 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) < 0 ⇐⇒ 1𝛽 \u0010𝜌−1𝑎 (𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥))+ 𝜆∗(𝑥)(𝜌−1𝑎 (1−( P(𝐴 =𝑎|𝑋 =𝑥)− 𝜌𝑎/𝜌𝑏P(𝐴 =𝑏|𝑋 =𝑥))\u0011 < 0 ⇐⇒ \u0010 E[E[𝜉(𝐴)|𝑋 =𝑥]2] E[𝜉(𝐴) 2] − 1 \u0011 +(( 1−( P(𝐴 =𝑎|𝑋 =𝑥)− 𝜌𝑎/𝜌𝑏P(𝐴 =𝑏|𝑋 =𝑥)) < 0 ⇐⇒ E[E[𝜉(𝐴)|𝑋 =𝑥]2]E[𝜉(𝐴) 2] <(P(𝐴 =𝑎|𝑋 =𝑥)− 𝜌𝑎/𝜌𝑏P(𝐴 =𝑏|𝑋 =𝑥)) The claim follows for𝑝∗(𝑥,𝑏)− 𝑝∗(𝑥) directly from eq. (14). To interpret this condition, denote Δ𝑓(𝑥;𝑎,𝑏) as the covariate-driven group divergence: Δ𝑓(𝑥;𝑎,𝑏)··= P(𝐴 =𝑎|𝑋 =𝑥)− 𝜌𝑎𝜌𝑏 P(𝐴 =𝑏|𝑋 =𝑥) = E[𝜉(𝐴)| 𝑋 =𝑥]𝜌−1𝑎 . Observe that Δ𝑓(𝑥;𝑎,𝑏) < 0 ⇐⇒ P(𝐴 =𝑎|𝑋 =𝑥)P(𝐴 =𝑏|𝑋 =𝑥) < 𝜌𝑎𝜌𝑏 ⇐⇒ P(𝑋 =𝑥|𝐴 =𝑎)P(𝑋 =𝑥|𝐴 =𝑏 < 1, i.e. the sign of Δ𝑓(𝑥;𝑎,𝑏) depends on the covariate likelihood under the two classes (and the magn",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06735,
+        0.02052,
+        -0.03962,
+        -0.02162,
+        0.00626
+      ]
+    },
+    {
+      "chunk_index": 84,
+      "start_char": 85680,
+      "end_char": 86880,
+      "length": 1200,
+      "overlap_with_previous": " Δ𝑓(𝑥;𝑎,𝑏) < 0 ⇐⇒ P(𝐴 =𝑎|𝑋 =𝑥)P(𝐴 =𝑏|𝑋 =𝑥) < 𝜌𝑎𝜌𝑏 ⇐⇒ P(𝑋 =𝑥|𝐴 =𝑎)P(𝑋 =𝑥|𝐴 =𝑏 < 1, i.e. the sign of Δ𝑓(𝑥;𝑎,𝑏) depends on the covariate likelihood under the two classes (and the magn",
+      "overlap_with_next": "𝑥,𝑏)− 𝑝∗(𝑥) > 0 ⇐⇒ −𝜌−1𝑏 \u0012𝜆∗𝑥𝑎 𝜆∗𝑥 − 1 \u0013 | {z } >0 +− 𝐷(𝑥)𝜆∗𝑥 (1− Δ𝛽𝑏(𝑥))+𝜌−1𝑏 \u0012 −1· 𝜆∗𝑥𝑎 𝜆∗𝑥 −𝜌𝑏 E[𝜉(𝐴)| 𝑋 =𝑥]Δ𝛽𝑏(𝑥) \u0013 > 0 Unlike the previous case, this case does not admit deter",
+      "text": " Δ𝑓(𝑥;𝑎,𝑏) < 0 ⇐⇒ P(𝐴 =𝑎|𝑋 =𝑥)P(𝐴 =𝑏|𝑋 =𝑥) < 𝜌𝑎𝜌𝑏 ⇐⇒ P(𝑋 =𝑥|𝐴 =𝑎)P(𝑋 =𝑥|𝐴 =𝑏 < 1, i.e. the sign of Δ𝑓(𝑥;𝑎,𝑏) depends on the covariate likelihood under the two classes (and the magnitude depends on the magnitude of this covariate-based divergence relative to the covariate-uninformed ratio,𝜌𝑎/𝜌𝑏 ). Under case 2: Let Δ𝛽𝑎(𝑥) = 𝛽𝑎E[𝛽𝐴|𝑋 =𝑥] and recall that 𝜆∗𝑥𝑎𝜆∗𝑥 = E[E[𝜉(𝐴)|𝑋 =𝑥]2]E[𝜉(𝐴) 2] ≤ 0. Adding and subtracting−𝐷(𝑥)+𝜉(𝑎)𝜆∗(𝑥)𝛽𝑎 , 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) > 0 ⇐⇒ −𝐷(𝑥)+ 𝜆∗𝑥𝑎𝜉(𝑎) 𝛽𝑎 −−𝐷(𝑥)+ 𝜉(𝑎)𝜆∗𝑥 𝛽𝑎 ! + −𝐷(𝑥)+ 𝜉(𝑎)𝜆∗𝑥 𝛽𝑎 −−𝐷(𝑥)+ E[𝜉(𝐴)| 𝑋 =𝑥]𝜆∗𝑥 E[𝛽𝐴|𝑋 =𝑥] ! > 0 ⇐⇒𝜉(𝑎)𝛽𝑎 (𝜆∗(𝑥,𝑎)− 𝜆∗(𝑥))+− 𝐷(𝑥) \u0012 1𝛽𝑎− 1E[𝛽𝐴|𝑋 =𝑥] \u0013+ \u0012𝜉(𝑎)𝜆∗𝑥𝑎𝛽𝑎 − E[𝜉(𝐴)| 𝑋 =𝑥]𝜆∗𝑥E[𝛽𝐴|𝑋 =𝑥] \u0013 > 0 ⇐⇒𝜉(𝑎) \u0012 E[E[𝜉(𝐴)| 𝑋 =𝑥]2] E[𝜉(𝐴)2] − 1 \u0013 | {z } <0 by𝑒𝑞. (13) +− 𝐷(𝑥)𝜆∗𝑥 (1− Δ𝛽𝑎(𝑥))+ \u0012𝜉(𝑎) E[E[𝜉(𝐴)| 𝑋 =𝑥]2]E[𝜉(𝐴)2] − E[𝜉(𝐴)| 𝑋 =𝑥]Δ𝛽𝑎(𝑥)\u0013 > 0 where in the last line, we factor out𝜆∗(𝑥)/𝛽𝑎 > 0. Correspondingly for𝐴 =𝑎,𝑏 respectively: 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) > 0 ⇐⇒ 𝜌−1𝑎 \u0012𝜆∗𝑥𝑎 𝜆∗𝑥 − 1 \u0013 | {z } <0 +− 𝐷(𝑥)𝜆∗𝑥 (1− Δ𝛽𝑎(𝑥))+𝜌−1𝑎 \u0012𝜆∗𝑥𝑎 𝜆∗𝑥 − Δ𝑓(𝑥;𝑎,𝑏)· Δ𝛽𝑎(𝑥) \u0013 > 0 𝑝∗(𝑥,𝑏)− 𝑝∗(𝑥) > 0 ⇐⇒ −𝜌−1𝑏 \u0012𝜆∗𝑥𝑎 𝜆∗𝑥 − 1 \u0013 | {z } >0 +− 𝐷(𝑥)𝜆∗𝑥 (1− Δ𝛽𝑏(𝑥))+𝜌−1𝑏 \u0012 −1· 𝜆∗𝑥𝑎 𝜆∗𝑥 −𝜌𝑏 E[𝜉(𝐴)| 𝑋 =𝑥]Δ𝛽𝑏(𝑥) \u0013 > 0 Unlike the previous case, this case does not admit deter",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04685,
+        0.02117,
+        -0.03536,
+        -0.00994,
+        -0.00942
+      ]
+    },
+    {
+      "chunk_index": 85,
+      "start_char": 86700,
+      "end_char": 87900,
+      "length": 1200,
+      "overlap_with_previous": "𝑥,𝑏)− 𝑝∗(𝑥) > 0 ⇐⇒ −𝜌−1𝑏 \u0012𝜆∗𝑥𝑎 𝜆∗𝑥 − 1 \u0013 | {z } >0 +− 𝐷(𝑥)𝜆∗𝑥 (1− Δ𝛽𝑏(𝑥))+𝜌−1𝑏 \u0012 −1· 𝜆∗𝑥𝑎 𝜆∗𝑥 −𝜌𝑏 E[𝜉(𝐴)| 𝑋 =𝑥]Δ𝛽𝑏(𝑥) \u0013 > 0 Unlike the previous case, this case does not admit deter",
+      "overlap_with_next": "gela Zhou* so that ( ˆ𝑝∗−𝑝∗) 1−∇ ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗) ! =− ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗)∇ ˆ𝐷( ˆ𝑝∗)∇𝐷(𝑝∗)+𝑜(( ˆ𝑝∗−𝑝∗)2) =− ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗) 1+∇ ˆ𝐷( ˆ𝑝∗)−∇ 𝐷(𝑝∗)∇",
+      "text": "𝑥,𝑏)− 𝑝∗(𝑥) > 0 ⇐⇒ −𝜌−1𝑏 \u0012𝜆∗𝑥𝑎 𝜆∗𝑥 − 1 \u0013 | {z } >0 +− 𝐷(𝑥)𝜆∗𝑥 (1− Δ𝛽𝑏(𝑥))+𝜌−1𝑏 \u0012 −1· 𝜆∗𝑥𝑎 𝜆∗𝑥 −𝜌𝑏 E[𝜉(𝐴)| 𝑋 =𝑥]Δ𝛽𝑏(𝑥) \u0013 > 0 Unlike the previous case, this case does not admit determinate conclusions on signs. We may simplify the condition to obtain that if−Δ𝑓(𝑥;𝑎,𝑏)𝜆∗𝑥+𝐷(𝑥)𝜌𝑎 > 0, 𝑝∗(𝑥,𝑎)− 𝑝∗(𝑥) > 0 ⇐⇒ Δ𝛽𝑎(𝑥) < 𝜆∗𝑥−2𝜆∗𝑥𝑎+𝐷(𝑥)𝜌𝑎−Δ𝑓(𝑥;𝑎,𝑏)𝜆∗𝑥+𝐷(𝑥)𝜌𝑎, with the inequality on Δ𝛽𝑎(𝑥) holding in the opposite direction if instead−Δ𝑓(𝑥;𝑎,𝑏)𝜆∗𝑥+𝐷(𝑥)𝜌𝑎 < 0. □ B.2 Model error fairness Proof of proposition 2 . We omit dependence on fixed𝑥 and denote𝐷(𝑝) =𝐷(𝑝|𝑥). Gradient∇ is with respect to𝑝. We assume price elasticity of demand is nonpositive,∇𝑝𝜂 < 0. We specialize to a revenue setting by observing that∇ℎ =𝜂(𝑝)+∇ 𝜂·𝑝, so that ˆ𝑝∗,𝑝∗ satisfy the first order optimality conditions: ˆ𝑝∗ =− ˆ𝐷( ˆ𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗), 𝑝 ∗ =− 𝜂(𝑝∗)∇𝜂(𝑝∗). Taylor expanding ˆ𝐷( ˆ𝑝∗) around𝑝∗: ˆ𝑝∗−𝑝∗ =− ˆ𝐷( ˆ𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇𝐷(𝑝∗) = ˆ𝐷(𝑝∗)+∇ ˆ𝐷(𝑝∗)( ˆ𝑝∗−𝑝∗)∇ ˆ𝐷( ˆ𝑝∗) + 𝐷(𝑝∗)∇𝐷(𝑝∗) [Page 18] ACM FAccT ’21, March 03–10, 2021, Nathan Kallus and Angela Zhou* so that ( ˆ𝑝∗−𝑝∗) 1−∇ ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗) ! =− ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗)∇ ˆ𝐷( ˆ𝑝∗)∇𝐷(𝑝∗)+𝑜(( ˆ𝑝∗−𝑝∗)2) =− ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗) 1+∇ ˆ𝐷( ˆ𝑝∗)−∇ 𝐷(𝑝∗)∇",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01759,
+        0.01187,
+        -0.04102,
+        -0.0099,
+        -0.02121
+      ]
+    },
+    {
+      "chunk_index": 86,
+      "start_char": 87720,
+      "end_char": 88920,
+      "length": 1200,
+      "overlap_with_previous": "gela Zhou* so that ( ˆ𝑝∗−𝑝∗) 1−∇ ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗) ! =− ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗)∇ ˆ𝐷( ˆ𝑝∗)∇𝐷(𝑝∗)+𝑜(( ˆ𝑝∗−𝑝∗)2) =− ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗) 1+∇ ˆ𝐷( ˆ𝑝∗)−∇ 𝐷(𝑝∗)∇",
+      "overlap_with_next": "licit Function Theorem (Thm. 1B.1 of [ 23]). Consider a function 𝑓 : R𝑑× R𝑛↦→ R𝑛 with values 𝑓(𝜆,𝑝) with𝜆 the parameter and 𝑝 the variable to solve for. The equation 𝑓(𝜆,𝑝) is asso",
+      "text": "gela Zhou* so that ( ˆ𝑝∗−𝑝∗) 1−∇ ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗) ! =− ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗)∇ ˆ𝐷( ˆ𝑝∗)∇𝐷(𝑝∗)+𝑜(( ˆ𝑝∗−𝑝∗)2) =− ˆ𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)+ 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗) 1+∇ ˆ𝐷( ˆ𝑝∗)−∇ 𝐷(𝑝∗)∇𝐷(𝑝∗) !+𝑜(( ˆ𝑝∗−𝑝∗)2) = ˆ𝐷(𝑝∗)− 𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗) + 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)−∇ 𝐷(𝑝∗)∇𝐷(𝑝∗) !+𝑜(( ˆ𝑝∗−𝑝∗)2) Therefore, ( ˆ𝑝∗−𝑝∗) = ∇ ˆ𝐷( ˆ𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)−∇ ˆ𝐷(𝑝∗) ! ˆ𝐷(𝑝∗)− 𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗) + 𝐷(𝑝∗)∇ ˆ𝐷( ˆ𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)−∇ 𝐷(𝑝∗)∇𝐷(𝑝∗) !!+𝑜(( ˆ𝑝∗−𝑝∗)2) =(∇ ˆ𝐷( ˆ𝑝∗)−∇ ˆ𝐷(𝑝∗))−1 \u0012 ˆ𝐷(𝑝∗)− 𝐷(𝑝∗)+ 𝐷(𝑝∗)∇𝐷(𝑝∗) \u0010∇ ˆ𝐷( ˆ𝑝∗)−∇ 𝐷(𝑝∗)\u0011\u0013+𝑜(( ˆ𝑝∗−𝑝∗)2) 1=(∇ ˆ𝐷( ˆ𝑝∗)−∇ ˆ𝐷(𝑝∗))−1 \u0012 ˆ𝐷(𝑝∗)− 𝐷(𝑝∗)+ 𝐷(𝑝∗)∇𝐷(𝑝∗) \u0010∇ ˆ𝐷( ˆ𝑝∗)−∇ ˆ𝐷(𝑝∗)+∇ ˆ𝐷(𝑝∗)−∇ 𝐷(𝑝∗)\u0011\u0013.. = ˆ𝐷(𝑝∗)− 𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)−∇ ˆ𝐷(𝑝∗)+𝑝∗ 1+∇ ˆ𝐷(𝑝∗)−∇ 𝐷(𝑝∗) ∇ ˆ𝐷( ˆ𝑝∗)−∇ ˆ𝐷(𝑝∗) !! +𝑜(( ˆ𝑝∗−𝑝∗)2) where in 1 we expand \u0010 ∇ ˆ𝐷( ˆ𝑝∗)−∇ 𝐷(𝑝∗)\u0011; then simplify. □ B.3 Market share The main tool for analyzing local sensitivities of the optimal prices is an implicit function theorem to differentiate the optimal solution with respect to the parameter. We state it for completeness. Theorem 3 (Dini Classical Implicit Function Theorem (Thm. 1B.1 of [ 23]). Consider a function 𝑓 : R𝑑× R𝑛↦→ R𝑛 with values 𝑓(𝜆,𝑝) with𝜆 the parameter and 𝑝 the variable to solve for. The equation 𝑓(𝜆,𝑝) is asso",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05769,
+        0.01928,
+        -0.03226,
+        -0.01236,
+        -0.00908
+      ]
+    },
+    {
+      "chunk_index": 87,
+      "start_char": 88740,
+      "end_char": 89940,
+      "length": 1200,
+      "overlap_with_previous": "licit Function Theorem (Thm. 1B.1 of [ 23]). Consider a function 𝑓 : R𝑑× R𝑛↦→ R𝑛 with values 𝑓(𝜆,𝑝) with𝜆 the parameter and 𝑝 the variable to solve for. The equation 𝑓(𝜆,𝑝) is asso",
+      "overlap_with_next": "sfies 1𝑝∗(𝑥)+𝜆+ 𝐷′(𝑝∗(𝑥)|𝑥)𝐷(𝑝∗(𝑥)|𝑥) = 0, ∀𝑥 so that ∇𝜆𝑝∗(𝑥; 0) = 𝑅′′(𝑝∗(𝑥)| 𝑥))−1𝑝∗(𝑥)2 . (2) 𝑝∗(𝑥,𝑎) with population market share satisfies 1𝑝∗(𝑥,𝑎)+𝜆+ 𝐷′(𝑝∗(𝑥,𝑎)|𝑥,𝑎)𝐷(𝑝∗(𝑥,𝑎)|",
+      "text": "licit Function Theorem (Thm. 1B.1 of [ 23]). Consider a function 𝑓 : R𝑑× R𝑛↦→ R𝑛 with values 𝑓(𝜆,𝑝) with𝜆 the parameter and 𝑝 the variable to solve for. The equation 𝑓(𝜆,𝑝) is associated with the solution mapping 𝑆 : 𝜆↦→{𝑝∈ R𝑛| 𝑓(𝜆,𝑝) = 0}, for𝜆∈ R𝑑 Let𝑓 be continuously differentiable in a neighborhood of (𝜆,𝑝) such that 𝑓(𝜆,𝑝) = 0, and let the partial Jacobian of 𝑓 with respect to 𝑝 at (𝜆,𝑝), namely∇𝑥𝑓(𝜆,𝑝). Then the solution mapping S has a single valued localization s around 𝜆 for𝑝 which is continuously differentiable in a neighborhood 𝑄 of𝑝 with Jacobian satisfying ∇𝑠(𝜆) =−∇𝑝𝑓(𝜆,𝑠(𝜆))−1∇𝜆𝑓(𝜆,𝑠(𝜆)) for every𝜆∈𝑄 Using the implicit function theorem, we can characterize the sensitivities of solutions under attribute-blind vs. attribute-based, and group market share vs. population market share penalties. We restate an expanded versio of Lemma 1. Lemma 1[Optimality conditions for different penalties ] The sensitivities of price with respect to𝜆, 𝜕𝑝∗(𝑥)𝜕𝜆 . (1) 𝑝∗(𝑥) with population market share penalty satisfies 1𝑝∗(𝑥)+𝜆+ 𝐷′(𝑝∗(𝑥)|𝑥)𝐷(𝑝∗(𝑥)|𝑥) = 0, ∀𝑥 so that ∇𝜆𝑝∗(𝑥; 0) = 𝑅′′(𝑝∗(𝑥)| 𝑥))−1𝑝∗(𝑥)2 . (2) 𝑝∗(𝑥,𝑎) with population market share satisfies 1𝑝∗(𝑥,𝑎)+𝜆+ 𝐷′(𝑝∗(𝑥,𝑎)|𝑥,𝑎)𝐷(𝑝∗(𝑥,𝑎)|",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08647,
+        -0.0044,
+        0.01163,
+        0.00703,
+        0.01613
+      ]
+    },
+    {
+      "chunk_index": 88,
+      "start_char": 89760,
+      "end_char": 90960,
+      "length": 1200,
+      "overlap_with_previous": "sfies 1𝑝∗(𝑥)+𝜆+ 𝐷′(𝑝∗(𝑥)|𝑥)𝐷(𝑝∗(𝑥)|𝑥) = 0, ∀𝑥 so that ∇𝜆𝑝∗(𝑥; 0) = 𝑅′′(𝑝∗(𝑥)| 𝑥))−1𝑝∗(𝑥)2 . (2) 𝑝∗(𝑥,𝑎) with population market share satisfies 1𝑝∗(𝑥,𝑎)+𝜆+ 𝐷′(𝑝∗(𝑥,𝑎)|𝑥,𝑎)𝐷(𝑝∗(𝑥,𝑎)|",
+      "overlap_with_next": "re𝑝∗(𝑥) satisfies the following: 1 𝑝∗(𝑥)+ 𝜆+ 𝐷′(𝑝∗(𝑥)| 𝑥)𝐷(𝑝∗(𝑥)| 𝑥) = 0, ∀𝑥 (3) 𝑝∗(𝑥,𝑎) with group-level market share ⇐⇒𝑝∗(𝑥,𝑎)∈ argmax E[(𝑝+𝜆𝑎/𝜌𝑎)𝐷(𝑝)| 𝑋 =𝑥,𝐴 =𝑎] ⇐⇒𝑝∗(𝑥,𝑎)∈ argm",
+      "text": "sfies 1𝑝∗(𝑥)+𝜆+ 𝐷′(𝑝∗(𝑥)|𝑥)𝐷(𝑝∗(𝑥)|𝑥) = 0, ∀𝑥 so that ∇𝜆𝑝∗(𝑥; 0) = 𝑅′′(𝑝∗(𝑥)| 𝑥))−1𝑝∗(𝑥)2 . (2) 𝑝∗(𝑥,𝑎) with population market share satisfies 1𝑝∗(𝑥,𝑎)+𝜆+ 𝐷′(𝑝∗(𝑥,𝑎)|𝑥,𝑎)𝐷(𝑝∗(𝑥,𝑎)|𝑥,𝑎) = 0, ∀𝑥,𝑎 so that ∇𝜆𝑝∗(𝑥,𝑎 ; 0) = 𝑅′′(𝑝∗(𝑥,𝑎)| 𝑥,𝑎))−1𝑝∗(𝑥,𝑎)2 . (3) 𝑝∗(𝑥,𝑎) with group-level market share 1𝑝∗(𝑥,𝑎)+𝜆𝑎/𝜌𝑎+ 𝐷′(𝑝∗(𝑥,𝑎)|𝑥,𝑎)𝐷(𝑝∗(𝑥,𝑎)|𝑥,𝑎) = 0 so that ∇𝜆𝑝∗(𝑥,𝑎 ; 0) = 1𝜌𝑎 𝑅′′(𝑝∗(𝑥,𝑎)| 𝑥,𝑎))−1𝑝∗(𝑥,𝑎)2 . [Page 19] Fairness, Welfare, and Equity in Personalized Pricing ACM FAccT ’21, March 03–10, 2021, Proof of Lemma 1. (1) 𝑝∗(𝑥,𝑎) with population market share 𝑝∗(𝑥,𝑎)∈ argmax E[𝑝𝐷(𝑝)]+ 𝜆E[𝐷(𝑝)] ⇐⇒𝑝∗(𝑥,𝑎)∈ argmax log((𝑝+𝜆)𝐷(𝑝|𝑥,𝑎)) Therefore𝑝∗(𝑥,𝑎) satisfies the following: 1 𝑝∗(𝑥,𝑎)+ 𝜆+ 𝐷′(𝑝∗(𝑥,𝑎)| 𝑥,𝑎)𝐷(𝑝∗(𝑥,𝑎)| 𝑥,𝑎) = 0, ∀𝑥,𝑎 The expression for∇𝜆𝑝∗(𝑥)( 0) follows by applying the Implicit function theorem on the optimality condition. (2) 𝑝∗(𝑥) with population market share 𝑝∗(𝑥)∈ argmax E[𝑝𝐷(𝑝)]+ 𝜆E[𝐷(𝑝)] ⇐⇒𝑝∗(𝑥)∈ argmax E[E[(𝑝+𝜆)𝐷(𝑝)| 𝑋]],∀𝑥 ⇐⇒𝑝∗(𝑥)∈ argmax(𝑝+𝜆)𝐷(𝑝|𝑥),∀𝑥 ⇐⇒𝑝∗(𝑥)∈ argmax log((𝑝+𝜆)𝐷(𝑝|𝑥)),∀𝑥 Therefore𝑝∗(𝑥) satisfies the following: 1 𝑝∗(𝑥)+ 𝜆+ 𝐷′(𝑝∗(𝑥)| 𝑥)𝐷(𝑝∗(𝑥)| 𝑥) = 0, ∀𝑥 (3) 𝑝∗(𝑥,𝑎) with group-level market share ⇐⇒𝑝∗(𝑥,𝑎)∈ argmax E[(𝑝+𝜆𝑎/𝜌𝑎)𝐷(𝑝)| 𝑋 =𝑥,𝐴 =𝑎] ⇐⇒𝑝∗(𝑥,𝑎)∈ argm",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0641,
+        0.01937,
+        -0.01278,
+        -0.03577,
+        -0.00809
+      ]
+    },
+    {
+      "chunk_index": 89,
+      "start_char": 90780,
+      "end_char": 91980,
+      "length": 1200,
+      "overlap_with_previous": "re𝑝∗(𝑥) satisfies the following: 1 𝑝∗(𝑥)+ 𝜆+ 𝐷′(𝑝∗(𝑥)| 𝑥)𝐷(𝑝∗(𝑥)| 𝑥) = 0, ∀𝑥 (3) 𝑝∗(𝑥,𝑎) with group-level market share ⇐⇒𝑝∗(𝑥,𝑎)∈ argmax E[(𝑝+𝜆𝑎/𝜌𝑎)𝐷(𝑝)| 𝑋 =𝑥,𝐴 =𝑎] ⇐⇒𝑝∗(𝑥,𝑎)∈ argm",
+      "overlap_with_next": "distributed online in 2013. 𝑁 = 1116. There are 28 data columns with information including categorical age values, gender, geographic factors and risk factors, and information abou",
+      "text": "re𝑝∗(𝑥) satisfies the following: 1 𝑝∗(𝑥)+ 𝜆+ 𝐷′(𝑝∗(𝑥)| 𝑥)𝐷(𝑝∗(𝑥)| 𝑥) = 0, ∀𝑥 (3) 𝑝∗(𝑥,𝑎) with group-level market share ⇐⇒𝑝∗(𝑥,𝑎)∈ argmax E[(𝑝+𝜆𝑎/𝜌𝑎)𝐷(𝑝)| 𝑋 =𝑥,𝐴 =𝑎] ⇐⇒𝑝∗(𝑥,𝑎)∈ argmax(𝑝+𝜆𝑎/𝜌𝑎)𝐷(𝑝|𝑥,𝑎) ⇐⇒𝑝∗(𝑥,𝑎)∈ argmax log((𝑝+𝜆𝑎/𝜌𝑎)𝐷(𝑝|𝑥,𝑎)) Therefore𝑝∗(𝑥,𝑎 ;𝜆) is such that 1 𝑝+𝜆𝑎/𝜌𝑎 + 𝐷′(𝑝|𝑥,𝑎)𝐷(𝑝|𝑥,𝑎) = 0 □ B.4 Allocative efficiency: Concordance Proof of Theorem 2. LetI{𝐴 =𝑎} denote index sets for data points within group𝑎, etc. P(𝐷(𝑝𝑖) <𝐷(𝑝𝑗)| 𝑃𝑎 <𝑃𝑏) = 1|{(𝑖,𝑗) :𝑝𝑖 <𝑝𝑗}| 1𝑛2 ∑︁𝑖∈I{𝐴=𝑎} ∑︁𝑗∈I{𝐴=𝑏} I[𝐷(𝑝𝑖) = 0,𝐷(𝑝𝑗) = 1,𝑝𝑖 <𝑝𝑗] = 1|{(𝑖,𝑗) :𝑝𝑖 <𝑝𝑗}| 1𝑛2 ∑︁𝑖∈I{𝐴=𝑎} ∑︁𝑗∈I{𝐴=𝑏} I[𝑣𝑖 <𝑝𝑖 <𝑝𝑗 <𝑣𝑗] ≤ 1|{(𝑖,𝑗) :𝑝𝑖 <𝑝𝑗}| 1𝑛2 ∑︁𝑖∈I{𝐴=𝑎} ∑︁𝑗∈I{𝐴=𝑏} I[{𝑣𝑖 <𝑣𝑗}∩{ 𝑝𝑖 <𝑝𝑗}] = P(𝑉𝑎 >𝑉𝑏|𝑃𝑎 <𝑃𝑏) where the first equality holds because under Asn. 1 (a.s. monotonicity), the following events are a.s. equivalent: {𝑝𝑖 <𝑝𝑗,𝐷(𝑝𝑖) = 0,𝐷(𝑝𝑗) = 1} ⇐⇒𝑣𝑗 >𝑣𝑖. The second inequality holds because{𝑣𝑖 <𝑝𝑖 <𝑝𝑗 <𝑣𝑗}⊂{{ 𝑣𝑖 <𝑣𝑗}∩{ 𝑝𝑖 <𝑝𝑗}}. □ C DATASET DETAILS Details about the study [ 53]. We omit concerns about non-response. The survey was distributed online in 2013. 𝑁 = 1116. There are 28 data columns with information including categorical age values, gender, geographic factors and risk factors, and information abou",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04754,
+        0.00829,
+        -0.04239,
+        -0.00734,
+        -0.02433
+      ]
+    },
+    {
+      "chunk_index": 90,
+      "start_char": 91800,
+      "end_char": 92017,
+      "length": 217,
+      "overlap_with_previous": "distributed online in 2013. 𝑁 = 1116. There are 28 data columns with information including categorical age values, gender, geographic factors and risk factors, and information abou",
+      "overlap_with_next": "",
+      "text": "distributed online in 2013. 𝑁 = 1116. There are 28 data columns with information including categorical age values, gender, geographic factors and risk factors, and information about knowledge and trust about vaccines.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06095,
+        -0.02112,
+        -0.00818,
+        -0.003,
+        -0.01627
+      ]
+    }
+  ]
+}

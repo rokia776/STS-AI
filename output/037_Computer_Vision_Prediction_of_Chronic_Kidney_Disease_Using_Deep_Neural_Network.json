@@ -1,0 +1,453 @@
+{
+  "paper_id": "ea59ca96-fa55-4eb8-ae7d-dd5be8da879c",
+  "filename": "037_Computer_Vision_Prediction_of_Chronic_Kidney_Disease_Using_Deep_Neural_Network.pdf",
+  "title": "Prediction of Chronic Kidney Disease Using Deep Neural Network",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 26,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "ears only t o be realized lately. Bade, a Local Government of Yobe state in Nigeria has bee n a center of attention by medical practitioners due to the prevalence of CKD. Unfortuna",
+      "text": "[Page 1] 1 Prediction of Chronic Kidney Disease Using Deep Neural Network Iliyas Ibrahim Iliyas1, Isah Rambo Saidu2, Ali Baba Dauda3 and Suleiman Tasiu4 1,2Nigerian Defence Academy, Nigeria 3University of Maiduguri, Borno State, Nigeria 4Federal University Dutsinma, Katsina State, Nigeria, Abstract - Deep n eural Network (DNN) is becoming a focal point in Machine Learning research. Its application is penetrating into different fields and solving intricate and complex problems. DNN is now been applied in health image processing to detect various ailment such as cancer and diabetes. Another d isease that is causing threat to our health is the kidney disease. This disease is becoming prevalent due to substances and elements we intake. Death is imminent and inevitable within few days without at least one functioning kidney. Ignoring the kidney ma lfunction can cause chronic kidney disease leading to death. Frequently, Chronic Kidney Disease (CKD) and its symptoms are mild and gradual, often go unnoticed for years only t o be realized lately. Bade, a Local Government of Yobe state in Nigeria has bee n a center of attention by medical practitioners due to the prevalence of CKD. Unfortuna",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01217,
+        -0.00741,
+        -0.05672,
+        -0.02449,
+        -0.0342
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "ears only t o be realized lately. Bade, a Local Government of Yobe state in Nigeria has bee n a center of attention by medical practitioners due to the prevalence of CKD. Unfortuna",
+      "overlap_with_next": "”, given tha t the possibility of learning is the main characteristic of an entity called intelligent in the broadest sense of the word ( Joshi and Chawan , 2018). The purpose of m",
+      "text": "ears only t o be realized lately. Bade, a Local Government of Yobe state in Nigeria has bee n a center of attention by medical practitioners due to the prevalence of CKD. Unfortunately, a technical approach in culminating the disease is yet to be attained. We obtained a record of 400 patients with 10 attributes as our dataset from Bade General Hospital. We used DNN model to predict the absence or presence of CKD in the patients. The model produced an accuracy of 98%. Furthermore, we identified and highlighted the Fea tures importance to provide the ranking of the features used in the prediction of the CKD. The outcome revealed that two attributes; Creatinine and Bicarbonate have the highest influence on the CKD prediction. Keywords: Algorithm, Deep Learning, Medical, Machine Learning, Model 1 Introduction Machine Learning is the scientific fi eld dealing with the ways in which machines learn from experience. For many scientists, the term “machine learning” is identical to the term “artificial intelligence”, given tha t the possibility of learning is the main characteristic of an entity called intelligent in the broadest sense of the word ( Joshi and Chawan , 2018). The purpose of m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00691,
+        -0.02418,
+        -0.07817,
+        -0.03087,
+        -0.01211
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "”, given tha t the possibility of learning is the main characteristic of an entity called intelligent in the broadest sense of the word ( Joshi and Chawan , 2018). The purpose of m",
+      "overlap_with_next": "such that Chronic Kidney Di sease (C KD) represent about 8 -10% of hospital admissions ( Ulasi and Ijoma, 2010). Therefore, diagnosis technique is needed so that control or precaut",
+      "text": "”, given tha t the possibility of learning is the main characteristic of an entity called intelligent in the broadest sense of the word ( Joshi and Chawan , 2018). The purpose of machine learning is the construction of computer systems that can adapt and learn from their experience. With the use of machine learning to extract useful information can be lend in solving various problems, kidney disease included. Purusothaman and Krishnakumari, (2015) indicated that kidney failure falls one among several classes of disease such as heart disease, blindness etc. which results due to chronic [Page 2] 2 diabetes. Dialysis and transplant are the only method to keep the kidneys function artificially and it is also painful and expensive process . According Luyckx, and Stanifer, (2018) kidney disease increased globally from 19 million in 1990 to 33 million in 2013 in 2016 and in 2010 2.62 million people received dialysis worldwide and the need for dialysis is projected to double by 2030. In Nigeria, the situation is such that Chronic Kidney Di sease (C KD) represent about 8 -10% of hospital admissions ( Ulasi and Ijoma, 2010). Therefore, diagnosis technique is needed so that control or precaut",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01586,
+        -0.00926,
+        -0.03944,
+        -0.00136,
+        0.0008
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "such that Chronic Kidney Di sease (C KD) represent about 8 -10% of hospital admissions ( Ulasi and Ijoma, 2010). Therefore, diagnosis technique is needed so that control or precaut",
+      "overlap_with_next": "Recall, ROC Score, Kohens Kappa, F1 Scoreand Precision. The rest of the paper is organized as follows: Section 2 provides the related work on ML and DNN. Section 3 presents how the",
+      "text": "such that Chronic Kidney Di sease (C KD) represent about 8 -10% of hospital admissions ( Ulasi and Ijoma, 2010). Therefore, diagnosis technique is needed so that control or precautions can be taken before becomes late. To acquire important information from medical databases, techniques from various data mining was found very much useful (Chahal and Gulia 2019 ). By combining machine learning and statistical analysis, very useful information can be drawn from medical databases. Machine learning methods coordina tes various statistical analyses and databases helps to extract hidden patterns and relationships from huge and multiple variable data. The accuracy of a given classifier is ensured through testing the model or technique. Moreover, attributes like Specificity, Sensitivity, and Accuracy are common for disease detection (Padmanaban and Parthiban 2016). In this paper we used a Deep Neural Network model to predict CKD and evaluate the performance of the model by computing the Specif icity, Sensitivity, Recall, ROC Score, Kohens Kappa, F1 Scoreand Precision. The rest of the paper is organized as follows: Section 2 provides the related work on ML and DNN. Section 3 presents how the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02335,
+        -0.01963,
+        -0.09113,
+        0.00329,
+        -0.01935
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "Recall, ROC Score, Kohens Kappa, F1 Scoreand Precision. The rest of the paper is organized as follows: Section 2 provides the related work on ML and DNN. Section 3 presents how the",
+      "overlap_with_next": "PD). Severity prediction on the basis of total Unified Parkisons Disease Rating Scale (UPDRS) accuracy score of 94.4422% and 62.7335% for train and test dataset respectively and se",
+      "text": "Recall, ROC Score, Kohens Kappa, F1 Scoreand Precision. The rest of the paper is organized as follows: Section 2 provides the related work on ML and DNN. Section 3 presents how the research is carried out, while Section 4 provides the results of the research and the discussion. In Section 5, we provided the conclu sion of the paper, recommendations and direction for further work. 2 Related Work A remarkable number of researches have been conducted in the area of machine learning for bu ilding models that assist in predicting different types of different types of di seases and health related problems, using different machine learning algorithms. This section presents a review of some of conducted research in the area of machine learning in Chronic Kidney disease prediction. Ge et al. (2019) Predicted parkisons disease severity using Deep Neural Network with UCI’s parkison’s telemonitoring voice dataset of patients. The studies comprised a biomedical voice measurement of 42 patients with Parkisons Disease (PD). Severity prediction on the basis of total Unified Parkisons Disease Rating Scale (UPDRS) accuracy score of 94.4422% and 62.7335% for train and test dataset respectively and se",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02496,
+        -0.01956,
+        -0.04138,
+        -0.00756,
+        0.00202
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "PD). Severity prediction on the basis of total Unified Parkisons Disease Rating Scale (UPDRS) accuracy score of 94.4422% and 62.7335% for train and test dataset respectively and se",
+      "overlap_with_next": "ng and feature selection method and compared the accuracy for all the algorithms with Random Forest(RF) algorithm:85.77%, Decision Tree(DT):88.14%, K - Nearest Neighbor (KNN):89.72",
+      "text": "PD). Severity prediction on the basis of total Unified Parkisons Disease Rating Scale (UPDRS) accuracy score of 94.4422% and 62.7335% for train and test dataset respectively and severity PD severity on the basis of total UPDRS accuracy scor e of 83.367% and 81.6657% for train and test dataset respectively. [Page 3] 3 Ayon and Isl am (2019) Proposed a strategy for the diagnosis of diabetes using DNN on PIM Indian Diabetes (PID) dataset from UCI machine learning repository with an accuracy of 98.35%, F1 S core:98% and MCC:97% for five-fold cross validation. Additionally, accuracy of 97.11%, Sensitivity :96.25% and Specificity:98.80% obtained for ten -fold cross validation and indicated that five -fold cross validation showed better performance. Shafiet al. (2020) Proposed a machine learning based solution to avoid cleft in the mother’s womb with Deep Leaning method and other four methods, on 1000 pregnant female samples from 3 different hospitals in Lahore, Punjab. The authors performed data cleaning, scaling and feature selection method and compared the accuracy for all the algorithms with Random Forest(RF) algorithm:85.77%, Decision Tree(DT):88.14%, K - Nearest Neighbor (KNN):89.72",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0385,
+        -0.01396,
+        -0.04749,
+        -0.00031,
+        -0.02346
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ng and feature selection method and compared the accuracy for all the algorithms with Random Forest(RF) algorithm:85.77%, Decision Tree(DT):88.14%, K - Nearest Neighbor (KNN):89.72",
+      "overlap_with_next": "LR mode with the accuracy of 84.44%, sensitivity of 84.21, specificity of 84.61% and Area Under the Curve (AUC) of 84.41% and found that the most important factors that have a clea",
+      "text": "ng and feature selection method and compared the accuracy for all the algorithms with Random Forest(RF) algorithm:85.77%, Decision Tree(DT):88.14%, K - Nearest Neighbor (KNN):89.72%, Support vector Machine(SVM):90.69% and Multilayer perception(MLP) which is a Deep Neural Network:92.6%. and indicated that MLP yield a better accuracy. Sharma and P armar (2020) Proposed a model for heart disease prediction with DNN model on heart disease UCI dataset with six (6) different classifiers KNN, SVM, NB, RF and DNN using talos optimization. Their work indicated an accuracy for KNN:90.16%, Logistic Regressio n:82.5%, SVM:81.97%, NB:85.25% and DNN with Talos optimization:90.78%. Ahmed and Alshebly ( 2019) applied different machine learning algori thm which are Artificial Neural Network and Logistic Regression (LR) to a problem in the domain on medical diagnosis and analyzed their efficiency of the prediction on 153 case and 11 attribute of CKD patients, the observed performance of the ANNs classifi er is better than LR mode with the accuracy of 84.44%, sensitivity of 84.21, specificity of 84.61% and Area Under the Curve (AUC) of 84.41% and found that the most important factors that have a clea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05389,
+        -0.01818,
+        -0.03671,
+        -0.00091,
+        -0.03335
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "LR mode with the accuracy of 84.44%, sensitivity of 84.21, specificity of 84.61% and Area Under the Curve (AUC) of 84.41% and found that the most important factors that have a clea",
+      "overlap_with_next": ". Their proposed method is based on deep neural network which predicts the presence or absence of chronic kidney disease with an accuracy of 97%. Compared to ot her available algor",
+      "text": "LR mode with the accuracy of 84.44%, sensitivity of 84.21, specificity of 84.61% and Area Under the Curve (AUC) of 84.41% and found that the most important factors that have a clear impact on chronic kidney disease patients are creatinine and urea. Chimwayi et al. (2017) applied neuro-fuzzy algorithm to determine the risk of CKD patients, using a dataset which had 25 attributes (14 nominal and 11 numeric) describing early stages of CKD in Indian s, with accuracy of 100%, sensitivity of 100% and specificity of 97%, they suggested that the work shou ld be added to the domain of healthcare and can be used for providing suggestions in the domain by making it easy for healthcare professionals in diagnosis and treatmen t of patients as well as for identifying relationships within diseases suffer by patients. Kriplani et al. (2019) studied 224 records of chronic kidney disease available on the UC Irvine (UCI) machine learning repository named chronic kidney diseases dating back to 2015 and proposed an a lgorithm. Their proposed method is based on deep neural network which predicts the presence or absence of chronic kidney disease with an accuracy of 97%. Compared to ot her available algor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05475,
+        -0.01224,
+        -0.05345,
+        0.02344,
+        -0.02547
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": ". Their proposed method is based on deep neural network which predicts the presence or absence of chronic kidney disease with an accuracy of 97%. Compared to ot her available algor",
+      "overlap_with_next": " in terms of predicting the presence and absence of CKD. Arafat et al. ( 2018) studied an automated detection of CKD with clinical data u sing Random Forest (RF) , Naïve Bayes(ND) ",
+      "text": ". Their proposed method is based on deep neural network which predicts the presence or absence of chronic kidney disease with an accuracy of 97%. Compared to ot her available algorithms, the model built shows better [Page 4] 4 results which is implemented usin g the cross-validation technique to keep the model safe from overfitting. Norouzi, et al. ( 2016) presented an Adaptive Neuro Fuzzy Inference System (ANFIS) for the prediction of rena l failure time frame of KD on a 10-year real clinical data of diagnosed patients, the dataset had 10 attributes, ANFIS model was used for estimating GFR at subsequent 6, 12, or 18 months. Their model achieved an accuracy of 95%, urine protein was not used among their parameters. Scholar ( 2018) employed Decision Tree (DT) and Naïve Bayes(NB) as machine learning algorithm to predict Chronic Ki dney Disease (CKD) using UCI machine repository dataset with 25 attributes and achieved an accuracy of 99.25% and 98.75% for DT and NB respectively, showing DT as better algorithm in terms of predicting the presence and absence of CKD. Arafat et al. ( 2018) studied an automated detection of CKD with clinical data u sing Random Forest (RF) , Naïve Bayes(ND) ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0351,
+        -0.00871,
+        -0.05722,
+        0.03399,
+        -0.01836
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " in terms of predicting the presence and absence of CKD. Arafat et al. ( 2018) studied an automated detection of CKD with clinical data u sing Random Forest (RF) , Naïve Bayes(ND) ",
+      "overlap_with_next": "low of Research Methodology Data Collection Patient’s ki dney disease record is selected as the source of data for this work.This dataset is colle cted from General Hospital inGash",
+      "text": " in terms of predicting the presence and absence of CKD. Arafat et al. ( 2018) studied an automated detection of CKD with clinical data u sing Random Forest (RF) , Naïve Bayes(ND) and Decision Tree based on a comparative study on UCI dataset, they computed the weight of each attribute used in the dataset . Their result shows that RF has higher accuracy of97.5% and 96% for Naïve Bayes and Dec ision Tree in the prediction of CKD. Based on the literature reviewed, several studies worked on the presence and absence of chronic kidney disease in a comparison pr ocess and prediction of CKD using various AI Techniques, but less work has been done wit h DNN model in the prediction of Chronic Kidney Disease to achieve a better result. 3 Methodology This methodology depicts the design of the method to be exploited to carry out the experiment. It incorporates data collection, data preprocessing, and target variable selection, prediction DNN model and performance evaluation as shown in Figure 1. [Page 5] 5 Figure 1: Flow of Research Methodology Data Collection Patient’s ki dney disease record is selected as the source of data for this work.This dataset is colle cted from General Hospital inGash",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03908,
+        -0.02136,
+        -0.07694,
+        -0.00747,
+        -0.01874
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "low of Research Methodology Data Collection Patient’s ki dney disease record is selected as the source of data for this work.This dataset is colle cted from General Hospital inGash",
+      "overlap_with_next": " leads to disaster in prediction with machine l earning. The dataset [Page 6] 6 used had some missing cells which was replaced using simple imputati on with the mean value of the a",
+      "text": "low of Research Methodology Data Collection Patient’s ki dney disease record is selected as the source of data for this work.This dataset is colle cted from General Hospital inGashua Local Government Area of Yobe State. It contains 400 patients record with 11 attributes/parameters: Age, Gender, Sodium, Potassium, Chloride, Bicarbonate, Urea, Creatinine, Urea Acid, Albumin and Classification including a target variable classified into a binary classification of CKD and non CKD disease as shown in Table 1. Table1: Dataset Attributes Attribute Attribute Description Sex Age Gender Age Sod Sodium Pot Potassium Chl Chloride Bica Bicarbonate Urea Urea Cre Creatinine UA Urea Acid Alb Albumin Class {Kidney Disease, NoKidney Disease} Data Pre-processing Data Pre -processing represent the most important task in data mining techniques, it involves cleaning, extraction and transformation of data into a suitable format for machine execution, Raw data contains missing information, bad formats, invalid information and it leads to disaster in prediction with machine l earning. The dataset [Page 6] 6 used had some missing cells which was replaced using simple imputati on with the mean value of the a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02968,
+        -0.04615,
+        -0.11114,
+        -0.00905,
+        -0.02682
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": " leads to disaster in prediction with machine l earning. The dataset [Page 6] 6 used had some missing cells which was replaced using simple imputati on with the mean value of the a",
+      "overlap_with_next": "sisting of an input, weights and activation function, the str ucture of DNN has an input, hidden layer and an output.In DNN, a is referred to the outpu t, where Wi and Xi are the w",
+      "text": " leads to disaster in prediction with machine l earning. The dataset [Page 6] 6 used had some missing cells which was replaced using simple imputati on with the mean value of the attribute and the attribute Sex was converted to numeric values as ‘1’and ‘0’ for Male and Female respectively to make it possible for the machine to process since the machine will not understand string values. Target variable CKD dataset has got a lot of useful variables which are key and necessary for the identification of the disease in patients.we used our variables based on the test and method used by the Hospital in determining the occurrence of kidney disease which is Ten (10) blood test and that are the once we used as our input variables. Names too was among the test, but we decided to remove it since it has no impact on our test and the privacy of the patients must be kept. Prediction using DNN DNN is a subset of A rtificial Neural network which simulate the structure and functionalities of biological neural network consisting of an input, weights and activation function, the str ucture of DNN has an input, hidden layer and an output.In DNN, a is referred to the outpu t, where Wi and Xi are the w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05836,
+        -0.01901,
+        -0.08786,
+        -0.00061,
+        -0.05262
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "sisting of an input, weights and activation function, the str ucture of DNN has an input, hidden layer and an output.In DNN, a is referred to the outpu t, where Wi and Xi are the w",
+      "overlap_with_next": "ured by Accuracy, specificity, sensitivity, kappa statistic, precision , F1 score, ROC Score and recall described as follows. ● Confusion Matrix: confusion m atrix indicates statis",
+      "text": "sisting of an input, weights and activation function, the str ucture of DNN has an input, hidden layer and an output.In DNN, a is referred to the outpu t, where Wi and Xi are the weight and input respectively. This is represented as: We used model has ten (10) inputs, two (2) hidden layers and one (1) output in t he adopted model. Input layer is set of neurons which take the actual input data for processing. The number of neurons can be decided in accordance with the input data. To train the model, three layers were used. For input and the hidden layer, “Relu” is u sed as activation function. Relu outputs in 0 or 1. The output layer has only one out put result either KD or NKD with Sigmoid as activation function. Stochastic Gradient was used as the optimizer of the model. The experiments are constructed with Python Programming Language. Figure 2 shows the structure of the DNN model adopted for this study. [Page 7] 7 Figure2: Deep Neural Network Evaluation of The Model In this work, the performance is measured by Accuracy, specificity, sensitivity, kappa statistic, precision , F1 score, ROC Score and recall described as follows. ● Confusion Matrix: confusion m atrix indicates statis",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01448,
+        -0.0405,
+        -0.05637,
+        -0.01067,
+        -0.02883
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ured by Accuracy, specificity, sensitivity, kappa statistic, precision , F1 score, ROC Score and recall described as follows. ● Confusion Matrix: confusion m atrix indicates statis",
+      "overlap_with_next": "tive and false negative. In medical diagnosis, test sensitivity (Recall) is the ability of a test to correctly identify those with the disease, it is expressed as; ● Specificity- (",
+      "text": "ured by Accuracy, specificity, sensitivity, kappa statistic, precision , F1 score, ROC Score and recall described as follows. ● Confusion Matrix: confusion m atrix indicates statistical suitability of the model and its compatibility with the dataset; it can also be defined as a table layout that is specifically used for visualization of algorithm performanceTable 2 shows the summary of confusion matrix. Table2: Confusion Matrix Classification Observation Negative Positive Observation s Negati ve True Negative(TN) False Positive(FP) Positiv e False Negative(FN) True Positive(TP) ● Accuracy- it is used to identify the number of correctly predicted data points out of all data points. It is defined as the number of all correct predictions made divided by the total number of predictions made, it is expressed as; [Page 8] 8 ● Sensitivity- (Recall or True Positive Rate):it is defined as the proportion of actual positive case s that got predicted as positive. It is a ratio of true positive to the sum of true positive and false negative. In medical diagnosis, test sensitivity (Recall) is the ability of a test to correctly identify those with the disease, it is expressed as; ● Specificity- (",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02198,
+        -0.03915,
+        -0.0235,
+        0.01496,
+        -0.00496
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "tive and false negative. In medical diagnosis, test sensitivity (Recall) is the ability of a test to correctly identify those with the disease, it is expressed as; ● Specificity- (",
+      "overlap_with_next": "sed as; ● Recall/ Sensitivity:Recall is a metric that quantifies the number of correct posit ive predictions made out of all positive predictions that could have been made, it is e",
+      "text": "tive and false negative. In medical diagnosis, test sensitivity (Recall) is the ability of a test to correctly identify those with the disease, it is expressed as; ● Specificity- (True Negative Rate): it is defined as the proportion of actual negative that got predicted as the negative. it is calculated as the number of correct negative predictions divided by the total number of negatives. It is also called true negative rate, it is expressed as; ● Cohen Kappa: This is a classifier performance measure between two sets of classified data. Kappa result values are between 0 to 1. The results become meaningful with increasing values of kappa. it measures how closely instances classified by the machine learning classifier matched the data labelled as the truth, it is expressed as; ● Precision: It is defined as the fraction of relevant instances among the retrieved instances. This is given as the correlation number between the correctly classified modules to entire classified fault - prone modules, it is expressed as; ● Recall/ Sensitivity:Recall is a metric that quantifies the number of correct posit ive predictions made out of all positive predictions that could have been made, it is e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04343,
+        -0.0339,
+        -0.00121,
+        0.00262,
+        0.01461
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "sed as; ● Recall/ Sensitivity:Recall is a metric that quantifies the number of correct posit ive predictions made out of all positive predictions that could have been made, it is e",
+      "overlap_with_next": "taset into 70% (280) and 30% (60) for testin g and training respectively, Table 3 shows the confusion matrix provided a visualization summary of DNN model on the dataset, the model",
+      "text": "sed as; ● Recall/ Sensitivity:Recall is a metric that quantifies the number of correct posit ive predictions made out of all positive predictions that could have been made, it is expressed as; ● F1 Score: This is the harmonic mean between precision and recall. Range for f1-score is from 0 to 1. It describes the preciseness (how many records can be correctly classified by the model) and robustness (it avoids missing any significant number of record) of a model. The expression of F1-score is as follows; [Page 9] 9 4 Results and Discussion 4.1 Results This Section provides the results of the DNN algorithm p roduced based on the dataset. Table 3: Confusion Matrix for Deep Neural Network Classification Prediction Absence Presence Observation Absence 29 0 Presence 1 30 Figure 3: Performance evaluation for Deep Neural Networks Model Figure 4: Graph of training against Validation Accuracy [Page 10] 10 Figure 5: Graph of Training against Validation Loss Figure 6: Feature Importance 4.2 Discussion We divided our dataset into 70% (280) and 30% (60) for testin g and training respectively, Table 3 shows the confusion matrix provided a visualization summary of DNN model on the dataset, the model",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05489,
+        -0.05597,
+        -0.01311,
+        -0.01662,
+        0.00675
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "taset into 70% (280) and 30% (60) for testin g and training respectively, Table 3 shows the confusion matrix provided a visualization summary of DNN model on the dataset, the model",
+      "overlap_with_next": "98%, Cohens Kappa :96.6%, ROC Score:100%, Sensitivity:96% and Specificity:100%. Figure5 shows both validations set and training set accuracy loss of our model as it iterated 100 ti",
+      "text": "taset into 70% (280) and 30% (60) for testin g and training respectively, Table 3 shows the confusion matrix provided a visualization summary of DNN model on the dataset, the model has succeeded in classifying 34 samples correctly which are non CKD and 25 samples correctly which are CKD but 1 sample which is CKD was classified wrongly. Totaling to 59 samples classified correctly indicating that the DNN model perform well on our dataset since only one sample out of the sample selected for testing was not classified. Figure 3 represents performance eva luation of the model and it indicate that the model had succeeded in predicting kidne y patients [Page 11] 11 record into CKD and non-CKD with 98% overall prediction accuracy when the model was tested with an unseen data. Based on this accuracy of 98% the model indicate d that it is hyper intelligent to seamlessly make prediction into CKD and non -CKD. Other metrics used to evaluate the performance of the DNN model are Precision :100%, Recall :96%, F1 Score :98%, Cohens Kappa :96.6%, ROC Score:100%, Sensitivity:96% and Specificity:100%. Figure5 shows both validations set and training set accuracy loss of our model as it iterated 100 ti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02655,
+        -0.01979,
+        -0.05233,
+        -0.01983,
+        -0.0035
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "98%, Cohens Kappa :96.6%, ROC Score:100%, Sensitivity:96% and Specificity:100%. Figure5 shows both validations set and training set accuracy loss of our model as it iterated 100 ti",
+      "overlap_with_next": "as much influence during the prediction with the DNN model. 5 Summary, Conclusion and Further Research This Section provides the summary of the paper, the c onclusion by identifyin",
+      "text": "98%, Cohens Kappa :96.6%, ROC Score:100%, Sensitivity:96% and Specificity:100%. Figure5 shows both validations set and training set accuracy loss of our model as it iterated 100 times and based on the result in the figure. This shows no overfitting since there is improvement because as it iterates the loss accuracy decrea ses in both the training and testing sets with almost the same level of declining. Figure 4 shows the level of our model accuracy as it iterated in both training set and validation set and the more it iterates the more the accuracy increases in both sets and with almost the same level of advancement with the validation set even surpassing the training set indicating effectiveness of our model and no overfitting. Figure 6shows the ranking of features in the dataset that has more influence in CKD prediction from the 10 attributes, Creatinine and Bicarbonate has the highest ranking followed b y Urea, Potassium, Sodium, Urea Acid, Age, Chloride, Gender and Albumin, Creatine and Bicarbonate has much influence during the prediction with the DNN model. 5 Summary, Conclusion and Further Research This Section provides the summary of the paper, the c onclusion by identifyin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03285,
+        -0.02238,
+        -0.07413,
+        -0.02688,
+        -0.0261
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "as much influence during the prediction with the DNN model. 5 Summary, Conclusion and Further Research This Section provides the summary of the paper, the c onclusion by identifyin",
+      "overlap_with_next": "ocess. The adopted DNN model proved to be efficient and suitable for the prediction of kidney disease. The study also highlighted the importance of the features used in the predict",
+      "text": "as much influence during the prediction with the DNN model. 5 Summary, Conclusion and Further Research This Section provides the summary of the paper, the c onclusion by identifying performance of the DNN and the attributes that were found too pronounced. The Section also enumerates some research that can be done in future to provide effective performance. 5.1 Summary This work collected and trained DNN mode l to predict the absence and presence of Kidney Disease with an accuracy of 98% and other seven (7) metrics were used to evaluate the performance of the adopted modeland provided a summary of attributes in the dataset used that influence Chronic Kidney Disease (CKD) prediction. [Page 12] 12 5.2 Conclusion The main goal of this research is to use DNN model for the prediction of kidney disease to high degree of accuracy. We succeeded in classifying kidney disease dataset into CKD and non -CKD with 98% overall accuracy when the model was tested with a set of data that were not used during the training process. The adopted DNN model proved to be efficient and suitable for the prediction of kidney disease. The study also highlighted the importance of the features used in the predict",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01942,
+        -0.01005,
+        -0.07141,
+        -0.00824,
+        -0.04453
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "ocess. The adopted DNN model proved to be efficient and suitable for the prediction of kidney disease. The study also highlighted the importance of the features used in the predict",
+      "overlap_with_next": "d Logistic Regression Model. Iraqi Journal of Statistical Sciences, 16(28), 140-159. Anantha Padmanaban, K. R., & Parthiban, G. (2016). Applying machine learning techniques for pre",
+      "text": "ocess. The adopted DNN model proved to be efficient and suitable for the prediction of kidney disease. The study also highlighted the importance of the features used in the prediction of kidney disease. This revealed that from the 10 attributes, Creatinine and Bicarbonate are the attributes with highest influence on CKD as opposed to the findings by Ahmed and Alshebly ( 2019) that found that Creatin ine and Urea has the highest influence on CKD prediction. 5.3 Further Research Incorporating more data to have large dataset will provide more accuracy and effi ciency; hence more dataset is needed to accommodate enough samples. Having enough sample will m ake the prediction wider to capture and identify regions and areas with CKD vulnerability. This paper used DNN model only, having other models to compare techniq ues may provide a better performance. Reference Ahmed, R. M., &Alshebly, O. Q. ( 2019). Prediction and Factors Affecting of Chronic Kidney Disease Diagnosis using Artificial Neural Networks Model and Logistic Regression Model. Iraqi Journal of Statistical Sciences, 16(28), 140-159. Anantha Padmanaban, K. R., & Parthiban, G. (2016). Applying machine learning techniques for pre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0136,
+        -0.01736,
+        -0.08042,
+        -0.00747,
+        -0.03476
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "d Logistic Regression Model. Iraqi Journal of Statistical Sciences, 16(28), 140-159. Anantha Padmanaban, K. R., & Parthiban, G. (2016). Applying machine learning techniques for pre",
+      "overlap_with_next": ", A., & Gulia, P. (2019). Machine learning and deep learning. International Journal of Innovative Technology and Exploring Engineering, 8(2), 2278-3075. Chimwayi, K. B., Haris, N.,",
+      "text": "d Logistic Regression Model. Iraqi Journal of Statistical Sciences, 16(28), 140-159. Anantha Padmanaban, K. R., & Parthiban, G. (2016). Applying machine learning techniques for predicting the risk of chronic kidney disease. Indian Journal of Science and Technology, 9(29), 1-6 Arafat, F., Fatema, K., & I slam, S. (2018). Classification of chronic kidney disease (ckd) using data mining techniques (Doctoral dissertation, Daffodil International University). Arbain, A. N., & Balakrishnan, B. Y. P. (2019). A Comparison of Data Mining Algorithms for Liver Disease Prediction on Imbalanced Data. International Journal of Data Science and Advanced Analytics, 1(1), 1-11. Ayon, S. I., & Islam, M. (2019). Diabetes Prediction: A Deep Learning Approach. International Journal of Information Eng ineering & Electronic Business, 11(2). Başar, M. D., & Akan, A. ( 2018). Chronic Kidney Disease Prediction with Reduced Individual C lassifiers. Journal of Electrical and Electronics Engineering, 18(2), 249-255. [Page 13] 13 Chahal, A., & Gulia, P. (2019). Machine learning and deep learning. International Journal of Innovative Technology and Exploring Engineering, 8(2), 2278-3075. Chimwayi, K. B., Haris, N.,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03774,
+        -0.02318,
+        -0.0477,
+        0.01083,
+        -0.01544
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": ", A., & Gulia, P. (2019). Machine learning and deep learning. International Journal of Innovative Technology and Exploring Engineering, 8(2), 2278-3075. Chimwayi, K. B., Haris, N.,",
+      "overlap_with_next": "injury in ICU patients: study protocol for the PREDICT multicenter prospective observational study. Annals of Intensive Care, 8(1), 77. Jain, D., & Singh, V. (2018). Feature select",
+      "text": ", A., & Gulia, P. (2019). Machine learning and deep learning. International Journal of Innovative Technology and Exploring Engineering, 8(2), 2278-3075. Chimwayi, K. B., Haris, N., Caytiles, R. D., & Iyengar, N. C. S. N. (2017). Risk Level Prediction of Chronic Kidney Disease Using Neuro - Fuzzy and Hierarchical Clustering Algorithm (s). International Journal of Multimedia and Ubiquitous Engineering, 12(8), 23-36 Deshpande, A. (2016). A beginner's guide to understanding convolutional neural networks. Retrieved March, 31(2017). FRANÇOIS CHOLLET. (2018). Deep Learning Using Python. In 2018 21st International Conference on Information Fusion, FUSION 2018. Ge, Y., Wang, Q., Wang, L., Wu, H., Peng, C., Wang, J. & Yi, Y. (2019). Predicting post -stroke pneumonia using deep neural network approaches. International Journal of Medical Informatics, 132, 103986. Geri, G., Stengel, B., Jacquelinet, C., Aegerter , P., Massy, Z. A., &Vieillard-Baron, A. ( 2018). Prediction of chron ic kidney disease after acute kidney injury in ICU patients: study protocol for the PREDICT multicenter prospective observational study. Annals of Intensive Care, 8(1), 77. Jain, D., & Singh, V. (2018). Feature select",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0479,
+        -0.02224,
+        -0.0419,
+        0.0324,
+        -0.02188
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "injury in ICU patients: study protocol for the PREDICT multicenter prospective observational study. Annals of Intensive Care, 8(1), 77. Jain, D., & Singh, V. (2018). Feature select",
+      "overlap_with_next": "tion of Chronic Kidney Diseases Using Deep Artificial Neural Network Techn ique. I n Computer Aided Intervention and Diagnostics in Clinical and Medical Images (pp. 179-187). Sprin",
+      "text": "injury in ICU patients: study protocol for the PREDICT multicenter prospective observational study. Annals of Intensive Care, 8(1), 77. Jain, D., & Singh, V. (2018). Feature selection and classification systems for chro nic disease prediction: A review. Egyptian Informatics Journal , 19(3), 179-189, Joshi, T. N., & Chawan, P. M. (2018). Logistic Regression and SVM Based Diabetes Prediction System. International Journal For Technological Research In Engineering, 11(5), 2347-4718, July 2018 Koh, H. C., & Tan, G. (2005). Data mining applications in healthcare. Journal of Healthcare Information Management : JHIM, 19(2), 65. Kumar, M. (2016). Prediction of Chronic Kidney Disease Using Random Forest Machine Learning Algorithm. International Journal of Computer Science and Mobile Computing, 5(2), 24-33. Kumar, S. ( 2018). Chronic Ki dney Disease Prediction Using Machine Learning. International Journal of Computer Science and In formation Security (IJCSIS), 16(4). Kriplani, H., Patel, B., & Roy, S. (2019). Prediction of Chronic Kidney Diseases Using Deep Artificial Neural Network Techn ique. I n Computer Aided Intervention and Diagnostics in Clinical and Medical Images (pp. 179-187). Sprin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0662,
+        -0.00706,
+        -0.04689,
+        0.01045,
+        -0.00555
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "tion of Chronic Kidney Diseases Using Deep Artificial Neural Network Techn ique. I n Computer Aided Intervention and Diagnostics in Clinical and Medical Images (pp. 179-187). Sprin",
+      "overlap_with_next": "2), 1. Sathya, R., & Abraham, A. (2013). Comparison of Supervised and Unsupervised Learning Algorithms for Pattern Classification. International Journal of Advanced Research in Art",
+      "text": "tion of Chronic Kidney Diseases Using Deep Artificial Neural Network Techn ique. I n Computer Aided Intervention and Diagnostics in Clinical and Medical Images (pp. 179-187). Springer, Cham. Chicago. Lote, C. J. (2013). Principles of renal physiology. In Principles of Renal Physiology. Luyckx, V. A., Tonelli, M., & Stanifer, J. W . (2018). The global burden of kidney disease and the sustainable development goals. Bulletin of the [Page 14] 14 World Health Organization. , 96(6), 414. National Kidney Foundation (NKF). (2015). Global Facts: About Kidney Disease. In National Kidney Foundation. Norouzi, J., Yadollahpour, A., Mirbagheri, S. A., Mazdeh, M. M., & Hosseini, S. A. (2016). Predicting Renal Failure Progression in Chronic Kidney Disease Using Integrated Intelligent Fuzzy Expert System. Computational and Mathematical Methods in Medicine, 2016. Purusothaman, G., & Krishnakumari, P. (2015). A Survey of Data Mining Techniques on risk predic tion: Heart disease. Indian Journal of Science and Technology, 8(12), 1. Sathya, R., & Abraham, A. (2013). Comparison of Supervised and Unsupervised Learning Algorithms for Pattern Classification. International Journal of Advanced Research in Art",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03362,
+        0.00825,
+        -0.0368,
+        0.02165,
+        -0.01965
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25679,
+      "length": 1199,
+      "overlap_with_previous": "2), 1. Sathya, R., & Abraham, A. (2013). Comparison of Supervised and Unsupervised Learning Algorithms for Pattern Classification. International Journal of Advanced Research in Art",
+      "overlap_with_next": "abetes Mellitus and Intermediate Hyperglycemia. Geneva, World Health Org. WHO2. World Kidney Day. (2017). Chronic Kidney Disease - World Kidney Day. ISN – Global Operations Center.",
+      "text": "2), 1. Sathya, R., & Abraham, A. (2013). Comparison of Supervised and Unsupervised Learning Algorithms for Pattern Classification. International Journal of Advanced Research in Artificial Intelligence, 2(2), 34–38. Scholar, P. G. ( 2018). Chronic Kidney Disease Prediction Using Machine Learning. International Journal of Computer Science and Information Security (IJCSIS), 16(4). Shafi, N., Bukhari, F., Iqbal, W., A lmustafa, K. M., Asif, M., & Nawaz, Z. (2020). Cleft prediction before birth using deep neural network. Health Informatics Journal,1(18) 1460458220911789. Sharma, S., & Parmar, M. (2020). Heart Diseases Prediction using Deep Learning Neural Network Model. International Journal of Innovative Technology and Exploring Engineering (IJITEE), 9(3). Ulasi, I. I., & Ijoma, C. K. (2010). The enormity of chronic kidney di sease in Nigeria: The situation in a teaching hospital in south -east Nigeria. Journal of Tropical Medicine, 2010. WHO. (2006). World Health Organization: Definition and Diagnosis of Diabetes Mellitus and Intermediate Hyperglycemia. Geneva, World Health Org. WHO2. World Kidney Day. (2017). Chronic Kidney Disease - World Kidney Day. ISN – Global Operations Center.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02227,
+        -0.01738,
+        -0.04257,
+        0.0089,
+        -0.00601
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 25679,
+      "length": 179,
+      "overlap_with_previous": "betes Mellitus and Intermediate Hyperglycemia. Geneva, World Health Org. WHO2. World Kidney Day. (2017). Chronic Kidney Disease - World Kidney Day. ISN – Global Operations Center.",
+      "overlap_with_next": "",
+      "text": "betes Mellitus and Intermediate Hyperglycemia. Geneva, World Health Org. WHO2. World Kidney Day. (2017). Chronic Kidney Disease - World Kidney Day. ISN – Global Operations Center.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02995,
+        0.0298,
+        -0.02916,
+        0.00076,
+        -0.01916
+      ]
+    }
+  ]
+}

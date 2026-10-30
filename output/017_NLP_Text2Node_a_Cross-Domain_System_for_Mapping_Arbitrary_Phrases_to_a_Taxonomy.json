@@ -1,0 +1,725 @@
+{
+  "paper_id": "5c5800e1-4f44-4112-93b3-e7feb2cfab6d",
+  "filename": "017_NLP_Text2Node_a_Cross-Domain_System_for_Mapping_Arbitrary_Phrases_to_a_Taxonomy.pdf",
+  "title": "Text2Node: a Cross-Domain System for Mapping Arbitrary Phrases to a Taxonomy",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 42,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "riants between coding systems and can output highly relevant concepts when no exact concept exists in the target taxonomy. Text2Node operates in three m ain stages: ﬁrst, the lexic",
+      "text": "[Page 1] arXiv:1905.01958v1 [cs.CL] 11 Apr 2019 Text2Node: a Cross-Domain System for Mapping Arbitrary Phrases to a Taxonomy Rohollah Soltani and Alexandre Tomberg Knowtions Research Inc. Toronto, Ontario, Canada Abstract Electronic health record (EHR) systems are used extensivel y throughout the healthcare domain. However, data interchangeability betw een EHR systems is limited due to the use of diﬀerent coding standards across sy stems. Existing methods of mapping coding standards based on manual human ex perts mapping, dictionary mapping, symbolic NLP and classiﬁcation are uns calable and cannot accommodate large scale EHR datasets. In this work, we present Text2Node, a cross-domain mapping s ystem capable of mapping medical phrases to concepts in a large taxonomy (s uch as SNOMED CT). /T_he system is designed to generalize from a limited set of training samples and map phrases to elements of the taxonomy that are not cover ed by training data. As a result, our system is scalable, robust to wording v ariants between coding systems and can output highly relevant concepts when no exact concept exists in the target taxonomy. Text2Node operates in three m ain stages: ﬁrst, the lexic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04667,
+        -0.02455,
+        -0.02549,
+        0.04165,
+        0.00412
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "riants between coding systems and can output highly relevant concepts when no exact concept exists in the target taxonomy. Text2Node operates in three m ain stages: ﬁrst, the lexic",
+      "overlap_with_next": "ledge to improve clinical predictive models. 1 Introduction Electronic heath and medical record (EHR/EMR) systems are ste adily gaining in pop- ularity. Ever more facets of healthc",
+      "text": "riants between coding systems and can output highly relevant concepts when no exact concept exists in the target taxonomy. Text2Node operates in three m ain stages: ﬁrst, the lexicon is mapped to word embeddings; second, the taxonomy is vectorized using node embeddings; and ﬁnally, the mapping function is trained to connect the two embedding spaces. We compared multiple algorithms and arch itectures for each stage of the training, including GloVe and FastText word emb eddings, CNN and Bi-LSTM mapping functions, and node2vec for node embedding s. We conﬁrmed the robustness and generalisation properties of Text2Node by mapping ICD-9- CM Diagnosis phrases to SNOMED CT and by zero-shot training a t comparable accuracy. /T_his system is a novel methodological contribution to the tas k of normalizing and linking phrases to a taxonomy, advancing data interchan geability in health- care. When applied, the system can use electronic health rec ords to generate an embedding that incorporates taxonomical medical knowledge to improve clinical predictive models. 1 Introduction Electronic heath and medical record (EHR/EMR) systems are ste adily gaining in pop- ularity. Ever more facets of healthc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04021,
+        -0.01665,
+        -0.01295,
+        0.04509,
+        0.02696
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "ledge to improve clinical predictive models. 1 Introduction Electronic heath and medical record (EHR/EMR) systems are ste adily gaining in pop- ularity. Ever more facets of healthc",
+      "overlap_with_next": "ng mechanisms that have no mappings to any public coding system s are used by insurance companies and certain hospitals. /T_he eﬀorts to solve this problem range from the developme",
+      "text": "ledge to improve clinical predictive models. 1 Introduction Electronic heath and medical record (EHR/EMR) systems are ste adily gaining in pop- ularity. Ever more facets of healthcare are recorded and code d in such systems, in- cluding patient demographics, disease history and progression, laboratory test results, 1 [Page 2] clinical procedures and medications, and even genetics. /T_his trov e of information is a unique opportunity to learn pa/t_terns that can help improve vario us aspects of health- care. However, the sheer number of various coding systems used to encode this clin- ical information is a major challenge for anyone trying to analyse s tructured EHR data. Even the most widely used coding systems have multiple v ersions to cater to diﬀerent regions of the world. So/f_tware developed to analyze one v ersion of the cod- ing system may not be used for another version, let alone a diﬀerent c oding system. In addition to the public and well documented coding systems, a m ultitude of private coding mechanisms that have no mappings to any public coding system s are used by insurance companies and certain hospitals. /T_he eﬀorts to solve this problem range from the developme",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04235,
+        0.01129,
+        -0.01851,
+        0.01316,
+        -0.01037
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ng mechanisms that have no mappings to any public coding system s are used by insurance companies and certain hospitals. /T_he eﬀorts to solve this problem range from the developme",
+      "overlap_with_next": "ula ries such as SNOMED CT due to the large size of these vocabularies and small number o f terms or phrases associated with each concepts. In this work, we present a system that w",
+      "text": "ng mechanisms that have no mappings to any public coding system s are used by insurance companies and certain hospitals. /T_he eﬀorts to solve this problem range from the development of ma pping diction- aries between coding systems to machine learning driven approaches. One example of the former is cTAKES [27], a project that uses annotated lookup tables to map clinical entities to concepts in a controlled vocabulary such as SNOMED C T (Systematised Nomenclature of Medicine – Clinical Terms, [20]). /T_he reliance of cTAKES and sim- ilar systems on symbolic natural language processing technique s makes them hard to generalise and scale, especially in view of regular updates and changes to the tar- get vocabulary. An example of the la/t_ter approach is the work o f [39], where word embeddings have been used in a hierarchical structure to annota te and map medical concepts to a reference taxonomy. /T_heir method is based on classi ﬁcation learning and limited in its ability to be applied on controlled vocabula ries such as SNOMED CT due to the large size of these vocabularies and small number o f terms or phrases associated with each concepts. In this work, we present a system that w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04692,
+        -7e-05,
+        -0.02412,
+        0.01668,
+        0.00044
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "ula ries such as SNOMED CT due to the large size of these vocabularies and small number o f terms or phrases associated with each concepts. In this work, we present a system that w",
+      "overlap_with_next": "ion and recognition of clinical concepts or named entities in EHRs and EMRs, and generation of phrases representations that are medical concept aware. Technical Signiﬁcance We deve",
+      "text": "ula ries such as SNOMED CT due to the large size of these vocabularies and small number o f terms or phrases associated with each concepts. In this work, we present a system that we call Text2Node that maps phrases from a medical lexicon to a concept in a large target taxonomy (we use S NOMED CT in this paper). Our system is scalable since it relies on lexicon and ta xonomy embeddings that are generated in an unsupervised fashion. It is robust to ch anges in the phrase vocabulary, can output similar concepts in cases when the exa ct match is not found, and can map to parts of the taxonomy that were not covered by the tr aining data. We achieved this result by relying on node embeddings built from the relationships between the concepts in SNOMED CT, and by replacing the classiﬁc ation problem of ﬁnding the best concept with a regression to the nearest node embed ding. Applications of the Text2Node system include scalable generation of mapping dic- tionaries for non-public medical coding systems, identiﬁcation and recognition of clinical concepts or named entities in EHRs and EMRs, and generation of phrases representations that are medical concept aware. Technical Signiﬁcance We deve",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04523,
+        -0.01452,
+        -0.024,
+        0.03393,
+        -0.00443
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ion and recognition of clinical concepts or named entities in EHRs and EMRs, and generation of phrases representations that are medical concept aware. Technical Signiﬁcance We deve",
+      "overlap_with_next": "way. It is robust to changes in wording between coding s ystems, it can gen- eralise well from a limited set of training samples, and it can ma p to elements of taxonomies that are",
+      "text": "ion and recognition of clinical concepts or named entities in EHRs and EMRs, and generation of phrases representations that are medical concept aware. Technical Signiﬁcance We developed Text2Node as a system that maps phrases from a medical lexicon to concepts in a large target taxonomy. /T_h e system relies on word and node embeddings that are generated in a scalable unsuperv ised fashion; it is robust to changes in the vocabulary and presence of out-of-vo cabulary words; it returns highly relevant concepts even in cases where the exact m atch is not found or does not exist; and it generalises well as demonstrated by our z ero-shot learning experiments. A key ingredient in achieving these results was the transformation of the classiﬁcation task of ﬁnding the best concept into a regressi on to the nearest node 2 [Page 3] embedding problem. Clinical Relevance Our Text2Node system can be used for generating mapping dictionaries for non-public medical coding systems to large pub lic taxonomies in a scalable way. It is robust to changes in wording between coding s ystems, it can gen- eralise well from a limited set of training samples, and it can ma p to elements of taxonomies that are",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0309,
+        -0.01436,
+        -0.00932,
+        0.04949,
+        0.0081
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "way. It is robust to changes in wording between coding s ystems, it can gen- eralise well from a limited set of training samples, and it can ma p to elements of taxonomies that are",
+      "overlap_with_next": "tcome prediction tasks on unstructured text in EMR narratives. Spec iﬁcally, this technique assigns real-valued vectors of a ﬁxed length to individual word s from a collection of d",
+      "text": "way. It is robust to changes in wording between coding s ystems, it can gen- eralise well from a limited set of training samples, and it can ma p to elements of taxonomies that are not covered by training data. /T_he Text2Node sy stem can also be used for identiﬁcation and recognition of clinical concepts and clinical named entities in electronic medical records. 2 Motivation A natural approach to mapping an arbitrary coding system to a wel l documented public taxonomy is to start with the phrases that describe eac h code. Since the coding system must be understandable to its human users, the phrases d escribing each code must provide enough information for them to be able to use it. Lexical representation Since the seminal work of [24] on Word2Vec, word embed- dings have been widely used to capture the semantic meaning of words, phrases and even sentences. For example, word embeddings have been successfully applied in clin- ical se/t_tings to information retrieval, named entity recognition and patient outcome prediction tasks on unstructured text in EMR narratives. Spec iﬁcally, this technique assigns real-valued vectors of a ﬁxed length to individual word s from a collection of d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05233,
+        -0.01684,
+        0.00075,
+        0.04173,
+        0.0054
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "tcome prediction tasks on unstructured text in EMR narratives. Spec iﬁcally, this technique assigns real-valued vectors of a ﬁxed length to individual word s from a collection of d",
+      "overlap_with_next": "osition the vectors corresponding to these two terms very far from each other in the embedding spa ce. Taxonomical representation In healthcare and biomedical research, the relatio",
+      "text": "tcome prediction tasks on unstructured text in EMR narratives. Spec iﬁcally, this technique assigns real-valued vectors of a ﬁxed length to individual word s from a collection of documents, called a corpus. /T_his vector representation is such that it captures the se- mantic relationships between words, so that synonyms lie close t o each other, while unrelated words are far away. Following Word2Vec, many algorit hms have been de- veloped and used successfully to generate word embeddings, including GloVe [26] and FastText [4]. /T_he deﬁning feature of all of word embedding algorithms is the use of contextual interchangeability as a proxy for relatedness in meaning. Howeve r, this feature can be a problem for the task at hand, especially in the medical se/t_t ing. For example, the terms cold and viral respiratory infection are highly related, but are not o/f_ten used interchangeably in the medical context. /T_he use of contextual inte rchangeability as a proxy will lead the word algorithms to incorrectly position the vectors corresponding to these two terms very far from each other in the embedding spa ce. Taxonomical representation In healthcare and biomedical research, the relatio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05214,
+        -0.00825,
+        0.0272,
+        0.04001,
+        -0.00531
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "osition the vectors corresponding to these two terms very far from each other in the embedding spa ce. Taxonomical representation In healthcare and biomedical research, the relatio",
+      "overlap_with_next": " into a low-dimensional space while maximally preserving its struc- tural properties. Many network embedding algorithms have been developed to embed these graphs into vector spaces",
+      "text": "osition the vectors corresponding to these two terms very far from each other in the embedding spa ce. Taxonomical representation In healthcare and biomedical research, the relation- ships between entities contain valuable information, because t hey describe the inter- actions and causal relationships between diagnosis, medicatio ns and procedures, as well as genetic components. To document the complex relationship s, large databases have been built, including biomedical knowledge graphs (e.g. P harmGKB [16], Drug- Bank [37] ), ontologies (e.g. Gene Ontology [9]) and taxonomies suc h as International Statistical Classiﬁcation of Diseases (ICD), and SNOMED CT. Network topology is used to analyse and represent the network str ucture of these biomedical databases. Such analysis requires high computat ional costs due to the 3 [Page 4] high dimensionality and sparsity of these databases. Network e mbedding techno- logies provide new eﬀective paradigms to solve the network anal ysis problem. It converts network into a low-dimensional space while maximally preserving its struc- tural properties. Many network embedding algorithms have been developed to embed these graphs into vector spaces",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04113,
+        -0.03774,
+        -0.01373,
+        0.02107,
+        0.0101
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " into a low-dimensional space while maximally preserving its struc- tural properties. Many network embedding algorithms have been developed to embed these graphs into vector spaces",
+      "overlap_with_next": "eneﬁts: these vector spaces are low-dimensional compared to hundreds of thou sands of original concepts; the function learned from embeddings should be more ge neralisable and is i",
+      "text": " into a low-dimensional space while maximally preserving its struc- tural properties. Many network embedding algorithms have been developed to embed these graphs into vector spaces (see for example [29]) and used successfully to predict drug-drug interactions [34] and another paper. Mapping between representations Since contextual interchangeability is not a good metric of medical relatedness, word embeddings cannot be di rectly used to map between coding systems. However, they can be used to capture s emantic information from phrases that are used to describe such systems. In contra st, node embeddings generated from concepts in a medical taxonomy are a be/t_ter representation of medical relatedness, because they are built from relationships betwe en medical concepts. In order to bridge the gap between these two embedding spaces, a m apping function is needed. /T_his mapping function is to operate on the level of vector representations rather than original phrases and concepts. /T_his has two important beneﬁts: these vector spaces are low-dimensional compared to hundreds of thou sands of original concepts; the function learned from embeddings should be more ge neralisable and is i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02526,
+        -0.0328,
+        -0.02051,
+        0.04427,
+        0.00484
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "eneﬁts: these vector spaces are low-dimensional compared to hundreds of thou sands of original concepts; the function learned from embeddings should be more ge neralisable and is i",
+      "overlap_with_next": "Figure 1. /T_here are three main stages: ﬁrst, the lexicon is mapped to word embedd ings; second, the tax- onomy is vectorized using node embeddings; and ﬁnally, the mapping f unct",
+      "text": "eneﬁts: these vector spaces are low-dimensional compared to hundreds of thou sands of original concepts; the function learned from embeddings should be more ge neralisable and is in general easier to train. Zero-shot learning Whenever there is scarcity of supervised data, machine learn- ing models o/f_ten fail to carry out reliable generalisations. Obt aining correctly la- belled data is o/f_ten costly and impractical for large datasets . A practical application of concept embedding is the zero-shot transformation of words a nd concepts that were missing in the training data. It is possible to generalize th e mapping function and accurately map unseen concepts, despite having only a few training examples per concept, because embedding training in both domains is an unsuperv ised task. /T_his is done through nearest neighbour retrieval, where the closest em bedding in the target space is selected according to some similarity metric. 3 Methods A visual representation of the Text2Node system is provided b y Figure 1. /T_here are three main stages: ﬁrst, the lexicon is mapped to word embedd ings; second, the tax- onomy is vectorized using node embeddings; and ﬁnally, the mapping f unct",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03798,
+        -0.00451,
+        -0.03004,
+        0.02402,
+        0.03176
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "Figure 1. /T_here are three main stages: ﬁrst, the lexicon is mapped to word embedd ings; second, the tax- onomy is vectorized using node embeddings; and ﬁnally, the mapping f unct",
+      "overlap_with_next": "peline [23] to split sentences, add spaces around punctuation marks, change all char- acters to lowercase, and reformat to one sentence per line. Finally , all ﬁles were con- caten",
+      "text": "Figure 1. /T_here are three main stages: ﬁrst, the lexicon is mapped to word embedd ings; second, the tax- onomy is vectorized using node embeddings; and ﬁnally, the mapping f unction is trained to connect the two embedding spaces. 3.1 Word Embeddings Corpus According to [36], word embeddings trained on a biomedical corp us can capture the semantic meaning of medical concepts be/t_ter than embe ddings trained on an unspecialised set of documents. We have thus constructed a large corpus con- sisting of open access papers from PubMed, free text admissio n and discharge notes from the MIMIC-III Clinical Database [14, 12], narratives fro m the US Food and Drug 4 [Page 5] Word embeddings • • • • • Node embeddings • • • • • doc4 doc3 doc2 doc1 Corpus Taxonomy Mapping function Figure 1: Text2Node System overview Administration (FDA) Adverse Event Reporting System (FAERS), and a part of the 2010 Relations Challenge from i2b2 [33]. /T_he documents from those sources were pre-processed using the Stanford CoreNLP pipeline [23] to split sentences, add spaces around punctuation marks, change all char- acters to lowercase, and reformat to one sentence per line. Finally , all ﬁles were con- caten",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00886,
+        -0.02397,
+        -0.01512,
+        0.02778,
+        0.01253
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "peline [23] to split sentences, add spaces around punctuation marks, change all char- acters to lowercase, and reformat to one sentence per line. Finally , all ﬁles were con- caten",
+      "overlap_with_next": "ings. 3.2 Node Embeddings Taxonomy /T_he taxonomy to which Text2Node maps phrases can be arbitrary. In this paper, we focused on the 2018 international version of SNOMED CT as our ",
+      "text": "peline [23] to split sentences, add spaces around punctuation marks, change all char- acters to lowercase, and reformat to one sentence per line. Finally , all ﬁles were con- catenated into a single document with 235M sentences and 6.25B words . /T_his ﬁle was used to train both algorithms described below. Algorithms We focused on two algorithms for learning word embeddings: GloV e and FastText. An important distinction between them is the trea tment of words that are not part of the training vocabulary: GloVe creates a special out-of-vocabulary token and maps all of these words to this token’s vector, while F astText uses subword information to generate an appropriate embedding. We set the vector space dimensionality to 200 and the minimal numbe r of word occurrences to 10 for both algorithms: this produced a vocabu lary of 3.6M tokens. All other algorithm-speciﬁc se/t_tings were le/f_t at their default va lues, since we expected that Text2Node would perform just as well with diﬀerent versi ons of embeddings. 3.2 Node Embeddings Taxonomy /T_he taxonomy to which Text2Node maps phrases can be arbitrary. In this paper, we focused on the 2018 international version of SNOMED CT as our ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02248,
+        -0.01534,
+        -0.01091,
+        0.02355,
+        0.01174
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ings. 3.2 Node Embeddings Taxonomy /T_he taxonomy to which Text2Node maps phrases can be arbitrary. In this paper, we focused on the 2018 international version of SNOMED CT as our ",
+      "overlap_with_next": "tween phrases and concepts in the target taxonomy wa s made by associating points in the node embedding vector space to sequence s of word embed- dings corresponding to individual ",
+      "text": "ings. 3.2 Node Embeddings Taxonomy /T_he taxonomy to which Text2Node maps phrases can be arbitrary. In this paper, we focused on the 2018 international version of SNOMED CT as our target graph G = ( V, E). /T_he vertex set V consists of 392K medical concepts and the edge set E is composed of 1.9M relations between the vertices including is a relationships and a/t_tributes such as finding site and due to. Algorithm To construct taxonomy embeddings, we used node2vec method from [13]. We started a random walk on the edges from each vertex v ∈ V and stopped it a/f_ter a ﬁxed number of steps (20 in our application). All the ve rtices visited by the walk were considered to be part of the graph neighbourhood N (v) of v. Following the 5 [Page 6] skip–gram architecture from [24], we selected the feature vector assignment function v ↦→ fn2v(v) ∈ R128 by solving the optimisation problem fn2v = argmax f ∑ u∈V log P [ N (u)|f (u) ] , using stochastic gradient descent and negative sampling. 3.3 Mapping /T_he mapping between phrases and concepts in the target taxonomy wa s made by associating points in the node embedding vector space to sequence s of word embed- dings corresponding to individual ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03143,
+        -0.0289,
+        -0.02283,
+        0.04424,
+        0.01727
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "tween phrases and concepts in the target taxonomy wa s made by associating points in the node embedding vector space to sequence s of word embed- dings corresponding to individual ",
+      "overlap_with_next": "is ℓ2 distance (p, q) = ‖p − q‖ = √ (p − q) · (p − q), cos similarity (p, q) = p · q‖p‖‖q‖ . 6 [Page 7] In some cases, for example to compute the top- k accuracy of the mapping (se",
+      "text": "tween phrases and concepts in the target taxonomy wa s made by associating points in the node embedding vector space to sequence s of word embed- dings corresponding to individual words in a phrase. As illustra ted in Figure 2, given a phrase consisting of n words with the associated word embeddings w1, . . . , wn, the mapping function was m : ( w1, . . . , wn) ↦→ p, where p ∈ R128 is a point in the node embedding vector space. To complete the mapping, we found co ncepts in the Input Phrase Word 1 Embedding 1 Word 2 Embedding 2 Word 3 Embedding 3 Word 4 Embedding 4 Mapping Function Node Embedding Figure 2: Mapping procedure: the input phrase is split into word s that are converted to word embeddings and fed into the mapping function; the output of t he function is a point in the node embedding space R128. taxonomy whose node embeddings were the closest to the point p. We experimented with two measures of closeness in the node embedding vector spac e R128: Euclidean ℓ2 distance and cosine similarity, that is ℓ2 distance (p, q) = ‖p − q‖ = √ (p − q) · (p − q), cos similarity (p, q) = p · q‖p‖‖q‖ . 6 [Page 7] In some cases, for example to compute the top- k accuracy of the mapping (se",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00393,
+        -0.01343,
+        -0.01514,
+        0.01938,
+        0.00657
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "is ℓ2 distance (p, q) = ‖p − q‖ = √ (p − q) · (p − q), cos similarity (p, q) = p · q‖p‖‖q‖ . 6 [Page 7] In some cases, for example to compute the top- k accuracy of the mapping (se",
+      "overlap_with_next": " a projection layer to obtai n an output of desired dimension. Here, we used ﬁlters representing word window s of sizes 1, 2, 3, and 5, followed by a maximum pooling layer and a pr",
+      "text": "is ℓ2 distance (p, q) = ‖p − q‖ = √ (p − q) · (p − q), cos similarity (p, q) = p · q‖p‖‖q‖ . 6 [Page 7] In some cases, for example to compute the top- k accuracy of the mapping (see Sec- tion 4), a list of k closest concepts was used. Function architectures /T_he exact form of the mapping function m can vary. In this paper, we tested three architectures: a linear mapping, a convolutional neural network (CNN), and a bidirectional long short term memory network (Bi-LSTM). We padded or truncated all phrases to be exactly 20 words long to re present each phrase by 20 word embeddings w1, . . . , w20 ∈ R200 in order to accommodate all three archi- tectures. Linear We concatenated 20 word embeddings into a single 4000 dimensional ve ctor w, and the linear mapping was given by p = m(w) = M w for a 4000 × 128 matrix M . CNN A convolutional neural network [17] applies convolutional ﬁlters of diﬀerent sizes to the input vectors. /T_he feature maps produced by the ﬁlt ers are then fed into a pooling layer followed by a projection layer to obtai n an output of desired dimension. Here, we used ﬁlters representing word window s of sizes 1, 2, 3, and 5, followed by a maximum pooling layer and a pr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04041,
+        -0.00961,
+        -0.00902,
+        -0.01733,
+        -0.01093
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " a projection layer to obtai n an output of desired dimension. Here, we used ﬁlters representing word window s of sizes 1, 2, 3, and 5, followed by a maximum pooling layer and a pr",
+      "overlap_with_next": "yer to 128 out put dimensions. Training We gathered training data consisting of phrase–concept pairs fro m the taxonomy itself. Because most nodes in SNOMED CT have multiple phrase",
+      "text": " a projection layer to obtai n an output of desired dimension. Here, we used ﬁlters representing word window s of sizes 1, 2, 3, and 5, followed by a maximum pooling layer and a projection l ayer to 128 output dimensions. CNN is a non-linear transformation that is more ﬂexible and may be be/t_ter suited to capture complex pa/t_terns in the input th an a linear mapping method. Another useful property of the CNN is its abili ty to learn invariant features regardless of their position in the phrase . Bi-LSTM A bidirectional long short term memory network (Bi-LSTM) [28] i s also a non-linear transformation. /T_his type of neural network operates by r ecursively applying a computation to every element of the input sequence cond itioned on the previous computed results in both forward and backward di rections. Bi- LSTM excels at learning long distance dependencies in its input. We b uilt a Bi-LSTM to approximate the mapping function m using a single Bi-LSTM cell with 200 hidden units followed by a projection layer to 128 out put dimensions. Training We gathered training data consisting of phrase–concept pairs fro m the taxonomy itself. Because most nodes in SNOMED CT have multiple phrase",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05266,
+        -0.02431,
+        -0.02708,
+        0.01575,
+        0.00078
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "yer to 128 out put dimensions. Training We gathered training data consisting of phrase–concept pairs fro m the taxonomy itself. Because most nodes in SNOMED CT have multiple phrase",
+      "overlap_with_next": "emoving all associated 3.4K phrase–concept p airs from the training dataset, and retraining the system. /T_he performance was evaluate d by mapping the removed phrases to concepts ",
+      "text": "yer to 128 out put dimensions. Training We gathered training data consisting of phrase–concept pairs fro m the taxonomy itself. Because most nodes in SNOMED CT have multiple phrases describ- ing them (synonyms), we considered each synonym–concept pair separ ately for a total of 269K training examples. To ﬁnd the best mapping function m∗ in each of the three architectures described above, we solved the supervi sed regression problem m∗ = argmin m ∑ (phrase,node) ‖‖m(phrase) − fn2v(node)‖‖2ℓ2 , using the Adam optimizer [15] for 50 epochs. 4 Evaluation and Results First, we evaluated all mapping function architectures to det ermine the top perform- ing ones using a random hold-out test set of 10K phrase–concept pai rs. Next, we 7 [Page 8] tested the robustness and generalisability of the winning archite ctures on a new lex- icon consisting of 8.9K phrases from ICD-9-CM. Finally, we tested the zero-shot learn- ing capability of Text2Node. We did this by randomly selecting 1 K concepts from our training set, removing all associated 3.4K phrase–concept p airs from the training dataset, and retraining the system. /T_he performance was evaluate d by mapping the removed phrases to concepts ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04709,
+        -0.0094,
+        -0.03313,
+        0.00069,
+        0.00208
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "emoving all associated 3.4K phrase–concept p airs from the training dataset, and retraining the system. /T_he performance was evaluate d by mapping the removed phrases to concepts ",
+      "overlap_with_next": "sible that two distinct concepts were embedde d to the exact same location in the node embedding space. Since the mapping procedur e involved nearest neighbour searches, we compute",
+      "text": "emoving all associated 3.4K phrase–concept p airs from the training dataset, and retraining the system. /T_he performance was evaluate d by mapping the removed phrases to concepts that were never seen before. In these tests we considered two performance metrics: accurac y and mean graph distance. Accuracy is the proportion of test phrases that are mapped exactly to t heir corres- ponding concept (higher is be/t_ter). /T_his metric is o/f_ten used for cl assiﬁcation based approaches and is a standard metric for the mapping proble m. Mean graph distance is the average graph distance (length of the shortest path) in the taxonomy between the target concept and the predicted concep t (lower is be/t_ter). /T_his metric tells us how far is the predicted concept from the exact match, and low scores are evidence for predictions that are imme diate neigh- bours of the target concept, that is its children or parents. Due to the probabilistic nature of node embeddings and the topolo gy of our target graph, it was possible that two distinct concepts were embedde d to the exact same location in the node embedding space. Since the mapping procedur e involved nearest neighbour searches, we compute",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02468,
+        -0.02374,
+        -0.04148,
+        0.01488,
+        0.00325
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "sible that two distinct concepts were embedde d to the exact same location in the node embedding space. Since the mapping procedur e involved nearest neighbour searches, we compute",
+      "overlap_with_next": " majority of cases that were not mapped to the exact target concept were stil l mapped to one of its immediate neighbours. /T_he accuracy increased to 67.1% when we considered the ",
+      "text": "sible that two distinct concepts were embedde d to the exact same location in the node embedding space. Since the mapping procedur e involved nearest neighbour searches, we computed the performance metrics for t he top- k results of these searches for k = 1 , 5, 10, 20, 50. /T_his also allowed us to be/t_ter cover the test cases where multiple concepts were been assigned to a phrase. 4.1 Intrinsic Evaluation We used a random hold-out test set of 10K phrase–concept pairs t o ﬁnd the top per- forming architectures. /T_he accuracy results are in Table 1, and the graph distance results are in Table 2. /T_he overall best system was the Bi-LSTM mapping function on top of FastText embeddings. An interesting ﬁnding was that the c osine similarity yields consistently be/t_ter accuracy scores, while the ℓ2 distance provides for slightly smaller average graph distances. /T_he Bi-LSTM on FastText architecture achieved 23.9% top-1 ac curacy with the mean graph distance of 1.27. /T_his conﬁrmed our expectation that the majority of cases that were not mapped to the exact target concept were stil l mapped to one of its immediate neighbours. /T_he accuracy increased to 67.1% when we considered the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03682,
+        -0.01794,
+        -0.01559,
+        0.00153,
+        0.0127
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " majority of cases that were not mapped to the exact target concept were stil l mapped to one of its immediate neighbours. /T_he accuracy increased to 67.1% when we considered the ",
+      "overlap_with_next": "214 0.294 0.419 CNN FastText cos 0.082 0.218 0.304 0.397 0.546 CNN FastText ℓ2 0.067 0.181 0.256 0.350 0.495 Bi-LSTM GloVe cos 0.225 0.442 0.543 0.640 0.762 Bi-LSTM GloVe ℓ2 0.195 ",
+      "text": " majority of cases that were not mapped to the exact target concept were stil l mapped to one of its immediate neighbours. /T_he accuracy increased to 67.1% when we considered the top-20 closest matches. 4.2 Extrinsic Evaluation (ICD-9-CM) To check the robustness and generalisability of the Text2Node s ystem, we created an extrinsic evaluation task consisting of 8.9K ICD-9-CM phrases mapped by medical experts from [32] to a unique SNOMED CT concept. /T_he lexicon of th ese phrases is diﬀerent from our target taxonomy, because ICD-9-CM was devel oped for assigning codes to diagnoses and procedures associated with hospital ut ilization in the United 8 [Page 9] Text2Node model Accuracy (top k) Mapping Word Emb Metric k = 1 k = 5 k = 10 k = 20 k = 50 Linear GloVe cos 0.033 0.106 0.163 0.231 0.352 Linear GloVe ℓ2 0.014 0.062 0.099 0.153 0.245 Linear FastText cos 0.029 0.094 0.153 0.226 0.355 Linear FastText ℓ2 0.012 0.050 0.091 0.143 0.237 CNN GloVe cos 0.061 0.176 0.249 0.338 0.485 CNN GloVe ℓ2 0.045 0.150 0.214 0.294 0.419 CNN FastText cos 0.082 0.218 0.304 0.397 0.546 CNN FastText ℓ2 0.067 0.181 0.256 0.350 0.495 Bi-LSTM GloVe cos 0.225 0.442 0.543 0.640 0.762 Bi-LSTM GloVe ℓ2 0.195 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.054,
+        -0.01106,
+        -0.01698,
+        -0.00961,
+        -0.00553
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "214 0.294 0.419 CNN FastText cos 0.082 0.218 0.304 0.397 0.546 CNN FastText ℓ2 0.067 0.181 0.256 0.350 0.495 Bi-LSTM GloVe cos 0.225 0.442 0.543 0.640 0.762 Bi-LSTM GloVe ℓ2 0.195 ",
+      "overlap_with_next": "8 Table 2: Intrinsic evaluation results: mean graph distance on a random hold-out test set of 10K phrase–concept pairs. 9 [Page 10] States. /T_he accuracy results are in Table 3, a",
+      "text": "214 0.294 0.419 CNN FastText cos 0.082 0.218 0.304 0.397 0.546 CNN FastText ℓ2 0.067 0.181 0.256 0.350 0.495 Bi-LSTM GloVe cos 0.225 0.442 0.543 0.640 0.762 Bi-LSTM GloVe ℓ2 0.195 0.402 0.497 0.602 0.722 Bi-LSTM FastText cos 0.239 0.466 0.571 0.671 0.785 Bi-LSTM FastText ℓ2 0.201 0.416 0.515 0.616 0.744 Table 1: Intrinsic evaluation results: accuracy on a random hol d-out test set of 10K phrase–concept pairs. Text2Node model Mean graph distance (top k) Mapping Word Emb Metric k = 1 k = 5 k = 10 k = 20 k = 50 Linear GloVe cos 2.08 2.23 2.30 2.35 2.42 Linear GloVe ℓ2 1.79 2.07 2.17 2.24 2.32 Linear FastText cos 2.01 2.17 2.23 2.28 2.35 Linear FastText ℓ2 1.78 2.06 2.16 2.23 2.31 CNN GloVe cos 1.71 1.95 2.03 2.11 2.19 CNN GloVe ℓ2 1.60 1.88 1.98 2.06 2.14 CNN FastText cos 1.60 1.86 1.95 2.03 2.13 CNN FastText ℓ2 1.52 1.80 1.91 2.00 2.09 Bi-LSTM GloVe cos 1.28 1.63 1.76 1.88 2.01 Bi-LSTM GloVe ℓ2 1.26 1.61 1.74 1.86 1.98 Bi-LSTM FastText cos 1.27 1.61 1.75 1.87 2.01 Bi-LSTM FastText ℓ2 1.25 1.59 1.73 1.85 1.98 Table 2: Intrinsic evaluation results: mean graph distance on a random hold-out test set of 10K phrase–concept pairs. 9 [Page 10] States. /T_he accuracy results are in Table 3, a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07181,
+        -0.00733,
+        -0.01285,
+        -0.03668,
+        0.01261
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "8 Table 2: Intrinsic evaluation results: mean graph distance on a random hold-out test set of 10K phrase–concept pairs. 9 [Page 10] States. /T_he accuracy results are in Table 3, a",
+      "overlap_with_next": "larity as similarity measurement, it ach ieved 21% in top-1 ac- curacy and 44% in top-5 accuracy, and when ℓ2 metric was used, it achieved 1.36 in graph distance. /T_he graph dista",
+      "text": "8 Table 2: Intrinsic evaluation results: mean graph distance on a random hold-out test set of 10K phrase–concept pairs. 9 [Page 10] States. /T_he accuracy results are in Table 3, and the graph distance results are in Table 4. Text2Node model Accuracy (top k) Word Emb Metric k = 1 k = 5 k = 10 k = 20 k = 50 GloVe cos 0.202 0.430 0.541 0.644 0.755 GloVe ℓ2 0.170 0.394 0.501 0.602 0.714 FastText cos 0.210 0.443 0.553 0.658 0.763 FastText ℓ2 0.181 0.403 0.507 0.614 0.725 Table 3: Extrinsic evaluation: accuracy of the Bi-LSTM mapping function on 8.9K ICD-9-CM phrases. Text2Node model Mean graph distance (top k) Word Emb Metric k = 1 k = 5 k = 10 k = 20 k = 50 GloVe cos 1.42 1.74 1.88 2.00 2.14 GloVe ℓ2 1.40 1.72 1.85 1.97 2.10 FastText cos 1.40 1.73 1.87 1.99 2.14 FastText ℓ2 1.36 1.69 1.84 1.95 2.09 Table 4: Extrinsic evaluation: mean graph distance of the Bi-LS TM mapping function on 8.9K ICD-9-CM phrases. /T_he Bi-LSTM model on FastText also yielded the best score in th is experiment. When using cosine similarity as similarity measurement, it ach ieved 21% in top-1 ac- curacy and 44% in top-5 accuracy, and when ℓ2 metric was used, it achieved 1.36 in graph distance. /T_he graph dista",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04845,
+        -0.02852,
+        -0.03113,
+        -0.03063,
+        0.01463
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "larity as similarity measurement, it ach ieved 21% in top-1 ac- curacy and 44% in top-5 accuracy, and when ℓ2 metric was used, it achieved 1.36 in graph distance. /T_he graph dista",
+      "overlap_with_next": ".855 0.905 GloVe ℓ2 0.350 0.655 0.754 0.822 0.876 FastText cos 0.389 0.710 0.804 0.863 0.914 FastText ℓ2 0.362 0.658 0.760 0.829 0.887 Table 5: Extrinsic evaluation: accuracy of th",
+      "text": "larity as similarity measurement, it ach ieved 21% in top-1 ac- curacy and 44% in top-5 accuracy, and when ℓ2 metric was used, it achieved 1.36 in graph distance. /T_he graph distance of 1.36 shows that, although the exact correct match was only 21% at top-1 of Text2Node ranking, all the predict ed concepts were close to the exact match in terms of taxonomy distance, that is t hey are either syn- onyms, parents, or children of the exact match concept from 392K nodes. /T_his test set also allowed us to study the eﬀect of extra knowled ge of source phrases on mapping to the target taxonomy. In our previous eval uations, we mapped phrases to one of the 392K concepts in the target taxonomy. Howev er, when we reduced the search space to 7.5K concepts that have at least one ICD-9-CM phrase mapped to them, the accuracy and mean graph distance results im proved signiﬁc- antly as shown in Tables 5 and 6. Text2Node model Accuracy (top k) Word Emb Metric k = 1 k = 5 k = 10 k = 20 k = 50 GloVe cos 0.379 0.698 0.793 0.855 0.905 GloVe ℓ2 0.350 0.655 0.754 0.822 0.876 FastText cos 0.389 0.710 0.804 0.863 0.914 FastText ℓ2 0.362 0.658 0.760 0.829 0.887 Table 5: Extrinsic evaluation: accuracy of th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04532,
+        -0.02736,
+        -0.02622,
+        -0.00532,
+        0.00553
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": ".855 0.905 GloVe ℓ2 0.350 0.655 0.754 0.822 0.876 FastText cos 0.389 0.710 0.804 0.863 0.914 FastText ℓ2 0.362 0.658 0.760 0.829 0.887 Table 5: Extrinsic evaluation: accuracy of th",
+      "overlap_with_next": "rmance of Text2Node. In this test, the accuracy for top- 1 almost doubled to 39% and the graph distance went down to 1.27 by ﬁltering the output concepts to be correlated to the IC",
+      "text": ".855 0.905 GloVe ℓ2 0.350 0.655 0.754 0.822 0.876 FastText cos 0.389 0.710 0.804 0.863 0.914 FastText ℓ2 0.362 0.658 0.760 0.829 0.887 Table 5: Extrinsic evaluation: accuracy of the Bi-LSTM mapping function on 8.9K ICD-9 phrases with the search space reduced to 7.5K concepts. 10 [Page 11] Text2Node model Mean graph distance (top k) Word Emb Metric k = 1 k = 5 k = 10 k = 20 k = 50 GloVe cos 1.32 1.80 1.98 2.13 2.29 GloVe ℓ2 1.36 1.82 1.98 2.12 2.26 FastText cos 1.27 1.78 1.98 2.13 2.28 FastText ℓ2 1.31 1.80 1.97 2.11 2.25 Table 6: Extrinsic evaluation: mean graph distance of the Bi-LS TM mapping function on 8.9K ICD-9 phrases with the search space reduced to 7.5K co ncepts. SNOMED CT consists of a wide category of medical concepts includ ing diseases, procedures, medications, and body structures that are closel y related, meaning that these nodes are close in the node embedding space. /T_herefore, ext ra knowledge about the category of the taxonomy allowed us to reduce the search sp ace and boost the performance of Text2Node. In this test, the accuracy for top- 1 almost doubled to 39% and the graph distance went down to 1.27 by ﬁltering the output concepts to be correlated to the IC",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0848,
+        -0.03042,
+        -0.01858,
+        -0.00586,
+        0.01573
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "rmance of Text2Node. In this test, the accuracy for top- 1 almost doubled to 39% and the graph distance went down to 1.27 by ﬁltering the output concepts to be correlated to the IC",
+      "overlap_with_next": "luation: accuracy of a newly trained Bi-LSTM mapping function on 3.4K phrases mapping to 1K previously unseen concepts. In this test, we were able achieve comparable results to the",
+      "text": "rmance of Text2Node. In this test, the accuracy for top- 1 almost doubled to 39% and the graph distance went down to 1.27 by ﬁltering the output concepts to be correlated to the ICD-9 concepts. 4.3 Zero-shot Evaluation To evaluate the zero-shot learning capability, we randomly selected 1K concepts from the taxonomy that appeared in our training set. We then removed a ll 3.4K phrase– concept pairs associated to the selected concepts from the tra ining set, and used them as the test set. We retrained the Bi-LSTM mapping network from sc ratch using the new training set, so that all of the targets in the zero-shot test set were never seen before by the mapping function. /T_he accuracy and mean graph distanc e results are given in Tables 7 and 8. Text2Node model Accuracy (top k) Word Emb Metric k = 1 k = 5 k = 10 k = 20 k = 50 GloVe cos 0.242 0.449 0.538 0.622 0.737 GloVe ℓ2 0.227 0.391 0.481 0.583 0.706 FastText cos 0.221 0.499 0.591 0.671 0.780 FastText ℓ2 0.186 0.439 0.534 0.636 0.734 Table 7: Zero-shot evaluation: accuracy of a newly trained Bi-LSTM mapping function on 3.4K phrases mapping to 1K previously unseen concepts. In this test, we were able achieve comparable results to the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06581,
+        -0.02624,
+        -0.02499,
+        -0.00367,
+        0.03179
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "luation: accuracy of a newly trained Bi-LSTM mapping function on 3.4K phrases mapping to 1K previously unseen concepts. In this test, we were able achieve comparable results to the",
+      "overlap_with_next": "ies in in the target taxonomy domain into two diﬀerent latent spaces. We then learned a mapping func- tion between those latent spaces to associate points in the node embedding spa",
+      "text": "luation: accuracy of a newly trained Bi-LSTM mapping function on 3.4K phrases mapping to 1K previously unseen concepts. In this test, we were able achieve comparable results to the i ntrinsic task evalu- ations from Section 4.1, and we showed that our system is general enough to be able to map to unseen concepts in the training set. 11 [Page 12] Text2Node model Mean graph distance (top k) Word Emb Metric k = 1 k = 5 k = 10 k = 20 k = 50 GloVe cos 1.41 1.74 1.86 1.97 2.09 GloVe ℓ2 1.38 1.70 1.82 1.93 2.04 FastText cos 1.41 1.69 1.81 1.92 2.05 FastText ℓ2 1.38 1.65 1.78 1.88 2.00 Table 8: Zero-shot evaluation: mean graph distance of a newly tr ained Bi-LSTM map- ping function on 3.4K phrases mapping to 1K previously unseen conc epts. 5 Discussion and Related Work 5.1 Discussion In this paper we have described our Text2Node system for mapping arbitrary medical phrases to a large taxonomy. In our system, we ﬁrst used embedd ing models to pro- ject phrases in the source medical lexicon domain and concept entities in in the target taxonomy domain into two diﬀerent latent spaces. We then learned a mapping func- tion between those latent spaces to associate points in the node embedding spa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05289,
+        -0.02556,
+        -0.02834,
+        -0.00306,
+        0.0162
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "ies in in the target taxonomy domain into two diﬀerent latent spaces. We then learned a mapping func- tion between those latent spaces to associate points in the node embedding spa",
+      "overlap_with_next": "and there is a variety of e xisting ap- proaches. For example, cTAKES [27], MetaMap [1], MedLEE [11 ], KnowledgeMap [10] NOBLE [31], and PDD Graph [35] use annotated lookup tables ",
+      "text": "ies in in the target taxonomy domain into two diﬀerent latent spaces. We then learned a mapping func- tion between those latent spaces to associate points in the node embedding space to sequences of word embedding vectors. We used nearest neighbour s earch in the tar- get domain to ﬁnd candidate medical concepts for a given phrase. We tested a number of word embedding algorithms and mapping function architecture s and we obtained the best result using a Bi-LSTM mapping model and FastText word e mbeddings. In summary, our experiments showed that Text2Node is a robustand generalisable system that achieved a satisfactory result at mapping ICD-9- CM Diagnosis phrases to SNOMED CT and a comparable accuracy at zero-shot training. Mo re generally, we conﬁrmed our hypothesis that utilising the hierarchical st ructure of a biomedical taxonomy to learn node representations can achieve a be/t_ter mapping system between medical phrases and taxonomy concepts. 5.2 Related work Concept mapping is a longstanding problem and there is a variety of e xisting ap- proaches. For example, cTAKES [27], MetaMap [1], MedLEE [11 ], KnowledgeMap [10] NOBLE [31], and PDD Graph [35] use annotated lookup tables ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0441,
+        -0.01247,
+        -0.02117,
+        0.01052,
+        0.02091
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "and there is a variety of e xisting ap- proaches. For example, cTAKES [27], MetaMap [1], MedLEE [11 ], KnowledgeMap [10] NOBLE [31], and PDD Graph [35] use annotated lookup tables ",
+      "overlap_with_next": "gs; [18] that applied w ord embedding to 12 [Page 13] extract events from the biomedical text; and [38] that examined the use of word em- beddings for clinical abbreviation disambi",
+      "text": "and there is a variety of e xisting ap- proaches. For example, cTAKES [27], MetaMap [1], MedLEE [11 ], KnowledgeMap [10] NOBLE [31], and PDD Graph [35] use annotated lookup tables i n order to map clinical entities to concepts in controlled vocabularies such a s SNOMED CTand the Uniﬁed Medical Language System (UMLS). To do so, they rely on sy mbolic natural language processing techniques, which makes them hard to genera lise and scale. cTAKES, was developed by Mayo Clinic and later transitioned to an Apache project. MetaMap was developed by the National Library of Medicine for mapping biomedical text to the UMLS Metathesaurus. MedLEE is one of the earliest c linical NLP systems developed and is mostly used for pharmacovigilance. Word embeddings have been widely used in medical domain since t hey contain rich latent semantic information. A few prominent examples include [25] that trained a set of word embeddings on PubMed data using Word2Vec; [19] tha t studied drug name recognition utilizing word embeddings; [18] that applied w ord embedding to 12 [Page 13] extract events from the biomedical text; and [38] that examined the use of word em- beddings for clinical abbreviation disambi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04339,
+        -0.02954,
+        -0.01626,
+        0.01933,
+        -0.01305
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "gs; [18] that applied w ord embedding to 12 [Page 13] extract events from the biomedical text; and [38] that examined the use of word em- beddings for clinical abbreviation disambi",
+      "overlap_with_next": "ystems, [22] used a cross-domain recommendation s ystem to leverage feedbacks or ratings from multiple domains and improve recomme ndation perform- ance. 5.3 Text2Node Applications",
+      "text": "gs; [18] that applied w ord embedding to 12 [Page 13] extract events from the biomedical text; and [38] that examined the use of word em- beddings for clinical abbreviation disambiguation. Recently researchers have started to explore the possibilit y of eﬃcient represent- ation learning in the medical domain. [6] utilised a hierarchic al structure from the medical term ontology by applying an a/t_tention mechanism. [7, 5, 8 ] learned the rep- resentation of clinical codes using skip-gram from structured visit records of patients. [30] used a modiﬁed restricted RBM for representing EHR concepts using a structured training process. In a similar paper, [21] used AEs to generate c oncept vectors from word-based concepts extracted from clinical free text. For cross-domain mapping in natural language processing, [2] us ed linear trans- formation to improve bilingual word embedding mapping, and [3] u sed adversarial training for cross-lingual word embeddings without parallel da ta. Finally, in recom- mendation systems, [22] used a cross-domain recommendation s ystem to leverage feedbacks or ratings from multiple domains and improve recomme ndation perform- ance. 5.3 Text2Node Applications",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04279,
+        -0.0154,
+        0.00331,
+        0.01992,
+        -0.00359
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ystems, [22] used a cross-domain recommendation s ystem to leverage feedbacks or ratings from multiple domains and improve recomme ndation perform- ance. 5.3 Text2Node Applications",
+      "overlap_with_next": "the medical phrases can be used in diﬀerent tasks (i.e. medical ou tcome prediction) using transfer learning techniques. Zero-shot learning A practical application of embedding map",
+      "text": "ystems, [22] used a cross-domain recommendation s ystem to leverage feedbacks or ratings from multiple domains and improve recomme ndation perform- ance. 5.3 Text2Node Applications NER /T_he problem of named entity recognition (NER) is the task of extra cting rel- evant concepts from free text. Once extracted, such concepts need to be mapped to a taxonomy of known entities. Our Text2Node system can be used to solve this mapping problem. Medical phrase representation Finding a representation for a phrase that can capture all the information in its sequence of words is a challe nging task in natural language processing. /T_he mapping function in our Text2Node syste m can be seen as an encoding model that is generating a representations for medic al phrases. Since these representations have been trained in a supervised manner using the information from the taxonomy, they also represent their taxonomy position and the structure of their neighbourhood in the taxonomy. /T_hus this supervised repr esentation of the medical phrases can be used in diﬀerent tasks (i.e. medical ou tcome prediction) using transfer learning techniques. Zero-shot learning A practical application of embedding map",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04679,
+        -0.01031,
+        -0.00912,
+        0.05015,
+        0.00352
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "the medical phrases can be used in diﬀerent tasks (i.e. medical ou tcome prediction) using transfer learning techniques. Zero-shot learning A practical application of embedding map",
+      "overlap_with_next": "features such as part of speech can be coup led into our system to solve this problem. In the taxonomy, there exist nodes that have the exact same connec tions to the rest of the t",
+      "text": "the medical phrases can be used in diﬀerent tasks (i.e. medical ou tcome prediction) using transfer learning techniques. Zero-shot learning A practical application of embedding mappings is the zero- shot transformation of concepts that were missing in the training data. Our system showed a satisfactory performance therefore it can be used fo r data pre-processing when the training data is hard to obtain as is o/f_ten the case. 5.4 Future work Our system showed a satisfactory performance in mapping phras es between two tax- onomies and in a promising result towards solving the zero-shot problem. More work can be done to make it be/t_ter. In EHRs, there are o/f_ten phrases with a complex internal structu re. For example, a surgery code labelled Eye, Intra-ocular Foreign Body, Removal from Anterior Segment could be decomposed into three parts: location, problem, oper ation. /T_he performance 13 [Page 14] of our system is yet to be evaluated by focusing on solely compl ex phrases. On the other hand, some NLP features such as part of speech can be coup led into our system to solve this problem. In the taxonomy, there exist nodes that have the exact same connec tions to the rest of the t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02954,
+        0.01026,
+        -0.02754,
+        0.0601,
+        0.01999
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "features such as part of speech can be coup led into our system to solve this problem. In the taxonomy, there exist nodes that have the exact same connec tions to the rest of the t",
+      "overlap_with_next": "txe, Gorka Labaka, and Eneko Agirre. A robust self- learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of the 56th Annual Meeting of t",
+      "text": "features such as part of speech can be coup led into our system to solve this problem. In the taxonomy, there exist nodes that have the exact same connec tions to the rest of the taxonomy. /T_herefore, they have the same representat ion in our node em- bedding space. Our current system does not address this issue and these nodes will not diﬀerentiated. /T_his problem can be solved by adding extra info rmative connec- tions to those nodes to make their neighbourhoods diﬀerent. It is also possible to use two taxonomies to train the node embeddings, to diﬀerentiate the se nodes and yield be/t_ter performance. References [1] Alan R. Aronson and Franois-Michel Lang. An overview of metamap: historical perspective and recent advances. JAMIA, 17(3):229–236, 2010. [2] Mikel Artetxe, Gorka Labaka, and Eneko Agirre. Generalizing and imp roving bilingual word em- bedding mappings with a multi-step framework of linear transformations . In /T_hirty-Second AAAI Conference on Artiﬁcial Intelligence , 2018. [3] Mikel Artetxe, Gorka Labaka, and Eneko Agirre. A robust self- learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of the 56th Annual Meeting of t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00978,
+        0.00215,
+        -0.03405,
+        0.01882,
+        -0.00236
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "txe, Gorka Labaka, and Eneko Agirre. A robust self- learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of the 56th Annual Meeting of t",
+      "overlap_with_next": " representation learning. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data M ining, pages 787–795. ACM, 2017. [7] Edward Choi, Andy Sc",
+      "text": "txe, Gorka Labaka, and Eneko Agirre. A robust self- learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of the 56th Annual Meeting of the Asso- ciation for Computational Linguistics (Volume 1: Long Pape rs), pages 789–798, Melbourne, Australia, July 2018. Association for Computational Linguistics. [4] Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolo v. Enriching word vectors with subword information. Transactions of the Association for Computational Linguis tics, 5:135–146, 2017. [5] Edward Choi, Mohammad Taha Bahadori, Elizabeth Searles, Ca therine Coﬀey, Michael /T_hompson, James Bost, Javier Tejedor-Sojo, and Jimeng Sun. Multi-layer repr esentation learning for medical concepts. In Proceedings of the 22nd ACM SIGKDD International Conferenc e on Knowledge Discovery and Data Mining, pages 1495–1504. ACM, 2016. [6] Edward Choi, Mohammad Taha Bahadori, Le Song, Walter F Stewa rt, and Jimeng Sun. Gram: graph- based a/t_tention model for healthcare representation learning. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data M ining, pages 787–795. ACM, 2017. [7] Edward Choi, Andy Sc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03813,
+        -0.0202,
+        -0.01274,
+        -0.03228,
+        0.00578
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": " representation learning. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data M ining, pages 787–795. ACM, 2017. [7] Edward Choi, Andy Sc",
+      "overlap_with_next": "Philip O. Alderson, John H. M. Austin, James J. C imino, and Stephen B. Johnson. A general natural-language text processor for clinical radiology. Journal of the American Medical I",
+      "text": " representation learning. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data M ining, pages 787–795. ACM, 2017. [7] Edward Choi, Andy Schuetz, Walter F Stewart, and Jimeng Sun. Med ical concept representation learning from electronic health records and its application on heart f ailure prediction, 2016, arXiv preprint arXiv:1602.03686. [8] Youngduck Choi, Chill Yi-I Chiu, and David Sontag. Learning low-dimens ional representations of medical concepts. AMIA Summits on Translational Science Proceedings , 2016:41, 2016. [9] /T_he Gene Ontology Consortium. Gene ontology consortium: going forwa rd. Nuc- leic Acids Research , 43(D1):D1049–D1056, 11 2014, h/t_tp://oup.prod.sis.lan/nar/ article- pdf/43/D1/D1049/7329240/gku1179.pdf. [10] Joshua C. Denny, Plomarz R. Irani, Firas H. Wehbe, Jeﬀrey D. Sm ithers, and Anderson Spickard III. /T_he knowledgemap project: Development of a concept-based medica l school curriculum database. In AMIA. AMIA, 2003. [11] Carol Friedman, Philip O. Alderson, John H. M. Austin, James J. C imino, and Stephen B. Johnson. A general natural-language text processor for clinical radiology. Journal of the American Medical I",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05181,
+        -0.01236,
+        0.00471,
+        -0.00346,
+        0.00064
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "Philip O. Alderson, John H. M. Austin, James J. C imino, and Stephen B. Johnson. A general natural-language text processor for clinical radiology. Journal of the American Medical I",
+      "overlap_with_next": "arXiv preprint arXiv:1412.6980. [16] Teri E Klein, Jeﬀrey T Chang, Mildred K Cho, Katrina L Easton, Ray Fergerson, Micheal Hewe/t_t, Zhen Lin, Y Liu, S Liu, DE Oliver, et al. Integ",
+      "text": "Philip O. Alderson, John H. M. Austin, James J. C imino, and Stephen B. Johnson. A general natural-language text processor for clinical radiology. Journal of the American Medical Informatics Association, 1(2):161–174, 03 1994. [12] Ary L Goldberger et al. Components of a new research resourc e for complex physiologic signals, physiobank, physiotoolkit, and physionet, american heart association journals. Circulation, 101(23):1– 9, 2000. [13] Aditya Grover and Jure Leskovec. node2vec: Scalable featu re learning for networks. In Proceedings of the 22nd ACM SIGKDD international conference on Knowledg e discovery and data mining , pages 855–864. ACM, 2016. 14 [Page 15] [14] Alistair EW Johnson, Tom J Pollard, Lu Shen, H Lehman Li-wei, Meng ling Feng, Mohammad Ghassemi, Benjamin Moody, Peter Szolovits, Leo Anthony Celi, and Rog er G Mark. Mimic-iii, a freely accessible critical care database. Scientiﬁc data, 3:160035, 2016. [15] Diederik P Kingma and Jimmy Ba. Adam: A method for stochastic opt imization, 2014, arXiv preprint arXiv:1412.6980. [16] Teri E Klein, Jeﬀrey T Chang, Mildred K Cho, Katrina L Easton, Ray Fergerson, Micheal Hewe/t_t, Zhen Lin, Y Liu, S Liu, DE Oliver, et al. Integ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04973,
+        0.0067,
+        -0.04062,
+        0.0257,
+        0.0358
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "arXiv preprint arXiv:1412.6980. [16] Teri E Klein, Jeﬀrey T Chang, Mildred K Cho, Katrina L Easton, Ray Fergerson, Micheal Hewe/t_t, Zhen Lin, Y Liu, S Liu, DE Oliver, et al. Integ",
+      "overlap_with_next": "o. Ex- periences in the development of electronic care plans for the management of comorbidities. In Lecture Notes in Computer Science , volume 5943, pages 113–123, Berlin, Heidelb",
+      "text": "arXiv preprint arXiv:1412.6980. [16] Teri E Klein, Jeﬀrey T Chang, Mildred K Cho, Katrina L Easton, Ray Fergerson, Micheal Hewe/t_t, Zhen Lin, Y Liu, S Liu, DE Oliver, et al. Integrating genotype and phenotype infor mation: an overview of the pharmgkb project. /T_he pharmacogenomics journal, 1(3):167, 2001. [17] Yann LeCun, L ´eon Bo/t_tou, Yoshua Bengio, Patrick Haﬀner, et al. Gradient-based le arning applied to document recognition. Proceedings of the IEEE , 86(11):2278–2324, 1998. [18] Chen Li, Runqing Song, Maria Liakata, Andreas Vlachos, Stephanie S eneﬀ, and Xiangrong Zhang. Using word embedding for bio-event extraction. In Proceedings of BioNLP 15 , pages 121–126, 2015. [19] Shengyu Liu, Buzhou Tang, Qingcai Chen, and Xiaolong Wang. Eﬀects o f semantic features on ma- chine learning-based drug name recognition systems: word embeddings vs . manually constructed dictionaries. Information, 6(4):848–865, 2015. [20] Esther Lozano, Mar Marcos, Begoa Martnez-Salvador, Albe rt Alonso, and Josep Ramon Alonso. Ex- periences in the development of electronic care plans for the management of comorbidities. In Lecture Notes in Computer Science , volume 5943, pages 113–123, Berlin, Heidelb",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03365,
+        -0.04717,
+        -0.01737,
+        -0.01998,
+        0.01756
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "o. Ex- periences in the development of electronic care plans for the management of comorbidities. In Lecture Notes in Computer Science , volume 5943, pages 113–123, Berlin, Heidelb",
+      "overlap_with_next": "butional s emantics resources for bio- medical text processing. In Proceedings of LBM 2013 , pages 39–44, 2013. [26] Jeﬀrey Pennington, Richard Socher, and Christopher D. Manning. ",
+      "text": "o. Ex- periences in the development of electronic care plans for the management of comorbidities. In Lecture Notes in Computer Science , volume 5943, pages 113–123, Berlin, Heidelberg, 07 2010. Spring er. [21] Xinbo Lv, Yi Guan, Jinfeng Yang, and Jiawei Wu. Clinical relation extra ction with deep learning. IJHIT, 9(7):237–248, 2016. [22] Tong Man, Huawei Shen, Xiaolong Jin, and Xueqi Cheng. Cross-domain recommendation: An em- bedding and mapping approach. In IJCAI, pages 2464–2470, 2017. [23] Christopher Manning, Mihai Surdeanu, John Bauer, Jenny Finkel, Ste ven Bethard, and David Mc- Closky. /T_he stanford corenlp natural language processing toolkit. I n Proceedings of 52nd annual meeting of the association for computational linguistics: system demonstrations, pages 55–60, 2014. [24] Tomas Mikolov, Kai Chen, Gregory S. Corrado, and Jeﬀrey Dea n. Eﬃcient estimation of word repres- entations in vector space, 2013, arXiv preprint arXiv:1301.3781. [25] SPFGH Moen and Tapio Salakoski2 Sophia Ananiadou. Distributional s emantics resources for bio- medical text processing. In Proceedings of LBM 2013 , pages 39–44, 2013. [26] Jeﬀrey Pennington, Richard Socher, and Christopher D. Manning. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04273,
+        -0.01586,
+        -0.02517,
+        -0.00718,
+        -0.00247
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "butional s emantics resources for bio- medical text processing. In Proceedings of LBM 2013 , pages 39–44, 2013. [26] Jeﬀrey Pennington, Richard Socher, and Christopher D. Manning. ",
+      "overlap_with_next": "atesh. L earning vector representation of medical objects via emr-driven nonnegative restricted boltzmann m achines (enrbm). Journal of Biomedical Informatics, 54:96–105, 2015. [31",
+      "text": "butional s emantics resources for bio- medical text processing. In Proceedings of LBM 2013 , pages 39–44, 2013. [26] Jeﬀrey Pennington, Richard Socher, and Christopher D. Manning. Glov e: Global vectors for word representation. In Empirical Methods in Natural Language Processing (EMNLP), pages 1532–1543, 2014. [27] Guergana K Savova, James J Masanz, Philip V Ogren, Jiaping Zheng, S unghwan Sohn, Karin C Kipper- Schuler, and Christopher G Chute. Mayo clinical text analysis and know ledge extraction system (ctakes): architecture, component evaluation and applications. Journal of the American Medical In- formatics Association, 17(5):507–513, 2010. [28] Mike Schuster and Kuldip K Paliwal. Bidirectional recurrent neura l networks. IEEE Transactions on Signal Processing, 45(11):2673–2681, 1997. [29] Chang Su, Fei Wang, Jie Tong, Yongjun Zhu, and Peng Cui. Network em bedding in biomedical data science, 12 2018, h/t_tps://doi.org/10.1093/bib/bby117. [30] Truyen Tran, Tu Dinh Nguyen, Dinh Q. Phung, and Svetha Venkatesh. L earning vector representation of medical objects via emr-driven nonnegative restricted boltzmann m achines (enrbm). Journal of Biomedical Informatics, 54:96–105, 2015. [31",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07289,
+        -0.03389,
+        0.00852,
+        0.01898,
+        -0.00392
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "atesh. L earning vector representation of medical objects via emr-driven nonnegative restricted boltzmann m achines (enrbm). Journal of Biomedical Informatics, 54:96–105, 2015. [31",
+      "overlap_with_next": "ronic medical records and biomedical knowledge graphs v ia entity linking. In Interna- tional Semantic Web Conference, pages 219–227. Springer, 2017. [36] Yanshan Wang, Sijia Liu, ",
+      "text": "atesh. L earning vector representation of medical objects via emr-driven nonnegative restricted boltzmann m achines (enrbm). Journal of Biomedical Informatics, 54:96–105, 2015. [31] Eugene Tseytlin, Kevin Mitchell, Elizabeth Legowski, Julia Cor rigan, Girish Chavan, and Rebecca S Jacobson. Noble–ﬂexible concept recognition for large-scale biom edical natural language processing. BMC bioinformatics, 17(1):32, 2016. [32] U.S. National Library of Medicine. Icd-9-cm diagnostic codes to s nomed ct map, 2015. [33] ¨Ozlem Uzuner, Bre/t_t R South, Shuying Shen, and Sco/t_t L DuVall. 2010 i2b 2/va challenge on concepts, assertions, and relations in clinical text. Journal of the American Medical Informatics Association , 18(5):552–556, 2011. 15 [Page 16] [34] Meng Wang. Predicting rich drug-drug interactions via biomedical know ledge graphs and text jointly embedding, 2017, arXiv preprint arXiv:1712.08875. [35] Meng Wang, Jiaheng Zhang, Jun Liu, Wei Hu, Sen Wang, Xue Li, and Wenqia ng Liu. Pdd graph: Bridging electronic medical records and biomedical knowledge graphs v ia entity linking. In Interna- tional Semantic Web Conference, pages 219–227. Springer, 2017. [36] Yanshan Wang, Sijia Liu, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05889,
+        -0.01915,
+        -0.00425,
+        0.01793,
+        -0.00765
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 41854,
+      "length": 1054,
+      "overlap_with_previous": "ronic medical records and biomedical knowledge graphs v ia entity linking. In Interna- tional Semantic Web Conference, pages 219–227. Springer, 2017. [36] Yanshan Wang, Sijia Liu, ",
+      "overlap_with_next": "icheng Zhao, and Fei Wang. A neural multi-ta sk learning frame- work to jointly model medical named entity recognition and normalization, 2 018, arXiv preprint arXiv:1812.06081. 16",
+      "text": "ronic medical records and biomedical knowledge graphs v ia entity linking. In Interna- tional Semantic Web Conference, pages 219–227. Springer, 2017. [36] Yanshan Wang, Sijia Liu, Naveed Afzal, Majid Rastegar-Mojara d, Liwei Wang, Feichen Shen, Paul Kingsbury, and Hongfang Liu. A comparison of word embeddings for the biomedical natural language processing. Journal of biomedical informatics , 87:12–20, 2018. [37] David S Wishart, Craig Knox, An Chi Guo, Savita Shrivastava, Mu rtaza Hassanali, Paul Stothard, Zhan Chang, and Jennifer Woolsey. Drugbank: a comprehensive resourc e for in silico drug discovery and exploration. Nucleic acids research, 34(suppl 1):D668–D672, 2006. [38] Jun Xu, Yaoyun Zhang, Hua Xu, et al. Clinical abbreviation disam biguation using neural word em- beddings. In Proceedings of BioNLP 15 , pages 171–176, 2015. [39] Sendong Zhao, Ting Liu, Sicheng Zhao, and Fei Wang. A neural multi-ta sk learning frame- work to jointly model medical named entity recognition and normalization, 2 018, arXiv preprint arXiv:1812.06081. 16",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05839,
+        -0.03258,
+        -0.01555,
+        -0.00253,
+        -0.01979
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 41854,
+      "length": 34,
+      "overlap_with_previous": "rXiv preprint arXiv:1812.06081. 16",
+      "overlap_with_next": "",
+      "text": "rXiv preprint arXiv:1812.06081. 16",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02424,
+        0.01409,
+        -0.03881,
+        -0.01024,
+        -0.03012
+      ]
+    }
+  ]
+}

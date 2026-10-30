@@ -1,0 +1,317 @@
+{
+  "paper_id": "6687a1bc-3b14-48e5-b780-3aa07624f91f",
+  "filename": "044_Computer_Vision_Randomized_RX_for_target_detection.pdf",
+  "title": "RANDOMIZED RX FOR TARGET DETECTION",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 18,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "sed method while providing high detection performance. Index Terms — Anomaly and target detection, Reed- Xiaoli (RX), kernel methods, random Fourier features 1. INTRODUCTION Anomal",
+      "text": "[Page 1] RANDOMIZED RX FOR TARGET DETECTION Fatih Nar1, Adri ´an P ´erez-Suay2, Jos´e Antonio Padr ´on2, Gustau Camps-V alls2 1Konya Food and Agriculture University, Konya, Turkey 2Image Processing Lab (IPL), Universitat de Val`encia, Val`encia, Spain ABSTRACT This work tackles the target detection problem through the well-known global RX method. The RX method mod- els the clutter as a multivariate Gaussian distribution, and has been extended to nonlinear distributions using kernel meth- ods. While the kernel RX can cope with complex clutters, it requires a considerable amount of computational resources as the number of clutter pixels gets larger. Here we propose ran- dom Fourier features to approximate the Gaussian kernel in kernel RX and consequently our development keep the accu- racy of the nonlinearity while reducing the computational cost which is now controlled by an hyperparameter. Results over both synthetic and real-world image target detection problems show space and time efﬁciency of the proposed method while providing high detection performance. Index Terms — Anomaly and target detection, Reed- Xiaoli (RX), kernel methods, random Fourier features 1. INTRODUCTION Anomal",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02506,
+        -0.02004,
+        -0.03485,
+        0.00832,
+        -0.03774
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "sed method while providing high detection performance. Index Terms — Anomaly and target detection, Reed- Xiaoli (RX), kernel methods, random Fourier features 1. INTRODUCTION Anomal",
+      "overlap_with_next": "sed on assuming a multivari- ate Gaussian distributed background and to deal with, it uses This work was supported by the Scientiﬁc and Technical Research Coun- cil of Turkey (TUBI",
+      "text": "sed method while providing high detection performance. Index Terms — Anomaly and target detection, Reed- Xiaoli (RX), kernel methods, random Fourier features 1. INTRODUCTION Anomaly Detection (AD) in remote sensing data analysis has been (and will continue to be) one of the main important re- search topics for various applications [1, 2]. Anomaly deci- sion is made by analyzing the difference of the pixel under test (PUT) and the background. Various anomaly detectors have been proposed in the literature under a number of as- sumptions: 1) the choice of the background region and the distribution, 2) the way of calculating the distance between the PUT and the background statistics, and 3) the deﬁnition of the decision threshold or test statistic [3]. Among the large variety of AD methods, the Reed-Xiaoli (RX) is widely used for its simplicity, good practical results and efﬁciency in operational settings [1, 2]. The RX algo- rithm, which probably is the most known AD method for hyperspectral images, it is based on assuming a multivari- ate Gaussian distributed background and to deal with, it uses This work was supported by the Scientiﬁc and Technical Research Coun- cil of Turkey (TUBI",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06008,
+        -0.0022,
+        -0.03979,
+        0.02509,
+        -0.04461
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "sed on assuming a multivari- ate Gaussian distributed background and to deal with, it uses This work was supported by the Scientiﬁc and Technical Research Coun- cil of Turkey (TUBI",
+      "overlap_with_next": "rks well for simple backgrounds (mostly linear), it can not cope with more complex, nonlinear and/or non-Gaussian back- grounds. To deal with its limitations, more powerful tech- n",
+      "text": "sed on assuming a multivari- ate Gaussian distributed background and to deal with, it uses This work was supported by the Scientiﬁc and Technical Research Coun- cil of Turkey (TUBITAK), Grant Number: TUBITAK-BIDEB-2219. GCV was funded by the European Research Council (ERC) under the ERC-CoG- 2014 SEDAL project (grant agreement 647423), and APS was funded by the Spanish Ministry of Economy and Competitiveness (MINECO) and Eu- ropean Regional Development Fund (ERDF) through the project TIN2015- 64210-R. the Mahalanobis distance between the PUT and the back- ground [4]. With regard to the background region, there are two main different approaches. In the global approach the whole image is deﬁned as the background while in the lo- cal approach pixels around the PUT are deﬁned as the back- ground by means of a sliding window or a segmentation based approach [5, 6]. Also, possible anomalies can be censored to prevent degradation on the background statistics [7]. Even though RX is computationally efﬁcient and works well for simple backgrounds (mostly linear), it can not cope with more complex, nonlinear and/or non-Gaussian back- grounds. To deal with its limitations, more powerful tech- n",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08363,
+        -0.00205,
+        -0.0346,
+        0.01724,
+        -0.01133
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "rks well for simple backgrounds (mostly linear), it can not cope with more complex, nonlinear and/or non-Gaussian back- grounds. To deal with its limitations, more powerful tech- n",
+      "overlap_with_next": "manner. Although this method is fast, threshold estimation for target decision is a problematic task since the detection result is dependent on the location of the PUT in the image",
+      "text": "rks well for simple backgrounds (mostly linear), it can not cope with more complex, nonlinear and/or non-Gaussian back- grounds. To deal with its limitations, more powerful tech- niques like kernel methods can be used to cope with non- Gaussian distributed data [8–10]. However, kernel RX is a computationally demanding method because it involves ma- trix inversion in the size of the sample count, e.g. for more than thousand pixels. On the contrary, covariance matrix in RX has ﬁxed size which is proportional to spectral dimen- sion of the image, e.g. around ten for multispectral images and around hundred for hyperspectral images. Since AD is generally the ﬁrst step in further recognition tasks, the exe- cution time is as (or even more) important as the detection accuracy [11]. Besides, processor capacity (CPU or GPU), memory storage, and execution budget can be limited in op- erational applications [5]. In [12], a fast recursive kernel RX method was recently introduced, which processes the data in a causal manner. Although this method is fast, threshold estimation for target decision is a problematic task since the detection result is dependent on the location of the PUT in the image",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03775,
+        0.00653,
+        -0.02664,
+        -0.00083,
+        -0.05495
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "manner. Although this method is fast, threshold estimation for target decision is a problematic task since the detection result is dependent on the location of the PUT in the image",
+      "overlap_with_next": "as follows. First, section 2 brieﬂy reviews the proposed method used in this study. Then, section 3 presents the performance of the ran- domized RX method. Finally, we conclude in ",
+      "text": "manner. Although this method is fast, threshold estimation for target decision is a problematic task since the detection result is dependent on the location of the PUT in the image. In this study, we propose an alternative way to speed up the kernel RX method while maintaining its accuracy: we propose to approximate the kernel function with random Fourier features [13] in order to project data into a nonlinear feature space where a standard, cheap and efﬁcient linear RX method can be readily applied. Previous use of the random- ized approach in remote sensing has considered classiﬁcation and regression problems [14, 15]. The proposed randomized RX approach is able to signiﬁcantly lower the execution time and the memory storage compared to its kernel RX counter- part, while preserving almost the same detection accuracy. We give empirical evidence in both synthetic and real-world remote sensing target detection problems. arXiv:2012.12308v1 [cs.CV] 8 Dec 2020 [Page 2] The remainder of the paper is organized as follows. First, section 2 brieﬂy reviews the proposed method used in this study. Then, section 3 presents the performance of the ran- domized RX method. Finally, we conclude in ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01874,
+        0.03092,
+        -0.02416,
+        0.00268,
+        -0.04288
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "as follows. First, section 2 brieﬂy reviews the proposed method used in this study. Then, section 3 presents the performance of the ran- domized RX method. Finally, we conclude in ",
+      "overlap_with_next": "kground as follows DRX (x∗) = (x∗− µ)⊤Σ−1RX (x∗− µ). (1) Note that we only need to invert the covariance matrix once. However, the global RX detector characterizes the back- ground",
+      "text": "as follows. First, section 2 brieﬂy reviews the proposed method used in this study. Then, section 3 presents the performance of the ran- domized RX method. Finally, we conclude in section 4 with some remarks and prospective future work. 2. RANDOMIZED RX 2.1. The RX algorithm Let us deﬁne a hyperspectral image in matrix form X ∈ R n×d, where n is the number of pixels and d is the dimen- sionality of each pixel, i.e. number of spectral channels. A generic pixel element in I is denoted as the (column) feature vector xi∈ R d. Among the various AD proposed in the literature, one of the most frequently used anomaly detector is the (spec- tral only version of the) Reed-Xiaoli (RX) detector [4] that is often used as a benchmark to which other methods are compared. The RX detector characterizes the background by its spectral mean vector µ and covariance matrix ΣRX = 1 d ˜X⊤ ˜X, where ˜X is the centered X matrix. The actual de- tector calculates the Mahalanobis distance between the pixel under test, x∗, and the background as follows DRX (x∗) = (x∗− µ)⊤Σ−1RX (x∗− µ). (1) Note that we only need to invert the covariance matrix once. However, the global RX detector characterizes the back- ground",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03307,
+        0.00284,
+        -0.04832,
+        0.00477,
+        -0.02158
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "kground as follows DRX (x∗) = (x∗− µ)⊤Σ−1RX (x∗− µ). (1) Note that we only need to invert the covariance matrix once. However, the global RX detector characterizes the back- ground",
+      "overlap_with_next": "ch, after some linear algebra, can be expressed in terms of kernel matrices [8, 16]: DKRX (x∗) = k⊤∗ (KK)−1k∗, (2) where k∗ = [K(x∗, x1),...,K (x∗, xn)]⊤ ∈ R n contains the similar",
+      "text": "kground as follows DRX (x∗) = (x∗− µ)⊤Σ−1RX (x∗− µ). (1) Note that we only need to invert the covariance matrix once. However, the global RX detector characterizes the back- ground of the complete scene by a single multivariate normal probability density function (pdf). In many scenes, this model is not adequate. For this reason, several variations of the global RX detector have been proposed using kernel functions, such as the kernel RX (KRX) [9]. 2.2. The kernel RX algorithm Notationally, let us map all pixels to a higher dimensional Hilbert feature spaces H by means of the feature map φ : x→ φ(x). The mapped training data matrix X∈ R n×d is now denoted as Φ∈ R n×dH. Let us deﬁne a kernel function K that, by virtue of the Riesz theorem, can evaluate (repro- duce) the dot product between samples inH, i.e.K(x, x′) = ⟨φ(x), φ(x′)⟩∈ R. Now, in order to estimate the anomalous- ness (distance) for a test example x∗, we ﬁrst map it φ(x∗) and then apply the RX formula in (1): DKRX (x∗) = φ(x∗)⊤(Φ⊤Φ)−1φ(x∗), which, after some linear algebra, can be expressed in terms of kernel matrices [8, 16]: DKRX (x∗) = k⊤∗ (KK)−1k∗, (2) where k∗ = [K(x∗, x1),...,K (x∗, xn)]⊤ ∈ R n contains the similar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04223,
+        -0.00179,
+        -0.02745,
+        -0.00897,
+        -0.03392
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ch, after some linear algebra, can be expressed in terms of kernel matrices [8, 16]: DKRX (x∗) = k⊤∗ (KK)−1k∗, (2) where k∗ = [K(x∗, x1),...,K (x∗, xn)]⊤ ∈ R n contains the similar",
+      "overlap_with_next": "n-negative measure. If a shift-invariant kernel K is properly scaled, its Fourier transform p(w) is a proper probability distribution. This property is used to approximate kernel f",
+      "text": "ch, after some linear algebra, can be expressed in terms of kernel matrices [8, 16]: DKRX (x∗) = k⊤∗ (KK)−1k∗, (2) where k∗ = [K(x∗, x1),...,K (x∗, xn)]⊤ ∈ R n contains the similarities between x∗ and all training points in X us- ing K, and K ∈ R n×n stands for the kernel matrix con- taining all training data similarities. Note that, if n is very large constructing and inverting kernel matrix is not feasible hence generally N samples are randomly sampled to obtain computational tractability. Recently, the kernel RX has been also extended to non-Gaussian settings by deﬁning a complete family of anomalous change detectors with kernels [10]. 2.3. The randomized RX algorithm An outstanding result in the recent kernel methods litera- ture makes use of a classical deﬁnition in harmonic anal- ysis to improve approximation and scalability [13]. The Bochner’s theorem states that a continuous shift-invariant kernelK(x, x′) = K(x−x′) on R d is positive deﬁnite (p.d.) if and only if K is the Fourier transform of a non-negative measure. If a shift-invariant kernel K is properly scaled, its Fourier transform p(w) is a proper probability distribution. This property is used to approximate kernel f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02592,
+        0.02379,
+        -0.0399,
+        -0.01012,
+        -0.03671
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "n-negative measure. If a shift-invariant kernel K is properly scaled, its Fourier transform p(w) is a proper probability distribution. This property is used to approximate kernel f",
+      "overlap_with_next": " = z(x∗), andℜ is the real part functionℜ(a + i b) = a. This leads to a nonlinear randomized RX (RRX) that ap- proximates the KRX in expectation. Essentially, we map the original d",
+      "text": "n-negative measure. If a shift-invariant kernel K is properly scaled, its Fourier transform p(w) is a proper probability distribution. This property is used to approximate kernel functions with linear projections on a number of D random features, as follows: K(x, x′)≈ 1D∑Dj=1 exp(−i w⊤j x) exp(i w⊤j x′), where i = √−1, and wi ∈ R d is randomly sampled from a data-independent distribution p(w) [17]. Note that we can deﬁne a D-dimensional randomized feature map z : R d → C D, which can be explicitly constructed as z(x) := [exp( i w⊤1 x),..., exp(i w⊤Dx)]⊤. Therefore, givenn data points (pixels), the kernel matrix K∈ R n×n can be approximated with the explicitly mapped data, Z = [ z1··· zn]⊤ ∈ R n×D, and will be denoted as ˆK≈ ZZ⊤. However, we do not use such approximation in Eq. (2) which would lead to a mere approximation with extra computational cost. Instead, we run the linear RX in Eq. (1) with explicitly mapped points onto random Fourier features, which reduces to DRRX =ℜ ( z⊤∗ (Z⊤Z)−1z∗), (3) where z∗ = z(x∗), andℜ is the real part functionℜ(a + i b) = a. This leads to a nonlinear randomized RX (RRX) that ap- proximates the KRX in expectation. Essentially, we map the original d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04048,
+        0.03687,
+        -0.02543,
+        -0.00485,
+        -0.03441
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " = z(x∗), andℜ is the real part functionℜ(a + i b) = a. This leads to a nonlinear randomized RX (RRX) that ap- proximates the KRX in expectation. Essentially, we map the original d",
+      "overlap_with_next": "ransformation of image into a nonlinear space. C is covariance matrix and C−1 is its inverse. AD is anomaly detection. 3.1. Synthetic dataset To compare the detectors in a controll",
+      "text": " = z(x∗), andℜ is the real part functionℜ(a + i b) = a. This leads to a nonlinear randomized RX (RRX) that ap- proximates the KRX in expectation. Essentially, we map the original data xi into a nonlinear space through the explicit mapping z(xi) to a D-dimensional space (instead of the po- tentially inﬁnite feature space with φ(xi)), and then use the linear RX formula. This allows to control the space and time complexity explicitly throughD, as one has to store matrices ofn×D and invert matrices of sizeD×D only (see Table 1). Typically, parameterD satisﬁesD≪ n in practical applica- tions, which turns to be a beneﬁcial regularization effect in the solution. 3. EXPERIMENTS This section reports some empirical results comparing RX, the KRX and the proposed RRX, in both synthetic and real experiments which are run on Intel i7 4.0 GHz PC. [Page 3] Table 1: Space and time complexity for all methods. Space Time Method T C−1 T C C−1 AD RX − d2 − nd2 d3 nd2 KRX nN N 2 ndN N 3 N 3 nN 2 RRX nD D2 ndD nD2 D3 nD2 T is transformation of image into a nonlinear space. C is covariance matrix and C−1 is its inverse. AD is anomaly detection. 3.1. Synthetic dataset To compare the detectors in a controll",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0208,
+        0.03949,
+        -0.01609,
+        -0.00488,
+        -0.01441
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ransformation of image into a nonlinear space. C is covariance matrix and C−1 is its inverse. AD is anomaly detection. 3.1. Synthetic dataset To compare the detectors in a controll",
+      "overlap_with_next": "cf. Fig. 1) is complex and non-Gaussian distributed. For this data with complex background, RRX D = 3 fails since 3 Fourier basis is not sufﬁcient to model the background and RX al",
+      "text": "ransformation of image into a nonlinear space. C is covariance matrix and C−1 is its inverse. AD is anomaly detection. 3.1. Synthetic dataset To compare the detectors in a controlled manner, we created a synthetic test image of size 100× 100 pixels with two spec- tral channels. Fig. 1 shows data distribution in a density col- ormap, here dark points are background and bright points are anomalies. Besides, Fig.2.a shows image as false colored (the ﬁrst and the second dimensions assigned to the green and blue channels, respectively). In this data, 2.72% of the pixels are cast as anomalies (Fig. 2.d). Fig. 1: Distribution of synthetic data. We added a small regularization value λ = 10 −2 to better condition matrix inversions, and ﬁxed the ker- nel lengthscale σ as the median of all pairwise distances in both KRX and RRX. Detection re- sponses are given in Fig. 2 using whole image in training for RX and RRX, and randomly selected subset (N = 3000 ) in training for KRX. Note that background in synthetic data (cf. Fig. 1) is complex and non-Gaussian distributed. For this data with complex background, RRX D = 3 fails since 3 Fourier basis is not sufﬁcient to model the background and RX al",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03623,
+        -0.00751,
+        -0.03983,
+        -0.01579,
+        -0.01819
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "cf. Fig. 1) is complex and non-Gaussian distributed. For this data with complex background, RRX D = 3 fails since 3 Fourier basis is not sufﬁcient to model the background and RX al",
+      "overlap_with_next": "data (b) RX (c) KRX (d) targets (e) RRX, D=3 (f) RRX, D=50 Fig. 2: Detection responses for synthetic data Fig. 3: ROC curve for synthetic data. 3.2. Real-world dataset For the real",
+      "text": "cf. Fig. 1) is complex and non-Gaussian distributed. For this data with complex background, RRX D = 3 fails since 3 Fourier basis is not sufﬁcient to model the background and RX also fails since background is non-Gaussian distributed. However, both RRX with only 50 basis (D = 50 ) and KRX (N = 3000 ) are able to model background properly. In Fig. 3 appears the ROC curves for all methods and they are given in log scale (abcissa) where area under the curve (AUC) values and execution times are given in legends. Since background is not Gaussian distributed, RX has the lowest performance. KRX and the proposed RRX with D = 50 basis show a similar superior performance, which is an ex- pected result. However, computational load of KRX increases rapidly as the number of training samples increase. In this pa- per, we usedN = 3000 randomly sampled pixels for KRX to achieve satisfactory detection results. The RRX detector with justD = 50 basis has similar detection performance yet two orders of magnitude faster. (a) data (b) RX (c) KRX (d) targets (e) RRX, D=3 (f) RRX, D=50 Fig. 2: Detection responses for synthetic data Fig. 3: ROC curve for synthetic data. 3.2. Real-world dataset For the real",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03037,
+        0.01502,
+        -0.05425,
+        -0.01555,
+        -0.02339
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "data (b) RX (c) KRX (d) targets (e) RRX, D=3 (f) RRX, D=50 Fig. 2: Detection responses for synthetic data Fig. 3: ROC curve for synthetic data. 3.2. Real-world dataset For the real",
+      "overlap_with_next": "l pairwise distances. For each λ and c pairs, an average AUC value is calculated over the validation set with 8 patches. The obtained optimal hyperpa- rameters wereλ = 10−4 andc = ",
+      "text": "data (b) RX (c) KRX (d) targets (e) RRX, D=3 (f) RRX, D=50 Fig. 2: Detection responses for synthetic data Fig. 3: ROC curve for synthetic data. 3.2. Real-world dataset For the real-world test, a multispectral image of California with 12 spectral channels and size of 964× 332 is used (see RGB composite in Fig. 4). California image is acquired from Sentinel-2 satellite at 8 August 2017 and downloaded from Google Earth Engine (GEE). Fig. 4: California dataset (3 channels are used for false color) The image was divided into 16 non-overlapping patches, each having size of 100× 100 pixels and anomalous pixels were synthetically fused into these patches using the mask given in Fig.2.d. Half of the patches are used as a training set and the remaining half as the validation set. The regulariza- tion parameter λ was varied between 10−5 and 100, and the [Page 4] lengthscale of the kernel was varied by taking values between [0.05, 5] and considering this particular values multiplied with m, wherem is the median of all pairwise distances. For each λ and c pairs, an average AUC value is calculated over the validation set with 8 patches. The obtained optimal hyperpa- rameters wereλ = 10−4 andc = ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03634,
+        -0.01827,
+        -0.04644,
+        -0.02038,
+        -0.02158
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "l pairwise distances. For each λ and c pairs, an average AUC value is calculated over the validation set with 8 patches. The obtained optimal hyperpa- rameters wereλ = 10−4 andc = ",
+      "overlap_with_next": "uracy in complex nonlinear and non-Gaussian background distribu- tions. In our experiments, we observed that proposed RRX method can provide two orders of magnitude speedup com- pa",
+      "text": "l pairwise distances. For each λ and c pairs, an average AUC value is calculated over the validation set with 8 patches. The obtained optimal hyperpa- rameters wereλ = 10−4 andc = 0.5. Test results are evaluated for the red square with size of 100× 100 which is shown in Fig. 4. Test results are given in Fig. 5 in log scale where AUC values and execution times are given in legends. Proposed RRX can obtain similar per- formance with KRX usingD = 100 basis and hence it is two orders of magnitude faster for this data set. Thus, better ac- curacies, robustness and computational efﬁciency is attained with the proposed RRX. Fig. 5: ROC curve for California data. 4. CONCLUSIONS We introduced the use of random Fourier features in the con- text of anomaly detection. In particular, we focused on ap- proximating the KRX method to cope with complex back- grounds in an computationally efﬁcient manner. The pro- posed RRX provides space and time efﬁcient solutions for anomaly detection, while providing high detection accuracy in complex nonlinear and non-Gaussian background distribu- tions. In our experiments, we observed that proposed RRX method can provide two orders of magnitude speedup com- pa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02855,
+        0.02643,
+        -0.05264,
+        0.00549,
+        -0.03705
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "uracy in complex nonlinear and non-Gaussian background distribu- tions. In our experiments, we observed that proposed RRX method can provide two orders of magnitude speedup com- pa",
+      "overlap_with_next": "FAR detection of an optical pattern with unknown spectral distribution,”IEEE Transactions on Acoustics, Speech, and Signal Processing, vol. 38, no. 10, pp. 1760–1770, 1990. [5] J. ",
+      "text": "uracy in complex nonlinear and non-Gaussian background distribu- tions. In our experiments, we observed that proposed RRX method can provide two orders of magnitude speedup com- pared to KRX method with no loss in accuracy. Other kernel- ized detectors can beneﬁt from this strategy, which will be the object of our future research. 5. REFERENCES [1] D. W. J. Stein, S. G. Beaven, L. E. Hoff, E. M. Winter, A. P. Schaum, and A. D. Stocker, “Anomaly detection from hyper- spectral imagery,” IEEE Signal Processing Magazine , vol. 19, no. 1, pp. 58–69, 2002. [2] N. Keshava, “Distance metrics and band selection in hyper- spectral processing with applications to material identiﬁcation and spectral libraries,” IEEE Trans. Geosc. Rem. Sens., vol. 42, no. 7, pp. 1552–1565, 2004. [3] S. Matteoli, M. Diani, and G. Corsini, “A tutorial overview of anomaly detection in hyperspectral images,” IEEE Aerospace and Electronic Systems Magazine , vol. 25, no. 7, pp. 5–28, 2010. [4] I. S. Reed and X. Yu, “Adaptive multiple-band CFAR detection of an optical pattern with unknown spectral distribution,”IEEE Transactions on Acoustics, Speech, and Signal Processing, vol. 38, no. 10, pp. 1760–1770, 1990. [5] J. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03072,
+        0.03595,
+        -0.01947,
+        0.02165,
+        -0.01122
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "FAR detection of an optical pattern with unknown spectral distribution,”IEEE Transactions on Acoustics, Speech, and Signal Processing, vol. 38, no. 10, pp. 1760–1770, 1990. [5] J. ",
+      "overlap_with_next": "ive analysis of kernel subspace target detectors for hyperspectral imagery,” EURASIP Journal of of Advances in Signal Proc. , vol. 2007, no. 29250, 2007. [10] Nathan Longbotham and",
+      "text": "FAR detection of an optical pattern with unknown spectral distribution,”IEEE Transactions on Acoustics, Speech, and Signal Processing, vol. 38, no. 10, pp. 1760–1770, 1990. [5] J. M. Molero, E. M. Garz ´on, I. Garc ´ıa, and A. Plaza, “Anal- ysis and optimizations of global and local versions of the RX algorithm for anomaly detection in hyperspectral data,” IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, vol. 6, no. 2, pp. 801–814, 2013. [6] Chunhui Zhao, Yulei Wang, Bin Qi, and Jia Wang, “Global and local real-time anomaly detectors for hyperspectral remote sensing imagery,” Remote Sensing , vol. 7, no. 4, pp. 3966– 3985, 2015. [7] F. Nar, E. Okman, A. Ozgur, and M. Cetin, “Fast target detec- tion in radar images using Rayleigh mixtures and summed area tables,” Digital Signal Processing, vol. 77, pp. 86–101, 2018. [8] G. Camps-Valls and L. Bruzzone, Eds., Kernel methods for remote sensing data analysis, Wiley & Sons, UK, Dec 2009. [9] H. Kwon and N. Nasrabadi, “A comparative analysis of kernel subspace target detectors for hyperspectral imagery,” EURASIP Journal of of Advances in Signal Proc. , vol. 2007, no. 29250, 2007. [10] Nathan Longbotham and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04429,
+        0.03376,
+        -0.0037,
+        0.01038,
+        0.00133
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ive analysis of kernel subspace target detectors for hyperspectral imagery,” EURASIP Journal of of Advances in Signal Proc. , vol. 2007, no. 29250, 2007. [10] Nathan Longbotham and",
+      "overlap_with_next": "science and Remote Sensing Symposium (IGARSS), 2015 IEEE International, 2015, pp. 17–20. [15] A. Perez-Suay, J. Amoros, L. Gomez-Chova, V . Laparra, Mu noz Mar´ı, and G. Camps-Vall",
+      "text": "ive analysis of kernel subspace target detectors for hyperspectral imagery,” EURASIP Journal of of Advances in Signal Proc. , vol. 2007, no. 29250, 2007. [10] Nathan Longbotham and G. Camps-Valls, “A family of kernel anomaly change detectors,” in IEEE Workshop on Hyperspec- tral Image and Signal Processing, Whispers , June 2014. [11] S. Y . Chen, Y . Wang, C. C. Wu, C. Liu, and C. I. Chang, “Real- time causal processing of anomaly detection for hyperspectral imagery,” IEEE Transactions on Aerospace and Electronic Systems, vol. 50, no. 2, pp. 1511–1534, 2014. [12] Chunhui Zhao, Xifeng Yao, and Bormin Huang, “Real-time anomaly detection based on a fast recursive kernel RX algo- rithm,” Remote Sensing, vol. 8, no. 12, 2016. [13] Ali Rahimi and Benjamin Recht, “Random features for large- scale kernel machines,” in Advances in Neural Information Processing Systems 20, pp. 1177–1184. 2008. [14] V . Laparra, D.M. Gonzalez, D. Tuia, and G. Camps-Valls, “Large-scale random features for kernel regression,” in Geo- science and Remote Sensing Symposium (IGARSS), 2015 IEEE International, 2015, pp. 17–20. [15] A. Perez-Suay, J. Amoros, L. Gomez-Chova, V . Laparra, Mu noz Mar´ı, and G. Camps-Vall",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05506,
+        0.01574,
+        -0.0146,
+        0.04371,
+        0.00101
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18006,
+      "length": 666,
+      "overlap_with_previous": "science and Remote Sensing Symposium (IGARSS), 2015 IEEE International, 2015, pp. 17–20. [15] A. Perez-Suay, J. Amoros, L. Gomez-Chova, V . Laparra, Mu noz Mar´ı, and G. Camps-Vall",
+      "overlap_with_next": "",
+      "text": "science and Remote Sensing Symposium (IGARSS), 2015 IEEE International, 2015, pp. 17–20. [15] A. Perez-Suay, J. Amoros, L. Gomez-Chova, V . Laparra, Mu noz Mar´ı, and G. Camps-Valls, “Randomized kernels for large scale earth observation applications,” Remote Sensing of Envi- ronment, vol. 1, no. 1, pp. 1, 2017. [16] John Shawe-Taylor and Nello Cristianini, Kernel Methods for Pattern Analysis, Cambridge University Press, 2004. [17] Ali Rahimi and Benjamin Recht, “Weighted sums of random kitchen sinks: Replacing minimization with randomization in learning,” in Advances in Neural Information Processing Sys- tems 21, pp. 1313–1320. Curran Associates, Inc., 2009.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06893,
+        0.03194,
+        -0.00475,
+        -0.01469,
+        -0.0052
+      ]
+    }
+  ]
+}

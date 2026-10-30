@@ -1,0 +1,589 @@
+{
+  "paper_id": "becca7ba-b351-441a-893d-254e2e1ab30f",
+  "filename": "029_NLP_From_Words_to_Sentences_A_Progressive_Learning_Approach_for_Zero-resource_Machine_Translation_with_V.pdf",
+  "title": "From Words to Sentences: A Progressive Learning Approach for Zero-resource Machine Translation with Visual Pivots",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 34,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "e, we ﬁrst learn word-level translation with image piv- ots, and then progress to learn the sentence-level translation by utilizing the learned word translation to suppress noises ",
+      "text": "[Page 1] From Words to Sentences: A Progressive Learning Approach for Zero-resource Machine Translation with Visual Pivots Shizhe Chen1∗ , Qin Jin1† and Jianlong Fu2 1Renmin University of China, Beijing, P.R. China 2Microsoft Research Asia, Beijing, P.R. China {cszhe1, qjin}@ruc.edu.cn, jianf@microsoft.com Abstract The neural machine translation model has suffered from the lack of large-scale parallel corpora. In contrast, we humans can learn multi-lingual trans- lations even without parallel texts by referring our languages to the external world. To mimic such hu- man learning behavior, we employ images as pivots to enable zero-resource translation learning. How- ever, a picture tells a thousand words, which makes multi-lingual sentences pivoted by the same image noisy as mutual translations and thus hinders the translation model learning. In this work, we pro- pose a progressive learning approach for image- pivoted zero-resource machine translation. Since words are less diverse when grounded in the image, we ﬁrst learn word-level translation with image piv- ots, and then progress to learn the sentence-level translation by utilizing the learned word translation to suppress noises ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04702,
+        -0.01412,
+        0.00115,
+        0.01745,
+        0.0124
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "e, we ﬁrst learn word-level translation with image piv- ots, and then progress to learn the sentence-level translation by utilizing the learned word translation to suppress noises ",
+      "overlap_with_next": "nces in two languages that describe the same image, re- searchers have proposed to employ images as pivots for zero-resource machine translation, which can beneﬁt from ∗This work w",
+      "text": "e, we ﬁrst learn word-level translation with image piv- ots, and then progress to learn the sentence-level translation by utilizing the learned word translation to suppress noises in image-pivoted multi-lingual sentences. Experimental results on two widely used image-pivot translation datasets, IAPR-TC12 and Multi30k, show that the proposed approach signiﬁ- cantly outperforms other state-of-the-art methods. 1 Introduction The recent success of neural machine translation (NMT) [Bahdanau et al., 2015] has greatly beneﬁted from large-scale high-quality parallel corpora. However, such NMT models are data-hungry and perform poorly without sufﬁcient par- allel data [Zoph et al. , 2016 ]. Due to the high expense of collecting parallel texts, more and more researchers are pay- ing attention to develop NMT models under the zero-resource condition where no parallel source-target texts are available. Inspired by how we humans learn a novel language when no parallel texts are available, for example connecting sen- tences in two languages that describe the same image, re- searchers have proposed to employ images as pivots for zero-resource machine translation, which can beneﬁt from ∗This work w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03947,
+        -0.00707,
+        0.00379,
+        0.04057,
+        0.01988
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "nces in two languages that describe the same image, re- searchers have proposed to employ images as pivots for zero-resource machine translation, which can beneﬁt from ∗This work w",
+      "overlap_with_next": " the same image. However, due to the one-to-many relationship between im- ages and captions (as known as “a picture tells a thousand words”), multi-lingual sentences describing the",
+      "text": "nces in two languages that describe the same image, re- searchers have proposed to employ images as pivots for zero-resource machine translation, which can beneﬁt from ∗This work was performed when Shizhe Chen was visiting Mi- crosoft Research Asia as a research intern. †Qin Jin is the corresponding author. Figure 1: A picture tells a thousand words - illustration of the chal- lenge in image-pivoted zero-resource machine translation. Only few words in red are correct translations even in groundtruth captions of the same image. Captioning mistakes in blue can further make such multi-lingual captions noisy as mutual translation. We translate Ger- man captions in brackets for non-German readers. abundant images with mono-lingual descriptions on the In- ternet [Sharma et al. , 2018 ]. The shared principle in pre- vious image-pivoted works [Nakayama and Nishida, 2017; Lee et al., 2018; Chen et al., 2018] assumes that the source sentence and the target sentence are semantically equivalent as they are describing the same image. However, due to the one-to-many relationship between im- ages and captions (as known as “a picture tells a thousand words”), multi-lingual sentences describing the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05765,
+        -0.01861,
+        -0.0197,
+        0.0483,
+        0.01292
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": " the same image. However, due to the one-to-many relationship between im- ages and captions (as known as “a picture tells a thousand words”), multi-lingual sentences describing the",
+      "overlap_with_next": "p- ing the word-level translation with the help of image pivots and then progressing to learn more challenging sentence-level translation with the assistance of word translation an",
+      "text": " the same image. However, due to the one-to-many relationship between im- ages and captions (as known as “a picture tells a thousand words”), multi-lingual sentences describing the same image are not necessarily good mutual translations. As shown in Figure 1, although the captions in English and German both accurately describe the image, they capture different aspects in the image and only few words in the captions are cor- rect mutual translations. Moreover, since images with multi- lingual captions are hard to obtain in realistic settings, an image caption model is usually adopted to generate multi- lingual caption sentences for the image. However, due to the imperfection of caption models, the semantic discrepancy of generated multi-lingual captions could be even larger. In this work, we propose a progressive learning approach to overcome above challenges in the image-pivoted zero- resource machine translation. We propose to learn the transla- tion in an easy-to-advanced progressive way, by ﬁrstly grasp- ing the word-level translation with the help of image pivots and then progressing to learn more challenging sentence-level translation with the assistance of word translation an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03172,
+        -0.01853,
+        0.00024,
+        0.00586,
+        0.01798
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "p- ing the word-level translation with the help of image pivots and then progressing to learn more challenging sentence-level translation with the assistance of word translation an",
+      "overlap_with_next": "proposed approach signiﬁcantly outperforms other state-of-the-art image-pivot methods. 2 Related Work The encoder-decoder based neural machine translation (NMT) model [Cho et al., ",
+      "text": "p- ing the word-level translation with the help of image pivots and then progressing to learn more challenging sentence-level translation with the assistance of word translation and im- age pivots. To be speciﬁc, since words grounded in certain regions of the image are less diverse than sentences, word- level translation can be more effectively learned based on im- age pivots. The multi-lingual word representations learned arXiv:1906.00872v1 [cs.CL] 3 Jun 2019 [Page 2] from the word translation and the image pivots altogether are used to enhance the sentence translation from two as- pects: i) suppressing noises in image-pivoted multi-lingual sentences via re-weighting sentences at ﬁne-grained token- level; ii) supporting the learning of language-agnostic sen- tence representation for cross language decoding via auto- encoding. The two aspects are complementary to train the NMT model. We carry out extensive experiments on two benchmark image-pivot machine translation datasets: IAPR- TC12 and Multi30k. Our proposed approach signiﬁcantly outperforms other state-of-the-art image-pivot methods. 2 Related Work The encoder-decoder based neural machine translation (NMT) model [Cho et al., ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00533,
+        -0.027,
+        -0.0065,
+        0.02094,
+        0.00322
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "proposed approach signiﬁcantly outperforms other state-of-the-art image-pivot methods. 2 Related Work The encoder-decoder based neural machine translation (NMT) model [Cho et al., ",
+      "overlap_with_next": " methods [Artetxe et al. , 2018; Lample et al. , 2018a ] only utilize large-scale mono- lingual corpora for translation. [Lample et al., 2018b] sum- marizes three key elements for ",
+      "text": "proposed approach signiﬁcantly outperforms other state-of-the-art image-pivot methods. 2 Related Work The encoder-decoder based neural machine translation (NMT) model [Cho et al., 2014; Bahdanau et al., 2015] has achieved great success in recent years. However, it requires large-scale parallel texts for training, which performs poorly without sufﬁcient data [Zoph et al. , 2016; Castilho et al. , 2017]. There are mainly three types of methods to avoid the reliance on source-target parallel data, namely third-language pivot, mono-lingual based and visual pivot methods. The third-language pivot methods [Johnson et al. , 2017; Chen et al., 2017] demand the source-to-pivot and pivot-to- target parallel corpus to enable zero-resource translation from source to target. [Johnson et al. , 2017 ] trains a universal encoder-decoder with multiple language pairs, which can per- form well in novel language combinations. However, it is not trivial to obtain the pivot language parallel data. The recent mono-lingual based methods [Artetxe et al. , 2018; Lample et al. , 2018a ] only utilize large-scale mono- lingual corpora for translation. [Lample et al., 2018b] sum- marizes three key elements for ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04128,
+        -0.02044,
+        -0.03422,
+        0.0169,
+        0.02526
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": " methods [Artetxe et al. , 2018; Lample et al. , 2018a ] only utilize large-scale mono- lingual corpora for translation. [Lample et al., 2018b] sum- marizes three key elements for ",
+      "overlap_with_next": "ption model for translation. However, it cannot embrace attention mech- anism and results in noisy translations since information in images and sentences is not equal. [Chen et al.",
+      "text": " methods [Artetxe et al. , 2018; Lample et al. , 2018a ] only utilize large-scale mono- lingual corpora for translation. [Lample et al., 2018b] sum- marizes three key elements for mono-lingual based meth- ods: careful initialization, strong language model, and back- translation, which achieved promising results for both phrase- based and NMT models. The reason we use image-pivot for translation is that images can help reduce ambiguity of texts especially for visual-related sentences such as commercial product descriptions [Zhou et al., 2018; Calixto et al., 2017]. The image-pivot approaches leverage images to connect unpaired source and target languages. [Kiela et al. , 2015; Chen et al., 2019] have shown the effectiveness of image piv- ots for bilingual lexicon induction. [Su et al. , 2018] follow mono-lingual based methods but utilize images to enhance decoding performance. The 3-way model [Nakayama and Nishida, 2017] maps source sentences and images into com- mon space and employs an image-to-target caption model for translation. However, it cannot embrace attention mech- anism and results in noisy translations since information in images and sentences is not equal. [Chen et al.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04152,
+        -0.01668,
+        -0.01693,
+        0.01763,
+        0.01211
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ption model for translation. However, it cannot embrace attention mech- anism and results in noisy translations since information in images and sentences is not equal. [Chen et al.",
+      "overlap_with_next": "h noises and progressively learn the translation in an easy-to-advanced way. 3 The Proposed Approach The goal of zero-resource machine translation is to learn source to target tran",
+      "text": "ption model for translation. However, it cannot embrace attention mech- anism and results in noisy translations since information in images and sentences is not equal. [Chen et al. , 2018; Lee et al., 2018] propose a multi-agent communication game with a captioner and translator. The captioner generates source sentence to describe an image, and the translator is trained to maximize rewards from relevancy between image and translated target sentence. [Chen et al. , 2018 ] utilizes log-likelihood as the reward while [Lee et al., 2018] utilizes image retrieval performance. However, since captions related to images are not necessarily good mutual translations, such learning approaches also suffer from noisy rewards. In this Figure 2: The overall progressive learning framework for image- pivoted zero-resource machine translation. We ﬁrstly learn word translations from image pivot in the green module and then we ad- vance to more challenging sentence translation in blue modules. work, we propose to suppress such noises and progressively learn the translation in an easy-to-advanced way. 3 The Proposed Approach The goal of zero-resource machine translation is to learn source to target tran",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.045,
+        -0.02983,
+        -0.01517,
+        0.01855,
+        0.01849
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "h noises and progressively learn the translation in an easy-to-advanced way. 3 The Proposed Approach The goal of zero-resource machine translation is to learn source to target tran",
+      "overlap_with_next": "ono-lingual image caption datasets Dx andDy, we can build image caption models fi→x andfi→y to translate an image into sentence descriptions in source and target languages respecti",
+      "text": "h noises and progressively learn the translation in an easy-to-advanced way. 3 The Proposed Approach The goal of zero-resource machine translation is to learn source to target translation without any source-target sentence pairs. We propose to utilize images as pivots to enable zero- resource machine translation. Assume we have two mono- lingual image caption datasets: Dx ={(I (i)x ,X (i))}Nxi=1 in the source language andDy ={(I (i)y ,Y (i))}Nyi=1 in the target language, whereI denotes the image, and captions X andY consist of word sequences{x1,··· ,xTx} and{y1,··· ,yTy} respectively. We omit the superscript i for simplicity here- inafter. The image setsIx andIy do not overlap, which means that an image has only one caption, either in source language or target language. The images are used as pivots during the training stage, but are not involved during the test stage. Figure 2 illustrates the proposed progressive learning ap- proach for image-pivoted zero-resource machine translation. Firstly, from the mono-lingual image caption datasets Dx andDy, we can build image caption models fi→x andfi→y to translate an image into sentence descriptions in source and target languages respecti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04149,
+        -0.02054,
+        -0.01803,
+        0.04062,
+        0.02784
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ono-lingual image caption datasets Dx andDy, we can build image caption models fi→x andfi→y to translate an image into sentence descriptions in source and target languages respecti",
+      "overlap_with_next": "versity of words is better constrained when the word is grounded in im- age regions, word translation can be more effectively learned with the image-pivot approach. The word transl",
+      "text": "ono-lingual image caption datasets Dx andDy, we can build image caption models fi→x andfi→y to translate an image into sentence descriptions in source and target languages respectively. Therefore, for each image Ix∈Dx, we can obtain triplet captions (X, ˜X, ˜Y ) whereX refers to the groundtruth caption, ˜X and ˜Y refer to the gener- ated captions from the image caption models fi→x andfi→y in source and target languages respectively. Similarly, for im- ageIy∈ Dy, we can obtain triplet captions (Y, ˜X, ˜Y ). We then induce (X, ˜Y ), ( ˜X,Y ) and ( ˜X, ˜Y ) from above triplets as image-pivoted source-target pseudo sentence pairs, which can be utilized to train NMT models. However, since the diversity of descriptive sentences is quite large, such pseudo pair may not be precisely seman- tic matched, which would greatly hinder the translation per- formance. In order to suppress noises in pseudo pairs, we propose a progressive learning approach which ﬁrstly learns word translation from image pivots. Since the diversity of words is better constrained when the word is grounded in im- age regions, word translation can be more effectively learned with the image-pivot approach. The word transl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03978,
+        -0.01917,
+        -0.01479,
+        0.00968,
+        0.01064
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "versity of words is better constrained when the word is grounded in im- age regions, word translation can be more effectively learned with the image-pivot approach. The word transl",
+      "overlap_with_next": "oder-decoder architec- ture as our NMT model, which can perform source-to-target and target-to-source translation in one model. Given the source sentence X ={x1,...,x Tx} and the t",
+      "text": "versity of words is better constrained when the word is grounded in im- age regions, word translation can be more effectively learned with the image-pivot approach. The word translation encodes multi-lingual words into a common semantic space, which [Page 3] Figure 3: The structure of the NMT model. The encoder and decoder both contain source and target embedding matrices Wx and Wy, so we can encode and decode source and target sentences in one model. is then utilized to assist image-pivoted sentence translation from two aspects: 1) to re-weight image-pivoted pseudo pairs and 2) to learn language-agnostic sentence representations. In such progressive manner, the NMT model is able to alleviate noises from image-pivot learning. In the following, we will ﬁrstly describe the structure of NMT model in Section 3.1, and then introduce the progres- sive learning strategy to train the NMT model with image piv- ots in details in Section 3.2. 3.1 Neural Machine Translation Model We utilize a shared multi-lingual encoder-decoder architec- ture as our NMT model, which can perform source-to-target and target-to-source translation in one model. Given the source sentence X ={x1,...,x Tx} and the t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00012,
+        -0.0075,
+        -5e-05,
+        0.01184,
+        0.00829
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "oder-decoder architec- ture as our NMT model, which can perform source-to-target and target-to-source translation in one model. Given the source sentence X ={x1,...,x Tx} and the t",
+      "overlap_with_next": "(xt|x<t,z ) = softmax(Wxht) (3) ht = LSTM([Wxxt−1,ct],ht−1; Θd) (4) where Θd are parameters in the decoder LSTM, h0 is initial- ized aszT , [·] is the vector concatenation operatio",
+      "text": "oder-decoder architec- ture as our NMT model, which can perform source-to-target and target-to-source translation in one model. Given the source sentence X ={x1,...,x Tx} and the target sentence Y ={y1,...,y Ty}, the encoder converts the source sentence into a sequence of vectors, and then the decoder sequentially predicts target word yt conditioning on the encoded vectors and previously generated wordsy<t. Speciﬁcally, our encoder is a bi-directional LSTM [Hochreiter and Schmidhuber, 1997] with a source word em- bedding matrixWx and a target word embedding matrixWy. The source and target sentences share the same encoder pa- rameters except the word embedding matrix as follows: zxt = biLSTM(Wxxt,zxt−1,zxt+1; Θe) (1) zyt = biLSTM(Wyyt,zyt−1,zyt+1; Θe) (2) where Θe are parameters of the bi-directional LSTM. The decoder is a LSTM with both source word embed- ding Wx and target word embedding Wy. Suppose z = {z1,··· ,zT} is the encoded input sentence, the decoder can translatez into the source sentenceX by: p(xt|x<t,z ) = softmax(Wxht) (3) ht = LSTM([Wxxt−1,ct],ht−1; Θd) (4) where Θd are parameters in the decoder LSTM, h0 is initial- ized aszT , [·] is the vector concatenation operatio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00561,
+        -0.00403,
+        -0.02447,
+        0.02901,
+        0.01198
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "(xt|x<t,z ) = softmax(Wxht) (3) ht = LSTM([Wxxt−1,ct],ht−1; Θd) (4) where Θd are parameters in the decoder LSTM, h0 is initial- ized aszT , [·] is the vector concatenation operatio",
+      "overlap_with_next": " order to translate multi-lingual words, similar to work in [Chen et al. , 2019], we build a multi-lingual image caption model to encode the source and target words into a joint se",
+      "text": "(xt|x<t,z ) = softmax(Wxht) (3) ht = LSTM([Wxxt−1,ct],ht−1; Θd) (4) where Θd are parameters in the decoder LSTM, h0 is initial- ized aszT , [·] is the vector concatenation operation and ct is a context vector to employ relevant input vectorzi to predict the target wordxt via attention mechanism [Bahdanau et al., 2015]. The computation ofct is formulated as: ct = T∑ i=1 ai,tzi (5) ai,t = exp(fa([ht−1,zi]))∑ j exp(fa([ht−1,zj])), (6) where fa is a feed forward neural network to compute the attention weightai for eachhi. Therefore, the probability of generatingX conditioning onz is: p(X|z) = Tx∏ t=1 p(xt|x<t,z ) (7) Similarly, the decoder can also translate the input z into the target sentenceY by replacingWx in Eq (3) and Eq (4) with Wy. Figure 3 presents the structure of the NMT model. 3.2 Progressive Learning In this section, we describe in details the progressive learning procedure, from learning the word-level translation to more challenging sentence-level translation. Learning Word-level Translation In order to translate multi-lingual words, similar to work in [Chen et al. , 2019], we build a multi-lingual image caption model to encode the source and target words into a joint se",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03216,
+        -0.00391,
+        -0.02188,
+        0.02743,
+        0.01398
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " order to translate multi-lingual words, similar to work in [Chen et al. , 2019], we build a multi-lingual image caption model to encode the source and target words into a joint se",
+      "overlap_with_next": " the semantic distance of the sentence pair as a special case of Earth Mover’s Distance (EMD) [Rubner et al. , 2000; Kus- ner et al., 2015], which is to ﬁnd the minimal transportat",
+      "text": " order to translate multi-lingual words, similar to work in [Chen et al. , 2019], we build a multi-lingual image caption model to encode the source and target words into a joint semantic space. The multi-lingual image caption model is based on the encoder-decoder framework, where the encoder converts an image into a set of visual features, and the de- coder generates sentences conditioning on the visual features with attention mechanism. For image captioning in the source and target languages, the encoder and decoder are shared ex- cept the word embedding matrices. Therefore, the word em- bedding matrices of the source and target languages are en- forced to be in a common space constrained by the image piv- ots. We denote the learned word embedding matrices for the source and target words asWx andWy, which are employed in our NMT model and remain ﬁxed. Re-weighting Image-pivoted Pseudo Sentence Pairs We employ above learned Wx,Wy to assess the qualities of image-pivoted pseudo sentence pairs. We formulate the semantic distance of the sentence pair as a special case of Earth Mover’s Distance (EMD) [Rubner et al. , 2000; Kus- ner et al., 2015], which is to ﬁnd the minimal transportat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02572,
+        -0.01866,
+        0.01543,
+        0.00869,
+        0.00725
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": " the semantic distance of the sentence pair as a special case of Earth Mover’s Distance (EMD) [Rubner et al. , 2000; Kus- ner et al., 2015], which is to ﬁnd the minimal transportat",
+      "overlap_with_next": "-agnostic auto-encoding. Figure 4: Training of the NMT model. The red solid lines denote translation in training; red dashed lines denote implicitly learned cross-language translat",
+      "text": " the semantic distance of the sentence pair as a special case of Earth Mover’s Distance (EMD) [Rubner et al. , 2000; Kus- ner et al., 2015], which is to ﬁnd the minimal transportation solution from one sentence to another. For source sentence X ={x1,··· ,xTx} and target sentenceY ={y1,··· ,yTy}, their EMD distanced is: d = min A≥0 ∑ i,j Ai,j Di,j subject to: ∑ j Ai,j = 1/Tx, i= 1,...,T x ∑ i Ai,j = 1/Ty, j= 1,...,T y (8) whereDi,j is the cosine distance of xi andyj based on Wx and Wy. The optimal matrix A can be solved efﬁciently via an off-the-shelf toolkit proposed by [Pele and Werman, 2009], which can be viewed as words alignment in the pseudo pair. Besides the sentence distance d, we could also derive token-level distances dxi anddyj forxi andyj respectively based on the optimal A, where dxi = ∑j Ai,j Di,j and dyj = ∑i Ai,j Di,j. Based on the sentence-level and token-level distance, we propose to re-weight the i-th pseudo pair [Page 4] (a) Re-weighting image-pivoted pseudo sentence pairs. (b) Language-agnostic auto-encoding. Figure 4: Training of the NMT model. The red solid lines denote translation in training; red dashed lines denote implicitly learned cross-language translat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02032,
+        -0.00677,
+        -0.0227,
+        -0.0028,
+        -0.00113
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "-agnostic auto-encoding. Figure 4: Training of the NMT model. The red solid lines denote translation in training; red dashed lines denote implicitly learned cross-language translat",
+      "overlap_with_next": "to-encoding We propose to employ auto-encoding to learn a language- agnostic sentence representation for cross language transla- tion as illustrated in Figure 4(b). We ﬁx source an",
+      "text": "-agnostic auto-encoding. Figure 4: Training of the NMT model. The red solid lines denote translation in training; red dashed lines denote implicitly learned cross-language translation; yellow dashes lines denote tied weights. at both sentence-level and ﬁne-grained token-level via the in- verse distance weight as follows: α(i)xt = 1(1 +d(i)xt− minkd(i)xk)λtoken (9) α(i)yt = 1(1 +d(i)yt− minkd(i)yk )λtoken (10) β(i) = 1(1 +d(i)− minkd(k))λsent (11) whereλtoken,λsent are hyper-parameters to punish noisy to- kens and sentences. So α(i)xt and α(i)yt represent the relative importance of token xt and yt in the source and target sen- tence to form a good mutual translation pair, and β(i) is the relative quality of pair i among all pseudo pairs. Figure 4(a) illustrates the re-weighting training process. Therefore, the objective function for image-pivoted sentence pairs is: Lpivot =− N∑ i=1 β(i) Ty∑ t=1 α(i)yt logp(y(i)t |y(i)<t,zx(i)) − N∑ i=1 β(i) Tx∑ t=1 α(i)xt logp(x(i)t |x(i)<t,zy(i)) (12) Language-agnostic Auto-encoding We propose to employ auto-encoding to learn a language- agnostic sentence representation for cross language transla- tion as illustrated in Figure 4(b). We ﬁx source an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05023,
+        -0.02833,
+        -0.02048,
+        0.0123,
+        0.01681
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "to-encoding We propose to employ auto-encoding to learn a language- agnostic sentence representation for cross language transla- tion as illustrated in Figure 4(b). We ﬁx source an",
+      "overlap_with_next": "X (i)|C(X (i))) − Ny∑ i=1 logp(Y (i)|C(Y (i))) (13) The full objective function to train the NMT model is: L =Lpivot +λLae (14) whereλ is the weight to balance the two losses. 4 Ex",
+      "text": "to-encoding We propose to employ auto-encoding to learn a language- agnostic sentence representation for cross language transla- tion as illustrated in Figure 4(b). We ﬁx source and target word embedding matrices in our NMT model with Wx and Wy which are in the common space, so that the sentence rep- resentation encoded by the shared encoder are constrained in a common latent space. Since it is trivial to auto-encode a Train Val Test Pairs I-En I-De I-En I-De En-De IAPR-TC12 9k 9k 500 500 1k Multi30k 14.5k 14.5k 507 507 1k Table 1: Data splits for the IAPR-TC12 and Multi30k datasets. sentence, we apply the corruption operationC(·) on the orig- inal sentence as [Lample et al., 2018a], which includes word order jitter, word insertion and deletion. The corrupted sen- tence is used as the input and the NMT model is trained to reconstruct the original sentence from the corrupted one. We apply the denoising auto-encoding for both source and target languages, so the objective is to minimize: Lae =− Nx∑ i=1 logp(X (i)|C(X (i))) − Ny∑ i=1 logp(Y (i)|C(Y (i))) (13) The full objective function to train the NMT model is: L =Lpivot +λLae (14) whereλ is the weight to balance the two losses. 4 Ex",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00952,
+        0.00493,
+        -0.01469,
+        0.00656,
+        0.00507
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "X (i)|C(X (i))) − Ny∑ i=1 logp(Y (i)|C(Y (i))) (13) The full objective function to train the NMT model is: L =Lpivot +λLae (14) whereλ is the weight to balance the two losses. 4 Ex",
+      "overlap_with_next": "ons, one for machine trans- lation and the other for multi-lingual captioning. We utilize the former task annotation, where each image is annotated with one English description and",
+      "text": "X (i)|C(X (i))) − Ny∑ i=1 logp(Y (i)|C(Y (i))) (13) The full objective function to train the NMT model is: L =Lpivot +λLae (14) whereλ is the weight to balance the two losses. 4 Experiments 4.1 Experimental Setup We utilize two benchmark image-pivot translation datasets IAPR-TC12 and Multi30k. The IAPR-TC12 dataset [Grub- inger et al. , 2006 ] contains 20K images and each image is annotated with multi-sentences in English and its transla- tion in German. We follow [Chen et al. , 2018 ] to use the ﬁrst sentence since it describes the most salient image con- tent. We randomly select 18K images for training, 1K for validation and 1K for testing. Since in the realistic image- pivot setting, images in different languages are mostly non- overlapped, we randomly split the training and validation set into two parts of equal size. One part is constructed only with image-English pairs and the other only with image-German pairs. The Multi30k dataset [Elliott et al. , 2016 ] contains 30K images with two task annotations, one for machine trans- lation and the other for multi-lingual captioning. We utilize the former task annotation, where each image is annotated with one English description and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06966,
+        -0.02523,
+        -0.03621,
+        0.02606,
+        -0.00719
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "ons, one for machine trans- lation and the other for multi-lingual captioning. We utilize the former task annotation, where each image is annotated with one English description and",
+      "overlap_with_next": " Emergent model2 - - 6.5 7.4 S-txt-img2 - - 7.5 7.7 ours Lpivot 38.0 30.3 9.9 8.4 Lae 58.9 39.8 21.9 17.6 Lpivot +Lae 61.3 47.1 23.0 18.3 Table 2: The BLEU4 performance of differen",
+      "text": "ons, one for machine trans- lation and the other for multi-lingual captioning. We utilize the former task annotation, where each image is annotated with one English description and its German translation. We follow the standard split in [Nakayama and Nishida, 2017 ] with 29K, 1,014 and 1K in the training, validation and test sets respectively. We also apply the similar non-overlapping split operation as in IAPR-TC12 to simulate the non-overlap setting. Table 1 presents the data split in our experiments. We use Moses SMT Toolkit [Koehn et al. , 2007] to nor- malize and tokenize descriptions. For IAPR-TC12 dataset, we keep words appeared more than 3 times, which results in 1,621 words for English and 2,102 words for German. For Multi30K dataset, we employ a joint byte pair (BPE) [Sen- nrich et al., 2016] with 10k merge operations, which results in 5,202 tokens for English and 7,065 tokens for German. [Page 5] IAPR-TC12 Multi30k De-En En-De De-En En-De 3-way model 13.9 8.6 8.4 8.0 Multi-agents1 18.6 14.2 - - Emergent model2 - - 6.5 7.4 S-txt-img2 - - 7.5 7.7 ours Lpivot 38.0 30.3 9.9 8.4 Lae 58.9 39.8 21.9 17.6 Lpivot +Lae 61.3 47.1 23.0 18.3 Table 2: The BLEU4 performance of differen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05777,
+        -0.02178,
+        -0.0163,
+        0.02046,
+        0.02138
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": " Emergent model2 - - 6.5 7.4 S-txt-img2 - - 7.5 7.7 ours Lpivot 38.0 30.3 9.9 8.4 Lae 58.9 39.8 21.9 17.6 Lpivot +Lae 61.3 47.1 23.0 18.3 Table 2: The BLEU4 performance of differen",
+      "overlap_with_next": "performance. We utilize the Adam algorithm to train models with learning rate of 0.0005 and batch size of 64. The best model is selected by the loss on validation set. We evaluate ",
+      "text": " Emergent model2 - - 6.5 7.4 S-txt-img2 - - 7.5 7.7 ours Lpivot 38.0 30.3 9.9 8.4 Lae 58.9 39.8 21.9 17.6 Lpivot +Lae 61.3 47.1 23.0 18.3 Table 2: The BLEU4 performance of different methods for image- pivoted zero-resource machine translation. IAPR-TC12 Multi30k De-En En-De De-En En-De Lpivot w/o 31.0 25.5 8.5 7.7with 38.0 30.3 9.9 8.4 Lae w/o 39.6 26.8 7.9 6.8with 58.9 39.8 21.9 17.6 Table 3: Translation performance comparison of without and with the progressive learning approach for different sentence losses. For the multi-lingual image caption model, we leverage the Resnet152 pretrained on the ImageNet[He et al., 2016] as the encoder and a single-layer LSTM with 512 hidden units as the decoder. We utilize beam search with beam width of 5 to generate one description for each image. For the NMT model, the encoder is a one-layer bidirectional LSTM with 256 hid- den units and the decoder is a one-layer LSTM with 512 hid- den units. We set hyper-parameters λtoken = 10,λsent = 5 andλ = 1 based on validation performance. We utilize the Adam algorithm to train models with learning rate of 0.0005 and batch size of 64. The best model is selected by the loss on validation set. We evaluate ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09396,
+        -0.00153,
+        0.00177,
+        0.00068,
+        0.01427
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "performance. We utilize the Adam algorithm to train models with learning rate of 0.0005 and batch size of 64. The best model is selected by the loss on validation set. We evaluate ",
+      "overlap_with_next": "valuation setup on Multi30k dataset compared with others. 2The two works did not report results on the IAPR-TC12 dataset. 4. S-txt-img [Su et al. , 2018 ]: The model is similar to ",
+      "text": "performance. We utilize the Adam algorithm to train models with learning rate of 0.0005 and batch size of 64. The best model is selected by the loss on validation set. We evaluate the machine translation perfor- mance with BLEU4 metric [Papineni et al., 2002]. 4.2 Comparison with State-of-the-Art Methods We compare the proposed progressively learned NMT model with state-of-the-art image-pivoted models as follows: 1. 3-way model [Nakayama and Nishida, 2017 ]: It uti- lizes an target image caption model to translate a learned modality-agnostic feature of the source sentence. 2. Multi-agents [Chen et al. , 2018 ]: The NMT model is trained to translate a generated source caption ofIy with image-relevance rewards from the log probability of pre- dicting groundtruthY . 3. Emergent model [Lee et al., 2018]: Similar to [Chen et al., 2018], but the model utilizes an image retrieval task to calculate the image-caption relevance as rewards. 1Multi-agents method [Chen et al., 2018] utilizes different train- ing and evaluation setup on Multi30k dataset compared with others. 2The two works did not report results on the IAPR-TC12 dataset. 4. S-txt-img [Su et al. , 2018 ]: The model is similar to ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05449,
+        -0.02572,
+        -0.01688,
+        -0.01332,
+        -0.00346
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "valuation setup on Multi30k dataset compared with others. 2The two works did not report results on the IAPR-TC12 dataset. 4. S-txt-img [Su et al. , 2018 ]: The model is similar to ",
+      "overlap_with_next": "hich shows that re-using word embedding matrices from the image-pivoted word translation is effec- tive for the NMT model to encode language-agnostic sen- tence representation. The",
+      "text": "valuation setup on Multi30k dataset compared with others. 2The two works did not report results on the IAPR-TC12 dataset. 4. S-txt-img [Su et al. , 2018 ]: The model is similar to mono-lingual based methods with auto-encoding and cycle-consistency loss, but employs an additional image encoder in training which can be absent in testing. Table 2 presents the performance of different methods for zero-resource machine translation with image pivots. Since our approach utilizes word translation learned in the ﬁrst pro- gressive step to beneﬁt sentence translation from two losses, we compare each of the loss and their combination with pre- vious methods. The Lpivot achieves superior performance to previous image-pivoted methods on both datasets and trans- lation directions. It demonstrates the effectiveness of the re- weighting approach to suppress noises in image-pivoted sen- tence pairs, while such noises are ignored in previous meth- ods. The auto-encoding lossLae brings more signiﬁcant per- formance gains, which shows that re-using word embedding matrices from the image-pivoted word translation is effec- tive for the NMT model to encode language-agnostic sen- tence representation. The",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08332,
+        -0.00593,
+        -0.00527,
+        0.04612,
+        0.00982
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "hich shows that re-using word embedding matrices from the image-pivoted word translation is effec- tive for the NMT model to encode language-agnostic sen- tence representation. The",
+      "overlap_with_next": "erfor- mance of the best model in [Lample et al. , 2018a]. It sug- gests that image-pivoted approaches could be more effective to translate visually relevant sentences. What is mor",
+      "text": "hich shows that re-using word embedding matrices from the image-pivoted word translation is effec- tive for the NMT model to encode language-agnostic sen- tence representation. The two losses are also complementary with each other and the combination of them achieves the best translation performance on the two datasets. To be noted, it might be unfair to directly compare our re- sults with the best model in the recent mono-lingual based method [Lample et al. , 2018a ]. The best model in [Lam- ple et al., 2018a] utilizes word vectors pretrained on a large- scale mono-lingual corpus and multiple iterations of back- translation to achieve good performance on Multi30k dataset (De-En 26.26 and En-De 22.74). Without pretraining and back-translation, it only achieves translation performance of 7.52 for De-En and 6.24 for En-De on Multi30k dataset. However, our approach which only employs very limited mono-lingual image caption data and single round training without back-translation can still achieve comparable perfor- mance of the best model in [Lample et al. , 2018a]. It sug- gests that image-pivoted approaches could be more effective to translate visually relevant sentences. What is mor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0472,
+        -0.02074,
+        0.00613,
+        0.01457,
+        0.00761
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "erfor- mance of the best model in [Lample et al. , 2018a]. It sug- gests that image-pivoted approaches could be more effective to translate visually relevant sentences. What is mor",
+      "overlap_with_next": "s we do not employ the learned multi- lingual word representation in the ﬁrst word translation step. As shown in Table 3, the image-pivoted word embedding plays an important role f",
+      "text": "erfor- mance of the best model in [Lample et al. , 2018a]. It sug- gests that image-pivoted approaches could be more effective to translate visually relevant sentences. What is more, our approach is orthogonal to mono-lingual based methods. 4.3 Ablation Study In Table 3, we evaluate improvements from progressive learn- ing for the two proposed losses. The lossLpivot without pro- gressive learning denotes utilizing all image-pivoted pseudo pairs for training without re-weighting by the learned word translation. We can see that it suffers from the noisy pairs and is inferior to our re-weighting model on both datasets. To gain an intuition on the effects of re-weighting strategy, we il- lustrate some image-pivoted pseudo sentence pairs in Table 5 as well as their sentence and token weights. The clean pseudo sentence pairs are ranked higher than the noisy ones, and the token-level re-weighting provides a more ﬁne-grained super- vision from noisy pairs. For the loss Lae, the lack of pro- gressive learning means we do not employ the learned multi- lingual word representation in the ﬁrst word translation step. As shown in Table 3, the image-pivoted word embedding plays an important role f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06554,
+        -0.00965,
+        -0.01704,
+        -0.00311,
+        0.02936
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "s we do not employ the learned multi- lingual word representation in the ﬁrst word translation step. As shown in Table 3, the image-pivoted word embedding plays an important role f",
+      "overlap_with_next": "rly person is walking across the street with an umbrella. Table 4: Translation examples from our progressive learning approach and the fully supervised NMT model. Images are only f",
+      "text": "s we do not employ the learned multi- lingual word representation in the ﬁrst word translation step. As shown in Table 3, the image-pivoted word embedding plays an important role for the effectiveness of auto-encoding loss. It demonstrates that performance boost fromLae mainly contributes to the progressive learning strategy. Since the proposed translation learning relies on results from image caption models, we investigate the relation be- [Page 6] Image Source and groundtruth target sentence Translated sentences ein schwarz-weißer hund l¨auft zu einem kaputten ball im schnee. a black-and-white dog goes for a ﬂattened ball on the snow. ours: a black and white dog runs to a catch a ball in the snow. supervised: a black and white dog runs towards a broken ball in the snow. eine ¨altere person ¨uberquert die straße mit einem regenschirm in der hand. an elderly person is crossing a street with an umbrella in their hands. ours: a elderly man crossing the street with a umbrella in the hand. supervised: an elderly person is walking across the street with an umbrella. Table 4: Translation examples from our progressive learning approach and the fully supervised NMT model. Images are only f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05263,
+        -0.0123,
+        -0.02554,
+        0.01291,
+        0.01876
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "rly person is walking across the street with an umbrella. Table 4: Translation examples from our progressive learning approach and the fully supervised NMT model. Images are only f",
+      "overlap_with_next": " and Multi30k datasets. tween image caption performance and image-pivoted zero- resource translation performance in Table 6. Firstly, the trans- lation performance is much higher t",
+      "text": "rly person is walking across the street with an umbrella. Table 4: Translation examples from our progressive learning approach and the fully supervised NMT model. Images are only for visualization. βi Image-pivoted Pseudo En-De Sentence Pairs 0.97 a man in a blue shirt and blue shorts playing tennis . ein mann in einem blauen oberteil und blauen shorts spielt tennis . 0.70 a brown dog jumps over a fence .ein weißer hund springt ¨uber eine h¨urde . 0.35 a man carving a pumpkin in his boxers .ein mann in einem blauen hemd h¨alt einen hammer. 0.13 a woman in a white shirt is preparing a meal .peperoni kochen im winter ! Table 5: Image-pivoted pseudo sentence pairs ranked by sentence- level weights. The tokens in the German sentence with high token- level weights are colored in blue. Best viewed in color. IAPR-TC12 Multi30k I/De-En I/En-De I/De-En I/En-De Caption 23.0 18.9 6.6 5.6 Translation 61.3 47.1 23.0 18.3 Table 6: The BLEU4 scores of image caption model and image- pivoted translation model on IAPR-TC12 and Multi30k datasets. tween image caption performance and image-pivoted zero- resource translation performance in Table 6. Firstly, the trans- lation performance is much higher t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07019,
+        -0.00021,
+        -0.0297,
+        0.03791,
+        0.03038
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": " and Multi30k datasets. tween image caption performance and image-pivoted zero- resource translation performance in Table 6. Firstly, the trans- lation performance is much higher t",
+      "overlap_with_next": "58% of the best performance (a) IAPR-TC12 dataset. (b) Multi30k dataset. Figure 5: Comparison with the fully supervised NMT model trained on variable amount of parallel texts. The ",
+      "text": " and Multi30k datasets. tween image caption performance and image-pivoted zero- resource translation performance in Table 6. Firstly, the trans- lation performance is much higher than the image captioning performance. This is mainly because the translation output is more constrained by the input while the caption output is more diverse. So the image caption model directly used in previous image-pivot translation methods might be a main bottleneck. Secondly, the translation performance is propor- tional to the image captioning performance, which indicates that better image captioning can further improve our zero- resource machine translation. Finally, we compare our progressively learned zero- resource NMT model with fully supervised NMT model with respect to variable amount of training data in Figure 5. Our proposed model with zero-resource reaches 75% of the best performance from the supervised NMT model with 18k train- ing pairs for De-to-En, 60% for En-to-De on IAPR-TC12 dataset. Similarly, it reaches 58% of the best performance (a) IAPR-TC12 dataset. (b) Multi30k dataset. Figure 5: Comparison with the fully supervised NMT model trained on variable amount of parallel texts. The ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05505,
+        -0.01023,
+        -0.01932,
+        0.04161,
+        0.01578
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "58% of the best performance (a) IAPR-TC12 dataset. (b) Multi30k dataset. Figure 5: Comparison with the fully supervised NMT model trained on variable amount of parallel texts. The ",
+      "overlap_with_next": "ro re- source settings. The learning starts with word-level transla- tion with image pivots and then progresses to sentence-level translation assisted by the word translation and i",
+      "text": "58% of the best performance (a) IAPR-TC12 dataset. (b) Multi30k dataset. Figure 5: Comparison with the fully supervised NMT model trained on variable amount of parallel texts. The x-axis denotes number of training pairs and y-axis denotes the BLEU4 score. from the supervised NMT model with 29k training pairs for De-to-En and 51% for En-to-De on Multi30k dataset. Table 4 presents some randomly selected examples. The proposed approach can generate promising translation results simply based on image pivots without parallel texts. 5 Conclusion In this paper, we address the zero-resource machine transla- tion problem by exploiting visual images as pivots. Due to the nature that a picture tells a thousand words, description sentences for an image may be semantically nonequivalent, which leads to noisy supervisions to train the NMT model in previous works. In this work, we propose a progressive learn- ing approach which consists of progressive easy-to-advanced steps towards learning effective NMT models under zero re- source settings. The learning starts with word-level transla- tion with image pivots and then progresses to sentence-level translation assisted by the word translation and i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04679,
+        -0.00647,
+        -0.01366,
+        0.03227,
+        0.01362
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "ro re- source settings. The learning starts with word-level transla- tion with image pivots and then progresses to sentence-level translation assisted by the word translation and i",
+      "overlap_with_next": "Iacer Calixto, Daniel Stein, Evgeny Matusov, Pintu Lohar, Sheila Castilho, and Andy Way. Using images to improve machine-translating e-commerce product listings. In EACL, pages 637",
+      "text": "ro re- source settings. The learning starts with word-level transla- tion with image pivots and then progresses to sentence-level translation assisted by the word translation and image pivots. Experiments on IAPR-TC12 and Multi30k datasets prove the effectiveness of the proposed approach, which signiﬁcantly outperforms previous image-pivot methods. Acknowledgments This work was supported by National Natural Science Foun- dation of China (No. 61772535), Beijing Natural Science Foundation (No. 4192028), National Key Research and De- velopment Plan (No. 2016YFB1001202) and Research Foun- dation of Beijing Municipal Science & Technology Commis- sion (No. Z181100008918002). [Page 7] References [Artetxe et al., 2018] Mikel Artetxe, Gorka Labaka, Eneko Agirre, and Kyunghyun Cho. Unsupervised neural ma- chine translation. ICLR, 2018. [Bahdanau et al., 2015] Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio. Neural machine translation by jointly learning to align and translate. ICLR, 2015. [Calixto et al., 2017] Iacer Calixto, Daniel Stein, Evgeny Matusov, Pintu Lohar, Sheila Castilho, and Andy Way. Using images to improve machine-translating e-commerce product listings. In EACL, pages 637",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04746,
+        -0.02265,
+        -0.02068,
+        0.02694,
+        0.00351
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "Iacer Calixto, Daniel Stein, Evgeny Matusov, Pintu Lohar, Sheila Castilho, and Andy Way. Using images to improve machine-translating e-commerce product listings. In EACL, pages 637",
+      "overlap_with_next": "e proper- ties of neural machine translation: Encoder-decoder ap- proaches. arXiv preprint arXiv:1409.1259, 2014. [Elliott et al., 2016] Desmond Elliott, Stella Frank, Khalil Sima’",
+      "text": "Iacer Calixto, Daniel Stein, Evgeny Matusov, Pintu Lohar, Sheila Castilho, and Andy Way. Using images to improve machine-translating e-commerce product listings. In EACL, pages 637–643, 2017. [Castilho et al., 2017] Sheila Castilho, Joss Moorkens, Fed- erico Gaspari, Iacer Calixto, John Tinsley, and Andy Way. Is neural machine translation the new state of the art? The Prague Bulletin of Mathematical Linguistics , 108(1):109– 120, 2017. [Chen et al., 2017] Yun Chen, Yang Liu, Yong Cheng, and Victor OK Li. A teacher-student framework for zero- resource neural machine translation. In ACL, pages 1925– 1935, 2017. [Chen et al., 2018] Yun Chen, Yang Liu, and Victor OK Li. Zero-resource neural machine translation with multi-agent communication game. AAAI, 2018. [Chen et al., 2019] Shizhe Chen, Jin Qin, and Alexander Hauptmann. Unsupervised bilingual lexicon induction with mono-lingual multimodal data. AAAI, 2019. [Cho et al., 2014] Kyunghyun Cho, Bart Van Merri ¨enboer, Dzmitry Bahdanau, and Yoshua Bengio. On the proper- ties of neural machine translation: Encoder-decoder ap- proaches. arXiv preprint arXiv:1409.1259, 2014. [Elliott et al., 2016] Desmond Elliott, Stella Frank, Khalil Sima’",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05648,
+        -0.02485,
+        -0.0103,
+        0.02983,
+        0.02815
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "e proper- ties of neural machine translation: Encoder-decoder ap- proaches. arXiv preprint arXiv:1409.1259, 2014. [Elliott et al., 2016] Desmond Elliott, Stella Frank, Khalil Sima’",
+      "overlap_with_next": " neural machine translation system: Enabling zero-shot translation. TACL, 5(1):339–351, 2017. [Kiela et al., 2015] Douwe Kiela, Ivan Vuli ´c, and Stephen Clark. Visual bilingual le",
+      "text": "e proper- ties of neural machine translation: Encoder-decoder ap- proaches. arXiv preprint arXiv:1409.1259, 2014. [Elliott et al., 2016] Desmond Elliott, Stella Frank, Khalil Sima’an, and Lucia Specia. Multi30k: Multilin- gual english-german image descriptions. arXiv preprint arXiv:1605.00459, 2016. [Grubinger et al., 2006] Michael Grubinger, Paul Clough, Henning M ¨uller, and Thomas Deselaers. The iapr tc-12 benchmark: A new evaluation resource for visual infor- mation systems. In Int. Workshop OntoImage, volume 5, 2006. [He et al., 2016] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recog- nition. In CVPR, pages 770–778, 2016. [Hochreiter and Schmidhuber, 1997] Sepp Hochreiter and J¨urgen Schmidhuber. Long short-term memory. Neural computation, 9(8):1735–1780, 1997. [Johnson et al., 2017] Melvin Johnson, Mike Schuster, Quoc V Le, Maxim Krikun, Yonghui Wu, Zhifeng Chen, Nikhil Thorat, Fernanda Vi´egas, Martin Wattenberg, Greg Corrado, et al. Google’s multilingual neural machine translation system: Enabling zero-shot translation. TACL, 5(1):339–351, 2017. [Kiela et al., 2015] Douwe Kiela, Ivan Vuli ´c, and Stephen Clark. Visual bilingual le",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09386,
+        -0.04727,
+        -0.00949,
+        0.04613,
+        0.01059
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": " neural machine translation system: Enabling zero-shot translation. TACL, 5(1):339–351, 2017. [Kiela et al., 2015] Douwe Kiela, Ivan Vuli ´c, and Stephen Clark. Visual bilingual le",
+      "overlap_with_next": "nslation. In EMNLP, pages 5039–5049, 2018. [Lee et al., 2018] Jason Lee, Kyunghyun Cho, Jason We- ston, and Douwe Kiela. Emergent translation in multi- agent communication. ICLR, 2",
+      "text": " neural machine translation system: Enabling zero-shot translation. TACL, 5(1):339–351, 2017. [Kiela et al., 2015] Douwe Kiela, Ivan Vuli ´c, and Stephen Clark. Visual bilingual lexicon induction with transferred convnet features. In EMNLP, pages 148–158, 2015. [Koehn et al., 2007] Philipp Koehn, Hieu Hoang, Alexandra Birch, Chris Callison-Burch, Marcello Federico, Nicola Bertoldi, Brooke Cowan, Wade Shen, Christine Moran, Richard Zens, et al. Moses: Open source toolkit for statis- tical machine translation. In ACL, pages 177–180, 2007. [Kusner et al., 2015] Matt Kusner, Yu Sun, Nicholas Kolkin, and Kilian Weinberger. From word embeddings to docu- ment distances. In ICML, pages 957–966, 2015. [Lample et al., 2018a] Guillaume Lample, Alexis Conneau, Ludovic Denoyer, and Marc’Aurelio Ranzato. Unsuper- vised machine translation using monolingual corpora only. ICLR, 2018. [Lample et al., 2018b] Guillaume Lample, Myle Ott, Alexis Conneau, Ludovic Denoyer, et al. Phrase-based & neu- ral unsupervised machine translation. In EMNLP, pages 5039–5049, 2018. [Lee et al., 2018] Jason Lee, Kyunghyun Cho, Jason We- ston, and Douwe Kiela. Emergent translation in multi- agent communication. ICLR, 2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09073,
+        0.00763,
+        -0.01094,
+        0.02508,
+        0.01837
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "nslation. In EMNLP, pages 5039–5049, 2018. [Lee et al., 2018] Jason Lee, Kyunghyun Cho, Jason We- ston, and Douwe Kiela. Emergent translation in multi- agent communication. ICLR, 2",
+      "overlap_with_next": "ages 1715–1725, 2016. [Sharma et al., 2018] Piyush Sharma, Nan Ding, Sebastian Goodman, and Radu Soricut. Conceptual captions: A cleaned, hypernymed, image alt-text dataset for aut",
+      "text": "nslation. In EMNLP, pages 5039–5049, 2018. [Lee et al., 2018] Jason Lee, Kyunghyun Cho, Jason We- ston, and Douwe Kiela. Emergent translation in multi- agent communication. ICLR, 2018. [Nakayama and Nishida, 2017] Hideki Nakayama and Noriki Nishida. Zero-resource machine translation by multimodal encoder–decoder network with multimedia pivot. Machine Translation, 31(1-2):49–64, 2017. [Papineni et al., 2002] Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu. Bleu: a method for au- tomatic evaluation of machine translation. In ACL, pages 311–318, 2002. [Pele and Werman, 2009] Oﬁr Pele and Michael Werman. Fast and robust earth mover’s distances. In ICCV, pages 460–467. IEEE, September 2009. [Rubner et al., 2000] Yossi Rubner, Carlo Tomasi, and Leonidas J Guibas. The earth mover’s distance as a metric for image retrieval. ICCV, 40(2):99–121, 2000. [Sennrich et al., 2016] Rico Sennrich, Barry Haddow, and Alexandra Birch. Neural machine translation of rare words with subword units. In ACL, volume 1, pages 1715–1725, 2016. [Sharma et al., 2018] Piyush Sharma, Nan Ding, Sebastian Goodman, and Radu Soricut. Conceptual captions: A cleaned, hypernymed, image alt-text dataset for aut",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0653,
+        -0.01484,
+        -0.00508,
+        0.05796,
+        0.00666
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34445,
+      "length": 785,
+      "overlap_with_previous": "ages 1715–1725, 2016. [Sharma et al., 2018] Piyush Sharma, Nan Ding, Sebastian Goodman, and Radu Soricut. Conceptual captions: A cleaned, hypernymed, image alt-text dataset for aut",
+      "overlap_with_next": "",
+      "text": "ages 1715–1725, 2016. [Sharma et al., 2018] Piyush Sharma, Nan Ding, Sebastian Goodman, and Radu Soricut. Conceptual captions: A cleaned, hypernymed, image alt-text dataset for automatic image captioning. In ACL, volume 1, pages 2556–2565, 2018. [Su et al., 2018] Yuanhang Su, Kai Fan, Nguyen Bach, C- C Jay Kuo, and Fei Huang. Unsupervised multi- modal neural machine translation. arXiv preprint arXiv:1811.11365, 2018. [Zhou et al., 2018] Mingyang Zhou, Runxiang Cheng, Yong Jae Lee, and Zhou Yu. A visual attention grounding neural model for multimodal machine translation. In EMNLP, pages 3643–3653, 2018. [Zoph et al., 2016] Barret Zoph, Deniz Yuret, Jonathan May, and Kevin Knight. Transfer learning for low-resource neu- ral machine translation. In EMNLP, pages 1568–1575, 2016.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06855,
+        -0.02735,
+        -0.00345,
+        0.00125,
+        -0.00135
+      ]
+    }
+  ]
+}

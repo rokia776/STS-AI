@@ -1,0 +1,776 @@
+{
+  "paper_id": "af10a0c8-1333-40bd-b36a-562ed4a7090f",
+  "filename": "060_Computer_Vision_Perception_Consistency_Ultrasound_Image_Super-resolution_via_Self-supervised_CycleGAN.pdf",
+  "title": "060_Computer_Vision_Perception_Consistency_Ultrasound_Image_Super-resolution_via_Self-supervised_CycleGAN.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 45,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "e-degenerated image of the generated SR one to be consistent with the original LR image, and vice versa. We ﬁrst generate the HR fathers and the LR sons of the test ultrasound LR i",
+      "text": "[Page 1] 1 Perception Consistency Ultrasound Image Super-resolution via Self-supervised CycleGAN Heng Liu, Jianyong Liu, Tao Tao, Shudong Hou and Jungong Han Abstract—Due to the limitations of sensors, the transmission medium and the intrinsic properties of ultrasound, the quality of ultrasound imaging is always not ideal, especially its low spatial resolution. To remedy this situation, deep learning networks have been recently developed for ultrasound image super-resolution (SR) because of the powerful approximation capability. However, most current supervised SR methods are not suitable for ultra- sound medical images because the medical image samples are always rare, and usually, there are no low-resolution (LR) and high-resolution (HR) training pairs in reality. In this work, based on self-supervision and cycle generative adversarial network (CycleGAN), we propose a new perception consistency ultrasound image super-resolution (SR) method, which only requires the LR ultrasound data and can ensure the re-degenerated image of the generated SR one to be consistent with the original LR image, and vice versa. We ﬁrst generate the HR fathers and the LR sons of the test ultrasound LR i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05167,
+        -0.00824,
+        -0.04396,
+        -0.00379,
+        0.02112
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "e-degenerated image of the generated SR one to be consistent with the original LR image, and vice versa. We ﬁrst generate the HR fathers and the LR sons of the test ultrasound LR i",
+      "overlap_with_next": "n and continuous dynamic recording, which is superior to others. In the actual ultrasound imaging diagnosis, doctors usually judge whether there is a lesion by observing the shape,",
+      "text": "e-degenerated image of the generated SR one to be consistent with the original LR image, and vice versa. We ﬁrst generate the HR fathers and the LR sons of the test ultrasound LR image through image enhancement, and then make full use of the cycle loss of LR-SR-LR and HR- LR-SR and the adversarial characteristics of the discriminator to promote the generator to produce better perceptually con- sistent SR results. The evaluation of PSNR/IFC/SSIM, inference efﬁciency and visual effects under the benchmark CCA-US and CCA-US datasets illustrate our proposed approach is effective and superior to other state-of-the-art methods. Index Terms —Ultrasound image super-resolution, Self- supervision, CycleGAN I. I NTRODUCTION M EDICAL imaging is an effective and widely used diag- nosis tool in this modern medical industry, which com- monly includes ultrasound imaging, magnetic resonance imag- ing (MRI), X-ray and computed tomography (CT). Among them, ultrasound imaging has the characteristics of low cost, non-radiation and continuous dynamic recording, which is superior to others. In the actual ultrasound imaging diagnosis, doctors usually judge whether there is a lesion by observing the shape,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04922,
+        0.00953,
+        -0.01849,
+        0.01532,
+        0.00354
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "n and continuous dynamic recording, which is superior to others. In the actual ultrasound imaging diagnosis, doctors usually judge whether there is a lesion by observing the shape,",
+      "overlap_with_next": "com. J. Han is with Aberystwyth University, SY23 3FL, UK. E-mail: jungong- han77@gmail.com. including CT image segmentation [3], MRI image deblurring [4] and ultrasound image SR [5",
+      "text": "n and continuous dynamic recording, which is superior to others. In the actual ultrasound imaging diagnosis, doctors usually judge whether there is a lesion by observing the shape, the blood ﬂow degree, and the contour smoothness of the interest region in the ultrasound images. This indicates that the high resolution of ultrasound images is conducive to improving the accuracy of medical diagnosis. Actually, due to the limitation of acoustic diffraction in medical equipment, it is hard to obtain HR ultrasonic data. Thus, in terms of improving the resolution of ultrasound data, image super-resolution turns out to be a feasible approach, which is of great importance for visual perception based medical clinical diagnosis [1, 2]. In the last couple of years, deep learning network has been applied to a variety of medical image processing tasks, H. Liu, J. Liu, T. Tao and S. Hou are with School of Computer Science and Technology, Anhui University of Technology, Ma’anshan 243032, China. E-mail: hengliusky@aliyun.com. J. Han is with Aberystwyth University, SY23 3FL, UK. E-mail: jungong- han77@gmail.com. including CT image segmentation [3], MRI image deblurring [4] and ultrasound image SR [5",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03208,
+        -0.02588,
+        -0.04098,
+        0.01008,
+        0.00254
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "com. J. Han is with Aberystwyth University, SY23 3FL, UK. E-mail: jungong- han77@gmail.com. including CT image segmentation [3], MRI image deblurring [4] and ultrasound image SR [5",
+      "overlap_with_next": "nd wider network with good generalization performance. In practice, this principle may not be always applicable to medical imaging ﬁeld due to the fact that usually there are not n",
+      "text": "com. J. Han is with Aberystwyth University, SY23 3FL, UK. E-mail: jungong- han77@gmail.com. including CT image segmentation [3], MRI image deblurring [4] and ultrasound image SR [5, 6]. Umehara et al. [7] in the ﬁrst time applied the deep neural network to medial images. They improved the resolution of CT images with the pioneer image SR model - SRCNN [8]). Recent works on bio-medical image segmentation and ultrasound image SR [9, 10] utilized the classical ’U-net’ structure to develop the task-speciﬁc deep models. Since there is no fully connected layer, the overall structure of U-Net is made up of many convolution and deconvolution layers. Here convolution layer plays a role of encoder while deconvolution layer acts as a decoder. Actually, the pooling operations and the single-scale structure in such U-net model may not be able to make full use of the multi- level image details and the multi-scope context information. A recent work [11] suggested that better SR results can be acquired through a deeper and wider network with good generalization performance. In practice, this principle may not be always applicable to medical imaging ﬁeld due to the fact that usually there are not n",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03096,
+        -0.03507,
+        -0.05865,
+        -0.00524,
+        -0.004
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "nd wider network with good generalization performance. In practice, this principle may not be always applicable to medical imaging ﬁeld due to the fact that usually there are not n",
+      "overlap_with_next": "ing with numerous LR-HR samples pairs, and are not suitable for unsupervised or self- supervised scenario. Meanwhile, these methods don’t consider the consistency from LR to SR and",
+      "text": "nd wider network with good generalization performance. In practice, this principle may not be always applicable to medical imaging ﬁeld due to the fact that usually there are not numerous medical LR-HR sample pairs available for supervision training. Therefore, how to deal with the lack of supervision samples becomes one of the keys to improving the performance of medical image SR. Different from CNNs, Ledig et al. [12] introduced the idea of adversarial learning for image generation to produce photo-realistic SR results, and form a new network structure, namely SRGAN (SR generative adversarial network). Also the SRGAN model had been applied by Choi et al. [5] for high-speed ultrasound image SR. Moreover, Yochai et al. in their recent work [13] found that although GANs can obtain better reconstruction effect, the visual perception quality and the distortion decreasing metric seem to be contradictory with each other. In fact, the aforementioned deep SR methods are all working in the way of supervised learning with numerous LR-HR samples pairs, and are not suitable for unsupervised or self- supervised scenario. Meanwhile, these methods don’t consider the consistency from LR to SR and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06281,
+        -0.00953,
+        -0.02488,
+        -0.02183,
+        0.01203
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ing with numerous LR-HR samples pairs, and are not suitable for unsupervised or self- supervised scenario. Meanwhile, these methods don’t consider the consistency from LR to SR and",
+      "overlap_with_next": "ture loss when super-resolving ultrasound images to better balance the visual similarity to real data and the reconstruction ac- curacy. Numerous experimental comparisons under dif",
+      "text": "ing with numerous LR-HR samples pairs, and are not suitable for unsupervised or self- supervised scenario. Meanwhile, these methods don’t consider the consistency from LR to SR and then back to LR again. Thus, in this work, motivated by zero-shot natural image SR (ZSSR) [14] and CycleGAN [15], we present a novel self-supervised CycleGAN framework for ultrasound image SR, which is fully different from the structures of ZSSR [14] and CycleGAN [15]. In our approach, for LR to SR , we ﬁrstly construct deep multi-scale encoder-decoder [16] to super-resolve the LR input. And then, for back to LR, we use a special designed CNN with random noise input to degenerate the generated SR one. While for HR to LR and then back to SR, these two structures just utilized are used again in reverse order. arXiv:2012.14142v1 [eess.IV] 28 Dec 2020 [Page 2] 2 Due to the cycle consistency structure, our proposed model greatly reduces the artifacts in SR results compared to ZSSR [14]. Moreover, our model integrates multi-level feature loss when super-resolving ultrasound images to better balance the visual similarity to real data and the reconstruction ac- curacy. Numerous experimental comparisons under dif",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04949,
+        0.01159,
+        -0.04656,
+        0.02653,
+        0.03484
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ture loss when super-resolving ultrasound images to better balance the visual similarity to real data and the reconstruction ac- curacy. Numerous experimental comparisons under dif",
+      "overlap_with_next": " alone exploring the self-supervision and cycle adversarial learning in the absence of LR-HR training pairs to realize accurate reconstruction with perception consistency. The con-",
+      "text": "ture loss when super-resolving ultrasound images to better balance the visual similarity to real data and the reconstruction ac- curacy. Numerous experimental comparisons under different ultrasound data sets are performed and the results show that the proposed approach can not only get good subjective visual effect but also obtain better objective quality evaluation metrics. Note that this work is a completely new development of our previous conference one [16]. There are two obvious differences between them: the self-supervision learning mech- anism is introduced to replace the previous supervised way; the CycleGAN structure with a richer variety of image losses including the cycle consistent loss is developed to replace the previous PatchGAN model. On the whole, our current work has made signiﬁcant improvements on previous conference version and will get much better results than before. To the best of our knowledge, there are few works to deal with the problem of deep SR for single ultrasound image, let alone exploring the self-supervision and cycle adversarial learning in the absence of LR-HR training pairs to realize accurate reconstruction with perception consistency. The con-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05457,
+        -0.03234,
+        -0.04616,
+        0.0024,
+        0.02678
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": " alone exploring the self-supervision and cycle adversarial learning in the absence of LR-HR training pairs to realize accurate reconstruction with perception consistency. The con-",
+      "overlap_with_next": " results compared to other state-of-the-art methods. We also provide the ablation study on the proposed approach, which may be helpful for future further research on ultrasound ima",
+      "text": " alone exploring the self-supervision and cycle adversarial learning in the absence of LR-HR training pairs to realize accurate reconstruction with perception consistency. The con- tributions of this work can be summarized as follows: • By introducing the self-supervision mechanism with cy- cle adversarial learning, for the ﬁrst time, we put forward a new self-supervised CycleGAN framework for single ultrasound image SR, which can lead to accurate recon- struction with perception consistency. • Our proposed approach can adapt to ideal ultrasound im- ages as well as non-ideal ones due to the self-supervision characteristics. • We adopt both LR cycle loss and HR cycle loss with other multi-level image losses to jointly supervise the ultrasound image SR reconstruction. The experimental results indicate that the comprehensive loss can recover the multi-level and degradation consistent details of ul- trasound images. • We evaluate our approach on different public ultrasound datasets and provide the competitive results compared to other state-of-the-art methods. We also provide the ablation study on the proposed approach, which may be helpful for future further research on ultrasound ima",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06189,
+        0.01944,
+        -0.02915,
+        0.00217,
+        0.02144
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " results compared to other state-of-the-art methods. We also provide the ablation study on the proposed approach, which may be helpful for future further research on ultrasound ima",
+      "overlap_with_next": "sis, Liu et al. [18] proposed a multi-scale deep encoder-decoder model with the guidance of phase congruency edge map for single image SR and provided a convincing SR contrast effe",
+      "text": " results compared to other state-of-the-art methods. We also provide the ablation study on the proposed approach, which may be helpful for future further research on ultrasound image SR. II. R ELATED WORKS A. Natural Image SR Although image SR is a classic low-level vision task, it is still a research hot-spot in recent years, and many new methods have emerged, especially those based on deep learning. Since the advent of SRCNN - the ﬁrst image SR deep network presented by Dong et al. [8], many early deep SR models followed the process of feature extraction, nonlinear mapping and image reconstruction. However, such shallow neural net- works hold the limited ability in obtaining multi-level features of the input images. With paying attention to that the edge prior is conducive to image SR, Liang et al. [17] ﬁrstly utilized Sobel edges with LR images to train deep SR model. However, their SR performance improvement is not obvious. Lately, based on the structure simulation on multiple resolution wavelet analysis, Liu et al. [18] proposed a multi-scale deep encoder-decoder model with the guidance of phase congruency edge map for single image SR and provided a convincing SR contrast effe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04875,
+        -0.00887,
+        -0.02684,
+        0.00685,
+        0.00627
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "sis, Liu et al. [18] proposed a multi-scale deep encoder-decoder model with the guidance of phase congruency edge map for single image SR and provided a convincing SR contrast effe",
+      "overlap_with_next": "sidual blocks. They also made another adjustment to remove the ReLU layer after the sum of different paths so as to keep the path ﬂexible. Recently, Park et al. [22] presented a ne",
+      "text": "sis, Liu et al. [18] proposed a multi-scale deep encoder-decoder model with the guidance of phase congruency edge map for single image SR and provided a convincing SR contrast effects. In addition, Wang et al. [19] presented to form multi-memory residual block to progressively extract and retain inter-frame temporal correlations for video SR. Ma et al. [20] recently proposed dense discriminative network that is composed of several aggregation modules for image SR. With applying adversarial learning strategy to improve the reconstruction quality, Ledig et al. [12] applied GAN’s framework to present SRGAN for image SR. In the model, the generator utilizes several residual blocks for efﬁcient SR reconstruction while the discriminator forces the generator to produce the SR outputs close to the real HR labels. In addition, considering that the BN (batch normalization) operation may weaken the diversity of features, Lim et al. [21] presented the so-called EDSR model by removing the BN layers in original deep residual blocks. They also made another adjustment to remove the ReLU layer after the sum of different paths so as to keep the path ﬂexible. Recently, Park et al. [22] presented a ne",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02998,
+        -0.02147,
+        -0.03225,
+        -0.00789,
+        -0.01549
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "sidual blocks. They also made another adjustment to remove the ReLU layer after the sum of different paths so as to keep the path ﬂexible. Recently, Park et al. [22] presented a ne",
+      "overlap_with_next": "al image processing, medical image SR has not attracted enough atten- tion. Recently, Zhao et al. [23] implemented ultrasound image SR by obtaining a 𝓁2 norm regularization based a",
+      "text": "sidual blocks. They also made another adjustment to remove the ReLU layer after the sum of different paths so as to keep the path ﬂexible. Recently, Park et al. [22] presented a new GAN-like model - SRFeat, which holds two discriminators to not only distinguish the generated images but also the hierarchical features in the feature domain. This additional discrimination network can force the generator to pay attention on feature approximation while generating SR images. Completely different from above supervised methods, Shocher et al. proposed a zero-shot image SR approach (ZSSR) [14] which can work in unsupervised way. The ZSSR approach does not need the HR label data prepared in advance and can adapt to known as well as unknown imaging condi- tions theoretically. However, this method makes use of the pattern similarity of the image itself, and it is easy to produce the artifacts when applied to unnatural images such as medical ones. B. Ultrasound Image SR Different from the vigorous development of natural image processing, medical image SR has not attracted enough atten- tion. Recently, Zhao et al. [23] implemented ultrasound image SR by obtaining a 𝓁2 norm regularization based a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04754,
+        0.01007,
+        -0.02735,
+        0.02784,
+        -0.00509
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "al image processing, medical image SR has not attracted enough atten- tion. Recently, Zhao et al. [23] implemented ultrasound image SR by obtaining a 𝓁2 norm regularization based a",
+      "overlap_with_next": "applied by Van Sloun et al. [10] to super-resolve the vascular images based on high-density contrast-enhanced ultrasound data. In order to enhance details reconstruction in SR, Cho",
+      "text": "al image processing, medical image SR has not attracted enough atten- tion. Recently, Zhao et al. [23] implemented ultrasound image SR by obtaining a 𝓁2 norm regularization based analytical solution. Diamantis et al. [24] focused on axial imaging. They developed a location-based approach to convert SR axial imaging to ultrasound one and recognized that the accuracy of ultrasonic axial imaging is closely related to the image-based location precision of single scattering. Umehara et al. [7] suggested the SRCNN approach might also be suitable to medical images, so they applied the method for chest CT image SR and the results supported their viewpoint. Moreover, similarly to ZSSR [14], Lu et al. [6] presented to exploit the multi-scale contextual features extracted from the test image itself to train an image-speciﬁc network and called this as unsupervised way, then utilized [Page 3] 3 dilated convolution and residual learning to improve the con- vergence and accuracy. In recently, U-Net [9] deep network was applied by Van Sloun et al. [10] to super-resolve the vascular images based on high-density contrast-enhanced ultrasound data. In order to enhance details reconstruction in SR, Cho",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04956,
+        0.00205,
+        -0.04086,
+        0.00038,
+        -0.03369
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "applied by Van Sloun et al. [10] to super-resolve the vascular images based on high-density contrast-enhanced ultrasound data. In order to enhance details reconstruction in SR, Cho",
+      "overlap_with_next": "nto a corresponding HR one in HR image space. Due to the different sources of various images, this mapping is usually complex and changeable. Therefore, whether or not the mapping ",
+      "text": "applied by Van Sloun et al. [10] to super-resolve the vascular images based on high-density contrast-enhanced ultrasound data. In order to enhance details reconstruction in SR, Choi et al. [5] slightly amended SRGAN [12] model to enhance the transverse res- olution of ultrasound images. Although the performance of adopting GAN is generally good, some recent study [25] have shown that the generated SR images can easily contain some unrealistic artiﬁcial details. This phenomenon has also been observed in our experiments (see Fig. 5 and Fig. 6 in this work). In addition, Liu et al. [26] presented to use dense connection with blended attention structure for MRI image SR. Although they gave some quite good experimental results, their methods did not consider the image generation consistency of HR-to-LR and LR-to-HR. III. M ETHODOLOGY A. Self-supervised ultrasound image SR Unlike other image processing tasks of low-level vision, image SR is to ﬁnd a mapping function, which can map a LR image in LR image space onto a corresponding HR one in HR image space. Due to the different sources of various images, this mapping is usually complex and changeable. Therefore, whether or not the mapping ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03913,
+        -0.02703,
+        -0.03643,
+        -0.01649,
+        -0.01045
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "nto a corresponding HR one in HR image space. Due to the different sources of various images, this mapping is usually complex and changeable. Therefore, whether or not the mapping ",
+      "overlap_with_next": "ll compared with the natural image, and he content pattern has strong repeatability. Therefore, it is possible to exploit the relationship between the local region and the global i",
+      "text": "nto a corresponding HR one in HR image space. Due to the different sources of various images, this mapping is usually complex and changeable. Therefore, whether or not the mapping relationship between the high resolution and the low one can be obtained accurately has a great impact on the SR performance. For natural images, this mapping can be gotten from a large number of pre-set LR- HR training sample pairs through supervised learning. But for ultrasound medical images, the situation is very different. Ultrasound images usually come from clinical diagnosis, due to the privacy, it is difﬁcult to obtain a great deal of training sample pairs for supervised learning. Even if such samples can be obtained, due to the different imaging condi- tions and acquisition scenes, it is difﬁcult to ﬁnd the accurate mapping relationship from ultrasound LR images to HR ones by supervised learning way. However, due to the internal characteristics of ultrasound images, the changes of its edge and texture are relatively small compared with the natural image, and he content pattern has strong repeatability. Therefore, it is possible to exploit the relationship between the local region and the global i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07045,
+        0.02306,
+        -0.02974,
+        0.01594,
+        -0.00556
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ll compared with the natural image, and he content pattern has strong repeatability. Therefore, it is possible to exploit the relationship between the local region and the global i",
+      "overlap_with_next": " down-sampled at 32 32 32 32 32 32 32 32 32 32 64 64 64 64 32 32 32 32 Conv_BN_LReLU Deconv_BN_LReLU Convolutional layer Concatenate layer LR SR 3 3 3 3 Fig. 1: The structure of ou",
+      "text": "ll compared with the natural image, and he content pattern has strong repeatability. Therefore, it is possible to exploit the relationship between the local region and the global image to construct training sample pairs and obtain the resolution map- ping relationship at a speciﬁc down-sampling scale through self-supervised learning. Note that at this point, a general lightweight CNN network can meet the requirements. Actually, multi-scale analysis naturally has the excellent characteristics of capturing the relationship be tween the local region and the global image. Therefore, if we can build a multi-scale deep SR network, theoretically it will be more conducive to the performance improvement of this self-supervision learning method (will be described in detail in the following sections). Our self-supervised ultrasound image SR approach can be described as follows: ﬁrstly, the test ultrasound image is made data enhancement and these enhanced images can be called “HR fathers”; then these “HR fathers” are down-sampled at 32 32 32 32 32 32 32 32 32 32 64 64 64 64 32 32 32 32 Conv_BN_LReLU Deconv_BN_LReLU Convolutional layer Concatenate layer LR SR 3 3 3 3 Fig. 1: The structure of ou",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07007,
+        0.02975,
+        -0.01234,
+        0.0231,
+        0.01283
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " down-sampled at 32 32 32 32 32 32 32 32 32 32 64 64 64 64 32 32 32 32 Conv_BN_LReLU Deconv_BN_LReLU Convolutional layer Concatenate layer LR SR 3 3 3 3 Fig. 1: The structure of ou",
+      "overlap_with_next": "der training several SR networks for certain intermediate down-sampling factors. The SR images generated by these networks and the corresponding down-scaled LR versions can also be",
+      "text": " down-sampled at 32 32 32 32 32 32 32 32 32 32 64 64 64 64 32 32 32 32 Conv_BN_LReLU Deconv_BN_LReLU Convolutional layer Concatenate layer LR SR 3 3 3 3 Fig. 1: The structure of our multi-scale generator. a speciﬁed reduction factor to obtain the ”LR sons”; then a CycleGAN SR network is constructed, which utilizes multi- scale structure as the generator and considers the perception consistency from LR to HR and back to LR (which will be introduced in detail below); and then the LR-HR data pairs obtained before are used for the network training; ﬁnally, after the CycleGAN is well trained, the test ultrasound image is then sent to the generator as LR input to obtain its SR reconstruction result. Note that above data enhancement operations on test ultra- sound image include a series of down-sampling with different reduction factors, as well as 4 rotations ( 0◦, 90◦, 180◦, 270◦) and their mirror reﬂections in the vertical and horizontal directions. In addition, for the purpose of robustness, we can also consider training several SR networks for certain intermediate down-sampling factors. The SR images generated by these networks and the corresponding down-scaled LR versions can also be",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04888,
+        0.00476,
+        -0.04903,
+        0.01361,
+        0.01455
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "der training several SR networks for certain intermediate down-sampling factors. The SR images generated by these networks and the corresponding down-scaled LR versions can also be",
+      "overlap_with_next": " objective of multi-scale encoder- decoder learning is to ﬁnd the optimized network parameters Θj of the network mapping functionFj in every scalej branch so that the ﬁnal reconstr",
+      "text": "der training several SR networks for certain intermediate down-sampling factors. The SR images generated by these networks and the corresponding down-scaled LR versions can also be added into the target training set as additional LR-HR example pairs. B. Multi-scale Generator Based on wavelet multi-resolution analysis (MRA) theory [27] and motivated by the work [18], we can use deep structure to simulate wavelet multi-resolution analysis and construct a multi-scale deep network for ultrasound image SR. In order to adapt to any image size, our multi-scale model also adopts full convolution structure, which is fully composed of many encoders (convolution layers) and decoders (deconvolution layers). The detailed structure of our multi- scale generator is shown in Fig. 1. Note that this ﬁgure clearly demonstrates that the input LR image is considered to be the low frequency component of the multi-scale analysis of the HD image. Table I gives the detail parameters of our three-scale deep network. Obviously, the objective of multi-scale encoder- decoder learning is to ﬁnd the optimized network parameters Θj of the network mapping functionFj in every scalej branch so that the ﬁnal reconstr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01513,
+        0.0053,
+        -0.03437,
+        0.01708,
+        0.00872
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": " objective of multi-scale encoder- decoder learning is to ﬁnd the optimized network parameters Θj of the network mapping functionFj in every scalej branch so that the ﬁnal reconstr",
+      "overlap_with_next": "images can be treated as low-frequency components of HR ones (see Eq. (1), the reconstructed images of different scales can be obtained by adding these detail images directly to LR",
+      "text": " objective of multi-scale encoder- decoder learning is to ﬁnd the optimized network parameters Θj of the network mapping functionFj in every scalej branch so that the ﬁnal reconstruction can approximate the original HR image under certain measure (for example, 𝓁2 norm). This may be formulated as: ˜Θ = arg min Θ (||conv(concat j (··· ,y +Fj(y, Θj),··· ))−f||2, (1) where f and y are the HR image and the LR input, respec- tively. The symbol j denotes a speciﬁc scale, the concat(·) formula means concatenation operation and the conv(·) rep- resents the ﬁnal output convolution operation in Fig. 1. [Page 4] 4 TABLE I: The speciﬁc parameters of three-scale generator scale1 scale2 scale3 (conv3-32)×2 (conv3-32)×2 (conv3-32)×2 (conv3-32)×2 (conv3-32)×2 (conv3-64)×2 (deconv3-64)×2 (deconv3-32)×2 (deconv3-32)×2 (deconv3-32)×2 (deconv3-32)×2 (deconv3-32)×2 In the multiple scales network, the LR image ILR is ﬁrstly input to three scales encoder-decoder streams to recover the image details at different scales. Since LR images can be treated as low-frequency components of HR ones (see Eq. (1), the reconstructed images of different scales can be obtained by adding these detail images directly to LR",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01677,
+        -0.01146,
+        -0.0541,
+        0.0072,
+        0.02318
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "images can be treated as low-frequency components of HR ones (see Eq. (1), the reconstructed images of different scales can be obtained by adding these detail images directly to LR",
+      "overlap_with_next": " of disease diagnosis. This fact is also a important motivation for us to use CycleGAN framework for ultrasound image SR. Since the original task of CycleGAN is image translation, ",
+      "text": "images can be treated as low-frequency components of HR ones (see Eq. (1), the reconstructed images of different scales can be obtained by adding these detail images directly to LR input. Finally, the super-resolved ultrasound image ISR is obtained by concatenating and fusing the reconstruction images of three scales. In fact, the multi-scale deep encoder-decoder structure acts as the generator of the CycleGAN based ultrasound image perception consistency SR framework, which will be described at length below. C. CycleGAN based Perception Consistency SR Different from traditional GAN [28] that only contains one generator and one discriminator, CycleGAN [15] employs two generators and discriminators to distinguish the generated images from real ones, equipping with the cycle consistency loss for reliable image generation. Obviously, for medical image SR, the cycle consistency is particular signiﬁcant because the redundant or artiﬁcial details introduced in image generation will seriously damage the accuracy of disease diagnosis. This fact is also a important motivation for us to use CycleGAN framework for ultrasound image SR. Since the original task of CycleGAN is image translation, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01353,
+        -0.01305,
+        -0.04488,
+        0.03632,
+        0.02227
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": " of disease diagnosis. This fact is also a important motivation for us to use CycleGAN framework for ultrasound image SR. Since the original task of CycleGAN is image translation, ",
+      "overlap_with_next": "ion ultrasound image to LR one. The detail structure of our HR-to-LR ultrasound image generation network is shown in Fig. 2. It should be noted that although the actual size of the",
+      "text": " of disease diagnosis. This fact is also a important motivation for us to use CycleGAN framework for ultrasound image SR. Since the original task of CycleGAN is image translation, it is easy to ﬁnd a deal of natural images (paired or unpaired) for training. Whereas for ultrasound image SR, to obtain numerous paired LR and HR ultrasound images are quite difﬁcult. Therefore, we not only need to build LR-to-HR generation model but also HR-to-LR one. Although the multi- scale deep encoder-decoder network mentioned above can be used as LR-to-HR generator, the HR-to-LR one still needs to be carefully designed and trained. Actually, as discussed in [29], the HR-to-LR generation is just the complex image degradation process, which may involve multiple degeneration factors, such as noising, blurring and resolution decreasing. Fortunately, illuminated by the work [30], we introduce Gauss noise accompanied with LR image as input and construct a fully convolutional network (FCN) model to fulﬁll degrading high-resolution ultrasound image to LR one. The detail structure of our HR-to-LR ultrasound image generation network is shown in Fig. 2. It should be noted that although the actual size of the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02746,
+        -0.00376,
+        -0.03889,
+        0.02643,
+        0.01861
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ion ultrasound image to LR one. The detail structure of our HR-to-LR ultrasound image generation network is shown in Fig. 2. It should be noted that although the actual size of the",
+      "overlap_with_next": " layer. The detail structure of the discriminator is shown in Fig. 3. The input to discriminator is the pair of the produced SR and the label HR or the pair of the generated LR and",
+      "text": "ion ultrasound image to LR one. The detail structure of our HR-to-LR ultrasound image generation network is shown in Fig. 2. It should be noted that although the actual size of the output image of the HR-to- LR network is 1/4 of the input image, for the convenience of calculating the HR consistency loss later, we will up-sample the output image to its 4 times size. z Conv_BN_ReLU Deconv_BN_ReLU 64x64 4 9696 128128 256 256 512 512 128 128 3232 16x16 Input layer 8 Output layer Noise Fig. 2: The detailed structure of our HR-to-LR ultrasound image generation network. Our perception consistency ultrasound image SR model contains two sets of GANs, each of which utilizes two generators (one is for LR and the other is for HR) and one patch discriminator. The two generators are composed of above multi-scale encoder-decoder and HR degradation network while the discriminator is mainly made with a input layer and four convolutional block, each block containing a convolutional layer, ReLU layer and batch normalization layer. The detail structure of the discriminator is shown in Fig. 3. The input to discriminator is the pair of the produced SR and the label HR or the pair of the generated LR and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03618,
+        0.00725,
+        -0.0305,
+        0.02251,
+        0.02484
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " layer. The detail structure of the discriminator is shown in Fig. 3. The input to discriminator is the pair of the produced SR and the label HR or the pair of the generated LR and",
+      "overlap_with_next": "sure the perceptual consistency before and after ultrasound image generation, We ﬁrstly introduce the cycle losses for the generated cycle-HR and cycle-LR images, respectively. Sin",
+      "text": " layer. The detail structure of the discriminator is shown in Fig. 3. The input to discriminator is the pair of the produced SR and the label HR or the pair of the generated LR and the label LR, all with size of 64× 64.The output of the discriminator is an array X, where each Xij signiﬁes whether the patch ij in the image is real or fake. 4 64 128 256 512 True/False Input Layer Conv Block: Conv4x4 LeakyRelu Batch Norm Fig. 3: The detailed structure of the discriminator. Our overall model can be looked upon as a CycleGAN framework, which includes two parts: one is LR cycle con- sistency GAN, the other is HR cycle consistency GAN. In addition, cycle consistency loss with multiple levels image measurement losses are introduced in the model. The archi- tecture of our proposed model is illustrated in Fig. 4. In this ﬁgure, the detail structure of the low-to-high generator, the high-to-low generator and the discriminator can be refereed to Fig. 1, Fig. 2 and Fig. 3, respectively. D. Loss Function In order to ensure the perceptual consistency before and after ultrasound image generation, We ﬁrstly introduce the cycle losses for the generated cycle-HR and cycle-LR images, respectively. Sin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06005,
+        -0.0347,
+        -0.03722,
+        0.02615,
+        0.03543
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "sure the perceptual consistency before and after ultrasound image generation, We ﬁrstly introduce the cycle losses for the generated cycle-HR and cycle-LR images, respectively. Sin",
+      "overlap_with_next": "-High z …… …… High-to-Low + + + … …… Low-to-High z …… …… High-to-Low Fig. 4: The proposed perception consistency ultrasound image SR model. The low-to-high generator (blue box) is ",
+      "text": "sure the perceptual consistency before and after ultrasound image generation, We ﬁrstly introduce the cycle losses for the generated cycle-HR and cycle-LR images, respectively. Since some recent works [12, 31] argued that using MSE loss in deep image generation training will incline to produce over-smooth results, we use 𝓁1 loss instead of MSE (𝓁2) loss as a metric of the pixels difference between the generated one and the ground truth. Besides 𝓁1 pixels proximity loss, we also incorporate other three levels loss functions to supervise SR or degradation to approximate the ground-truth one at multiple levels of details. Given a set of LR and HR image pairs {xi,y i}Ni=1 and assuming the low-to-high mapping function is G :LR→HR [Page 5] 5 Cycle loss for LR Cycle loss for HR LR_son SR Cycle LR HR_father ෢𝐿𝑅 Cycle HR data augment downscale upsample HR_father LR_son Discriminator VGG Adversarial Loss Perceptual Loss L1 Loss Discriminator VGG Adversarial Loss Perceptual Loss L1 Loss Original LR + + + … …… Low-to-High z …… …… High-to-Low + + + … …… Low-to-High z …… …… High-to-Low Fig. 4: The proposed perception consistency ultrasound image SR model. The low-to-high generator (blue box) is ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07663,
+        -0.02399,
+        -0.04983,
+        0.02782,
+        0.02576
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "-High z …… …… High-to-Low + + + … …… Low-to-High z …… …… High-to-Low Fig. 4: The proposed perception consistency ultrasound image SR model. The low-to-high generator (blue box) is ",
+      "overlap_with_next": "s: Lpercp = 1N ( N∑ i=1 (||φ(G(xi))−φ(yi)||2 +||φ(F (yi))−φ(xi)||2)), (3) where the mapping function φ(·) used in practice is the output combination of the 12th convolution layers ",
+      "text": "-High z …… …… High-to-Low + + + … …… Low-to-High z …… …… High-to-Low Fig. 4: The proposed perception consistency ultrasound image SR model. The low-to-high generator (blue box) is the multi- scale encoder-decoder in Fig. 1 and the high-to-low generator (green box) is the HR-to-LR degradation network in Fig. 2; the discriminator can be looked upon Fig. 3 . and the high-to-low one is F : HR→LR, then the 𝓁1 pixel- wise loss for both low-to-high and high-to-low mappings can be denoted as: Lpixel = 1N ( N∑ i=1 (||G(xi)−yi||1 +||F (yi)−xi||1)) (2) Besides the pixel-wise loss, since the perceptual loss is more beneﬁcial to retention image features, we also make use of the perceptual loss when acquiring super-resolved or degraded ultrasound images. Speciﬁcally, we utilize the feature extraction function φ(·) to transform yi and xi into certain common feature space . Then the distance between the two features in such feature space can be easily calculated. Commonly, the perceptual (feature) loss can be expressed as: Lpercp = 1N ( N∑ i=1 (||φ(G(xi))−φ(yi)||2 +||φ(F (yi))−φ(xi)||2)), (3) where the mapping function φ(·) used in practice is the output combination of the 12th convolution layers ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07382,
+        -0.00902,
+        -0.02833,
+        0.02226,
+        0.02977
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "s: Lpercp = 1N ( N∑ i=1 (||φ(G(xi))−φ(yi)||2 +||φ(F (yi))−φ(xi)||2)), (3) where the mapping function φ(·) used in practice is the output combination of the 12th convolution layers ",
+      "overlap_with_next": "utput yi. In view of this, we introduce the LR-to-HR-to-LR and HR-to-LR-to-HR cycle losses to assure perception consistency for accurate ultrasound image reconstruction. Thus, the ",
+      "text": "s: Lpercp = 1N ( N∑ i=1 (||φ(G(xi))−φ(yi)||2 +||φ(F (yi))−φ(xi)||2)), (3) where the mapping function φ(·) used in practice is the output combination of the 12th convolution layers from VGG [32] network. We also apply the adversarial loss [28] to both low-to- high and high-to-low generation networks. For the low-to- high generator G :LR→HR and its discriminator Dhr, the adversarial loss for the generator may be expressed as: Lg adv = 1N N∑ i=1 −log(Dhr(G(xi))) (4) Similarly, the adversarial loss for high-to-low generator F : HR→LR and its discriminator Dlr can also be easily calculated, denoted asLf adv. Therefore, the total adversarial loss for such two GANs’ generation mapping can be written as: Ladv = 1N N∑ i=1 (−log(Dhr(G(xi)))−log(Dlr(F (yi)))) (5) Although the adversarial loss can force the distribution of the generated SR image approximates to the distribution of the target HR data, it is not enough to guarantee that the learned mapping function can map an individual input xi to an expected target output yi. In view of this, we introduce the LR-to-HR-to-LR and HR-to-LR-to-HR cycle losses to assure perception consistency for accurate ultrasound image reconstruction. Thus, the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.053,
+        -0.0044,
+        -0.02586,
+        -0.01594,
+        0.01397
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "utput yi. In view of this, we introduce the LR-to-HR-to-LR and HR-to-LR-to-HR cycle losses to assure perception consistency for accurate ultrasound image reconstruction. Thus, the ",
+      "overlap_with_next": "weights (mean ages: 27.5±3.5 years; mean weight: 76.5±9.7 kg) by Sonix OP ultrasound scanner, which totally includes 84 B-mode ultrasound images of common carotid artery (CCA). Whi",
+      "text": "utput yi. In view of this, we introduce the LR-to-HR-to-LR and HR-to-LR-to-HR cycle losses to assure perception consistency for accurate ultrasound image reconstruction. Thus, the total cycle consistency loss may be formulated as: Lcyc = 1N ( N∑ i=1 (||F (G(xi))−xi||1+||G(F (yi))−yi||1)) (6) Finally, the total loss of our overall model is the sum of all the above losses and can be described as: Ltotal =αLpixel +βLpercp +γLadv +ηLcyc, (7) where α, β, γ, and η are the weighting coefﬁcients, which control the relative importance of these different losses. In Section IV , we will do the ablation study of some losses to show that the cycle structure and the consistency loss play important role in arriving at high-quality SR results. IV. E XPERIMENTAL RESULTS AND ANALYSIS A. Datasets The two public available ultrasound image datasets: CCA- US1 and US-CASE 2 are fully used in this work to perform the SR experiments and the comparisons. The CCA-US data is acquired from ten volunteers with different ages and body weights (mean ages: 27.5±3.5 years; mean weight: 76.5±9.7 kg) by Sonix OP ultrasound scanner, which totally includes 84 B-mode ultrasound images of common carotid artery (CCA). Whi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05527,
+        0.01326,
+        -0.06782,
+        0.01688,
+        0.02403
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "weights (mean ages: 27.5±3.5 years; mean weight: 76.5±9.7 kg) by Sonix OP ultrasound scanner, which totally includes 84 B-mode ultrasound images of common carotid artery (CCA). Whi",
+      "overlap_with_next": "pically set to 64× 64 pixels. During the training, we utilize the total loss described in Eq. 7 with Adam optimizer, starting with a learning rate of 0.001. The weighting coefﬁcien",
+      "text": "weights (mean ages: 27.5±3.5 years; mean weight: 76.5±9.7 kg) by Sonix OP ultrasound scanner, which totally includes 84 B-mode ultrasound images of common carotid artery (CCA). While the US-CASE one is a free ultrasound library offered by SonoSkills and Hitachi Medical Systems Europe, which con- tains 125 ultrasound images of liver, heart and mediastinum, etc. Moreover, the well-known PSNR [dB], IFC [33], and [Page 6] 6 SSIM [34] metrics are exploited to evaluate the objective quality of the super-resolved ultrasound images. Our code for this work can be found at https://github.com/hengliusky/ UltraSound SSSR. B. Training Details The Original LR input can be any ultrasound image from these two datasets mentioned above. As described in section III, we can obtain “HR fathers” and “LR sons” from one image itself. We follow the strategy of ZSSR[14] that training with random augmented cropped image instead of full image. Speciﬁcally, we obtain ﬁxed-size random crops from father- son pair.The cropped size is typically set to 64× 64 pixels. During the training, we utilize the total loss described in Eq. 7 with Adam optimizer, starting with a learning rate of 0.001. The weighting coefﬁcien",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04055,
+        -0.01052,
+        -0.07116,
+        0.0071,
+        -0.00304
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "pically set to 64× 64 pixels. During the training, we utilize the total loss described in Eq. 7 with Adam optimizer, starting with a learning rate of 0.001. The weighting coefﬁcien",
+      "overlap_with_next": "] and Lu et al. [6] individually utilize the slightly changed SRGAN [12] and the convolution network with residual connection for ultrasound image SR. But they do not release their",
+      "text": "pically set to 64× 64 pixels. During the training, we utilize the total loss described in Eq. 7 with Adam optimizer, starting with a learning rate of 0.001. The weighting coefﬁcients of the loss function α, β, γ and η are empirically set with 5, 0.1, 5 and 0.3, respectively. We also adopt the learning rate adjustment policy of ZSSR [14] to gradually reduce the learning rate of our deep model. We stop training when the learning rate reaches to 0.000001. In order to stabilize the training, we follow the strategy of the work [35] to update the discriminator with the historical generated images to avoid model oscillation. Finally, we combine self-ensemble and back projection techniques to get corrected median image as ﬁnal super-resolved image. C. Experimental Comparisons and Analysis Different ultrasound image SR methods are made compar- ative evaluation by performing 4× SR experiments. Note that the codes and the data set of current most medical image SR methods are not released. For example, Choi et al. [5] and Lu et al. [6] individually utilize the slightly changed SRGAN [12] and the convolution network with residual connection for ultrasound image SR. But they do not release their",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04575,
+        -0.03439,
+        -0.0381,
+        -0.02498,
+        -0.00674
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "] and Lu et al. [6] individually utilize the slightly changed SRGAN [12] and the convolution network with residual connection for ultrasound image SR. But they do not release their",
+      "overlap_with_next": "FC scores under the test ultrasound dataset from US-CASE and CCA-US. The bold numbers indicate the best results. DataSets US-CASE CCA-US PSNR IFC PSNR IFC Bicubic 20.9131 1.213 26.",
+      "text": "] and Lu et al. [6] individually utilize the slightly changed SRGAN [12] and the convolution network with residual connection for ultrasound image SR. But they do not release their code and the ultrasound dataset. Fortunately, many recent natural image SR approaches, including the same or the very similar methods by Choi et al. and Lu et al., such as SRCNN [8], SRCAN [12], EDSR [21] (convolution network with residual connection), SRFeat [22] have been public available. Therefore, we believe that the comparison results can correctly reﬂect the ultrasound image SR performance of the corresponding methods. In addition, for fair play, we use the two public datasets - CCA- US and US-CASE for comparisons. We provide some quantitative evaluation comparisons in Table II and Table III. In Fig. 5, Fig. 6 and Fig. 7, we also provide some visual comparison examples. Moreover, in terms 1http://splab.cz/en/download/databaze/ultrasound 2http://www.ultrasoundcases.info/Cases-Home.aspx TABLE II: A comparison of PSNR and IFC scores under the test ultrasound dataset from US-CASE and CCA-US. The bold numbers indicate the best results. DataSets US-CASE CCA-US PSNR IFC PSNR IFC Bicubic 20.9131 1.213 26.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06292,
+        0.00949,
+        -0.05768,
+        -0.01957,
+        -0.02679
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "FC scores under the test ultrasound dataset from US-CASE and CCA-US. The bold numbers indicate the best results. DataSets US-CASE CCA-US PSNR IFC PSNR IFC Bicubic 20.9131 1.213 26.",
+      "overlap_with_next": "hieves the best results on both test images from CCA-US and US-CASE datasets. Table III lists the comparison results of PSNR and SSIM under the whole US- CASE and CCA-US datasets. ",
+      "text": "FC scores under the test ultrasound dataset from US-CASE and CCA-US. The bold numbers indicate the best results. DataSets US-CASE CCA-US PSNR IFC PSNR IFC Bicubic 20.9131 1.213 26.300 1.055 SRCNN[8] 20.673 0.972 25.636 1.009 SRGAN[12] 25.331 1.127 29.069 1.102 Our proposed 30.404 2.670 34.900 2.317 TABLE III: A comparison of PSNR and SSIM scores under two datasets. The bold numbers indicate the best results. DataSets US-CASE CCA-US PSNR SSIM PSNR SSIM EDSR[21] 25.290 0.740 27.432 0.804 SRFeat[22] 25.602 0.721 28.864 0.808 ZSSR[14] 32.670 0.872 34.882 0.918 Our proposed 32.491 0.876 35.222 0.919 of running efﬁciency, we compare our approach with other methods in inference speed, model capacity, data processing throughput. The results are shown in Table IV. Table II lists the comparison results of PSNR and IFC under a test data set consisting of 20 ultrasound images randomly selected from the two datasets mentioned above (each dataset selects 10 images). Compared with SRCNN [8] and SRGAN [12], our method achieves the best results on both test images from CCA-US and US-CASE datasets. Table III lists the comparison results of PSNR and SSIM under the whole US- CASE and CCA-US datasets. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06414,
+        -0.02438,
+        -0.07023,
+        -0.01522,
+        -0.01287
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "hieves the best results on both test images from CCA-US and US-CASE datasets. Table III lists the comparison results of PSNR and SSIM under the whole US- CASE and CCA-US datasets. ",
+      "overlap_with_next": "ts or noise. In addition, Fig. 7 shows additional visual details comparisons with ZSSR[14]. From the ﬁgure, it is easy to ﬁnd that, ZSSR is likely to introduce some unwanted artifa",
+      "text": "hieves the best results on both test images from CCA-US and US-CASE datasets. Table III lists the comparison results of PSNR and SSIM under the whole US- CASE and CCA-US datasets. We can see that our proposed method can attain the best or the second best PSNR results on the two ultrasonic datasets compared with EDSR [21], SRFeat [22], ZSSR [14]. AS for SSIM measures, our method will always achieve the best measurement results. On the whole, the performance of our method is better than others. In addition, the results in two tables suggest that the self- supervised learning methods (including ours and ZSSR) might have more prospects on SR task than those of supervised learning. According to Fig. 5 and Fig. 6, it is clear that comparing with other methods, our presented method acquires the better SR visual effects. Especially, observing the local details of these SR images in Fig. 5 and Fig. 6 carefully, we can see that the results of our method are more accurate than others and do not introduce the artifacts or noise. In addition, Fig. 7 shows additional visual details comparisons with ZSSR[14]. From the ﬁgure, it is easy to ﬁnd that, ZSSR is likely to introduce some unwanted artifa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04139,
+        0.00929,
+        -0.06326,
+        -0.00369,
+        -0.00763
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "ts or noise. In addition, Fig. 7 shows additional visual details comparisons with ZSSR[14]. From the ﬁgure, it is easy to ﬁnd that, ZSSR is likely to introduce some unwanted artifa",
+      "overlap_with_next": "ndicators, which is of great value for ultrasound visual diagnosis in the medical industry. D. Ablation Study In order to analyze the impact of the components on the loss function ",
+      "text": "ts or noise. In addition, Fig. 7 shows additional visual details comparisons with ZSSR[14]. From the ﬁgure, it is easy to ﬁnd that, ZSSR is likely to introduce some unwanted artifacts. For example in Fig. 7 (a,b), there are always some artiﬁcial pore structure appeared in the generated images of ZSSR. These artifacts might cause misdiagnosis by clinicians. Our CycleGAN framework can effectively alleviate this issue to achieve relatively accurate visual effects although its PSNR/SSIM perhaps decrease slightly. Furthermore, according to Table IV, it is easy to ﬁnd that the throughput of our proposed model achieve the best performance among all compared SR methods. This means that our model can concurrently process larger deal of image data than others. Moreover, from the table, it is clear the proposed model is a lightweight one due to the model capacity of ours only a little higher than the simplest model - SRCNN. In general, our proposed method has good visual effects and preferable objective evaluation indicators, which is of great value for ultrasound visual diagnosis in the medical industry. D. Ablation Study In order to analyze the impact of the components on the loss function ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03098,
+        0.00595,
+        -0.06243,
+        0.01084,
+        0.02717
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "ndicators, which is of great value for ultrasound visual diagnosis in the medical industry. D. Ablation Study In order to analyze the impact of the components on the loss function ",
+      "overlap_with_next": "trasound images under CCA-US dataset by (b,h) Ground truth (c,i) SRCNN, (d,j) SRGAN, (e,k) ZSSR and (f,l) the proposed method. The green arrows and circles highlight the difference",
+      "text": "ndicators, which is of great value for ultrasound visual diagnosis in the medical industry. D. Ablation Study In order to analyze the impact of the components on the loss function (Eq. 7) on ultrasound image SR performance, we [Page 7] 7 TABLE IV: Evaluation of the running efﬁciency for all methods. The bold numbers indicate the best SRCNN[8] SRGAN[12] SRFeat[22] EDSR[21] ZSSR[14] Our proposed Platform MATLAB TensorFlow TensorFlow TensorFlow pytorch Pytorch Test Image Size 600*488 150*112 150*112 150*112 150*112 600*448 Inference Time 188ms 53ms 136ms 49ms 169ms 176ms Throughput (Kb/ms) 4.189 0.929 0.362 1.00 0.290 4.474 Model Capacity 270KB 9.1MB 37.2MB 9.1MB 3.6MB 1.1MB (a) Ground Truth (b) HR (c) SRCNN: 34.31/1.60 (d) SRGAN: 20.83/1.61 (e) ZSSR: 35.31/2.25 (f) The proposed method: 36.43/2.34 (g) Ground Truth (h) HR (i) SRCNN: 28.70/1.34 (j) SRGAN: 31.16/1.87 (k) ZSSR: 30.17/2.312 (l) The proposed method: 33.11/2.58 Fig. 5: The comparisons of visual effects and PSNR/IFC metrics for 4 × super-resolved ultrasound images under CCA-US dataset by (b,h) Ground truth (c,i) SRCNN, (d,j) SRGAN, (e,k) ZSSR and (f,l) the proposed method. The green arrows and circles highlight the difference",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04041,
+        0.00245,
+        -0.03659,
+        -0.01722,
+        -0.00948
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "trasound images under CCA-US dataset by (b,h) Ground truth (c,i) SRCNN, (d,j) SRGAN, (e,k) ZSSR and (f,l) the proposed method. The green arrows and circles highlight the difference",
+      "overlap_with_next": "ion as our original model. The results are presented in Table V. From Table V, it is obvious only using GAN (the adversarial loss), the performance of the results will be much redu",
+      "text": "trasound images under CCA-US dataset by (b,h) Ground truth (c,i) SRCNN, (d,j) SRGAN, (e,k) ZSSR and (f,l) the proposed method. The green arrows and circles highlight the differences between the images (a) Ground Truth (b) HR (c) SRCNN 26.89/1.90 (d) SRGAN 24.59/1.87 (e) ZSSR 30.77/2.93 (f) The proposed method: 30.65/2.89 (g) Ground Truth (h) HR (i) SRCNN: 29.70/1.96 (j) SRGAN: 25.98/2.02 (k) ZSSR: 32.18/3.06 (l) The proposed method: 32.42/2.98 Fig. 6: The comparisons of visual effects and PSNR/IFC metrics for 4 × super-resolved ultrasound images under US-CASE dataset by (b,h) Ground truth (c,i) SRCNN, (d,j) SRGAN, (e,k) ZSSR and (f,l) the proposed method. The green arrows and circles highlight the differences between the images develop some variants of our model: (1) GAN alone, where other losses including cycle loss are removed, (2) cycle alone , (3) GAN only with forward cycle (LR-SR-LR), (4) GAN only with backward cycle (HR-LR-SR) and (5) GAN with cycle. These variants are trained under the same condition as our original model. The results are presented in Table V. From Table V, it is obvious only using GAN (the adversarial loss), the performance of the results will be much redu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02021,
+        -0.01751,
+        -0.06024,
+        0.01072,
+        0.0179
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ion as our original model. The results are presented in Table V. From Table V, it is obvious only using GAN (the adversarial loss), the performance of the results will be much redu",
+      "overlap_with_next": ".317 results. Finally, all four losses proposed have an effect on the ﬁnal reconstruction performance. Thus, we can conclude that the cycle structure is extremely beneﬁcial to ultr",
+      "text": "ion as our original model. The results are presented in Table V. From Table V, it is obvious only using GAN (the adversarial loss), the performance of the results will be much reduced. While quite good performance can be achieved with only utilizing cycle loss. Meanwhile, the forward cycle loss and the backward cycle loss both contribute to the performance. The combination of cycle loss with GAN can achieve better [Page 8] 8 (a) Groud turth (b) HR (c) ZSSR: 32.17/0.87 (d) Ours: 32.32/0.88 (e) Groud turth (f) HR (g) ZSSR: 32.20/0.87 (h) Ours: 31.56/0.86 Fig. 7: The comparisons of visual effects and PSNR/SSIM metrics with ZSSR. (a) from CCA-US dataset, (e) from US-CASE dataset. The green arrows and circles highlight the differences between the images TABLE V: Ablation study on CCA-US dataset. The best results are indicated in Bold. DataSets CCA-US PSNR IFC GAN alone 33.968 2.203 Cycle alone 34.721 2.298 GAN + forward cycle 34.282 2.221 GAN + backward cycle 34.519 2.262 GAN + cycle 34.839 2.303 Ours 34.900 2.317 results. Finally, all four losses proposed have an effect on the ﬁnal reconstruction performance. Thus, we can conclude that the cycle structure is extremely beneﬁcial to ultr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04234,
+        0.00896,
+        -0.08058,
+        0.02609,
+        -0.00811
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": ".317 results. Finally, all four losses proposed have an effect on the ﬁnal reconstruction performance. Thus, we can conclude that the cycle structure is extremely beneﬁcial to ultr",
+      "overlap_with_next": "d datasets, it is clearly demonstrated that the proposed self-supervised CycleGAN approach achieves the best performance not only in objective qualitative results and the running e",
+      "text": ".317 results. Finally, all four losses proposed have an effect on the ﬁnal reconstruction performance. Thus, we can conclude that the cycle structure is extremely beneﬁcial to ultrasound image SR. V. C ONCLUSION In this work, for medical industry, we propose a novel perception consistency ultrasound image SR approach based on self-supervised CycleGAN framework. Firstly, we analyze the multi-scale pattern characteristics between the local parts and the whole image for ultrasound data and propose to apply self-supervised learning strategy to get LR-HR pairs when lacking numerous ultrasound training images. Then we introduce a CycleGAN framework with a synthetic imaging loss, including the pixel-wise loss, the perceptual feature loss, the adversarial loss and the most important cycle consistency loss, to guarantee that the image ensemble and the details can keep the perception consistency not only in LR-to-SR-to- LR cycle but also in HR-to-LR-to-SR one. According to the evaluation results under two ultrasound datasets, it is clearly demonstrated that the proposed self-supervised CycleGAN approach achieves the best performance not only in objective qualitative results and the running e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03576,
+        -0.00062,
+        -0.0536,
+        0.02086,
+        0.03557
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "d datasets, it is clearly demonstrated that the proposed self-supervised CycleGAN approach achieves the best performance not only in objective qualitative results and the running e",
+      "overlap_with_next": "ant No. KJ2019A0083. REFERENCES [1] J. M. Hudson, R. Williams, C. Tremblay-Darveau, P. S. Sheeran, L. Milot, G. A. Bjarnason, and P. N. Burns, “Dynamic contrast enhanced ultrasound",
+      "text": "d datasets, it is clearly demonstrated that the proposed self-supervised CycleGAN approach achieves the best performance not only in objective qualitative results and the running efﬁciency but also in visual effects. In the meantime, it should be noted that ultrasound data SR may pay more attention to the accuracy of reconstruction than that of natural images. Therefore, our near future work will center on extending the proposed approach to natural image tasks, such as background subtraction [36], image defogging [37], etc., and analyzing the relationship between reconstruction accuracy and visual effects. ACKNOWLEDGMENT We thank all the students in our Lab of AHUT for their help in discussions. This work was supported in part by the National Natural Science Foundation of China under Grant No. 61971004, the Natural Science Foundation of Anhui Province under Grant No. 2008085MF190 and Grant No. 1808085QF210, and also by the Key Project of Natural Science of Anhui Provincial Department of Education under Grant No. KJ2019A0083. REFERENCES [1] J. M. Hudson, R. Williams, C. Tremblay-Darveau, P. S. Sheeran, L. Milot, G. A. Bjarnason, and P. N. Burns, “Dynamic contrast enhanced ultrasound",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03211,
+        -0.00273,
+        -0.04683,
+        -0.01529,
+        -0.00483
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "ant No. KJ2019A0083. REFERENCES [1] J. M. Hudson, R. Williams, C. Tremblay-Darveau, P. S. Sheeran, L. Milot, G. A. Bjarnason, and P. N. Burns, “Dynamic contrast enhanced ultrasound",
+      "overlap_with_next": "cs Symposium , Oct 2018, pp. 1–4. [6] J. Lu and W. Liu, “Unsupervised super-resolution frame- work for medical ultrasound images using dilated convo- lutional neural networks,” in ",
+      "text": "ant No. KJ2019A0083. REFERENCES [1] J. M. Hudson, R. Williams, C. Tremblay-Darveau, P. S. Sheeran, L. Milot, G. A. Bjarnason, and P. N. Burns, “Dynamic contrast enhanced ultrasound for therapy mon- itoring,” European journal of radiology , vol. 84, no. 9, pp. 1650–1657, 2015. [2] R. Morin, S. Bidon, A. Basarab, and D. Kouam ´e, “Semi- blind deconvolution for resolution enhancement in ultra- sound imaging,” in Proc. of the IEEE Int. Conf. on Image Processing. IEEE, 2013, pp. 1413–1417. [Page 9] 9 [3] B. A. Skourt, A. El Hassani, and A. Majda, “Lung ct im- age segmentation using deep neural networks,” Procedia Computer Science , vol. 127, pp. 109–113, 2018. [4] Y . Lim, Y . Bliesener, S. Narayanan, and K. S. Nayak, “Deblurring for spiral real-time mri using convolutional neural networks,” Magnetic Resonance in Medicine , 2020. [5] W. Choi, M. Kim, J. HakLee, J. Kim, and J. BeomRa, “Deep cnn-based ultrasound super-resolution for high- speed high-resolution b-mode imaging,” in Proc. of the IEEE Int. Ultrasonics Symposium , Oct 2018, pp. 1–4. [6] J. Lu and W. Liu, “Unsupervised super-resolution frame- work for medical ultrasound images using dilated convo- lutional neural networks,” in ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02103,
+        0.00575,
+        -0.01998,
+        0.02239,
+        -0.01537
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "cs Symposium , Oct 2018, pp. 1–4. [6] J. Lu and W. Liu, “Unsupervised super-resolution frame- work for medical ultrasound images using dilated convo- lutional neural networks,” in ",
+      "overlap_with_next": "ing for super- resolution vascular ultrasound imaging,” in ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) . IEEE, 2019, pp. 1055",
+      "text": "cs Symposium , Oct 2018, pp. 1–4. [6] J. Lu and W. Liu, “Unsupervised super-resolution frame- work for medical ultrasound images using dilated convo- lutional neural networks,” in Proc. of the IEEE 3rd Int. Conf. on Image, Vision and Computing . IEEE, 2018, pp. 739–744. [7] K. Umehara, J. Ota, and T. Ishida, “Application of super- resolution convolutional neural network for enhancing image resolution in chest ct,” Journal of digital imaging , vol. 31, no. 4, pp. 441–450, 2018. [8] C. Dong, C. C. Loy, K. He, and X. Tang, “Image super- resolution using deep convolutional networks,” IEEE transactions on pattern analysis and machine intelli- gence, vol. 38, no. 2, pp. 295–307, 2016. [9] O. Ronneberger, P. Fischer, and T. Brox, “U-net: Con- volutional networks for biomedical image segmentation,” in Proc. of the Int. Conf. on Medical image computing and computer-assisted intervention . Springer, 2015, pp. 234–241. [10] R. J. van Sloun, O. Solomon, M. Bruce, Z. Z. Khaing, Y . C. Eldar, and M. Mischi, “Deep learning for super- resolution vascular ultrasound imaging,” in ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) . IEEE, 2019, pp. 1055",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02561,
+        -0.02297,
+        -0.01861,
+        0.01572,
+        -0.01256
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "ing for super- resolution vascular ultrasound imaging,” in ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) . IEEE, 2019, pp. 1055",
+      "overlap_with_next": "EE conference on computer vision and pattern recognition, 2018, pp. 3118–3126. [15] J.-Y . Zhu, T. Park, P. Isola, and A. A. Efros, “Unpaired image-to-image translation using cycle",
+      "text": "ing for super- resolution vascular ultrasound imaging,” in ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) . IEEE, 2019, pp. 1055–1059. [11] J. Kim, J. Kwon Lee, and K. Mu Lee, “Accurate im- age super-resolution using very deep convolutional net- works,” in Proc. of the IEEE Conf. on Computer Vision and Pattern Recognition , 2016, pp. 1646–1654. [12] C. Ledig, L. Theis, F. Husz ´ar, J. Caballero, A. Cunning- ham, A. Acosta, A. Aitken, A. Tejani, J. Totz, Z. Wang et al. , “Photo-realistic single image super-resolution us- ing a generative adversarial network,” in Proceedings of the IEEE conference on computer vision and pattern recognition, 2017, pp. 4681–4690. [13] Y . Blau and T. Michaeli, “The perception-distortion tradeoff,” in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , 2018, pp. 6228–6237. [14] A. Shocher, N. Cohen, and M. Irani, ““zero-shot” super- resolution using deep internal learning,” in Proceedings of the IEEE conference on computer vision and pattern recognition, 2018, pp. 3118–3126. [15] J.-Y . Zhu, T. Park, P. Isola, and A. A. Efros, “Unpaired image-to-image translation using cycle",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03142,
+        -0.00534,
+        -0.01834,
+        0.02644,
+        0.01511
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "EE conference on computer vision and pattern recognition, 2018, pp. 3118–3126. [15] J.-Y . Zhu, T. Park, P. Isola, and A. A. Efros, “Unpaired image-to-image translation using cycle",
+      "overlap_with_next": "iang, J. Jiang, Z. Han, T. Lu, and J. Ma, “Multi-memory convolutional neural network for video super-resolution,” IEEE Transactions on Image Processing, vol. 28, no. 5, pp. 2530–25",
+      "text": "EE conference on computer vision and pattern recognition, 2018, pp. 3118–3126. [15] J.-Y . Zhu, T. Park, P. Isola, and A. A. Efros, “Unpaired image-to-image translation using cycle-consistent adver- sarial networks,” in Proceedings of the IEEE interna- tional conference on computer vision , 2017, pp. 2223– 2232. [16] J. Liu, H. Liu, X. Zheng, and J. Han, “Exploring multi- scale deep encoder-decoder and patchgan for perceptual ultrasound image super-resolution,” in International Con- ference on Neural Computing for Advanced Applications . Springer, 2020, pp. 47–59. [17] Y . Liang, J. Wang, S. Zhou, Y . Gong, and N. Zheng, “In- corporating image priors with deep convolutional neural networks for image super-resolution,” Neurocomputing, vol. 194, pp. 340–347, 2016. [18] H. Liu, Z. Fu, J. Han, L. Shao, S. Hou, and Y . Chu, “Single image super-resolution using multi-scale deep encoder–decoder with phase congruency edge map guid- ance,” Information Sciences , vol. 473, pp. 44–58, 2019. [19] Z. Wang, P. Yi, K. Jiang, J. Jiang, Z. Han, T. Lu, and J. Ma, “Multi-memory convolutional neural network for video super-resolution,” IEEE Transactions on Image Processing, vol. 28, no. 5, pp. 2530–25",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02231,
+        -0.02763,
+        -0.01833,
+        0.01213,
+        0.00715
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "iang, J. Jiang, Z. Han, T. Lu, and J. Ma, “Multi-memory convolutional neural network for video super-resolution,” IEEE Transactions on Image Processing, vol. 28, no. 5, pp. 2530–25",
+      "overlap_with_next": "ical Imaging . IEEE, 2016, pp. 473–476. [24] K. Diamantis, A. H. Greenaway, T. Anderson, J. A. Jensen, P. A. Dalgarno, and V . Sboros, “Super-resolution axial localization of ultra",
+      "text": "iang, J. Jiang, Z. Han, T. Lu, and J. Ma, “Multi-memory convolutional neural network for video super-resolution,” IEEE Transactions on Image Processing, vol. 28, no. 5, pp. 2530–2544, 2019. [20] J. Ma, X. Wang, and J. Jiang, “Image superresolution via dense discriminative network,” IEEE Transactions on Industrial Electronics , vol. 67, no. 7, pp. 5687–5695, 2020. [21] B. Lim, S. Son, H. Kim, S. Nah, and K. Mu Lee, “Enhanced deep residual networks for single image super-resolution,” in Proceedings of the IEEE conference on computer vision and pattern recognition workshops , 2017, pp. 136–144. [22] S.-J. Park, H. Son, S. Cho, K.-S. Hong, and S. Lee, “Srfeat: Single image super-resolution with feature dis- crimination,” in Proceedings of the European Conference on Computer Vision (ECCV) , 2018, pp. 439–455. [23] N. Zhao, Q. Wei, A. Basarab, D. Kouam ´e, and J.-Y . Tourneret, “Single image super-resolution of medical ultrasound images using a fast algorithm,” in Proc. of the IEEE 13th Int. Symposium on Biomedical Imaging . IEEE, 2016, pp. 473–476. [24] K. Diamantis, A. H. Greenaway, T. Anderson, J. A. Jensen, P. A. Dalgarno, and V . Sboros, “Super-resolution axial localization of ultra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05729,
+        -0.00883,
+        -0.02817,
+        -0.00407,
+        -0.01337
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "ical Imaging . IEEE, 2016, pp. 473–476. [24] K. Diamantis, A. H. Greenaway, T. Anderson, J. A. Jensen, P. A. Dalgarno, and V . Sboros, “Super-resolution axial localization of ultra",
+      "overlap_with_next": "tems , 2014, pp. 2672–2680. [29] H. Liu, J. Qin, Z. Fu, X. Li, and J. Han, “Fast simul- taneous image super-resolution and motion deblurring with decoupled cooperative learning,” J",
+      "text": "ical Imaging . IEEE, 2016, pp. 473–476. [24] K. Diamantis, A. H. Greenaway, T. Anderson, J. A. Jensen, P. A. Dalgarno, and V . Sboros, “Super-resolution axial localization of ultrasound scatter using multi-focal imaging,” IEEE Transactions on Biomedical Engineer- ing, vol. 65, no. 8, pp. 1840–1851, 2018. [25] J. Zhu, G. Yang, and P. Lio, “How can we make gan perform better in single medical image super-resolution? a lesion focused multi-scale approach,” in Proceedings of the 16th IEEE International Symposium on Biomedical Imaging (ISBI) , 2019, pp. 1669–1673. [26] K. Liu, Y . Ma, H. Xiong, Z. Yan, Z.-J. Zhou, P. Fang, and C. Liu, “Medical image super-resolution method based on dense blended attention network,” ArXiv, vol. abs/1905.05084, 2019. [27] S. Mallat, A wavelet tour of signal processing. Academic press, 1999. [28] I. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley, S. Ozair, A. Courville, and Y . Bengio, “Generative adversarial nets,” in Advances in neural information processing systems , 2014, pp. 2672–2680. [29] H. Liu, J. Qin, Z. Fu, X. Li, and J. Han, “Fast simul- taneous image super-resolution and motion deblurring with decoupled cooperative learning,” J",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04676,
+        0.0022,
+        -0.02653,
+        -0.02062,
+        -0.00636
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "tems , 2014, pp. 2672–2680. [29] H. Liu, J. Qin, Z. Fu, X. Li, and J. Han, “Fast simul- taneous image super-resolution and motion deblurring with decoupled cooperative learning,” J",
+      "overlap_with_next": "no. 12, pp. 2117–2128, 2005. [34] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Image quality assessment: from error visibility to struc- tural similarity,” IEEE trans",
+      "text": "tems , 2014, pp. 2672–2680. [29] H. Liu, J. Qin, Z. Fu, X. Li, and J. Han, “Fast simul- taneous image super-resolution and motion deblurring with decoupled cooperative learning,” Journal of Real- [Page 10] 10 time Image Processing , 2020. [30] A. Bulat, J. Yang, and G. Tzimiropoulos, “To learn image super-resolution, use a gan to learn how to do image degradation ﬁrst,” in Proceedings of the European conference on computer vision (ECCV) , 2018, pp. 185– 200. [31] P. Isola, J.-Y . Zhu, T. Zhou, and A. A. Efros, “Image-to- image translation with conditional adversarial networks,” in Proc. of the IEEE Conf. on Computer Vision and Pattern Recognition, 2017, pp. 1125–1134. [32] K. Simonyan and A. Zisserman, “Very deep convolu- tional networks for large-scale image recognition,” arXiv preprint arXiv:1409.1556, 2014. [33] H. R. Sheikh, A. C. Bovik, and G. De Veciana, “An information ﬁdelity criterion for image quality assess- ment using natural scene statistics,” IEEE Transactions on image processing , vol. 14, no. 12, pp. 2117–2128, 2005. [34] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Image quality assessment: from error visibility to struc- tural similarity,” IEEE trans",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03847,
+        0.01902,
+        -0.01029,
+        -0.00374,
+        -0.0089
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 45775,
+      "length": 895,
+      "overlap_with_previous": "no. 12, pp. 2117–2128, 2005. [34] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Image quality assessment: from error visibility to struc- tural similarity,” IEEE trans",
+      "overlap_with_next": "",
+      "text": "no. 12, pp. 2117–2128, 2005. [34] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Image quality assessment: from error visibility to struc- tural similarity,” IEEE transactions on image processing , vol. 13, no. 4, pp. 600–612, 2004. [35] A. Shrivastava, T. Pﬁster, O. Tuzel, J. Susskind, W. Wang, and R. Webb, “Learning from simulated and unsuper- vised images through adversarial training,” in Proceed- ings of the IEEE conference on computer vision and pattern recognition, 2017, pp. 2107–2116. [36] D. Sakkos, H. Liu, J. Han, and L. Shao, “End-to- end video background subtraction with 3d convolutional neural networks,” Multimedia Tools and Applications , vol. 77, no. 17, pp. 23 023–23 041, 2018. [37] H. Liu, D. Huang, S. Hou, and R. Yue, “Large size single image fast defogging and the real time video defogging fpga architecture,” Neurocomputing, vol. 269, pp. 97– 107, 2017.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06076,
+        -0.00234,
+        -0.01174,
+        0.01046,
+        0.01549
+      ]
+    }
+  ]
+}

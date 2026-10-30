@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+openai
+pypdf
+numpy
+# only needed if EMBEDDING_PROVIDER=local:
+# sentence-transformers

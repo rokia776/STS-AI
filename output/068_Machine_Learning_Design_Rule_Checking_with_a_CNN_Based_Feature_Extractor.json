@@ -1,0 +1,487 @@
+{
+  "paper_id": "3e82bb29-8953-4039-bb0e-36e341a05e0a",
+  "filename": "068_Machine_Learning_Design_Rule_Checking_with_a_CNN_Based_Feature_Extractor.pdf",
+  "title": "Design Rule Checking with a CNN Based Feature Extractor",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 28,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "g; Machine Learning; IC Veri￿cation, Design for Manufacturing; Convolutional Neural Network; Deep Learning. 1 INTRODUCTION Design Rule Checking (DRC) is the process of checking tha",
+      "text": "[Page 1] Design Rule Checking with a CNN Based Feature Extractor *Luis Francisco, Tanmay Lagare, Arpit Jain, Somal Chaudhary, Madhura Kulkarni, Divya Sardana, **W. Rhett Davis and ***Paul Franzon [*lsfranci,**wdavis,***paulf]@ncsu.edu North Carolina State University Raleigh, NC, USA ABSTRACT Design rule checking (DRC) is getting increasingly complex in advanced nodes technologies. It would be highly desirable to have a fast interactive DRC engine that could be used during layout. In this work, we establish the proof of feasibility for such an engine. The proposed model consists of a convolutional neural network (CNN) trained to detect DRC violations. The model was trained with arti￿cial data that was derived from a set of 50 SRAM designs. The focus in this demonstration was metal 1 rules. Using this solution, we can detect multiple DRC violations 32G faster than Boolean checkers with an accuracy of up to 92%. The proposed solution can be easily expanded to a complete rule set. KEYWORDS Design Rule Checking; Machine Learning; IC Veri￿cation, Design for Manufacturing; Convolutional Neural Network; Deep Learning. 1 INTRODUCTION Design Rule Checking (DRC) is the process of checking tha",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04182,
+        -0.03472,
+        -0.0358,
+        0.00855,
+        -0.03532
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "g; Machine Learning; IC Veri￿cation, Design for Manufacturing; Convolutional Neural Network; Deep Learning. 1 INTRODUCTION Design Rule Checking (DRC) is the process of checking tha",
+      "overlap_with_next": "f complex rules introduced by the need to support double patterning [ 5]. According to EDA vendors, the number of rules has grown from a few hundred in 60=< nodes to thousands of r",
+      "text": "g; Machine Learning; IC Veri￿cation, Design for Manufacturing; Convolutional Neural Network; Deep Learning. 1 INTRODUCTION Design Rule Checking (DRC) is the process of checking that design geometry satis￿es a set of layout rules. The ultimate driver for doing a DRC check is to ensure that, when fabricated, the design will achieve a high yield, as limited by the manufacturing tools and steps. They are generally speci￿ed as a set of logical rules. For example, a wire has to be greater than a certain minimum width, among others. Typically, the DRC is referred to as a “￿nal sign-o￿” check. The entire chip is run through the design rule checker, taking a long time to do so. The design rule checking process is becoming extremely com- plex in advance technology nodes, especially below 28=<. Every foundry and each technology node requires unique DRC checks. This di￿culty is related to the complexity of the lithography pro- cess and the minuscule depth-of-focus tolerance. Another reason for this is the inclusion of complex rules introduced by the need to support double patterning [ 5]. According to EDA vendors, the number of rules has grown from a few hundred in 60=< nodes to thousands of r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07841,
+        -0.0208,
+        -0.02257,
+        -0.00048,
+        -0.02718
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "f complex rules introduced by the need to support double patterning [ 5]. According to EDA vendors, the number of rules has grown from a few hundred in 60=< nodes to thousands of r",
+      "overlap_with_next": "te over thousands of Boolean operations. Some work in improving the DRC rules de￿nition, and the check- ing process can be found in the research state of the art. A common theme in",
+      "text": "f complex rules introduced by the need to support double patterning [ 5]. According to EDA vendors, the number of rules has grown from a few hundred in 60=< nodes to thousands of rules in 7=< nodes. A data-driven approach, such as machine learning (ML) for DRC, can help with its complexity because it can capture e￿ects that go beyond physical parameters on the designs. Since there has been an increase in intricacies in rules, the speed of the rule checker has become a critical point in layout generation of custom circuits. Before advanced nodes, layout engineers could recognize patterns and ￿x DRC violations with relative ease. Nowa- days, the design engineer waits a long time for the ￿nal sign-o￿ DRC checker to run. The engineer then ￿xes the problems ￿agged, often only to introduce new ones. This iterative process is becom- ing unacceptable due to the slow checkers and rules complexity. Machine learning can help to speed up the design rule checking process because a neural network does not have to iterate over thousands of Boolean operations. Some work in improving the DRC rules de￿nition, and the check- ing process can be found in the research state of the art. A common theme in",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04378,
+        -0.02136,
+        -0.03941,
+        0.00152,
+        -0.02644
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "te over thousands of Boolean operations. Some work in improving the DRC rules de￿nition, and the check- ing process can be found in the research state of the art. A common theme in",
+      "overlap_with_next": "y ML to lithography [ 11, 15, 16] and chemical mechani- cal polishing (CMP) hotspot detection [ 4]. In [ 16], a support vector machine is trained with geometrical and other critica",
+      "text": "te over thousands of Boolean operations. Some work in improving the DRC rules de￿nition, and the check- ing process can be found in the research state of the art. A common theme in recent research on DRC is to move from model-based approaches to data-driven solutions. An existing methodology to rede￿ne DRC rules is DRC+ [3]. DRC+ de￿nes the rules based on the identi￿cation of hotspots using pattern printability simulation when a problematic pattern is identi￿ed; a DRC+ rule is crafted to mitigate its e￿ect. DRC + predates the machine learning revolution. It relies more on pattern matching. Another data-driven approach is found in OpenDFM [ 2]. In contrast with conventional DRC, OpenDFM is not a binary checker that provides only a pass/fail output; it o￿ers more information about a set of parameterized patterns. Currently, ML is a mature enough topic to be implemented to solve electronic design automation problems. Among those prob- lems, hotspot detection shares some similarities with DRC. Some works apply ML to lithography [ 11, 15, 16] and chemical mechani- cal polishing (CMP) hotspot detection [ 4]. In [ 16], a support vector machine is trained with geometrical and other critica",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03243,
+        -0.0225,
+        -0.04725,
+        0.01587,
+        -0.03878
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "y ML to lithography [ 11, 15, 16] and chemical mechani- cal polishing (CMP) hotspot detection [ 4]. In [ 16], a support vector machine is trained with geometrical and other critica",
+      "overlap_with_next": "with features from each stage of the physical design ￿ow (￿oorplanning, placement, and routing). Another model to predict routability and to detect the potential presence of DRC vi",
+      "text": "y ML to lithography [ 11, 15, 16] and chemical mechani- cal polishing (CMP) hotspot detection [ 4]. In [ 16], a support vector machine is trained with geometrical and other critical features. In contrast, [ 11, 15] proposed deep learning without any previous feature extraction; the model itself performs the feature extraction. In our proposed work, we use a similar deep learning approach; however, it goes beyond hotspot detection and focuses on DRC violation detection. For the purposes of detecting design rule violations, some ma- chine learning approaches have been tried [ 7, 12, 14, 17]. In [ 12], a machine learning method is used to detect detailed routing short violations. A neural network is trained to predict short violations using features extracted from a placed and routed netlist. In [ 14] ML is used to predict routability. This work uses a convolutional neural network (CNN) to predict ASIC routablity and the potential for DRC violations, without identifying the violations. The model was trained with features from each stage of the physical design ￿ow (￿oorplanning, placement, and routing). Another model to predict routability and to detect the potential presence of DRC vi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0561,
+        -0.03773,
+        -0.00138,
+        0.01826,
+        -0.02134
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "with features from each stage of the physical design ￿ow (￿oorplanning, placement, and routing). Another model to predict routability and to detect the potential presence of DRC vi",
+      "overlap_with_next": "ing method based on a convolutional neural network to detect multiple DRC violations. This solution is able to detect and identify the violations, not only label layouts areas. The",
+      "text": "with features from each stage of the physical design ￿ow (￿oorplanning, placement, and routing). Another model to predict routability and to detect the potential presence of DRC violations is presented in [ 7]; this approach uses random forest models. The work in [ 17] focuses more on a neural network (to predict the presence of violations) and compares the results with a random forest predictor. In [8], ML is used to predict the number of DRC violations after each routing stage and similar to previously referenced works, without locating and identifying them. These solutions focus on predicting DRC violations in global and detailed routing; this has relevance only in a physical design ￿ow for digital ICs. [ 9] introduced a hotspot predictor using CNN architecture (J-Net) for DRC hotspots with mixed resolution features. This work [Page 2] results in a binary classi￿er to identify layouts containing hotspots and clean layouts. In contrast with the works previously described, we are propos- ing a deep learning method based on a convolutional neural network to detect multiple DRC violations. This solution is able to detect and identify the violations, not only label layouts areas. The",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05104,
+        -0.03787,
+        -0.01,
+        0.01227,
+        -0.03921
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ing method based on a convolutional neural network to detect multiple DRC violations. This solution is able to detect and identify the violations, not only label layouts areas. The",
+      "overlap_with_next": "nts how the training dataset was generated and 4 introduces the metrics to evaluate the model. Lastly, section 5 shows the experimental results followed by ￿nal remarks and future ",
+      "text": "ing method based on a convolutional neural network to detect multiple DRC violations. This solution is able to detect and identify the violations, not only label layouts areas. The model uses raw images from multiple layouts as training data. The images contain labels for DRC violations randomly inserted in the layout. By using the layout images as input, the model is trained without any dependency on physical parameters. The feature extraction is performed by the model using the convolutional layers. This method is expandable to any number of rules, including the most complex ones and extrapolated to di￿erent technology nodes. It can be used not only for digital IC design ￿ows but for custom design layouts. An approach like this can help close the gap between DRC and design for manufacturing (DFM) by proving the ability to train the model with Fab data and with feedback from designers. The rest of this document is organized as follows: section 2 describes the proposed deep learning model, section 3 presents how the training dataset was generated and 4 introduces the metrics to evaluate the model. Lastly, section 5 shows the experimental results followed by ￿nal remarks and future ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03686,
+        -0.05911,
+        -0.03792,
+        0.03152,
+        -0.03597
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "nts how the training dataset was generated and 4 introduces the metrics to evaluate the model. Lastly, section 5 shows the experimental results followed by ￿nal remarks and future ",
+      "overlap_with_next": "ructure, the training process uses labeled data to generate predictions and minimize the prediction error. Figure 1 illustrates how the training process is done. Figure 1: Deep lea",
+      "text": "nts how the training dataset was generated and 4 introduces the metrics to evaluate the model. Lastly, section 5 shows the experimental results followed by ￿nal remarks and future work in 6. 2 PROPOSED DEEP LEARNING MODEL One advantage of a deep learning model is that it does not require a previous feature extraction method. This characteristic removes the dependency on the technology node and the human iteration experience. This advantage increases the number of features that can be extracted by the model compared to a feature extractor based on designer experience. A deep learning model consists of various learning layers or hid- den layers. The learning layers extract features in the form of data representations of the input. Typically in between each learning layer, a down-sampling layer is used to reduce the size of features extracted. Followed by the hidden layers, a fully connected layer discriminates the learned features to map them to a classi￿cation output probability. After de￿ning the model structure, the training process uses labeled data to generate predictions and minimize the prediction error. Figure 1 illustrates how the training process is done. Figure 1: Deep lea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02345,
+        -0.05419,
+        -0.05674,
+        0.02116,
+        0.01545
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ructure, the training process uses labeled data to generate predictions and minimize the prediction error. Figure 1 illustrates how the training process is done. Figure 1: Deep lea",
+      "overlap_with_next": "nal layer. In a CNN, each convolution operation is followed by an acti- vation function. For the model presented in this work, we use a recti￿er linear unit (ReLU) function. The Re",
+      "text": "ructure, the training process uses labeled data to generate predictions and minimize the prediction error. Figure 1 illustrates how the training process is done. Figure 1: Deep learning model training ￿ow. The training process can be seen as an optimization problem [ 4]; thereby, we must de￿ne the loss function and the optimizer. Those parameters have an impact on model performance. 2.1 Convolutional Neural Network The convolutional layers perform the feature extraction. Those features are extracted by doing a spatial convolution operation between an input G and a kernel ⌘. This operation is described as follows, G [=] ⇤ ⌘ [<] = #’ :1 \"’ :2 G [:1,: 2] · ⌘ [= \u0000 :1,< \u0000 :2] , (1) where # and \" are the dimensions of the input and the kernel, respectively. The initial values for the kernel are randomized and tuned in on every training iteration. The kernel values represent the weights in Figure 1. The size and number of kernels for each layer will determine the number of trainable parameters for the convolutional layer. In a CNN, each convolution operation is followed by an acti- vation function. For the model presented in this work, we use a recti￿er linear unit (ReLU) function. The Re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01931,
+        -0.03282,
+        -0.04077,
+        0.00483,
+        0.00355
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "nal layer. In a CNN, each convolution operation is followed by an acti- vation function. For the model presented in this work, we use a recti￿er linear unit (ReLU) function. The Re",
+      "overlap_with_next": "for a given weight by the root mean square (RMS) of the prior gradients. Each weight F (C) is given by, F (C) = F (C \u0000 1) \u0000 U [p(@ (F,C ) m⇢ , (2) with (@ (F,C ) given by (@ (F,C )",
+      "text": "nal layer. In a CNN, each convolution operation is followed by an acti- vation function. For the model presented in this work, we use a recti￿er linear unit (ReLU) function. The ReLU function takes only the positive part of its input. We explored other activation functions, but ReLU performed the best. This function is easily implemented. The same activation function is used for the output intermediate fully connected layer providing a classi￿cation probability. 2.2 Loss Function and Optimizer As we are working in a classi￿cation problem and the model predic- tion is a probability, the loss function selected is cross-entropy [ 13]. This loss function provides values proportional to the di￿erence in the prediction probability and the target labels. We explored di￿erent gradient descent based optimizers having the best result with '\"(?A>? introduced in [6]. '\"(?A>? has been used in other deep learning models for electronic design automation applications [4]. This optimization algorithm reduces the learning for a given weight by the root mean square (RMS) of the prior gradients. Each weight F (C) is given by, F (C) = F (C \u0000 1) \u0000 U [p(@ (F,C ) m⇢ , (2) with (@ (F,C ) given by (@ (F,C )",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00904,
+        -0.02791,
+        -0.06202,
+        -0.01,
+        0.00411
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "for a given weight by the root mean square (RMS) of the prior gradients. Each weight F (C) is given by, F (C) = F (C \u0000 1) \u0000 U [p(@ (F,C ) m⇢ , (2) with (@ (F,C ) given by (@ (F,C )",
+      "overlap_with_next": "mber of hidden layers/Convolutional layers is set to avoid over￿tting and under￿tting. In the same way, the number and size of the ￿lters. • The resampling layers are added to redu",
+      "text": "for a given weight by the root mean square (RMS) of the prior gradients. Each weight F (C) is given by, F (C) = F (C \u0000 1) \u0000 U [p(@ (F,C ) m⇢ , (2) with (@ (F,C ) given by (@ (F,C ) = U(@ (F,C \u0000 1) + (1 \u0000 U) ✓ m⇢ mF (C) ◆2 , (3) where ⇢ is the loss function, [ is the learning rate and U is a param- eter. 2.3 Model Structure Selection By putting together all the components previously described, we built a deep learning model with a convolutional neural network to perform the feature extraction. The model takes as input the layout clip images and provides a classi￿cation output probability. By taking the maximum probability, the layout clips are labeled as a DRC violation, containing several violations, or DRC clean. Figure 2 summarizes the model structure and illustrates what is expected in each stage. The model settings are used to evaluate di￿erent model structures are as follows: • The input image size is set according to pixels and metal pitch. For example, 1 pixel corresponds to 1=<2. [Page 3] • The number of hidden layers/Convolutional layers is set to avoid over￿tting and under￿tting. In the same way, the number and size of the ￿lters. • The resampling layers are added to redu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02084,
+        -0.05851,
+        -0.05665,
+        0.00123,
+        -0.01157
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "mber of hidden layers/Convolutional layers is set to avoid over￿tting and under￿tting. In the same way, the number and size of the ￿lters. • The resampling layers are added to redu",
+      "overlap_with_next": "hould detect up to 8 classes (each violation and the possible presence of many rules). These parameters determine the model complexity, which impacts the model performance. To sele",
+      "text": "mber of hidden layers/Convolutional layers is set to avoid over￿tting and under￿tting. In the same way, the number and size of the ￿lters. • The resampling layers are added to reduce the output size of the convolutional layers. We use max pooling for the resampling layers. • The intermediate layer or fully connected layer maps the extracted features to an output probability. The size \" of this layer has an impact on the total number of trainable parameters for the model. • The output layer contains a dimension 3 that is given for the combination of all the possible DRC violations analyzed. The label is assigned, taking the maximum probability for a class. Figure 2: Propose model structure. Table 1 shows the settings to construct two di￿erent model structures. The ￿rst model is to detect 1 DRC violation. This model contains 159, 746 trainable parameters with four feature extraction layers. The second model is to target 3 DRC violations. The number of trainable parameters is increased to 1, 673, 256 as it should detect up to 8 classes (each violation and the possible presence of many rules). These parameters determine the model complexity, which impacts the model performance. To sele",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02449,
+        -0.03327,
+        -0.04867,
+        0.01527,
+        -0.03309
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "hould detect up to 8 classes (each violation and the possible presence of many rules). These parameters determine the model complexity, which impacts the model performance. To sele",
+      "overlap_with_next": " samples for all the test performed to the model is about 80%, the validation 15% and the testing the remaining 5%. 3.1 Dataset Generation Process The process of generating the dat",
+      "text": "hould detect up to 8 classes (each violation and the possible presence of many rules). These parameters determine the model complexity, which impacts the model performance. To select the parameters we need to monitor over￿tting and under￿tting. The number of parameters has more impact on the training time than inference time. Following the previous model structure, the model complexity can be set to target any number of rules. A more complex model will not always result in better performance. A deep learning model is as good as the diversity or generalization in the training dataset. 3 DATASET Data that includes a large number of DRC free layouts along with layouts containing errors is necessary to create the model. A dataset with over 250, 000 layout clips, is created to train, validate, and test the model. The dataset consists of images basically from SRAM layouts using 15=< the public design kit [ 1]. The initial designs are DRC free, thus creating the need to insert random DRC violations. The training samples for all the test performed to the model is about 80%, the validation 15% and the testing the remaining 5%. 3.1 Dataset Generation Process The process of generating the dat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04983,
+        -0.04657,
+        -0.02743,
+        0.02872,
+        -0.02996
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " samples for all the test performed to the model is about 80%, the validation 15% and the testing the remaining 5%. 3.1 Dataset Generation Process The process of generating the dat",
+      "overlap_with_next": "128x1,params: 1,638,656 Output Dimension: 2,pasrams 258 Dimension: 8,params: 2,056 Total Params 159,746 1,673,256 (1) Extract the metal layers where the DRC will be performed. (2) ",
+      "text": " samples for all the test performed to the model is about 80%, the validation 15% and the testing the remaining 5%. 3.1 Dataset Generation Process The process of generating the dataset is in Figure 3. After selecting a layout with no DRC violations, the following steps are performed: Table 1: Model parameters example for 1 and 3 DRC viola- tions. Model Setting Target Rules 1 DRC 3 DRC Input Size: 200x200,1px/1nm Size: 200x200,1px/1nm Conv2D #1 32: 3x3 ￿lters,params: 320 16: 3x3 ￿lters,params: 160 MaxPool2D #1 Downsample: 2x2,resize by 2 Downsample: 2x2,resize by 2 Conv2D #2 16: 3x3 ￿lters,params: 4,624 32: 3x3 ￿lters,params: 4,640 MaxPool2D #2 Downsample: 2x2,resize by 2 Downsample: 2x2,resize by 2 Conv2D #3 16: 3x3 ￿lters,params: 2,320 32: 3x3 ￿lters,params: 9,248 MaxPool2D #3 Downsample: 2x2,resize by 2 Downsample: 2x2,resize by 2 Conv2D #4 32: 3x3 ￿lters,params: 4,640 64: 3x3 ￿lters,params: 18,496 MaxPool2D #4 Downsample: 2x2,resize by 2 Downsample: 2x2,resize by 2 FC Size: 128x1,params: 147,584 Size: 128x1,params: 1,638,656 Output Dimension: 2,pasrams 258 Dimension: 8,params: 2,056 Total Params 159,746 1,673,256 (1) Extract the metal layers where the DRC will be performed. (2) ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02307,
+        -0.02724,
+        -0.06988,
+        0.02251,
+        -0.04655
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "128x1,params: 1,638,656 Output Dimension: 2,pasrams 258 Dimension: 8,params: 2,056 Total Params 159,746 1,673,256 (1) Extract the metal layers where the DRC will be performed. (2) ",
+      "overlap_with_next": "ning violations. The clips in the dataset can include one or multiple DRC violations. By doing so, the model can identify each rule or diverse rule violations. The seed to generate",
+      "text": "128x1,params: 1,638,656 Output Dimension: 2,pasrams 258 Dimension: 8,params: 2,056 Total Params 159,746 1,673,256 (1) Extract the metal layers where the DRC will be performed. (2) Insert random variations in the layouts. Those variations are selected to create DRC violations. In total 5, 000 vari- ants of these designs were auto-generated using random parameters. (3) Run layouts through a conventional DRC checker to verify that the variations create real rules violations. A mask is created with this information to label each clip as containing rule violations or not. Figure 4 illustrates a mask image. (4) Crop the layout using a given windows size; in the result pre- sented, the size of the window is 200G200=<. The cropping window is moved with a stride of 150nm to avoid creating false rules. (5) Convert each layout clip into an image. The relation to image pixels and layout dimensions is 1?G to 1=<2. To have an evenly balanced dataset, one sample with no DRC violations is added for each added clip containing violations. The clips in the dataset can include one or multiple DRC violations. By doing so, the model can identify each rule or diverse rule violations. The seed to generate",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02711,
+        0.00227,
+        -0.03723,
+        0.01084,
+        -0.05503
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "ning violations. The clips in the dataset can include one or multiple DRC violations. By doing so, the model can identify each rule or diverse rule violations. The seed to generate",
+      "overlap_with_next": "ns of them, and clean samples. The number of samples in each category remain the same. Table 2: Labels in the dataset for 3 rules. Label Description DRC1 Minimum width of M1 metal ",
+      "text": "ning violations. The clips in the dataset can include one or multiple DRC violations. By doing so, the model can identify each rule or diverse rule violations. The seed to generate the dataset consists of ￿fty di￿erent SRAM designs generated by ￿fty teams in a graduate VLSI class. These were designed using the NCSU 15=< PDK [1], all of which were DRC free. In total,5, 000 variants of these designs were auto-generated using random parameters. [Page 4] Figure 3: Dataset generation Figure 4: An example of a layout of 9 SRAM cells 3.2 Design Rules The rules targeted in this work are the width and spacing standard design rules in the FreePDK 15 [1]. In the dataset we included the following DRC violations: • \"1.1 - Minimum width of M1 metal layer is 28=<. • \"1.6 - Minimum spacing of M1 to M1 be should be 36=<. • \"1.7 - End-of-Line spacing of M1 to M1 should be 45=<. Table 2 shows how the dataset samples are labeled for three rules. The dataset includes samples with each independent rule, samples with combinations of them, and clean samples. The number of samples in each category remain the same. Table 2: Labels in the dataset for 3 rules. Label Description DRC1 Minimum width of M1 metal ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05456,
+        -0.03288,
+        -0.06053,
+        -0.01533,
+        -0.01347
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ns of them, and clean samples. The number of samples in each category remain the same. Table 2: Labels in the dataset for 3 rules. Label Description DRC1 Minimum width of M1 metal ",
+      "overlap_with_next": "C violations with respect to the \u0000# , while the precision compares the )% with \u0000% . The recall can be calculated as, A420;; = )% )% + \u0000# , (4) and the precision by, ?A428B8>= = )% ",
+      "text": "ns of them, and clean samples. The number of samples in each category remain the same. Table 2: Labels in the dataset for 3 rules. Label Description DRC1 Minimum width of M1 metal layer is 28=< DRC2 Minimum spacing of M1 to M1 should be 36=< DRC3 End-of-Line spacing of M1 to M1 should be 45=< DRC12 Sample containing DRC1 and DRC2 DRC13 Sample containing DRC1 and DRC3 DRC23 Sample containing DRC2 and DRC3 DRC123 Sample containing DRC1, DRC2 and DRC3 NDRC No DRC violation 4 MODEL PERFORMANCE METRICS After training the model, it is crucial to measure how well the model can perform; this is its ability to detect rules and how fast it can detect them. The metrics used most frequently are extracted from the classi￿cation confusion matrix. The confusion matrix contains true positives ()% ), false negatives ( \u0000# ), true negatives ( )# ), and false positives (\u0000% ). The confusion matrix information can measure model perfor- mance in terms of recall and precision. The recall measures how well the model can detect DRC violations with respect to the \u0000# , while the precision compares the )% with \u0000% . The recall can be calculated as, A420;; = )% )% + \u0000# , (4) and the precision by, ?A428B8>= = )% ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06907,
+        -0.01961,
+        -0.04255,
+        -0.03353,
+        -0.01743
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "C violations with respect to the \u0000# , while the precision compares the )% with \u0000% . The recall can be calculated as, A420;; = )% )% + \u0000# , (4) and the precision by, ?A428B8>= = )% ",
+      "overlap_with_next": "ges and keep track of the coordi- nates in the layout. (4) Test individual images and assign a class: DRC violation, multiple violations or, DRC free. (5) Create a mask image and o",
+      "text": "C violations with respect to the \u0000# , while the precision compares the )% with \u0000% . The recall can be calculated as, A420;; = )% )% + \u0000# , (4) and the precision by, ?A428B8>= = )% )% + \u0000% . (5) As we know, it is more critical and costly from the design stand- point to miss DRC violations than to have false alarms; this is why we focus on getting a high recall when detecting them. This is similar to getting low false negative rate. The false negative rate is de￿ned by, \u0000#' = \u0000# \u0000# + )% . (6) On the other hand, false positive rate is de￿ned by, \u0000%' = \u0000% \u0000% + )# . (7) 4.1 Testing New Layouts Process We can also focus on another metric that determines how fast a model can perform in testing data and new layouts; this is also called the inference time. The process to test a new layout is shown in Figure 5 and consists of the following steps: (1) Extract the metal layers to analyze. (2) Crop the layout using a 200=< square windows, same as for the dataset using a stride of 150=<. (3) Convert layout clips to images and keep track of the coordi- nates in the layout. (4) Test individual images and assign a class: DRC violation, multiple violations or, DRC free. (5) Create a mask image and o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02451,
+        -0.00563,
+        -0.04108,
+        0.02434,
+        -0.02713
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "ges and keep track of the coordi- nates in the layout. (4) Test individual images and assign a class: DRC violation, multiple violations or, DRC free. (5) Create a mask image and o",
+      "overlap_with_next": " same DRC rule and 50, 000 DRC clean. The model was validated with 15, 000 samples and tested with 5, 000 clips never seen by the model. Figure 6 shows the train and validation los",
+      "text": "ges and keep track of the coordi- nates in the layout. (4) Test individual images and assign a class: DRC violation, multiple violations or, DRC free. (5) Create a mask image and or layout mask to locate the viola- tions on the layout. Figure 5: Inference ￿ow to test new layouts. Using the previously described ￿ow, we can have an estimation of how fast our approach can perform compared to traditional DRC checkers. This approach can be used for any number of rules added to the model. This process allows the model to be included in an interactive DRC ￿ow. [Page 5] 5 RESULTS In this section, we present results that validate that it is possible to create a deep learning model using a CNN feature extraction to detect DRC violations. We include results that validate the model feasibility to detect one DRC violation and multiple violations. A primary model was created to detect one DRC violation. In this initial experiment, the created model was trained with 50, 000 layout clips containing many variations of the same DRC rule and 50, 000 DRC clean. The model was validated with 15, 000 samples and tested with 5, 000 clips never seen by the model. Figure 6 shows the train and validation los",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00493,
+        -0.03791,
+        -0.02546,
+        0.00571,
+        -0.03365
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": " same DRC rule and 50, 000 DRC clean. The model was validated with 15, 000 samples and tested with 5, 000 clips never seen by the model. Figure 6 shows the train and validation los",
+      "overlap_with_next": "samples used for the confusion matrix are samples never seen by the model. For 3 rules, the diversity in the training dataset is not as high as for 1 rule. When more training itera",
+      "text": " same DRC rule and 50, 000 DRC clean. The model was validated with 15, 000 samples and tested with 5, 000 clips never seen by the model. Figure 6 shows the train and validation losses for the model with no over￿tting or under￿tting. The model requires around 7 minutes to be trained; note that the training is done in a 6 ⇠%*B computer without using ⌧%* acceleration. Figure 6: Training and validation loss for 1 DRC model. Figure 7 shows the confusion matrix for the testing samples. The accuracy or recall to detect the DRC violation is 92%. The false positive rate is around 28%, and the false negative rate is around 8%. This result is encouraging as users deal better with false negatives than false positives. Figure 7: Confusion matrix for 1 DRC model. Figure 8 presents the classi￿cation results for 4, 800 samples containing 3 DRC violations. The confusion matrix shows that the model is classifying the majority of the samples correctly and that the false negatives are not as frequent as false positives. The samples used for the confusion matrix are samples never seen by the model. For 3 rules, the diversity in the training dataset is not as high as for 1 rule. When more training itera",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04815,
+        -0.01517,
+        -0.05959,
+        -0.02006,
+        -0.03468
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "samples used for the confusion matrix are samples never seen by the model. For 3 rules, the diversity in the training dataset is not as high as for 1 rule. When more training itera",
+      "overlap_with_next": "es. Figure 9: Training and validation loss for 3 DRC model. Finally, the time to test a full layout 1000`< x 1000`< equivalent to 5, 000 samples takes less than 13 seconds. We comp",
+      "text": "samples used for the confusion matrix are samples never seen by the model. For 3 rules, the diversity in the training dataset is not as high as for 1 rule. When more training iterations are added, the model Figure 8: Confusion matrix for 3 DRC model. resulted in over￿tting and reduced the validation accuracy. Figure 7 illustrates how the validation loss of the model does not decrease while the training loss decreases. This behavior is mainly because, in the results presented, we use only SRAM designs as seeds to generate the dataset. We tried to reduce the model complexity by adding dropout and regularizer layers, but no signi￿cant im- provement. To solve this issue, we proposed to increase the dataset diversity by including multiple types of designs and adding more rules variations. The community has studied this issue; its nature makes it challenging to achieve high detection rates to \"never seen\" data [10]. The work presented in [ 10] suggests novel augmentation methods to improve the classi￿cation rates. Figure 9: Training and validation loss for 3 DRC model. Finally, the time to test a full layout 1000`< x 1000`< equivalent to 5, 000 samples takes less than 13 seconds. We comp",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0443,
+        -0.0174,
+        -0.05148,
+        -0.02065,
+        -0.03044
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "es. Figure 9: Training and validation loss for 3 DRC model. Finally, the time to test a full layout 1000`< x 1000`< equivalent to 5, 000 samples takes less than 13 seconds. We comp",
+      "overlap_with_next": "arning. This solution consists of a deep learning model with CNN as a feature extractor. The model is trained with layout images that can be labeled arti￿cially or by designers. Us",
+      "text": "es. Figure 9: Training and validation loss for 3 DRC model. Finally, the time to test a full layout 1000`< x 1000`< equivalent to 5, 000 samples takes less than 13 seconds. We compared the speed of the CNN engine versus running the same rules set in a conventional DRC engine on one of the layouts. The CNN took 13 seconds versus 420 seconds for a conventional DRC engine 32G faster. Note that the conventional check was done with a runset containing only the violations implemented in the CNN model. While the accuracy of the proposed solution can be improved, the speed factor enables it to be used in the early stages of the design ￿ow. Detecting and ￿xing violations early in the design reduces the design cycle time. In an industry application of this approach, [Page 6] the training data will come for multiple layouts and DRC patterns database, adding more diversity to the training data and including more complex rules. 6 CONCLUSIONS In this work, we propose a new design rule checking approach using machine learning. This solution consists of a deep learning model with CNN as a feature extractor. The model is trained with layout images that can be labeled arti￿cially or by designers. Us",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03214,
+        -0.0297,
+        -0.05508,
+        0.01054,
+        -0.031
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "arning. This solution consists of a deep learning model with CNN as a feature extractor. The model is trained with layout images that can be labeled arti￿cially or by designers. Us",
+      "overlap_with_next": "the National Science Foundation (award CNS- 1624770) for their partial support of this work. REFERENCES [1] Kirti Bhanushali and W. Rhett Davis. 2015. FreePDK15: An Open-Source Pre",
+      "text": "arning. This solution consists of a deep learning model with CNN as a feature extractor. The model is trained with layout images that can be labeled arti￿cially or by designers. Using this model, we can detect DRC violations with an accuracy of up to 92% and up to 32G times faster than traditional boolean checkers. The speedup can help to increase designer productivity and reduce time to market by providing violations detection early in the design ￿ow. It also has the potential for better automation in full custom layout. This approach is easy to expand to new technology nodes since the model itself extracts the features. The proposed solution has the potential to be included in an interactive DRC engine based on machine learning models to help the layout engineer quickly converge on a DRC free layout. In future research, we will be focusing on adding more complex design rules and scale the work to a full DRC set. ACKNOWLEDGMENTS The authors would like to thank the member companies of the CAEML IUCRC and the National Science Foundation (award CNS- 1624770) for their partial support of this work. REFERENCES [1] Kirti Bhanushali and W. Rhett Davis. 2015. FreePDK15: An Open-Source Pre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02713,
+        -0.02604,
+        -0.03453,
+        0.02102,
+        -0.03092
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "the National Science Foundation (award CNS- 1624770) for their partial support of this work. REFERENCES [1] Kirti Bhanushali and W. Rhett Davis. 2015. FreePDK15: An Open-Source Pre",
+      "overlap_with_next": "otonics, SPIE, San Jose, CA, USA, 202 – 213. [5] Rani S. Ghaida, Kanak B. Agarwal, Sani R. Nassif, Xin Yuan, Lars W. Liebmann, and Puneet Gupta. 2011. A Framework for Double Patter",
+      "text": "the National Science Foundation (award CNS- 1624770) for their partial support of this work. REFERENCES [1] Kirti Bhanushali and W. Rhett Davis. 2015. FreePDK15: An Open-Source Predic- tive Process Design Kit for 15Nm FinFET Technology. In Proceedings of the 2015 Symposium on International Symposium on Physical Design (Monterey, California, USA) (ISPD ’15). ACM, New York, NY, USA, 165–170. [2] J. Buurma, R. Sayah, F. Valente, and C. Rodgers. 2012. OpenDFM Bridging the Gap Between DRC and DFM. IEEE Design Test of Computers 29, 6 (Dec 2012), 84–90. [3] Vito Dai, Luigi Capodieci, Jie Yang, and Norma Rodriguez. 2009. Developing DRC Plus Rules through 2D Pattern Extraction and Clustering Techniques. Proc SPIE 7275 (03 2009). [4] Luis Francisco, Rui Mao, Ushasree Katakamsetty, Piyush Verma, and Robert Pack. 2019. Multilayer CMP hotspot modeling through deep learning. In Design- Process-Technology Co-optimization for Manufacturability XIII, Jason P. Cain (Ed.), Vol. 10962. International Society for Optics and Photonics, SPIE, San Jose, CA, USA, 202 – 213. [5] Rani S. Ghaida, Kanak B. Agarwal, Sani R. Nassif, Xin Yuan, Lars W. Liebmann, and Puneet Gupta. 2011. A Framework for Double Patter",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06179,
+        -0.01429,
+        -0.04571,
+        0.01948,
+        -0.01635
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "otonics, SPIE, San Jose, CA, USA, 202 – 213. [5] Rani S. Ghaida, Kanak B. Agarwal, Sani R. Nassif, Xin Yuan, Lars W. Liebmann, and Puneet Gupta. 2011. A Framework for Double Patter",
+      "overlap_with_next": "Reddy, Shyam Ramji, Gi- Joon Nam, and Jiang Hu. 2020. DRC Hotspot Prediction at Sub-10nm Process Nodes Using Customized Convolutional Network. In Proceedings of the 2020 Inter- nat",
+      "text": "otonics, SPIE, San Jose, CA, USA, 202 – 213. [5] Rani S. Ghaida, Kanak B. Agarwal, Sani R. Nassif, Xin Yuan, Lars W. Liebmann, and Puneet Gupta. 2011. A Framework for Double Patterning-Enabled Design. In Proceedings of the International Conference on Computer-Aided Design (San Jose, CA, USA) (ICCAD ’11). IEEE Press, 14–20. [6] Geo￿rey Hinton. 2014. Neural Networks for Machine Learning. http://www.cs. toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf. (Accessed: 15 Novem- ber 2019). [7] Riadul Islam and Md Asif Shahjalal. 2019. Predicting DRC Violations Using Ensemble Random Forest Algorithm. In Proceedings of the 56th Annual Design Automation Conference 2019 (Las Vegas, NV, USA) (DAC ’19). Association for Computing Machinery, New York, NY, USA, Article 227, 2 pages. [8] B. Li and P. D. Franzon. 2016. Machine learning in physical design. In 2016 IEEE 25th Conference on Electrical Performance Of Electronic Packaging And Systems (EPEPS). 147–150. [9] Rongjian Liang, Hua Xiang, Diwesh Pandey, Lakshmi Reddy, Shyam Ramji, Gi- Joon Nam, and Jiang Hu. 2020. DRC Hotspot Prediction at Sub-10nm Process Nodes Using Customized Convolutional Network. In Proceedings of the 2020 Inter- nat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06667,
+        0.00711,
+        -0.02542,
+        0.00723,
+        -0.04764
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "Reddy, Shyam Ramji, Gi- Joon Nam, and Jiang Hu. 2020. DRC Hotspot Prediction at Sub-10nm Process Nodes Using Customized Convolutional Network. In Proceedings of the 2020 Inter- nat",
+      "overlap_with_next": " Francisco, California) (DAC ’18). Association for Computing Machinery, New York, NY, USA, Article 48, 6 pages. [13] G. Wu, L. Wang, N. Zhao, and H. Lin. 2015. Improved Expected Cr",
+      "text": "Reddy, Shyam Ramji, Gi- Joon Nam, and Jiang Hu. 2020. DRC Hotspot Prediction at Sub-10nm Process Nodes Using Customized Convolutional Network. In Proceedings of the 2020 Inter- national Symposium on Physical Design (Taipei, Taiwan) (ISPD ’20). Association for Computing Machinery, New York, NY, USA, 135–142. [10] G. R. Reddy, K. Madkour, and Y. Makris. 2019. Machine Learning-Based Hotspot Detection: Fallacies, Pitfalls and Marching Orders. In 2019 IEEE/ACM International Conference on Computer-Aided Design (ICCAD) . 1–8. [11] Moojoon Shin and Jee-Hyong Lee. 2016. Accurate lithography hotspot detection using deep convolutional neural networks. Journal of Micro/Nanolithography, MEMS, and MOEMS 15, 4 (2016), 1 – 13. [12] Aysa Fakheri Tabrizi, Nima Karimpour Darav, Shuchang Xu, Logan Rakai, Is- mail Bustany, Andrew Kennings, and Laleh Behjat. 2018. A Machine Learning Framework to Identify Detailed Routing Short Violations from a Placed Netlist. In Proceedings of the 55th Annual Design Automation Conference (San Francisco, California) (DAC ’18). Association for Computing Machinery, New York, NY, USA, Article 48, 6 pages. [13] G. Wu, L. Wang, N. Zhao, and H. Lin. 2015. Improved Expected Cr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03202,
+        -0.03348,
+        -0.02665,
+        0.01736,
+        -0.0138
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": " Francisco, California) (DAC ’18). Association for Computing Machinery, New York, NY, USA, Article 48, 6 pages. [13] G. Wu, L. Wang, N. Zhao, and H. Lin. 2015. Improved Expected Cr",
+      "overlap_with_next": "and Photonics, SPIE, 31 – 46. [16] Y. Yu, G. Lin, I. H. Jiang, and C. Chiang. 2015. Machine-Learning-Based Hotspot Detection Using Topological Classi￿cation and Critical Feature Ex",
+      "text": " Francisco, California) (DAC ’18). Association for Computing Machinery, New York, NY, USA, Article 48, 6 pages. [13] G. Wu, L. Wang, N. Zhao, and H. Lin. 2015. Improved Expected Cross Entropy Method for Text Feature Selection. In 2015 International Conference on Computer Science and Mechanical Automation (CSMA) . 49–54. [14] Zhiyao Xie, Yu-Hung Huang, Guan-Qi Fang, Haoxing Ren, Shao-Yun Fang, Yi- ran Chen, and Nvidia Corporation. 2018. RouteNet: Routability Prediction for Mixed-Size Designs Using Convolutional Neural Network. In Proceedings of the International Conference on Computer-Aided Design (San Diego, California) (IC- CAD ’18). Association for Computing Machinery, New York, NY, USA, Article 80, 8 pages. [15] Haoyu Yang, Luyang Luo, Jing Su, Chenxi Lin, and Bei Yu. 2017. Imbalance aware lithography hotspot detection: a deep learning approach. In Design-Process- Technology Co-optimization for Manufacturability XI, Luigi Capodieci and Jason P. Cain (Eds.), Vol. 10148. International Society for Optics and Photonics, SPIE, 31 – 46. [16] Y. Yu, G. Lin, I. H. Jiang, and C. Chiang. 2015. Machine-Learning-Based Hotspot Detection Using Topological Classi￿cation and Critical Feature Ex",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05937,
+        -0.04359,
+        -0.00187,
+        0.02241,
+        -0.01616
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28009,
+      "length": 469,
+      "overlap_with_previous": "and Photonics, SPIE, 31 – 46. [16] Y. Yu, G. Lin, I. H. Jiang, and C. Chiang. 2015. Machine-Learning-Based Hotspot Detection Using Topological Classi￿cation and Critical Feature Ex",
+      "overlap_with_next": "",
+      "text": "and Photonics, SPIE, 31 – 46. [16] Y. Yu, G. Lin, I. H. Jiang, and C. Chiang. 2015. Machine-Learning-Based Hotspot Detection Using Topological Classi￿cation and Critical Feature Extraction. IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems 34, 3 (March 2015), 460–470. [17] Wei Zeng, Azadeh Davoodi, and Yu Hen Hu. 2018. Design Rule Violation Hotspot Prediction Based on Neural Network Ensembles. CoRR abs/1811.04151 (2018). arXiv:1811.04151",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04588,
+        -0.03615,
+        -0.00195,
+        0.00886,
+        0.01
+      ]
+    }
+  ]
+}

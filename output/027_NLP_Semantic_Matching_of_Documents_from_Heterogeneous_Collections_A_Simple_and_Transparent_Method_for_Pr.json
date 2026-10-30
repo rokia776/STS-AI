@@ -1,0 +1,555 @@
+{
+  "paper_id": "a4da861a-c387-4a35-81a4-c11ce3cfc62f",
+  "filename": "027_NLP_Semantic_Matching_of_Documents_from_Heterogeneous_Collections_A_Simple_and_Transparent_Method_for_Pr.pdf",
+  "title": "Semantic Matching of Documents from Heterogeneous Collections: A Simple and Transparent Method for Practical Applications",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 32,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "le and efﬁcient unsupervised method for pai rwise matching of documents from het- erogeneous collections. Following Gong et al. (2018), we consider two d ocument collections hetero",
+      "text": "[Page 1] arXiv:1904.12550v1 [cs.CL] 29 Apr 2019 Semantic Matching of Documents from Heterogeneous Collections: A Simple and Transparent Method for Practical Applications Mark-Christoph M¨ uller Heidelberg Institute for Theoretical Studies gGmbH Heidelberg, Germany mark-christoph.mueller@h-its.org Abstract We present a very simple, unsupervised method for the pairwise matching of documents from het- erogeneous collections. We demonstrate our method with the Concept-Project matching task, which is a binary classiﬁcation task involving pairs of documents from heterogeneous collections. Although our method only employs standard resources without any doma in- or task-speciﬁc modiﬁcations, it clearly outperforms the more complex system of the original authors. In addition, our method is transparent, because it provides explicit information about how a simil arity score was computed, and efﬁcient, because it is based on the aggregation of (pre-computable) word-level similarities. 1 Introduction We present a simple and efﬁcient unsupervised method for pai rwise matching of documents from het- erogeneous collections. Following Gong et al. (2018), we consider two d ocument collections hetero",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06003,
+        -0.02094,
+        -0.02949,
+        0.0217,
+        0.00605
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "le and efﬁcient unsupervised method for pai rwise matching of documents from het- erogeneous collections. Following Gong et al. (2018), we consider two d ocument collections hetero",
+      "overlap_with_next": " method assesses the document-pair simi- larity on the basis of selected pairwise word similarities. This has the following advantages, which make our method a viable candidate for",
+      "text": "le and efﬁcient unsupervised method for pai rwise matching of documents from het- erogeneous collections. Following Gong et al. (2018), we consider two d ocument collections heteroge- neous if their documents differ systematically with respec t to vocabulary and / or level of abstraction. With these deﬁning differences, there often also comes a difference in length, which, however, by itself does not make document collections heterogeneous. Example s include collections in which expert an- swers are mapped to non-expert questions (e.g. InsuranceQA by Feng et al. (2015)), but also so-called community QA collections (Blooma and Kurian (2011)), where the lexica l mismatch between Q and A documents is often less pronounced than the length differen ce. Like many other approaches, the proposed method is based on w ord embeddings as universal meaning representations, and on vector cosine as the similarity met ric. However, instead of computing pairs of document representations and measuring their similarity, our method assesses the document-pair simi- larity on the basis of selected pairwise word similarities. This has the following advantages, which make our method a viable candidate for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05014,
+        -0.01951,
+        0.00689,
+        0.02304,
+        0.01174
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " method assesses the document-pair simi- larity on the basis of selected pairwise word similarities. This has the following advantages, which make our method a viable candidate for",
+      "overlap_with_next": "ms: - ls2.a: interdependent relati onships in ecosystems CONCEPT DESCRIPTION: Ecosystems have carrying capacities , which are limits to th e numbers of organisms and populations th",
+      "text": " method assesses the document-pair simi- larity on the basis of selected pairwise word similarities. This has the following advantages, which make our method a viable candidate for practical, real-world app lications: efﬁciency, because pairwise word similarities can be efﬁciently (pre-)computed and cached, and transparency, because the selected words from each document are available as evidence for what the sim ilarity computation was based on. We demonstrate our method with the Concept-Project matching task (Gong et al. (2018)), which is de- scribed in the next section. 2 Task, Data Set, and Original Approach The Concept-Project matching task is a binary classiﬁcation task where each instance is a p air of het- erogeneous documents: one concept, which is a short science curriculum item from NGSS 1, and one project, which is a much longer science project description for scho ol children from ScienceBuddies 2. 1https://www.nextgenscience.org 2https://www.sciencebuddies.org [Page 2] CONCEPT LABEL: ecosystems: - ls2.a: interdependent relati onships in ecosystems CONCEPT DESCRIPTION: Ecosystems have carrying capacities , which are limits to th e numbers of organisms and populations th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04534,
+        -0.01214,
+        0.01199,
+        0.02867,
+        -0.00823
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ms: - ls2.a: interdependent relati onships in ecosystems CONCEPT DESCRIPTION: Ecosystems have carrying capacities , which are limits to th e numbers of organisms and populations th",
+      "overlap_with_next": "ntain both the earth’s l argest and smallest organisms. Interestingly they share a d elicate relationship linked together by what they eat. The largest of the ocean’s inhabitants, ",
+      "text": "ms: - ls2.a: interdependent relati onships in ecosystems CONCEPT DESCRIPTION: Ecosystems have carrying capacities , which are limits to th e numbers of organisms and populations they can support . The se limits result from such factors as the availability of living and no nliving resources and from such challenges such as predatio n , competition , and disease . Organisms would have the capacity to produce populations of great size were i t not for the fact that environments and resources are ﬁnite . This fundamental tension affects the abundance ( number of individuals ) of species in any given ecosystem . PROJECT LABEL: Primary Productivity and Plankton PROJECT DESCRIPTION: Have you seen plankton? I am not talking about the evil villai n trying to steal the Krabby Patty recipe from Mr. Krab. I am ta lking about plankton that live in the ocean. In this experiment you can learn how to collect your own plankton samples and see the wonderful diversity in shape and form of planktonic organisms. The oceans contain both the earth’s l argest and smallest organisms. Interestingly they share a d elicate relationship linked together by what they eat. The largest of the ocean’s inhabitants, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0172,
+        0.00933,
+        -0.02011,
+        -0.0037,
+        -0.03779
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "ntain both the earth’s l argest and smallest organisms. Interestingly they share a d elicate relationship linked together by what they eat. The largest of the ocean’s inhabitants, ",
+      "overlap_with_next": " out into the water or trolled behind a boat for a given d istance then retrieved. Upon retrieving the net, the contents of the collecting bottle can be removed and the captured pl",
+      "text": "ntain both the earth’s l argest and smallest organisms. Interestingly they share a d elicate relationship linked together by what they eat. The largest of the ocean’s inhabitants, the Blue Whale, eats very small plankton, which themselves eat even smaller phytoplankton. All of the linkages between predators, grazers, and primary producers in the ocean make up an enormously complicated food web.The base of this food w eb depends upon phytoplankton, very small photosynthetic organisms which can make their own ene rgy by using energy from the sun. These phytoplankton provid e the primary source of the essential nutrients that cycle through our ocean’s many food webs. Thi s is called primary productivity, and it is a very good way of m easuring the health and abundance of our ﬁsheries.There are many different kinds of phytoplankton in our oceans. [...] One way to study plankton is to collect the plankton using a plankton net to collect samples of macroscopic and microscopic plankton organisms. The net is cast out into the water or trolled behind a boat for a given d istance then retrieved. Upon retrieving the net, the contents of the collecting bottle can be removed and the captured pl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03039,
+        -0.00106,
+        -0.03595,
+        0.01359,
+        -0.02176
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": " out into the water or trolled behind a boat for a given d istance then retrieved. Upon retrieving the net, the contents of the collecting bottle can be removed and the captured pl",
+      "overlap_with_next": " larval forms) and compare. Do the numbers balance, or is there more of one type than the other? What effect do you think this has on productiv ity cycles? Food chains are very com",
+      "text": " out into the water or trolled behind a boat for a given d istance then retrieved. Upon retrieving the net, the contents of the collecting bottle can be removed and the captured plankton can be observed with a microscope. The plankton net will collect both phytoplankton (photosynthetic plankton) and zooplankton (non-photosyn thetic plankton and larvae) for observation.In this experi ment you will make your own plankton net and use it to collect samples of plankton from different marine or aq uatic locations in your local area. Y ou can observe both the a bundance (total number of organisms) and diversity (number of different kinds of organisms) of plank tonic forms to make conclusions about the productivity and h ealth of each location. In this experiment you will make a plankton net to collect samples of plankton from d ifferent locations as an indicator of primary productivity. Y ou can also count the number of phytoplankton (which appear green or brown) compared to zooplankton (whic h are mostly marine larval forms) and compare. Do the numbers balance, or is there more of one type than the other? What effect do you think this has on productiv ity cycles? Food chains are very com",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01549,
+        -0.02472,
+        -0.05255,
+        0.02428,
+        -0.0023
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": " larval forms) and compare. Do the numbers balance, or is there more of one type than the other? What effect do you think this has on productiv ity cycles? Food chains are very com",
+      "overlap_with_next": " Bay . Figure 1: C-P Pair (Instance 261 of the original data set.) The publicly available data set 3 contains 510 labelled pairs 4 involving C = 75 unique concepts and P = 230 uniq",
+      "text": " larval forms) and compare. Do the numbers balance, or is there more of one type than the other? What effect do you think this has on productiv ity cycles? Food chains are very complex. Find out what types of predators and grazers you have in your area. Y ou can ﬁnd this information from a ﬁeld guide or fr om your local Department of Fish and Game. Can you use this inf ormation to construct a food web for your local area? Some blooms of phytoplankton can be harmful and create an anoxic environment that can suffocate the ecos ystem and leave a ”Dead Zone” behind. Did you ﬁnd an excess of brown algae or diatoms? These can be in dicators of a harmful algal bloom. Re-visit this location ov er several weeks to report on an increase or decrease of these types of phytoplankton. Do you think tha t a harmful algal bloom could be forming in your area? For an ex periment that studies the relationship between water quality and algal bloom events, see the Scienc e Buddies project Harmful Algal Blooms in the Chesapeake Bay . Figure 1: C-P Pair (Instance 261 of the original data set.) The publicly available data set 3 contains 510 labelled pairs 4 involving C = 75 unique concepts and P = 230 uniq",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03118,
+        -0.00606,
+        -0.04511,
+        0.03478,
+        -0.00268
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": " Bay . Figure 1: C-P Pair (Instance 261 of the original data set.) The publicly available data set 3 contains 510 labelled pairs 4 involving C = 75 unique concepts and P = 230 uniq",
+      "overlap_with_next": "nger document in the pair is reduced to a set of topics which capture the essence of the document in a way that elimin ates the effect of a potential length difference. In order to",
+      "text": " Bay . Figure 1: C-P Pair (Instance 261 of the original data set.) The publicly available data set 3 contains 510 labelled pairs 4 involving C = 75 unique concepts and P = 230 unique projects. A pair is annotated as 1 if the project matches the concept ( 57%), and as 0 otherwise ( 43%). The annotation was done by undergrad engineering student s. Gong et al. (2018) do not provide any speciﬁcation, or annotation guidelines, of the semantics of the ’matches’ relation to be annotated. Instead, they create gold standard annotations based on a majority vote of three manual anno- tations. Figure 1 provides an example of a matching C-P pair. The concept labels can be very speciﬁc, potentially introducing vocabulary that is not present in t he actual concept descriptions. The extent to which this information is used by Gong et al. (2018) is not ent irely clear, so we experiment with several setups (cf. Section 4). 2.1 Gong et al. (2018)’s Approach The approach by Gong et al. (2018) is based on the idea that the longer document in the pair is reduced to a set of topics which capture the essence of the document in a way that elimin ates the effect of a potential length difference. In order to",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0943,
+        -0.03941,
+        -0.03639,
+        0.02452,
+        -0.00167
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "nger document in the pair is reduced to a set of topics which capture the essence of the document in a way that elimin ates the effect of a potential length difference. In order to",
+      "overlap_with_next": "anc es, rather than distance of global document representations, but which also fails to be competitive wit h their topic-based method. Gong et al. (2018) use two different sets of",
+      "text": "nger document in the pair is reduced to a set of topics which capture the essence of the document in a way that elimin ates the effect of a potential length difference. In order to overcome the vocab ulary mismatch, these topics are not based on words and their distributions (as in LSI (Deerwester et al. (1990) ) or LDA (Blei et al. (2003))), but on word embedding vectors. Then, basically, matching is done b y measuring the cosine similarity between the topic vectors and the short document words. Gong et al. (2 018) motivate their approach mainly with the length mismatch argument, which they claim makes approa ches relying on document representations (incl. vector averaging) unsuitable. Accordingly, they us e Doc2V ec (Le and Mikolov (2014)) as one of their baselines, and show that its performance is inferio r to their method. They do not, however, provide a much simpler averaging-based baseline. As a second baseline, they use Word Mover’s Distance (Kusner et al. (2015)), which is based on word-level distanc es, rather than distance of global document representations, but which also fails to be competitive wit h their topic-based method. Gong et al. (2018) use two different sets of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05755,
+        -0.04738,
+        -0.00921,
+        0.03653,
+        -0.00384
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "anc es, rather than distance of global document representations, but which also fails to be competitive wit h their topic-based method. Gong et al. (2018) use two different sets of",
+      "overlap_with_next": "wards. In the ﬁrst step, weighting can be applied by multiplying a vect or with the TF, IDF, or TF*IDF score of its pertaining word. We implement this standard measure ( A VGCOS SI",
+      "text": "anc es, rather than distance of global document representations, but which also fails to be competitive wit h their topic-based method. Gong et al. (2018) use two different sets of word embeddings: One (topic wiki) was trained on a full English Wikipedia dump, the other (wiki science) on a smaller subset of the former dump which only con tained science articles. 3 Our Method We develop our method as a simple alternative to that of Gong e t al. (2018). We aim at comparable or better classiﬁcation performance, but with a simpler mod el. Also, we design the method in such a way that it provides human-interpretable results in an efﬁ cient way. One common way to compute 3https://github.com/HongyuGong/Document-Similarity-v ia-Hidden-Topics 4Of the original 537 labelled pairs, 27 were duplicates, which we removed. [Page 3] the similarity of two documents (i.e. word sequences) c and p is to average over the word embeddings for each sequence ﬁrst, and to compute the cosine similarity between the two averages afterwards. In the ﬁrst step, weighting can be applied by multiplying a vect or with the TF, IDF, or TF*IDF score of its pertaining word. We implement this standard measure ( A VGCOS SI",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05748,
+        -0.02908,
+        -0.00208,
+        0.02404,
+        0.01348
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "wards. In the ﬁrst step, weighting can be applied by multiplying a vect or with the TF, IDF, or TF*IDF score of its pertaining word. We implement this standard measure ( A VGCOS SI",
+      "overlap_with_next": "the qualitative aspects of c and p on which the similarity score is based. 4 Experiments Setup All experiments are based on off-the-shelf word-level resources: We employ WOMBA T (M",
+      "text": "wards. In the ﬁrst step, weighting can be applied by multiplying a vect or with the TF, IDF, or TF*IDF score of its pertaining word. We implement this standard measure ( A VGCOS SIM) as a baseline for both our method and for the method by Gong et al. (2018). It yields a sin gle scalar similarity score. The core idea of our alternative method is to turn the above process upside down, by computing the cosine similarity of selected pairs of words from c and p ﬁrst, and to average over the similarity scores afterwards ( cf. also Section 6). More precisely, we implement a measure TOP n COS SIM A VGas the average of the n highest pairwise cosine similarities of the n top-ranking words in c and p. Ranking, again, is done by TF, IDF, and TF*IDF. For each ranking, we take the top-rankin g n words from c and p, compute n × n similarities, rank by decreasing similarity, and average o ver the top n similarities. This measure yields both a scalar similarity score and a list of < c x, py, sim > tuples, which represent the qualitative aspects of c and p on which the similarity score is based. 4 Experiments Setup All experiments are based on off-the-shelf word-level resources: We employ WOMBA T (M",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02726,
+        0.00395,
+        -0.02045,
+        0.00132,
+        0.01462
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "the qualitative aspects of c and p on which the similarity score is based. 4 Experiments Setup All experiments are based on off-the-shelf word-level resources: We employ WOMBA T (M",
+      "overlap_with_next": "loV e vs. Google vs. fastText embeddings, ± TF-weighting, and ± IDF-weighting) for concepts and projects, and the extent to which concept descriptions are used: For the latter, Lab",
+      "text": "the qualitative aspects of c and p on which the similarity score is based. 4 Experiments Setup All experiments are based on off-the-shelf word-level resources: We employ WOMBA T (M¨ uller and Strube (2018)) for easy access to the 840B GloV e (Pennington et al. ( 2014)) and the GoogleNews 5 Word2V ec (Mikolov et al. (2013)) embeddings. These embedding resour ces, while slightly outdated, are still widely used. However, they cannot handle out-of-vocabulary token s due to their ﬁxed, word-level lexicon. Therefore, we also use a pretrained English fastText model 6 (Bojanowski et al. (2017); Grave et al. (2018)), which also includes subword information. IDF weig hts for approx. 12 mio. different words were obtained from the English Wikipedia dump provided by the Pol yglot project (Al-Rfou et al. (2013)). All resources are case-sensitive, i.e. they might contain different entries for words that only differ in case (cf. Section 5). We run experiments in different setups, varying both the inp ut representation (GloV e vs. Google vs. fastText embeddings, ± TF-weighting, and ± IDF-weighting) for concepts and projects, and the extent to which concept descriptions are used: For the latter, Lab",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04335,
+        -0.01833,
+        -0.01021,
+        0.01045,
+        0.01232
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "loV e vs. Google vs. fastText embeddings, ± TF-weighting, and ± IDF-weighting) for concepts and projects, and the extent to which concept descriptions are used: For the latter, Lab",
+      "overlap_with_next": "meter n which controls how many ranked words are used from c and p, and how many similarity scores are averaged to create the ﬁnal score. Parameter tuning experiments were performe",
+      "text": "loV e vs. Google vs. fastText embeddings, ± TF-weighting, and ± IDF-weighting) for concepts and projects, and the extent to which concept descriptions are used: For the latter, Label means only the concept label (ﬁrst and second row in the example), Description means only the textual description of the concept, and Both means the concatenation of Label and Description. For the projects, we always use both label and description. For the project descriptions, we extract only the last column of the original ﬁle (CONTENT), and remove user comments and some boiler-plate. Each instance in the re sulting data set is a tuple of < c, p, label > , where c and p are bags of words, with case preserved and function words 7 removed, and label is either 0 or 1. Parameter Tuning Our method is unsupervised, but we need to deﬁne a threshold p arameter which controls the minimum similarity that a concept and a project description should h ave in order to be considered a match. Also, the TOP n COS SIM A VG measure has a parameter n which controls how many ranked words are used from c and p, and how many similarity scores are averaged to create the ﬁnal score. Parameter tuning experiments were performe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08029,
+        -0.05229,
+        -0.00723,
+        0.00806,
+        0.01268
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "meter n which controls how many ranked words are used from c and p, and how many similarity scores are averaged to create the ﬁnal score. Parameter tuning experiments were performe",
+      "overlap_with_next": "ning data scores for A VG COS SIM (Table 1) show that the Google embeddings with TF*IDF weighting yield the top F score for all three conc ept input types ( .881 - .945). Somewhat ",
+      "text": "meter n which controls how many ranked words are used from c and p, and how many similarity scores are averaged to create the ﬁnal score. Parameter tuning experiments were performed on a random subset of 20% of our data set (54% positive). Note that Gong et al. (2018) used only 10% of their 537 instances data set as tuning data. The tuning data results of the best-performing parame ter values for each setup can be found in Tables 1 and 2. The top F scores per type of concept input (Labe l, Description, Both) are given in bold. For A VGCOS SIM and TOP n COS SIM A VG, we determined the threshold values (T) on the tuning data by doing a simple .005 step search over the range from 0.3 to 1.0. For TOP n COS SIM A VG, we additionally varied the value of n in steps of 2 from 2 to 30. 5https://code.google.com/archive/p/word2vec/ 6https://dl.fbaipublicfiles.com/fasttext/vectors-cra wl/cc.en.300.bin.gz 7We use the list provided by Gong et al. (2018), with an additio nal entry for cannot. [Page 4] Results The top tuning data scores for A VG COS SIM (Table 1) show that the Google embeddings with TF*IDF weighting yield the top F score for all three conc ept input types ( .881 - .945). Somewhat ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02896,
+        -0.03787,
+        -0.0238,
+        -0.00658,
+        0.01083
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ning data scores for A VG COS SIM (Table 1) show that the Google embeddings with TF*IDF weighting yield the top F score for all three conc ept input types ( .881 - .945). Somewhat ",
+      "overlap_with_next": "35 .920 .836 .876 + - .445 .943 .909 .926 .540 .873 .873 .873 .565 .927 .927 .927 - + .435 .839 .945 .889 .520 .732 .945 .825 .590 .877 .909 .893 + + .430 .943 .909 .926 .530 .889 ",
+      "text": "ning data scores for A VG COS SIM (Table 1) show that the Google embeddings with TF*IDF weighting yield the top F score for all three conc ept input types ( .881 - .945). Somewhat expectedly, the best overall F score ( .945) is produced in the setting Both, which provides the most information. Actually, this is true for all four weighting s chemes for both GloV e and Google, while fastText consistently yields its top F scores ( .840 - .911) in the Label setting, which provides the least information. Generally, the level of performance of the sim ple baseline measure A VG COS SIM on this data set is rather striking. Concept Input → Label Description Both Embeddings TF IDF T P R F T P R F T P R F GloV e - - .635 .750 .818 .783 .720 .754 .891 .817 .735 .765 .945 .846 + - .640 .891 .745 .812 .700 .831 .891 .860 .690 .813 .945 .874 - + .600 .738 .873 .800 .670 .746 .909 .820 .755 .865 .818 .841 + + .605 .904 .855 .879 .665 .857 .873 .865 .715 .923 .873 .897 Google - - .440 .813 .945 .874 .515 .701 .982 .818 .635 .920 .836 .876 + - .445 .943 .909 .926 .540 .873 .873 .873 .565 .927 .927 .927 - + .435 .839 .945 .889 .520 .732 .945 .825 .590 .877 .909 .893 + + .430 .943 .909 .926 .530 .889 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07784,
+        -0.03434,
+        -0.01896,
+        -0.01809,
+        0.01612
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "35 .920 .836 .876 + - .445 .943 .909 .926 .540 .873 .873 .873 .565 .927 .927 .927 - + .435 .839 .945 .889 .520 .732 .945 .825 .590 .877 .909 .893 + + .430 .943 .909 .926 .530 .889 ",
+      "overlap_with_next": " the Google result for Label is only minimal, it is striking that the best overall score is again produced u sing the ’richest’ setting, i.e. the one involving both TF and IDF weig",
+      "text": "35 .920 .836 .876 + - .445 .943 .909 .926 .540 .873 .873 .873 .565 .927 .927 .927 - + .435 .839 .945 .889 .520 .732 .945 .825 .590 .877 .909 .893 + + .430 .943 .909 .926 .530 .889 .873 .881 .545 .945 .945 .945 fastText - - .440 .781 .909 .840 .555 .708 .927 .803 .615 .778 .891 .831 + - .435 .850 .927 .887 .520 .781 .909 .840 .530 .803 .964 .876 - + .435 .850 .927 .887 .525 .722 .945 .819 .600 .820 .909 .862 + + .420 .895 .927 .911 .505 .803 .891 .845 .520 .833 .909 .870 Table 1: Tuning Data Results A VGCOS SIM. Top F per Concept Input Type in Bold. For TOP n COS SIM A VG, thetuning data results (Table 2) are somewhat more varied: First, there is no single best performing set of embeddings: Google yield s the best F score for the Label setting (.953), while GloV e (though only barely) leads in the Description setting (.912). This time, it is fastText which produces the best F score in the Both setting, which is also the best overall tuning data F score for TOP n COS SIM A VG (.954). While the difference to the Google result for Label is only minimal, it is striking that the best overall score is again produced u sing the ’richest’ setting, i.e. the one involving both TF and IDF weig",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.069,
+        -0.0204,
+        -0.0463,
+        -0.04476,
+        -0.01474
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " the Google result for Label is only minimal, it is striking that the best overall score is again produced u sing the ’richest’ setting, i.e. the one involving both TF and IDF weig",
+      "overlap_with_next": "IM A VG. Top F per Concept Input Type in Bold. We then selected the best performing parameter settings for every concept input and ran experiments on the held-out test data. Since ",
+      "text": " the Google result for Label is only minimal, it is striking that the best overall score is again produced u sing the ’richest’ setting, i.e. the one involving both TF and IDF weighting and the most informative input. Concept Input → Label Description Both Embeddings TF IDF T/n P R F T/n P R F T/n P R F GloV e + - .365/6 .797 .927 .857 .690/14 .915 .782 .843 .675/16 .836 .927 .879 - + .300/30 .929 .236 .377 .300/30 .806 .455 .581 .300/30 .778 .636 .700 + + .330/6 .879 .927 .903 .345/6 .881 .945 .912 .345/6 .895 .927 .911 Google + - .345/22 .981 .927 .953 .480/16 .895 .927 .911 .520/16 .912 .945 .929 - + .300/30 1.00 .345 .514 .300/8 1.00 .345 .514 .300/30 1.00 .600 .750 + + .300/10 1.00 .509 .675 .300/14 .972 .636 .769 .350/22 1.00 .836 .911 fastText + - .415/22 .980 .873 .923 .525/14 .887 .855 .870 .535/20 .869 .964 .914 - + .350/24 1.00 .309 .472 .300/30 1.00 .382 .553 .300/28 1.00 .673 .804 + + .300/20 1.00 .800 .889 .300/10 .953 .745 .837 .310/14 .963 .945 .954 Table 2: Tuning Data Results TOP n COS SIM A VG. Top F per Concept Input Type in Bold. We then selected the best performing parameter settings for every concept input and ran experiments on the held-out test data. Since ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08746,
+        0.00699,
+        -0.02529,
+        -0.03198,
+        0.0021
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "IM A VG. Top F per Concept Input Type in Bold. We then selected the best performing parameter settings for every concept input and ran experiments on the held-out test data. Since ",
+      "overlap_with_next": " ngs on the tuning data, and clearly con- tradicts the (implicit) claim made by Gong et al. (2018) rega rding the infeasibility of document-level matching for documents of differen",
+      "text": "IM A VG. Top F per Concept Input Type in Bold. We then selected the best performing parameter settings for every concept input and ran experiments on the held-out test data. Since the original data split used by Gong et al. (2018) is un known, we cannot exactly replicate their settings, but we also perform ten ru ns using randomly selected 10% of our 408 instances test data set, and report average P , R, F, and stand ard deviation. The results can be found in Table 3. For comparison, the two top rows provide the best res ults of Gong et al. (2018). The ﬁrst interesting ﬁnding is that the A VG COS SIM measure again performs very well: In all three settings, it beats both the system based on general-purpose embeddings (topic wiki) and the one that is adapted to the science domain (topic science), with again the Both setting yielding the best over- all result ( .926). Note that our Both setting is probably the one most similar to the concept input used by Gong et al. (2018). This result corroborates our ﬁndi ngs on the tuning data, and clearly con- tradicts the (implicit) claim made by Gong et al. (2018) rega rding the infeasibility of document-level matching for documents of differen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04088,
+        -0.05007,
+        -0.03942,
+        -0.02402,
+        0.00944
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " ngs on the tuning data, and clearly con- tradicts the (implicit) claim made by Gong et al. (2018) rega rding the infeasibility of document-level matching for documents of differen",
+      "overlap_with_next": ".037 Table 3: Test Data Results input.8 This is the more important as we exclusively employ off-the- shelf, general-purpose embeddings, while Gong et al. (2018) reach their best re",
+      "text": " ngs on the tuning data, and clearly con- tradicts the (implicit) claim made by Gong et al. (2018) rega rding the infeasibility of document-level matching for documents of different lengths. The second, mo re important ﬁnding is that our pro- posed TOP n COS SIM A VG measure is also very competitive, as it also outperforms both systems by Gong et al. (2018) in two out of three settings. It only fail s in the setting using only the Description [Page 5] P R F Gong et al. (2018) topic science .758 ±.012 .885 ±.071 .818 ±.028topic wiki .750 ±.009 .842 ±.010 .791 ±.007 Method Embeddings Settings T/n Conc. Input A VGCOS SIM Google +TF +IDF .515 Label .939 ±.043 .839 ±.067 .884 ±.038 Google +TF +IDF .520 Description .870 ±.068 .834 ±.048 .849 ±.038 Google +TF +IDF .545 Both .915 ±.040 .938 ±.047 .926 ±.038 TOP n COS SIM A VG Google +TF -IDF .345/22 Label .854 ±.077 .861 ±.044 .856 ±.054 GloV e +TF +IDF .345/6 Description .799 ±.063 .766 ±.094 .780 ±.068 fastText +TF +IDF .310/14 Both .850 ±.059 .918 ±.049 .881 ±.037 Table 3: Test Data Results input.8 This is the more important as we exclusively employ off-the- shelf, general-purpose embeddings, while Gong et al. (2018) reach their best re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05444,
+        -0.02198,
+        -0.0319,
+        -0.0296,
+        0.00209
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": ".037 Table 3: Test Data Results input.8 This is the more important as we exclusively employ off-the- shelf, general-purpose embeddings, while Gong et al. (2018) reach their best re",
+      "overlap_with_next": " vantage over average-based comparison (like A VGCOS SIM), since it provides a means to check the plausibility of t he decision. Here, we are mainly interested in the overall best ",
+      "text": ".037 Table 3: Test Data Results input.8 This is the more important as we exclusively employ off-the- shelf, general-purpose embeddings, while Gong et al. (2018) reach their best results with a much m ore sophisticated system and with em- beddings that were custom-trained for the science domain. T hus, while the performance of our proposed TOP n COS SIM A VG method is superior to the approach by Gong et al. (2018), i t is itself outper- formed by the ’baseline’ A VG COS SIM method with appropriate weighting. However, apart from raw classiﬁcation performance, our method also aims at providi ng human-interpretable information on how a classiﬁcation was done. In the next section, we perform a de tail analysis on a selected setup. 5 Detail Analysis The similarity-labelled word pairs from concept and projec t description which are selected during clas- siﬁcation with the TOP n COS SIM A VG measure provide a way to qualitatively evaluate the basis on which each similarity score was computed. We see this as an ad vantage over average-based comparison (like A VGCOS SIM), since it provides a means to check the plausibility of t he decision. Here, we are mainly interested in the overall best ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04131,
+        -0.02375,
+        -0.02913,
+        0.0018,
+        0.02518
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " vantage over average-based comparison (like A VGCOS SIM), since it provides a means to check the plausibility of t he decision. Here, we are mainly interested in the overall best ",
+      "overlap_with_next": " COS SIM A VG measure. This value is compared against the threshold T = .310. The similarity is higher than T in the TP and FP cases, and lower otherwise. Without going int o too m",
+      "text": " vantage over average-based comparison (like A VGCOS SIM), since it provides a means to check the plausibility of t he decision. Here, we are mainly interested in the overall best result, so we perform a detail analysis on the best-performing Both setting only (fastText, TF*IDF weighting, T = .310, n = 14). Since the Concept-Project matching task is a binary classiﬁcation task, its performance can be quali tatively analysed by providing examples for instances that were classiﬁed correctly (True Positive (TP ) and True Negative (TN)) or incorrectly (False Positive (FP) and False Negative (FN)). Table 5 shows the concept and project words from selected ins tances (one TP , FP , TN, and FN case each) of the tuning data set. Concept and project words are or dered alphabetically, with concept words appearing more than once being grouped together. According to the selected setting, the number of word pairs is n = 14 . The bottom line in each column provides the average similar ity score as computed by the TOP n COS SIM A VG measure. This value is compared against the threshold T = .310. The similarity is higher than T in the TP and FP cases, and lower otherwise. Without going int o too m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04311,
+        -0.04618,
+        -0.0145,
+        0.01431,
+        0.01764
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " COS SIM A VG measure. This value is compared against the threshold T = .310. The similarity is higher than T in the TP and FP cases, and lower otherwise. Without going int o too m",
+      "overlap_with_next": " apply our method to the Concept-Project matching task only, the underlying task of matching text sequences to each other is much more gen eral. Many existing approaches follow 8Re",
+      "text": " COS SIM A VG measure. This value is compared against the threshold T = .310. The similarity is higher than T in the TP and FP cases, and lower otherwise. Without going int o too much detail, it can be seen that the selected words provide a reaso nable idea of the gist of the two documents. Another observation relates to the effect of using unstemme d, case-sensitive documents as input: the top-ranking words often contain inﬂectional variants (e.g . enzyme and enzymes, level and levels in the example), and words differing in case only can also be found. Currently, these are treated as distinct (though semantically similar) words, mainly out of compati bility with the pretrained GloV e and Google embeddings. However, since our method puts a lot of emphasis on individual words, in particular those coming from the shorter of the two documents (the concept), results might be improved by somehow merging these words (and their respective embedding vector s) (see Section 7). 6 Related Work While in this paper we apply our method to the Concept-Project matching task only, the underlying task of matching text sequences to each other is much more gen eral. Many existing approaches follow 8Re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03237,
+        -0.03929,
+        0.00065,
+        0.01913,
+        0.02106
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " apply our method to the Concept-Project matching task only, the underlying task of matching text sequences to each other is much more gen eral. Many existing approaches follow 8Re",
+      "overlap_with_next": "egg .178 extent concentration .266 multiple different .550 dynamic range .377 surface leavening .158 range concentration .255 organisms enzyme .385 dynamic texture .310 surface thi",
+      "text": " apply our method to the Concept-Project matching task only, the underlying task of matching text sequences to each other is much more gen eral. Many existing approaches follow 8Remember that this setup was only minimally superior ( .001 F score) to the next best one on the tuning data. [Page 6] TP (.447 > .310) FP ( .367 > .310) TN ( .195 < .310) FN ( .278 < .310) Concept Project Sim Concept Project Sim Concept Project Sim Concept Project SimWord Word Word Word Word Word Word Word cells enzymes .438 co-evolution dynamic .299 energy allergy .147 area water .277 cells genes .427 continual dynamic .296 energy juice .296 climate water .269 molecules DNA .394 delicate detail .306 energy leavening .186 earth copper .254 molecules enzyme .445 delicate dynamic .326 energy substitutes .177 earth metal .277 molecules enzymes .533 delicate texture .379 surface average .212 earth metals .349 molecules gene .369 dynamic dynamic 1.00 surface baking .216 earth water .326 molecules genes .471 dynamic image .259 surface egg .178 extent concentration .266 multiple different .550 dynamic range .377 surface leavening .158 range concentration .255 organisms enzyme .385 dynamic texture .310 surface thi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04732,
+        -0.03021,
+        0.01094,
+        -0.01972,
+        -0.00042
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "egg .178 extent concentration .266 multiple different .550 dynamic range .377 surface leavening .158 range concentration .255 organisms enzyme .385 dynamic texture .310 surface thi",
+      "overlap_with_next": " seen as a variant of compare-aggregate which is characterized by extremely simple methods for comparison ( cosine vector similarity) and aggregation (averaging). Other approaches,",
+      "text": "egg .178 extent concentration .266 multiple different .550 dynamic range .377 surface leavening .158 range concentration .255 organisms enzyme .385 dynamic texture .310 surface thickening .246 range ppm .237 organisms enzymes .512 surface level .323 transfer baking .174 systems metals .243 organisms genes .495 surface texture .383 transfer substitute .192 systems solution .275 organs enzymes .372 surface tiles .321 transfer substitutes .157 typical heavy .299 tissues enzymes .448 systems dynamic .272 warms baking .176 weather heavy .248 tissues genes .414 systems levels .286 warms thickening .214 weather water .308 Avg. Sim .447 Avg. Sim .367 Avg. Sim .195 Avg. Sim .278 Table 4: TOP n COS SIM A VGDetail Results of Best-performing fastText Model on Both. the so-called compare-aggregate framework (Wang and Jiang (2017)). As the name suggests, the se ap- proaches collect the results of element-wise matchings ( comparisons) ﬁrst, and create the ﬁnal result by aggregating these results later. Our method can be seen as a variant of compare-aggregate which is characterized by extremely simple methods for comparison ( cosine vector similarity) and aggregation (averaging). Other approaches,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0018,
+        -0.0299,
+        -0.03303,
+        9e-05,
+        0.00403
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " seen as a variant of compare-aggregate which is characterized by extremely simple methods for comparison ( cosine vector similarity) and aggregation (averaging). Other approaches,",
+      "overlap_with_next": "if appropriate weighting is applied. Due to its simplicity, we believe that our method can also be applied to other text matching tasks, including more ’standard’ ones which do not",
+      "text": " seen as a variant of compare-aggregate which is characterized by extremely simple methods for comparison ( cosine vector similarity) and aggregation (averaging). Other approaches, like He and Lin (2016) and Wa ng and Jiang (2017), employ much more elaborated supervised neural networks methods. Also, on a s impler level, the idea of averaging similarity scores (rather than scoring averaged representations) is n ot new: Camacho-Collados and Navigli (2016) use the average of pairwise word similarities to compute the ir compactness score. 7 Conclusion and Future Work We presented a simple method for semantic matching of docume nts from heterogeneous collections as a solution to the Concept-Project matching task by Gong et al. (2018). Although much simpler, our method clearly outperformed the original system in most input sett ings. Another result is that, contrary to the claim made by Gong et al. (2018), the standard averaging appr oach does indeed work very well even for heterogeneous document collections, if appropriate weighting is applied. Due to its simplicity, we believe that our method can also be applied to other text matching tasks, including more ’standard’ ones which do not",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03504,
+        -0.01952,
+        -0.02699,
+        0.03129,
+        0.0148
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "if appropriate weighting is applied. Due to its simplicity, we believe that our method can also be applied to other text matching tasks, including more ’standard’ ones which do not",
+      "overlap_with_next": "ame document, ways have still to be found to combine them into sin gle, document-wide vectors, without (fully) sacriﬁcing their c ontext-awareness. The code used in this paper is a",
+      "text": "if appropriate weighting is applied. Due to its simplicity, we believe that our method can also be applied to other text matching tasks, including more ’standard’ ones which do not necessarily involve heterogeneous document collections. This seems desirable because our met hod offers additional transparency by providing not only a simi larity score, but also the subset of words on which the similarity score is based. Future work includes detailed error analysis, and exploration of methods to combine complementary information about (gra mmatically or orthographically) related words from word embedding resources. Also, we are currently experimenting with a pretrained ELMo (Peters et al. (2018)) model as another word embedding resou rce. ELMo takes word embeddings a step further by dynamically creating contextualized vectors from input word sequences (normally sentences). Our initial experiments have been promising, but since ELMo tends to yield different, context-dependent vectors for the same word in the same document, ways have still to be found to combine them into sin gle, document-wide vectors, without (fully) sacriﬁcing their c ontext-awareness. The code used in this paper is a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03496,
+        -0.00592,
+        -0.00179,
+        0.0124,
+        0.00256
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "ame document, ways have still to be found to combine them into sin gle, document-wide vectors, without (fully) sacriﬁcing their c ontext-awareness. The code used in this paper is a",
+      "overlap_with_next": "ems, PACIS 2011: Qual- ity Research in Paciﬁc Asia, Brisbane, Queensland, Austral ia, 7-11 July 2011 , pp. 29. Queensland University of Technology. Bojanowski, P ., E. Grave, A. Jo",
+      "text": "ame document, ways have still to be found to combine them into sin gle, document-wide vectors, without (fully) sacriﬁcing their c ontext-awareness. The code used in this paper is available athttps://github.com/nlpAThits/TopNCosSimAvg. Acknowledgements The research described in this paper was funded by the Klaus T schira Foundation. We thank the anonymous reviewers for their useful comments a nd suggestions. [Page 7] References Al-Rfou, R., B. Perozzi, and S. Skiena (2013, August). Polyg lot: Distributed word representations for multilingual nlp. In Proceedings of the Seventeenth Conference on Computationa l Natural Language Learning, Soﬁa, Bulgaria, pp. 183–192. Association for Computation al Linguistics. Blei, D. M., A. Y . Ng, and M. I. Jordan (2003). Latent dirichle t allocation. Journal of Machine Learning Research 3, 993–1022. Blooma, M. J. and J. C. Kurian (2011). Research issues in comm unity based question answering. In P . B. Seddon and S. Gregor (Eds.), Paciﬁc Asia Conference on Information Systems, PACIS 2011: Qual- ity Research in Paciﬁc Asia, Brisbane, Queensland, Austral ia, 7-11 July 2011 , pp. 29. Queensland University of Technology. Bojanowski, P ., E. Grave, A. Jo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03508,
+        -0.02303,
+        0.00138,
+        0.02067,
+        -0.01019
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "ems, PACIS 2011: Qual- ity Research in Paciﬁc Asia, Brisbane, Queensland, Austral ia, 7-11 July 2011 , pp. 29. Queensland University of Technology. Bojanowski, P ., E. Grave, A. Jo",
+      "overlap_with_next": "3 -17, 2015, pp. 813–820. IEEE. Gong, H., T. Sakakini, S. Bhat, and J. Xiong (2018). Document similarity for texts of varying lengths via hidden topics. In Proceedings of the 56th ",
+      "text": "ems, PACIS 2011: Qual- ity Research in Paciﬁc Asia, Brisbane, Queensland, Austral ia, 7-11 July 2011 , pp. 29. Queensland University of Technology. Bojanowski, P ., E. Grave, A. Joulin, and T. Mikolov (2017). E nriching word vectors with subword information. TACL 5, 135–146. Camacho-Collados, J. and R. Navigli (2016). Find the word th at does not belong: A framework for an intrinsic evaluation of word vector representations. In Proceedings of the 1st Workshop on Evaluating V ector-Space Representations for NLP , RepEval@ACL 2016, Berlin, Germany, August 2016 , pp. 43– 50. Association for Computational Linguistics. Deerwester, S. C., S. T. Dumais, T. K. Landauer, G. W. Furnas, and R. A. Harshman (1990). Indexing by latent semantic analysis. JASIS 41(6), 391–407. Feng, M., B. Xiang, M. R. Glass, L. Wang, and B. Zhou (2015). Ap plying deep learning to answer selection: A study and an open task. In 2015 IEEE Workshop on Automatic Speech Recognition and Understanding, ASRU 2015, Scottsdale, AZ, USA, December 13 -17, 2015, pp. 813–820. IEEE. Gong, H., T. Sakakini, S. Bhat, and J. Xiong (2018). Document similarity for texts of varying lengths via hidden topics. In Proceedings of the 56th ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01852,
+        -0.04453,
+        -0.00875,
+        0.02487,
+        -0.01558
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "3 -17, 2015, pp. 813–820. IEEE. Gong, H., T. Sakakini, S. Bhat, and J. Xiong (2018). Document similarity for texts of varying lengths via hidden topics. In Proceedings of the 56th ",
+      "overlap_with_next": "of the North American Chapter of the Associa tion for Computational Linguistics: Human Language Technologies, San Diego California, USA, Ju ne 12-17, 2016 , pp. 937–948. The Associ",
+      "text": "3 -17, 2015, pp. 813–820. IEEE. Gong, H., T. Sakakini, S. Bhat, and J. Xiong (2018). Document similarity for texts of varying lengths via hidden topics. In Proceedings of the 56th Annual Meeting of the Association fo r Computational Linguistics (V olume 1: Long Papers), pp. 2341–2351. Association for Computational Linguistic s. Grave, E., P . Bojanowski, P . Gupta, A. Joulin, and T. Mikolov (2018). Learning word vectors for 157 languages. In N. Calzolari, K. Choukri, C. Cieri, T. Declerck, S. Goggi, K. Hasida, H. Isahara, B. Mae- gaard, J. Mariani, H. Mazo, A. Moreno, J. Odijk, S. Piperidis , and T. Tokunaga (Eds.), Proceedings of the Eleventh International Conference on Language Resources and Evaluation, LREC 2018, Miyazaki, Japan, May 7-12, 2018. European Language Resources Association (ELRA). He, H. and J. J. Lin (2016). Pairwise word interaction modeli ng with deep neural networks for semantic similarity measurement. In K. Knight, A. Nenkova, and O. Ram bow (Eds.), NAACL HLT 2016, The 2016 Conference of the North American Chapter of the Associa tion for Computational Linguistics: Human Language Technologies, San Diego California, USA, Ju ne 12-17, 2016 , pp. 937–948. The Associ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02088,
+        -0.02517,
+        -0.01622,
+        0.02513,
+        -0.00352
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "of the North American Chapter of the Associa tion for Computational Linguistics: Human Language Technologies, San Diego California, USA, Ju ne 12-17, 2016 , pp. 937–948. The Associ",
+      "overlap_with_next": " in Neural Information Processing Systems 26. Lake Tahoe, Nev., 5–8 December 2013, pp. 3111–3119. [Page 8] M¨ uller, M. and M. Strube (2018). Transparent, efﬁcient, and robust word",
+      "text": "of the North American Chapter of the Associa tion for Computational Linguistics: Human Language Technologies, San Diego California, USA, Ju ne 12-17, 2016 , pp. 937–948. The Association for Computational Linguistics. Kusner, M. J., Y . Sun, N. I. Kolkin, and K. Q. Weinberger (2015 ). From word embeddings to document distances. In F. R. Bach and D. M. Blei (Eds.), Proceedings of the 32nd International Conference on Machine Learning, ICML 2015, Lille, France, 6-11 July 2015 , V olume 37 of JMLR Workshop and Conference Proceedings, pp. 957–966. JMLR.org. Le, Q. V . and T. Mikolov (2014). Distributed representations of sentences and documents. In Proceedings of the 31th International Conference on Machine Learning, I CML 2014, Beijing, China, 21-26 June 2014, V olume 32 ofJMLR Workshop and Conference Proceedings, pp. 1188–1196. JMLR.org. Mikolov, T., I. Sutskever, K. Chen, G. S. Corrado, and J. Dean (2013). Distributed representations of words and phrases and their compositionality. In Proceedings of Advances in Neural Information Processing Systems 26. Lake Tahoe, Nev., 5–8 December 2013, pp. 3111–3119. [Page 8] M¨ uller, M. and M. Strube (2018). Transparent, efﬁcient, and robust word",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0307,
+        -0.02617,
+        -0.01493,
+        0.0064,
+        -0.002
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": " in Neural Information Processing Systems 26. Lake Tahoe, Nev., 5–8 December 2013, pp. 3111–3119. [Page 8] M¨ uller, M. and M. Strube (2018). Transparent, efﬁcient, and robust word",
+      "overlap_with_next": " the North American Chapter of the Associa tion for Computational Linguistics: Human Language Technologies, NAACL-HLT 2018, New Orleans, Louisiana, USA, June 1-6, 2018, V olume 1 (",
+      "text": " in Neural Information Processing Systems 26. Lake Tahoe, Nev., 5–8 December 2013, pp. 3111–3119. [Page 8] M¨ uller, M. and M. Strube (2018). Transparent, efﬁcient, and robust word embedding access with WOM- BA T. In D. Zhao (Ed.),COLING 2018, The 27th International Conference on Computat ional Linguis- tics: System Demonstrations, Santa Fe, New Mexico, August 2 0-26, 2018, pp. 53–57. Association for Computational Linguistics. Pennington, J., R. Socher, and C. D. Manning (2014). Glove: G lobal vectors for word representation. In A. Moschitti, B. Pang, and W. Daelemans (Eds.), Proceedings of the 2014 Conference on Empir- ical Methods in Natural Language Processing, EMNLP 2014, Oc tober 25-29, 2014, Doha, Qatar , A meeting of SIGDAT, a Special Interest Group of the ACL , pp. 1532–1543. ACL. Peters, M. E., M. Neumann, M. Iyyer, M. Gardner, C. Clark, K. L ee, and L. Zettlemoyer (2018). Deep contextualized word representations. In M. A. Walker, H. Ji , and A. Stent (Eds.), Proceedings of the 2018 Conference of the North American Chapter of the Associa tion for Computational Linguistics: Human Language Technologies, NAACL-HLT 2018, New Orleans, Louisiana, USA, June 1-6, 2018, V olume 1 (",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02376,
+        -0.00503,
+        -0.00661,
+        0.01187,
+        -0.01169
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32114,
+      "length": 494,
+      "overlap_with_previous": " the North American Chapter of the Associa tion for Computational Linguistics: Human Language Technologies, NAACL-HLT 2018, New Orleans, Louisiana, USA, June 1-6, 2018, V olume 1 (",
+      "overlap_with_next": "",
+      "text": " the North American Chapter of the Associa tion for Computational Linguistics: Human Language Technologies, NAACL-HLT 2018, New Orleans, Louisiana, USA, June 1-6, 2018, V olume 1 (Long Papers), pp. 2227–2237. Association for Computational Linguistic s. Wang, S. and J. Jiang (2017). A compare-aggregate model for m atching text sequences. In 5th Inter- national Conference on Learning Representations, ICLR 201 7, Toulon, France, April 24-26, 2017, Conference Track Proceedings. OpenReview.net.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02467,
+        -0.02014,
+        -0.01773,
+        0.01193,
+        -0.0125
+      ]
+    }
+  ]
+}

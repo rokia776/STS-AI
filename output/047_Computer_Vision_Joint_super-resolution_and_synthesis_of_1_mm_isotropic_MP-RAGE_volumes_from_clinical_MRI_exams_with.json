@@ -1,0 +1,1626 @@
+{
+  "paper_id": "7816926e-d008-4253-af07-f332d8c99ed4",
+  "filename": "047_Computer_Vision_Joint_super-resolution_and_synthesis_of_1_mm_isotropic_MP-RAGE_volumes_from_clinical_MRI_exams_with.pdf",
+  "title": "Joint super-resolution and synthesis of 1 mm isotropic MP-RAGE volumes from clinical MRI exams with scans of different orientation, resolution and contrast",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 95,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " data with near- isotropic voxels at approximately 1 mm resolution, and frequently have contrast constraints as well – typically requiring T1-weighted images (e.g., MP-RAGE scans).",
+      "text": "[Page 1] Joint super-resolution and synthesis of 1 mm isotropic MP-RAGE volumes from clinical MRI exams with scans of diﬀerent orientation, resolution and contrast Juan Eugenio Iglesias a,b,c,∗, Benjamin Billot a, Ya¨ el Balbastrea, Azadeh Tabarib,d, John Conklin b,d, Daniel C. Alexandera, Polina Gollandc, Brian L. Edlow b,e, Bruce Fischlb, for the Alzheimer’s Disease Neuroimaging Initiative 1 aCentre for Medical Image Computing, Department of Medical Physics and Biomedical Engineering, University College London, UK bAthinoula A. Martinos Center for Biomedical Imaging, Massachusetts General Hospital and Harvard Medical School, Boston, USA cComputer Science and Artiﬁcial Intelligence Laboratory, Massachusetts Institute of Technology, Boston, USA dDepartment of Radiology, Massachusetts General Hospital, Boston, USA eCenter for Neurotechnology and Neurorecovery, Massachusetts General Hospital, Boston, USA Abstract Most existing algorithms for automatic 3D morphometry of human brain MRI scans are designed for data with near- isotropic voxels at approximately 1 mm resolution, and frequently have contrast constraints as well – typically requiring T1-weighted images (e.g., MP-RAGE scans).",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0072,
+        -0.05612,
+        -0.01209,
+        -0.04572,
+        0.01459
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " data with near- isotropic voxels at approximately 1 mm resolution, and frequently have contrast constraints as well – typically requiring T1-weighted images (e.g., MP-RAGE scans).",
+      "overlap_with_next": " or more thick-slice scans with diﬀerent contrast, resolution and orientation, and produces an isotropic scan of canonical contrast (typically a 1 mm MP-RAGE). The presented method",
+      "text": " data with near- isotropic voxels at approximately 1 mm resolution, and frequently have contrast constraints as well – typically requiring T1-weighted images (e.g., MP-RAGE scans). This limitation prevents the analysis of millions of MRI scans acquired with large inter-slice spacing in clinical settings every year (“thick-slice scans”). In turn, the inability to quantitatively analyze these scans hinders the adoption of quantitative neuroimaging in healthcare, and also precludes research studies that could attain huge sample sizes and hence greatly improve our understanding of the human brain. Recent advances in convolutional neural networks (CNNs) are producing outstanding results in super-resolution and contrast synthesis of MRI. However, these approaches are very sensitive to the contrast, resolution and orientation of the input images, and thus do not generalize to diverse clinical acquisition protocols – even within sites. In this article, we present SynthSR, a method to train a CNN that receives one or more thick-slice scans with diﬀerent contrast, resolution and orientation, and produces an isotropic scan of canonical contrast (typically a 1 mm MP-RAGE). The presented method",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04404,
+        -0.03558,
+        -0.01301,
+        -0.00583,
+        0.01453
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " or more thick-slice scans with diﬀerent contrast, resolution and orientation, and produces an isotropic scan of canonical contrast (typically a 1 mm MP-RAGE). The presented method",
+      "overlap_with_next": "ing (MRI) has revolutionized research on the human brain, by enabling in vivo nonin- vasive neuroimaging with exquisite and tunable soft-tissue contrast. Quantitative and reproduci",
+      "text": " or more thick-slice scans with diﬀerent contrast, resolution and orientation, and produces an isotropic scan of canonical contrast (typically a 1 mm MP-RAGE). The presented method does not require any preprocessing, e.g., skull stripping or bias ﬁeld correction. Crucially, SynthSR trains on synthetic input images generated from 3D segmentations, and can thus be used to train CNNs for any combination of contrasts, resolutions and orientations without high-resolution training data. We test the images generated with SynthSR in an array of common downstream analyses, and show that they can be reliably used for subcortical segmentation and volumetry, image registration (e.g., for tensor-based morphometry), and, if some image quality requirements are met, even cortical thickness morphometry. The source code is publicly available at https://github.com/BBillot/SynthSR. Keywords: Super-resolution, clinical scans, convolutional neural network, public software 1. Introduction 1.1. Motivation Magnetic resonance imaging (MRI) has revolutionized research on the human brain, by enabling in vivo nonin- vasive neuroimaging with exquisite and tunable soft-tissue contrast. Quantitative and reproduci",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04745,
+        -0.03139,
+        0.00693,
+        -0.03442,
+        -0.00195
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ing (MRI) has revolutionized research on the human brain, by enabling in vivo nonin- vasive neuroimaging with exquisite and tunable soft-tissue contrast. Quantitative and reproduci",
+      "overlap_with_next": "most of the tools in the major packages that arguably drive the ﬁeld (Free- Surfer, Fischl 2012; FSL, Jenkinson et al. 2012; SPM, Ashburner 2012; or AFNI, Cox 1996), e.g., for segm",
+      "text": "ing (MRI) has revolutionized research on the human brain, by enabling in vivo nonin- vasive neuroimaging with exquisite and tunable soft-tissue contrast. Quantitative and reproducible analysis of brain scans requires automated algorithms that analyze brain morphometry in 3D, and thus best operate on data with ∗Corresponding author Email address: e.iglesias@ucl.ac.uk (Juan Eugenio Iglesias) 1Data used in preparation of this article were obtained from the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database (http://adni.loni.usc.edu). As such, the investigators within the ADNI contributed to the design and implementation of ADNI and/or provided data but did not participate in analysis or writ- ing of this report. A complete listing of ADNI investigators can be found at: adni.loni.usc.edu/wp-content/uploads/how_to_apply/ ADNI_Acknowledgement_List.pdf. isotropic voxels. Most existing human neuroimaging soft- ware requires near-isotropic acquisitions that are common- place in research. Examples include most of the tools in the major packages that arguably drive the ﬁeld (Free- Surfer, Fischl 2012; FSL, Jenkinson et al. 2012; SPM, Ashburner 2012; or AFNI, Cox 1996), e.g., for segm",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03538,
+        -0.02584,
+        -0.00585,
+        -0.02744,
+        -0.025
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "most of the tools in the major packages that arguably drive the ﬁeld (Free- Surfer, Fischl 2012; FSL, Jenkinson et al. 2012; SPM, Ashburner 2012; or AFNI, Cox 1996), e.g., for segm",
+      "overlap_with_next": "Dec 2020 [Page 2] VoxResNet (Chen et al., 2018a). Moreover, many of these tools require speciﬁc sequences and types of MR contrast to diﬀerentiate gray and white matter, such as th",
+      "text": "most of the tools in the major packages that arguably drive the ﬁeld (Free- Surfer, Fischl 2012; FSL, Jenkinson et al. 2012; SPM, Ashburner 2012; or AFNI, Cox 1996), e.g., for segmen- tation (Dale et al., 1999; Fischl et al., 2002; Ashburner & Friston, 2005; Patenaude et al., 2011) or registration (Cox & Jesmanowicz, 1999; Jenkinson et al., 2002; Ashburner, 2007; Andersson et al., 2007; Greve & Fischl, 2009) of brain MRI scans. Many other popular tools outside these packages also have this near-isotropic resolution require- ment, including registrations packages like ANTS (Avants et al., 2008), Elastix (Klein et al., 2009) or NiftyReg (Mo- dat et al., 2010); and modern segmentation methods based on convolutional neural networks (CNNs) and particularly the U-net architecture (Ronneberger et al., 2015; C ¸ i¸ cek et al., 2016), such as DeepMedic (Kamnitsas et al., 2017), DeepNAT (Wachinger et al., 2018; Roy et al., 2019), or Preprint submitted to NeuroImage December 25, 2020 arXiv:2012.13340v1 [eess.IV] 24 Dec 2020 [Page 2] VoxResNet (Chen et al., 2018a). Moreover, many of these tools require speciﬁc sequences and types of MR contrast to diﬀerentiate gray and white matter, such as th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07529,
+        -0.02438,
+        -0.03721,
+        0.00339,
+        -0.00212
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "Dec 2020 [Page 2] VoxResNet (Chen et al., 2018a). Moreover, many of these tools require speciﬁc sequences and types of MR contrast to diﬀerentiate gray and white matter, such as th",
+      "overlap_with_next": "larly large for CNNs, which are fragile against changes in MRI contrast (see, e.g., Jog et al. 2019; Billot et al. 2020a). While classic registration algorithms are contrast agnos-",
+      "text": "Dec 2020 [Page 2] VoxResNet (Chen et al., 2018a). Moreover, many of these tools require speciﬁc sequences and types of MR contrast to diﬀerentiate gray and white matter, such as the ubiquitous MP-RAGE sequence (Mu- gler III & Brookeman, 1990) and its variants (van der Kouwe et al., 2008; Marques et al., 2010). Focusing on a speciﬁc MR contrast enables algorithms to be more ac- curate by learning prior distributions of intensities from labeled training data, but also limits their ability to ana- lyze images with contrasts diﬀerent from that of the train- ing dataset. Most segmentation methods, with the notable exception of Bayesian algorithms with unsupervised like- lihood (Van Leemput et al., 1999; Ashburner & Friston, 2005), have this MRI contrast requirement, and deviations from the expected intensity proﬁles (“domain shift”, even within T1-weighted MRI) lead to decreased performance, even with intensity standardization techniques (Han et al., 2006). The loss of accuracy due to domain shift is partic- ularly large for CNNs, which are fragile against changes in MRI contrast (see, e.g., Jog et al. 2019; Billot et al. 2020a). While classic registration algorithms are contrast agnos-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04904,
+        -0.02018,
+        -0.03628,
+        -0.00782,
+        0.001
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "larly large for CNNs, which are fragile against changes in MRI contrast (see, e.g., Jog et al. 2019; Billot et al. 2020a). While classic registration algorithms are contrast agnos-",
+      "overlap_with_next": "so starting to be used in the clinic, quantitative imaging in clinical practice is still in its infancy, and the vast majority of existing clinical MRI scans – including decades of",
+      "text": "larly large for CNNs, which are fragile against changes in MRI contrast (see, e.g., Jog et al. 2019; Billot et al. 2020a). While classic registration algorithms are contrast agnos- tic, modern deep learning registration techniques (de Vos et al., 2019; Balakrishnan et al., 2019) also require im- ages with MR contrast similar to that of the scans used in training. However, MRI scans acquired in the clinic are typi- cally quite diﬀerent from those obtained as part of research studies. Rather than isotropic volumes, physicians have traditionally preferred a relatively sparse set of images of parallel planes, which reduces the time required for ac- quisition and visual inspection. Therefore, clinical MRI exams2 typically comprise several scans acquired with dif- ferent orientations and (often 2D) pulse sequences, each of which consists of a relatively small set of slices (20-30) with large spacing in between (5-7 mm) and often high in-plane resolution (e.g., 0.5 mm). While morphometry of isotropic scans is also starting to be used in the clinic, quantitative imaging in clinical practice is still in its infancy, and the vast majority of existing clinical MRI scans – including decades of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03876,
+        -0.01761,
+        -0.02112,
+        -0.02417,
+        0.00252
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "so starting to be used in the clinic, quantitative imaging in clinical practice is still in its infancy, and the vast majority of existing clinical MRI scans – including decades of",
+      "overlap_with_next": "ch range 2In this article, we use the term “exam” to refer to the set of scans acquired during a single MRI session. from dozens of cases to tens of thousands in the largest meta-a",
+      "text": "so starting to be used in the clinic, quantitative imaging in clinical practice is still in its infancy, and the vast majority of existing clinical MRI scans – including decades of legacy data – are highly anisotropic, and thus cannot be reliably analyzed with existing tools. The inability to analyze clinical data in 3D has delete- rious consequences in the clinic and in research. In clinical practice, it precludes: quantitative evaluation of the sta- tus of a patient compared to the general population; pre- cise measurement of longitudinal change; and reduction of variability in subjective evaluation due to the positioning of the slices. In research, this inability hinders the anal- ysis of millions of brain scans that are currently stored in picture archiving and communication systems (PACS) around the world. For example, approximately 10 million MRI exams were performed in the US alone in 2019 (Oren et al., 2019). These ﬁgures are far larger than the sam- ple sizes in neuroimaging research studies, which range 2In this article, we use the term “exam” to refer to the set of scans acquired during a single MRI session. from dozens of cases to tens of thousands in the largest meta-a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03342,
+        0.00967,
+        -0.02476,
+        -0.01886,
+        -5e-05
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ch range 2In this article, we use the term “exam” to refer to the set of scans acquired during a single MRI session. from dozens of cases to tens of thousands in the largest meta-a",
+      "overlap_with_next": "ted to estimate the HR im- age, often in combination with a regularizer, i.e., a prior on the HR image (Park et al., 2003). However, this model- based SR with grid-shifted acquisit",
+      "text": "ch range 2In this article, we use the term “exam” to refer to the set of scans acquired during a single MRI session. from dozens of cases to tens of thousands in the largest meta-analyses, such as those by the ENIGMA consortium (Thompson et al., 2014). Computing measurements from clinical scans would thus enable research studies with sta- tistical power levels that are currently unattainable, with large potential for improving our understanding of brain diseases. 1.2. Related work There have been many attempts to bridge the gap between clinical and research scans in medical imaging, mostly based on super-resolution (SR) and synthesis tech- niques, many of which originated from the computer vision literature. SR seeks to obtain an enhanced, high-resolution (HR) image from an input consisting of one or multiple lower-resolution (LR) frames. Early SR was model-based and relied on multiple LR images of the same scene ac- quired with slight diﬀerences in camera positioning; sub- pixel shifts can then be exploited to estimate the HR im- age, often in combination with a regularizer, i.e., a prior on the HR image (Park et al., 2003). However, this model- based SR with grid-shifted acquisit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01267,
+        -0.00257,
+        -0.0346,
+        0.0016,
+        0.00272
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ted to estimate the HR im- age, often in combination with a regularizer, i.e., a prior on the HR image (Park et al., 2003). However, this model- based SR with grid-shifted acquisit",
+      "overlap_with_next": " by deep CNNs, which have achieved very impressive results. Earlier methods relying on older and simpler architectures from the computer vision literature (e.g., Pham et al. 2017, ",
+      "text": "ted to estimate the HR im- age, often in combination with a regularizer, i.e., a prior on the HR image (Park et al., 2003). However, this model- based SR with grid-shifted acquisitions is not feasible in the Fourier-encoded (and hence band-limited) dimensions in MRI (Scheﬄer, 2002). Successful SR of MRI has been achieved with machine learning (ML) techniques that do not require handcraft- ing priors of HR images. Instead, they use a dataset of matching LR-HR images to learn a mapping that enables recovery of HR from LR; training data are often obtained by blurring and subsampling HR images to obtain their LR counterparts. Classical ML methods have long been used to learn this mapping, including non-local patch tech- niques (Manj´ on et al., 2010), sparse representations Rueda et al. (2013), low-rank methods Shi et al. (2015), canonical correlation analysis (Bahrami et al., 2016), random forests (Alexander et al., 2017), or sparse coding (Huang et al., 2017). These classical techniques have been superseded by deep CNNs, which have achieved very impressive results. Earlier methods relying on older and simpler architectures from the computer vision literature (e.g., Pham et al. 2017, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04241,
+        0.02487,
+        -0.04937,
+        -0.00886,
+        -0.04181
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": " by deep CNNs, which have achieved very impressive results. Earlier methods relying on older and simpler architectures from the computer vision literature (e.g., Pham et al. 2017, ",
+      "overlap_with_next": "g (Roy et al., 2011), patch matching (Iglesias et al., 2 [Page 3] 2013), or random forests (Huynh et al., 2015). Since MR contrast synthesis is generally an easier problem than SR,",
+      "text": " by deep CNNs, which have achieved very impressive results. Earlier methods relying on older and simpler architectures from the computer vision literature (e.g., Pham et al. 2017, based on the SRCNN architecture, Dong et al. 2015) al- ready surpassed classical techniques by a large margin. Further improvements have been provided by the adop- tion of more recent developments in CNNs, such as densely connected networks (Chen et al., 2018c), adversarial net- works (Chen et al., 2018b), residual connections (Chaud- hari et al., 2018), uncertaintly modeling (Tanno et al., 2020), or progressive architectures (Lyu et al., 2020). Im- portantly, it has been shown that the SR images generated with such deep learning techniques can improve down- stream analyses, such as cortical thickness (Tian et al., 2020) or tractography (Tanno et al., 2020). Meanwhile, MRI contrast synthesis techniques for brain imaging have followed a path parallel to SR. Early meth- ods used classical ML techniques such as dictionary learn- ing (Roy et al., 2011), patch matching (Iglesias et al., 2 [Page 3] 2013), or random forests (Huynh et al., 2015). Since MR contrast synthesis is generally an easier problem than SR,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02738,
+        -0.00561,
+        -0.0083,
+        -0.03618,
+        -0.02066
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "g (Roy et al., 2011), patch matching (Iglesias et al., 2 [Page 3] 2013), or random forests (Huynh et al., 2015). Since MR contrast synthesis is generally an easier problem than SR,",
+      "overlap_with_next": "a or, at least, HR images of the target contrast in training. This is an important limitation, as such re- quired training data are most often not available – partic- ularly since ",
+      "text": "g (Roy et al., 2011), patch matching (Iglesias et al., 2 [Page 3] 2013), or random forests (Huynh et al., 2015). Since MR contrast synthesis is generally an easier problem than SR, these early methods already achieved competitive results; for example, we have shown that patch-matched synthetic images provide almost identical performance as the ground truth scans in downstream tasks such as registration and segmentation (Iglesias et al., 2013). Nevertheless, these methods have been superseded by modern ML techniques based on CNNs, often equipped with adversarial losses (Goodfellow et al., 2014) to preserve ﬁner, higher-frequency detail, as well as cycle consistency (Zhu et al., 2017) in or- der to enable synthesis with unpaired data (e.g., Chartsias et al. 2017; Xiang et al. 2018; Nie et al. 2018; Shin et al. 2018; Dar et al. 2019). While the performance of CNNs in SR and synthe- sis of MRI is impressive, their adoption in clinical MRI analysis is hindered by the fact that they typically require paired data or, at least, HR images of the target contrast in training. This is an important limitation, as such re- quired training data are most often not available – partic- ularly since ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02903,
+        0.00395,
+        -0.0448,
+        -0.04484,
+        -0.00806
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "a or, at least, HR images of the target contrast in training. This is an important limitation, as such re- quired training data are most often not available – partic- ularly since ",
+      "overlap_with_next": "udfors et al. (2018), this technique can also applied to single images. Unfor- tunately, the performance of these classical approaches is lower than that of their CNN counterparts.",
+      "text": "a or, at least, HR images of the target contrast in training. This is an important limitation, as such re- quired training data are most often not available – partic- ularly since the resolution, contrast and orientations ac- quired in brain MRI exams vary substantially across sites. To tackle this problem, classical methods based on prob- abilistic models have been proposed. For example, Dalca et al. (2018) used collections of thick-slice scans to build a generative model that they subsequently inverted to ﬁll in the missing information between slices. Brudfors et al. (2018) also cast SR as an inverse problem, using multi- channel total variation as a prior; this approach has the advantage of not needing access to a collection of scans for training, so it can be immediately used for any new set of input contrasts. Jog et al. (2016) use Fourier Burst Accumulation (Delbracio & Sapiro, 2015) to super-resolve across slices using the high-resolution information exist- ing within slices (i.e., in plane); as Brudfors et al. (2018), this technique can also applied to single images. Unfor- tunately, the performance of these classical approaches is lower than that of their CNN counterparts.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01872,
+        -0.0056,
+        -0.0227,
+        0.00255,
+        -0.00383
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "udfors et al. (2018), this technique can also applied to single images. Unfor- tunately, the performance of these classical approaches is lower than that of their CNN counterparts.",
+      "overlap_with_next": "r-resolve the imaging volume across slices. While this technique does not require HR training data and can be applied to a single scan, it has two disadvantages compared with the m",
+      "text": "udfors et al. (2018), this technique can also applied to single images. Unfor- tunately, the performance of these classical approaches is lower than that of their CNN counterparts. The closest works related to the technique proposed in this article are those by Huang et al. (2017) and Zhao et al. (2020). The former presents “WEENIE”, a weakly- supervised joint convolutional sparse coding method for joint SR and synthesis of brain MRI. WEENIE combines a small set of image pairs (LR of source domain, HR of target domain) with a larger set of unpaired scans, and uses convolutional sparse coding to learn a representation (a joint dictionary) where the similarity of the feature dis- tributions of the paired and unpaired data is maximized. The main limitation of WEENIE is its need for paired data, even if in a small amount. Zhao et al. (2020) is a deep learning version of Jog et al. (2016), which relies of training a CNN with high-resolution slices (blurred along one of the two dimensions), and using it to super-resolve the imaging volume across slices. While this technique does not require HR training data and can be applied to a single scan, it has two disadvantages compared with the m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04013,
+        0.01517,
+        -0.02009,
+        0.01203,
+        -0.00385
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "r-resolve the imaging volume across slices. While this technique does not require HR training data and can be applied to a single scan, it has two disadvantages compared with the m",
+      "overlap_with_next": "hat uses synthetically generated images to train a CNN – an approach that we recently applied with success to contrast-agnostic and partial volume (PV) segmenta- tion of brain MRI ",
+      "text": "r-resolve the imaging volume across slices. While this technique does not require HR training data and can be applied to a single scan, it has two disadvantages compared with the method presented here. First, it is unable to combine the information from multiple scans from the same MRI exam, with diﬀerent resolution and contrast. And second, inte- gration of MR contrast synthesis into the method is not straightforward. 1.3. Contribution As explained above, the applicability of deep learning SR and synthesis techniques to clinical MRI is often im- practical due to substantial diﬀerences in MR acquisition protocols across sites. Even within a single site, it is com- mon for brain MRI exams to comprise diﬀerent sets of se- quences – particularly when considering longitudinal data, since acquisition protocols are frequently updated and im- proved, and the same patients may be scanned on diﬀerent platforms (possibly with diﬀerent ﬁeld strengths). In this article we present SynthSR, a solution to this problem that uses synthetically generated images to train a CNN – an approach that we recently applied with success to contrast-agnostic and partial volume (PV) segmenta- tion of brain MRI ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00076,
+        -0.01177,
+        -0.01188,
+        -0.02035,
+        -0.00551
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "hat uses synthetically generated images to train a CNN – an approach that we recently applied with success to contrast-agnostic and partial volume (PV) segmenta- tion of brain MRI ",
+      "overlap_with_next": "oimaging tools on the reconstructed isotropic scans, in- cluding: segmentation for volumetry, registration for tensor- based morphometry, and cortical thickness. This approach cont",
+      "text": "hat uses synthetically generated images to train a CNN – an approach that we recently applied with success to contrast-agnostic and partial volume (PV) segmenta- tion of brain MRI (Billot et al., 2020a,b). The synthetic data mimic multi-modal MRI scans with channels of dif- ferent resolutions and contrasts, and include artifacts such as bias ﬁelds, registration errors, and resampling artifacts. Having full control over the generative process allows us to train CNNs for super-resolution, synthesis, or both, for any desired combination of MR contrasts, resolution, and orientation – without ever observing a real HR scan of the target contrast, thus enabling wide applicability. To the best of our knowledge, SynthSR is the ﬁrst deep learning technique that enables “reconstruction” of an isotropic scan of a reference MRI contrast from a set of thick-slice scans with diﬀerent resolutions and pulse se- quences. We extensively validate the applicability of our approach by analyzing the performance of common neu- roimaging tools on the reconstructed isotropic scans, in- cluding: segmentation for volumetry, registration for tensor- based morphometry, and cortical thickness. This approach cont",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00525,
+        -0.02225,
+        -0.0023,
+        0.00037,
+        -0.01152
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "oimaging tools on the reconstructed isotropic scans, in- cluding: segmentation for volumetry, registration for tensor- based morphometry, and cortical thickness. This approach cont",
+      "overlap_with_next": "c data gen- erator that enables training CNNs for SR and synthesis 3 [Page 4] Random selection Random deform. GMM Artifact and PV model Pool of label maps & real images Selected la",
+      "text": "oimaging tools on the reconstructed isotropic scans, in- cluding: segmentation for volumetry, registration for tensor- based morphometry, and cortical thickness. This approach contrasts with most of the existing SR literature, where validation relies on image similarity metrics (e.g., peak signal-to-noise ratio) that may not be a good predictor of performance in the downstream analyses that one is ulti- mately interested in. The rest of this paper is organized as follows: Section 2 describes our proposed framework to generate synthetic images, and how it can be used to train CNNs for SR, synthesis, or both simultaneously. Section 3 presents three diﬀerent experiments that evaluate our proposed method with synthetic and real data, and compare its performance with Bayesian approaches. Finally, Section 4 discusses the results and concludes the article with a consideration of future directions and applications of this technique. 2. Methods 2.1. Synthetic data generator The cornerstone of SynthSR is a synthetic data gen- erator that enables training CNNs for SR and synthesis 3 [Page 4] Random selection Random deform. GMM Artifact and PV model Pool of label maps & real images Selected la",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01988,
+        0.01297,
+        -0.01779,
+        -0.02023,
+        0.02696
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "c data gen- erator that enables training CNNs for SR and synthesis 3 [Page 4] Random selection Random deform. GMM Artifact and PV model Pool of label maps & real images Selected la",
+      "overlap_with_next": "gniﬁcantly slow down training. The ﬂowchart of the generator is illustrated in Figure 1; the diﬀerent steps are described below. 2.1.1. Sample selection For training, we assume the",
+      "text": "c data gen- erator that enables training CNNs for SR and synthesis 3 [Page 4] Random selection Random deform. GMM Artifact and PV model Pool of label maps & real images Selected label map & real image Deformed label map & real image Synthetic HR intensities Synthetic, corrupted JOINT SR/SYNTHESIS SR LR intensities Figure 1: Overview of the synthetic data generator used by SynthSR. The blue arrows follow the generative model, which is used to sample random scans at every minibatch using a GPU implementation. The red arrows connect the inputs and regression targets used in training for SR or joint SR / synthesis. We emphasize that the real images are only required for joint SR / synthesis, and not SR alone. using brain MRI scans of any resolution and contrast (Bil- lot et al., 2020a,b). At every minibatch, this generator is used to randomly sample a series of synthetic images that are used to update the CNN weights via a regression loss. Crucially, this generator is implemented in the GPU, so it does not signiﬁcantly slow down training. The ﬂowchart of the generator is illustrated in Figure 1; the diﬀerent steps are described below. 2.1.1. Sample selection For training, we assume the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04646,
+        0.00694,
+        -0.04657,
+        -0.00751,
+        -0.02368
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "gniﬁcantly slow down training. The ﬂowchart of the generator is illustrated in Figure 1; the diﬀerent steps are described below. 2.1.1. Sample selection For training, we assume the",
+      "overlap_with_next": " is the composition of a linear and nonlinear transform:T =Tlin◦Tnonlin. The lin- ear component is a combination of three rotations (θx,θy,θz), three scalings (sx,sy,sz) and three ",
+      "text": "gniﬁcantly slow down training. The ﬂowchart of the generator is illustrated in Figure 1; the diﬀerent steps are described below. 2.1.1. Sample selection For training, we assume the availability of a pool of HR brain scans with the same MR contrast {In}n=1,...,N, to- gether with corresponding segmentations (“label maps”) of K classes{Ln}n=1,...,N corresponding to brain struc- tures and extracerebral regions; these segmentations can be manual, automated, or a combination thereof. Impor- tantly, the MR contrast of these volumes deﬁnes the ref- erence contrast we will synthesize, so they would typically be 1 mm isotropic MP-RAGE scans; if one wishes to per- form SR alone (i.e., without synthesis), these images are not required. At every minibatch, the generative process starts by randomly selecting an image-segmentation pair (I,L ) from the pool using a uniform distribution: n∼U (1,N ), I←In, L←Ln. 2.1.2. Spatial augmentation The selected image and segmentation are augmented with a spatial transform T , which is the composition of a linear and nonlinear transform:T =Tlin◦Tnonlin. The lin- ear component is a combination of three rotations (θx,θy,θz), three scalings (sx,sy,sz) and three ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03076,
+        0.01044,
+        -0.02254,
+        0.024,
+        0.00288
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": " is the composition of a linear and nonlinear transform:T =Tlin◦Tnonlin. The lin- ear component is a combination of three rotations (θx,θy,θz), three scalings (sx,sy,sz) and three ",
+      "overlap_with_next": "ith three channels (e.g., 10× 10× 10× 3) by ran- domly sampling a zero-mean Gaussian distribution at each location independently. Second, we trilinearly upsample these three channe",
+      "text": " is the composition of a linear and nonlinear transform:T =Tlin◦Tnonlin. The lin- ear component is a combination of three rotations (θx,θy,θz), three scalings (sx,sy,sz) and three shearings (φx,φy,φz), all sampled from uniform distributions (the scalings are sampled in logarithmic domain): θx∼U (arot,brot), logsx∼U (asc,bsc), φx∼U (ash,bsh), θy∼U (arot,brot), logsy∼U (asc,bsc), φy∼U (ash,bsh), θz∼U (arot,brot), logsz∼U (asc,bsc), φz∼U (ash,bsh), Tlin = Aﬃne(θx,θy,θz,sx,sy,sz,φx,φy,φz), (1) wherearot,brot,asc,bsc,ash,bsh are the minimum and max- imum values of the uniform distribution, and Aﬃne( ·) is an aﬃne matrix consisting of the product of nine matrices: three scalings, three shearings, and three rotations about thex,y andz axis. We note that we do not include trans- lation into the model, since it is not helpful in a dense prediction setup – as opposed to, e.g., image classiﬁcation. The nonlinear component is a diﬀeomorphic transform generated as follows. First, we generate a low dimensional volume with three channels (e.g., 10× 10× 10× 3) by ran- domly sampling a zero-mean Gaussian distribution at each location independently. Second, we trilinearly upsample these three channe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03937,
+        -0.01322,
+        -0.0258,
+        0.01319,
+        0.05392
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ith three channels (e.g., 10× 10× 10× 3) by ran- domly sampling a zero-mean Gaussian distribution at each location independently. Second, we trilinearly upsample these three channe",
+      "overlap_with_next": "ned on the labels. This GMM is in general multivariate (with C diﬀerent channels corresponding to C MR contrasts) and has as many components as the number of classes K. The in- ten",
+      "text": "ith three channels (e.g., 10× 10× 10× 3) by ran- domly sampling a zero-mean Gaussian distribution at each location independently. Second, we trilinearly upsample these three channels to the size of the image I in order to obtain a smooth volume with three channels, which we interpret as a stationary velocity ﬁeld (SVF). Finally, we compute the Lie exponential via integration of the SVF with a scale-and-square approach (Arsigny et al., 2006) in order to obtain a diﬀemorphic ﬁeld that is smooth and invertible: SVF′∼N 10×10×10×3(0,σ 2T ), SVF = Upsample(SVF′), Tnonlin = exp(SVF). where the varianceσ2T controls the smoothness of the ﬁeld. Finally, the composite deformation T is used to de- form I and L into IT and LT using trilinear and nearest neighbor interpolation, respectively: IT =I◦T =I◦ (Tlin◦Tnonlin) LT =L◦T =L◦ (Tlin◦Tnonlin) 2.1.3. Synthetic HR intensities Given the deformed segmentationLT , we subsequently generate HR intensities by sampling a Gaussian mixture model (GMM) at each location, conditioned on the labels. This GMM is in general multivariate (with C diﬀerent channels corresponding to C MR contrasts) and has as many components as the number of classes K. The in- ten",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02409,
+        -0.01018,
+        -0.01329,
+        -0.00695,
+        0.01744
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "ned on the labels. This GMM is in general multivariate (with C diﬀerent channels corresponding to C MR contrasts) and has as many components as the number of classes K. The in- ten",
+      "overlap_with_next": "o. The hyperpa- rameters{mµk,c},{aµk,c},{mσk,c},{aσk,c} control the contrast of the synthetic images; the practical procedure we follow to estimate these parameters is detailed in ",
+      "text": "ned on the labels. This GMM is in general multivariate (with C diﬀerent channels corresponding to C MR contrasts) and has as many components as the number of classes K. The in- tensities are further augmented with a random Gamma transform. Speciﬁcally, the GMM parameters and HR in- 4 [Page 5] tensities are randomly sampled as follows: µk,c∼N (mµk,c,aµk,c), σk,c∼Ntrunc(mσk,c,aσk,c), G′c(x,y,z )∼N(µLT (x,y,z),c,σ 2LT (x,y,z),c), (2) γc∼U(aγ,bγ), Gc = minx,y,zG′c + (maxx,y,zG′c− minx,y,zG′c)×[ G′c− minx,y,zG′c maxx,y,zG′c− minx,y,zG′c ]γc , G(x,y,z ) ={Gc(x,y,z )}c=1,...,C, where the mean and standard deviation (µk,c,σk,c) of each classk and MR contrast/channelc are independently sam- pled from Gaussian distributions (the latter truncated to avoid negative values), and the Gaussian intensity at HR Gc is independently sampled at each spatial location (x,y,z ) from the distribution class indexed by the corresponding label LT (x,y,z ). Note that we assume the covariances between the diﬀerent contrasts to be zero. The hyperpa- rameters{mµk,c},{aµk,c},{mσk,c},{aσk,c} control the contrast of the synthetic images; the practical procedure we follow to estimate these parameters is detailed in ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07164,
+        -0.00495,
+        -0.03404,
+        -0.00989,
+        0.00998
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "o. The hyperpa- rameters{mµk,c},{aµk,c},{mσk,c},{aσk,c} control the contrast of the synthetic images; the practical procedure we follow to estimate these parameters is detailed in ",
+      "overlap_with_next": "rtifacts. Variability in coordinate frames. In practice, the diﬀer- ent channels of multi-modal MRI scans are not perfectly aligned due to inter-scan motion, i.e., the fact that su",
+      "text": "o. The hyperpa- rameters{mµk,c},{aµk,c},{mσk,c},{aσk,c} control the contrast of the synthetic images; the practical procedure we follow to estimate these parameters is detailed in Section 2.2.3 below. Finally, the parameters aγ,bγ of the uniform dis- tribution for γ control the maximum strength of the non- linear gamma transform. We note that this highly ﬂexible process generates a very wide variety of contrasts – much wider than what one encounters in practice. Our goal is not to faithfully reproduce the image formation model of MRI, but to generate a diverse set of images, as there is increasing evidence that exposing CNNs to a broader range of images than they will typically encounter at test time improves their generalization ability (see for instance Chaitanya et al. 2019). 2.1.4. Synthetic, corrupted LR intensities The last step of the synthetic data generation is the simulation of variability in coordinate frames and of image artifacts, including bias ﬁeld, PV, registration errors, and resampling artifacts. Variability in coordinate frames. In practice, the diﬀer- ent channels of multi-modal MRI scans are not perfectly aligned due to inter-scan motion, i.e., the fact that su",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00764,
+        -0.02108,
+        -0.03671,
+        -0.00633,
+        -0.00385
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "rtifacts. Variability in coordinate frames. In practice, the diﬀer- ent channels of multi-modal MRI scans are not perfectly aligned due to inter-scan motion, i.e., the fact that su",
+      "overlap_with_next": "eliability maps 1.0 .75 .50 .25 0.0 Figure 2: Details of the workﬂow for the generator of synthetic scans with reliability maps, using an example with a 7 mm sagittal T1 ac- quisit",
+      "text": "rtifacts. Variability in coordinate frames. In practice, the diﬀer- ent channels of multi-modal MRI scans are not perfectly aligned due to inter-scan motion, i.e., the fact that sub- ject moves in between scans. Therefore, a ﬁrst step when processing data from an MRI exam is to select one of the input channels to deﬁne a reference coordinate frame, and register all the other channels to it. Inter-scan motion aside, the coordinate frames of the diﬀerent channels are in general not perfectly orthogonal, for two possible rea- sons. First, it is possible that the geometric planning of the diﬀerent channels is not orthogonal by design. For example, the coronal hippocampal subﬁeld T2 acquisition in ADNI is oriented perpendicularly to the major axis of the hippocampus, and is thus rotated with respect to the (a)Synth. 1mm T1: (b)Synthetic HR FLAIR: (d)Rotated 1 mm FLAIR: (c)7 mm sag. T1: , (f)Registered 6 mm FLAIR: , (e)Rotated 6 mm axial FLAIR: Synthetic HR intensities Synthetic, corrupted LR intensities with reliability maps 1.0 .75 .50 .25 0.0 Figure 2: Details of the workﬂow for the generator of synthetic scans with reliability maps, using an example with a 7 mm sagittal T1 ac- quisit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00538,
+        -0.01726,
+        -0.01351,
+        0.0154,
+        -0.00914
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "eliability maps 1.0 .75 .50 .25 0.0 Figure 2: Details of the workﬂow for the generator of synthetic scans with reliability maps, using an example with a 7 mm sagittal T1 ac- quisit",
+      "overlap_with_next": "pply random rigid transforms to all the MR contrasts except for the reference channel, which we assume, without loss of generality, to be the ﬁrst one: θRc,x∼U (arot,brot), tc,x∼U ",
+      "text": "eliability maps 1.0 .75 .50 .25 0.0 Figure 2: Details of the workﬂow for the generator of synthetic scans with reliability maps, using an example with a 7 mm sagittal T1 ac- quisition (used as reference) and a 6 mm axial FLAIR. (a) Synthetic HR T1 with bias ﬁeld (GB1 = GR1 ). (b) Synthetic HR FLAIR with bias ﬁeld (GB2 ). (c) Synthetic LR sagittal T1 with reliability map overlaid (I LR1 = U1 and V1). (d) Synthetic HR FLAIR with small random de- formation, simulating subject motion in between scans ( GR2 ). (e) Syn- thetic LR axial FLAIR with reliability map ( I LR2 ). (f) LR FLAIR and reliability map registered to the reference space deﬁned by the T1 scan (U2 and V2); note that the reliability map is no longer binary or parallel to the axial plane. Registration errors are modeled by adding noise to the inverse of the random rigid transform when deforming back to the reference space. isotropic 1mm MP-RAGE acquisition. And second, the aforementioned inter-scan motion. In order to model these diﬀerences, we apply random rigid transforms to all the MR contrasts except for the reference channel, which we assume, without loss of generality, to be the ﬁrst one: θRc,x∼U (arot,brot), tc,x∼U ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05557,
+        0.01931,
+        -0.01678,
+        0.00245,
+        0.01961
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "pply random rigid transforms to all the MR contrasts except for the reference channel, which we assume, without loss of generality, to be the ﬁrst one: θRc,x∼U (arot,brot), tc,x∼U ",
+      "overlap_with_next": "ur steps that are independently repeated for each MR contrast c. First, we generate a low dimensional volume (e.g., 4× 4× 4) by randomly sampling a zero-mean Gaus- sian distributio",
+      "text": "pply random rigid transforms to all the MR contrasts except for the reference channel, which we assume, without loss of generality, to be the ﬁrst one: θRc,x∼U (arot,brot), tc,x∼U (at,bt), θRc,y∼U (arot,brot), tc,y∼U (at,bt), θRc,z∼U (arot,brot), tc,z∼U (at,bt), Rc = { Id. = Rigid(0, 0, 0, 0, 0, 0), if c = 1 Rigid(θRc,x,θRc,y,θRc,z,tc,x,tc,y,tc,z), if c> 1 (3) GRc =Gc◦Rc, where we use the same parameters of the uniform distribu- tion of the rotation angles as in Equation 1, at,bt are the extremes of the uniform distribution for the translations, Rigid(·) is a rigid transform matrix consisting of the prod- uct of three rotation and three translation matrices, Rc is the rigid transformation matrix for channel c, and GRc is the rigidly deformed synthetic HR volume for contrast c. An example of this deformation is shown in Figure 2(d). Bias ﬁeld. In order to generate a smooth multiplicative bias ﬁeld, we use a strategy very similar to the one we utilized for the nonlinear deformation, and which consists of four steps that are independently repeated for each MR contrast c. First, we generate a low dimensional volume (e.g., 4× 4× 4) by randomly sampling a zero-mean Gaus- sian distributio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03972,
+        0.03409,
+        -0.02378,
+        -0.00675,
+        0.01923
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "ur steps that are independently repeated for each MR contrast c. First, we generate a low dimensional volume (e.g., 4× 4× 4) by randomly sampling a zero-mean Gaus- sian distributio",
+      "overlap_with_next": "e corresponding direction. The blurring kernel is directly related to the MRI slice excitation proﬁle. While real sequences use complicated proﬁles (e.g., numerically optimized wit",
+      "text": "ur steps that are independently repeated for each MR contrast c. First, we generate a low dimensional volume (e.g., 4× 4× 4) by randomly sampling a zero-mean Gaus- sian distribution at each location independently. Second, 5 [Page 6] we linearly upsample this volume to the size of the full image Gc. Third, we take the voxel-wise exponential of the volume to obtain the bias ﬁeld Bc. And fourth, we multiply each channel c of the Gaussian volume Gc byBc at every spatial location: logB′c∼N 4×4×4(0,σ 2B), logBc = Upsample(logB′c), Bc(x,y,z ) = exp[logBc(x,y,z )], GBc (x,y,z ) =GRc (x,y,z )Bc(x,y,z ), where the variance σ2B controls the strength of the bias ﬁeld, Bc(x,y,z ) the non-negative bias ﬁeld at location (x,y,z ), and GBc (x,y,z ) represents the corrupted inten- sities of (rigidly deformed) channel c. Partial voluming. The simulation of partial voluming hap- pens independently for every channel, and has two aspects: slice thickness and slice spacing. The slice thickness can be simulated by blurring in the corresponding direction. The blurring kernel is directly related to the MRI slice excitation proﬁle. While real sequences use complicated proﬁles (e.g., numerically optimized wit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02125,
+        -0.00073,
+        -0.00221,
+        -0.00576,
+        0.01735
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "e corresponding direction. The blurring kernel is directly related to the MRI slice excitation proﬁle. While real sequences use complicated proﬁles (e.g., numerically optimized wit",
+      "overlap_with_next": "Resample (Iσc ;dc), where aα,bα are the parameters of the uniform prior dis- tribution overα;rc is the (possibly anisotropic) voxel size of the test scan in channel c, without cons",
+      "text": "e corresponding direction. The blurring kernel is directly related to the MRI slice excitation proﬁle. While real sequences use complicated proﬁles (e.g., numerically optimized with the Shinnar-Le Roux algorithm, Pauly et al. 1991), we instead use a sim- ple Gaussian kernel in our simulations. The standard de- viations of the kernels σS,c depend on the direction and channel, and are designed to divide the power of the HR signal by 10 at the cut-oﬀ frequency (Billot et al., 2020b). We further multiply σS,c by a random factor α, sampled from a uniform distribution of predeﬁned range, to model small deviations from the nominal voxel size. Once the image has been blurred, slice spacing can be easily modeled by subsampling every channel in every direction with the prescribed channel-speciﬁc spacing dis- tances. This subsampling produces synthetic, corrupted, misaligned LR intensities for every channelc. The speciﬁc processing is: α∼U (aα,bα), σS,c = 2α log(10)/(2π)rc/rtarg, Iσc =GRc ∗N [0,diag (σS,c)], ILRc = Resample (Iσc ;dc), where aα,bα are the parameters of the uniform prior dis- tribution overα;rc is the (possibly anisotropic) voxel size of the test scan in channel c, without cons",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06774,
+        -0.00112,
+        -0.02364,
+        -0.00413,
+        -0.0105
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "Resample (Iσc ;dc), where aα,bα are the parameters of the uniform prior dis- tribution overα;rc is the (possibly anisotropic) voxel size of the test scan in channel c, without cons",
+      "overlap_with_next": " and SR and synthesis become a voxel- wise regression problem. In order to simulate the regis- tration step, one could simply invert the rigid transform modeling the variability in",
+      "text": "Resample (Iσc ;dc), where aα,bα are the parameters of the uniform prior dis- tribution overα;rc is the (possibly anisotropic) voxel size of the test scan in channel c, without considering gaps be- tween slices;rtarg is the (often isotropic) voxel size of the training segmentations (which deﬁnes the target resolution for SR);Iσc is the blurred channel c; Resample(·) is the re- sample operator; dc is the voxel spacing of channel c; and ILRc are the synthetic, corrupted, misaligned LR intensi- ties. We note that rc, rtarg and σS,c are 3× 1 vectors, with components for the x, y and z directions. Examples of PV modeling are shown in Figure 2(c,e). Registration errors and resampling artifacts. The ﬁnal step of our generator is mimicking the preprocessing that will happen at test time, where the diﬀerent channels will be rigidly registered to the reference channel c = 1 and tri- linearly upsampled to the (typically isotropic) target res- olutionrtarg. At that point, all images are deﬁned on the same voxel space, and SR and synthesis become a voxel- wise regression problem. In order to simulate the regis- tration step, one could simply invert the rigid transform modeling the variability in",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03139,
+        0.00568,
+        -0.02778,
+        0.00286,
+        0.003
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": " and SR and synthesis become a voxel- wise regression problem. In order to simulate the regis- tration step, one could simply invert the rigid transform modeling the variability in",
+      "overlap_with_next": "maps encode the conﬁdence one has in the observations at each voxel location and improve the performance of the CNN in practice. They are essen- tially soft, voxel-wise maps indica",
+      "text": " and SR and synthesis become a voxel- wise regression problem. In order to simulate the regis- tration step, one could simply invert the rigid transform modeling the variability in coordinate frames (Equation 3). However, registration will always be imperfect at test time, so it is crucial to simulate registration errors in our gener- ator. The ﬁnal images produced of the generator {Uc} are given by: ϵc∼ { δ(ϵc), c = 1 N [0, diag(σ2ϵ,θ,σ 2ϵ,θ,σ 2ϵ,θ,σ 2ϵ,t,σ 2ϵ,t,σ 2ϵ,t)], c> 1 R′c =R−1c × Rigid(ϵc), U′c =ILRc ◦R′c, Uc = Resample(U′c;rtarg), (4) where δ(·) is Kronecker’s delta and σ2ϵ,θ,σ 2ϵ,t are the vari- ances of the rotation and translation components of the registration error, which are assumed to be statistically independent. An example of a registered and resampled image is shown in Figure 2(f), where the rotation has in- troduced noticeable resampling artifacts. In addition to{Uc}, the generator also produces a sec- ond set of volumes {Vc}c=1,...,C that we call “reliability maps”. The reliability maps encode the conﬁdence one has in the observations at each voxel location and improve the performance of the CNN in practice. They are essen- tially soft, voxel-wise maps indica",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06504,
+        0.02415,
+        -0.04061,
+        -0.00387,
+        -0.01636
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "maps encode the conﬁdence one has in the observations at each voxel location and improve the performance of the CNN in practice. They are essen- tially soft, voxel-wise maps indica",
+      "overlap_with_next": "generated on the ﬂy during training. We consider two diﬀerent modes of operation: SR alone, and joint SR and synthesis (Figure 1). In the former case, we seek to recover the synthe",
+      "text": "maps encode the conﬁdence one has in the observations at each voxel location and improve the performance of the CNN in practice. They are essen- tially soft, voxel-wise maps indicating whether voxels are measured or interpolated. Voxels on slices of ILRc have re- liability one, whereas voxels between slices have reliability zero – see for instance Figure 2(c,e). Reliabilities between zero and one are obtained due to linear interpolation when the target resolution is not an exact multiple of the slice spacing, or when applying the transformation R′c (simu- lating the registration) to the maps in order to bring them into alignment with{Uc}, e.g., as in Figure 2(f). We note that these maps are known for every image, and we use them as additional input at testing (Section 2.3). 2.2. Learning and inference 2.2.1. Regression targets and loss We train a CNN to predict the desired output Y from the inputs{Uc,Vc}, i.e., the registered LR scans resampled at rtarg and their corresponding reliability maps, which are generated on the ﬂy during training. We consider two diﬀerent modes of operation: SR alone, and joint SR and synthesis (Figure 1). In the former case, we seek to recover the synthe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07793,
+        0.01532,
+        -0.02928,
+        0.00517,
+        0.00965
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "generated on the ﬂy during training. We consider two diﬀerent modes of operation: SR alone, and joint SR and synthesis (Figure 1). In the former case, we seek to recover the synthe",
+      "overlap_with_next": " simply regress the target intensities directly: Y =IT . The CNN is trained with the Adam optimizer (Kingma & Ba, 2014), seeking to minimize the expectation of the L1 norm of the e",
+      "text": "generated on the ﬂy during training. We consider two diﬀerent modes of operation: SR alone, and joint SR and synthesis (Figure 1). In the former case, we seek to recover the synthetic HR volume of the reference contrast GB1 = GR1 . Rather than predicting this image volume directly, it is an easier optimization problem to predict the residual instead, i.e., we seek to regressY =GB1−U1 from{Uc,Vc}. This mode of operation does not require any real images for training. 6 [Page 7] arot brot asc bsc ash bsh σ2T aγ bγ σ2B ab bt aα bα σ2ϵ,θ σ2ϵ,t -10 10 0.9 1.1 -0.01 0.01 32 0.7 1.3 0.52 -20 20 0.8 1.2 0.32 0.32 Table 1: Model hyperparameters. Angles are in degrees, and spatial measures are in mm. In joint SR / synthesis, we instead seek to recover the real image intensities of standard contrast, typically MP- RAGE. If any of the input contrastsc∗ is similar to the tar- get standard contrast (e.g., a T1-weighted scan acquired with a TSE sequence), we regress the residual, as in the SR case: Y = IT−Uc∗. If not, we simply regress the target intensities directly: Y =IT . The CNN is trained with the Adam optimizer (Kingma & Ba, 2014), seeking to minimize the expectation of the L1 norm of the e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03146,
+        0.01543,
+        -0.02902,
+        -0.01414,
+        0.01993
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " simply regress the target intensities directly: Y =IT . The CNN is trained with the Adam optimizer (Kingma & Ba, 2014), seeking to minimize the expectation of the L1 norm of the e",
+      "overlap_with_next": "e after each max-pooling, and halved after each upsampling. The last layer uses a linear activation to produce an estimate of Y . The U-net is concatenated with the synthetic data ",
+      "text": " simply regress the target intensities directly: Y =IT . The CNN is trained with the Adam optimizer (Kingma & Ba, 2014), seeking to minimize the expectation of the L1 norm of the error: ˆΩ = argmin Ω E[‖Y− ˜Y (U1,V 1,...,U c,Vc; Ω)‖1] where Ω is the set of CNN weights, and ˜Y (·, Ω) is the out- put of the CNN when parameterized by Ω. The choice of the L1 norm as loss was motivated by the fact that it pro- duced visually more realistic results in pilot experiments compared with the L2 norm or structural similarity (Wang et al., 2004). 2.2.2. Network architecture Our CNN builds on an architecture that we have suc- cessfully used in our previous work with synthetic MRI scans (Billot et al., 2020a,b). It is a 3D U-net (Ron- neberger et al., 2015; C ¸ i¸ cek et al., 2016) with 5 levels. Levels consist of two layers, each of which comprises con- volutions with (3×3×3 kernels) and a nonlinear ELU acti- vation (Clevert et al., 2016)). The ﬁrst layer has 24 kernels (i.e., features); the number of features is double after each max-pooling, and halved after each upsampling. The last layer uses a linear activation to produce an estimate of Y . The U-net is concatenated with the synthetic data ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02306,
+        0.00732,
+        -0.04638,
+        -0.03206,
+        0.0177
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "e after each max-pooling, and halved after each upsampling. The last layer uses a linear activation to produce an estimate of Y . The U-net is concatenated with the synthetic data ",
+      "overlap_with_next": " al., 2020a,b). The hyperparameters that control the GMM parame- ters{mµk,c},{aµk,c},{mσk,c},{aσk,c} do not have predeﬁned values, since they depend on the MR contrast – and to les",
+      "text": "e after each max-pooling, and halved after each upsampling. The last layer uses a linear activation to produce an estimate of Y . The U-net is concatenated with the synthetic data genera- tor into a single model entirely implemented on the GPU, using Keras (Chollet et al., 2015) with a Tensorﬂow back- end (Abadi et al., 2016). 2.2.3. Hyperparameters The generator described in Section 2.1 has a number of hyperparameters, which control the variability of the synthetic scans, in terms of both shape and appearance. Table 1 summarizes the values of the hyperparameters re- lated to shape, bias ﬁeld, gamma augmentation, variability in coordinate frames and slice thickness, and misregistra- tion. These hyperparameters were set via visual inspec- tion of the output, such that the generator yields a wide distribution of shapes, artifacts and intensity proﬁles dur- ing training – which increases the robustness of the CNN. Furthermore, we used the same values that provided good performance in previous work (Billot et al., 2020a,b). The hyperparameters that control the GMM parame- ters{mµk,c},{aµk,c},{mσk,c},{aσk,c} do not have predeﬁned values, since they depend on the MR contrast – and to les",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0455,
+        -0.02508,
+        -0.04892,
+        -0.00035,
+        0.01776
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": " al., 2020a,b). The hyperparameters that control the GMM parame- ters{mµk,c},{aµk,c},{mσk,c},{aσk,c} do not have predeﬁned values, since they depend on the MR contrast – and to les",
+      "overlap_with_next": "tor), such that the blurring operator yields the desired variance in the synthetic LR images. Finally, we ﬁt a Gaussian dis- tribution to each of the means and variances (a truncat",
+      "text": " al., 2020a,b). The hyperparameters that control the GMM parame- ters{mµk,c},{aµk,c},{mσk,c},{aσk,c} do not have predeﬁned values, since they depend on the MR contrast – and to less extent, the resolution – of the dataset that we seek to super-resolve. For every experimental setup, we esti- mate them with the following procedure. First, we run our Bayesian, sequence-adaptive segmentation algorithm (SAMSEG, Puonti et al. 2016) on a small set of scans from the dataset to segment. Even though the quality of these segmentations is often low due to PV, we can still use them to compute rough estimates of the mean and variance of the intensities of each class with robust statis- tics. Speciﬁcally, we compute the median as an estimate for{µk,c}, and the median absolute deviation (multiplied by 1.4826, Leys et al. 2013) as an estimate for {σk,c}. We then scale the estimated variances by the ratio between the volumes of the HR and LR voxels for every modal- ity, i.e., (1 Trc)/(1 Trtarg) (where 1 is the all ones vector), such that the blurring operator yields the desired variance in the synthetic LR images. Finally, we ﬁt a Gaussian dis- tribution to each of the means and variances (a truncat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0388,
+        -0.02521,
+        -0.03677,
+        -0.03269,
+        -0.00625
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "tor), such that the blurring operator yields the desired variance in the synthetic LR images. Finally, we ﬁt a Gaussian dis- tribution to each of the means and variances (a truncat",
+      "overlap_with_next": " reliability maps. For the reference channel c = 1, the resampled scan and its associated reliability map immediately correspond to U1 and V1, respectively. The other channels c> 1",
+      "text": "tor), such that the blurring operator yields the desired variance in the synthetic LR images. Finally, we ﬁt a Gaussian dis- tribution to each of the means and variances (a truncated Gaussian for the latter, in order to avoid non-negative vari- ances) to obtain {mµk,c},{aµk,c},{mσk,c},{aσk,c}. Crucially, we multiply{aµk,c} and{aσk,c} by a factor of 5 in order to provide the CNN with a signiﬁcantly wider range of im- ages than we expect it to see at test time, thus making it resilient to variations in acquisition (as already explained in Section 2.1.3 above), as well as for alleviating segmen- tation errors made by SAMSEG. 2.3. Inference At testing, one simply strips the generator from the trained model, and feeds the preprocessed images to super- resolve{Uc} together with the corresponding reliability maps{Vc}. The process to obtain these preprocessed im- ages is the same as in Section 2.1.4 above. The ﬁrst step is to resample all the scans to the target resolution rtarg, while computing the corresponding reliability maps. For the reference channel c = 1, the resampled scan and its associated reliability map immediately correspond to U1 and V1, respectively. The other channels c> 1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0409,
+        0.0121,
+        -0.02825,
+        -0.00094,
+        0.01047
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": " reliability maps. For the reference channel c = 1, the resampled scan and its associated reliability map immediately correspond to U1 and V1, respectively. The other channels c> 1",
+      "overlap_with_next": ", but does not aﬀect the output when jointly performing SR and synthesis. Normalization of image intensities. Both during training and at testing, we min-max normalize the input vo",
+      "text": " reliability maps. For the reference channel c = 1, the resampled scan and its associated reliability map immediately correspond to U1 and V1, respectively. The other channels c> 1 need to be rigidly registered; the warped resampled images and relia- bility maps become{Uc}c=2,...,C and{Vc}c=2,...,C, respec- tively. In our implementation, we use an inter-modality registration tool based on mutual information and block matching (Modat et al. 2014, implemented in the NiftyReg package) to estimate the rigid alignments. 2.4. Other practical considerations Further blurring of synthetic HR images in training. In practice, we slightly blur the synthetic HR volumes {GBc} with a Gaussian kernel with 0.5 mm standard deviation (Billot et al., 2020a); this operation introduces a small 7 [Page 8] degree of spatial correlation in the images, making them look more realistic. This strategy produces slightly more visually appealing results in the purely SR mode, as these synthetic HR images are the target of the regression, but does not aﬀect the output when jointly performing SR and synthesis. Normalization of image intensities. Both during training and at testing, we min-max normalize the input vo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05701,
+        0.01934,
+        -0.02958,
+        0.01388,
+        0.00635
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": ", but does not aﬀect the output when jointly performing SR and synthesis. Normalization of image intensities. Both during training and at testing, we min-max normalize the input vo",
+      "overlap_with_next": "2 days on a Tesla P100 GPU. Inference, on the other hand, takes approxi- mately three seconds on the same GPU. 3. Experiments and results This section presents three sets of experi",
+      "text": ", but does not aﬀect the output when jointly performing SR and synthesis. Normalization of image intensities. Both during training and at testing, we min-max normalize the input volumes to the interval [0,1]. In training, the normalization de- pends whether synthesis is being performed or not. In the purely SR mode, the target volume is normalized exactly the same way as the input, in order to keep the residual centered around zero. In the joint SR / synthesis mode, the targets are normalized by scaling the intensities such that the median intensity of the white matter is one. Computational burden. We randomly crop the images dur- ing training to 192 × 192× 192 volumes, which enables training on a 16GB GPU. We set the learning rate to 10−4, and train the CNNs for 200,000 iterations, which was suf- ﬁcient for convergence in all our experiments – there was minimal change in the loss and no perceptible diﬀerence in the outputs after approximately 100,000 - 150,000 iter- ations. Training takes approximately 12 days on a Tesla P100 GPU. Inference, on the other hand, takes approxi- mately three seconds on the same GPU. 3. Experiments and results This section presents three sets of experi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00578,
+        -0.01064,
+        -0.03606,
+        -0.00033,
+        -0.01672
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "2 days on a Tesla P100 GPU. Inference, on the other hand, takes approxi- mately three seconds on the same GPU. 3. Experiments and results This section presents three sets of experi",
+      "overlap_with_next": " and corresponding segmentations. The scans were acquired on a 1.5T Siemens scanner with an MP-RAGE sequence at 1 mm resolution, with the follow- ing parameters: TR=9.7 ms, TE=4ms,",
+      "text": "2 days on a Tesla P100 GPU. Inference, on the other hand, takes approxi- mately three seconds on the same GPU. 3. Experiments and results This section presents three sets of experiments seek- ing to validate diﬀerent aspects of SynthSR. First, we use a controlled setup with synthetically downsampled MP- RAGE scans from ADNI, in order to assess the SR abil- ity of the method on a single volume, as a function of slice spacing. In the second experiment, we test the per- formance of the method in a joint SR / synthesis task, seeking to turn thick-slice FLAIRs from ADNI into 1 mm MP-RAGEs. In the third and ﬁnal experiment, we apply SynthSR to multimodal MRI exams from Massachusetts General Hospital (MGH), seeking to recover a 1 mm MP- RAGE from a set of diﬀerent thick-slice sequences. 3.1. MRI data We used three diﬀerent datasets in this study; one for training, and two for testing. Training dataset. The ﬁrst dataset, which we used for training purposes in all experiments, consists of 39 T1- weighted MRI scans and corresponding segmentations. The scans were acquired on a 1.5T Siemens scanner with an MP-RAGE sequence at 1 mm resolution, with the follow- ing parameters: TR=9.7 ms, TE=4ms,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00682,
+        -0.00871,
+        -0.01225,
+        -0.00689,
+        -0.00554
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": " and corresponding segmentations. The scans were acquired on a 1.5T Siemens scanner with an MP-RAGE sequence at 1 mm resolution, with the follow- ing parameters: TR=9.7 ms, TE=4ms,",
+      "overlap_with_next": "ve that n = 100 is a sample size that is representative of many neu- roimaging studies, and comparing AD with controls yields well-known volumetric eﬀects that we seek to reproduce",
+      "text": " and corresponding segmentations. The scans were acquired on a 1.5T Siemens scanner with an MP-RAGE sequence at 1 mm resolution, with the follow- ing parameters: TR=9.7 ms, TE=4ms, TI=20 ms, ﬂip angle=10◦. This is the dataset that was used to build the probabilistic atlas for the segmentation routines of Free- Surfer (Fischl et al., 2002). The segmentations comprise a set of manual delineations for 36 brain MRI structures (the same as in Fischl et al. 2002), augmented with la- bels for extracerebral classes (skull, soft extracerebral tis- sue, ﬂuid inside the eyes) automatically estimated with a GMM approach. Modeling of extracerebral tissues enables the application of our method to unpreprocessed images, i.e., without skull stripping. ADNI. The second dataset is a subset of 100 subjects from Alzheimer’s Disease Neuroimaging Initiative (ADNI 3), 50 of them diagnosed with Alzheimer’s disease (AD, aged 73.7±7.3 years), and 50 elderly controls (aged 72.2 ±7.9); 47 subject were males, and 53 females. We believe that n = 100 is a sample size that is representative of many neu- roimaging studies, and comparing AD with controls yields well-known volumetric eﬀects that we seek to reproduce",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04612,
+        -0.06121,
+        -0.02606,
+        -0.01795,
+        0.0023
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "ve that n = 100 is a sample size that is representative of many neu- roimaging studies, and comparing AD with controls yields well-known volumetric eﬀects that we seek to reproduce",
+      "overlap_with_next": "ed at MGH over the last decade (including these 40): sagittal T1-weighted TSE (5 mm spacing, 4 mm thickness), axial T2-weighted TSE (6 mm spacing, 5 mm thickness), axial FLAIR turb",
+      "text": "ve that n = 100 is a sample size that is representative of many neu- roimaging studies, and comparing AD with controls yields well-known volumetric eﬀects that we seek to reproduce with thick-slice scans. We used two diﬀerent sets of images: T1 MP-RAGE scans with approximately 1 mm isotropic resolution, and axial FLAIR scans with 5 mm slice thick- ness and spacing. Even though no manual delineations are available for this dataset, we use automated segmenta- tions of brain structures computed with FreeSurfer 7 (and their associated volumes) as a reference standard in our experiments. MGH. The third and ﬁnal dataset consists of 40 subjects scanned at MGH (18 males, 22 females, aged 55.1 ±19.0 years). Cases with large abnormalities, such as tumors or resection cavities, were excluded. The scans were down- loaded from the MGH PACS and anonymized in accor- dance with an IRB-approved protocol, for which informed consent was waived. We selected a subset of four sequences that are acquired for most patients scanned at MGH over the last decade (including these 40): sagittal T1-weighted TSE (5 mm spacing, 4 mm thickness), axial T2-weighted TSE (6 mm spacing, 5 mm thickness), axial FLAIR turb",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04822,
+        -0.04543,
+        -0.03191,
+        -0.04026,
+        0.03009
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "ed at MGH over the last decade (including these 40): sagittal T1-weighted TSE (5 mm spacing, 4 mm thickness), axial T2-weighted TSE (6 mm spacing, 5 mm thickness), axial FLAIR turb",
+      "overlap_with_next": " impairment (MCI) and early AD. Markers of early AD progression can aid in the devel- opment of new treatments and monitor their eﬀectiveness, as well as decrease the time and cost",
+      "text": "ed at MGH over the last decade (including these 40): sagittal T1-weighted TSE (5 mm spacing, 4 mm thickness), axial T2-weighted TSE (6 mm spacing, 5 mm thickness), axial FLAIR turbo inversion recovery (6 mm spacing, 5 mm thickness), and 1.6 mm T1 spoiled gradient recalled (SPGR). We empha- size that, despite its apparently high spatial resolution, the SPGR sequence has a short acquisition time (14 sec- onds), short TR/TE (3.15/1.37 ms), partial Fourier acqui- sition (6/8), and aggressive parallel imaging (GRAPPA 3The ADNI was launched in 2003 by the National Institute on Aging, the National Institute of Biomedical Imaging and Bioengi- neering, the Food and Drug Administration, private pharmaceuti- cal companies and non-proﬁt organizations, as a $60 million, 5-year public-private partnership. The main goal of ADNI is to test whether MRI, positron emission tomography (PET), other biological mark- ers, and clinical and neuropsychological assessment can be combined to analyze the progression of mild cognitive impairment (MCI) and early AD. Markers of early AD progression can aid in the devel- opment of new treatments and monitor their eﬀectiveness, as well as decrease the time and cost",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03635,
+        -0.03181,
+        -0.01179,
+        -0.01843,
+        -0.00259
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": " impairment (MCI) and early AD. Markers of early AD progression can aid in the devel- opment of new treatments and monitor their eﬀectiveness, as well as decrease the time and cost",
+      "overlap_with_next": "nd reliable au- tomated segmentations are not available due to the lack of higher resolution companion scans. 3.2. Competing methods As mentioned in Section 1.3, there are – to the",
+      "text": " impairment (MCI) and early AD. Markers of early AD progression can aid in the devel- opment of new treatments and monitor their eﬀectiveness, as well as decrease the time and cost of clinical trials. The Principal In- vestigator of this initiative is Michael W. Weiner, MD, VA Medical Center and University of California - San Francisco. ADNI has been followed by ADNI-GO and ADNI-2. These three protocols have re- cruited over 1,500 adults (ages 55-90) from over 50 sites across the U.S. and Canada to participate in the study, consisting of cogni- tively normal older individuals, people with early or late MCI, and people with early AD. Subjects originally recruited for ADNI-1 and ADNI-GO had the option to be followed in ADNI-2. 8 [Page 9] with a factor of 3). These parameters lead to relatively blurry images with low contrast-to-noise ratio, which do not yield accurate measurements, e.g., when analyzed with FreeSurfer – as we show in the results below. No manual delineations are available for this dataset, and reliable au- tomated segmentations are not available due to the lack of higher resolution companion scans. 3.2. Competing methods As mentioned in Section 1.3, there are – to the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0327,
+        -0.05013,
+        -0.03603,
+        -0.03893,
+        -0.0148
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "nd reliable au- tomated segmentations are not available due to the lack of higher resolution companion scans. 3.2. Competing methods As mentioned in Section 1.3, there are – to the",
+      "overlap_with_next": "nsampled scans Our ﬁrst experiment seeks to assess the SR capabilities of SynthSR as a function of the resolution of the input. To do so, we artiﬁcially downsampled the MP-RAGE sca",
+      "text": "nd reliable au- tomated segmentations are not available due to the lack of higher resolution companion scans. 3.2. Competing methods As mentioned in Section 1.3, there are – to the best of our knowledge – no joint SR / synthesis methods available for single scans that adapt to MRI contrast, and which can thus be applied without the availability of a training dataset. In this scenario, we use SAMSEG as a competing method. Even though SAMSEG does not provide syn- thesis or SR, it provides segmentations for scans of any resolution and contrast, which we can use for indirect val- idation (e.g., ability to detect eﬀects of disease). In the experiments with the MGH dataset, for which multiple scans of the same exam are available (including one with T1 contrast), we compare our method against Brudfors et al. (2018) – which is the only available method that we know of that can readily super-resolve a set of volumes of arbitrary contrast into a HR scan. 3.3. Experiments 3.3.1. Super-resolution of synthetically downsampled scans Our ﬁrst experiment seeks to assess the SR capabilities of SynthSR as a function of the resolution of the input. To do so, we artiﬁcially downsampled the MP-RAGE sca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04129,
+        -0.00195,
+        0.00878,
+        -0.03803,
+        0.00795
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "nsampled scans Our ﬁrst experiment seeks to assess the SR capabilities of SynthSR as a function of the resolution of the input. To do so, we artiﬁcially downsampled the MP-RAGE sca",
+      "overlap_with_next": "re lost. However, most of these patterns are re- covered when the SR volume is processed instead. Subcor- tically, the segmentation of the LR scan suﬀers from heavy shape distortio",
+      "text": "nsampled scans Our ﬁrst experiment seeks to assess the SR capabilities of SynthSR as a function of the resolution of the input. To do so, we artiﬁcially downsampled the MP-RAGE scans from the ADNI dataset to simulate 3, 5 and 7 mm coronal slice spacing, with 3 mm slice thickness in all cases. We then used our method to predict the residual between the HR images and the (upsampled) LR volumes, without any synthesis – such that training relies solely on synthetic data, as explained in Section 2.2.1. Figure 3 shows qualitative results for a sample 7 mm scan (1 mm original, downsampled, and super-resolved with SynthSR), along with segmentations produced by Free- Surfer 7. Even though the CNN has never been exposed to a real scan during training, SynthSR is able to accurately recover high-resolution features; only minimal blurring re- mains in the SR volume, compared with the original scan. When the 7 mm scan in Figure 3 is processed directly with FreeSurfer 7 using cubic interpolation, most folding patterns are lost. However, most of these patterns are re- covered when the SR volume is processed instead. Subcor- tically, the segmentation of the LR scan suﬀers from heavy shape distortio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04527,
+        -0.00557,
+        -0.02301,
+        -0.01604,
+        0.01356
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "re lost. However, most of these patterns are re- covered when the SR volume is processed instead. Subcor- tically, the segmentation of the LR scan suﬀers from heavy shape distortio",
+      "overlap_with_next": "tandard FreeSurfer color map. Resolution Averagevolume error Correlationwith 1 mm Eﬀectsize 1 mm N/A N/A 1.38 3 mm (cubic) 4.5% 0.98 1.35 3 mm ( SynthSR) 3.3% 0.99 1.36 5 mm (cubic",
+      "text": "re lost. However, most of these patterns are re- covered when the SR volume is processed instead. Subcor- tically, the segmentation of the LR scan suﬀers from heavy shape distortion and PV eﬀects (e.g., peri-ventricular vox- els segmented as white matter lesions, in lilac), while the SR scan yields a segmentation almost identical to the orig- inal. In order to assess the performance of SynthSR in a quantitative fashion, we evaluate its ability to detect dif- ferences between AD and controls through three standard analyses: hippocampal volumetry, cortical thickness, and tensor-based morphometry (TBM). 7 mm SynthSR7 mm cubic1 mm isotropic Figure 3: Axial slice of a sample 1 mm T1 scan from the ADNI dataset (left); 7 mm coronal version (middle); and super- resolved back to 1 mm with SynthSR (right). Top row: im- age intensities with pial and white matter surfaces for the right hemisphere (FreeSurfer 7). Middle row: 3D rendered pial sur- face. Bottom: volumetric FreeSurfer segmentation, represented with the standard FreeSurfer color map. Resolution Averagevolume error Correlationwith 1 mm Eﬀectsize 1 mm N/A N/A 1.38 3 mm (cubic) 4.5% 0.98 1.35 3 mm ( SynthSR) 3.3% 0.99 1.36 5 mm (cubic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03338,
+        -0.02488,
+        -0.04113,
+        -0.04482,
+        0.0117
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "tandard FreeSurfer color map. Resolution Averagevolume error Correlationwith 1 mm Eﬀectsize 1 mm N/A N/A 1.38 3 mm (cubic) 4.5% 0.98 1.35 3 mm ( SynthSR) 3.3% 0.99 1.36 5 mm (cubic",
+      "overlap_with_next": "e., just cubic interpolation), errors grow quickly with slice spacing, while SR with SynthSR keeps the volume er- rors under 3.5%, correlations over 0.97, and eﬀect sizes (AD vs. c",
+      "text": "tandard FreeSurfer color map. Resolution Averagevolume error Correlationwith 1 mm Eﬀectsize 1 mm N/A N/A 1.38 3 mm (cubic) 4.5% 0.98 1.35 3 mm ( SynthSR) 3.3% 0.99 1.36 5 mm (cubic) 7.6% 0.95 1.22 5 mm ( SynthSR) 2.9% 0.99 1.33 7 mm (cubic) 10.1% 0.91 0.98 7 mm ( SynthSR) 3.0% 0.97 1.30 Table 2: Relative error in hippocampal volumes, correlation with ground truth (i.e., FreeSurfer volumes from 1 mm scans), and eﬀect size of AD vs controls (corrected for sex, intracra- nial volume and age), as a function of slice spacing, with cubic interpolation and SynthSR. Hippocampal volumetry. Hippocampal volume is a well- known imaging biomarker for AD (Gosche et al., 2002; Chupin et al., 2009; Schuﬀ et al., 2009; Shi et al., 2009). Table 2 compares the bilateral hippocampal volume of the AD and control subjects in our ADNI dataset using esti- mates of the volumes computed with FreeSurfer 7 on the 3, 5 and 7 mm scans, with and without SR, using the volumes from the 1 mm isotropic scans as ground truth. Without SR (i.e., just cubic interpolation), errors grow quickly with slice spacing, while SR with SynthSR keeps the volume er- rors under 3.5%, correlations over 0.97, and eﬀect sizes (AD vs. c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03256,
+        -0.03488,
+        -0.05822,
+        -0.04542,
+        0.00215
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "e., just cubic interpolation), errors grow quickly with slice spacing, while SR with SynthSR keeps the volume er- rors under 3.5%, correlations over 0.97, and eﬀect sizes (AD vs. c",
+      "overlap_with_next": "urface. The blue arrows point at regions of overestimated thickness (inferior parietal, rostral middle frontal), and the green arrow points at a region where the thickness in under",
+      "text": "e., just cubic interpolation), errors grow quickly with slice spacing, while SR with SynthSR keeps the volume er- rors under 3.5%, correlations over 0.97, and eﬀect sizes (AD vs. controls, correcting for intracranial volume, sex and age) over 1.30 even for 7 mm spacing – compared with 1.38 at 1 mm. The improvement with respect to the 9 [Page 10] 4000 5000 6000 7000 8000 9000 4000 5000 6000 7000 8000 9000 Derived from 1 mm isotropic Derived from thick sliced volumes Hippocampal volume: 1 mm isotropic vs. thick slices Without SR With SR 7mm Cubic SynthSR Figure 4: Scatter plot comparing the hippocampal volumes from the 7 mm scans vs the ground truth, using cubic interpolation and SynthSR. 3 mm cubic 5 mm cubic 7 mm cubic 3 mm SynthSR 5 mm SynthSR 7 mm SynthSR 1 mm 3.25 mm 2.75 mm 2.25 mm 1.75 mm 1.25 mm Figure 5: Thickness map for the right hemisphere of the subject in Fig- ure 3, derived from diﬀerent slice thicknesses, with cubic interpolation and SynthSR. The thickness maps are displayed on the inﬂated surface. The blue arrows point at regions of overestimated thickness (inferior parietal, rostral middle frontal), and the green arrow points at a region where the thickness in under",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02165,
+        -0.01437,
+        -0.01843,
+        -0.018,
+        -0.0059
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "urface. The blue arrows point at regions of overestimated thickness (inferior parietal, rostral middle frontal), and the green arrow points at a region where the thickness in under",
+      "overlap_with_next": "rrecting for age and sex. The isotropic 1 mm data show expected eﬀects in the temporal and supramarginal regions (Lerch et al., 2005; Querbes et al., 2009; Lehmann et al., 2011; Li",
+      "text": "urface. The blue arrows point at regions of overestimated thickness (inferior parietal, rostral middle frontal), and the green arrow points at a region where the thickness in underestimated (precentral). non-SR is further illustrated in the scatter plot in Fig- ure 4, which compares the hippocampal volumes from the 1 mm scans (i.e., the reference), with those from the 7 mm scans. Without SR, hippocampal volumes are gener- ally overestimated, particularly for cases with lower vol- umes, i.e., severe hippocampal atrophy. SynthSR, on the other hand, consistently agrees with the reference across the whole range. Cortical thickness. We conducted a similar experiment with cortical thickness, where we compared the results when analyzing 3, 5 and 7 mm coronal scans with FreeSurfer 7, and the reference obtained by running FreeSurfer 7 on the original 1 mm scans. Figure 5 shows the results for the right hemisphere of the subject in Figure 3, whereas Fig- ure 6 shows signiﬁcance maps for the AD vs. controls test, correcting for age and sex. The isotropic 1 mm data show expected eﬀects in the temporal and supramarginal regions (Lerch et al., 2005; Querbes et al., 2009; Lehmann et al., 2011; Li",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03751,
+        -0.02308,
+        -0.02955,
+        -0.03526,
+        -0.0066
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "rrecting for age and sex. The isotropic 1 mm data show expected eﬀects in the temporal and supramarginal regions (Lerch et al., 2005; Querbes et al., 2009; Lehmann et al., 2011; Li",
+      "overlap_with_next": "m cubic 5 mm cubic 3 mm SynthSR 5 mm SynthSR 1 mm 7 mm cubic 7 mm SynthSR Atlas 0.0001 0.001 0.01 0.05 0.0001 0.001 0.01 0.05 Figure 7: Signiﬁcance maps of TBM of AD vs. controls a",
+      "text": "rrecting for age and sex. The isotropic 1 mm data show expected eﬀects in the temporal and supramarginal regions (Lerch et al., 2005; Querbes et al., 2009; Lehmann et al., 2011; Li et al., 2012). Cortical thickness is, as expected, more sensitive to insuﬃcient resolution than subcortical volumetry. When cubic interpolation without SR is used, large errors render the data nearly useless already at 3 mm spacing, both for the individual (e.g., reduced thickness in precentral region, increased in inferior parietal and rostral 0.0001 0.001 0.01 0.05 3 mm cubic 5 mm cubic 7 mm cubic 3 mm SynthSR 5 mm SynthSR 7 mm SynthSR 1 mm Figure 6: Signiﬁcance maps (logarithmic scale) for AD vs controls in right hemisphere, corrected for age and sex, for diﬀerent slice thick- nesses. The results are displayed on the inﬂated surface of FreeSurfer’s template “fsaverage”. The green arrows point at false negatives (supra- marginal, superior temporal), and the blue arrow points at a false pos- itive (rostral middle frontal). 3 mm cubic 5 mm cubic 3 mm SynthSR 5 mm SynthSR 1 mm 7 mm cubic 7 mm SynthSR Atlas 0.0001 0.001 0.01 0.05 0.0001 0.001 0.01 0.05 Figure 7: Signiﬁcance maps of TBM of AD vs. controls a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03776,
+        -0.02458,
+        -0.05286,
+        -0.03144,
+        -0.00354
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": "m cubic 5 mm cubic 3 mm SynthSR 5 mm SynthSR 1 mm 7 mm cubic 7 mm SynthSR Atlas 0.0001 0.001 0.01 0.05 0.0001 0.001 0.01 0.05 Figure 7: Signiﬁcance maps of TBM of AD vs. controls a",
+      "overlap_with_next": "solution – which is consistent with the other results in Figures 5 and 6. Tensor-based morphometry. In order to assess the useful- ness of the SynthSR volumes in registration, we i",
+      "text": "m cubic 5 mm cubic 3 mm SynthSR 5 mm SynthSR 1 mm 7 mm cubic 7 mm SynthSR Atlas 0.0001 0.001 0.01 0.05 0.0001 0.001 0.01 0.05 Figure 7: Signiﬁcance maps of TBM of AD vs. controls at diﬀerent resolutions, with and without SR ( SynthSR). Blue indicates more con- traction in AD, and red indicates more expansion. middle frontal; see arrows in the ﬁgure) and the group study (e.g., false negatives in supramarginal and superior temporal; false positive in rostral middle frontal; see ar- rows). SR with SynthSR, on the other hand, yields maps that are very similar to the isotropic reference at 3 mm spacing. Many clusters persist even at 5 and 7 mm, albeit with reduced signiﬁcance at the group level. A similar trend is observed when comparing the estimated area of the pial surface (Table 3): without SR, many deeper sulci are missed, leading to greatly underestimated surface ar- eas (7.7% at 3 mm, 9.5% at 5 mm, and 13.0% at 7 mm). SynthSR recovers large part of the lost surface area, espe- cially at 3 mm and 5 mm resolution – which is consistent with the other results in Figures 5 and 6. Tensor-based morphometry. In order to assess the useful- ness of the SynthSR volumes in registration, we i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02486,
+        0.01914,
+        -0.04587,
+        -0.02562,
+        -0.00942
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "solution – which is consistent with the other results in Figures 5 and 6. Tensor-based morphometry. In order to assess the useful- ness of the SynthSR volumes in registration, we i",
+      "overlap_with_next": "SynthSR Average pial surface area (mm 2) 19,881 ± 1,876 18,354 ± 1,791 19,472 ± 1,850 18,001 ± 1,775 19,380 ± 1,943 17,291 ± 1,708 18,600 ± 1,809 Table 3: Average area of pial surf",
+      "text": "solution – which is consistent with the other results in Figures 5 and 6. Tensor-based morphometry. In order to assess the useful- ness of the SynthSR volumes in registration, we inves- tigated a TBM application (Freeborough & Fox, 1998; Chung et al., 2001; Fox et al., 2001; Riddle et al., 2004) us- ing a diﬀeomorphic registration algorithm with local nor- malized cross-correlation as similarity metric (Modat et al., 2010). First, we computed a nonlinear atlas in an unbi- ased fashion (Joshi et al. 2004, Figure 7, top left). Then, we compared the distribution of the Jacobian determi- nants between AD and controls, in atlas space, with a non-parametric Wilcoxon rank sum test. The results for the diﬀerent resolutions are in the same ﬁgure. The 1 mm isotropic volumes yield results that are consistent with the AD literature, e.g., contraction in the hippocampal head and tail as well as in the putamen, and expansion of ven- 10 [Page 11] Resolution 1 mm 3 mmcubic 3 mmSynthSR 5 mmcubic 5 mmSynthSR 7 mmcubic 7 mmSynthSR Average pial surface area (mm 2) 19,881 ± 1,876 18,354 ± 1,791 19,472 ± 1,850 18,001 ± 1,775 19,380 ± 1,943 17,291 ± 1,708 18,600 ± 1,809 Table 3: Average area of pial surf",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03963,
+        -0.00604,
+        -0.02475,
+        -0.05734,
+        -0.00506
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "SynthSR Average pial surface area (mm 2) 19,881 ± 1,876 18,354 ± 1,791 19,472 ± 1,850 18,001 ± 1,775 19,380 ± 1,943 17,291 ± 1,708 18,600 ± 1,809 Table 3: Average area of pial surf",
+      "overlap_with_next": "that would propagate into the FreeSurfer processing. tricles (Hua et al., 2008; de Jong et al., 2008; Chupin et al., 2009). Without SR (i.e., just cubic interpolation), signiﬁ- can",
+      "text": "SynthSR Average pial surface area (mm 2) 19,881 ± 1,876 18,354 ± 1,791 19,472 ± 1,850 18,001 ± 1,775 19,380 ± 1,943 17,291 ± 1,708 18,600 ± 1,809 Table 3: Average area of pial surface of subjects on the ADNI dataset, estimated with FreeSurfer 7 on scans of diﬀerent coronal resolution, with and without super-resolution (i.e., cubic vs. SynthSR). 1 mm MP-RAGE Axial 5 mm FLAIR Joint SR / Synthesis N/A Figure 8: Coronal slice of a sample 1 mm T1 scan from the ADNI dataset (left); 5 mm axial FLAIR (with cubic interpo- lation; middle); and super-resolved, with SynthSR (right). Top row: image intensities with pial and white matter surfaces of the right hemisphere computed with FreeSurfer 7 (not applicable to FLAIR scan). Middle row: 3D rendering of the pial surfaces. Bottom: volumetric segmentation obtained with FreeSurfer 7 (T1 and synthetic scans) and SAMSEG (FLAIR scan). Please note that the T1 and FLAIR scans are not perfectly aligned – we did not register the T1 to avoid introducing interpolation artifacts that would propagate into the FreeSurfer processing. tricles (Hua et al., 2008; de Jong et al., 2008; Chupin et al., 2009). Without SR (i.e., just cubic interpolation), signiﬁ- can",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06686,
+        -0.00129,
+        -0.03727,
+        -0.06406,
+        -0.00421
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": "that would propagate into the FreeSurfer processing. tricles (Hua et al., 2008; de Jong et al., 2008; Chupin et al., 2009). Without SR (i.e., just cubic interpolation), signiﬁ- can",
+      "overlap_with_next": "evious experiment. As opposed to the previous setup, we now use the real 1 mm scans as target, in order to produce synthetic scans of the reference T1 contrast, i.e., the MP-RAGE c",
+      "text": "that would propagate into the FreeSurfer processing. tricles (Hua et al., 2008; de Jong et al., 2008; Chupin et al., 2009). Without SR (i.e., just cubic interpolation), signiﬁ- cance already decreases noticeably at 3 mm spacing, and clusters disappear at 5 mm (e.g., hippocampal head, amyg- dala). Super-resolving with SynthSR, all clusters still sur- vive at 7 mm (with minimal loss of signiﬁcance strength), indicating the power of the approach to accurately detect and quantify disease eﬀects, even at large slice spacing. 3.3.2. Joint super-resolution and synthesis of single, na- tively anisotropic scans The second experiment assesses the performance the proposed method on a joint SR / synthesis problem using the FLAIR scans in ADNI, which were natively acquired at 5 mm spacing (and identical thickness) – rather than artiﬁcially downsampled, as in the previous experiment. Working with ADNI scans has the advantage that we can use the measurements derived from the T1 scans as ground truth, as we did in the previous experiment. As opposed to the previous setup, we now use the real 1 mm scans as target, in order to produce synthetic scans of the reference T1 contrast, i.e., the MP-RAGE c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05043,
+        -0.01745,
+        -0.01927,
+        -0.00875,
+        4e-05
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "evious experiment. As opposed to the previous setup, we now use the real 1 mm scans as target, in order to produce synthetic scans of the reference T1 contrast, i.e., the MP-RAGE c",
+      "overlap_with_next": "tter than the output produced by SAMSEG on the FLAIR scan upsampled with cubic interpolation, which has very visible problems – including poor cortical segmentation, largely overse",
+      "text": "evious experiment. As opposed to the previous setup, we now use the real 1 mm scans as target, in order to produce synthetic scans of the reference T1 contrast, i.e., the MP-RAGE contrast of the training dataset. Figure 8 shows an example of joint SR / synthesis for one of the FLAIR scans in the ADNI dataset. The limited gray / white matter contrast of the FLAIR input makes this task much more diﬃcult than SR of MP-RAGE scans. Nevertheless, SynthSR is able to recover a very good ap- proximation of the original volume, albeit smoother than in the previous experiment (e.g., Figure 3). This smooth- ness leads to mistakes in the cortical segmentation, which, in spite of not appearing signiﬁcant, have a large eﬀect on cortical thickness estimation in relative terms (as shown by the results presented below), since the human cortex is only 2-3 mm thick on average. The subcortical structures, on the other hand, are a very good approximation to the ground truth obtained with the 1 mm MP-RAGE, and con- siderably better than the output produced by SAMSEG on the FLAIR scan upsampled with cubic interpolation, which has very visible problems – including poor cortical segmentation, largely overse",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04007,
+        -0.0093,
+        -0.01151,
+        -0.05205,
+        0.01118
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "tter than the output produced by SAMSEG on the FLAIR scan upsampled with cubic interpolation, which has very visible problems – including poor cortical segmentation, largely overse",
+      "overlap_with_next": "n the outliers are dis- regarded, the average volume error is over 12%, the corre- lation is onlyρ = 0.51, and eﬀect size is barely 0.26. These values greatly improve to 8.4% (volu",
+      "text": "tter than the output produced by SAMSEG on the FLAIR scan upsampled with cubic interpolation, which has very visible problems – including poor cortical segmentation, largely oversegmented left putamen, or un- dersegmented hippocampi. Figure 9 summarizes the results for the same hippocam- pal volumetry, cortical thickness and TBM analyses that we performed on the previous experiment. The hippocam- pal volumes (Figure 9a) are more spread than when doing SR alone, but are still strongly correlated with the ground truth values, particularly considering two factors: the axial acquisition (much less suitable for imaging the hippocam- pus than the coronal plane) and the limited contrast that the hippocampus in FLAIR. These two aspects clearly de- teriorate the performance of SAMSEG, which makes much larger errors (including three outliers where the hippocam- pus was largely undersegmented), particularly for subjects with more severe atrophy. This is reﬂected in the quantita- tive results in Figure 9(b): even when the outliers are dis- regarded, the average volume error is over 12%, the corre- lation is onlyρ = 0.51, and eﬀect size is barely 0.26. These values greatly improve to 8.4% (volu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04892,
+        -0.03745,
+        -0.01494,
+        -0.02414,
+        -0.00947
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "n the outliers are dis- regarded, the average volume error is over 12%, the corre- lation is onlyρ = 0.51, and eﬀect size is barely 0.26. These values greatly improve to 8.4% (volu",
+      "overlap_with_next": ".90 a) b) c) d) e) f) Figure 9: Summary of results for 5 mm axial FLAIR scans from ADNI; the ground truth is given by the measurements derived from the corresponding 1 mm MP-RAGE s",
+      "text": "n the outliers are dis- regarded, the average volume error is over 12%, the corre- lation is onlyρ = 0.51, and eﬀect size is barely 0.26. These values greatly improve to 8.4% (volume error), ρ = 0.76 (correlation) and 0.90 (eﬀect size) respectively, when using the 1 mm T1 scans produced by SynthSR. The cortical thickness maps are unfortunately not us- able for this combination of contrast and resolution. Fig- ure 9c shows the thickness map of the subject from Fig- ure 8, which has obvious problems, e.g., it misses the ex- pected, highly characteristic patterns in the precentral and postcentral cortices (pointed by the arrow; please compare 11 [Page 12] 4000 5000 6000 7000 8000 9000 Derived from 1mm isotropic 4000 5000 6000 7000 8000 9000Derived from thick slice volumes Hippocampal volume: 1 mm T1 vs 5 mm FLAIR FLAIR SynthSR MR contrast and resolution Average volume error Correlation with 1 mm Effect size 5 mm axial FLAIR 15.0% 0.26 0.53 5 mm axial FLAIR without outliers 12.2% 0.51 0.26 SynthSR 8.4% 0.76 0.90 a) b) c) d) e) f) Figure 9: Summary of results for 5 mm axial FLAIR scans from ADNI; the ground truth is given by the measurements derived from the corresponding 1 mm MP-RAGE s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04276,
+        -0.02103,
+        -0.03351,
+        -0.03552,
+        0.01327
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": ".90 a) b) c) d) e) f) Figure 9: Summary of results for 5 mm axial FLAIR scans from ADNI; the ground truth is given by the measurements derived from the corresponding 1 mm MP-RAGE s",
+      "overlap_with_next": "otor cortex, pointed by the arrow). (d-e) TBM using the ground truth T1 scans (d), the 5 mm FLAIR scans (overlaid on its own FLAIR atlas, e), and the synthesized MP-RAGE volumes (f",
+      "text": ".90 a) b) c) d) e) f) Figure 9: Summary of results for 5 mm axial FLAIR scans from ADNI; the ground truth is given by the measurements derived from the corresponding 1 mm MP-RAGE scans using FreeSurfer 7. (a) Scatter plot for hippocampal volumes computed from FLAIR scans (obtained with SAMSEG, using cubic interpolation) and from the 1 mm MP-RAGE scans produced by SynthSR (obtained with FreeSurfer 7), against the ground truth volumes. The three dots on the x axis represent outliers. (b) Relative error in hippocampal volume, correlation with volumes from 1 mm T1 scans, and eﬀect size of AD vs controls (corrected for sex, intracranial volume and age), for the 5 mm FLAIR scans (with and without considering the three outliers) and for the 1 mm MP-RAGE volumes produced by SynthSR. (c) Thickness map for the right hemisphere derived from the synthesized T1 scan of the same subjects as in Figure 5. Compared with the ground truth in Figure 5 (top left), errors are rather noticeable (e.g., reduced thickness in the motor cortex, pointed by the arrow). (d-e) TBM using the ground truth T1 scans (d), the 5 mm FLAIR scans (overlaid on its own FLAIR atlas, e), and the synthesized MP-RAGE volumes (f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01794,
+        -0.04956,
+        -0.05066,
+        -0.05688,
+        0.00915
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": "otor cortex, pointed by the arrow). (d-e) TBM using the ground truth T1 scans (d), the 5 mm FLAIR scans (overlaid on its own FLAIR atlas, e), and the synthesized MP-RAGE volumes (f",
+      "overlap_with_next": "g dataset. Since there is no ground truth available for this dataset, we use qualitative evaluation, as well as indirect quanti- tative evaluation via an aging experiment; we note ",
+      "text": "otor cortex, pointed by the arrow). (d-e) TBM using the ground truth T1 scans (d), the 5 mm FLAIR scans (overlaid on its own FLAIR atlas, e), and the synthesized MP-RAGE volumes (f). with the 1 mm case in Figure 5). Registration is, on the other hand, highly successful with SynthSR: the TBM re- sults (Figure 9d) are nearly identical to those obtained with the real 1 mm T1 scans (Figure 9e), whereas using the FLAIR scans directly (with a recomputed FLAIR at- las) leads to a large number of false negatives and positives. 3.3.3. Super-resolution of clinical exams with multiple scans In this ﬁnal experiment, we use the MGH dataset to evaluate SynthSR in the scenario it was ultimately con- ceived for: joint SR and synthesis on multi-modal scans with channels of diﬀerent resolution and MR contrast. We use the SPGR scan as reference (i.e., register the other scans to it), and then use SynthSR to predict the residual between the upscaled SPGR and the desired MP-RAGE output, whose contrast is deﬁned by the training dataset. Since there is no ground truth available for this dataset, we use qualitative evaluation, as well as indirect quanti- tative evaluation via an aging experiment; we note ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0097,
+        -0.01126,
+        -0.03878,
+        -0.02894,
+        0.01404
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "g dataset. Since there is no ground truth available for this dataset, we use qualitative evaluation, as well as indirect quanti- tative evaluation via an aging experiment; we note ",
+      "overlap_with_next": "mm ax. T26 mm ax. FLAIR Figure 10: Joint SR / synthesis of an exam from the MGH dataset. The top row shows a coronal slice for the FLAIR, T2 and T1-TSE sequences, with cubic interp",
+      "text": "g dataset. Since there is no ground truth available for this dataset, we use qualitative evaluation, as well as indirect quanti- tative evaluation via an aging experiment; we note that we discarded three of the 40 cases, for which FreeSurfer completely failed to segment the SPGR scan. Figure 10 shows an example from the MGH dataset. Directly using the low-quality SPGR with cubic interpo- lation has numerous problems. Cortically, the lack of im- age contrast leads to poorly ﬁtted surfaces that frequently leak into the dura matter, leading to unnaturally ﬂat pial surfaces. Subcortically, PV and the overall lack of con- trast force the FreeSurfer segmentation algorithm to heav- ily trust the prior; the example in the ﬁgure illustrates this problem well in the hippocampus (yellow) and the basal ganglia (putamen and pallidum, in pink and dark blue, respectively). The ability of the SPRG scans to capture well-known age eﬀects (Potvin et al., 2016) is considerably SynthSRBrudforset al.SPGR (cubic) 5 mm sag. T16 mm ax. T26 mm ax. FLAIR Figure 10: Joint SR / synthesis of an exam from the MGH dataset. The top row shows a coronal slice for the FLAIR, T2 and T1-TSE sequences, with cubic interp",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05086,
+        -0.01637,
+        -0.0637,
+        -0.0452,
+        0.01325
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 62400,
+      "length": 1200,
+      "overlap_with_previous": "mm ax. T26 mm ax. FLAIR Figure 10: Joint SR / synthesis of an exam from the MGH dataset. The top row shows a coronal slice for the FLAIR, T2 and T1-TSE sequences, with cubic interp",
+      "overlap_with_next": "= 0.000003) 30405060708090 10 20 30 40 50 Age (years) Corrected volume (cm3)Lat. Vent. vol. vs age. R = 0.68 (p = 0.000003) 3040506070809010 20 30 40 Age (years) Corrected volume (",
+      "text": "mm ax. T26 mm ax. FLAIR Figure 10: Joint SR / synthesis of an exam from the MGH dataset. The top row shows a coronal slice for the FLAIR, T2 and T1-TSE sequences, with cubic interpolation. The second row shows the corresponding T1-SPGR slice, along with the SR volume produced by Brudfors et al. (2018) and the output from our method, with the pial and white matter surfaces of the right hemisphere computed with FreeSurfer 7. The third row shows the 3D rendering of the pial surfaces. The bottom row shows the volumetric segmentation obtained with FreeSurfer 7. 12 [Page 13] SynthSRBrudforset al.SPGR (cubic) 40 60 80 8500 9000 9500 Age (years) Corrected volume (mm3) Hippo. vol. vs age. R = −0.19 (p = 0.2) 40 60 80 8000 8500 9000 9500 10000 Age (years) Corrected volume (mm3) Hippo. vol. vs age. R = −0.60 (p = 0.00008) 40 60 80 8000 8500 9000 Age (years) Corrected volume (mm3) Hippo. vol. vs age. R = −0.35 (p = 0.03) 30405060708090 10 20 30 40 Age (years) Corrected volume (cm3)Lat. Vent. vol. vs age. R = 0.69 (p = 0.000003) 30405060708090 10 20 30 40 50 Age (years) Corrected volume (cm3)Lat. Vent. vol. vs age. R = 0.68 (p = 0.000003) 3040506070809010 20 30 40 Age (years) Corrected volume (",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06588,
+        -0.01007,
+        -0.02392,
+        -0.05674,
+        0.01077
+      ]
+    },
+    {
+      "chunk_index": 61,
+      "start_char": 62220,
+      "end_char": 63420,
+      "length": 1200,
+      "overlap_with_previous": "= 0.000003) 30405060708090 10 20 30 40 50 Age (years) Corrected volume (cm3)Lat. Vent. vol. vs age. R = 0.68 (p = 0.000003) 3040506070809010 20 30 40 Age (years) Corrected volume (",
+      "overlap_with_next": "and basal ganglia structures (putamen, pallidum) against age in the MGH dataset. The volumes were computed with FreeSurfer 7 from the SPGR scans directly (with cubic interpolation,",
+      "text": "= 0.000003) 30405060708090 10 20 30 40 50 Age (years) Corrected volume (cm3)Lat. Vent. vol. vs age. R = 0.68 (p = 0.000003) 3040506070809010 20 30 40 Age (years) Corrected volume (cm3)Lat. Vent. vol. vs age. R = 0.65 (p = 0.00001) 40 60 80 7000 7500 8000 8500 9000 Age (years) Corrected volume (mm3)Putamen vol. vs age. R = −0.41 (p = 0.01) 40 60 80 7000 8000 9000 10000 Age (years) Corrected volume (mm3)Putamen vol. vs age. R = −0.60 (p = 0.00008) 40 60 80 7500 8000 8500 9000 Age (years) Corrected volume (mm3)Putamen vol. vs age. R = −0.34 (p = 0.04) 40 60 80 3800 4000 4200 Age (years) Corrected volume (mm3) Pallidum vol. vs age. R = −0.14 (p = 0.4) 40 60 80 3000 3500 4000 Age (years) Corrected volume (mm3)Pallidum vol. vs age. R = −0.68 (p = 0.000004) 40 60 80 3900 4000 4100 4200 Age (years) Corrected volume (mm3) Pallidum vol. vs age. R = 0.04 (p = 0.8) HippocampusLateral ventriclePutamenPallidum Figure 11: Scatter plots and linear regression of the bilateral volumes of the hippocampus, lateral ventricle and basal ganglia structures (putamen, pallidum) against age in the MGH dataset. The volumes were computed with FreeSurfer 7 from the SPGR scans directly (with cubic interpolation,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02651,
+        -0.01214,
+        -0.04922,
+        -0.03171,
+        -0.01669
+      ]
+    },
+    {
+      "chunk_index": 62,
+      "start_char": 63240,
+      "end_char": 64440,
+      "length": 1200,
+      "overlap_with_previous": "and basal ganglia structures (putamen, pallidum) against age in the MGH dataset. The volumes were computed with FreeSurfer 7 from the SPGR scans directly (with cubic interpolation,",
+      "overlap_with_next": "lation of hippocampal volume and age), while having very little eﬀect on the placement of cortical surfaces. Conversely, SynthSR yields much better contrast be- tween gray and whit",
+      "text": "and basal ganglia structures (putamen, pallidum) against age in the MGH dataset. The volumes were computed with FreeSurfer 7 from the SPGR scans directly (with cubic interpolation, left), their SR version produced by Brudfors et al. 2018 (middle), and the scans obtained with the joint SR / synthesis version of SynthSR (right). The volumes are corrected by sex and intracranial volume. The correlation coeﬃcients and the p value for their signiﬁcance are shown in the title of each plot. hampered by these segmentation mistakes (Figure 11): while very obvious large-scale features like ventricular ex- pansion are accurately detected (even with its character- istic quadratic shape), the atrophy of the hippocampus and basal ganglia (correcting for sex and intracranial vol- ume) are mostly missed (only the putamen is borderline signiﬁcant). Brudfors et al.’s method exploit the informa- tion on the other scans to achieve some sharpening that moderately improves the subcortical segmentation (e.g., improves the correlation of hippocampal volume and age), while having very little eﬀect on the placement of cortical surfaces. Conversely, SynthSR yields much better contrast be- tween gray and whit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02847,
+        -0.01095,
+        -0.01908,
+        -0.01988,
+        -0.00808
+      ]
+    },
+    {
+      "chunk_index": 63,
+      "start_char": 64260,
+      "end_char": 65460,
+      "length": 1200,
+      "overlap_with_previous": "lation of hippocampal volume and age), while having very little eﬀect on the placement of cortical surfaces. Conversely, SynthSR yields much better contrast be- tween gray and whit",
+      "overlap_with_next": "ple size (37 subjects). 13 [Page 14] 4. Discussion and conclusion In this article, we have presented SynthSR, the ﬁrst learning method that produces an isotropic volume of ref- ere",
+      "text": "lation of hippocampal volume and age), while having very little eﬀect on the placement of cortical surfaces. Conversely, SynthSR yields much better contrast be- tween gray and white matter, as well as crisper bound- aries. This enhanced image quality enables FreeSurfer to generate more plausible cortical surfaces, as well as a much more precise segmentation of subcortical structures (e.g., the basal ganglia or the hippocampi in Figure 10). This superior contrast is also reﬂected in the aging analysis: the volumes computed with FreeSurfer on the scans obtained with SynthSR successfully detect all the expected eﬀects, i.e., atrophy of the hippocampus and basal ganglia and expansion of the lateral ventricles. The improvement with respect to Brudfors et al.’s method is very clear: SynthSR detects the negative slope with p<10−4 for all structures, whereas their approach yields p>10−2 in all cases (lateral ventricle aside), and is completely unable to detect the slope eﬀect in the pallidum, despite the fair sample size (37 subjects). 13 [Page 14] 4. Discussion and conclusion In this article, we have presented SynthSR, the ﬁrst learning method that produces an isotropic volume of ref- ere",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04075,
+        -0.03852,
+        -0.00327,
+        -0.01964,
+        -0.00695
+      ]
+    },
+    {
+      "chunk_index": 64,
+      "start_char": 65280,
+      "end_char": 66480,
+      "length": 1200,
+      "overlap_with_previous": "ple size (37 subjects). 13 [Page 14] 4. Discussion and conclusion In this article, we have presented SynthSR, the ﬁrst learning method that produces an isotropic volume of ref- ere",
+      "overlap_with_next": "ripping, denoising, or bias ﬁeld correction). The ﬁrst set of experiments on SR alone reveals that SynthSR can super-resolve MRI scans very accurately, de- spite the domain gap bet",
+      "text": "ple size (37 subjects). 13 [Page 14] 4. Discussion and conclusion In this article, we have presented SynthSR, the ﬁrst learning method that produces an isotropic volume of ref- erence MR contrast using a set of scans from a routine clin- ical MRI exam consisting of anisotropic 2D acquisitions, without access to high-resolution training data for the in- put modalities. SynthSR uses random synthetic data mim- icking the resolution and contrast of the scans one aims to super-resolve, to train a regression CNN that produces the desired HR intensities with the target contrast. The syn- thetic data are generated on the GPU on the ﬂy with a mechanism inspired by the generative model of Bayesian segmentation, which enables simulation not only of con- trast and resolution, but also changes in orientation, sub- ject motion between scans, as bias ﬁeld and registration errors. Because such artifacts and extracerebral tissue are included in the simulations, our method does not require any preprocessing (e.g., skull stripping, denoising, or bias ﬁeld correction). The ﬁrst set of experiments on SR alone reveals that SynthSR can super-resolve MRI scans very accurately, de- spite the domain gap bet",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00754,
+        -0.00734,
+        0.00068,
+        -0.02563,
+        -0.01868
+      ]
+    },
+    {
+      "chunk_index": 65,
+      "start_char": 66300,
+      "end_char": 67500,
+      "length": 1200,
+      "overlap_with_previous": "ripping, denoising, or bias ﬁeld correction). The ﬁrst set of experiments on SR alone reveals that SynthSR can super-resolve MRI scans very accurately, de- spite the domain gap bet",
+      "overlap_with_next": "ow that cortical thickness analysis on the synthe- sized 1 mm MP-RAGE volumes is not reliable. Moreover, the subcortical segmentations produce volumes that yield lower eﬀect sizes ",
+      "text": "ripping, denoising, or bias ﬁeld correction). The ﬁrst set of experiments on SR alone reveals that SynthSR can super-resolve MRI scans very accurately, de- spite the domain gap between real and synthetic data. Us- ing artiﬁcially downsampled MP-RAGE scans from ADNI shows that one can replace 1 mm isotropic scans by super- resolved acquisitions of much lower native resolution and still detect the expected eﬀects of disease. Our results show that, in the context of registration and subcortical segmentation, one can go down to 5 or even 7 mm slice spacing without almost any noticeable impact on common downstream analyses. Cortical thickness is, as expected, much more sensitive to larger spacing, but the proposed technique enables reliable thickness analysis at 3 mm spac- ing – which is remarkable, given the convoluted shape of the cortex and the small size of the thinning eﬀect one seeks to detect. When SR and synthesis are combined, the problem be- comes much harder. Our experiments with 5 mm FLAIR scans show that cortical thickness analysis on the synthe- sized 1 mm MP-RAGE volumes is not reliable. Moreover, the subcortical segmentations produce volumes that yield lower eﬀect sizes ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03382,
+        -0.00417,
+        -0.00633,
+        -0.01361,
+        -0.00594
+      ]
+    },
+    {
+      "chunk_index": 66,
+      "start_char": 67320,
+      "end_char": 68520,
+      "length": 1200,
+      "overlap_with_previous": "ow that cortical thickness analysis on the synthe- sized 1 mm MP-RAGE volumes is not reliable. Moreover, the subcortical segmentations produce volumes that yield lower eﬀect sizes ",
+      "overlap_with_next": "h obvious eﬀects like ventricular expansion can be measured even with lower-resolution scans, the supe- rior image quality produced by our approach enables Free- Surfer to reproduc",
+      "text": "ow that cortical thickness analysis on the synthe- sized 1 mm MP-RAGE volumes is not reliable. Moreover, the subcortical segmentations produce volumes that yield lower eﬀect sizes and correlations with the ground truth than when performing SR of T1 scans. However, the hip- pocampal volumes obtained with SynthSR are still usable, in absolute terms (their correlation with the ground truth volumes is over 0.75). This result is noteworthy, partic- ularly given the axial orientation of the FLAIR scans, which is approximately parallel to the major axis of the hippocampus – causing a very robust tool like SAMSEG to visibly falter. The results on the MGH dataset show that SynthSR can eﬀectively exploit images with diﬀerent contrast and orientation. Compared with the outputs from the second experiment, the synthetic 1 mm MP-RAGEs have much better contrast in regions where it is diﬃcult to deﬁne boundaries from a FLAIR scan alone – compare, for in- stance, the contrast of the putamen in Figures 8 and 10. Even though obvious eﬀects like ventricular expansion can be measured even with lower-resolution scans, the supe- rior image quality produced by our approach enables Free- Surfer to reproduc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04375,
+        -0.01335,
+        -0.00904,
+        -0.0323,
+        0.02403
+      ]
+    },
+    {
+      "chunk_index": 67,
+      "start_char": 68340,
+      "end_char": 69540,
+      "length": 1200,
+      "overlap_with_previous": "h obvious eﬀects like ventricular expansion can be measured even with lower-resolution scans, the supe- rior image quality produced by our approach enables Free- Surfer to reproduc",
+      "overlap_with_next": " estimation via longitudinal segmentation or registration using the syn- thetic scans may be informative to evaluate a patient in clinical practice, we do not envision our method r",
+      "text": "h obvious eﬀects like ventricular expansion can be measured even with lower-resolution scans, the supe- rior image quality produced by our approach enables Free- Surfer to reproduce subtler signatures of aging that are missed by the competing approach (e.g., pallidum). Un- fortunately, as with the FLAIR scans from ADNI, the im- age quality of this dataset was insuﬃcient for our method to accurately detect expected patterns of aging in cortical thickness. We emphasize that it is not the goal of this work to re- place image acquisition for a single speciﬁc subject. Rather, our goal is to enable analyses with existing neuroimaging tools that are not otherwise possible with the thick-slice scans that are used in a majority of routine clinical brain MRI protocols. Our results show that isotropic scans syn- thesized with SynthSR can be used to compute good regis- trations and segmentations in many cases, almost as good as the real 1 mm scans in many analyses at the group level. Even though analysis like atrophy estimation via longitudinal segmentation or registration using the syn- thetic scans may be informative to evaluate a patient in clinical practice, we do not envision our method r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02317,
+        -0.03457,
+        -0.0475,
+        -0.02195,
+        -0.00939
+      ]
+    },
+    {
+      "chunk_index": 68,
+      "start_char": 69360,
+      "end_char": 70560,
+      "length": 1200,
+      "overlap_with_previous": " estimation via longitudinal segmentation or registration using the syn- thetic scans may be informative to evaluate a patient in clinical practice, we do not envision our method r",
+      "overlap_with_next": "accuracy of the approach presented in this article, ideally to the point that cortical thickness analyses are possible. Improving our method is possible in many as- pects. In terms",
+      "text": " estimation via longitudinal segmentation or registration using the syn- thetic scans may be informative to evaluate a patient in clinical practice, we do not envision our method replacing speciﬁc MRI acquisitions (e.g., with contrast agents) for evaluation of abnormalities like tumors. While it is not the goal to produce harmonized data for multi-center studies, SynthSR generates synthetic scans of a speciﬁc predeﬁned MR contrast. Although this indirectly achieves a level of harmonization, it does not homogenize the data as well as explicit harmonization techniques: with SynthSR, the ability to generate contrast in the output depends on the quality and contrast of the input scans (e.g., as in the aforementioned example of the putamen in Figures 8 and 10). It may thus be interesting to build a pipeline with our method and existing harmonization methods (e.g., Pomponio et al. 2020), possibly within a single architecture trained end to end. Further work will be directed towards improving the robustness and accuracy of the approach presented in this article, ideally to the point that cortical thickness analyses are possible. Improving our method is possible in many as- pects. In terms",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02954,
+        -0.00087,
+        -0.0193,
+        -0.01568,
+        0.00248
+      ]
+    },
+    {
+      "chunk_index": 69,
+      "start_char": 70380,
+      "end_char": 71580,
+      "length": 1200,
+      "overlap_with_previous": "accuracy of the approach presented in this article, ideally to the point that cortical thickness analyses are possible. Improving our method is possible in many as- pects. In terms",
+      "overlap_with_next": "et in this paper has been successfully applied to a number of related problems, 14 [Page 15] deep machine learning advances at great speed, so it is al- most certain that improved ",
+      "text": "accuracy of the approach presented in this article, ideally to the point that cortical thickness analyses are possible. Improving our method is possible in many as- pects. In terms of loss, one could replace L1 by adversarial networks that seek to make the generated volumes indis- tinguishable from the training scans. While this approach generates very realistic images, it is also more prone to hallucinating image features (Cohen et al., 2018). There- fore, it will be important to compare the performance in downstream analyses. A simpler alternative may be to produce more realistic synthetic images in training by us- ing ﬁner labels. Crucially, labels do not need to be manual or correspond one-to-one with structures: since they are not used in learning (as opposed to, e.g., a segmentation problem), they can be obtained in an automated fashion, e.g., with unsupervised clustering techniques like Blaiotta et al. (2018). Further improvements to SynthSR are also possible in terms of architecture. While the U-net in this paper has been successfully applied to a number of related problems, 14 [Page 15] deep machine learning advances at great speed, so it is al- most certain that improved ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07291,
+        0.02152,
+        -0.03134,
+        0.00175,
+        -0.01476
+      ]
+    },
+    {
+      "chunk_index": 70,
+      "start_char": 71400,
+      "end_char": 72600,
+      "length": 1200,
+      "overlap_with_previous": "et in this paper has been successfully applied to a number of related problems, 14 [Page 15] deep machine learning advances at great speed, so it is al- most certain that improved ",
+      "overlap_with_next": "atically determine what scans within an exam are usable, which is a challenge of its own. Finally, a crucial development that is required to run SynthSR at scale in the clinic is t",
+      "text": "et in this paper has been successfully applied to a number of related problems, 14 [Page 15] deep machine learning advances at great speed, so it is al- most certain that improved results will be obtained with more modern architectures in the future. We will also at- tempt to improve the image augmentation model. When deploying our method on clinical data at larger scale, the CNN will encounter images with higher degrees of noise and motion than the relatively small MGH dataset used in this study. Incorporating these artifacts into our aug- mentation model may improve the results. When testing at scale, we expect that some MR modalities from our min- imal subset (FLAIR, T1-TSE, T2, SPGR) will be missing or unusable. While this could be addressed by training a CNN for every possible subset, we will also try training a single CNN with modality dropout. Such a CNN could potentially be applied to any MRI exam, irrespective of what modalities are available. This approach would also require the ability to automatically determine what scans within an exam are usable, which is a challenge of its own. Finally, a crucial development that is required to run SynthSR at scale in the clinic is t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04206,
+        0.00355,
+        -0.02267,
+        0.00607,
+        -0.02094
+      ]
+    },
+    {
+      "chunk_index": 71,
+      "start_char": 72420,
+      "end_char": 73620,
+      "length": 1200,
+      "overlap_with_previous": "atically determine what scans within an exam are usable, which is a challenge of its own. Finally, a crucial development that is required to run SynthSR at scale in the clinic is t",
+      "overlap_with_next": "nd thus hold promise to improve our understanding of the human brain by pro- viding levels of statistical power that are currently not attainable with in vivo studies. Acknowledgem",
+      "text": "atically determine what scans within an exam are usable, which is a challenge of its own. Finally, a crucial development that is required to run SynthSR at scale in the clinic is the ability to model pathol- ogy. While eﬀects like atrophy can largely be captured with spatial augmentation, coping with more structurally disrupting abnormalities (e.g., tumors) will require simu- lating them in training. Given that SynthSR seems to be able to cope with a fair amount of domain gap between synthetic and real intensities, it is unclear how accurate these simulations will have to be. SynthSR is publicly available (athttps://github.com/ BBillot/SynthSR) and will enable researchers around the globe to generate synthetic 1 mm scans from vast amounts of brain MRI data that already exist and are continuously being acquired. These synthetic scans will enable the ap- plication of many existing neuroimaging tools designed for research-grade MRI (including but not limited to the ones in this paper) to huge sample sizes, and thus hold promise to improve our understanding of the human brain by pro- viding levels of statistical power that are currently not attainable with in vivo studies. Acknowledgem",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00507,
+        0.00807,
+        -0.01637,
+        -0.01668,
+        0.00722
+      ]
+    },
+    {
+      "chunk_index": 72,
+      "start_char": 73440,
+      "end_char": 74640,
+      "length": 1200,
+      "overlap_with_previous": "nd thus hold promise to improve our understanding of the human brain by pro- viding levels of statistical power that are currently not attainable with in vivo studies. Acknowledgem",
+      "overlap_with_next": "e and Kidney Diseases (R21-DK108277-01), the National Institute for Neurological Disorders and Stroke (R01-NS-0525851, R21- NS-072652, R01-NS-070963, R01-NS-083534, 5U01-NS-086625,",
+      "text": "nd thus hold promise to improve our understanding of the human brain by pro- viding levels of statistical power that are currently not attainable with in vivo studies. Acknowledgement This project has been primarily funded by the Euro- pean Research Council (Starting Grant 677697, project “BUNGEE-TOOLS”), the NIH (1RF1-MH-123195-01), and Alzheimers Research UK (Interdisciplinary Grant ARUK- IRG2019A-003). Further support has been provided by the EPSRC (EP-L016478-1, EP-M020533-1, EP-R014019- 1), the NIHR UCLH Biomedical Research Centre, the BRAIN Initiative Cell Census Network (U01-MH117023), the National Institute for Biomedical Imaging and Bio- engineering (P41-EB-015896, 1R01-EB-023281, R01-EB- 006758, R21-EB-018907, R01-EB-019956, P41-EB-015902), the National Institute on Aging (1R56-AG064027, 1R01- AG064027, 5R01-AG008122, R01-AG016495), the National Institute of Mental Health, the National Institute of Child Health and Human Development (R01-HD100009), the National Institute of Diabetes and Digestive and Kidney Diseases (R21-DK108277-01), the National Institute for Neurological Disorders and Stroke (R01-NS-0525851, R21- NS-072652, R01-NS-070963, R01-NS-083534, 5U01-NS-086625,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01703,
+        -0.0039,
+        0.00066,
+        -0.0328,
+        -0.01128
+      ]
+    },
+    {
+      "chunk_index": 73,
+      "start_char": 74460,
+      "end_char": 75660,
+      "length": 1200,
+      "overlap_with_previous": "e and Kidney Diseases (R21-DK108277-01), the National Institute for Neurological Disorders and Stroke (R01-NS-0525851, R21- NS-072652, R01-NS-070963, R01-NS-083534, 5U01-NS-086625,",
+      "overlap_with_next": "p study based on ADNI was funded by the Alzheimer’s Disease Neuroimaging Initiative (NIH grant U01-AG024904) and DOD ADNI (Department of Defence award number W81XWH-12-2-0012). ADN",
+      "text": "e and Kidney Diseases (R21-DK108277-01), the National Institute for Neurological Disorders and Stroke (R01-NS-0525851, R21- NS-072652, R01-NS-070963, R01-NS-083534, 5U01-NS-086625, 5U24-NS-10059103, R01-NS-105820, R21-NS-109627, RF1- NS-115268, U19-NS-115388), NIH Director’s Oﬃce (DP2- HD-101400), James S. McDonnell Foundation, the Tiny Blue Dot Foundation, and was made possible by the re- sources provided by Shared Instrumentation Grants 1S10- RR023401, 1S10-RR019307, and 1S10-RR023043. Addi- tional support was provided by the NIH Blueprint for Neu- roscience Research (5U01-MH093765), part of the multi- institutional Human Connectome Project. In addition, BF has a ﬁnancial interest in CorticoMetrics, a company whose medical pursuits focus on brain imaging and mea- surement technologies. BF’s interests were reviewed and are managed by Massachusetts General Hospital and Part- ners HealthCare in accordance with their conﬂict of inter- est policies. The collection and sharing of the MRI data used in the group study based on ADNI was funded by the Alzheimer’s Disease Neuroimaging Initiative (NIH grant U01-AG024904) and DOD ADNI (Department of Defence award number W81XWH-12-2-0012). ADN",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01296,
+        -0.03062,
+        -0.0243,
+        -0.02361,
+        -0.02352
+      ]
+    },
+    {
+      "chunk_index": 74,
+      "start_char": 75480,
+      "end_char": 76680,
+      "length": 1200,
+      "overlap_with_previous": "p study based on ADNI was funded by the Alzheimer’s Disease Neuroimaging Initiative (NIH grant U01-AG024904) and DOD ADNI (Department of Defence award number W81XWH-12-2-0012). ADN",
+      "overlap_with_next": "of Health Re- search is providing funds to support ADNI clinical sites in Canada. Private sector contributions are facilitated by the Foundation for the National Institutes of Heal",
+      "text": "p study based on ADNI was funded by the Alzheimer’s Disease Neuroimaging Initiative (NIH grant U01-AG024904) and DOD ADNI (Department of Defence award number W81XWH-12-2-0012). ADNI is funded by the National Institute on Aging, the National Institute of Biomedical Imaging and Bioengineering, and through generous con- tributions from the following: Alzheimer’s Association; Alzheimer’s Drug Discovery Foundation; BioClinica, Inc.; Biogen Idec Inc.; Bristol-Myers Squibb Company; Eisai Inc.; Elan Pharmaceuticals, Inc.; Eli Lilly and Company; F. Hoﬀmann-La Roche Ltd and its aﬃliated company Ge- nentech, Inc.; GE Healthcare; Innogenetics, N.V.; IXICO Ltd.; Janssen Alzheimer Immunotherapy Research & De- velopment, LLC.; Johnson & Johnson Pharmaceutical Re- search & Development LLC.; Medpace, Inc.; Merck & Co., Inc.; Meso Scale Diagnostics, LLC.; NeuroRx Research; Novartis Pharmaceuticals Corporation; Pﬁzer Inc.; Pira- mal Imaging; Servier; Synarc Inc.; and Takeda Pharma- ceutical Company. The Canadian Institutes of Health Re- search is providing funds to support ADNI clinical sites in Canada. Private sector contributions are facilitated by the Foundation for the National Institutes of Heal",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03717,
+        -0.01756,
+        0.01141,
+        -0.04398,
+        -0.03504
+      ]
+    },
+    {
+      "chunk_index": 75,
+      "start_char": 76500,
+      "end_char": 77700,
+      "length": 1200,
+      "overlap_with_previous": "of Health Re- search is providing funds to support ADNI clinical sites in Canada. Private sector contributions are facilitated by the Foundation for the National Institutes of Heal",
+      "overlap_with_next": "technical report 15 [Page 16] TR07JA2). FMRIB Analysis Group of the University of Oxford , (pp. 1–22). Arsigny, V., Commowick, O., Pennec, X., & Ayache, N. (2006). A log-euclidean ",
+      "text": "of Health Re- search is providing funds to support ADNI clinical sites in Canada. Private sector contributions are facilitated by the Foundation for the National Institutes of Health (www.fnih.org). The grantee organisation is the North- ern California Institute for Research and Education, and the study is coordinated by the Alzheimer’s Disease Coop- erative Study at the University of California, San Diego. ADNI data are disseminated by the Laboratory for Neuro Imaging at the University of Southern California. References Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., & others (2016). TensorFlow: A System for Large-Scale Machine Learning. In OSDI 16 (pp. 265–283). Alexander, D. C., Zikic, D., Ghosh, A., Tanno, R., Wottschel, V., Zhang, J., Kaden, E., Dyrby, T. B., Sotiropoulos, S. N., Zhang, H. et al. (2017). Image quality transfer and applications in diﬀusion MRI. NeuroImage, 152, 283–298. Andersson, J. L., Jenkinson, M., Smith, S. et al. (2007). Non- linear registration aka spatial normalisation (technical report 15 [Page 16] TR07JA2). FMRIB Analysis Group of the University of Oxford , (pp. 1–22). Arsigny, V., Commowick, O., Pennec, X., & Ayache, N. (2006). A log-euclidean ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04092,
+        -0.02061,
+        -0.01559,
+        -0.03836,
+        -0.02391
+      ]
+    },
+    {
+      "chunk_index": 76,
+      "start_char": 77520,
+      "end_char": 78720,
+      "length": 1200,
+      "overlap_with_previous": "technical report 15 [Page 16] TR07JA2). FMRIB Analysis Group of the University of Oxford , (pp. 1–22). Arsigny, V., Commowick, O., Pennec, X., & Ayache, N. (2006). A log-euclidean ",
+      "overlap_with_next": "hao, A., Sabuncu, M. R., Guttag, J., & Dalca, A. V. (2019). Voxelmorph: a learning framework for deformable medical image registration. IEEE transactions on medical imag- ing, 38, ",
+      "text": "technical report 15 [Page 16] TR07JA2). FMRIB Analysis Group of the University of Oxford , (pp. 1–22). Arsigny, V., Commowick, O., Pennec, X., & Ayache, N. (2006). A log-euclidean framework for statistics on diﬀeomorphisms. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 924–931). Springer. Ashburner, J. (2007). A fast diﬀeomorphic image registration algo- rithm. Neuroimage, 38, 95–113. Ashburner, J. (2012). SPM: a history. Neuroimage, 62, 791–800. Ashburner, J., & Friston, K. J. (2005). Uniﬁed segmentation. Neu- roimage, 26, 839–851. Avants, B. B., Epstein, C. L., Grossman, M., & Gee, J. C. (2008). Symmetric diﬀeomorphic image registration with cross- correlation: evaluating automated labeling of elderly and neu- rodegenerative brain. Medical image analysis , 12, 26–41. Bahrami, K., Shi, F., Zong, X., Shin, H. W., An, H., & Shen, D. (2016). Reconstruction of 7T-like images from 3T MRI. IEEE transactions on medical imaging , 35, 2085–2097. Balakrishnan, G., Zhao, A., Sabuncu, M. R., Guttag, J., & Dalca, A. V. (2019). Voxelmorph: a learning framework for deformable medical image registration. IEEE transactions on medical imag- ing, 38, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03042,
+        0.01448,
+        -0.03821,
+        0.00246,
+        -0.00641
+      ]
+    },
+    {
+      "chunk_index": 77,
+      "start_char": 78540,
+      "end_char": 79740,
+      "length": 1200,
+      "overlap_with_previous": "hao, A., Sabuncu, M. R., Guttag, J., & Dalca, A. V. (2019). Voxelmorph: a learning framework for deformable medical image registration. IEEE transactions on medical imag- ing, 38, ",
+      "overlap_with_next": "In An- nual Conference on Medical Image Understanding and Analysis (pp. 217–228). Springer. Chaitanya, K., Karani, N., Baumgartner, C. F., Becker, A., Donati, O., & Konukoglu, E. (",
+      "text": "hao, A., Sabuncu, M. R., Guttag, J., & Dalca, A. V. (2019). Voxelmorph: a learning framework for deformable medical image registration. IEEE transactions on medical imag- ing, 38, 1788–1800. Billot, B., Greve, D. N., Van Leemput, K., Fischl, B., Iglesias, J. E., & Dalca, A. (2020a). A learning strategy for contrast-agnostic MRI segmentation. (pp. 75–93). Montreal, QC, Canada: PMLR volume 121 of Proceedings of Machine Learning Research. Billot, B., Robinson, E., Dalca, A. V., & Iglesias, J. E. (2020b). Par- tial volume segmentation of brain MRI scans of any resolution and contrast. In International Conference on Medical image comput- ing and computer-assisted intervention (pp. 177–187). Springer. Blaiotta, C., Freund, P., Cardoso, M. J., & Ashburner, J. (2018). Generative diﬀeomorphic modelling of large mri data sets for prob- abilistic template construction. NeuroImage, 166, 117–134. Brudfors, M., Balbastre, Y., Nachev, P., & Ashburner, J. (2018). MRI super-resolution using multi-channel total variation. In An- nual Conference on Medical Image Understanding and Analysis (pp. 217–228). Springer. Chaitanya, K., Karani, N., Baumgartner, C. F., Becker, A., Donati, O., & Konukoglu, E. (",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03519,
+        -0.00292,
+        -0.00256,
+        -0.02505,
+        -0.02923
+      ]
+    },
+    {
+      "chunk_index": 78,
+      "start_char": 79560,
+      "end_char": 80760,
+      "length": 1200,
+      "overlap_with_previous": "In An- nual Conference on Medical Image Understanding and Analysis (pp. 217–228). Springer. Chaitanya, K., Karani, N., Baumgartner, C. F., Becker, A., Donati, O., & Konukoglu, E. (",
+      "overlap_with_next": "ﬃcient and accurate MRI super-resolution using a gen- erative adversarial network and 3D multi-level densely connected network. In International Conference on Medical Image Comput-",
+      "text": "In An- nual Conference on Medical Image Understanding and Analysis (pp. 217–228). Springer. Chaitanya, K., Karani, N., Baumgartner, C. F., Becker, A., Donati, O., & Konukoglu, E. (2019). Semi-supervised and task-driven data augmentation. In International conference on information processing in medical imaging (pp. 29–41). Springer. Chartsias, A., Joyce, T., Giuﬀrida, M. V., & Tsaftaris, S. A. (2017). Multimodal mr synthesis via modality-invariant latent represen- tation. IEEE transactions on medical imaging , 37, 803–814. Chaudhari, A. S., Fang, Z., Kogan, F., Wood, J., Stevens, K. J., Gibbons, E. K., Lee, J. H., Gold, G. E., & Hargreaves, B. A. (2018). Super-resolution musculoskeletal MRI using deep learning. Magnetic resonance in medicine , 80, 2139–2154. Chen, H., Dou, Q., Yu, L., Qin, J., & Heng, P.-A. (2018a). VoxRes- Net: Deep voxelwise residual networks for brain segmentation from 3D MR images. NeuroImage, 170, 446–455. Chen, Y., Shi, F., Christodoulou, A. G., Xie, Y., Zhou, Z., & Li, D. (2018b). Eﬃcient and accurate MRI super-resolution using a gen- erative adversarial network and 3D multi-level densely connected network. In International Conference on Medical Image Comput-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04003,
+        -0.00811,
+        -0.03733,
+        -0.00843,
+        -0.02201
+      ]
+    },
+    {
+      "chunk_index": 79,
+      "start_char": 80580,
+      "end_char": 81780,
+      "length": 1200,
+      "overlap_with_previous": "ﬃcient and accurate MRI super-resolution using a gen- erative adversarial network and 3D multi-level densely connected network. In International Conference on Medical Image Comput-",
+      "overlap_with_next": "pus, 19, 579–587. C ¸ i¸ cek,¨O., Abdulkadir, A., Lienkamp, S. S., Brox, T., & Ron- neberger, O. (2016). 3D U-Net: learning dense volumetric seg- mentation from sparse annotation. ",
+      "text": "ﬃcient and accurate MRI super-resolution using a gen- erative adversarial network and 3D multi-level densely connected network. In International Conference on Medical Image Comput- ing and Computer-Assisted Intervention (pp. 91–99). Springer. Chen, Y., Xie, Y., Zhou, Z., Shi, F., Christodoulou, A. G., & Li, D. (2018c). Brain MRI super resolution using 3D deep densely con- nected neural networks. In 2018 IEEE 15th International Sympo- sium on Biomedical Imaging (ISBI 2018) (pp. 739–742). IEEE. Chollet, F. et al. (2015). Keras. https://keras.io. Chung, M., Worsley, K., Paus, T., Cherif, C., Collins, D., Giedd, J., Rapoport, J., & Evans, A. (2001). A uniﬁed statistical approach to deformation-based morphometry. NeuroImage, 14, 595–606. Chupin, M., G´ erardin, E., Cuingnet, R., Boutet, C., Lemieux, L., Leh´ ericy, S., Benali, H., Garnero, L., & Colliot, O. (2009). Fully automatic hippocampus segmentation and classiﬁcation in Alzheimer’s disease and mild cognitive impairment applied on data from ADNI. Hippocampus, 19, 579–587. C ¸ i¸ cek,¨O., Abdulkadir, A., Lienkamp, S. S., Brox, T., & Ron- neberger, O. (2016). 3D U-Net: learning dense volumetric seg- mentation from sparse annotation. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00753,
+        -0.00996,
+        -0.01394,
+        -0.04364,
+        -0.01799
+      ]
+    },
+    {
+      "chunk_index": 80,
+      "start_char": 81600,
+      "end_char": 82800,
+      "length": 1200,
+      "overlap_with_previous": "pus, 19, 579–587. C ¸ i¸ cek,¨O., Abdulkadir, A., Lienkamp, S. S., Brox, T., & Ron- neberger, O. (2016). 3D U-Net: learning dense volumetric seg- mentation from sparse annotation. ",
+      "overlap_with_next": "al Society for Magnetic Reso- nance in Medicine , 42, 1014–1018. Dalca, A. V., Bouman, K. L., Freeman, W. T., Rost, N. S., Sabuncu, M. R., & Golland, P. (2018). Medical image imput",
+      "text": "pus, 19, 579–587. C ¸ i¸ cek,¨O., Abdulkadir, A., Lienkamp, S. S., Brox, T., & Ron- neberger, O. (2016). 3D U-Net: learning dense volumetric seg- mentation from sparse annotation. In International conference on medical image computing and computer-assisted intervention (pp. 424–432). Springer. Clevert, D.-A., Unterthiner, T., & Hochreiter, S. (2016). Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs). arXiv:1511.07289 [cs] , . Cohen, J. P., Luck, M., & Honari, S. (2018). Distribution match- ing losses can hallucinate features in medical image translation. In International conference on medical image computing and computer-assisted intervention (pp. 529–536). Springer. Cox, R. W. (1996). AFNI: software for analysis and visualization of functional magnetic resonance neuroimages. Computers and Biomedical research, 29, 162–173. Cox, R. W., & Jesmanowicz, A. (1999). Real-time 3D image regis- tration for functional MRI. Magnetic Resonance in Medicine: An Oﬃcial Journal of the International Society for Magnetic Reso- nance in Medicine , 42, 1014–1018. Dalca, A. V., Bouman, K. L., Freeman, W. T., Rost, N. S., Sabuncu, M. R., & Golland, P. (2018). Medical image imput",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0531,
+        0.00136,
+        -0.04504,
+        -0.02224,
+        -0.02814
+      ]
+    },
+    {
+      "chunk_index": 81,
+      "start_char": 82620,
+      "end_char": 83820,
+      "length": 1200,
+      "overlap_with_previous": "al Society for Magnetic Reso- nance in Medicine , 42, 1014–1018. Dalca, A. V., Bouman, K. L., Freeman, W. T., Rost, N. S., Sabuncu, M. R., & Golland, P. (2018). Medical image imput",
+      "overlap_with_next": "774–781. Fischl, B., Salat, D. H., Busa, E., Albert, M., Dieterich, M., Hasel- grove, C., Van Der Kouwe, A., Killiany, R., Kennedy, D., Klave- ness, S. et al. (2002). Whole brain s",
+      "text": "al Society for Magnetic Reso- nance in Medicine , 42, 1014–1018. Dalca, A. V., Bouman, K. L., Freeman, W. T., Rost, N. S., Sabuncu, M. R., & Golland, P. (2018). Medical image imputation from image collections. IEEE transactions on medical imaging , 38, 504–514. Dale, A. M., Fischl, B., & Sereno, M. I. (1999). Cortical surface-based analysis: I.Segmentation and surface reconstruction. Neuroimage, 9, 179–194. Dar, S. U., Yurt, M., Karacan, L., Erdem, A., Erdem, E., & C ¸ ukur, T. (2019). Image synthesis in multi-contrast MRI with conditional generative adversarial networks. IEEE transactions on medical imaging, 38, 2375–2388. Delbracio, M., & Sapiro, G. (2015). Removing camera shake via weighted fourier burst accumulation. IEEE Transactions on Im- age Processing, 24, 3293–3307. Dong, C., Loy, C. C., He, K., & Tang, X. (2015). Image super- resolution using deep convolutional networks. IEEE transactions on pattern analysis and machine intelligence , 38, 295–307. Fischl, B. (2012). Freesurfer. Neuroimage, 62, 774–781. Fischl, B., Salat, D. H., Busa, E., Albert, M., Dieterich, M., Hasel- grove, C., Van Der Kouwe, A., Killiany, R., Kennedy, D., Klave- ness, S. et al. (2002). Whole brain s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03346,
+        0.0044,
+        -0.04192,
+        0.00093,
+        0.02043
+      ]
+    },
+    {
+      "chunk_index": 82,
+      "start_char": 83640,
+      "end_char": 84840,
+      "length": 1200,
+      "overlap_with_previous": "774–781. Fischl, B., Salat, D. H., Busa, E., Albert, M., Dieterich, M., Hasel- grove, C., Van Der Kouwe, A., Killiany, R., Kennedy, D., Klave- ness, S. et al. (2002). Whole brain s",
+      "overlap_with_next": "pocampal volume as an index of Alzheimer neu- ropathology: ﬁndings from the Nun Study. Neurology, 58, 1476– 1482. Greve, D. N., & Fischl, B. (2009). Accurate and robust brain image",
+      "text": "774–781. Fischl, B., Salat, D. H., Busa, E., Albert, M., Dieterich, M., Hasel- grove, C., Van Der Kouwe, A., Killiany, R., Kennedy, D., Klave- ness, S. et al. (2002). Whole brain segmentation: automated la- beling of neuroanatomical structures in the human brain. Neuron, 33, 341–355. Fox, N. C., Crum, W. R., Scahill, R. I., Stevens, J. M., Janssen, J. C., & Rossor, M. N. (2001). Imaging of onset and progression of Alzheimer’s disease with voxel-compression mapping of serial magnetic resonance images. The Lancet, 358, 201–205. Freeborough, P. A., & Fox, N. C. (1998). Modeling brain deforma- tions in alzheimer disease by ﬂuid registration of serial 3D MR images. Journal of computer assisted tomography , 22, 838–843. Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., & Bengio, Y. (2014). Generative adversarial nets. In Advances in neural information processing systems (pp. 2672–2680). Gosche, K., Mortimer, J., Smith, C., Markesbery, W., & Snowdon, D. (2002). Hippocampal volume as an index of Alzheimer neu- ropathology: ﬁndings from the Nun Study. Neurology, 58, 1476– 1482. Greve, D. N., & Fischl, B. (2009). Accurate and robust brain image",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0373,
+        -3e-05,
+        -0.02772,
+        -0.02033,
+        -0.00421
+      ]
+    },
+    {
+      "chunk_index": 83,
+      "start_char": 84660,
+      "end_char": 85860,
+      "length": 1200,
+      "overlap_with_previous": "pocampal volume as an index of Alzheimer neu- ropathology: ﬁndings from the Nun Study. Neurology, 58, 1476– 1482. Greve, D. N., & Fischl, B. (2009). Accurate and robust brain image",
+      "overlap_with_next": "sed joint convolutional sparse coding. In Pro- 16 [Page 17] ceedings of the IEEE Conference on Computer Vision and Pat- tern Recognition (pp. 6070–6079). Huynh, T., Gao, Y., Kang, ",
+      "text": "pocampal volume as an index of Alzheimer neu- ropathology: ﬁndings from the Nun Study. Neurology, 58, 1476– 1482. Greve, D. N., & Fischl, B. (2009). Accurate and robust brain image alignment using boundary-based registration. Neuroimage, 48, 63–72. Han, X., Jovicich, J., Salat, D., van der Kouwe, A., Quinn, B., Czan- ner, S., Busa, E., Pacheco, J., Albert, M., Killiany, R. et al. (2006). Reliability of MRI-derived measurements of human cerebral cor- tical thickness: the eﬀects of ﬁeld strength, scanner upgrade and manufacturer. Neuroimage, 32, 180–194. Hua, X., Leow, A. D., Parikshak, N., Lee, S., Chiang, M.-C., Toga, A. W., Jack Jr, C. R., Weiner, M. W., Thompson, P. M., Ini- tiative, A. D. N. et al. (2008). Tensor-based morphometry as a neuroimaging biomarker for Alzheimer’s disease: an MRI study of 676 AD, MCI, and normal subjects. Neuroimage, 43, 458–469. Huang, Y., Shao, L., & Frangi, A. F. (2017). Simultaneous super- resolution and cross-modality synthesis of 3D medical images us- ing weakly-supervised joint convolutional sparse coding. In Pro- 16 [Page 17] ceedings of the IEEE Conference on Computer Vision and Pat- tern Recognition (pp. 6070–6079). Huynh, T., Gao, Y., Kang, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04377,
+        0.00967,
+        0.00095,
+        -0.04537,
+        -0.01955
+      ]
+    },
+    {
+      "chunk_index": 84,
+      "start_char": 85680,
+      "end_char": 86880,
+      "length": 1200,
+      "overlap_with_previous": "sed joint convolutional sparse coding. In Pro- 16 [Page 17] ceedings of the IEEE Conference on Computer Vision and Pat- tern Recognition (pp. 6070–6079). Huynh, T., Gao, Y., Kang, ",
+      "overlap_with_next": "resolution for magnetic resonance images. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 553–560). Springer. Jog, A., Hoopes, A., Gr",
+      "text": "sed joint convolutional sparse coding. In Pro- 16 [Page 17] ceedings of the IEEE Conference on Computer Vision and Pat- tern Recognition (pp. 6070–6079). Huynh, T., Gao, Y., Kang, J., Wang, L., Zhang, P., Lian, J., & Shen, D. (2015). Estimating CT image from MRI data using structured random forest and auto-context model. IEEE transactions on medical imaging, 35, 174–183. Iglesias, J. E., Konukoglu, E., Zikic, D., Glocker, B., Van Leemput, K., & Fischl, B. (2013). Is synthesizing MRI contrast useful for inter-modality analysis? In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 631– 638). Springer. Jenkinson, M., Bannister, P., Brady, M., & Smith, S. (2002). Im- proved optimization for the robust and accurate linear registration and motion correction of brain images. Neuroimage, 17, 825–841. Jenkinson, M., Beckmann, C. F., Behrens, T. E., Woolrich, M. W., & Smith, S. M. (2012). Fsl. Neuroimage, 62, 782–790. Jog, A., Carass, A., & Prince, J. L. (2016). Self super-resolution for magnetic resonance images. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 553–560). Springer. Jog, A., Hoopes, A., Gr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03491,
+        -0.01553,
+        -0.04278,
+        -0.00692,
+        -0.00938
+      ]
+    },
+    {
+      "chunk_index": 85,
+      "start_char": 86700,
+      "end_char": 87900,
+      "length": 1200,
+      "overlap_with_previous": "resolution for magnetic resonance images. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 553–560). Springer. Jog, A., Hoopes, A., Gr",
+      "overlap_with_next": " Ba, J. (2014). Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 , . Klein, S., Staring, M., Murphy, K., Viergever, M. A., & Pluim, J. P. (2009). Elastix:",
+      "text": "resolution for magnetic resonance images. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 553–560). Springer. Jog, A., Hoopes, A., Greve, D. N., Van Leemput, K., & Fischl, B. (2019). PSACNN: Pulse sequence adaptive fast whole brain segmentation. NeuroImage, 199, 553–569. de Jong, L. W., van der Hiele, K., Veer, I. M., Houwing, J., Wes- tendorp, R., Bollen, E., de Bruin, P. W., Middelkoop, H., van Buchem, M. A., & van der Grond, J. (2008). Strongly reduced volumes of putamen and thalamus in Alzheimer’s disease: an MRI study. Brain, 131, 3277–3285. Joshi, S., Davis, B., Jomier, M., & Gerig, G. (2004). Unbiased dif- feomorphic atlas construction for computational anatomy. Neu- roImage, 23, S151–S160. Kamnitsas, K., Ledig, C., Newcombe, V. F., Simpson, J. P., Kane, A. D., Menon, D. K., Rueckert, D., & Glocker, B. (2017). Eﬃcient multi-scale 3D CNN with fully connected CRF for accurate brain lesion segmentation. Medical image analysis , 36, 61–78. Kingma, D. P., & Ba, J. (2014). Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 , . Klein, S., Staring, M., Murphy, K., Viergever, M. A., & Pluim, J. P. (2009). Elastix:",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02825,
+        0.01372,
+        -0.03525,
+        -0.0124,
+        -0.00969
+      ]
+    },
+    {
+      "chunk_index": 86,
+      "start_char": 87720,
+      "end_char": 88920,
+      "length": 1200,
+      "overlap_with_previous": " Ba, J. (2014). Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 , . Klein, S., Staring, M., Murphy, K., Viergever, M. A., & Pluim, J. P. (2009). Elastix:",
+      "overlap_with_next": " not use standard deviation around the mean, use absolute deviation around the median. Journal of Experimental Social Psychology, 49, 764–766. Li, Y., Wang, Y., Wu, G., Shi, F., Zh",
+      "text": " Ba, J. (2014). Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 , . Klein, S., Staring, M., Murphy, K., Viergever, M. A., & Pluim, J. P. (2009). Elastix: a toolbox for intensity-based medical image reg- istration. IEEE transactions on medical imaging , 29, 196–205. van der Kouwe, A. J., Benner, T., Salat, D. H., & Fischl, B. (2008). Brain morphometry with multiecho MPRAGE. Neuroimage, 40, 559–569. Lehmann, M., Crutch, S. J., Ridgway, G. R., Ridha, B. H., Barnes, J., Warrington, E. K., Rossor, M. N., & Fox, N. C. (2011). Cor- tical thickness and voxel-based morphometry in posterior cortical atrophy and typical Alzheimer’s disease. Neurobiology of aging , 32, 1466–1476. Lerch, J. P., Pruessner, J. C., Zijdenbos, A., Hampel, H., Teipel, S. J., & Evans, A. C. (2005). Focal decline of cortical thickness in Alzheimer’s disease identiﬁed by computational neuroanatomy. Cerebral cortex, 15, 995–1001. Leys, C., Ley, C., Klein, O., Bernard, P., & Licata, L. (2013). Detect- ing outliers: Do not use standard deviation around the mean, use absolute deviation around the median. Journal of Experimental Social Psychology, 49, 764–766. Li, Y., Wang, Y., Wu, G., Shi, F., Zh",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0094,
+        -0.00294,
+        -0.02436,
+        -0.03008,
+        -0.02806
+      ]
+    },
+    {
+      "chunk_index": 87,
+      "start_char": 88740,
+      "end_char": 89940,
+      "length": 1200,
+      "overlap_with_previous": " not use standard deviation around the mean, use absolute deviation around the median. Journal of Experimental Social Psychology, 49, 764–766. Li, Y., Wang, Y., Wu, G., Shi, F., Zh",
+      "overlap_with_next": ", Winston, G. P., Duncan, J. S., & Ourselin, S. (2014). Global image registration using a symmetric block-matching approach. Journal of Medical Imaging, 1, 024003. Modat, M., Ridgw",
+      "text": " not use standard deviation around the mean, use absolute deviation around the median. Journal of Experimental Social Psychology, 49, 764–766. Li, Y., Wang, Y., Wu, G., Shi, F., Zhou, L., Lin, W., Shen, D., Initia- tive, A. D. N. et al. (2012). Discriminant analysis of longitudinal cortical thickness changes in Alzheimer’s disease using dynamic and network features. Neurobiology of aging , 33, 427–e15. Lyu, Q., Shan, H., Steber, C., Helis, C., Whitlow, C. T., Chan, M., & Wang, G. (2020). Multi-contrast super-resolution MRI through a progressive network. IEEE Transactions on Medical Imaging , . Manj´ on, J. V., Coup´ e, P., Buades, A., Fonov, V., Collins, D. L., & Robles, M. (2010). Non-local MRI upsampling. Medical image analysis, 14, 784–792. Marques, J. P., Kober, T., Krueger, G., van der Zwaag, W., Van de Moortele, P.-F., & Gruetter, R. (2010). MP2RAGE, a self bias-ﬁeld corrected sequence for improved segmentation and T1- mapping at high ﬁeld. Neuroimage, 49, 1271–1281. Modat, M., Cash, D. M., Daga, P., Winston, G. P., Duncan, J. S., & Ourselin, S. (2014). Global image registration using a symmetric block-matching approach. Journal of Medical Imaging, 1, 024003. Modat, M., Ridgw",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0347,
+        -0.04293,
+        -0.02016,
+        -0.02869,
+        -0.01466
+      ]
+    },
+    {
+      "chunk_index": 88,
+      "start_char": 89760,
+      "end_char": 90960,
+      "length": 1200,
+      "overlap_with_previous": ", Winston, G. P., Duncan, J. S., & Ourselin, S. (2014). Global image registration using a symmetric block-matching approach. Journal of Medical Imaging, 1, 024003. Modat, M., Ridgw",
+      "overlap_with_next": "hnical overview. IEEE signal processing magazine, 20, 21–36. Patenaude, B., Smith, S. M., Kennedy, D. N., & Jenkinson, M. (2011). A bayesian model of shape and appearance for subco",
+      "text": ", Winston, G. P., Duncan, J. S., & Ourselin, S. (2014). Global image registration using a symmetric block-matching approach. Journal of Medical Imaging, 1, 024003. Modat, M., Ridgway, G. R., Taylor, Z. A., Lehmann, M., Barnes, J., Hawkes, D. J., Fox, N. C., & Ourselin, S. (2010). Fast free-form deformation using graphics processing units. Computer methods and programs in biomedicine , 98, 278–284. Mugler III, J. P., & Brookeman, J. R. (1990). Three-dimensional magnetization-prepared rapid gradient-echo imaging (3D MP RAGE). Magnetic resonance in medicine , 15, 152–157. Nie, D., Trullo, R., Lian, J., Wang, L., Petitjean, C., Ruan, S., Wang, Q., & Shen, D. (2018). Medical image synthesis with deep convo- lutional adversarial networks. IEEE Transactions on Biomedical Engineering, 65, 2720–2730. Oren, O., Kebebew, E., & Ioannidis, J. P. (2019). Curbing unneces- sary and wasted diagnostic imaging. Jama, 321, 245–246. Park, S. C., Park, M. K., & Kang, M. G. (2003). Super-resolution im- age reconstruction: a technical overview. IEEE signal processing magazine, 20, 21–36. Patenaude, B., Smith, S. M., Kennedy, D. N., & Jenkinson, M. (2011). A bayesian model of shape and appearance for subco",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02929,
+        0.02124,
+        -0.05684,
+        0.00502,
+        0.01303
+      ]
+    },
+    {
+      "chunk_index": 89,
+      "start_char": 90780,
+      "end_char": 91980,
+      "length": 1200,
+      "overlap_with_previous": "hnical overview. IEEE signal processing magazine, 20, 21–36. Patenaude, B., Smith, S. M., Kennedy, D. N., & Jenkinson, M. (2011). A bayesian model of shape and appearance for subco",
+      "overlap_with_next": " N. et al. (2016). Normative data for subcortical regional volumes over the lifetime of the adult human brain. NeuroImage, 137, 9–20. Puonti, O., Iglesias, J. E., & Van Leemput, K.",
+      "text": "hnical overview. IEEE signal processing magazine, 20, 21–36. Patenaude, B., Smith, S. M., Kennedy, D. N., & Jenkinson, M. (2011). A bayesian model of shape and appearance for subcor- tical brain segmentation. Neuroimage, 56, 907–922. Pauly, J., Le Roux, P., Nishimura, D., & Macovski, A. (1991). Pa- rameter relations for the Shinnar-Le Roux selective excitation pulse design algorithm. IEEE transactions on medical imaging , 10, 53–65. Pham, C.-H., Ducournau, A., Fablet, R., & Rousseau, F. (2017). Brain MRI super-resolution using deep 3D convolutional net- works. In 2017 IEEE 14th International Symposium on Biomed- ical Imaging (ISBI 2017) (pp. 197–200). IEEE. Pomponio, R., Erus, G., Habes, M., Doshi, J., Srinivasan, D., Mamourian, E., Bashyam, V., Nasrallah, I. M., Satterthwaite, T. D., Fan, Y. et al. (2020). Harmonization of large MRI datasets for the analysis of brain imaging patterns throughout the lifespan. NeuroImage, 208, 116450. Potvin, O., Mouiha, A., Dieumegarde, L., Duchesne, S., Initiative, A. D. N. et al. (2016). Normative data for subcortical regional volumes over the lifetime of the adult human brain. NeuroImage, 137, 9–20. Puonti, O., Iglesias, J. E., & Van Leemput, K.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04791,
+        -0.00615,
+        -0.03098,
+        0.0111,
+        0.00182
+      ]
+    },
+    {
+      "chunk_index": 90,
+      "start_char": 91800,
+      "end_char": 93000,
+      "length": 1200,
+      "overlap_with_previous": " N. et al. (2016). Normative data for subcortical regional volumes over the lifetime of the adult human brain. NeuroImage, 137, 9–20. Puonti, O., Iglesias, J. E., & Van Leemput, K.",
+      "overlap_with_next": "ti, S., Navab, N., Wachinger, C., Initiative, A. D. N. et al. (2019). QuickNAT: A fully convolutional network for quick and accurate segmentation of neuroanatomy. NeuroImage, 186, ",
+      "text": " N. et al. (2016). Normative data for subcortical regional volumes over the lifetime of the adult human brain. NeuroImage, 137, 9–20. Puonti, O., Iglesias, J. E., & Van Leemput, K. (2016). Fast and sequence-adaptive whole-brain segmentation using paramet- ric Bayesian modeling. NeuroImage, 143, 235–249. Querbes, O., Aubry, F., Pariente, J., Lotterie, J.-A., D´ emonet, J.-F., Duret, V., Puel, M., Berry, I., Fort, J.-C., Celsis, P. et al. (2009). Early diagnosis of Alzheimer’s disease using cortical thickness: impact of cognitive reserve. Brain, 132, 2036–2047. Riddle, W. R., Li, R., Fitzpatrick, J. M., DonLevy, S. C., Dawant, B. M., & Price, R. R. (2004). Characterizing changes in MR images with color-coded jacobians. Magnetic resonance imaging , 22, 769–777. Ronneberger, O., Fischer, P., & Brox, T. (2015). U-net: Convo- lutional networks for biomedical image segmentation. In Inter- national Conference on Medical image computing and computer- assisted intervention (pp. 234–241). Springer. Roy, A. G., Conjeti, S., Navab, N., Wachinger, C., Initiative, A. D. N. et al. (2019). QuickNAT: A fully convolutional network for quick and accurate segmentation of neuroanatomy. NeuroImage, 186, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04252,
+        0.01236,
+        -0.03264,
+        -0.00183,
+        -0.00873
+      ]
+    },
+    {
+      "chunk_index": 91,
+      "start_char": 92820,
+      "end_char": 94020,
+      "length": 1200,
+      "overlap_with_previous": "ti, S., Navab, N., Wachinger, C., Initiative, A. D. N. et al. (2019). QuickNAT: A fully convolutional network for quick and accurate segmentation of neuroanatomy. NeuroImage, 186, ",
+      "overlap_with_next": "32, 1067–1077. Shi, F., Cheng, J., Wang, L., Yap, P.-T., & Shen, D. (2015). LRTV: MR image super-resolution with low-rank and total variation reg- ularizations. IEEE transactions o",
+      "text": "ti, S., Navab, N., Wachinger, C., Initiative, A. D. N. et al. (2019). QuickNAT: A fully convolutional network for quick and accurate segmentation of neuroanatomy. NeuroImage, 186, 713–727. Roy, S., Carass, A., & Prince, J. (2011). A compressed sensing approach for MR tissue contrast synthesis. In Biennial Interna- tional Conference on Information Processing in Medical Imaging (pp. 371–383). Springer. Rueda, A., Malpica, N., & Romero, E. (2013). Single-image super- resolution of brain MR images using overcomplete dictionaries. Medical image analysis , 17, 113–132. Scheﬄer, K. (2002). Superresolution in MRI? Magnetic Resonance in Medicine: An Oﬃcial Journal of the International Society for Magnetic Resonance in Medicine , 48, 408–408. Schuﬀ, N., Woerner, N., Boreta, L., Kornﬁeld, T., Shaw, L., Tro- janowski, J., Thompson, P., Jack Jr, C., Weiner, M., & Initia- tive, A. D. N. (2009). MRI of hippocampal volume loss in early Alzheimer’s disease in relation to ApoE genotype and biomarkers. 17 [Page 18] Brain, 132, 1067–1077. Shi, F., Cheng, J., Wang, L., Yap, P.-T., & Shen, D. (2015). LRTV: MR image super-resolution with low-rank and total variation reg- ularizations. IEEE transactions o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02803,
+        -0.00417,
+        -0.04882,
+        0.00288,
+        -0.00903
+      ]
+    },
+    {
+      "chunk_index": 92,
+      "start_char": 93840,
+      "end_char": 95040,
+      "length": 1200,
+      "overlap_with_previous": "32, 1067–1077. Shi, F., Cheng, J., Wang, L., Yap, P.-T., & Shen, D. (2015). LRTV: MR image super-resolution with low-rank and total variation reg- ularizations. IEEE transactions o",
+      "overlap_with_next": "6. Thompson, P. M., Stein, J. L., Medland, S. E., Hibar, D. P., Vasquez, A. A., Renteria, M. E., Toro, R., Jahanshad, N., Schumann, G., Franke, B. et al. (2014). The ENIGMA consort",
+      "text": "32, 1067–1077. Shi, F., Cheng, J., Wang, L., Yap, P.-T., & Shen, D. (2015). LRTV: MR image super-resolution with low-rank and total variation reg- ularizations. IEEE transactions on medical imaging , 34, 2459– 2466. Shi, F., Liu, B., Zhou, Y., Yu, C., & Jiang, T. (2009). Hippocam- pal volume and asymmetry in mild cognitive impairment and alzheimer’s disease: Meta-analyses of mri studies. Hippocampus, 19, 1055–1064. Shin, H.-C., Tenenholtz, N. A., Rogers, J. K., Schwarz, C. G., Sen- jem, M. L., Gunter, J. L., Andriole, K. P., & Michalski, M. (2018). Medical image synthesis for data augmentation and anonymiza- tion using generative adversarial networks. In International work- shop on simulation and synthesis in medical imaging (pp. 1–11). Springer. Tanno, R., Worrall, D. E., Kaden, E., Ghosh, A., Grussu, F., Bizzi, A., Sotiropoulos, S. N., Criminisi, A., & Alexander, D. C. (2020). Uncertainty modelling in deep learning for safer neuroimage en- hancement: Demonstration in diﬀusion MRI. NeuroImage, 225, 117366. Thompson, P. M., Stein, J. L., Medland, S. E., Hibar, D. P., Vasquez, A. A., Renteria, M. E., Toro, R., Jahanshad, N., Schumann, G., Franke, B. et al. (2014). The ENIGMA consort",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06228,
+        -0.0021,
+        0.0218,
+        -0.02335,
+        0.00016
+      ]
+    },
+    {
+      "chunk_index": 93,
+      "start_char": 94860,
+      "end_char": 96060,
+      "length": 1200,
+      "overlap_with_previous": "6. Thompson, P. M., Stein, J. L., Medland, S. E., Hibar, D. P., Vasquez, A. A., Renteria, M. E., Toro, R., Jahanshad, N., Schumann, G., Franke, B. et al. (2014). The ENIGMA consort",
+      "overlap_with_next": ". DeepNAT:Deep convolutional neural network for segmenting neuroanatomy. Neu- roImage, 170, 434–445. Wang, Z., Bovik, A. C., Sheikh, H. R., & Simoncelli, E. P. (2004). Image qualit",
+      "text": "6. Thompson, P. M., Stein, J. L., Medland, S. E., Hibar, D. P., Vasquez, A. A., Renteria, M. E., Toro, R., Jahanshad, N., Schumann, G., Franke, B. et al. (2014). The ENIGMA consortium: large-scale collaborative analyses of neuroimaging and genetic data. Brain imaging and behavior , 8, 153–182. Tian, Q., Bilgic, B., Fan, Q., Ngamsombat, C., Zaretskaya, N., Fultz, N. E., Ohringer, N. A., Chaudhari, A. S., Hu, Y., Witzel, T. et al. (2020). Improving in vivo human cerebral cortical surface recon- struction using data-driven super-resolution. Cerebral Cortex, . Van Leemput, K., Maes, F., Vandermeulen, D., & Suetens, P. (1999). Automated model-based tissue classiﬁcation of mr images of the brain. IEEE transactions on medical imaging , 18, 897–908. de Vos, B. D., Berendsen, F. F., Viergever, M. A., Sokooti, H., Star- ing, M., & Iˇ sgum, I. (2019). A deep learning framework for unsu- pervised aﬃne and deformable image registration. Medical image analysis, 52, 128–143. Wachinger, C., Reuter, M., & Klein, T. (2018). DeepNAT:Deep convolutional neural network for segmenting neuroanatomy. Neu- roImage, 170, 434–445. Wang, Z., Bovik, A. C., Sheikh, H. R., & Simoncelli, E. P. (2004). Image qualit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00399,
+        0.00264,
+        -0.01797,
+        -0.01443,
+        0.00202
+      ]
+    },
+    {
+      "chunk_index": 94,
+      "start_char": 95880,
+      "end_char": 96851,
+      "length": 971,
+      "overlap_with_previous": ". DeepNAT:Deep convolutional neural network for segmenting neuroanatomy. Neu- roImage, 170, 434–445. Wang, Z., Bovik, A. C., Sheikh, H. R., & Simoncelli, E. P. (2004). Image qualit",
+      "overlap_with_next": "",
+      "text": ". DeepNAT:Deep convolutional neural network for segmenting neuroanatomy. Neu- roImage, 170, 434–445. Wang, Z., Bovik, A. C., Sheikh, H. R., & Simoncelli, E. P. (2004). Image quality assessment: from error visibility to structural sim- ilarity. IEEE transactions on image processing , 13, 600–612. Xiang, L., Wang, Q., Nie, D., Zhang, L., Jin, X., Qiao, Y., & Shen, D. (2018). Deep embedding convolutional neural network for syn- thesizing ct image from t1-weighted mr image. Medical image analysis, 47, 31–44. Zhao, C., Dewey, B. E., Pham, D. L., Calabresi, P. A., Reich, D. S., & Prince, J. L. (2020). SMORE: A self-supervised anti-aliasing and super-resolution algorithm for MRI using deep learning.IEEE Transactions on Medical Imaging , . Zhu, J.-Y., Park, T., Isola, P., & Efros, A. A. (2017). Unpaired image-to-image translation using cycle-consistent adversarial net- works. In Proceedings of the IEEE international conference on computer vision (pp. 2223–2232). 18",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0625,
+        -0.01369,
+        -0.022,
+        0.01367,
+        -0.00592
+      ]
+    }
+  ]
+}

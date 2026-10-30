@@ -1,0 +1,402 @@
+{
+  "paper_id": "d20d4fb9-062a-461c-b228-d2656c9d6309",
+  "filename": "057_Computer_Vision_Model_Optimization_for_Deep_Space_Exploration_via_Simulators_and_Deep_Learning.pdf",
+  "title": "Model Optimization for Deep Space Exploration via Simulators and Deep Learning",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 23,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "hrough computer vision, deep learning, and simulators we introduce methods that optimize the detection of exoplanets. We show that maximum achieved accuracy can hit above 98% for m",
+      "text": "[Page 1] Model Optimization for Deep Space Exploration via Simulators and Deep Learning James Bird1,∗, Kellan Colburn 2,∗, Linda Petzold 1, Philip Lubin 2 Abstract Machine learning, and eventually true artiﬁcial intelligence techniques, are extremely im- portant advancements in astrophysics and astronomy. We explore the application of deep learning using neural networks in order to automate the detection of astronomical bodies for future exploration missions, such as missions to search for signatures or suitability of life. The ability to acquire images, analyze them, and send back those that are important, as determined by the deep learning algorithm, is critical in bandwidth-limited applications. Our previous foundational work solidiﬁed the concept of using simulator images and deep learning in order to detect planets. Optimization of this process is of vital importance, as even a small loss in accuracy might be the diﬀerence between capturing and completely missing a possibly-habitable nearby planet. Through computer vision, deep learning, and simulators we introduce methods that optimize the detection of exoplanets. We show that maximum achieved accuracy can hit above 98% for m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04572,
+        -0.02677,
+        -0.0365,
+        9e-05,
+        -0.01687
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "hrough computer vision, deep learning, and simulators we introduce methods that optimize the detection of exoplanets. We show that maximum achieved accuracy can hit above 98% for m",
+      "overlap_with_next": "rtment of Computer Science, University of California Santa Barbara, 2104 Harold Frank Hall, Santa Barbara, CA 93106-9530 2Department of Physics, Broida Hall, University of Californ",
+      "text": "hrough computer vision, deep learning, and simulators we introduce methods that optimize the detection of exoplanets. We show that maximum achieved accuracy can hit above 98% for multiple model architectures, even with a relatively small training set. Keywords: computer vision, simulator, deep learning, space, universe, exoplanet, object detection, novelty detection, neural network, machine learning, transfer learning, interstellar travel, planet detection 1. Introduction This paper will address some of the challenges and possibilities of exoplanet detection and classiﬁcation for future exosolar system missions. Future missions may allow for travel far outside of our solar system, as well as deep into our own solar system, where return bandwidth will be severely limited; thus, choices of which data (images in particular) are ∗Corresponding author Email addresses: james_bird@ucsb.edu (James Bird), kellancolburn@ucsb.edu (Kellan Colburn), petzold@ucsb.edu (Linda Petzold), lubin@ucsb.edu (Philip Lubin) 1Department of Computer Science, University of California Santa Barbara, 2104 Harold Frank Hall, Santa Barbara, CA 93106-9530 2Department of Physics, Broida Hall, University of Californ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07572,
+        -0.04427,
+        -0.05234,
+        0.01417,
+        -0.02008
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "rtment of Computer Science, University of California Santa Barbara, 2104 Harold Frank Hall, Santa Barbara, CA 93106-9530 2Department of Physics, Broida Hall, University of Californ",
+      "overlap_with_next": " astrophysics and cosmology where subtle and often transient phenomenon are critical to retrieve in low SNR situations. In future papers we will discuss using our techniques in the",
+      "text": "rtment of Computer Science, University of California Santa Barbara, 2104 Harold Frank Hall, Santa Barbara, CA 93106-9530 2Department of Physics, Broida Hall, University of California Santa Barbara, Santa Barbara, CA 93106- 9530 arXiv:2012.14092v1 [astro-ph.IM] 28 Dec 2020 [Page 2] important to ”send back” (Lubin, P. (2016), Lubin & Hettel (2020), Sheerin et al. (2020)). The basis for exoplanetary detection via fast interstellar travel is a combination of The Starlight Program (Kulkarni et al., 2017) and recent results that show how exoplanets can be detected, and distinguished from other objects, via AI-based modeling that utilizes simulated data (Bird et al., 2020). The groundwork has been laid for an AI-based small spacecraft that can travel long distances in a short amount of time, gather information on its surroundings with minimal energy requirements, and detect exoplanets and other targets of interest with excellent accuracy. The same core technology we discuss here can be applied to a wide range of astrophysics and cosmology where subtle and often transient phenomenon are critical to retrieve in low SNR situations. In future papers we will discuss using our techniques in the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05584,
+        -0.01942,
+        -0.06146,
+        0.02161,
+        -0.03283
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": " astrophysics and cosmology where subtle and often transient phenomenon are critical to retrieve in low SNR situations. In future papers we will discuss using our techniques in the",
+      "overlap_with_next": "rs, and even more recently with deep learning (Shallue & Vanderburg (2017), Zucker et al. (2018), Carrasco-Davis et al. (2018)). For direct imaging purposes, we test a variety of r",
+      "text": " astrophysics and cosmology where subtle and often transient phenomenon are critical to retrieve in low SNR situations. In future papers we will discuss using our techniques in these other application spaces. The major points that we will discuss and examine here are related to the accuracy of exoplanetary detection. In our foundational paper (Bird et al., 2020), we used a robust model and detection score for proof of concept. Going forward, this paper will compare a wide array of models using accuracy as our main metric to determine model strength and reliability. 2. Previous Work The basis for much of our work lies in deep learning via TensorFlow (Abadi et al., 2016), as well as the expected additions, such as cuDNN (Chetlur et al., 2014) and CUDA, which allows for faster deep neural network processing via a graphics processing unit (GPU). Although the idea of direct exoplanetary detection and imaging via interstellar travel is new, astronomy has been attempting the general feat via light curves for years, and even more recently with deep learning (Shallue & Vanderburg (2017), Zucker et al. (2018), Carrasco-Davis et al. (2018)). For direct imaging purposes, we test a variety of r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05733,
+        0.00264,
+        -0.02811,
+        -0.00159,
+        -0.01878
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "rs, and even more recently with deep learning (Shallue & Vanderburg (2017), Zucker et al. (2018), Carrasco-Davis et al. (2018)). For direct imaging purposes, we test a variety of r",
+      "overlap_with_next": "he intricate models, we will compare NASNet-Large (Zoph et al., 2017), Xception (Chollet, F., 2017), VGG 16 and VGG19 (Simonyan & Zisserman, 2015), Inception V3 (Szegedy et al., 20",
+      "text": "rs, and even more recently with deep learning (Shallue & Vanderburg (2017), Zucker et al. (2018), Carrasco-Davis et al. (2018)). For direct imaging purposes, we test a variety of robust models, including variants of each model, and analyze factors such as accuracy and computational complexity. Since deep space is uncharted territory, an extremely large training data set is not possible. Therefore, we include some simpler models to oﬀset the possibility of having models that are too advanced for the data. The overall goal of these models is to be able to identify when a planet is present in an image, while also being capable of not mistaking other astronomical objects for planets. For the simpler models, we will compare MobileNet (Howard et al., 2017), MobileNet V2 (Sandler et al., 2018), DenseNet 121, 169, and 201 (Huang et al., 2018), and NASNet- Mobile (Zoph et al., 2017). These provide solid baseline accuracy and low computational complexity, which may prove to be beneﬁcial for our speciﬁc needs. For the intricate models, we will compare NASNet-Large (Zoph et al., 2017), Xception (Chollet, F., 2017), VGG 16 and VGG19 (Simonyan & Zisserman, 2015), Inception V3 (Szegedy et al., 20",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04379,
+        -0.02092,
+        -0.04854,
+        -0.02073,
+        -0.01002
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "he intricate models, we will compare NASNet-Large (Zoph et al., 2017), Xception (Chollet, F., 2017), VGG 16 and VGG19 (Simonyan & Zisserman, 2015), Inception V3 (Szegedy et al., 20",
+      "overlap_with_next": "rmance is dependent on the data that is being processed. In this case, we are training on simulated images of planets and testing on real images of planets. This concept was shown ",
+      "text": "he intricate models, we will compare NASNet-Large (Zoph et al., 2017), Xception (Chollet, F., 2017), VGG 16 and VGG19 (Simonyan & Zisserman, 2015), Inception V3 (Szegedy et al., 2015), Inception- ResNet V2 (Szegedy et al., 2016), and ResNet 50, 50 v2, 101, 101 v2, 152, and 152 v2 (He et 2 [Page 3] al., 2015). In contrast to the simpler models listed above, the training time and complexity will increase with these. However, that process is done beforehand while the wafer satellite (wafersat) is still on Earth, so these concerns are negligible when compared to the possible gains in accuracy from the more robust models. These models have been tested against each other in the past to some degree. ResNet has been shown to out-perform VGG (He et al. (2015),Canziani et al. (2016)) and even advanced Inception models (Le et al., 2020), while other results show all of these models being out-performed by the DenseNet and InceptionResNet architectures (Zhen et al., 2018). The structure of these models and their performance is dependent on the data that is being processed. In this case, we are training on simulated images of planets and testing on real images of planets. This concept was shown ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04231,
+        -0.01212,
+        -0.04449,
+        -0.01665,
+        0.01927
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "rmance is dependent on the data that is being processed. In this case, we are training on simulated images of planets and testing on real images of planets. This concept was shown ",
+      "overlap_with_next": "n take an input image and output something of interest based on the training and model parameters. A more illuminating analogy would be to treat the initial inputs (pixels, or in t",
+      "text": "rmance is dependent on the data that is being processed. In this case, we are training on simulated images of planets and testing on real images of planets. This concept was shown to be viable in Bird et al. (2020); however, optimizing this process will require an in-depth look at advanced deep learning techniques and models. 3. The Process 3.1. Deep Neural Network Architecture Deep neural networks, including those used for object detection, begin by deconstructing images into pixel-based groupings that constitute an input layer. This layer, along with the hidden layer(s) and output layer, is comprised of smaller entities called neurons. Each layer of neurons is connected to the next via weights, which are learned through a training process. Gradient descent is a powerful and widely used method that allows us to minimize the cost function in order to get the most eﬀective learning process. By taking the negative gradient, we minimize the cost function. After all is done, we are left with a network that can take an input image and output something of interest based on the training and model parameters. A more illuminating analogy would be to treat the initial inputs (pixels, or in t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02246,
+        -0.01527,
+        -0.02419,
+        0.0065,
+        0.00634
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "n take an input image and output something of interest based on the training and model parameters. A more illuminating analogy would be to treat the initial inputs (pixels, or in t",
+      "overlap_with_next": "ained on ImageNet (Deng et al., 2009) and ﬁne-tuned on simulated images of exoplanets. This allowed for a robust learning experience for features, and a more speciﬁc learning exper",
+      "text": "n take an input image and output something of interest based on the training and model parameters. A more illuminating analogy would be to treat the initial inputs (pixels, or in the case of a convolutional neural network, groupings of pixels) as an input tensor. This input tensor is then essentially acted upon by a function (the neural network), which outputs a tensor corresponding to the the categorization of the input (in our case it is a binary categorization). This function initializes with random values, and is then optimized via the methods described above such that the output tensor has the highest accuracy when identifying inputted data. 3.2. The Setup As discussed in detail in Bird et al. (2020), the simulator (SpaceEngine.org) provides us with easy access to 4K, 3-D rendered images of exoplanets. Although they are randomly generated, one could create a speciﬁc planet, or ﬁlter planets by a set of conditions in order to achieve a subset of planets that have certain traits. All models were pre-trained on ImageNet (Deng et al., 2009) and ﬁne-tuned on simulated images of exoplanets. This allowed for a robust learning experience for features, and a more speciﬁc learning exper",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05522,
+        -0.01501,
+        -0.02718,
+        0.0268,
+        -0.0131
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ained on ImageNet (Deng et al., 2009) and ﬁne-tuned on simulated images of exoplanets. This allowed for a robust learning experience for features, and a more speciﬁc learning exper",
+      "overlap_with_next": " actual interstellar journey. Image counts for all three sets is shown below in Table 1. Training Validation Testing 915 200 284 Table 1: Image count for the training, validation, ",
+      "text": "ained on ImageNet (Deng et al., 2009) and ﬁne-tuned on simulated images of exoplanets. This allowed for a robust learning experience for features, and a more speciﬁc learning experience for our data 3 [Page 4] set. All models were evaluated using an AMD Ryzen Threadripper 3970X 32-Core Processor @ 3.70 GHz, 128 GB of RAM and an NVIDIA Titan RTX graphics card. In most deep learning applications for image analysis, both training sets and testing sets contain images of the same object. In our deep learning application, the training set is taken from a universe simulator (SpaceEngine.org), and the testing images are real images of planets. Without a simulator, we would not have enough images of planets, and those planets would not constitute a large enough sub-sample of possible exoplanets. By using a physics-based simulator, we can produce an abundance of realistic novel exoplanets to train on. Then, we use real planets to test the model’s accuracy. This translates directly to the wafersats process during an actual interstellar journey. Image counts for all three sets is shown below in Table 1. Training Validation Testing 915 200 284 Table 1: Image count for the training, validation, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0358,
+        -0.04097,
+        -0.04955,
+        -0.00424,
+        -0.0272
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " actual interstellar journey. Image counts for all three sets is shown below in Table 1. Training Validation Testing 915 200 284 Table 1: Image count for the training, validation, ",
+      "overlap_with_next": "NASA against simulated images. 4 [Page 5] Figure 1: Two examples of real testing images are Jupiter and Saturn, seen on the left, while the right side shows examples of simulated t",
+      "text": " actual interstellar journey. Image counts for all three sets is shown below in Table 1. Training Validation Testing 915 200 284 Table 1: Image count for the training, validation, and testing sets. The process being performed here is unique for two major reasons. First, the entire training set is simulated images, while the entire testing set is real images. This presents a particular challenge for neural networks, as they learn in a template space and are then tested in a real space. Second, deep space provides an enormously large variety of objects. For example, gas giants vary wildly in many ways, such as size, feature diﬀerences, surface gas formations, colors, temperature, and more. In our solar system alone, we witness two quite unique gas giants: Saturn with its rings and famous hexigon, and Jupiter with its eye and dolphin formations. Training on extremely unique objects can cause neural networks to lose their generality and under-perform. The images below in Figure 1 compare real images taken by NASA against simulated images. 4 [Page 5] Figure 1: Two examples of real testing images are Jupiter and Saturn, seen on the left, while the right side shows examples of simulated t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03781,
+        -0.0402,
+        -0.05208,
+        0.02035,
+        -0.01566
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "NASA against simulated images. 4 [Page 5] Figure 1: Two examples of real testing images are Jupiter and Saturn, seen on the left, while the right side shows examples of simulated t",
+      "overlap_with_next": "[Page 6] Model Maximum Accuracy Achieved Respective Epoch VGG19 0.9964788556 5 VGG16 0.9929577708 5 & 25 ResNet50 0.9894366264 85 & 120 ResNet101 0.9894366264 115 ResNet152 0.98943",
+      "text": "NASA against simulated images. 4 [Page 5] Figure 1: Two examples of real testing images are Jupiter and Saturn, seen on the left, while the right side shows examples of simulated training images. 4. The Results For each model previously mentioned, we trained, validated, and tested the neural network in batches of ﬁve epochs each. An epoch is when the entire data set is run through the neural network once. From Table 2 above, as well as Figures 2 and 3 below, it can be seen that VGG19 reached the highest maximum accuracy at ﬁve epochs, while VGG16 reached the second-highest maximum accuracy at both ﬁve and 25 epochs. This result is extremely interesting, as VGG variants are typically under-performing models when compared to Inception or ResNet variants. MobileNet performed extremely well, not only in maximum accuracy achieved, but also in terms of consistency. The remaining models were simply out-performed and provided no concrete reason why they should be chosen as a viable model for this speciﬁc task. 5 [Page 6] Model Maximum Accuracy Achieved Respective Epoch VGG19 0.9964788556 5 VGG16 0.9929577708 5 & 25 ResNet50 0.9894366264 85 & 120 ResNet101 0.9894366264 115 ResNet152 0.98943",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03612,
+        -0.05805,
+        -0.04078,
+        -0.01769,
+        -0.00398
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "[Page 6] Model Maximum Accuracy Achieved Respective Epoch VGG19 0.9964788556 5 VGG16 0.9929577708 5 & 25 ResNet50 0.9894366264 85 & 120 ResNet101 0.9894366264 115 ResNet152 0.98943",
+      "overlap_with_next": "racy, and often times bounced from low to high accuracy, showing clear signs of inconsistency. Despite overall good performance, ResNet152 has large dips in the 5-20 epoch count, t",
+      "text": "[Page 6] Model Maximum Accuracy Achieved Respective Epoch VGG19 0.9964788556 5 VGG16 0.9929577708 5 & 25 ResNet50 0.9894366264 85 & 120 ResNet101 0.9894366264 115 ResNet152 0.9894366264 10 ** MobileNet 0.985915482 5 MobileNet v2 0.9788732529 5** DenseNet121 0.9788732529 5 DenseNet169 0.9788732529 5 - 15 ResNet152 v2 0.9753521085 25 * DenseNet201 0.9753521085 5-15 Inception v3 0.9683098793 5 & 15 ResNet101 v2 0.9647887349 5 ResNet50 v2 0.9612675905 10 - 20 NasNet-Mobile 0.9542253613 10 Inception-ResNet v2 0.950704217 5 & 10 Xception 0.950704217 10 NasNet-Large 0.9154929519 5 Table 2: Maximum epoch-based accuracy achieved for each model, ordered from highest to lowest. * denotes continued accuracy for all remaining epoch counts. ** denotes that maximum accuracy was sporadically achieved again after ﬁrst occurrence. Figure 2: Accuracy of all models based on epoch count. 6 [Page 7] Figure 3: Accuracy of all models based on epoch count. Based on Figure 4 below, ResNet50 and ResNet101 both dipped below 88% accuracy, and often times bounced from low to high accuracy, showing clear signs of inconsistency. Despite overall good performance, ResNet152 has large dips in the 5-20 epoch count, t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00699,
+        -0.02942,
+        -0.06363,
+        -0.0084,
+        -0.01803
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "racy, and often times bounced from low to high accuracy, showing clear signs of inconsistency. Despite overall good performance, ResNet152 has large dips in the 5-20 epoch count, t",
+      "overlap_with_next": " not include the ResNet variants. We note that once ResNet variants are removed for their instability, every model reaches its peak accuracy at the 5-25 epoch range. Conditional on",
+      "text": "racy, and often times bounced from low to high accuracy, showing clear signs of inconsistency. Despite overall good performance, ResNet152 has large dips in the 5-20 epoch count, the main area where most models performed at their best. For these reasons, the ResNet variants were ultimately rejected as reasonable choices, as their epoch-based accuracy ﬂuctuated too wildly. 7 [Page 8] Figure 4: Accuracy of models that reached at least 98% maximum accuracy based on epoch count. One very interesting result was concerning the remaining 98% or better maximum accu- racy models, namely VGG19, VGG16, and MobileNet. Pertaining to Figure 5 below, we can see that VGG19 and VGG16 ﬂuctuate to some degree, while MobileNet acts as a hedge. While the dependability of VGG19 and VGG16 in certain epoch ranges is vastly superior, MobileNet grants you a consistently strong choice across all epoch ranges. 8 [Page 9] Figure 5: Accuracy of dependable models that reached at least 98% maximum accuracy based on epoch count. These do not include the ResNet variants. We note that once ResNet variants are removed for their instability, every model reaches its peak accuracy at the 5-25 epoch range. Conditional on",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04211,
+        -0.03806,
+        -0.0637,
+        0.00747,
+        -0.00867
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " not include the ResNet variants. We note that once ResNet variants are removed for their instability, every model reaches its peak accuracy at the 5-25 epoch range. Conditional on",
+      "overlap_with_next": "thing lost. Linking this information to our previous ﬁndings, ResNet variants continue to show instability, with some models having as many as 13 false negatives. Both VGG variants",
+      "text": " not include the ResNet variants. We note that once ResNet variants are removed for their instability, every model reaches its peak accuracy at the 5-25 epoch range. Conditional on this range, the strongest models remain VGG19 and VGG16, but we can clearly see that their strength can ﬂuctuate with small changes to epoch. Yet, MobileNet, MobileNet v2, DenseNet169, and DenseNet201 respectively perform the most consistently, while preserving most of the accuracy that we see in VGG19 and VGG16. Some insight can be obtained by breaking down the accuracy into false negatives, which occur when a planet is present but the model does not identify it, and false positives, which occur when a planet is not present but the model identiﬁes one. For our objective, false negatives are a much more severe error, as ﬁnding a planet and missing it is the worst possible situation. Alternatively, false positives would simply send back a picture of empty space to Earth, which would result in something mildly interesting, but nothing lost. Linking this information to our previous ﬁndings, ResNet variants continue to show instability, with some models having as many as 13 false negatives. Both VGG variants",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05179,
+        -0.03332,
+        -0.05267,
+        -0.01519,
+        0.00012
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "thing lost. Linking this information to our previous ﬁndings, ResNet variants continue to show instability, with some models having as many as 13 false negatives. Both VGG variants",
+      "overlap_with_next": "images that are unique in diﬀerent ways, they struggle to ﬁnd the connection. Meanwhile, less advanced models, such as VGG and MobileNet variants, do not lose that generality while",
+      "text": "thing lost. Linking this information to our previous ﬁndings, ResNet variants continue to show instability, with some models having as many as 13 false negatives. Both VGG variants had no false negatives, meaning that they exhibit both extreme accuracy and reliability in detecting planets when they are actually present in the image. Lastly, we noted that DenseNet variants were very reliable in the 5-25 epoch range. In terms of false negatives, all DenseNet variants continue this stability with no false negatives. 9 [Page 10] Figure 6: Accuracy of dependable models based on the 5-25 epoch range. These results connect well to the previous section, where we outlined the unique circum- stances that surround this particular problem. We note that we are training models on extremely speciﬁc objects in space, with unique features, patterns, colors, etc. Advanced models such as ResNet and Inception learn too well and proceed to analyze the extremely minute details in the training set. Then, when asked about other images that are unique in diﬀerent ways, they struggle to ﬁnd the connection. Meanwhile, less advanced models, such as VGG and MobileNet variants, do not lose that generality while",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0367,
+        -0.02581,
+        -0.04363,
+        0.00755,
+        -0.00194
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "images that are unique in diﬀerent ways, they struggle to ﬁnd the connection. Meanwhile, less advanced models, such as VGG and MobileNet variants, do not lose that generality while",
+      "overlap_with_next": "-world planets during an 10 [Page 11] interstellar journey and beyond. This paper solidiﬁes the overall outlook on optimization methods for exoplanet detection, while introducing m",
+      "text": "images that are unique in diﬀerent ways, they struggle to ﬁnd the connection. Meanwhile, less advanced models, such as VGG and MobileNet variants, do not lose that generality while learning. 4.1. Implications for future simulator training Results show quite a few viable models, depending on whether we want extreme accuracy at the cost of variance (VGG variants), or dependability at the slight cost of accuracy (MobileNet variants). Moreover, we note that this approach yields high accuracy with relatively few training images. With only 900 training images, we have achieved 98% accuracy with multiple models, giving us a wide variety of options depending on the situation. Thus, for future work, even small samples of simulated images can successfully train a neural network to detect real objects in space with extremely high accuracy. 5. Foundations for Future Work We have expanded upon Bird et al. (2020) and have shown that a small subset of sim- ulated images can produce extremely accurate predictions of real-world planets during an 10 [Page 11] interstellar journey and beyond. This paper solidiﬁes the overall outlook on optimization methods for exoplanet detection, while introducing m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09385,
+        -0.00558,
+        -0.04116,
+        0.0175,
+        -0.00811
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "-world planets during an 10 [Page 11] interstellar journey and beyond. This paper solidiﬁes the overall outlook on optimization methods for exoplanet detection, while introducing m",
+      "overlap_with_next": "ts. In this paper, we delve into speciﬁc model optimization and obtain some fascinating results. First, multiple models are proven to have above 99% accuracy when trained only on s",
+      "text": "-world planets during an 10 [Page 11] interstellar journey and beyond. This paper solidiﬁes the overall outlook on optimization methods for exoplanet detection, while introducing many ideas that will open new and ex- citing problems in deep space exploration. The same methodology can be used in a wide variety of astrophysical (and other) applications, where subtle issues in both the temporal and spatial domain are critical to access, and make decisions for, low bandwidth return applications. An upcoming paper will address categorization, which will expand the ideas of simulator- based detection to objects beyond exoplanets. In particular, we will further explore whether simulators can help train neural networks to distinguish between speciﬁc types of planets. What about speciﬁc types of stars, comets, asteroids, and even more interestingly, signs of life? 6. Conclusion In our previous work, we showed how simulator images could be used to successfully train a neural network to identify real images of planets. In this paper, we delve into speciﬁc model optimization and obtain some fascinating results. First, multiple models are proven to have above 99% accuracy when trained only on s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04387,
+        -0.02919,
+        -0.02766,
+        0.03535,
+        -0.01829
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "ts. In this paper, we delve into speciﬁc model optimization and obtain some fascinating results. First, multiple models are proven to have above 99% accuracy when trained only on s",
+      "overlap_with_next": " the Breakthrough Foundation for its Breakthrough StarShot program. More details on the NASA Starlight program can be found at www.deepspace.ucsb.edu/ Starlight. 7.2. NSF This work",
+      "text": "ts. In this paper, we delve into speciﬁc model optimization and obtain some fascinating results. First, multiple models are proven to have above 99% accuracy when trained only on simulator images and tested on real images of planets. This result completely supports a simulator-based training model for deep space journeys, allowing us to train large neural networks pre-ﬂight on Earth. Second, we have shown that extremely high accuracy does not depend on large data sets in this niche problem. With under 1,000 training images, we have achieved over 98% maximum accuracy with six diﬀerent models. Finally, we demonstrate that there exists both high accuracy and high stability models that can perform well with no false negatives. 7. Acknowledgements 7.1. NASA PML gratefully acknowledges funding from NASA NIAC NNX15AL91G and NASA NIAC NNX16AL32G for the NASA Starlight program and the NASA California Space Grant NASA NNX10AT93H, a generous gift from the Emmett and Gladys W. Technology Fund, as well as support from the Breakthrough Foundation for its Breakthrough StarShot program. More details on the NASA Starlight program can be found at www.deepspace.ucsb.edu/ Starlight. 7.2. NSF This work",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05241,
+        -0.03318,
+        -0.04105,
+        0.01795,
+        -0.01964
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " the Breakthrough Foundation for its Breakthrough StarShot program. More details on the NASA Starlight program can be found at www.deepspace.ucsb.edu/ Starlight. 7.2. NSF This work",
+      "overlap_with_next": "of astronomical events, arXiv:1807.03869v3 [astro-ph.IM]. Chetlur, S., Woolley, C., Vandermersch, P., et al. 2014, cuDNN: eﬃcient primitives for deep learning, arXiv:1410.0759v3 [c",
+      "text": " the Breakthrough Foundation for its Breakthrough StarShot program. More details on the NASA Starlight program can be found at www.deepspace.ucsb.edu/ Starlight. 7.2. NSF This work used the Extreme Science and Engineering Discovery Environment (XSEDE), which is supported by National Science Foundation grant number ACI-1548562. Models were run through initial testing phases using the Comet GPU cluster, allocation ID: TG- CCR180013. 11 [Page 12] References Abadi, M., Agarwal, A., Barham, P., et al. 2016, TensorFlow:large-scale machine learning on heterogeneous distributed systems, arXiv:1603.04467v2 [cs.DC]. Bird, J., Petzold, L., Lubin, P., Deacon, J. 2020, Advances in Deep Space Exploration via Simulators & Deep Learning, New Astronomy, Vol. 84. Canziani, A., Paszke, A., & Culurciello, E. 2016, An analysis of deep neural network models for practical applications, arXiv:1605.07678v4 [cs.CV]. Carrasco-Davis, R., Cabrera-Vives, G., F¨ orster, F., et al. 2018, Deep learning for image sequence classiﬁca- tion of astronomical events, arXiv:1807.03869v3 [astro-ph.IM]. Chetlur, S., Woolley, C., Vandermersch, P., et al. 2014, cuDNN: eﬃcient primitives for deep learning, arXiv:1410.0759v3 [c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02179,
+        -0.0206,
+        -0.04885,
+        -0.01073,
+        -0.00121
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "of astronomical events, arXiv:1807.03869v3 [astro-ph.IM]. Chetlur, S., Woolley, C., Vandermersch, P., et al. 2014, cuDNN: eﬃcient primitives for deep learning, arXiv:1410.0759v3 [c",
+      "overlap_with_next": " 2017, MobileNets: Eﬃcient Convolutional Neural Networks for Mobile Vision Applications, arXiv:1704.04861 [cs.CV]. Huang, G., Zhuang, L., vander Maaten, L., Weinberger, K.Q. 2018, ",
+      "text": "of astronomical events, arXiv:1807.03869v3 [astro-ph.IM]. Chetlur, S., Woolley, C., Vandermersch, P., et al. 2014, cuDNN: eﬃcient primitives for deep learning, arXiv:1410.0759v3 [cs.NE]. Chollet, F. 2017, Xception: Deep Learning with Depthwise Separable Convolutions, arXiv:1610.02357 [cs.CV]. Deng, J., Dong, W., Socher, L., Li, K.L. & Fei-Fei, L. 2009, ImageNet: A large-scale hierarchical image database, 2009 IEEE Conference on Computer Vision and Pattern Recognition, 2009, pp. 248-255, doi: 10.1109/CVPR.2009.5206848. Greaves, J.S., Richards, A.M.S., Bains, W. et al. 2020, Phosphine gas in the cloud decks of Venus, Nat Astron (2020), https://doi.org/10.1038/s41550-020-1174-4 He, K., Zhang, X., Ren, S., & Sun, J. 2015, Deep Residual Learning for Image Recognition, arXiv:1512.03385 [cs.CV]. Honniball, C.I., Lucey, P.G., Li, S. et al. 2020 Molecular water detected on the sunlit Moon by SOFIA, Nat Astron (2020), https://doi.org/10.1038/s41550-020-01222-x Howard, A., Zhu, M., Chen, B., Kalenichenko, D., et al. 2017, MobileNets: Eﬃcient Convolutional Neural Networks for Mobile Vision Applications, arXiv:1704.04861 [cs.CV]. Huang, G., Zhuang, L., vander Maaten, L., Weinberger, K.Q. 2018, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01584,
+        -0.01819,
+        -0.04097,
+        -0.02123,
+        -0.00685
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": " 2017, MobileNets: Eﬃcient Convolutional Neural Networks for Mobile Vision Applications, arXiv:1704.04861 [cs.CV]. Huang, G., Zhuang, L., vander Maaten, L., Weinberger, K.Q. 2018, ",
+      "overlap_with_next": "llue, C.J., & Vanderburg, A. 2017, Identifying exoplanets with deep learning: a ﬁve planet resonant chain around Kepler-80 and an eight planet around Kepler-90, AJ, 155, 94. Sheeri",
+      "text": " 2017, MobileNets: Eﬃcient Convolutional Neural Networks for Mobile Vision Applications, arXiv:1704.04861 [cs.CV]. Huang, G., Zhuang, L., vander Maaten, L., Weinberger, K.Q. 2018, Densely Connected Convolutional Networks, arXiv:1608.06993 [cs.CV]. Kulkarni, N., Lubin, P., & Zhang, Q. 2017, Relativistic spacecraft propelled by directed energy, arXiv:1710.10732 [astro-ph.IM]. Le, H., Gupta, R., Hou, L., Abousamra, S., et al. 2020, Utilizing Automated Breast Cancer Detec- tion to Identify Spatial Distributions of Tumor Inﬁltrating Lymphocytes in Invasive Breast Cancer, arXiv:1905.10841[eess.IV]. Lubin, P. 2016, The Roadmap to Interstellar Flight, Journal of the British Interplanetary Society - JBIS, vol. 69, pp.40-72. Lubin, P. & Hettel, W. 2020, The Path to Interstellar Flight, Acta Futura 12, 9-45. Sandler, M., Howard, A., Zhu, M., Chmoginov, A., Chen, L-C. 2018, MobileNetV2: Inverted Residuals and Linear Bottlenecks, IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018, pp.4510-4520 Shallue, C.J., & Vanderburg, A. 2017, Identifying exoplanets with deep learning: a ﬁve planet resonant chain around Kepler-80 and an eight planet around Kepler-90, AJ, 155, 94. Sheeri",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05403,
+        -0.00778,
+        -0.00412,
+        -0.02601,
+        -0.03698
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "llue, C.J., & Vanderburg, A. 2017, Identifying exoplanets with deep learning: a ﬁve planet resonant chain around Kepler-80 and an eight planet around Kepler-90, AJ, 155, 94. Sheeri",
+      "overlap_with_next": "Zhen, Y., Wang, L., Lui, H., Zhang, J., & Pu, J. 2018, Performance assessment of the deep learning 12 [Page 13] technologies in grading glaucoma severity, arXiv:1810.13376 [cs.CV].",
+      "text": "llue, C.J., & Vanderburg, A. 2017, Identifying exoplanets with deep learning: a ﬁve planet resonant chain around Kepler-80 and an eight planet around Kepler-90, AJ, 155, 94. Sheerin, T., Petro, E., Winters, K., Lozano, P, & Lubin, P. 2020, Fast Solar System Transportation with Electric Propulsion Powered by Directed Energy, Acta Astronautica 179, 78, Feb 2021. Simonyan, K., & Zisserman, A. 2015, Very Deep Convolutional Networks for Large-Scale Image Recognition, arXiv:1409.1556 [cs.CV]. Szegedy, C., Ioﬀe, S., Vanhoucke, V., & Alemi, A. 2016 Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning, arXiv:1602.07261 [cs.CV]. Szegedy, C., Vanhoucke, V., Ioﬀe, S., Shlens, J., & Wojna, Z. 2015, Rethinking the Inception Architecture for Computer Vision, arXiv:1512.00567 [cs.CV]. Towns, J., Cockerill, T., Dahan, M., Foster, I., et al. 2014, XSEDE: Accelerating Scientiﬁc Discovery, Com- puting in Science & Engineering, Vol. 16, No. 5, pp. 62-74, Sept.-Oct. 2014, doi:10.1109/MCSE.2014.80. Zhen, Y., Wang, L., Lui, H., Zhang, J., & Pu, J. 2018, Performance assessment of the deep learning 12 [Page 13] technologies in grading glaucoma severity, arXiv:1810.13376 [cs.CV].",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04573,
+        -0.01661,
+        -0.01812,
+        -0.00854,
+        -0.02773
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 22925,
+      "length": 485,
+      "overlap_with_previous": "Zhen, Y., Wang, L., Lui, H., Zhang, J., & Pu, J. 2018, Performance assessment of the deep learning 12 [Page 13] technologies in grading glaucoma severity, arXiv:1810.13376 [cs.CV].",
+      "overlap_with_next": "",
+      "text": "Zhen, Y., Wang, L., Lui, H., Zhang, J., & Pu, J. 2018, Performance assessment of the deep learning 12 [Page 13] technologies in grading glaucoma severity, arXiv:1810.13376 [cs.CV]. Zoph, B., Vasudevan, V., Shlens, J., Le, Q.V. 2017 Learning Transferable Architectures for Scalable Image Recognition, arXiv:1707.07012 [cs.CV]. Zucker, S., Giryes, R. 2018, Shallow transits - deep learning I: feasibility study of deep learning to detect periodic transits of exoplanets, AJ, 155, 147. 13",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07554,
+        -0.03265,
+        -0.00465,
+        -0.00859,
+        0.00903
+      ]
+    }
+  ]
+}

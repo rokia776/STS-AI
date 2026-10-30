@@ -1,0 +1,844 @@
+{
+  "paper_id": "4018c1ac-d79e-42e4-8314-c90b99c0cc4c",
+  "filename": "087_Machine_Learning_Neural_Joint_Entropy_Estimation.pdf",
+  "title": "Neural Joint Entropy Estimation",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 49,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "stent and demonstrate their performance in a variety of use-cases. First, we consider large alphabet entropy estimation. Then, we extend the scope to mutual information estimation.",
+      "text": "[Page 1] 1 Neural Joint Entropy Estimation Yuval Shalev, Amichai Painsky and Irad Ben-Gal Abstract—Estimating the entropy of a discrete random vari- able is a fundamental problem in information theory and related ﬁelds. This problem has many applications in various domains, including machine learning, statistics and data compression. Over the years, a variety of estimation schemes have been suggested. However, despite signiﬁcant progress, most methods still struggle when the sample is small, compared to the variable’s alphabet size. In this work, we introduce a practical solution to this problem, which extends the work of McAllester and Statos (2020). The proposed scheme uses the generalization abilities of cross-entropy estimation in deep neural networks (DNNs) to introduce improved entropy estimation accuracy. Furthermore, we introduce a family of estimators for related information- theoretic measures, such as conditional entropy and mutual infor- mation. We show that these estimators are strongly consistent and demonstrate their performance in a variety of use-cases. First, we consider large alphabet entropy estimation. Then, we extend the scope to mutual information estimation.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01827,
+        -0.01747,
+        -0.01827,
+        -0.00356,
+        -0.01894
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "stent and demonstrate their performance in a variety of use-cases. First, we consider large alphabet entropy estimation. Then, we extend the scope to mutual information estimation.",
+      "overlap_with_next": "selection [2], [3], representation learning [4], [5] and analyses of the learning mechanism [6], [7]. One of the ﬁrst and basic entropy estimation methods is the classic plug-in sc",
+      "text": "stent and demonstrate their performance in a variety of use-cases. First, we consider large alphabet entropy estimation. Then, we extend the scope to mutual information estimation. Next, we apply the proposed scheme to conditional mutual information estimation, as we focus on independence testing tasks. Finally, we study a transfer entropy estimation problem. The proposed estimators demonstrate improved performance compared to existing meth- ods in all tested setups. Index Terms—Joint Entropy, Neural Network, Cross-Entropy, Mutual Information, Transfer Entropy. I. I NTRODUCTION E NTROPY is one of the basic building blocks of infor- mation theory [1]. It quantiﬁes the minimum average number of bits required to represent an event that follows a given probability distribution rule. Many important information- theoretic measures such as mutual information (MI) and conditional MI (CMI) include marginal, conditional and joint entropies. These measures have many applications in machine learning, such as feature selection [2], [3], representation learning [4], [5] and analyses of the learning mechanism [6], [7]. One of the ﬁrst and basic entropy estimation methods is the classic plug-in sc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01196,
+        -0.0029,
+        -0.03471,
+        0.0173,
+        0.00838
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "selection [2], [3], representation learning [4], [5] and analyses of the learning mechanism [6], [7]. One of the ﬁrst and basic entropy estimation methods is the classic plug-in sc",
+      "overlap_with_next": "Engineering, Tel-Aviv University, Ramat-Aviv 6997801, Israel. Correspondence to:<yuvalshalev@mail.tau.ac.il>. implies searching for a Q that is as similar as possible in a log-loss",
+      "text": "selection [2], [3], representation learning [4], [5] and analyses of the learning mechanism [6], [7]. One of the ﬁrst and basic entropy estimation methods is the classic plug-in scheme. In this scheme, an empirical distribution replaces the true (unknown) probability rule, and the corresponding empirical entropy is the estimated entropy. Unfortunately, this estimation scheme suffers from a negative bias [8], [9], leading to limited outcomes. A variety of parametric and nonparametric methods have been proposed to improve the entropy estimation, such as in [8]–[10]. Recently, a neural network-based method was proposed to estimate entropy by minimizing the cross-entropy (CE) loss [11] as an upper bound of the entropy. The CE measures the average number of bits required to represent an event that is generated from a probability distribution P by a different probability distribution Q. CE has its minimum when P =Q. Thus, minimizing CE Y . Shalev, A. Painsky and I. Ben-Gal are with the Department of Industrial Engineering, Tel-Aviv University, Ramat-Aviv 6997801, Israel. Correspondence to:<yuvalshalev@mail.tau.ac.il>. implies searching for a Q that is as similar as possible in a log-loss",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03409,
+        -0.03209,
+        -0.01071,
+        0.00096,
+        -0.00742
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "Engineering, Tel-Aviv University, Ramat-Aviv 6997801, Israel. Correspondence to:<yuvalshalev@mail.tau.ac.il>. implies searching for a Q that is as similar as possible in a log-loss",
+      "overlap_with_next": "to introduce a signiﬁcant negative bias in setups with high dependencies between the variables, resulting in large MI values [18]. Neural-network-based approaches have been recentl",
+      "text": "Engineering, Tel-Aviv University, Ramat-Aviv 6997801, Israel. Correspondence to:<yuvalshalev@mail.tau.ac.il>. implies searching for a Q that is as similar as possible in a log-loss [12], [13] sense to P . This approach has several advantages. First, it uses the generalization power of neural networks and their universality [14]–[16]. Second, CE is less prone to negative bias and high variance in large entropy values [11]. However, this approach has certain limitations. First, it requires prior assumptions on the true underlying distribution, as discussed in Section III. Second, the statistical properties of this CE estimator are currently unexplored. Therefore, the existence of a neural network-based estimator that can provide an accurate estimation of entropy, is not guaranteed. These challenges in entropy estimation are also related to other information-theoretic measures. For example, one of the most common MI estimation schemes is the K-nearest neighbour (KNN) estimator [17]. This estimator was shown to introduce a signiﬁcant negative bias in setups with high dependencies between the variables, resulting in large MI values [18]. Neural-network-based approaches have been recentl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03356,
+        -0.00354,
+        -0.01724,
+        0.02137,
+        -0.00941
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "to introduce a signiﬁcant negative bias in setups with high dependencies between the variables, resulting in large MI values [18]. Neural-network-based approaches have been recentl",
+      "overlap_with_next": "eural networks to obtain a more accurate joint entropy estimation. We denote this estimation procedure as the Neural Joint Entropy Estimator ( NJEE). We study the properties of NJE",
+      "text": "to introduce a signiﬁcant negative bias in setups with high dependencies between the variables, resulting in large MI values [18]. Neural-network-based approaches have been recently proposed to overcome this problem using variational bound optimization [18]–[20]. Although a signiﬁcant improvement in the MI estimation has been achieved, the results are not yet satisfying and suffer from theoretical limitations that are primarily manifested in large MI values [11], [19]. There is also a large body of work on fundamental estimation bounds for different information-theoretic measures (see [9], [21] and related work). In this paper, we address the inherent estimation challenges discussed above. The proposed estimation scheme focuses on joint entropy estimation. This problem is similar to the standard entropy estimation problem as any univariate random vector may be represented, for example, as a binary multivariate vector. In particular, we combine the chain rule with the CE loss minimization procedure using neural networks to obtain a more accurate joint entropy estimation. We denote this estimation procedure as the Neural Joint Entropy Estimator ( NJEE). We study the properties of NJE",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04754,
+        -0.007,
+        -0.02769,
+        0.0125,
+        -0.00066
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "eural networks to obtain a more accurate joint entropy estimation. We denote this estimation procedure as the Neural Joint Entropy Estimator ( NJEE). We study the properties of NJE",
+      "overlap_with_next": "uch as a recurrent neural network, C-NJEE can be used for efﬁcient TE estimation. arXiv:2012.11197v1 [cs.IT] 21 Dec 2020 [Page 2] 2 The advantages of the estimators proposed in thi",
+      "text": "eural networks to obtain a more accurate joint entropy estimation. We denote this estimation procedure as the Neural Joint Entropy Estimator ( NJEE). We study the properties of NJEE and show that it is strongly consistent. In a similar manner, we obtain the conditional NJEE (C-NJEE), as an estimator for the joint conditional entropy between two or more multivariate variables. Having these two estimators, it is straightforward to estimate the MI between two random variables. Adding a second conditioning variable results in the CMI estimator. Additionally, we apply the proposed scheme to transfer entropy estimation (TE). Given two time series, the TE is deﬁned as the CMI between the ”past” of the ﬁrst series and the ”future” of the second series given its ”past”. TE is used to explore the information ﬂow and causality among time-dependent data in neuroscience [22], [23], ﬁnance [24], [25], process control [26], [27] and many other applications. We show that by using an autoregressive neural network model, such as a recurrent neural network, C-NJEE can be used for efﬁcient TE estimation. arXiv:2012.11197v1 [cs.IT] 21 Dec 2020 [Page 2] 2 The advantages of the estimators proposed in thi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06721,
+        -0.02148,
+        -0.01946,
+        0.02859,
+        0.01349
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "uch as a recurrent neural network, C-NJEE can be used for efﬁcient TE estimation. arXiv:2012.11197v1 [cs.IT] 21 Dec 2020 [Page 2] 2 The advantages of the estimators proposed in thi",
+      "overlap_with_next": "scheme demonstrates better results than existing methods. Finally, the CMI estimator is applied to a TE estimation task. Speciﬁcally, we study a real ﬁnancial dataset of stock inde",
+      "text": "uch as a recurrent neural network, C-NJEE can be used for efﬁcient TE estimation. arXiv:2012.11197v1 [cs.IT] 21 Dec 2020 [Page 2] 2 The advantages of the estimators proposed in this paper are demonstrated in various use-cases. First, we study the entropy estimation of a discrete random variable with a large alphabet size. Applying NJEE to this problem, we outperform existing methods when the sample size is much smaller than the alphabet size. Further, we focus on MI estimation between two multivariate variables. A commonly used toy problem is used for this task. The performance of the proposed MI estimator demonstrates improved results in terms of lower bias and variance, compared to existing methods. This result is speciﬁcally manifested in larger values of MI. Next, we demonstrate the performance of the suggested CMI estimator, as we focus on conditional independence tests. We study a real protein dataset where dependencies among the variables (protein elements) are known. Also, the proposed estimation scheme demonstrates better results than existing methods. Finally, the CMI estimator is applied to a TE estimation task. Speciﬁcally, we study a real ﬁnancial dataset of stock inde",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06379,
+        0.0044,
+        -0.04363,
+        0.04651,
+        0.0049
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "scheme demonstrates better results than existing methods. Finally, the CMI estimator is applied to a TE estimation task. Speciﬁcally, we study a real ﬁnancial dataset of stock inde",
+      "overlap_with_next": "emainder of this paper is organized as follows. Related works on entropy, MI, CMI and TE estimation are discussed in Section II. In Section III, deﬁnitions and related mathematical",
+      "text": "scheme demonstrates better results than existing methods. Finally, the CMI estimator is applied to a TE estimation task. Speciﬁcally, we study a real ﬁnancial dataset of stock index prices and show that the C-NJEE-based estimation provides additional insights on the information ﬂow between the time series that are not discovered by the other methods. These insights are in line with domain knowledge and the world ﬁnancial timeline. To summarize, the contributions of this paper are threefold. First, we extend the work of [11] and introduce strongly consistent estimators for joint entropy and conditional joint entropy. The proposed estimators, NJEE and C-NJEE, are based on minimization of the CE loss while applying the entropy chain rule property. Second, we use these estimators to obtain estimators for related measures such as MI, CMI and TE. Third, we propose a practical implementation scheme of these estimators that demonstrates better performance than existing methods on various tasks and datasets. The remainder of this paper is organized as follows. Related works on entropy, MI, CMI and TE estimation are discussed in Section II. In Section III, deﬁnitions and related mathematical",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06102,
+        -0.02329,
+        -0.04546,
+        0.03797,
+        0.0145
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "emainder of this paper is organized as follows. Related works on entropy, MI, CMI and TE estimation are discussed in Section II. In Section III, deﬁnitions and related mathematical",
+      "overlap_with_next": "etween the number of symbols from the alphabet that appear at least once in the sample and the sample size. More recently, [10] proposed an estimator for the entropy of species in ",
+      "text": "emainder of this paper is organized as follows. Related works on entropy, MI, CMI and TE estimation are discussed in Section II. In Section III, deﬁnitions and related mathematical overview are given to support the scheme and ideas proposed in this paper. The primary results are shown in Section IV. An empirical study of various tasks and comparisons with different benchmark methods are provided in Section V. We conclude this paper in Section VI. II. R ELATED WORK Estimating information-theoretic measures is a well-studied problem. We refer the reader to [8], [9], [17], [19], [28], [29] for a comprehensive review of these measures. The following literature review focuses on estimators that are relevant for this work. A. Entropy Estimation in Large Alphabet As mentioned in Section I, the simplest method to estimate the entropy of a discrete random variable is the so plug-in estimator [1]. The Miller-Madow estimator [30] adds a bias correction to the plug-in estimator. This correction depends on the ratio between the number of symbols from the alphabet that appear at least once in the sample and the sample size. More recently, [10] proposed an estimator for the entropy of species in ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04212,
+        -0.00873,
+        -0.02062,
+        0.02689,
+        0.01001
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "etween the number of symbols from the alphabet that appear at least once in the sample and the sample size. More recently, [10] proposed an estimator for the entropy of species in ",
+      "overlap_with_next": "rs is the KNN-based KSG estimator [17], which uses KNN-based density estimation over a shared space of the marginal and conditional entropy. Using the connection between the MI and",
+      "text": "etween the number of symbols from the alphabet that appear at least once in the sample and the sample size. More recently, [10] proposed an estimator for the entropy of species in a community (in this biological context, the entropy is called the diversity index), where the number of species (alphabet size) is large and unknown. This estimator is based on the Horvitz-Thompson estimator for population size and the Good-Turing estimator for the probability of unseen events. In [9], an entropy estimator is obtained using a polynomial approximation for the terms in the entropy sum that involve small probabilities with respect to logk, wherek is the alphabet size. For larger probabilities, an unbiased plug-in estimator is used that is similar to the Miller-Madow estimator. Thus, improved results are demonstrated on simulated data of discrete random variables with large alphabet sizes where many symbols have relatively low probability. B. MI and CMI Estimation One of the most popular MI estimators in recent years is the KNN-based KSG estimator [17], which uses KNN-based density estimation over a shared space of the marginal and conditional entropy. Using the connection between the MI and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05255,
+        -0.00964,
+        -0.02788,
+        0.00827,
+        -0.00785
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "rs is the KNN-based KSG estimator [17], which uses KNN-based density estimation over a shared space of the marginal and conditional entropy. Using the connection between the MI and",
+      "overlap_with_next": "[19]. To overcome this problem, [11] proposed using the CE as an upper bound for the entropy and minimize it by training a neural network. Thus, an MI estimate is obtained by subtr",
+      "text": "rs is the KNN-based KSG estimator [17], which uses KNN-based density estimation over a shared space of the marginal and conditional entropy. Using the connection between the MI and entropy (see III-B), the entropies’ bias terms are subtracted to provide a more accurate MI estimation. This metric suffers from the curse of dimensionality and underestimates the MI when the interaction between the variables is strong [31]. The recent advances in deep learning motivated various researchers to address the dimensionality problem by estimating the MI with neural networks. This is usually obtained by ﬁnding variational lower bound for the MI (typically, a differentiable function that its supremum is the MI). These functions are approximated by neural networks to maximize the lower bound [18]–[20]. These methods yield improved results compared to the KNN-based estimator, but are quite limited when estimating large MI values, since their estimation complexity increases exponentially with the number of samples [11], [19]. To overcome this problem, [11] proposed using the CE as an upper bound for the entropy and minimize it by training a neural network. Thus, an MI estimate is obtained by subtr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0518,
+        -0.03025,
+        -0.01288,
+        -0.02117,
+        -0.03351
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "[19]. To overcome this problem, [11] proposed using the CE as an upper bound for the entropy and minimize it by training a neural network. Thus, an MI estimate is obtained by subtr",
+      "overlap_with_next": "eloped. This approach introduced a signiﬁcant improvement over other recently proposed methods. C. TE Estimation The TE is deﬁned as a form of CMI between time series. Speciﬁcally,",
+      "text": "[19]. To overcome this problem, [11] proposed using the CE as an upper bound for the entropy and minimize it by training a neural network. Thus, an MI estimate is obtained by subtracting the estimated conditional entropy from the estimated marginal entropy. This approach underlines the proposed estimation scheme as discussed in further detail in subsection III-C. A similar approach for MI estimation using the softmax function (e.g., as the output layer in a neural network), was suggested in [32]. However, this scheme is limited to the case where the input variable is multivariate, while the target variable is univariate. Classiﬁer based conditional mutual information (CCMI) was proposed in [33]. A two-sample classiﬁer was used to distinguish between samples from the joint distribution and samples from the marginal distribution. Combining conditional generative models (e.g., Conditional Generative Adversarial Networks (CGAN) or Conditional Variational Autoencoders (CV AE)), an estimator for the CMI was developed. This approach introduced a signiﬁcant improvement over other recently proposed methods. C. TE Estimation The TE is deﬁned as a form of CMI between time series. Speciﬁcally,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04544,
+        -0.03728,
+        -0.03759,
+        0.0112,
+        0.01131
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "eloped. This approach introduced a signiﬁcant improvement over other recently proposed methods. C. TE Estimation The TE is deﬁned as a form of CMI between time series. Speciﬁcally,",
+      "overlap_with_next": "al time series of index prices to evaluate their estimators. we use the same dataset to evaluate the proposed method. III. B ACKGROUND A. Notations The following notations are used",
+      "text": "eloped. This approach introduced a signiﬁcant improvement over other recently proposed methods. C. TE Estimation The TE is deﬁned as a form of CMI between time series. Speciﬁcally, TE (Yfuture ;Xpast) = [Page 3] 3 CMI (Yfuture,Xpast|Ypast) (see a formal deﬁnition of TE in Subsection III-B). There are two primary approaches for TE estimation. The ﬁrst approach considers every variable in every timestamp as a separate variable, and uses any MI or CMI estimator to estimate the TE [34]–[36]. The second approach applies a sequential model that considers the time dependencies among different time lags to extract an estimator for the TE and its related measures [37], [38]. As a representative of the ﬁrst approach, a recently proposed estimator [36] applies a neural network two-sample classiﬁer to estimate the TE. Using the second approach, the Context Tree Weighting (CTW) algorithm [39] is utilized in [37] for directed information estimation (a closely related measure to TE [40]). Both works investigate a ﬁnancial time series of index prices to evaluate their estimators. we use the same dataset to evaluate the proposed method. III. B ACKGROUND A. Notations The following notations are used",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06017,
+        -0.03302,
+        -0.03933,
+        0.02243,
+        -0.00736
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "al time series of index prices to evaluate their estimators. we use the same dataset to evaluate the proposed method. III. B ACKGROUND A. Notations The following notations are used",
+      "overlap_with_next": "oint distribution of X, Y and Z. To avoid an overload of notation, we denote xi as the ith sample in S, while Xm is the mth component of the random vector X. For the time notation,",
+      "text": "al time series of index prices to evaluate their estimators. we use the same dataset to evaluate the proposed method. III. B ACKGROUND A. Notations The following notations are used throughout this paper. A univariate discrete random variable is denoted by an upper-case letter (e.g., X), that obtains values x from the alphabet Ax = {1,...,a x}. A multivariate variable with dimensions dx is denoted by an underline, (e.g., X), where its values are denoted by underlined lower-case letter x. The mth component of X is denoted as Xm, which obtains values xm from the alphabet Axm ={1...a xm} which can be different for different values of m. The vector of the ﬁrst k components of X is denoted by Xk. We denote ˆHn(X) as the estimator of X’s entropy given a sample S ={...}ni=1, where it is implied from the text that S is a collection of n samples of X. This notation holds for other estimators as well. For example, ˆIn(X;Y|Z) is an estimator of the CMI between X and Y givenZ, from a collection of n samples from the joint distribution of X, Y and Z. To avoid an overload of notation, we denote xi as the ith sample in S, while Xm is the mth component of the random vector X. For the time notation,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05178,
+        -0.03256,
+        -0.04829,
+        0.01815,
+        0.00739
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "oint distribution of X, Y and Z. To avoid an overload of notation, we denote xi as the ith sample in S, while Xm is the mth component of the random vector X. For the time notation,",
+      "overlap_with_next": "eibler divergence (DKL) between P (X) and Q(X) DKL(P (X)||Q(X)) = EP(X) [ logP (X)Q(X)]. (5) TheDKL is a nonnegative measure and equals zero iffP (X) = Q(X). The MI, denoted as I(X",
+      "text": "oint distribution of X, Y and Z. To avoid an overload of notation, we denote xi as the ith sample in S, while Xm is the mth component of the random vector X. For the time notation, a multivariate variable in time t is represented by a bracket index, e.g., X(t) and a matrix that represents its past l time lags is represented by X(l)(t) = [X(t−l)...X (t)]. B. Deﬁnitions LetX be a discrete random variable that follows a probability distribution P (X). Shannon’s entropy is deﬁned as: H(X) =−EP(X) [logP (x)]. (1) The entropy (1) can be represented by the chain-rule H(X) =H(X1,X 2,...,X dx) = dx∑ m=1 H(Xm|Xm−1,...,X 1), (2) where H(X1|X0) abbreviatesH(X1). The CE between any two distribution functions P (X) and Q(X) is deﬁned as: CE(Q(X)) =−EP(X) [logQ(X)], (3) where the expectation is over the distribution of X, namely, P (X). The following inequality holds for every pair of distributions P (X) and Q(X): CE(Q(X))≥H(X), (4) Where an equality is obtained for Q(X) =P (X). A related measure to CE is the Kullback-Leibler divergence (DKL) between P (X) and Q(X) DKL(P (X)||Q(X)) = EP(X) [ logP (X)Q(X)]. (5) TheDKL is a nonnegative measure and equals zero iffP (X) = Q(X). The MI, denoted as I(X",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03874,
+        -0.04769,
+        -0.02062,
+        0.01326,
+        -0.01787
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "eibler divergence (DKL) between P (X) and Q(X) DKL(P (X)||Q(X)) = EP(X) [ logP (X)Q(X)]. (5) TheDKL is a nonnegative measure and equals zero iffP (X) = Q(X). The MI, denoted as I(X",
+      "overlap_with_next": " CE, ˆCEn(Tθ(X)) =− 1n n∑ i=1 logTθ(xi). (10) Then, an estimator of the entropy is: ˆHn(X) = infθ∈ΘˆCEn(Tθ(X)). (11) In [11], the authors suggest an entropy estimator based on the ",
+      "text": "eibler divergence (DKL) between P (X) and Q(X) DKL(P (X)||Q(X)) = EP(X) [ logP (X)Q(X)]. (5) TheDKL is a nonnegative measure and equals zero iffP (X) = Q(X). The MI, denoted as I(X;Y ), quantiﬁes in bits the entropy reduction in X given the knowledge obtained from another random variable Y , i.e., I(X;Y ) =H(X)−H(X|Y ). (6) Another important measure that is represented by the difference of entropies is conditional mutual information (CMI) I(X;Y|Z) =H(Y|Z)−H(Y|X,Z ). (7) CMI is also used to evaluate the TE, which is deﬁned as TEX→Y =I(X(k)(t) ;Y (t+1)|Y (l)(t)). (8) Assuming discrete time, the TEX→Y is the CMI between the past k time lags of X and Y at time t + 1 given the past l time lags of Y . C. CE-Based Entropy Let P (X) be the distribution function of X. Let Tθ(X) be a neural network that approximates it. In [11], the following upper bound for the entropy of X was proposed HΘ(X) = infθ∈ΘCE(Tθ(X)), (9) and HΘ(X) =H(X) iffP (X) =Tθ(X). Given a sample S of size n, the sample mean is used to estimate the CE, ˆCEn(Tθ(X)) =− 1n n∑ i=1 logTθ(xi). (10) Then, an estimator of the entropy is: ˆHn(X) = infθ∈ΘˆCEn(Tθ(X)). (11) In [11], the authors suggest an entropy estimator based on the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03778,
+        -0.04785,
+        -0.02795,
+        0.01571,
+        -0.00938
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " CE, ˆCEn(Tθ(X)) =− 1n n∑ i=1 logTθ(xi). (10) Then, an estimator of the entropy is: ˆHn(X) = infθ∈ΘˆCEn(Tθ(X)). (11) In [11], the authors suggest an entropy estimator based on the ",
+      "overlap_with_next": ". A. Neural Network Classiﬁer and Classiﬁcation CE The following basic deﬁnitions are used throughout this section. Deﬁnition IV .1. (Neural network classiﬁer). Let Gθ(Y|X) be a ne",
+      "text": " CE, ˆCEn(Tθ(X)) =− 1n n∑ i=1 logTθ(xi). (10) Then, an estimator of the entropy is: ˆHn(X) = infθ∈ΘˆCEn(Tθ(X)). (11) In [11], the authors suggest an entropy estimator based on the above. However, they require prior knowledge of P (X) for the training of their neural network. [Page 4] 4 IV. M EASURING THE JOINT ENTROPY WITH NEURAL NETWORKS In this section we discuss the primary concepts of this paper. First, the neural network classiﬁer and its respective CE are formally deﬁned. Then, the neural joint entropy estimator is introduced. Next, we deﬁne a strongly consistent estimator and show that the proposed joint entropy estimator satisﬁes this property. We also provide an algorithmic implementation of the proposed estimator and discuss practical aspects of its im- plementation. Next, estimator for the joint conditional entropy is provided with the corresponding algorithmic implementation. Using the estimators of the joint entropy and the conditional joint entropy, estimators for MI, CMI and TE are obtained. A. Neural Network Classiﬁer and Classiﬁcation CE The following basic deﬁnitions are used throughout this section. Deﬁnition IV .1. (Neural network classiﬁer). Let Gθ(Y|X) be a ne",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01911,
+        -0.03563,
+        -0.0195,
+        0.01475,
+        0.04047
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": ". A. Neural Network Classiﬁer and Classiﬁcation CE The following basic deﬁnitions are used throughout this section. Deﬁnition IV .1. (Neural network classiﬁer). Let Gθ(Y|X) be a ne",
+      "overlap_with_next": "int entropy. Deﬁnition IV .3. (Neural Joint Entropy Estimator (NJEE)). Let ˆHn(X1) be an estimated marginal entropy of the ﬁrst components in X and let Gθm(Xm|Xm−1) be a neural net",
+      "text": ". A. Neural Network Classiﬁer and Classiﬁcation CE The following basic deﬁnitions are used throughout this section. Deﬁnition IV .1. (Neural network classiﬁer). Let Gθ(Y|X) be a neural network model with a random variable input X and parameters θ in a compact domain Θ ∈ Rk. The outputs of Gθ(Y|X) are deﬁned over the probability simplex: {Gθ(y|x)∈ Ray :∑ayy=1Gθ(y|x) = 1,Gθ(y|x)≥ 0}. Next, we deﬁne the CE of this classiﬁer. Deﬁnition IV .2. (Classiﬁer CE). Let Gθ(y|x) be a neural network classiﬁer. The CE of this classiﬁer is deﬁned as CE(Gθ(Y|X)) =−EP(X,Y ) logGθ(y|x), (12) whereY ∈A y ={1,...,a y}, ay≥ 2. We assume that − log(Gθ(y|x))≤ η for all x∈ X and for all θ∈ Rk, for any value of Y . Practically, this assumption is used in many model training procedures to avoid an unbounded loss [13]. The empirical estimator of this CE is given by [41], namely ˆCEn(Gθ(Y|X)) =− 1n n∑ i=1 log(Gθ(yi|xi)). (13) B. Neural Joint Entropy Estimation Using (2) and Deﬁnitions IV .1 and IV .2, we deﬁne the estimator of the joint entropy. Deﬁnition IV .3. (Neural Joint Entropy Estimator (NJEE)). Let ˆHn(X1) be an estimated marginal entropy of the ﬁrst components in X and let Gθm(Xm|Xm−1) be a neural net",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02875,
+        -0.03297,
+        -0.01136,
+        0.01282,
+        0.04218
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "int entropy. Deﬁnition IV .3. (Neural Joint Entropy Estimator (NJEE)). Let ˆHn(X1) be an estimated marginal entropy of the ﬁrst components in X and let Gθm(Xm|Xm−1) be a neural net",
+      "overlap_with_next": "ing the convergence of the empirical CE to the true CE (Lemma 4). 3) Showing that the empirical CE can approximate with high accuracy the conditional entropy (Lemma 5). 4) Applying",
+      "text": "int entropy. Deﬁnition IV .3. (Neural Joint Entropy Estimator (NJEE)). Let ˆHn(X1) be an estimated marginal entropy of the ﬁrst components in X and let Gθm(Xm|Xm−1) be a neural network classiﬁer. Then, NJEE is deﬁned as ˆHn(X) = ˆHn(X1) + dx∑ m=2 ˆCEn(Gθm(Xm|Xm−1). (14) In words, the joint entropy estimator consists of a marginal estimator for the ﬁrst component, followed by estimators for the conditional entropies H(Xm|Xm−1), for m = 2,...,d x. Deﬁnition IV .4. (Strong consistency (following [18])). The estimator ˆHn(X) is strongly consistent if for all ϵ,δ >0 and a constant C > 0, there exists a positive integer N and a choice of a neural network such that: ∀n≥N,|H(X)− ˆHn(X)|≤ C·ϵ +δ,a.e. Theorem 1. NJEE is strongly consistent. C. Proof of Strong Consistency Property In this section we follow the scheme shown in [18] to prove Theorem 1. This proof includes the following main steps: 1) Connecting the true CE of a classiﬁer-based neural network and the conditional entropy H(Y|X) (Lemmas 1 and 2). 2) Showing the convergence of the empirical CE to the true CE (Lemma 4). 3) Showing that the empirical CE can approximate with high accuracy the conditional entropy (Lemma 5). 4) Applying",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02621,
+        -0.02777,
+        -0.00655,
+        0.00216,
+        0.02033
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "ing the convergence of the empirical CE to the true CE (Lemma 4). 3) Showing that the empirical CE can approximate with high accuracy the conditional entropy (Lemma 5). 4) Applying",
+      "overlap_with_next": "oof of this lemma follows the ideas shown in [11]). H(Y|X) = EP(X,Y ) log 1P (y|x) = EP(X,Y ) log 1Gθ(y|x)Gθ(y|x)P (y|x) = EP(X,Y ) log 1Gθ(y|x)−DKL(P (y|x)||Gθ(y|x))≥ CE(Gθ(Y|X))−",
+      "text": "ing the convergence of the empirical CE to the true CE (Lemma 4). 3) Showing that the empirical CE can approximate with high accuracy the conditional entropy (Lemma 5). 4) Applying the chain-rule property and the previous steps to show that the proposed estimator of the joint entropy is strongly consistent. We begin with the ﬁrst step. Formally, since neural networks are universal approximation functions [14]–[16], the following holds: Lemma 1. For any ϵ >0, and any conditional distribution functionP (Y|X), there exists a neural networkGθ(Y|X) such that: DKL(P (Y|X)||Gθ(Y|X))≤ ϵ2,a.e. (15) That is, it is possible to ﬁnd a neural network that can approximates P (Y|X) in any desired approximation level. The next Lemma states that the CE can be used to estimate the conditional entropy. Lemma 2. Let P (Y|X) be a conditional distribution and let H(Y|X) be the entropy associated with this distribution. Then, for any ϵ >0, there exists a neural network Gθ(Y|X) such that |CE (Gθ(Y|X))−H(Y|X)|≤ ϵ2,a.e. (16) The proof of this lemma follows the ideas shown in [11]). H(Y|X) = EP(X,Y ) log 1P (y|x) = EP(X,Y ) log 1Gθ(y|x)Gθ(y|x)P (y|x) = EP(X,Y ) log 1Gθ(y|x)−DKL(P (y|x)||Gθ(y|x))≥ CE(Gθ(Y|X))−",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03108,
+        -0.00074,
+        0.00862,
+        0.01295,
+        -0.0064
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "oof of this lemma follows the ideas shown in [11]). H(Y|X) = EP(X,Y ) log 1P (y|x) = EP(X,Y ) log 1Gθ(y|x)Gθ(y|x)P (y|x) = EP(X,Y ) log 1Gθ(y|x)−DKL(P (y|x)||Gθ(y|x))≥ CE(Gθ(Y|X))−",
+      "overlap_with_next": "of this Lemma is an immediate application of (13) with fθ((xi,yi)) =− log(Gθ(yi|xi)). (21) since− log(Gθ(yi|xi))≤η, thenfθ((xi,yi))≤η and Lemma 3 holds. Lemma 5. The estimator ˆCEn",
+      "text": "oof of this lemma follows the ideas shown in [11]). H(Y|X) = EP(X,Y ) log 1P (y|x) = EP(X,Y ) log 1Gθ(y|x)Gθ(y|x)P (y|x) = EP(X,Y ) log 1Gθ(y|x)−DKL(P (y|x)||Gθ(y|x))≥ CE(Gθ(Y|X))− ϵ2, (17) where the last line follows Lemma 1. As shown in (4), we have that CE(Gθ(Y|X))−H(Y|X)≥ 0, (18) therefore |CE (Gθ(Y|X))−H(Y|X)|≤ ϵ2. [Page 5] 5 The empirical estimator for this classiﬁer CE is obtained from (13). The conditions for the convergence of this estimator are deﬁned by the uniform law of large numbers. Lemma 3. The uniform law of large numbers [42]. Let Θ be a compact set of parameters. Let fθ(xi) be a continuous function at each θ∈ Θ and xi∈X . Assume there exists an upper bound η(X) such that ‖f(x)‖≤ η(x) for all θ∈ Θ and E[η(X)]<∞. Then, E[fθ(X)] is continuous and sup θ∈Θ ‖ 1n n∑ i=1 fθ(xi)− E[fθ(X)]‖ p → 0. (19) Using Lemma 3, the convergence of the classiﬁer CE is obtained Lemma 4. For any ϵ> 0 and∀θ∈ Θ, there exists a positive integern≥N such that: P (|ˆCEn(Gθ(Y|X))−CE(Gθ(Y|X))|≤ ϵ2) = 1. (20) The proof of this Lemma is an immediate application of (13) with fθ((xi,yi)) =− log(Gθ(yi|xi)). (21) since− log(Gθ(yi|xi))≤η, thenfθ((xi,yi))≤η and Lemma 3 holds. Lemma 5. The estimator ˆCEn",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0497,
+        0.00078,
+        -0.02342,
+        -0.01545,
+        0.01978
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "of this Lemma is an immediate application of (13) with fθ((xi,yi)) =− log(Gθ(yi|xi)). (21) since− log(Gθ(yi|xi))≤η, thenfθ((xi,yi))≤η and Lemma 3 holds. Lemma 5. The estimator ˆCEn",
+      "overlap_with_next": ")− ˆHn(X1)|+ | dx∑ m=2 H(Xm|Xm−1)− dx∑ m=2 ˆCEn(Gθm(Xm|Xm−1)| ≤δ +C·ϵ, (25) where C =dx− 1. □ D. Algorithmic Implementation of NJEE The implementation of the NJEE estimator is desc",
+      "text": "of this Lemma is an immediate application of (13) with fθ((xi,yi)) =− log(Gθ(yi|xi)). (21) since− log(Gθ(yi|xi))≤η, thenfθ((xi,yi))≤η and Lemma 3 holds. Lemma 5. The estimator ˆCEn(Gθ(Y|X)) is strongly con- sistent. That is, for all ϵ >0, there exists a positive integer n≥N and a choice of neural network such that: |H(Y|X)−ˆCEn(Gθ(Y|X))|≤ ϵ,a.e. (22) This lemma is obtained using the triangular inequality with Lemmas 2 and 4: |H(Y|X)−ˆCEn(Gθ(Y|X))|≤ |CE (Gθ(Y|X))−H(Y|X)|+ |ˆCE(Gθ(Y|X))−CE(Gθ(Y|X))|≤ ϵ. (23) Restating (2), H(X) =H(X1) + dx∑ m=2 H(Xm|Xm−1). (24) Suppose there exists dx− 1 neural networks that approximate each term in the sum with an ϵ accuracy. Then, the total error of the sum expression is ϵ· (dx− 1). The marginal entropy H(X1) is estimated with an estimator ˆHn(X1) that guarantees an error that is not larger than certain δ >0. Several estimators can provide such a guarantee, e.g., [8], [9]. In this case: |H(X)− ˆHn(X)| =|H(X1)− ˆHn(X1)+ dx∑ m=2 H(Xm|Xm−1)− dx∑ m=2 ˆCEn(Gθm(Xm|Xm−1)| ≤|H(X1)− ˆHn(X1)|+ | dx∑ m=2 H(Xm|Xm−1)− dx∑ m=2 ˆCEn(Gθm(Xm|Xm−1)| ≤δ +C·ϵ, (25) where C =dx− 1. □ D. Algorithmic Implementation of NJEE The implementation of the NJEE estimator is desc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01348,
+        -0.01571,
+        -0.0307,
+        -0.00026,
+        0.03345
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": ")− ˆHn(X1)|+ | dx∑ m=2 H(Xm|Xm−1)− dx∑ m=2 ˆCEn(Gθm(Xm|Xm−1)| ≤δ +C·ϵ, (25) where C =dx− 1. □ D. Algorithmic Implementation of NJEE The implementation of the NJEE estimator is desc",
+      "overlap_with_next": "er classiﬁer to estimate the entropy. However, in this case, Lemma 1 may not apply, and strong consistency is not guaranteed. E. Conditional-Neural Joint Entropy Estimation The con",
+      "text": ")− ˆHn(X1)|+ | dx∑ m=2 H(Xm|Xm−1)− dx∑ m=2 ˆCEn(Gθm(Xm|Xm−1)| ≤δ +C·ϵ, (25) where C =dx− 1. □ D. Algorithmic Implementation of NJEE The implementation of the NJEE estimator is described in Algorithm 1. Algorithm 1 NJEE 1: input: Sample S ={xi}ni=1 from P (X) 2: hm← 0, form ={1,...,d x} 3: h1← ˆHn(X1) 4: Initialize{θm}dxm=2 5: form in 2 to dx do 6: hm← Minimize ˆCEn(Gθm(Xm|Xm−1)) 7: end for 8: ˆHn(X)←h1 + dx∑ m=2 hm 9: return: ˆHn(X) Practically, Algorithm 1 can be implemented in parallel per each value of m. Another approach is to use a recurrent neural network (RNN) that replaces the dx− 1 networks. In this case, the sequential input to the RNN is the components vector of X (e.g., see distribution estimation with RNN in [43]). Then, the estimated entropy would be the sum of all the CE losses in every time step. The empirical results of this implementation demonstrate similar performance to Algorithm 1. We also note that by using the CE loss, it is possible to replace the neural network model with any other classiﬁer to estimate the entropy. However, in this case, Lemma 1 may not apply, and strong consistency is not guaranteed. E. Conditional-Neural Joint Entropy Estimation The con",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03159,
+        -0.02419,
+        -0.03004,
+        0.00467,
+        -0.01434
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "er classiﬁer to estimate the entropy. However, in this case, Lemma 1 may not apply, and strong consistency is not guaranteed. E. Conditional-Neural Joint Entropy Estimation The con",
+      "overlap_with_next": "-NJEE is described in Algorithm 2. [Page 6] 6 Algorithm 2 C-NJEE 1: input: Sample S ={xi,yi}ni=1 from P (X,Y ) 2: hm← 0, form ={1,...,d x} 3: Initialize{θm}dxm=1 4: form in 1 to dx",
+      "text": "er classiﬁer to estimate the entropy. However, in this case, Lemma 1 may not apply, and strong consistency is not guaranteed. E. Conditional-Neural Joint Entropy Estimation The conditional entropy of two multivariate random variables X and Y is H(X|Y ) = dx∑ m=1 H(Xm|Y,Xm−1). (26) To estimate (26), a slight change is made to NJEE, where all components in the proposed estimator are neural networks. Deﬁnition IV .5. (Conditional Neural Joint Entropy Estimator (C-NJEE)). Let Gθm(Xm|Y,Xm−1) be a neural network classiﬁer with inputs Y and Xm−1. Then C-NJEE is deﬁned as, ˆHn(X|Y ) = dx∑ m=1 ˆCEn(Gθm(Xm|Y,Xm−1)). (27) Corollary 1.1. C-NJEE is strongly consistent. |H(X|Y )− dx∑ m=1 ˆCEn(Gθm(Xm|Y,Xm−1))|≤ dx·ϵ,a.e. (28) The proof of Corollary 1.1 is straightforward. Notice that every conditional entropy in the sum expression of (26) can be estimated by a classiﬁer CE with ϵ estimation error. Since there are dx conditional entropies estimators, the total estimation error of ˆH(X|Y ) is dx·ϵ. The implementation of C-NJEE is described in Algorithm 2. [Page 6] 6 Algorithm 2 C-NJEE 1: input: Sample S ={xi,yi}ni=1 from P (X,Y ) 2: hm← 0, form ={1,...,d x} 3: Initialize{θm}dxm=1 4: form in 1 to dx",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05484,
+        -0.03657,
+        -0.02439,
+        0.00338,
+        0.00875
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "-NJEE is described in Algorithm 2. [Page 6] 6 Algorithm 2 C-NJEE 1: input: Sample S ={xi,yi}ni=1 from P (X,Y ) 2: hm← 0, form ={1,...,d x} 3: Initialize{θm}dxm=1 4: form in 1 to dx",
+      "overlap_with_next": "considered throughout these experiments: An input layer, two fully connected layers with 50 nodes, a ReLU activation function and an output softmax layer. The loss is optimized wit",
+      "text": "-NJEE is described in Algorithm 2. [Page 6] 6 Algorithm 2 C-NJEE 1: input: Sample S ={xi,yi}ni=1 from P (X,Y ) 2: hm← 0, form ={1,...,d x} 3: Initialize{θm}dxm=1 4: form in 1 to dx do 5: hm← Minimize ˆCEn(Gθm(Xm|Y,Xm−1)) 6: end for 7: ˆHn(X|Y )← dx∑ m=1 hm 8: return: ˆHn(X|Y ) We now apply NJEE and C-NJEE to introduce an estimator for the MI. ˆIn(X;Y ) = ˆHn(X1) + dx∑ m=2 ˆCEn(Gθm(Xm|Xm−1) − dx∑ m=1 ˆCEn(Gθm(Xm|Y,Xm−1)), (29) Similarly, given a variable Z, an estimator for the CMI (7) can be obtained ˆIn(X;Y|Z) = dx∑ m=1 ˆCEn(G(Xm|Z,Xm−1)) − dx∑ m=1 ˆCEn(G(Xm|Z,Y ,Xm−1)). (30) Again, since all models are trained independently, the worst case error of these estimators is the sum of the errors of NJEE and C-NJEE, thus these estimators are also strongly consistent. V. E XPERIMENTS In this section we demonstrate the performance of the proposed estimators in various estimation tasks. To apply these estimators, we train a set of neural networks. Unless stated otherwise, the following basic network structure is considered throughout these experiments: An input layer, two fully connected layers with 50 nodes, a ReLU activation function and an output softmax layer. The loss is optimized wit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00146,
+        -0.02356,
+        -0.06151,
+        0.01017,
+        0.01593
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "considered throughout these experiments: An input layer, two fully connected layers with 50 nodes, a ReLU activation function and an output softmax layer. The loss is optimized wit",
+      "overlap_with_next": "luding the last experiment where the alphabet is not limited). Every simulated study (deﬁned by a distribution type and a sample size) is repeated 100 times. Figure 1 demonstrates ",
+      "text": "considered throughout these experiments: An input layer, two fully connected layers with 50 nodes, a ReLU activation function and an output softmax layer. The loss is optimized with the ADAM [44] optimizer with the following parameters (lr = 0.001,β 1 = 0.9,β 2 = 0.999). A. Entropy Estimation with Large Alphabet We begin this experimental section with large alphabet entropy estimation using NJEE. Prior to applying NJEE, we change the univariate representation values of the alphabet to their binary representation. Any other small alphabet representation, such as ternary, is also valid. The evaluation is preformed on six simulated studies, most of which were used in previous works (e.g., [9]): • Uniform distribution. • Zipf’s law distribution with parameters α = 1, 2. • Geometric distribution with p = 1/105. • Symmetric mixture of a Zipf’s law distribution ( α = 1) and Geometric distribution (p = 2/105). • Discrete Laplace (DL), where DL(X,σ )∝ 12σe−Xσ and σ = 10−4. The alphabet size of X is set to 105 (excluding the last experiment where the alphabet is not limited). Every simulated study (deﬁned by a distribution type and a sample size) is repeated 100 times. Figure 1 demonstrates ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.036,
+        0.00167,
+        -0.00309,
+        -0.03761,
+        -0.00547
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "luding the last experiment where the alphabet is not limited). Every simulated study (deﬁned by a distribution type and a sample size) is repeated 100 times. Figure 1 demonstrates ",
+      "overlap_with_next": "ted from the model above, using different values of ρ (or equivalently, different values of MI). Since the proposed algorithm is designed for discrete variables, we quantize the sa",
+      "text": "luding the last experiment where the alphabet is not limited). Every simulated study (deﬁned by a distribution type and a sample size) is repeated 100 times. Figure 1 demonstrates the root mean squared (RMSE) of the entropy estimation as a function of the sample size for NJEE and other entropy estimators described in Section II-A1. As shown, NJEE demonstrates the lowest RMSE in most cases. Speciﬁcally, NJEE demonstrates the lowest error in all the experiments where n≤ 1000. B. Multivariate MI Estimation In the following set of experiments we apply the proposed scheme to a simple and commonly used multivariate MI estimation problems, as used in [18], [19], [33]. The setup is deﬁned as follows. Let X and Y be two random vectors in Rd such that [X Y]T∼N (0, ΣXY ) ΣXY = [Id ρId ρId Id ] . (31) Notice that the correlation between the pairs (Xi,Yj) isρ when i =j and zero otherwise. Further, Cov(X) =Cov(Y ) =Id, and the MI between X and Y is thus simply: I(X;Y ) =−d2· log(1−ρ2). In this study, samples are generated from the model above, using different values of ρ (or equivalently, different values of MI). Since the proposed algorithm is designed for discrete variables, we quantize the sa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0802,
+        -0.00351,
+        -0.0076,
+        0.00431,
+        0.01342
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "ted from the model above, using different values of ρ (or equivalently, different values of MI). Since the proposed algorithm is designed for discrete variables, we quantize the sa",
+      "overlap_with_next": "otal of 4000 batches with 64 samples in each batch. Then, we estimate the MI from the drawn samples. We increaseρ and repeat the previous step. We terminate at ρ = 1. ˆIn(X;Y ) is ",
+      "text": "ted from the model above, using different values of ρ (or equivalently, different values of MI). Since the proposed algorithm is designed for discrete variables, we quantize the samples using a simple binning scheme. Binning continuous data for MI estimation has been extensively studied over the years. The interested reader is referred to [11], [25], [35], [37], [46], [47] for a thorough discussion. In Figure 2, the NJEE-based algorithms are compared to the KNN MI estimation method [17]. With low absolute values of ρ, the two methods yield accurate results. As ρ increases (and thus the MI increases), the KNN estimator signiﬁcantly deviates from the true value, as demonstrated in [18]. NJEE yields better results for greater MI, similar to [11], yet without a prior assumption on the characteristics of the underlined distribution. Let us now turn to an additional synthetic experiment, following [19]. Again, we draw samples from the model described in (31). In this experiment, we begin with ρ = 0 and draw a total of 4000 batches with 64 samples in each batch. Then, we estimate the MI from the drawn samples. We increaseρ and repeat the previous step. We terminate at ρ = 1. ˆIn(X;Y ) is ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06657,
+        -0.0084,
+        -0.02603,
+        0.00355,
+        -0.00588
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "otal of 4000 batches with 64 samples in each batch. Then, we estimate the MI from the drawn samples. We increaseρ and repeat the previous step. We terminate at ρ = 1. ˆIn(X;Y ) is ",
+      "overlap_with_next": "s lower bias and variance with respect to the variational benchmark methods. The upper rows of Table I demonstrate the best estimation results for each method obtained by hyperpara",
+      "text": "otal of 4000 batches with 64 samples in each batch. Then, we estimate the MI from the drawn samples. We increaseρ and repeat the previous step. We terminate at ρ = 1. ˆIn(X;Y ) is compared to the recently proposed variational methods 2. As demonstrated in Figure 3, the results achieved 1The code of the polynomial method is provided by [9] in https://github.com/Albuso0/entropy. See the Entropy R package in [45] for the implementation of the other benchmark methods. 2We thank the authors of [19] for providing us with the implementation code for the variational methods. [Page 7] 7 Figure 1: The log of the RMSE of entropy estimations versus the log of the sample size for NJEE and benchmark methods in different simulated studies. The results are the average of 100 measurements per each sample size and distribution type. Figure 2: MI estimation of the study in (31) with various values of ρ. ˆIn(X;Y ) is compared to the KNN ( k = 3) method [17]. The dimensions of X and Y are 20. by the proposed estimator exhibits lower bias and variance with respect to the variational benchmark methods. The upper rows of Table I demonstrate the best estimation results for each method obtained by hyperpara",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04607,
+        -0.00637,
+        -0.02133,
+        -0.00587,
+        -0.02518
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "s lower bias and variance with respect to the variational benchmark methods. The upper rows of Table I demonstrate the best estimation results for each method obtained by hyperpara",
+      "overlap_with_next": "st results of every estimator following a hyperparam- eter grid search for the Gaussian setup (31) (upper rows) and its cubic transformation (lower rows). The true MI values are sh",
+      "text": "s lower bias and variance with respect to the variational benchmark methods. The upper rows of Table I demonstrate the best estimation results for each method obtained by hyperparameter grid search. The proposed NJEE scheme yields better results for most MI values ranging from 2 to 20. The reasons for the bias and variance errors in the variational bound methods are discussed in [19]. Let us now study estimator sensitivity to invertible trans- formation, in which we do not expect any change in the MI under such transformations. The cubic transformation y⇒ z = (Wy )3 is chosen for this experiment, where W is an invertible d×d matrix with the entries wij∼N (0, 1). The lower rows of Table I summarize the results. As shown, the proposed MI estimator yields identical results to the original problem, while the alternative methods yield lower estimates. Due to stability issues in the benchmark methods, we could not obtain estimates for the cubic transformation when the underlying MI equals 20.0 nats. Table I: Best results of every estimator following a hyperparam- eter grid search for the Gaussian setup (31) (upper rows) and its cubic transformation (lower rows). The true MI values are sh",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05667,
+        -0.00264,
+        -0.03589,
+        0.02734,
+        0.013
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "st results of every estimator following a hyperparam- eter grid search for the Gaussian setup (31) (upper rows) and its cubic transformation (lower rows). The true MI values are sh",
+      "overlap_with_next": " experimental setups. Sachs et al., [52] introduced a consensus Bayesian network (see Figure 3 in their work) that is considered the ground truth of the connections mapping among t",
+      "text": "st results of every estimator following a hyperparam- eter grid search for the Gaussian setup (31) (upper rows) and its cubic transformation (lower rows). The true MI values are shown in the ﬁrst row. The results of the benchmark methods for 2 to 10 nats are also reported in [19]. TRUE MUTUAL INFORMATION 2.0 4.0 6.0 8.0 10.0 20.0 GAUSSIAN SETUP NJEE 2.2 4.1 5.9 7.8 9.6 17.8 α 1.9 3.8 5.7 7.4 8.8 11.7 JS 1.2 3.0 4.8 6.5 8.1 15.5 NWJ 1.6 3.5 5.2 6.7 8 10.8 InfoNCE 1.9 3.6 4.9 5.7 6 6.2 CUBIC SETUP NJEE 2.2 4.1 5.9 7.8 9.6 17.8 α 1.7 3.6 5.4 6.9 8.2 - JS 1 2.8 4.5 6.1 7.6 - NWJ 1.5 3.2 4.7 5.9 6.9 - InfoNCE 1.7 3.2 4.1 4.6 4.8 - C. Conditional Independence Testing We now investigate the proposed method in conditional independent testing (CIT). CIT is a basic task in statistics with applications to a variety of domains, such as Bayesian networks and causality analysis [49]–[51]. In this experiment, we use a ﬂow-cytometry dataset [52]. This dataset describes the connections between eleven proteins in different experimental setups. Sachs et al., [52] introduced a consensus Bayesian network (see Figure 3 in their work) that is considered the ground truth of the connections mapping among t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05596,
+        -0.00318,
+        -0.06049,
+        0.03707,
+        -0.0033
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": " experimental setups. Sachs et al., [52] introduced a consensus Bayesian network (see Figure 3 in their work) that is considered the ground truth of the connections mapping among t",
+      "overlap_with_next": "models. In [50], a KNN bootstrap and binary classiﬁer procedure was proposed to perform the CIT. Before we describe the results of the experiment, we provide some preliminaries on ",
+      "text": " experimental setups. Sachs et al., [52] introduced a consensus Bayesian network (see Figure 3 in their work) that is considered the ground truth of the connections mapping among the proteins. The ﬂow-cytometry dataset was extensively studied in several [Page 8] 8 Figure 3: MI estimation with NJEE versus recently proposed variational methods from [19]. Samples from two multivariate random variables in d = 20 are generated according to (31) with an increasing ρ every 4000 batches. The estimated MI in every batch appears in light blue, the moving average of the MI over a rolling window of 200 batches is shown in dark blue and the true MI value is represented by the black line. The variational bounds shown in this ﬁgure are further discussed in the literature (see NWJ [48] , InfoNCE [5], Jensen-Shannon lower bound ( JS), and the interpolated bound between NWJ and NCE with α = 0.01 and α = 0.99 [19]). works. In [33], the authors introduced a CIT method that incorporates a two-sampled classiﬁer and generative models. In [50], a KNN bootstrap and binary classiﬁer procedure was proposed to perform the CIT. Before we describe the results of the experiment, we provide some preliminaries on ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06324,
+        -0.02364,
+        -0.04911,
+        0.02982,
+        -0.00755
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "models. In [50], a KNN bootstrap and binary classiﬁer procedure was proposed to perform the CIT. Before we describe the results of the experiment, we provide some preliminaries on ",
+      "overlap_with_next": "und truth (dependent/independent), and its corresponding estimate ˆIn(X;Y|Z). Since the estimates ˆIn(X;Y|Z) are continuous (nonnegative) numbers, we may set a decision threshold. ",
+      "text": "models. In [50], a KNN bootstrap and binary classiﬁer procedure was proposed to perform the CIT. Before we describe the results of the experiment, we provide some preliminaries on Bayesian networks that are used for this experiment. In a Bayesian network, features are represented by nodes, and their dependencies are represented by edges [53]. Node A is a parent of node B if there is a directed edge from A to B, and B is considered a child of A. Y is conditionally independent of X when Z is a subset of the features that holds all available information about Y . These features are the parents of Y , its children and the parents of its children (Markov Blanket [54]). Based on these notations, one can choose multiple combinations of dependent and conditionally independent triplet sets of variables. Following the procedures proposed in [50] and [33], 50 dependent and 50 conditionally independent triplets (X,Y,Z ) are randomly chosen and their CMI is estimated using ˆIn(X;Y|Z). For every triplet we have the ground truth (dependent/independent), and its corresponding estimate ˆIn(X;Y|Z). Since the estimates ˆIn(X;Y|Z) are continuous (nonnegative) numbers, we may set a decision threshold. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04427,
+        -0.02735,
+        -0.03687,
+        0.02508,
+        0.00674
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "und truth (dependent/independent), and its corresponding estimate ˆIn(X;Y|Z). Since the estimates ˆIn(X;Y|Z) are continuous (nonnegative) numbers, we may set a decision threshold. ",
+      "overlap_with_next": "ly, we apply C-NJEE to TE estimation. For this experiment, we study a ﬁnancial dataset that contains the daily closing prices of the Dow-Jones Index (DJI - the stock index of 30 la",
+      "text": "und truth (dependent/independent), and its corresponding estimate ˆIn(X;Y|Z). Since the estimates ˆIn(X;Y|Z) are continuous (nonnegative) numbers, we may set a decision threshold. Speciﬁcally, we say that a triplet is conditionally independent if its ˆIn(X;Y|Z) value is lower than a decision threshold ϵ (and vice versa). Thus, one could construct an ROC curve where every point in the curve represents a value of the threshold ϵ, the value of the false positive rate (the horizontal axis) and the true positive rate (the vertical axis). Figure 4 illustrates the ROC curve and the area under the curve (AUC) values of the independence test performed with ˆIn(X;Y|Z) and with the benchmarks as reported in [33]. As Figure 4: The ROC curve and the AUC values of C-NJEE based estimation, CCIT [50] and CCMI [33] for conditional independence testing task on the ﬂow-cytometry dataset. The dashed line denotes a random model. shown, ˆIn(X;Y|Z) outperforms the alternative methods. D. Estimating TE on Financial Dataset Finally, we apply C-NJEE to TE estimation. For this experiment, we study a ﬁnancial dataset that contains the daily closing prices of the Dow-Jones Index (DJI - the stock index of 30 la",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07954,
+        0.01169,
+        -0.04101,
+        0.02875,
+        0.01097
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ly, we apply C-NJEE to TE estimation. For this experiment, we study a ﬁnancial dataset that contains the daily closing prices of the Dow-Jones Index (DJI - the stock index of 30 la",
+      "overlap_with_next": "nt neural network that has the following structure: an input layer, followed by an LSTM cell [55] with 50 nodes, a fully connected layer with 50 nodes with ReLU activation and an o",
+      "text": "ly, we apply C-NJEE to TE estimation. For this experiment, we study a ﬁnancial dataset that contains the daily closing prices of the Dow-Jones Index (DJI - the stock index of 30 large companies in the U.S. stock exchange) and the Hang Seng Index (HSI - the stock index of 50 large companies in the Hong-Kong stock exchange) between 1990 and 2011. As the DJI index is considered more inﬂuential than the HSI on the world’s ﬁnancial markets, we expect the transfer entropy TEDJI→HSI to be signiﬁcantly greater than TEHSI→DJI . Additionally, we expect to see changes in the TE that are [Page 9] 9 coordinated with related economic events (e.g., signiﬁcant ﬁnancial crises). To estimate the TE, we reproduce the preprocessing used in [37] and [36], and bin the data to three levels of daily price change. A negative change of more than −0.8% is denoted by -1, an absolute change that is below 0.8% is denoted by 0, and a change that is greater than 0.8% is denoted by +1. Then, the C-NJEE algorithm is applied with a recurrent neural network that has the following structure: an input layer, followed by an LSTM cell [55] with 50 nodes, a fully connected layer with 50 nodes with ReLU activation and an o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06408,
+        -0.0354,
+        -0.01741,
+        0.04313,
+        -0.00551
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "nt neural network that has the following structure: an input layer, followed by an LSTM cell [55] with 50 nodes, a fully connected layer with 50 nodes with ReLU activation and an o",
+      "overlap_with_next": "roposed method to those reported in [37] and [36], we observe that these methods also found that the information ﬂow from DJI to HSI is much larger then in the opposite direction. ",
+      "text": "nt neural network that has the following structure: an input layer, followed by an LSTM cell [55] with 50 nodes, a fully connected layer with 50 nodes with ReLU activation and an output softmax layer. Input data are divided into sequences of length ﬁve (i.e., ﬁve consecutive trading days). The optimization procedure includes an ADAM optimizer [44], with the following parameters: lr = 0.001,β 1 = 0.9,β 2 = 0.999. The upper chart of Figure 5 illustrates the 30 day moving average of TEDJI→HSI and TEHSI→DJI , as measured by C-NJEE. As expected, the information ﬂow from DJI to HSI exceeds that of the opposite direction. Compered to the real prices in the lower chart of Figure 5, a relatively sharp increase in TEDJI→HSI is observed in times of ﬁnancial stress where prices decreasing sharply, such as in the Asian ﬁnancial crisis (1997-1998), the dot-com crisis (2000-2002) and the 2008-2009 ﬁnancial turmoil [56]. This phenomenon is well known in the ﬁnancial literature (e.g., [25]). Comparing the results of the proposed method to those reported in [37] and [36], we observe that these methods also found that the information ﬂow from DJI to HSI is much larger then in the opposite direction. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04568,
+        -0.0253,
+        -0.02742,
+        0.03565,
+        -0.00713
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "roposed method to those reported in [37] and [36], we observe that these methods also found that the information ﬂow from DJI to HSI is much larger then in the opposite direction. ",
+      "overlap_with_next": "n synthetic and real-world experiments. NJEE achieves a lower RMSE on various simulated setups of random variables with large alphabets and relatively small sample size. Moreover, ",
+      "text": "roposed method to those reported in [37] and [36], we observe that these methods also found that the information ﬂow from DJI to HSI is much larger then in the opposite direction. However, they did not clearly determine a connection between information values and the world’s ﬁnancial timeline. VI. C ONCLUSIONS In this work, we introduce a neural joint entropy estimator (NJEE). The proposed estimator is based on minimizing the CE using neural networks. Expending earlier works, we show that NJEE is strongly consistent and provide a simple algorithmic implementation. We apply the proposed approach to entropy estimation of random variables, speciﬁcally those with a large alphabet, using a simple binary transformation. Further, we introduce the conditional neural joint entropy estimator ( C- NJEE), which is an estimator for conditional joint entropy. We use NJEE and C-NJEE to estimate both mutual information (MI) and conditional mutual information (CMI). We demonstrate the performance of the proposed schemes in synthetic and real-world experiments. NJEE achieves a lower RMSE on various simulated setups of random variables with large alphabets and relatively small sample size. Moreover, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07699,
+        0.00081,
+        0.00277,
+        0.02157,
+        -0.00207
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "n synthetic and real-world experiments. NJEE achieves a lower RMSE on various simulated setups of random variables with large alphabets and relatively small sample size. Moreover, ",
+      "overlap_with_next": "inal closing prices of the two time series. Periods of ﬁnancial stress with a signiﬁcant decrease in the index prices are deﬁned between a pair of dotted lines of the same color: t",
+      "text": "n synthetic and real-world experiments. NJEE achieves a lower RMSE on various simulated setups of random variables with large alphabets and relatively small sample size. Moreover, the proposed MI estimator exhibits lower bias and variance compared to newly-proposed variational lower bounds methods. This result is speciﬁcally evident in large MI values. The CMI estimator is further used to execute conditional independence tests. Again, the proposed estimator yields larger AUC value than other existing methods. Finally, we demonstrate the abilities of C-NJEE in estimating the TE. We investigate the dynamics of information ﬂow among ﬁnancial time series and show their correlation with signiﬁcant economic events. Certain Figure 5: TE and daily closing prices of the Dow Jones Index (DJI) and the Hang Seng Index (HSI). The upper chart demonstrates the 30-day moving average of the TE estimated by the C-NJEE of DJI to HSI (DIJ→HSI ) and in the opposite direction (HSI → DJI ). The lower chart demonstrates the original closing prices of the two time series. Periods of ﬁnancial stress with a signiﬁcant decrease in the index prices are deﬁned between a pair of dotted lines of the same color: t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09023,
+        -0.01983,
+        -0.04055,
+        0.03825,
+        -0.00715
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "inal closing prices of the two time series. Periods of ﬁnancial stress with a signiﬁcant decrease in the index prices are deﬁned between a pair of dotted lines of the same color: t",
+      "overlap_with_next": " Elements of information theory . John Wiley & Sons, 2012. [2] F. Fleuret, “Fast binary feature selection with conditional mutual information,” Journal of Machine learning research",
+      "text": "inal closing prices of the two time series. Periods of ﬁnancial stress with a signiﬁcant decrease in the index prices are deﬁned between a pair of dotted lines of the same color: the green lines represent the beginning and end of the Asian ﬁnancial crisis, the red lines represent the beginning and end of the dot-com crisis, and the black lines represent the beginning and end of the 2008 global ﬁnancial crisis. important characteristics of these dynamics are not captured by other estimation methods that were implemented on the same dataset. We believe that future research will use the proposed entropy estimators to develop advanced compression schemes for vari- ous types of datasets. Additionally, the MI and CMI estimation capabilities can be used to improve the understanding of complex systems and deep learning frameworks. ACKNOWLEDGMENT The authors would like to thank Digital Living 2030 grant and the Koret foundation grant for Smart Cities and Digital Living. REFERENCES [1] T. M. Cover and J. A. Thomas, Elements of information theory . John Wiley & Sons, 2012. [2] F. Fleuret, “Fast binary feature selection with conditional mutual information,” Journal of Machine learning research",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0797,
+        -0.058,
+        -0.03557,
+        0.02307,
+        -0.0344
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": " Elements of information theory . John Wiley & Sons, 2012. [2] F. Fleuret, “Fast binary feature selection with conditional mutual information,” Journal of Machine learning research",
+      "overlap_with_next": "aslavsky, “Deep learning and the information bottleneck principle,” in 2015 IEEE Information Theory Workshop (ITW) . IEEE, 2015, pp. 1–5. [8] L. Paninski, “Estimation of entropy an",
+      "text": " Elements of information theory . John Wiley & Sons, 2012. [2] F. Fleuret, “Fast binary feature selection with conditional mutual information,” Journal of Machine learning research , vol. 5, no. Nov, pp. 1531–1555, 2004. [Page 10] 10 [3] H. Peng, F. Long, and C. Ding, “Feature selection based on mutual infor- mation: criteria of max-dependency, max-relevance, and min-redundancy,” IEEE Transactions on Pattern Analysis & Machine Intelligence , no. 8, pp. 1226–1238, 2005. [4] X. Chen, Y . Duan, R. Houthooft, J. Schulman, I. Sutskever, and P. Abbeel, “Infogan: Interpretable representation learning by information maximizing generative adversarial nets,” in Advances in neural information processing systems, 2016, pp. 2172–2180. [5] A. v. d. Oord, Y . Li, and O. Vinyals, “Representation learning with contrastive predictive coding,” arXiv preprint arXiv:1807.03748 , 2018. [6] N. Tishby, F. C. Pereira, and W. Bialek, “The information bottleneck method,” arXiv preprint physics/0004057 , 2000. [7] N. Tishby and N. Zaslavsky, “Deep learning and the information bottleneck principle,” in 2015 IEEE Information Theory Workshop (ITW) . IEEE, 2015, pp. 1–5. [8] L. Paninski, “Estimation of entropy an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03523,
+        -0.005,
+        -0.00874,
+        0.03392,
+        -0.01165
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "aslavsky, “Deep learning and the information bottleneck principle,” in 2015 IEEE Information Theory Workshop (ITW) . IEEE, 2015, pp. 1–5. [8] L. Paninski, “Estimation of entropy an",
+      "overlap_with_next": "40. [13] A. Painsky and G. W. Wornell, “Bregman divergence bounds and universality properties of the logarithmic loss,” IEEE Transactions on Information Theory, vol. 66, no. 3, pp.",
+      "text": "aslavsky, “Deep learning and the information bottleneck principle,” in 2015 IEEE Information Theory Workshop (ITW) . IEEE, 2015, pp. 1–5. [8] L. Paninski, “Estimation of entropy and mutual information,” Neural computation, vol. 15, no. 6, pp. 1191–1253, 2003. [9] Y . Wu and P. Yang, “Minimax rates of entropy estimation on large alphabets via best polynomial approximation,” IEEE Transactions on Information Theory, vol. 62, no. 6, pp. 3702–3720, 2016. [10] A. Chao and T.-J. Shen, “Nonparametric estimation of shannon’s index of diversity when there are unseen species in sample,” Environmental and ecological statistics , vol. 10, no. 4, pp. 429–443, 2003. [11] D. McAllester and K. Stratos, “Formal limitations on the measurement of mutual information,” in International Conference on Artiﬁcial Intelligence and Statistics, 2020, pp. 875–884. [12] A. Painsky and G. Wornell, “On the universality of the logistic loss function,” in 2018 IEEE International Symposium on Information Theory (ISIT). IEEE, 2018, pp. 936–940. [13] A. Painsky and G. W. Wornell, “Bregman divergence bounds and universality properties of the logarithmic loss,” IEEE Transactions on Information Theory, vol. 66, no. 3, pp.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03658,
+        -0.01181,
+        0.00063,
+        -0.0123,
+        -0.01687
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "40. [13] A. Painsky and G. W. Wornell, “Bregman divergence bounds and universality properties of the logarithmic loss,” IEEE Transactions on Information Theory, vol. 66, no. 3, pp.",
+      "overlap_with_next": "rd, A. A. Alemi, and G. Tucker, “On vari- ational bounds of mutual information,” arXiv preprint arXiv:1905.06922 , 2019. [20] J. Song and S. Ermon, “Understanding the limitations o",
+      "text": "40. [13] A. Painsky and G. W. Wornell, “Bregman divergence bounds and universality properties of the logarithmic loss,” IEEE Transactions on Information Theory, vol. 66, no. 3, pp. 1658–1673, 2019. [14] K. Hornik, M. Stinchcombe, H. White et al., “Multilayer feedforward networks are universal approximators.” Neural networks, vol. 2, no. 5, pp. 359–366, 1989. [15] C. Zhang, S. Bengio, M. Hardt, B. Recht, and O. Vinyals, “Understand- ing deep learning requires rethinking generalization,” arXiv preprint arXiv:1611.03530, 2016. [16] K. F. E. Chong, “A closer look at the approximation capabilities of neural networks,” arXiv preprint arXiv:2002.06505 , 2020. [17] A. Kraskov, H. St ¨ogbauer, and P. Grassberger, “Estimating mutual information,” Physical review E , vol. 69, no. 6, p. 066138, 2004. [18] M. I. Belghazi, A. Baratin, S. Rajeswar, S. Ozair, Y . Bengio, A. Courville, and R. D. Hjelm, “Mine: mutual information neural estimation,” arXiv preprint arXiv:1801.04062, 2018. [19] B. Poole, S. Ozair, A. v. d. Oord, A. A. Alemi, and G. Tucker, “On vari- ational bounds of mutual information,” arXiv preprint arXiv:1905.06922 , 2019. [20] J. Song and S. Ermon, “Understanding the limitations o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03706,
+        0.00546,
+        -0.0132,
+        -0.02145,
+        -0.02564
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "rd, A. A. Alemi, and G. Tucker, “On vari- ational bounds of mutual information,” arXiv preprint arXiv:1905.06922 , 2019. [20] J. Song and S. Ermon, “Understanding the limitations o",
+      "overlap_with_next": "ex Systems , vol. 30, no. 2, pp. 275–281, 2002. [25] T. Dimpﬂ and F. J. Peter, “The impact of the ﬁnancial crisis on transat- lantic information ﬂows: An intraday analysis,” Journa",
+      "text": "rd, A. A. Alemi, and G. Tucker, “On vari- ational bounds of mutual information,” arXiv preprint arXiv:1905.06922 , 2019. [20] J. Song and S. Ermon, “Understanding the limitations of variational mutual information estimators,” arXiv preprint arXiv:1910.06222 , 2019. [21] J. Jiao, K. Venkat, Y . Han, and T. Weissman, “Minimax estimation of functionals of discrete distributions,” IEEE Transactions on Information Theory, vol. 61, no. 5, pp. 2835–2885, 2015. [22] R. Vicente, M. Wibral, M. Lindner, and G. Pipa, “Transfer entropy—a model-free measure of effective connectivity for the neurosciences,” Journal of computational neuroscience , vol. 30, no. 1, pp. 45–67, 2011. [23] P. Wollstadt, M. Martinez-Zarzuela, R. Vicente, F. J. Diaz-Pernas, and M. Wibral, “Efﬁcient transfer entropy analysis of non-stationary neural time series,” PloS one, vol. 9, no. 7, 2014. [24] R. Marschinski and H. Kantz, “Analysing the information ﬂow between ﬁnancial time series,” The European Physical Journal B-Condensed Matter and Complex Systems , vol. 30, no. 2, pp. 275–281, 2002. [25] T. Dimpﬂ and F. J. Peter, “The impact of the ﬁnancial crisis on transat- lantic information ﬂows: An intraday analysis,” Journa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03891,
+        -0.00784,
+        -0.00646,
+        0.03051,
+        0.00014
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "ex Systems , vol. 30, no. 2, pp. 275–281, 2002. [25] T. Dimpﬂ and F. J. Peter, “The impact of the ﬁnancial crisis on transat- lantic information ﬂows: An intraday analysis,” Journa",
+      "overlap_with_next": "ernational Publishing , pp. 65–95, 2016. [31] S. Gao, G. Ver Steeg, and A. Galstyan, “Efﬁcient estimation of mutual information for strongly dependent variables,” in Artiﬁcial inte",
+      "text": "ex Systems , vol. 30, no. 2, pp. 275–281, 2002. [25] T. Dimpﬂ and F. J. Peter, “The impact of the ﬁnancial crisis on transat- lantic information ﬂows: An intraday analysis,” Journal of International Financial Markets, Institutions and Money , vol. 31, pp. 1–13, 2014. [26] L. Barnett, A. B. Barrett, and A. K. Seth, “Granger causality and transfer entropy are equivalent for gaussian variables,” Physical review letters, vol. 103, no. 23, p. 238701, 2009. [27] P. Duan, F. Yang, T. Chen, and S. L. Shah, “Direct causality detection via the transfer entropy approach,” IEEE transactions on control systems technology, vol. 21, no. 6, pp. 2052–2066, 2013. [28] S. Verd´u, “Empirical estimation of information measures: A literature guide,” Entropy, vol. 21, no. 8, p. 720, 2019. [30] G. Miller, “Note on the bias of information estimates,” Information theory in psychology: Problems and methods , 1955. [29] T. Bossomaier, L. Barnett, M. Harr ´e, and J. T. Lizier, “An introduction to transfer entropy,” Cham: Springer International Publishing , pp. 65–95, 2016. [31] S. Gao, G. Ver Steeg, and A. Galstyan, “Efﬁcient estimation of mutual information for strongly dependent variables,” in Artiﬁcial inte",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06762,
+        0.00384,
+        -0.01755,
+        0.03819,
+        -0.01667
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "ernational Publishing , pp. 65–95, 2016. [31] S. Gao, G. Ver Steeg, and A. Galstyan, “Efﬁcient estimation of mutual information for strongly dependent variables,” in Artiﬁcial inte",
+      "overlap_with_next": "nsic transfer entropy neural estimator,” arXiv preprint arXiv:1912.07277, 2019. [37] J. Jiao, H. H. Permuter, L. Zhao, Y .-H. Kim, and T. Weissman, “Universal estimation of directe",
+      "text": "ernational Publishing , pp. 65–95, 2016. [31] S. Gao, G. Ver Steeg, and A. Galstyan, “Efﬁcient estimation of mutual information for strongly dependent variables,” in Artiﬁcial intelligence and statistics, 2015, pp. 277–286. [32] Z. Qin and D. Kim, “Rethinking softmax with cross-entropy: Neural network classiﬁer as mutual information estimator,” arXiv preprint arXiv:1911.10688, 2019. [33] S. Mukherjee, H. Asnani, and S. Kannan, “Ccmi: Classiﬁer based condi- tional mutual information estimation,” arXiv preprint arXiv:1906.01824 , 2019. [34] J. Runge, J. Heitzig, V . Petoukhov, and J. Kurths, “Escaping the curse of dimensionality in estimating multivariate transfer entropy,” Physical review letters, vol. 108, no. 25, p. 258701, 2012. [35] A. Montalto, L. Faes, and D. Marinazzo, “Mute: a matlab toolbox to compare established and novel estimators of the multivariate transfer entropy,” PloS one, vol. 9, no. 10, p. e109462, 2014. [36] J. Zhang, O. Simeone, Z. Cvetkovic, E. Abela, and M. Richardson, “Itene: Intrinsic transfer entropy neural estimator,” arXiv preprint arXiv:1912.07277, 2019. [37] J. Jiao, H. H. Permuter, L. Zhao, Y .-H. Kim, and T. Weissman, “Universal estimation of directe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03754,
+        -0.01473,
+        -0.01908,
+        0.02548,
+        0.00915
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "nsic transfer entropy neural estimator,” arXiv preprint arXiv:1912.07277, 2019. [37] J. Jiao, H. H. Permuter, L. Zhao, Y .-H. Kim, and T. Weissman, “Universal estimation of directe",
+      "overlap_with_next": " RF Engle and DL McFadden , pp. 2112–2245, 1994. [43] B. Uria, M.-A. C ˆot´e, K. Gregor, I. Murray, and H. Larochelle, “Neural autoregressive distribution estimation,” The Journal ",
+      "text": "nsic transfer entropy neural estimator,” arXiv preprint arXiv:1912.07277, 2019. [37] J. Jiao, H. H. Permuter, L. Zhao, Y .-H. Kim, and T. Weissman, “Universal estimation of directed information,” IEEE Transactions on Information Theory, vol. 59, no. 10, pp. 6220–6242, 2013. [38] Y . Shalev and I. Ben-Gal, “Context based predictive information,”Entropy, vol. 21, no. 7, p. 645, 2019. [39] F. M. Willems, “The context-tree weighting method: Extensions,” IEEE Transactions on Information Theory , vol. 44, no. 2, pp. 792–798, 1998. [40] Y . Liu and S. Aviyente, “The relationship between transfer entropy and directed information,” in 2012 IEEE Statistical Signal Processing Workshop (SSP). IEEE, 2012, pp. 73–76. [41] Z. Zhang and M. Sabuncu, “Generalized cross entropy loss for train- ing deep neural networks with noisy labels,” in Advances in neural information processing systems , 2018, pp. 8778–8788. [42] K. Newey and D. McFadden, “Large sample estimation and hypothesis,” Handbook of Econometrics, IV , Edited by RF Engle and DL McFadden , pp. 2112–2245, 1994. [43] B. Uria, M.-A. C ˆot´e, K. Gregor, I. Murray, and H. Larochelle, “Neural autoregressive distribution estimation,” The Journal ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06547,
+        -0.01139,
+        -0.03151,
+        0.0293,
+        -0.00476
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": " RF Engle and DL McFadden , pp. 2112–2245, 1994. [43] B. Uria, M.-A. C ˆot´e, K. Gregor, I. Murray, and H. Larochelle, “Neural autoregressive distribution estimation,” The Journal ",
+      "overlap_with_next": "vol. 17, no. 1, pp. 85–102, 2013. [48] X. Nguyen, M. J. Wainwright, and M. I. Jordan, “Estimating divergence functionals and the likelihood ratio by convex risk minimization,” IEEE",
+      "text": " RF Engle and DL McFadden , pp. 2112–2245, 1994. [43] B. Uria, M.-A. C ˆot´e, K. Gregor, I. Murray, and H. Larochelle, “Neural autoregressive distribution estimation,” The Journal of Machine Learning Research, vol. 17, no. 1, pp. 7184–7220, 2016. [44] D. P. Kingma and J. Ba, “Adam: A method for stochastic optimization,” arXiv preprint arXiv:1412.6980 , 2014. [45] J. Hausser and K. Strimmer, “Entropy inference and the james-stein estimator, with application to nonlinear gene association networks,” Journal of Machine Learning Research , vol. 10, no. 50, pp. 1469–1484, 2009. [Online]. Available: http://jmlr.org/papers/v10/hausser09a.html [46] K. Hlav ´aˇckov´a-Schindler, M. Palu ˇs, M. Vejmelka, and J. Bhattacharya, “Causality detection based on information-theoretic approaches in time series analysis,” Physics Reports, vol. 441, no. 1, pp. 1–46, 2007. [47] T. Dimpﬂ and F. J. Peter, “Using transfer entropy to measure information ﬂows between ﬁnancial markets,” Studies in Nonlinear Dynamics and Econometrics, vol. 17, no. 1, pp. 85–102, 2013. [48] X. Nguyen, M. J. Wainwright, and M. I. Jordan, “Estimating divergence functionals and the likelihood ratio by convex risk minimization,” IEEE",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04247,
+        -0.03004,
+        -0.02103,
+        0.00601,
+        -0.01904
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "vol. 17, no. 1, pp. 85–102, 2013. [48] X. Nguyen, M. J. Wainwright, and M. I. Jordan, “Estimating divergence functionals and the likelihood ratio by convex risk minimization,” IEEE",
+      "overlap_with_next": ", no. 5721, pp. 523–529, 2005. [53] I. Ben-Gal, “Bayesian networks,” Encyclopedia of statistics in quality and reliability, vol. 1, 2008. [54] A. Statnikov, N. I. Lytkin, J. Lemeir",
+      "text": "vol. 17, no. 1, pp. 85–102, 2013. [48] X. Nguyen, M. J. Wainwright, and M. I. Jordan, “Estimating divergence functionals and the likelihood ratio by convex risk minimization,” IEEE Transactions on Information Theory , vol. 56, no. 11, pp. 5847–5861, 2010. [49] L. M. d. Campos, “A scoring function for learning bayesian networks based on mutual information and conditional independence tests,” Journal of Machine Learning Research , vol. 7, no. Oct, pp. 2149–2187, 2006. [50] R. Sen, A. T. Suresh, K. Shanmugam, A. G. Dimakis, and S. Shakkottai, “Model-powered conditional independence test,” in Advances in Neural Information Processing Systems , 2017, pp. 2951–2961. [51] K. Zhang, J. Peters, D. Janzing, and B. Sch ¨olkopf, “Kernel-based conditional independence test and application in causal discovery,” arXiv preprint arXiv:1202.3775, 2012. [52] K. Sachs, O. Perez, D. Pe’er, D. A. Lauffenburger, and G. P. Nolan, “Causal protein-signaling networks derived from multiparameter single- cell data,” Science, vol. 308, no. 5721, pp. 523–529, 2005. [53] I. Ben-Gal, “Bayesian networks,” Encyclopedia of statistics in quality and reliability, vol. 1, 2008. [54] A. Statnikov, N. I. Lytkin, J. Lemeir",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03676,
+        -0.00058,
+        -0.01935,
+        -0.00626,
+        0.00719
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 49594,
+      "length": 634,
+      "overlap_with_previous": ", no. 5721, pp. 523–529, 2005. [53] I. Ben-Gal, “Bayesian networks,” Encyclopedia of statistics in quality and reliability, vol. 1, 2008. [54] A. Statnikov, N. I. Lytkin, J. Lemeir",
+      "overlap_with_next": "",
+      "text": ", no. 5721, pp. 523–529, 2005. [53] I. Ben-Gal, “Bayesian networks,” Encyclopedia of statistics in quality and reliability, vol. 1, 2008. [54] A. Statnikov, N. I. Lytkin, J. Lemeire, and C. F. Aliferis, “Algorithms for discovery of multiple markov boundaries,” Journal of Machine Learning Research, vol. 14, no. Feb, pp. 499–566, 2013. [55] F. A. Gers, J. Schmidhuber, and F. Cummins, “Learning to forget: Continual prediction with lstm,” 1999. [56] M. McAleer, J. Suen, and W. K. Wong, “Proﬁteering from the dot- com bubble, subprime crisis and asian ﬁnancial crisis,” The Japanese Economic Review, vol. 67, no. 3, pp. 257–279, 2016.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01742,
+        -0.03064,
+        -0.0245,
+        -0.00225,
+        -0.00478
+      ]
+    }
+  ]
+}

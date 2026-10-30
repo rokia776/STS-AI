@@ -1,0 +1,708 @@
+{
+  "paper_id": "5a1e4e74-3b81-4808-937c-dad72ad37de0",
+  "filename": "036_Computer_Vision_PointINet_Point_Cloud_Frame_Interpolation_Network.pdf",
+  "title": "PointINet: Point Cloud Frame Interpolation Network",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 41,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "d streams can be upsampled to higher frame rates. We start by estimating bi-directional 3D scene ﬂow between the two point clouds and then warp them to the given time step based on",
+      "text": "[Page 1] PointINet: Point Cloud Frame Interpolation Network Fan Lu1, Guang Chen1*, Sanqing Qu1, Zhijun Li2, Yinlong Liu3, Alois Knoll3 1 Tongji University,2 University of Science and Technology of China, 3 Technische Universit¨at M¨unchen {lufan, guangchen, 2011444}@tongji.edu.cn, zjli@ieee.org, Yinlong.Liu@tum.de, knoll@in.tum.de Abstract LiDAR point cloud streams are usually sparse in time dimen- sion, which is limited by hardware performance. Generally, the frame rates of mechanical LiDAR sensors are 10 to 20 Hz, which is much lower than other commonly used sensors like cameras. To overcome the temporal limitations of LiDAR sensors, a novel task named Point Cloud Frame Interpolation is studied in this paper. Given two consecutive point cloud frames, Point Cloud Frame Interpolation aims to generate in- termediate frame(s) between them. To achieve that, we pro- pose a novel framework, namely Point Cloud Frame Interpo- lation Network (PointINet). Based on the proposed method, the low frame rate point cloud streams can be upsampled to higher frame rates. We start by estimating bi-directional 3D scene ﬂow between the two point clouds and then warp them to the given time step based on",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01087,
+        -0.01063,
+        -0.04649,
+        -0.04687,
+        -0.0001
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "d streams can be upsampled to higher frame rates. We start by estimating bi-directional 3D scene ﬂow between the two point clouds and then warp them to the given time step based on",
+      "overlap_with_next": "rates of Li- DAR are generally 10 to 20 Hz, which contributes to tem- poral and spatial discontinuity of point cloud streams. Com- pared with the low frame rate of LiDAR, the frame",
+      "text": "d streams can be upsampled to higher frame rates. We start by estimating bi-directional 3D scene ﬂow between the two point clouds and then warp them to the given time step based on the 3D scene ﬂow. To fuse the two warped frames and generate intermediate point cloud(s), we propose a novel learning-based points fusion module, which simultaneously takes two warped point clouds into consideration. We design both quantitative and quali- tative experiments to evaluate the performance of the point cloud frame interpolation method and extensive experiments on two large scale outdoor LiDAR datasets demonstrate the effectiveness of the proposed PointINet. Our code is available at https://github.com/ispc-lab/PointINet.git. Introduction LiDAR is one of the most important sensors in numerous ap- plications (e.g., autonomous vehicles and intelligent robots). However, the frame rates of typical mechanical LiDAR sen- sors ( e.g., Velodyne HDL-64E, Hesai Pandar64, etc.) are greatly limited by hardware performance. Frame rates of Li- DAR are generally 10 to 20 Hz, which contributes to tem- poral and spatial discontinuity of point cloud streams. Com- pared with the low frame rate of LiDAR, the frame",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01793,
+        -0.02148,
+        -0.04837,
+        -0.01717,
+        -0.01444
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "rates of Li- DAR are generally 10 to 20 Hz, which contributes to tem- poral and spatial discontinuity of point cloud streams. Com- pared with the low frame rate of LiDAR, the frame",
+      "overlap_with_next": "te may enhance the performance of several applications like object tracking (Kiani Galoogahi et al. 2017). It is worth noting that video frame interpolation is commonly utilized to",
+      "text": "rates of Li- DAR are generally 10 to 20 Hz, which contributes to tem- poral and spatial discontinuity of point cloud streams. Com- pared with the low frame rate of LiDAR, the frame rates of other commonly used sensors on intelligent vehicles and robots are typically much higher. For example, the frame rate of cameras and Inertial Measurement Unit (IMU) can achieve over 100 Hz. The large difference in frame rate can cause difﬁculty to synchronize LiDAR with other sen- sors. Upsampling low frame rate LiDAR point cloud streams to higher frame rates can be an efﬁcient solution to that *Guang Chen is the corresponding author. Copyright © 2021, Association for the Advancement of Artiﬁcial Intelligence (www.aaai.org). All rights reserved. Figure 1: Illustration of Point Cloud Frame Interpolation. The blue and green point clouds are two input frames and the red point clouds are four interpolated frames. We zoom in an area to display the details for better visualization. (Liu et al. 2020). Besides, higher frame rate may enhance the performance of several applications like object tracking (Kiani Galoogahi et al. 2017). It is worth noting that video frame interpolation is commonly utilized to",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02775,
+        -0.03293,
+        -0.03183,
+        -0.01711,
+        -0.02665
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "te may enhance the performance of several applications like object tracking (Kiani Galoogahi et al. 2017). It is worth noting that video frame interpolation is commonly utilized to",
+      "overlap_with_next": "mpled to high frame rate ones (50 to 100 Hz) based on point cloud frame interpolation. Concretely, to achieve temporally interpolation of point cloud streams, we proposed a novel l",
+      "text": "te may enhance the performance of several applications like object tracking (Kiani Galoogahi et al. 2017). It is worth noting that video frame interpolation is commonly utilized to generate high frame rate videos from low frame rate ones (Jiang et al. 2018) (e.g., from 30 Hz to 240 Hz). Compared to the success of video frame interpolation, frame interpolation of 3D point clouds has not been well explored. Therefore, it is needed to explore frame interpolation algorithms for 3D point clouds to overcome the temporal limitations of LiDAR sensors. Based on the above considerations, a novel task named Point Cloud Frame Interpolation is studied in this paper. Given two consecutive point clouds, point cloud frame in- terpolation aims to predict intermediate point cloud frame according to the given time step to form spatially and tem- arXiv:2012.10066v1 [cs.CV] 18 Dec 2020 [Page 2] porally coherent point cloud streams (see Fig. 1). Conse- quently, low frame rate LiDAR point cloud streams (10 to 20 Hz) can be upsampled to high frame rate ones (50 to 100 Hz) based on point cloud frame interpolation. Concretely, to achieve temporally interpolation of point cloud streams, we proposed a novel l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00748,
+        0.00171,
+        -0.05007,
+        -0.01354,
+        -0.00586
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "mpled to high frame rate ones (50 to 100 Hz) based on point cloud frame interpolation. Concretely, to achieve temporally interpolation of point cloud streams, we proposed a novel l",
+      "overlap_with_next": "two frames to form a new intermediate point cloud. 3D point clouds are unstructured and unordered (Qi et al. 2017a). Thus, there are no direct correspondences between points in two",
+      "text": "mpled to high frame rate ones (50 to 100 Hz) based on point cloud frame interpolation. Concretely, to achieve temporally interpolation of point cloud streams, we proposed a novel learning-based frame- work named PointINet (Point Cloud Frame Interpolation Network). The proposed PointINet consists of two main components: point cloud warping module and points fusion module. Two consecutive point clouds are ﬁrstly input into the point cloud warping module to warp the two point clouds to the given time step. To achieve that, we start by estimating the bi-directional 3D scene ﬂow between two consecutive point clouds for motion estimation. 3D scene ﬂow represents the motion ﬁeld of points from one point cloud to the other one. Here we adopt a learning-based scene ﬂow estimation network named FlowNet3D (Liu, Qi, and Guibas 2019) to predict the 3D scene ﬂow. Then the two point clouds are warped to the given time step based on the linearly interpo- lated 3D scene ﬂow. Thereafter, the key problem is how to fuse the two frames to form a new intermediate point cloud. 3D point clouds are unstructured and unordered (Qi et al. 2017a). Thus, there are no direct correspondences between points in two",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00646,
+        -0.01201,
+        -0.04075,
+        -0.02715,
+        -0.00205
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "two frames to form a new intermediate point cloud. 3D point clouds are unstructured and unordered (Qi et al. 2017a). Thus, there are no direct correspondences between points in two",
+      "overlap_with_next": "lated point clouds. Extensive experiments on two large scale outdoor LiDAR datasets demonstrate the effectiveness of the proposed PointINet. To summarize, our main contributions ar",
+      "text": "two frames to form a new intermediate point cloud. 3D point clouds are unstructured and unordered (Qi et al. 2017a). Thus, there are no direct correspondences between points in two point clouds like pixels in two images. Conse- quently, it is non-trivial to perform fusion of the two point clouds. To address the problem, we propose a novel points fusion module. The points fusion module adaptively sam- ple points from two warped point clouds and construct k- nearest-neighbor (kNN) cluster for each sampled point ac- cording to the time step to adjust the contributions of two point clouds. After that, the proposed attentive points fusion adopts an attention mechanism to aggregate points in each cluster to generate the intermediate point clouds. The over- all architecture of the proposed PointINet is shown in Fig. 2. To evaluate the proposed method, we design both qualita- tive and quantitative experiments. Besides, experiments on applications are also performed to evaluate the quality of the generated interpolated point clouds. Extensive experiments on two large scale outdoor LiDAR datasets demonstrate the effectiveness of the proposed PointINet. To summarize, our main contributions ar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01215,
+        0.02014,
+        -0.05352,
+        -0.01633,
+        -0.03493
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "lated point clouds. Extensive experiments on two large scale outdoor LiDAR datasets demonstrate the effectiveness of the proposed PointINet. To summarize, our main contributions ar",
+      "overlap_with_next": "7). One of the most representative work of optical ﬂow- based methods is Super SloMo (Jiang et al. 2018), which utilizes learning-based method to predict bi-directional opti- cal ﬂ",
+      "text": "lated point clouds. Extensive experiments on two large scale outdoor LiDAR datasets demonstrate the effectiveness of the proposed PointINet. To summarize, our main contributions are as follows: • To overcome the temporal limitations of LiDAR sensors, a novel task Point Cloud Frame Interpolation is studied. • A new learning-based framework named PointINet is pre- sented to effectively generate intermediate frames be- tween two consecutive point clouds. • Both qualitative and quantitative experiments are con- ducted to verify the validity of the proposed method. Related work In this section we brieﬂy review the literature relevant to point cloud frame interpolation. We start by describing com- mon methods for video frame interpolation and then review 3D scene ﬂow estimation methods for point clouds. Video frame interpolation Currently a large number of video frame interpolation meth- ods are based on optical ﬂow estimation (Liu et al. 2019; Reda et al. 2019; Jiang et al. 2018; Xu et al. 2019; Liu et al. 2017). One of the most representative work of optical ﬂow- based methods is Super SloMo (Jiang et al. 2018), which utilizes learning-based method to predict bi-directional opti- cal ﬂ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02218,
+        -0.01156,
+        -0.05215,
+        -0.02447,
+        -0.00833
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "7). One of the most representative work of optical ﬂow- based methods is Super SloMo (Jiang et al. 2018), which utilizes learning-based method to predict bi-directional opti- cal ﬂ",
+      "overlap_with_next": " (Bao et al. 2019) combines kernel and opti- cal ﬂow-based methods. They utilize optical ﬂow to predict rough locations of pixels and then reﬁne the location using estimated kernel",
+      "text": "7). One of the most representative work of optical ﬂow- based methods is Super SloMo (Jiang et al. 2018), which utilizes learning-based method to predict bi-directional opti- cal ﬂow to estimate the motion between consecutive frames. Then two input frames are further warped and fused with oc- clusion reasoning to generate the ﬁnal intermediate frames. (Reda et al. 2019) utilizes cycle consistency to support un- supervised learning of video frame interpolation. (Xu et al. 2019) proposes an quadratic video interpolation method to exploit the acceleration information in videos. Another part of the methods for video frame interpolation are kernel- based (Niklaus, Mai, and Liu 2017a,b). (Niklaus, Mai, and Liu 2017a) estimates a kernel on each location and predict the output pixel locations by performing convolution on the patches. (Niklaus, Mai, and Liu 2017b) further improves the method by formulating frame interpolation as local sepa- rable convolution over input frames using pairs of 1D ker- nels. Recently, (Bao et al. 2019) combines kernel and opti- cal ﬂow-based methods. They utilize optical ﬂow to predict rough locations of pixels and then reﬁne the location using estimated kernel",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05458,
+        0.00725,
+        -0.03995,
+        0.00035,
+        -0.00156
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " (Bao et al. 2019) combines kernel and opti- cal ﬂow-based methods. They utilize optical ﬂow to predict rough locations of pixels and then reﬁne the location using estimated kernel",
+      "overlap_with_next": "es a novel cost volume and estimates the 3D scene ﬂow in a coarse-to-ﬁne manner. Recently, (Mittal, Okorn, and Held 2020) provides several unsupervised loss functions to support th",
+      "text": " (Bao et al. 2019) combines kernel and opti- cal ﬂow-based methods. They utilize optical ﬂow to predict rough locations of pixels and then reﬁne the location using estimated kernels. 3D Scene ﬂow estimation 3D scene ﬂow of point clouds can be considered as a promotion of 2D optical ﬂow in 3D scenes, which repre- sents the 3D motion ﬁeld of points. Compared with the high research interest in 2D optical ﬂow estimation (Ilg et al. 2017; Dosovitskiy et al. 2015; Sun et al. 2018), there is relative little work on 3D scene ﬂow estimation. FlowNet3D (Liu, Qi, and Guibas 2019) is a pioneering work of deep learning-based 3D scene ﬂow estimation. (Liu, Qi, and Guibas 2019) proposes a ﬂow embedding layer to model the motion of points in different point clouds. Fol- lowing FlowNet3D, FlowNet3D++ (Wang et al. 2020) pro- poses geometric constraints to further improve the accuracy. HPLFlowNet (Gu et al. 2019) introduces Bilateral Convolu- tional Layers (BCL) in scene ﬂow estimation. PointPWC- Net (Wu et al. 2019) proposes a novel cost volume and estimates the 3D scene ﬂow in a coarse-to-ﬁne manner. Recently, (Mittal, Okorn, and Held 2020) provides several unsupervised loss functions to support th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03894,
+        0.0154,
+        -0.04394,
+        -0.03478,
+        -0.01215
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "es a novel cost volume and estimates the 3D scene ﬂow in a coarse-to-ﬁne manner. Recently, (Mittal, Okorn, and Held 2020) provides several unsupervised loss functions to support th",
+      "overlap_with_next": "daptive sampling Adaptive kNN cluster Attentive points fusion Fused point cloud 3 0 NP  3 1 NP  3 01 NF   3 10 NF   3N tP  3 0, ˆ N tP  3 1, ˆ N tP  Point cloud war",
+      "text": "es a novel cost volume and estimates the 3D scene ﬂow in a coarse-to-ﬁne manner. Recently, (Mittal, Okorn, and Held 2020) provides several unsupervised loss functions to support the generalization of pre-trained scene ﬂow estimation models on more real datasets. In our implementation, we select FlowNet3D to perform 3D scene ﬂow estimation between two point clouds due to the simplicity and effectiveness. Point cloud frame interpolation In this section, we ﬁrst introduce the overall architecture of the proposed point cloud frame interpolation network (Poin- tINet) and then explain the details of the two key compo- nents of PointINet, namely point cloud warping module and points fusion module. Overall architecture The overall architecture of PointINet is shown in Fig. 2. Given two consecutive point clouds P0∈ RN×3 andP1∈ RN×3 with a time step t ∈ (0, 1), the goal of PointINet [Page 3] Point cloud Point cloud FlowNet3D Forward scene flow Backward scene flow (0,1)t    Warped point cloud Warped point cloud Adaptive sampling Adaptive kNN cluster Attentive points fusion Fused point cloud 3 0 NP  3 1 NP  3 01 NF   3 10 NF   3N tP  3 0, ˆ N tP  3 1, ˆ N tP  Point cloud war",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01011,
+        0.01002,
+        -0.05582,
+        -0.02459,
+        -0.00158
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "daptive sampling Adaptive kNN cluster Attentive points fusion Fused point cloud 3 0 NP  3 1 NP  3 01 NF   3 10 NF   3N tP  3 0, ˆ N tP  3 1, ˆ N tP  Point cloud war",
+      "overlap_with_next": "0,t. We ﬁrst predict the bi-directional 3D scene ﬂowF0→1∈ RN×3 andF1→0∈ RN×3 between two point clouds P0 andP1 to estimate the motion of points. 3D scene ﬂow is the 3D mo- tion ﬁel",
+      "text": "daptive sampling Adaptive kNN cluster Attentive points fusion Fused point cloud 3 0 NP  3 1 NP  3 01 NF   3 10 NF   3N tP  3 0, ˆ N tP  3 1, ˆ N tP  Point cloud warping Points fusionInputs 3ˆ t NP  Figure 2: Overall architecture of the proposed PointINet. Given the input two consecutive point clouds, PointINet follows a pipeline consists of point cloud warping module and points fusion module. is to predict the intermediate point cloud ˆPt at time step t. PointINet consists of two key modules: point cloud warping module to warp the two input point clouds to the given time stept and points fusion module to fuse the two warped point clouds. We will describe the two modules in detail below. Point cloud warping Given two point clouds P0 and P1, point cloud warping module aims to predict the position of each point of P0 in ˆP0,t, where ˆP0,t is the corresponding point cloud of P0 at time step t (also predict ˆP1,t forP1). The key point here is to estimate the motion of each point from P0 to ˆP0,t. We ﬁrst predict the bi-directional 3D scene ﬂowF0→1∈ RN×3 andF1→0∈ RN×3 between two point clouds P0 andP1 to estimate the motion of points. 3D scene ﬂow is the 3D mo- tion ﬁel",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00028,
+        0.00677,
+        -0.05617,
+        0.00988,
+        0.0041
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "0,t. We ﬁrst predict the bi-directional 3D scene ﬂowF0→1∈ RN×3 andF1→0∈ RN×3 between two point clouds P0 andP1 to estimate the motion of points. 3D scene ﬂow is the 3D mo- tion ﬁel",
+      "overlap_with_next": "module is two warped point clouds ˆP0,t∈ RN×3 and ˆP1,t∈ RN×3 and the output is the fused intermediate point cloud ˆPt∈ RN×3. In video frame interpolation, the fusion step mostly c",
+      "text": "0,t. We ﬁrst predict the bi-directional 3D scene ﬂowF0→1∈ RN×3 andF1→0∈ RN×3 between two point clouds P0 andP1 to estimate the motion of points. 3D scene ﬂow is the 3D mo- tion ﬁeld of points, which can be regarded as a promotion of optical ﬂow in 3D point clouds. Here we utilize an existing learning-based framework FlowNet3D (Liu, Qi, and Guibas 2019) to estimate the bi-directional 3D scene ﬂow. Suppose that the motion of points between two consecutive frames of point clouds is linear, the scene ﬂowF0→t andF1→t can be approximated by linearly interpolating F0→1 andF1→0, which can be represented as F0→t =t×F0→1 F1→t = (1−t)×F1→0 (1) Then P0 and P1 can be warped to the given time step t based on the interpolated 3D scene ﬂowF0→t andF1→t, ˆP0,t =P0 +F0→t ˆP1,t =P1 +F1→t (2) Points fusion The goal of the points fusion module is to fuse the two warped point clouds and generate intermediate point clouds. The architecture of the points fusion module is displayed in the right column of Fig. 2. The input of this module is two warped point clouds ˆP0,t∈ RN×3 and ˆP1,t∈ RN×3 and the output is the fused intermediate point cloud ˆPt∈ RN×3. In video frame interpolation, the fusion step mostly c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00039,
+        -0.00042,
+        -0.04836,
+        -0.01003,
+        0.00083
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "module is two warped point clouds ˆP0,t∈ RN×3 and ˆP1,t∈ RN×3 and the output is the fused intermediate point cloud ˆPt∈ RN×3. In video frame interpolation, the fusion step mostly c",
+      "overlap_with_next": "e point clouds are not always the same. For example, the intermediate frame ˆPt at t = 0.2 should be more similar to the ﬁrst frame P0 than the sec- ond frameP1. Based on the above",
+      "text": "module is two warped point clouds ˆP0,t∈ RN×3 and ˆP1,t∈ RN×3 and the output is the fused intermediate point cloud ˆPt∈ RN×3. In video frame interpolation, the fusion step mostly concen- trates on occlusion and missing regions prediction due to the structured 2D grid-based representation. However, the fu- sion of two point clouds is non-trivial because point clouds are unstructured and unordered. In the proposed PointINet, we start the fusion by adaptively sampling points from two warped point clouds based on time stept and then construct k-nearest-neighbor (kNN) clusters centered on the sampled points. After that, the attentive points fusion module adopts an attention mechanism to generate the ﬁnal intermediate point clouds. The details of the key components of the points fusion module will be described below. Adaptive sampling The ﬁrst step of the points fusion module is to combine the two warped point clouds to a new point cloud. Intuitively, the contributions of the two point clouds to the intermediate point clouds are not always the same. For example, the intermediate frame ˆPt at t = 0.2 should be more similar to the ﬁrst frame P0 than the sec- ond frameP1. Based on the above",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.03027,
+        0.00157,
+        -0.04679,
+        0.01287,
+        -0.02126
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "e point clouds are not always the same. For example, the intermediate frame ˆPt at t = 0.2 should be more similar to the ﬁrst frame P0 than the sec- ond frameP1. Based on the above",
+      "overlap_with_next": "e also adaptively adjusted according to t to balance the contribu- tions of two point clouds. Thus, we query K0 neighbors in ˆP0,t and K1 neighbors in ˆP1,t, where K0 = (1 −t)×K an",
+      "text": "e point clouds are not always the same. For example, the intermediate frame ˆPt at t = 0.2 should be more similar to the ﬁrst frame P0 than the sec- ond frameP1. Based on the above observation, we randomly sampleN0 andN1 points from ˆP0,t and ˆP1,t to generate two sampled point clouds ˜P0,t∈ RN0×3 and ˜P1,t∈ RN1×3, re- spectively. Here,N0 = (1−t)×N andN1 =t×N. This operation enables the network to adaptively adjust the con- tributions of the two warped point clouds according to the target time step t. The point cloud close to time step t con- tributes more to the intermediate frame ˆPt. After that, ˜P0,t and ˜P1,t are combined to a new point cloud ˜Pt∈ RN×3. AdaptivekNN cluster We input ˜Pt into the adaptivekNN cluster module to generate k-nearest-neighbor clusters as input to the followed attentive points fusion module. For [Page 4] each point in ˜Pt, we search for K nearest neighbors in two warped point clouds ˆP0,t and ˆP1,t. Similar to adaptive sam- pling, the number of neighbors in ˆP0,t and ˆP1,t are also adaptively adjusted according to t to balance the contribu- tions of two point clouds. Thus, we query K0 neighbors in ˆP0,t and K1 neighbors in ˆP1,t, where K0 = (1 −t)×K an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00772,
+        0.01789,
+        -0.04098,
+        0.00315,
+        -0.01177
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "e also adaptively adjusted according to t to balance the contribu- tions of two point clouds. Thus, we query K0 neighbors in ˆP0,t and K1 neighbors in ˆP1,t, where K0 = (1 −t)×K an",
+      "overlap_with_next": "or the intermediate point clouds. The network architecture of the attentive points fu- sion module can be seen in Fig. 3. Inspired by PointNet (Qi et al. 2017a) and PointNet++ (Qi ",
+      "text": "e also adaptively adjusted according to t to balance the contribu- tions of two point clouds. Thus, we query K0 neighbors in ˆP0,t and K1 neighbors in ˆP1,t, where K0 = (1 −t)×K and K1 = t×K. As a result, we obtain N clusters and each cluster consists of K neighbor points. Denoting the center point of a cluster as xi and the neighbor points as {xi1,··· ,xik,··· ,xiK}∈ RK×3. Then each neighbor point is subtracted by the center point as (xik−xi) to obtain the relative position of neighbor points in a cluster. Besides, the Euclidean distance between neighbor point and the center point ‖‖xik−xi‖‖2 is calculated as an additional channel ofthe cluster. Consequently, the ﬁnal feature of a single cluster can be denoted asFi ={fi1,··· ,f ik,··· ,f iK}∈ RK×4. Attentive points fusion Attention mechanism has been widely used in 3D point cloud learning (Yang et al. 2019; Wang et al. 2019; Wang, He, and Ma 2019). Here we adopt an attention mechanism to aggregate the feature of neigh- bor points to generate new points for the intermediate point clouds. The network architecture of the attentive points fu- sion module can be seen in Fig. 3. Inspired by PointNet (Qi et al. 2017a) and PointNet++ (Qi ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00577,
+        0.03447,
+        -0.03904,
+        -0.00682,
+        -0.03021
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "or the intermediate point clouds. The network architecture of the attentive points fu- sion module can be seen in Fig. 3. Inspired by PointNet (Qi et al. 2017a) and PointNet++ (Qi ",
+      "overlap_with_next": "points in the two point clouds in its receptive ﬁeld. Besides, the contributions of two point clouds are dynamically adjusted according to the time stept with the help of adaptive ",
+      "text": "or the intermediate point clouds. The network architecture of the attentive points fu- sion module can be seen in Fig. 3. Inspired by PointNet (Qi et al. 2017a) and PointNet++ (Qi et al. 2017b), we input the feature Fi of a single cluster into a shared multi layer perceptron (Shared-MLP) to generate a feature map. Then the followed maxpool layer and a Softmax function are ap- plied to predict one-dimensional attentive weights Wi = {wi1,··· ,wik,··· ,wiK}∈ RK×1 for all neighbor points in the cluster. After that, the new point ˆxi can be represented as the weighted sum of the neighbor points, ˆxi = K∑ k=1 xik·wik, i = 1,··· ,N (3) Finally, the generated intermediate point cloud ˆPt can be represented as ˆPt ={ˆx1,··· , ˆxN}∈ RN×3. Intuitively, the proposed attentive points fusion module can assign higher weights to points in the cluster that are more consistent with the target point cloud. After the points fusion module, each generated point in the new intermediate point cloud is ag- gregated from neighbor points in the two point clouds in its receptive ﬁeld. Besides, the contributions of two point clouds are dynamically adjusted according to the time stept with the help of adaptive ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00087,
+        0.00396,
+        -0.02213,
+        -0.00948,
+        -0.03798
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "points in the two point clouds in its receptive ﬁeld. Besides, the contributions of two point clouds are dynamically adjusted according to the time stept with the help of adaptive ",
+      "overlap_with_next": "nts to demonstrate the performance of the proposed method. Be- sides, we also perform experiments on two applications (i.e., keypoints detection and multi frame Iterative Closest P",
+      "text": "points in the two point clouds in its receptive ﬁeld. Besides, the contributions of two point clouds are dynamically adjusted according to the time stept with the help of adaptive sampling and adaptive kNN clus- ter module. Consequently, the generated intermediate point cloud is an effective fusion of the two input point clouds. Loss Chamfer distance (Fan, Su, and Guibas 2017) is commonly used to measure the similarity of two point clouds. Here we utilize chamfer distance to supervise the training of the proposed PointINet. Given the generated intermediate point cloud ˆPt∈ RN×3 and the ground truth onePt∈ RN×3, the Shared Cluster 4iKF  Maxpool Softmax MLP Attentive weights  1iKW  New point  3ˆ ix  Figure 3: The network architecture of the proposed attentive points fusion module. chamfer distance loss can be represented as L = 1N ∑ ˆxi∈ ˆPt min xj∈Pt ‖‖ˆxi−xj‖‖2+ 1N ∑ xj∈Pt min ˆxi∈ ˆPt ‖‖ˆxi−xj‖‖2 (4) where‖·‖2 represents theL2-norm. Experiments We perform both qualitative and quantitative experiments to demonstrate the performance of the proposed method. Be- sides, we also perform experiments on two applications (i.e., keypoints detection and multi frame Iterative Closest P",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01653,
+        -0.00577,
+        -0.0672,
+        -0.04023,
+        -0.04127
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "nts to demonstrate the performance of the proposed method. Be- sides, we also perform experiments on two applications (i.e., keypoints detection and multi frame Iterative Closest P",
+      "overlap_with_next": "ermediate point clouds between two consecutive frames in the downsampled point cloud streams. Implementation details We start by training FlowNet3D on Flythings3D dataset (Mayer et",
+      "text": "nts to demonstrate the performance of the proposed method. Be- sides, we also perform experiments on two applications (i.e., keypoints detection and multi frame Iterative Closest Point (ICP)) to better evaluate the quality of the generated inter- mediate point clouds. Datasets We evaluate the proposed method on two large scale outdoor LiDAR datasets, namely KITTI odometry dataset (Geiger, Lenz, and Urtasun 2012) and nuScenes dataset (Caesar et al. 2020). KITTI odometry dataset provides 11 sequences with ground truth (00-10) and we use sequence 00 to train the net- work , 01 to validate and the others to evaluate. NuScenes dataset consists of 850 training scenes and we use the ﬁrst 100 scenes for training and the remaining 750 scenes for evaluation. Due to the lack of high frame rate LiDAR sen- sors, we simply downsample the 10 Hz point clouds in KITTI odometry dataset to 2 Hz and the 20 Hz point clouds in nuScenes dataset to 4 Hz for training and the quantitative experiments. Consequently, there are 4 intermediate point clouds between two consecutive frames in the downsampled point cloud streams. Implementation details We start by training FlowNet3D on Flythings3D dataset (Mayer et",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05615,
+        0.00781,
+        -0.07214,
+        -0.01345,
+        -0.01521
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "ermediate point clouds between two consecutive frames in the downsampled point cloud streams. Implementation details We start by training FlowNet3D on Flythings3D dataset (Mayer et",
+      "overlap_with_next": "ive frames and a randomly sampled frame from the 4 intermediate point clouds with the corresponding time step are utilized as a training sample. We randomly downsample the point cl",
+      "text": "ermediate point clouds between two consecutive frames in the downsampled point cloud streams. Implementation details We start by training FlowNet3D on Flythings3D dataset (Mayer et al. 2016) and then reﬁne the network on KITTI scene ﬂow dataset (Menze and Geiger 2015). We directly use the data pre-processed by (Liu, Qi, and Guibas 2019) to train FlowNet3D. Then we further reﬁne the pre-trained FlowNet3D on KITTI odometry dataset and nuScenes dataset, respectively. During this procedure, the current frame with a randomly selected frame withinNs frames be- fore and after it are used as a training pair. Then the ﬁrst frame is warped to the second frame with the predicted [Page 5] scene ﬂow and the chamfer distance (see Eq. 4) between the warped point cloud and the second point cloud is adopted as the loss function to supervise the reﬁnement of FlowNet3D. After that, the weight of FlowNet3D is ﬁxed when train- ing the followed points fusion module. During the training of the points fusion module, two consecutive frames and a randomly sampled frame from the 4 intermediate point clouds with the corresponding time step are utilized as a training sample. We randomly downsample the point cl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00205,
+        -0.00425,
+        -0.0652,
+        -0.02353,
+        -0.02673
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "ive frames and a randomly sampled frame from the 4 intermediate point clouds with the corresponding time step are utilized as a training sample. We randomly downsample the point cl",
+      "overlap_with_next": "led point cloud streams on 10 Hz point cloud streams of KITTI odometry dataset to generate high frame rate point cloud streams. Here we provide a qualitative visualization in Fig. ",
+      "text": "ive frames and a randomly sampled frame from the 4 intermediate point clouds with the corresponding time step are utilized as a training sample. We randomly downsample the point clouds to 16384 points during training and the number of neighbor pointsK is set to 32 in our implementation. The channels of the layers of Shared-MLP in attentive points fusion module are set to [64, 64, 128]. All of the network is implemented using PyTorch (Paszke et al. 2019) and Adam is used as the optimizer. Besides, the points fusion module is only trained on KITTI odometry dataset and we simply generalize the trained model to nuScenes dataset for evaluation. Qualitative experiments The goal of the proposed PointINet is to generate high frame rate LiDAR streams from low frame rate ones. However, there are no existing high frame rate LiDAR sensors. Thus, we train the FlowNet3D with Ns = 1 to provide proper scene ﬂow estimation for closer point clouds and then di- rectly apply the points fusion module trained on the down- sampled point cloud streams on 10 Hz point cloud streams of KITTI odometry dataset to generate high frame rate point cloud streams. Here we provide a qualitative visualization in Fig. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0273,
+        -0.00559,
+        -0.04526,
+        -0.02066,
+        -0.00183
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "led point cloud streams on 10 Hz point cloud streams of KITTI odometry dataset to generate high frame rate point cloud streams. Here we provide a qualitative visualization in Fig. ",
+      "overlap_with_next": "d point cloud streams using two evaluation metrics: Chamfer distance (CD) and Earth mover’s distance (EMD). CD is previously described in Eq. 4. EMD is also a commonly used metric ",
+      "text": "led point cloud streams on 10 Hz point cloud streams of KITTI odometry dataset to generate high frame rate point cloud streams. Here we provide a qualitative visualization in Fig. 4, where the number of points here is set to 32768. The 10 Hz point cloud streams are upsampled to 40 Hz and the time step of intermediate frames are set to 0.25, 0.50 and 0.75. According to Fig. 4, the proposed PointINet well esti- mates the motion of points between two clouds and the fu- sion algorithm can preserve the details of the point cloud. In addition to that, we also provide several demo videos in the supplementary materials to compare high frame rate point cloud streams with low frame rate point cloud streams. Ac- cording to the demo videos, the high frame rate point cloud streams are obviously temporally and spatially smoother than low frame rate ones. Quantitative experiments Evaluation metrics We evaluate the similarity and con- sistency between the generated point clouds and the ground truth ones on the downsampled point cloud streams using two evaluation metrics: Chamfer distance (CD) and Earth mover’s distance (EMD). CD is previously described in Eq. 4. EMD is also a commonly used metric ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02013,
+        -0.00891,
+        -0.05719,
+        -0.01957,
+        -0.0272
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "d point cloud streams using two evaluation metrics: Chamfer distance (CD) and Earth mover’s distance (EMD). CD is previously described in Eq. 4. EMD is also a commonly used metric ",
+      "overlap_with_next": "oud frame as the intermediate point clouds. (2) Align-ICP. We ﬁrstly estimate the rigid transformation be- tween the two consecutive frame of point clouds using Itera- tive Closest",
+      "text": "d point cloud streams using two evaluation metrics: Chamfer distance (CD) and Earth mover’s distance (EMD). CD is previously described in Eq. 4. EMD is also a commonly used metric to compare two point clouds (Weng et al. 2020), which is implemented by solving a linear assignment problem. Given two point clouds ˆPt∈ RN×3 andPt∈ RN×3, EMD can be calculated as EMD = min φ: ˆPt→Pt 1 N ∑ ˆx∈ ˆPt ‖ˆx−φ(ˆx)‖2 (5) whereφ : ˆPt→Pt is a bijection. Baselines To demonstrate the performance of the pro- posed PointINet, we deﬁne 3 baselines to make compari- son with our method: (1) Identity. We simply duplicate the Metric Identity Align-ICP Scene ﬂow Ours CD↓ 1.398 0.752 0.687 0.457 EMD↓ 68.93 83.79 57.13 39.46 Table 1: Results of quantitative evaluation of PointINet and other baselines on KITTI odometry dataset. Metric Identity Align-ICP Scene ﬂow Ours CD↓ 0.617 0.555 0.511 0.487 EMD↓ 54.24 51.12 50.97 47.98 Table 2: Results of quantitative evaluation of PointINet and other baselines on nuScenes dataset. ﬁrst point cloud frame as the intermediate point clouds. (2) Align-ICP. We ﬁrstly estimate the rigid transformation be- tween the two consecutive frame of point clouds using Itera- tive Closest",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00951,
+        -0.015,
+        -0.06157,
+        -0.02213,
+        -0.02185
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "oud frame as the intermediate point clouds. (2) Align-ICP. We ﬁrstly estimate the rigid transformation be- tween the two consecutive frame of point clouds using Itera- tive Closest",
+      "overlap_with_next": " results, the performance of our method signif- icantly outperforms other baselines. For example, the cham- fer distance of the proposed PointINet is about 1/3, 3/5 and 2/3 of Iden",
+      "text": "oud frame as the intermediate point clouds. (2) Align-ICP. We ﬁrstly estimate the rigid transformation be- tween the two consecutive frame of point clouds using Itera- tive Closest Point (ICP) algorithm and then linearly interpo- late that to obtain the transformation between the ﬁrst frame and intermediate frame. Thereafter, the ﬁrst point cloud is transformed to the intermediate frame based on the trans- formation. (3) Scene ﬂow. We estimate the 3D scene ﬂow between the consecutive two frames using FlowNet3D and calculate the scene ﬂow from the ﬁrst frame to the inter- mediate frame by linear interpolation. Then the intermedi- ate point clouds are obtained by transform the ﬁrst point cloud according to the 3D scene ﬂow. All of the point clouds are downsampled to 16384 points by randomly sampling in quantitative experiments. Results The CD and EMD of the proposed PointINet and other baselines on KITTI odometry dataset and nuScenes dataset are shown in Table 1 and Table 2, respectively. Ac- cording to the results, the performance of our method signif- icantly outperforms other baselines. For example, the cham- fer distance of the proposed PointINet is about 1/3, 3/5 and 2/3 of Iden",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00552,
+        0.01096,
+        -0.05256,
+        -0.03048,
+        -0.01919
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " results, the performance of our method signif- icantly outperforms other baselines. For example, the cham- fer distance of the proposed PointINet is about 1/3, 3/5 and 2/3 of Iden",
+      "overlap_with_next": "polate them to the original frame rates as the interpolated point cloud streams. The results of the two applications on the two different point cloud streams are compared to verify",
+      "text": " results, the performance of our method signif- icantly outperforms other baselines. For example, the cham- fer distance of the proposed PointINet is about 1/3, 3/5 and 2/3 of Identity, Align-ICP and Scene ﬂow on KITTI odom- etry dataset, respectively. It is worth noting that our method is superior to Scene ﬂow by an obvious margin, which also reﬂects the effectiveness of the points fusion module. Not- ing that we only train the points fusion module on KITTI odometry dataset and the results on nuScenes dataset also demonstrate the generalization ability of the network. Applications In order to better evaluate the quality of the generated inter- mediate point clouds and the similarity with original point clouds, we apply two applications on the interpolated point cloud streams and the original ones, namely Keypoints de- tection and Multi frame ICP. We ﬁrstly respectively down- sample the 10 Hz point clouds in KITTI odometry dataset and 20 Hz point clouds in nuScenes dataset to 5 Hz and 10 Hz and then interpolate them to the original frame rates as the interpolated point cloud streams. The results of the two applications on the two different point cloud streams are compared to verify",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00567,
+        -0.00701,
+        -0.06807,
+        -0.00147,
+        -0.0254
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "polate them to the original frame rates as the interpolated point cloud streams. The results of the two applications on the two different point cloud streams are compared to verify",
+      "overlap_with_next": "Zhong 2009). All of the keypoints are extracted using the imple- mentation in PCL (Rusu and Cousins 2011). A keypoint in a point cloud is considered repeatable if its distance to t",
+      "text": "polate them to the original frame rates as the interpolated point cloud streams. The results of the two applications on the two different point cloud streams are compared to verify the validity of the proposed PointINet. [Page 6] Figure 4: Qualitative results of the proposed PointINet. From top to bottom rows are the interpolation results of 3 pairs of consecutive frames. The time stept of columns from left to right are 0.25, 0.50 and 0.75, respectively. Blue, green and red point clouds represent ﬁrst frames, second frames and the predicted intermediate frames, respectively. Besides, we zoom in an area of the point cloud and then rotate it to a proper perspective to better visualize the details of the interpolated point cloud. Keypoints detection We perform 3D keypoints detection in the two point cloud streams and evaluate the repeatability of the detected keypoints. We choose 3 handcrafted 3D key- points, namely SIFT-3D (Flint, Dick, and Van Den Hengel 2007), Harris-3D (Sipiran and Bustos 2011) and ISS (Zhong 2009). All of the keypoints are extracted using the imple- mentation in PCL (Rusu and Cousins 2011). A keypoint in a point cloud is considered repeatable if its distance to t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01159,
+        -0.00544,
+        -0.03891,
+        -0.00668,
+        -0.00119
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "Zhong 2009). All of the keypoints are extracted using the imple- mentation in PCL (Rusu and Cousins 2011). A keypoint in a point cloud is considered repeatable if its distance to t",
+      "overlap_with_next": "ginal point clouds. The results reﬂects the high consistency of the generated in- termediate point clouds with the ground truth point clouds Keypoints Harris-3D SIFT-3D ISS Origina",
+      "text": "Zhong 2009). All of the keypoints are extracted using the imple- mentation in PCL (Rusu and Cousins 2011). A keypoint in a point cloud is considered repeatable if its distance to the nearest keypoint in the other point cloud (after rigid transfor- mation based on the ground truth pose) is within a threshold δr (δr is set to 0.5 m here) and the repeatability is the ratio of repeatable keypoints. We calculate the average repeata- bility of keypoints in current point cloud with keypoints in 5 frames before and after it and the number of keypoints is set to 256. Due to the lack of per-frame ground truth pose in nuScenes dataset, the keypoints detection experiments are only performed on KITTI odometry dataset and the results are shown in Table 3. According to the results, the repeata- bility of the interpolated point cloud streams is only slightly reduced compared with the original point cloud streams. For example, the repeatability of Harris-3D of interpolated point clouds is only 0.017 lower than that of original point clouds. The results reﬂects the high consistency of the generated in- termediate point clouds with the ground truth point clouds Keypoints Harris-3D SIFT-3D ISS Origina",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00554,
+        0.00673,
+        -0.04369,
+        -0.01438,
+        -0.01265
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "ginal point clouds. The results reﬂects the high consistency of the generated in- termediate point clouds with the ground truth point clouds Keypoints Harris-3D SIFT-3D ISS Origina",
+      "overlap_with_next": "to evaluate the error of the estimated transformation of multi frame ICP. The results on KITTI odometry dataset and nuScenes dataset are displayed in Table 4 and Table 5, [Page 7] ",
+      "text": "ginal point clouds. The results reﬂects the high consistency of the generated in- termediate point clouds with the ground truth point clouds Keypoints Harris-3D SIFT-3D ISS Original 0.155 0.174 0.163 Interpolated 0.138 0.151 0.133 Table 3: The repeatability of 3 different keypoints of original and interpolated point clouds on KITTI odometry dataset. from the side. Multi frame ICP We perform iterative closest point (ICP) algorithm on Nm consecutive frames to estimate the rigid transformation between the ﬁrst and last frames. Nm is set to 10 on KITTI odometry dataset. For nuScenes dataset, the ground truth pose is only provided for keyframes (about 2 Hz). Thus,Nm is set to be the same as the number of frames between two keyframes on nuScenes dataset. We utilize the implementation in PCL to perform ICP algorithm. The one- by-one transformation are accumulated to obtain the trans- formation between the ﬁrst and last frames. Relative trans- lation error (RTE) and relative rotation error (RRE) are cal- culated to evaluate the error of the estimated transformation of multi frame ICP. The results on KITTI odometry dataset and nuScenes dataset are displayed in Table 4 and Table 5, [Page 7] ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01469,
+        0.01393,
+        -0.02375,
+        0.00948,
+        -0.01889
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "to evaluate the error of the estimated transformation of multi frame ICP. The results on KITTI odometry dataset and nuScenes dataset are displayed in Table 4 and Table 5, [Page 7] ",
+      "overlap_with_next": "lts differs by only 0.07 m according to Table 5. The close performance indicates the similarity between the generated intermediate point clouds with the ground truth ones. Accordin",
+      "text": "to evaluate the error of the estimated transformation of multi frame ICP. The results on KITTI odometry dataset and nuScenes dataset are displayed in Table 4 and Table 5, [Page 7] Metric Original Interpolated Difference RTE (m) 4.31 4.57 0.26 RRE (deg) 2.70 2.95 0.25 Table 4: The performance of multi frame ICP of original and interpolated point cloud streams on KITTI odometry dataset. Metric Original Interpolated Difference RTE (m) 1.65 1.72 0.07 RRE (deg) 0.91 0.92 0.01 Table 5: The performance of multi frame ICP of original and interpolated point cloud streams on nuScenes dataset. respectively. We also calculate the difference between the errors of original and interpolated point cloud streams and display the results in right column of Table 4 and Table 5 for better comparison. According to the results, the RTE and RRE of the multi-frame ICP algorithm on the interpo- lated point cloud streams are very close to that on original point cloud streams. For example, The RTE on nuScenes dataset of the two results differs by only 0.07 m according to Table 5. The close performance indicates the similarity between the generated intermediate point clouds with the ground truth ones. Accordin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01232,
+        0.00084,
+        -0.02072,
+        0.01001,
+        -0.00638
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "lts differs by only 0.07 m according to Table 5. The close performance indicates the similarity between the generated intermediate point clouds with the ground truth ones. Accordin",
+      "overlap_with_next": " fusion module increases with the number of points due to the per-point computation for fusion. Overall, the proposed PointINet can efﬁciently gen- erate intermediate frames. Ablat",
+      "text": "lts differs by only 0.07 m according to Table 5. The close performance indicates the similarity between the generated intermediate point clouds with the ground truth ones. According to the experiments on the two applications, the performance of the algorithm on the interpolated point clouds is slightly inferior to the original point cloud streams due to the possible error of the proposed interpolation method. Nonetheless, the close performance on the two ap- plications proves the high similarity and consistency of the generated point clouds with the original ones. Efﬁciency The efﬁciency of the proposed PointINet is evaluated on a PC with NVIDIA Geforce RTX 2060 and the average run- time to generate one intermediate frame for point clouds contain 16384, 32768 and 65536 points are displayed in Ta- ble 6. According to the results, most of the runtime is used to warp the point cloud and the proposed points fusion module requires relatively little time for computation. However, the computation time for points fusion module increases with the number of points due to the per-point computation for fusion. Overall, the proposed PointINet can efﬁciently gen- erate intermediate frames. Ablat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.04947,
+        -0.00708,
+        -0.04601,
+        -0.02158,
+        -0.02844
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": " fusion module increases with the number of points due to the per-point computation for fusion. Overall, the proposed PointINet can efﬁciently gen- erate intermediate frames. Ablat",
+      "overlap_with_next": "ble 7: The quantitative evaluation results of ablation stud- ies on KITTI odometry dataset. Adaptive sampling We replace the adaptive sampling strategy by simply randomly sampling ",
+      "text": " fusion module increases with the number of points due to the per-point computation for fusion. Overall, the proposed PointINet can efﬁciently gen- erate intermediate frames. Ablation study We perform several ablation studies to analyze the effect of different components of the proposed PointINet (e.g., adap- tive sampling, adaptivekNN cluster and attentive points fu- sion) to the ﬁnal results. The experimental setting is con- sistent with the quantitative experiments and we also use chamfer distance (CD) and earth mover’s distance (EMD) to evaluate the performance. All of the ablation studies are performed on KITTI odometry dataset. Number of points 16384 32768 65536 Point cloud warping 167.3 291.1 529.3 Points fusion 36.4 81.3 196.6 PointINet 203.7 372.4 725.9 Table 6: The runtime (ms) of PointINet and its components for different number of points. Methods CD ↓ EMD↓ full PointINet 0.457 39.46 w/o adaptive sampling 0.580 48.00 w/o adaptivekNN cluster 0.534 41.66 w/o attentive points fusion 0.555 40.67 Table 7: The quantitative evaluation results of ablation stud- ies on KITTI odometry dataset. Adaptive sampling We replace the adaptive sampling strategy by simply randomly sampling ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0016,
+        -0.01579,
+        -0.04236,
+        0.01478,
+        -0.02231
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ble 7: The quantitative evaluation results of ablation stud- ies on KITTI odometry dataset. Adaptive sampling We replace the adaptive sampling strategy by simply randomly sampling ",
+      "overlap_with_next": "se the point cloud ˜Pt from adaptive sampling as the intermediate point cloud and display the results in the bottom row of Table 7. According to the results, the attentive points f",
+      "text": "ble 7: The quantitative evaluation results of ablation stud- ies on KITTI odometry dataset. Adaptive sampling We replace the adaptive sampling strategy by simply randomly sampling half of the points in two warped point clouds to form a new point cloud as the input to the adaptive kNN cluster module. The results are shown in the second row of Table 7. Based on the results, the CD and EMD increase by 0.123 and 8.54 without adap- tive sampling, which demonstrates that the adaptive sam- pling strategy signiﬁcantly improves the performance. Adaptive kNN cluster We query K/2 neighbor points from the two warped point clouds ﬁxedly rather than query points based on time step t. According to the results dis- played in third row of Table 7, the CD and EMD without adaptivekNN cluster increase from 0.457 to 0.534 and 39.46 to 41.66, respectively. The results prove the effectiveness of the adaptivekNN cluster module. Attentive points fusion To demonstrate the effect of the attentive points fusion module, we directly use the point cloud ˜Pt from adaptive sampling as the intermediate point cloud and display the results in the bottom row of Table 7. According to the results, the attentive points f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02977,
+        0.00517,
+        -0.02717,
+        0.01465,
+        -0.0356
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "se the point cloud ˜Pt from adaptive sampling as the intermediate point cloud and display the results in the bottom row of Table 7. According to the results, the attentive points f",
+      "overlap_with_next": "enes dataset demonstrate the performance and effec- tiveness of the proposed PointINet. [Page 8] Ethics statement The proposed point cloud frame interpolation method may have posit",
+      "text": "se the point cloud ˜Pt from adaptive sampling as the intermediate point cloud and display the results in the bottom row of Table 7. According to the results, the attentive points fusion module obviously enhances the ﬁnal performance. Conclusions In this paper, a novel task namedPoint Cloud Frame Interpo- lation is studied and a learning-based framework PointINet is designed for this task. Given two consecutive point clouds, the task aims to predict temporally and spatially consistent intermediate frames between them. Consequently, low frame rate point cloud streams can be upsampled to high frame rates using the proposed method. To achieve that, we uti- lize an existing scene ﬂow estimation network for motion estimation and then warp the two point clouds to the given time step. Then a novel learning-based points fusion mod- ule is presented to efﬁciently fuse the two point clouds. We design both qualitative and quantitative experiments for this task. Extensive experiments on KITTI odometry dataset and nuScenes dataset demonstrate the performance and effec- tiveness of the proposed PointINet. [Page 8] Ethics statement The proposed point cloud frame interpolation method may have posit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00433,
+        0.00223,
+        -0.03728,
+        -0.00761,
+        -0.02143
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "enes dataset demonstrate the performance and effec- tiveness of the proposed PointINet. [Page 8] Ethics statement The proposed point cloud frame interpolation method may have posit",
+      "overlap_with_next": "8. References Bao, W.; Lai, W.-S.; Zhang, X.; Gao, Z.; and Yang, M.-H. 2019. Memc-net: Motion estimation and motion compen- sation driven neural network for video interpolation and",
+      "text": "enes dataset demonstrate the performance and effec- tiveness of the proposed PointINet. [Page 8] Ethics statement The proposed point cloud frame interpolation method may have positive effects on the development of autonomous driving and intelligent robots, which can reduce the work- load of human drivers and workers and also the incidence of trafﬁc accidents. However, this development may also bring unemployment of human drivers and workers. Besides, the proposed method may have potential military applications like military unmanned aerial vehicles, which can threaten the safety of humans. We should explore more applications which can improve the quality of human life rather than harmful ones. Acknowledgments This work is funded by National Natural Science Founda- tion of China (No. 61906138), the European Union’s Hori- zon 2020 Framework Programme for Research and Innova- tion under the Speciﬁc Grant Agreement No. 945539 (Hu- man Brain Project SGA3), and the Shanghai AI Innovation Development Program 2018. References Bao, W.; Lai, W.-S.; Zhang, X.; Gao, Z.; and Yang, M.-H. 2019. Memc-net: Motion estimation and motion compen- sation driven neural network for video interpolation and",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02611,
+        -0.02467,
+        -0.02422,
+        -0.02215,
+        -0.03494
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "8. References Bao, W.; Lai, W.-S.; Zhang, X.; Gao, Z.; and Yang, M.-H. 2019. Memc-net: Motion estimation and motion compen- sation driven neural network for video interpolation and",
+      "overlap_with_next": "ecognition, 605–613. Flint, A.; Dick, A.; and Van Den Hengel, A. 2007. Thrift: Local 3d structure recognition. In 9th Biennial Conference of the Australian Pattern Recognition Soci",
+      "text": "8. References Bao, W.; Lai, W.-S.; Zhang, X.; Gao, Z.; and Yang, M.-H. 2019. Memc-net: Motion estimation and motion compen- sation driven neural network for video interpolation and en- hancement. IEEE transactions on pattern analysis and ma- chine intelligence . Caesar, H.; Bankiti, V .; Lang, A. H.; V ora, S.; Liong, V . E.; Xu, Q.; Krishnan, A.; Pan, Y .; Baldan, G.; and Beijbom, O. 2020. nuscenes: A multimodal dataset for autonomous driv- ing. In Proceedings of the IEEE/CVF Conference on Com- puter Vision and Pattern Recognition, 11621–11631. Dosovitskiy, A.; Fischer, P.; Ilg, E.; Hausser, P.; Hazirbas, C.; Golkov, V .; Van Der Smagt, P.; Cremers, D.; and Brox, T. 2015. Flownet: Learning optical ﬂow with convolutional networks. In Proceedings of the IEEE international confer- ence on computer vision, 2758–2766. Fan, H.; Su, H.; and Guibas, L. J. 2017. A point set gen- eration network for 3d object reconstruction from a single image. In Proceedings of the IEEE conference on computer vision and pattern recognition, 605–613. Flint, A.; Dick, A.; and Van Den Hengel, A. 2007. Thrift: Local 3d structure recognition. In 9th Biennial Conference of the Australian Pattern Recognition Soci",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04178,
+        0.00343,
+        -0.046,
+        -0.01224,
+        -0.00721
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ecognition, 605–613. Flint, A.; Dick, A.; and Van Den Hengel, A. 2007. Thrift: Local 3d structure recognition. In 9th Biennial Conference of the Australian Pattern Recognition Soci",
+      "overlap_with_next": "; Learned- Miller, E.; and Kautz, J. 2018. Super slomo: High quality estimation of multiple intermediate frames for video inter- polation. In Proceedings of the IEEE Conference on ",
+      "text": "ecognition, 605–613. Flint, A.; Dick, A.; and Van Den Hengel, A. 2007. Thrift: Local 3d structure recognition. In 9th Biennial Conference of the Australian Pattern Recognition Society on Digital Im- age Computing Techniques and Applications (DICTA 2007), 182–188. IEEE. Geiger, A.; Lenz, P.; and Urtasun, R. 2012. Are we ready for autonomous driving? the kitti vision benchmark suite. In 2012 IEEE Conference on Computer Vision and Pattern Recognition, 3354–3361. IEEE. Gu, X.; Wang, Y .; Wu, C.; Lee, Y . J.; and Wang, P. 2019. Hplﬂownet: Hierarchical permutohedral lattice ﬂownet for scene ﬂow estimation on large-scale point clouds. In Pro- ceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 3254–3263. Ilg, E.; Mayer, N.; Saikia, T.; Keuper, M.; Dosovitskiy, A.; and Brox, T. 2017. Flownet 2.0: Evolution of optical ﬂow estimation with deep networks. In Proceedings of the IEEE conference on computer vision and pattern recogni- tion, 2462–2470. Jiang, H.; Sun, D.; Jampani, V .; Yang, M.-H.; Learned- Miller, E.; and Kautz, J. 2018. Super slomo: High quality estimation of multiple intermediate frames for video inter- polation. In Proceedings of the IEEE Conference on ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06922,
+        0.00742,
+        -0.01322,
+        0.01311,
+        -0.01541
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "; Learned- Miller, E.; and Kautz, J. 2018. Super slomo: High quality estimation of multiple intermediate frames for video inter- polation. In Proceedings of the IEEE Conference on ",
+      "overlap_with_next": "ial Intelligence, volume 33, 8794–8802. Liu, Z.; Yeh, R. A.; Tang, X.; Liu, Y .; and Agarwala, A. 2017. Video frame synthesis using deep voxel ﬂow. In Pro- ceedings of the IEEE Int",
+      "text": "; Learned- Miller, E.; and Kautz, J. 2018. Super slomo: High quality estimation of multiple intermediate frames for video inter- polation. In Proceedings of the IEEE Conference on Com- puter Vision and Pattern Recognition, 9000–9008. Kiani Galoogahi, H.; Fagg, A.; Huang, C.; Ramanan, D.; and Lucey, S. 2017. Need for speed: A benchmark for higher frame rate object tracking. In Proceedings of the IEEE In- ternational Conference on Computer Vision, 1125–1134. Liu, H.; Liao, K.; Lin, C.; Zhao, Y .; and Guo, Y . 2020. Pseudo-LiDAR Point Cloud Interpolation Based on 3D Mo- tion Representation and Spatial Supervision. arXiv preprint arXiv:2006.11481 . Liu, X.; Qi, C. R.; and Guibas, L. J. 2019. Flownet3d: Learn- ing scene ﬂow in 3d point clouds. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recogni- tion, 529–537. Liu, Y .-L.; Liao, Y .-T.; Lin, Y .-Y .; and Chuang, Y .-Y . 2019. Deep video frame interpolation using cyclic frame genera- tion. In Proceedings of the AAAI Conference on Artiﬁcial Intelligence, volume 33, 8794–8802. Liu, Z.; Yeh, R. A.; Tang, X.; Liu, Y .; and Agarwala, A. 2017. Video frame synthesis using deep voxel ﬂow. In Pro- ceedings of the IEEE Int",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04159,
+        -0.0325,
+        -0.04201,
+        -0.01698,
+        -0.0056
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "ial Intelligence, volume 33, 8794–8802. Liu, Z.; Yeh, R. A.; Tang, X.; Liu, Y .; and Agarwala, A. 2017. Video frame synthesis using deep voxel ﬂow. In Pro- ceedings of the IEEE Int",
+      "overlap_with_next": "ference on Computer Vision and Pattern Recogni- tion, 670–679. Niklaus, S.; Mai, L.; and Liu, F. 2017b. Video frame inter- polation via adaptive separable convolution. In Proceedin",
+      "text": "ial Intelligence, volume 33, 8794–8802. Liu, Z.; Yeh, R. A.; Tang, X.; Liu, Y .; and Agarwala, A. 2017. Video frame synthesis using deep voxel ﬂow. In Pro- ceedings of the IEEE International Conference on Computer Vision, 4463–4471. Mayer, N.; Ilg, E.; Hausser, P.; Fischer, P.; Cremers, D.; Dosovitskiy, A.; and Brox, T. 2016. A large dataset to train convolutional networks for disparity, optical ﬂow, and scene ﬂow estimation. In Proceedings of the IEEE conference on computer vision and pattern recognition, 4040–4048. Menze, M.; and Geiger, A. 2015. Object scene ﬂow for au- tonomous vehicles. In Proceedings of the IEEE conference on computer vision and pattern recognition, 3061–3070. Mittal, H.; Okorn, B.; and Held, D. 2020. Just go with the ﬂow: Self-supervised scene ﬂow estimation. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pat- tern Recognition, 11177–11185. Niklaus, S.; Mai, L.; and Liu, F. 2017a. Video frame in- terpolation via adaptive convolution. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recogni- tion, 670–679. Niklaus, S.; Mai, L.; and Liu, F. 2017b. Video frame inter- polation via adaptive separable convolution. In Proceedin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01748,
+        -0.02263,
+        -0.00787,
+        0.01598,
+        -0.00327
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "ference on Computer Vision and Pattern Recogni- tion, 670–679. Niklaus, S.; Mai, L.; and Liu, F. 2017b. Video frame inter- polation via adaptive separable convolution. In Proceedin",
+      "overlap_with_next": "o, A.; Kautz, J.; and Catanzaro, B. 2019. Unsuper- vised video interpolation using cycle consistency. In Pro- ceedings of the IEEE International Conference on Computer Vision, 892–",
+      "text": "ference on Computer Vision and Pattern Recogni- tion, 670–679. Niklaus, S.; Mai, L.; and Liu, F. 2017b. Video frame inter- polation via adaptive separable convolution. In Proceedings of the IEEE International Conference on Computer Vision , 261–270. Paszke, A.; Gross, S.; Massa, F.; Lerer, A.; Bradbury, J.; Chanan, G.; Killeen, T.; Lin, Z.; Gimelshein, N.; Antiga, L.; et al. 2019. Pytorch: An imperative style, high-performance deep learning library. In Advances in neural information processing systems, 8026–8037. [Page 9] Qi, C. R.; Su, H.; Mo, K.; and Guibas, L. J. 2017a. Pointnet: Deep learning on point sets for 3d classiﬁcation and segmen- tation. In Proceedings of the IEEE conference on computer vision and pattern recognition, 652–660. Qi, C. R.; Yi, L.; Su, H.; and Guibas, L. J. 2017b. Point- net++: Deep hierarchical feature learning on point sets in a metric space. In Advances in neural information processing systems, 5099–5108. Reda, F. A.; Sun, D.; Dundar, A.; Shoeybi, M.; Liu, G.; Shih, K. J.; Tao, A.; Kautz, J.; and Catanzaro, B. 2019. Unsuper- vised video interpolation using cycle consistency. In Pro- ceedings of the IEEE International Conference on Computer Vision, 892–",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01356,
+        -0.03739,
+        -0.01298,
+        0.00485,
+        -0.00685
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "o, A.; Kautz, J.; and Catanzaro, B. 2019. Unsuper- vised video interpolation using cycle consistency. In Pro- ceedings of the IEEE International Conference on Computer Vision, 892–",
+      "overlap_with_next": "or Point Cloud Semantic Segmentation with Contextual Point Representations. In Advances in Neu- ral Information Processing Systems, 4571–4581. Wang, Z.; Li, S.; Howard-Jenkins, H.;",
+      "text": "o, A.; Kautz, J.; and Catanzaro, B. 2019. Unsuper- vised video interpolation using cycle consistency. In Pro- ceedings of the IEEE International Conference on Computer Vision, 892–900. Rusu, R. B.; and Cousins, S. 2011. 3d is here: Point cloud library (pcl). In 2011 IEEE international conference on robotics and automation, 1–4. IEEE. Sipiran, I.; and Bustos, B. 2011. Harris 3D: a robust exten- sion of the Harris operator for interest point detection on 3D meshes. The Visual Computer 27(11): 963. Sun, D.; Yang, X.; Liu, M.-Y .; and Kautz, J. 2018. Pwc- net: Cnns for optical ﬂow using pyramid, warping, and cost volume. In Proceedings of the IEEE conference on computer vision and pattern recognition, 8934–8943. Wang, L.; Huang, Y .; Hou, Y .; Zhang, S.; and Shan, J. 2019. Graph attention convolution for point cloud semantic seg- mentation. In Proceedings of the IEEE Conference on Com- puter Vision and Pattern Recognition, 10296–10305. Wang, X.; He, J.; and Ma, L. 2019. Exploiting Local and Global Structure for Point Cloud Semantic Segmentation with Contextual Point Representations. In Advances in Neu- ral Information Processing Systems, 4571–4581. Wang, Z.; Li, S.; Howard-Jenkins, H.;",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04459,
+        0.01286,
+        -0.02922,
+        -0.0104,
+        -0.00182
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "or Point Cloud Semantic Segmentation with Contextual Point Representations. In Advances in Neu- ral Information Processing Systems, 4571–4581. Wang, Z.; Li, S.; Howard-Jenkins, H.;",
+      "overlap_with_next": "tion and gumbel subset sampling. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , 3323–3332. Zhong, Y . 2009. Intrinsic shape signatures: A shape ",
+      "text": "or Point Cloud Semantic Segmentation with Contextual Point Representations. In Advances in Neu- ral Information Processing Systems, 4571–4581. Wang, Z.; Li, S.; Howard-Jenkins, H.; Prisacariu, V .; and Chen, M. 2020. FlowNet3D++: Geometric losses for deep scene ﬂow estimation. In The IEEE Winter Conference on Applications of Computer Vision, 91–98. Weng, X.; Wang, J.; Levine, S.; Kitani, K.; and Rhinehart, N. 2020. Inverting the Pose Forecasting Pipeline with SPF2: Sequential Pointcloud Forecasting for Sequential Pose Fore- casting. CoRL . Wu, W.; Wang, Z.; Li, Z.; Liu, W.; and Fuxin, L. 2019. PointPWC-Net: A Coarse-to-Fine Network for Supervised and Self-Supervised Scene Flow Estimation on 3D Point Clouds. arXiv preprint arXiv:1911.12408 . Xu, X.; Siyao, L.; Sun, W.; Yin, Q.; and Yang, M.-H. 2019. Quadratic video interpolation. In Advances in Neural Infor- mation Processing Systems, 1647–1656. Yang, J.; Zhang, Q.; Ni, B.; Li, L.; Liu, J.; Zhou, M.; and Tian, Q. 2019. Modeling point clouds with self-attention and gumbel subset sampling. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , 3323–3332. Zhong, Y . 2009. Intrinsic shape signatures: A shape ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02713,
+        0.01572,
+        -0.03477,
+        -0.02438,
+        -0.01863
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 41125,
+      "length": 325,
+      "overlap_with_previous": "tion and gumbel subset sampling. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , 3323–3332. Zhong, Y . 2009. Intrinsic shape signatures: A shape ",
+      "overlap_with_next": "",
+      "text": "tion and gumbel subset sampling. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , 3323–3332. Zhong, Y . 2009. Intrinsic shape signatures: A shape de- scriptor for 3d object recognition. In 2009 IEEE 12th Inter- national Conference on Computer Vision Workshops, ICCV Workshops, 689–696. IEEE.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07942,
+        0.00995,
+        -0.00542,
+        -0.0008,
+        0.01173
+      ]
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Papers GraphRAG</title>
+<style>
+:root { --bg:#f4f6fb; --panel:#fff; --ink:#172033; --muted:#697386; --accent:#4256d0; --line:#e4e8f0; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif; background:var(--bg); color:var(--ink); }
+header { padding:24px clamp(16px,4vw,48px); background:#182344; color:white; }
+header h1 { margin:0 0 6px; font-size:clamp(22px,3vw,32px); }
+header p { margin:0; color:#d7def5; }
+main { max-width:1100px; margin:24px auto; padding:0 16px 32px; display:grid; grid-template-columns:300px minmax(0,1fr); gap:18px; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:0 8px 28px #1823440a; }
+h2 { margin:0 0 12px; font-size:18px; }
+.small { color:var(--muted); font-size:13px; line-height:1.5; }
+input,button,textarea { font:inherit; }
+button { border:0; border-radius:10px; background:var(--accent); color:white; padding:11px 14px; cursor:pointer; font-weight:650; }
+button:disabled { opacity:.55; cursor:wait; }
+.status { margin-top:10px; font-size:13px; color:var(--muted); overflow-wrap:anywhere; }
+.stats { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.stat { background:#f7f8fc; padding:12px; border-radius:10px; }
+.stat strong { display:block; font-size:21px; }
+.stat span { color:var(--muted); font-size:12px; }
+#papers { margin-top:14px; display:grid; gap:8px; }
+.paper { border-top:1px solid var(--line); padding-top:9px; font-size:13px; overflow-wrap:anywhere; }
+.chat-panel { min-height:70vh; display:flex; flex-direction:column; }
+#messages { flex:1; min-height:350px; max-height:62vh; overflow:auto; padding:4px 2px 16px; display:flex; flex-direction:column; gap:12px; }
+.msg { max-width:92%; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.55; padding:12px 14px; border-radius:14px; }
+.msg.user { align-self:flex-end; background:#e8ebff; }
+.msg.assistant { align-self:flex-start; background:#f5f6f9; border:1px solid var(--line); }
+.sources { margin-top:8px; font-size:12px; color:var(--muted); white-space:pre-wrap; }
+form#chatForm { display:flex; gap:8px; border-top:1px solid var(--line); padding-top:14px; }
+textarea { flex:1; resize:vertical; min-height:48px; max-height:160px; border:1px solid var(--line); border-radius:10px; padding:12px; outline-color:var(--accent); }
+#newChat { background:#e9ecf8; color:#26346c; margin-top:10px; }
+/* Markdown rendering for assistant messages */
+.msg.assistant { white-space:normal; }
+.md > :first-child { margin-top:0; } .md > :last-child { margin-bottom:0; }
+.md p, .md ul, .md ol { margin:8px 0; }
+.md table { border-collapse:collapse; display:block; overflow-x:auto; margin:10px 0; font-size:14px; }
+.md th, .md td { border:1px solid var(--line); padding:7px 10px; text-align:start; vertical-align:top; }
+.md th { background:#eef0f8; }
+.md code { background:#eceef6; padding:1px 5px; border-radius:5px; font-size:.92em; }
+.md pre { background:#eceef6; padding:10px; border-radius:8px; overflow:auto; }
+@media(max-width:760px) { main { grid-template-columns:1fr; } .chat-panel { min-height:60vh; } #messages { max-height:55vh; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Research Papers GraphRAG</h1>
+  <p>Ask questions across papers, retrieve evidence, and explore connected research concepts.</p>
+</header>
+<main>
+  <aside class="panel">
+    <h2>Your library</h2>
+    <div class="stats">
+      <div class="stat"><strong id="papersCount">—</strong><span>Papers</span></div>
+      <div class="stat"><strong id="chunksCount">—</strong><span>Chunks</span></div>
+      <div class="stat"><strong id="entitiesCount">—</strong><span>Entities</span></div>
+      <div class="stat"><strong id="edgesCount">—</strong><span>Relations</span></div>
+    </div>
+    <div id="statusMsg" class="status" role="status"></div>
+    <h2 style="margin-top:22px">Indexed papers</h2>
+    <div id="papers" class="small">Loading papers…</div>
+    <button id="newChat" type="button">Start a new chat</button>
+    <p class="small">The session ID is kept in this browser tab. Older messages are summarized by the backend and the latest two stay in full; original messages remain stored.</p>
+  </aside>
+  <section class="panel chat-panel">
+    <h2>Ask your research library</h2>
+    <div id="messages" aria-live="polite">
+      <div class="msg assistant">Hi! Ask me to explain methods, compare approaches, or find shared datasets and concepts across the indexed papers.</div>
+    </div>
+    <form id="chatForm">
+      <textarea id="question" placeholder="Example: Compare the methods used across these papers…" required></textarea>
+      <button id="sendBtn" type="submit">Ask</button>
+    </form>
+    <div class="small" style="margin-top:8px">Answers are grounded in retrieved excerpts and graph context. Verify important claims against the original paper.</div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+let sessionId = sessionStorage.getItem("researchGraphRagSession") || null;
+
+function addMessage(role, text, sources=[]) {
+  const wrap = document.createElement("div");
+  wrap.className = `msg ${role}`;
+  if (role === "assistant" && window.marked && window.DOMPurify) {
+    const body = document.createElement("div");
+    body.className = "md";
+    body.innerHTML = DOMPurify.sanitize(marked.parse(text, { gfm: true, breaks: true }));
+    wrap.appendChild(body);
+  } else {
+    wrap.textContent = text;  // user messages stay plain text; also the fallback if the CDN fails
+  }
+  if (sources.length) {
+    const src = document.createElement("div");
+    src.className = "sources";
+    src.textContent = "Retrieved sources: " + sources.map(s =>
+      `${s.paper_title || s.filename || "Paper"} (chunk ${s.chunk_index ?? "?"})`
+    ).join(" · ");
+    wrap.appendChild(src);
+  }
+  $("messages").appendChild(wrap);
+  $("messages").scrollTop = $("messages").scrollHeight;
+}
+
+async function refreshStats() {
+  try {
+    const [g, p] = await Promise.all([
+      fetch("/api/graph").then(r => r.json()),
+      fetch("/api/papers").then(r => r.json())
+    ]);
+    $("papersCount").textContent = g.papers ?? 0;
+    $("chunksCount").textContent = g.chunks ?? 0;
+    $("entitiesCount").textContent = g.entities ?? 0;
+    $("edgesCount").textContent = g.relations ?? g.edges ?? 0;
+    $("papers").replaceChildren();
+    if (!p.papers?.length) $("papers").textContent = "No papers indexed yet.";
+    for (const paper of (p.papers || [])) {
+      const item = document.createElement("div");
+      item.className = "paper";
+      item.textContent = `${paper.title || paper.filename} ${paper.year ? "(" + paper.year + ")" : ""}`;
+      $("papers").appendChild(item);
+    }
+  } catch (e) {
+    $("statusMsg").textContent = "Could not load API data. Is the FastAPI server running?";
+  }
+}
+
+$("chatForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const question = $("question").value.trim();
+  if (!question) return;
+  addMessage("user", question);
+  $("question").value = "";
+  $("sendBtn").disabled = true;
+  try {
+    const response = await fetch("/api/chat", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({ question, session_id:sessionId })
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.detail || "Chat request failed.");
+    sessionId = data.session_id;
+    sessionStorage.setItem("researchGraphRagSession", sessionId);
+    addMessage("assistant", data.answer, data.sources || []);
+  } catch (e) {
+    addMessage("assistant", "Error: " + e.message);
+  } finally {
+    $("sendBtn").disabled = false;
+    $("question").focus();
+  }
+});
+
+$("newChat").addEventListener("click", () => {
+  sessionId = null;
+  sessionStorage.removeItem("researchGraphRagSession");
+  $("messages").replaceChildren();
+  addMessage("assistant", "New conversation started. Your indexed research library is unchanged.");
+});
+
+refreshStats();
+</script>
+</body>
+</html>

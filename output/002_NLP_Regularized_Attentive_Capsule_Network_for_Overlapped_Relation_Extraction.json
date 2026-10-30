@@ -1,0 +1,538 @@
+{
+  "paper_id": "519690df-b272-4184-92ed-50d92e390eb2",
+  "filename": "002_NLP_Regularized_Attentive_Capsule_Network_for_Overlapped_Relation_Extraction.pdf",
+  "title": "Regularized Attentive Capsule Network for Overlapped Relation Extraction",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 31,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "informal sentence. To discover multiple relation features in an instance, we embed multi-head attention into the capsule network as the low-level capsules, where the subtraction of",
+      "text": "[Page 1] Regularized Attentive Capsule Network for Overlapped Relation Extraction Tianyi Liu1†, Xiangyu Lin 2†, Weijia Jia3,1∗, Mingliang Zhou 4, Wei Zhao5 1Department of Computer Science and Engineering, Shanghai Jiao Tong University 2Department of Computer and Information Science, University of Macau 3BNU-UIC Institute of AI and Future Networks, Beijing Normal University (Zhuhai) 4School of Computer Science, Chongqing University 5American University of Sharjah, Sharjah United Arab Emirates Abstract Distantly supervised relation extraction has been widely applied in knowledge base construction due to its less requirement of human efforts. However, the automatically established training datasets in distant supervision contain low-quality instances with noisy words and overlapped relations, introducing great challenges to the accurate extraction of relations. To address this problem, we propose a novel Regularized Attentive Capsule Network (RA-CapNet) to better identify highly overlapped relations in each informal sentence. To discover multiple relation features in an instance, we embed multi-head attention into the capsule network as the low-level capsules, where the subtraction of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03065,
+        -0.0103,
+        -0.02511,
+        -0.01243,
+        -0.01938
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "informal sentence. To discover multiple relation features in an instance, we embed multi-head attention into the capsule network as the low-level capsules, where the subtraction of",
+      "overlap_with_next": " 2011; Surdeanu et al., 2012) have been proposed to address it. Despite the wrong labeling problem, each instance in distant super- vision is crawled from web pages, which is infor",
+      "text": "informal sentence. To discover multiple relation features in an instance, we embed multi-head attention into the capsule network as the low-level capsules, where the subtraction of two entities acts as a new form of relation query to select salient features regardless of their positions. To further discriminate overlapped relation features, we devise disagreement regularization to explicitly encourage the diversity among both multiple attention heads and low-level capsules. Extensive experiments conducted on widely used datasets show that our model achieves signiﬁcant improvements in relation extraction. 1 Introduction Relation extraction aims to extract relations between entities in text, where distant supervision proposed by (Mintz et al., 2009) automatically establishes training datasets by assigning relation labels to instances that mention entities within knowledge bases. However, the wrong labeling problem can occur and var- ious multi-instance learning methods (Riedel et al., 2010; Hoffmann et al., 2011; Surdeanu et al., 2012) have been proposed to address it. Despite the wrong labeling problem, each instance in distant super- vision is crawled from web pages, which is infor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06005,
+        -0.00892,
+        -0.01082,
+        0.04847,
+        -0.0177
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " 2011; Surdeanu et al., 2012) have been proposed to address it. Despite the wrong labeling problem, each instance in distant super- vision is crawled from web pages, which is infor",
+      "overlap_with_next": "and dis- persedly in S1, while others excluded from the clause can be regarded as noise. Traditional neural models have difﬁculty gathering spotted relation features at different p",
+      "text": " 2011; Surdeanu et al., 2012) have been proposed to address it. Despite the wrong labeling problem, each instance in distant super- vision is crawled from web pages, which is informal with many noisy words and can express multiple similar relations. This problem is not well-handled by previous approaches and severely hampers the performance of conventional neural relation extractors. To handle this problem, we have to address two challenges: (1) Identifying and gathering spotted relation information from low-quality instances; (2) Distinguishing multiple overlapped relation features from each instance. First, a few signiﬁcant relation words are distributed dispersedly in the sentence, as shown in Figure 1, where words marked in red brackets represent entities, and italic words are key to expressing the rela- tions. For instance, the clause “ evan bayh son of birch bayh” in S1 is sufﬁcient to express the relation /people/person/children of evan bayh and birch bayh. Salient relation words are few in number and dis- persedly in S1, while others excluded from the clause can be regarded as noise. Traditional neural models have difﬁculty gathering spotted relation features at different p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01496,
+        -0.03032,
+        -0.01398,
+        0.04012,
+        -0.02713
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "and dis- persedly in S1, while others excluded from the clause can be regarded as noise. Traditional neural models have difﬁculty gathering spotted relation features at different p",
+      "overlap_with_next": "] 18 Dec 2020 [Page 2] ID Instances Relations S1 senator [evan_bayh], son offormer senator [birch_bayh] of indiana, is organizing and testing the waters for a possible presidential",
+      "text": "and dis- persedly in S1, while others excluded from the clause can be regarded as noise. Traditional neural models have difﬁculty gathering spotted relation features at different positions along the sequence because they use Convolutional Neural Network (CNN) or Recurrent Neural Network (RNN) as basic relation en- coders (Zeng et al., 2015; Liu et al., 2018; Ye and Ling, 2019), which model each sequence word by word and lose rich non-local information for modeling the dependencies of semantic salience. Thus, a well-behaved relation extractor is needed to extract scattered relation features from informal instances. Second, each instance can express multiple similar relations of two entities. As shown in Figure 1, Changsha and Hunan possess the relations /location/location/contains and /location/province/capital in S2, which have similar semantics, introducing great challenges for neural extractors in discriminating †make equal contributions ∗Corresponding author: jiawj@sjtu.edu.cn arXiv:2012.10187v1 [cs.CL] 18 Dec 2020 [Page 2] ID Instances Relations S1 senator [evan_bayh], son offormer senator [birch_bayh] of indiana, is organizing and testing the waters for a possible presidential",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02919,
+        -0.00018,
+        -0.02489,
+        0.01358,
+        -0.03111
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "] 18 Dec 2020 [Page 2] ID Instances Relations S1 senator [evan_bayh], son offormer senator [birch_bayh] of indiana, is organizing and testing the waters for a possible presidential",
+      "overlap_with_next": " as low-level capsules without the diversity encouragement, which poses the difﬁculty of distinguishing different and overlapped relation features from a single type of semantic ca",
+      "text": "] 18 Dec 2020 [Page 2] ID Instances Relations S1 senator [evan_bayh], son offormer senator [birch_bayh] of indiana, is organizing and testing the waters for a possible presidential bid in 2008. /people/person/children S2 that is one reason that [hunan]'s fast-growing provincial capital, [changsha], is beginning to siphon some workers. /location/location/contains /location/province/capital S3 the land is near calgary; while that is one of [alberta]'s largest cities, the capitalis[edmonton]. /location/location/contains /location/province/capital /location/country/capital … … … Figure 1: Example of instances from the New York Times (NYT). them clearly. Conventional neural methods are not effective at extracting overlapped relation features, because they mix different relation semantics into a single vector by max-pooling (Zeng et al., 2014) or self-attention (Lin et al., 2016). Although (Zhang et al., 2019) ﬁrst propose an attentive capsule network for multi-labeled relation extraction, it treats the CNN/RNN as low-level capsules without the diversity encouragement, which poses the difﬁculty of distinguishing different and overlapped relation features from a single type of semantic ca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01576,
+        0.00307,
+        -0.03397,
+        0.01875,
+        -0.04853
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": " as low-level capsules without the diversity encouragement, which poses the difﬁculty of distinguishing different and overlapped relation features from a single type of semantic ca",
+      "overlap_with_next": "imilarity of each relation representation and word representation. Furthermore, we apply disagreement regularization to multi- head attention and low-level capsules, which encourag",
+      "text": " as low-level capsules without the diversity encouragement, which poses the difﬁculty of distinguishing different and overlapped relation features from a single type of semantic capsule. Therefore, a well-behaved relation extractor is needed to discriminate diverse overlapped relation features from different semantic spaces. To address the above problem, we propose a novel Regularized Attentive Capsule Network (RA- CapNet) to identify highly overlapped relations in the low-quality distant supervision corpus. First, we propose to embed multi-head attention into the capsule network, where attention vectors from each head are encapsulated as a low-level capsule, discovering relation features in an unique semantic space. Then, to improve multi-head attention in extracting spotted relation features, we devise relation query multi-head attention, which selects salient relation words regardless of their positions. This mechanism assigns proper attention scores to salient relation words by calculating the logit similarity of each relation representation and word representation. Furthermore, we apply disagreement regularization to multi- head attention and low-level capsules, which encourag",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03678,
+        -0.02553,
+        -0.01259,
+        0.02684,
+        -0.0204
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "imilarity of each relation representation and word representation. Furthermore, we apply disagreement regularization to multi- head attention and low-level capsules, which encourag",
+      "overlap_with_next": "evel capsules. • RA-CapNet achieves signiﬁcant improvements for distantly supervised relation extraction. 2 Related Work Distantly supervised relation extraction has been essential",
+      "text": "imilarity of each relation representation and word representation. Furthermore, we apply disagreement regularization to multi- head attention and low-level capsules, which encourages each head or capsule to discriminate different relation features from different semantic spaces. Finally, the dynamic routing algorithm and sliding- margin loss are employed to gather diverse relation features and predict multiple speciﬁc relations. We evaluate RA-CapNet using two benchmarks. The experimental results show that our model achieves satisfactory performance over the baselines. Our contributions are summarized as follows: • We ﬁrst propose to embed multi-head attention as low-level capsules into the capsule network for distantly supervised relation extraction. • To improve the ability of multi-head attention in extracting scattered relation features, we design relation query multi-head attention. • To discriminate overlapped relation features, we devise disagreement regularization on multi-head attention and low-level capsules. • RA-CapNet achieves signiﬁcant improvements for distantly supervised relation extraction. 2 Related Work Distantly supervised relation extraction has been essential",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03027,
+        -0.03097,
+        -0.03005,
+        0.02209,
+        -0.04492
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "evel capsules. • RA-CapNet achieves signiﬁcant improvements for distantly supervised relation extraction. 2 Related Work Distantly supervised relation extraction has been essential",
+      "overlap_with_next": " the effect of noisy words and overlapped relation features in each instance. To reduce the impact of noisy words, tree-based methods attempt to obtain the rele- vant sub-structure",
+      "text": "evel capsules. • RA-CapNet achieves signiﬁcant improvements for distantly supervised relation extraction. 2 Related Work Distantly supervised relation extraction has been essential for knowledge base construction since (Mintz et al., 2009) propose it. To address the wrong labeling problem in distant supervision, multi-instance and multi-label approaches are proposed (Riedel et al., 2010; Hoffmann et al., 2011; Surdeanu et al., 2012). With the renaissance of neural networks, increasing researches in distant supervision have been pro- posed to extract precise relation features. Piecewise CNNs with various attention mechanisms are pro- posed (Zeng et al., 2015; Lin et al., 2016; Ji et al., 2017). Reinforcement learning and adversarial training [Page 3] are proposed to select valid instances to train relation extractors (Feng et al., 2018; Qin et al., 2018b; Qin et al., 2018a). Recently, multi-level noise reduction is designed by (Ye and Ling, 2019; Jia et al., 2019). Nevertheless, the above approaches ignore the effect of noisy words and overlapped relation features in each instance. To reduce the impact of noisy words, tree-based methods attempt to obtain the rele- vant sub-structure",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05795,
+        0.01669,
+        -0.01636,
+        0.01889,
+        -0.02534
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " the effect of noisy words and overlapped relation features in each instance. To reduce the impact of noisy words, tree-based methods attempt to obtain the rele- vant sub-structure",
+      "overlap_with_next": "ery Headi h1 h2 h3 h4 h5 h6 h7 h8 h9 (a) Relation Query Attention (b) DisagreementRegularization y2y1 ...ymOutput yNA diff. diff. diff. Figure 2: Overall architecture of RA-CapNet,",
+      "text": " the effect of noisy words and overlapped relation features in each instance. To reduce the impact of noisy words, tree-based methods attempt to obtain the rele- vant sub-structure of an instance for relation extraction (Xu et al., 2015; Miwa and Bansal, 2016; Liu et al., 2018). To discriminate overlapped relation features, (Zhang et al., 2019) apply the capsule net- work (Sabour et al., 2017) for multi-labeled relation extraction. Inspired by the ability of multi-head attention in modeling the long-term dependency (Vaswani et al., 2017), (Zhang et al., 2020) attempt to reduce multi-granularity noise via multi-head attention in relation extraction. senator evan_bahy , son of former birch_bahy of indiana x1 x2 x3 x4 x5 x6 x7 x8 x9Word Encoding h1 h2 h3 h4 h5 h6 h7 h8 h9BLSTM Encoding Regularized Relation Query Multi-Head Attention Low-Level Regularized Capsules ...u11 u1k ...u21 u2k ...u31 u3k ...ut1 utk... High-Level Capsules Dynamic Routing r2r1 ... rm Head1 Head2diff. h2-h7 h1 h2 h3 h4 h5 h6 h7 h8 h9 query Headi h1 h2 h3 h4 h5 h6 h7 h8 h9 (a) Relation Query Attention (b) DisagreementRegularization y2y1 ...ymOutput yNA diff. diff. diff. Figure 2: Overall architecture of RA-CapNet,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02738,
+        -0.01845,
+        -0.02214,
+        0.01852,
+        -0.02821
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ery Headi h1 h2 h3 h4 h5 h6 h7 h8 h9 (a) Relation Query Attention (b) DisagreementRegularization y2y1 ...ymOutput yNA diff. diff. diff. Figure 2: Overall architecture of RA-CapNet,",
+      "overlap_with_next": " ﬁrst. Then, the jth input wordxij in theith instance, is concatenated by one word embedded vector xwij∈Rk and two position embedded vectorsxp1ij andxp2ij ∈Rp,xij = [xwij;xp1ij ;xp",
+      "text": "ery Headi h1 h2 h3 h4 h5 h6 h7 h8 h9 (a) Relation Query Attention (b) DisagreementRegularization y2y1 ...ymOutput yNA diff. diff. diff. Figure 2: Overall architecture of RA-CapNet, expressing the process of handling an instance. 3 Methodology As shown in Figure 2, we will introduce the three-layer RA-CapNet: (1) The Feature Encoding Layer primarily contains the word encoding layer and BLSTM encoding layer. (2) The Feature Extracting Layer chieﬂy includes relation query multi-head attention and disagreement regularization. (3) The Relation Gathering Layer mainly consists of a regularized capsule network and dynamic routing. 3.1 Feature Encoding Layer Each instance is ﬁrst input into the encoding layer to be transformed to the distributed representations for the convenience of calculation and extraction by neural networks. Word Encoding Layer As mentioned in (Zeng et al., 2014), the inputs of the relation extractor are word and position tokens, which are encoded by word embeddings and position embeddings at ﬁrst. Then, the jth input wordxij in theith instance, is concatenated by one word embedded vector xwij∈Rk and two position embedded vectorsxp1ij andxp2ij ∈Rp,xij = [xwij;xp1ij ;xp",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01123,
+        -0.03261,
+        -0.01637,
+        0.02462,
+        -0.02106
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": " ﬁrst. Then, the jth input wordxij in theith instance, is concatenated by one word embedded vector xwij∈Rk and two position embedded vectorsxp1ij andxp2ij ∈Rp,xij = [xwij;xp1ij ;xp",
+      "overlap_with_next": "ulti-head attention is devised to emphasize spotted relation features from different semantic spaces. Then, disagreement regularization is applied to encouraging the diversity of r",
+      "text": " ﬁrst. Then, the jth input wordxij in theith instance, is concatenated by one word embedded vector xwij∈Rk and two position embedded vectorsxp1ij andxp2ij ∈Rp,xij = [xwij;xp1ij ;xp2ij ], wherek andp represent the dimensions of word vectors and position vectors respectively, and ; denotes the vertical concatenating operation. To simplify the mathematical expression, we denotexij asxj. BLSTM Encoding Layer To further encode relation features inside the context, we adopt the Bidirectional Long-Short Term net- work (BLSTM) (Graves, 2013) as our basic relation encoder, which can access the future context as well [Page 4] as the past. The encoding feature vectorhi of theith word is calculated as follows: − →hi =−−−−→LSTM (xi,−−→hi−1) (1) ← −hi =←−−−−LSTM (xi,←−−hi+1) (2) hi =− →hi +← −hi (3) where− →hi and← −hi∈ Rd are hidden state vectors of the LSTM. Finally, we obtain the sentence encoding vectorH = [h1,h 2,··· ,h l], wherel represents the instance length. 3.2 Feature Extracting Layer First, relation query multi-head attention is devised to emphasize spotted relation features from different semantic spaces. Then, disagreement regularization is applied to encouraging the diversity of r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02573,
+        -0.01482,
+        -0.00979,
+        0.0267,
+        -0.02278
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "ulti-head attention is devised to emphasize spotted relation features from different semantic spaces. Then, disagreement regularization is applied to encouraging the diversity of r",
+      "overlap_with_next": "t matrices. Afterward, we calculate the logit similarity of the relation query vector and word representation vectors as attention scores: energy = QrelKT√ d (6) where theenergy ca",
+      "text": "ulti-head attention is devised to emphasize spotted relation features from different semantic spaces. Then, disagreement regularization is applied to encouraging the diversity of relation features that each head discovers. Relation Query Multi-Head Attention Multi-head attention is useful for modeling the long-term dependency of salient information in the con- text (Vaswani et al., 2017). Based on this mechanism, we propose relation query multi-head attention to improve the ability of multi-head attention in extracting spotted and salient relation features regardless of their irregular positions in the instance. Formally, given an encoding instanceH, we use the subtraction of two entities’ states hen1 andhen2 as the relation representation, as inspired by (Bordes et al., 2013). The relation representation acts as a query vector as follows: Qrel = (hen1−hen2)W Q (4) whereW Q∈Rd×d is a weight matrix. The corresponding keyK and valueV vectors are deﬁned: K =HW K V =HW V (5) where W K and W V ∈ Rd×d are weight matrices. Afterward, we calculate the logit similarity of the relation query vector and word representation vectors as attention scores: energy = QrelKT√ d (6) where theenergy ca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0221,
+        -0.00209,
+        -0.01304,
+        0.0147,
+        -0.04011
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "t matrices. Afterward, we calculate the logit similarity of the relation query vector and word representation vectors as attention scores: energy = QrelKT√ d (6) where theenergy ca",
+      "overlap_with_next": "ased on (Yang et al., 2018). Formally, givenn headsHead = [head1,head 2,··· ,head n] as calculated in Eq. (8), we calculate the cosine similaritycos(.) between the vector pairheadi",
+      "text": "t matrices. Afterward, we calculate the logit similarity of the relation query vector and word representation vectors as attention scores: energy = QrelKT√ d (6) where theenergy can measure the importance of each word to relation extraction, which is leveraged to select salient and spotted relation features along the sequence: ATT =softmax (energy )V (7) To extract diverse relation features, we employ relation query attention into multi-head attention: headi =ATT (Qreli ,K i,V i) (8) Em = [head1;head2;··· ;headn]W o (9) whereW o∈Rd×d is the weight matrix. Multiple heads can capture various semantic features. After we acquire the outputEm of multi-head attention, a Feed-Forward Network (FFN) is applied: H r =max(0,E mW f1 +bf1 )W f2 +bf2 (10) whereW f1 ∈Rd×d,W f2 ∈Rd×d′,bf1∈Rd andbf2∈Rd′ are parameters. [Page 5] Disagreement Regularization on Multi-Head Attention To further discriminate overlapped relation features from different heads in multi-head attention, we introduce the disagreement regularization based on (Yang et al., 2018). Formally, givenn headsHead = [head1,head 2,··· ,head n] as calculated in Eq. (8), we calculate the cosine similaritycos(.) between the vector pairheadi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02332,
+        -0.01819,
+        -0.02484,
+        0.01707,
+        -0.02766
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ased on (Yang et al., 2018). Formally, givenn headsHead = [head1,head 2,··· ,head n] as calculated in Eq. (8), we calculate the cosine similaritycos(.) between the vector pairheadi",
+      "overlap_with_next": "pplication, a capsule is a group of neural vectors within one-head attention and regularized by a disagreement term. Thus, each capsule can capture relation features in an unique s",
+      "text": "ased on (Yang et al., 2018). Formally, givenn headsHead = [head1,head 2,··· ,head n] as calculated in Eq. (8), we calculate the cosine similaritycos(.) between the vector pairheadi andheadj in different value subspaces: Dsubij =cos(headi,head j) = headi·headj‖headi‖‖headj‖ (11) where‖∗‖ represents theL2 norm of vectors. The average cosine distance among all heads is obtained: Dsub = ∑ ijDsubij n2 (12) Our goal is to minimize Dsub, which encourages the heads to be different from each other, improving the diversity of subspaces among multiple heads. Accordingly, each head can discriminate overlapped relation features more clearly. 3.3 Relation Gathering Layer To form relation-speciﬁc features, the relation gathering layer gathers scattered relation features from diverse low-level capsules using a dynamic routing algorithm. Low-Level Capsules with Disagreement Regularization The capsule network has been proven effective in discriminating overlapped features (Sabour et al., 2017; Zhang et al., 2019). In our application, a capsule is a group of neural vectors within one-head attention and regularized by a disagreement term. Thus, each capsule can capture relation features in an unique s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01901,
+        -0.03409,
+        -0.03426,
+        -0.00278,
+        -0.02055
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "pplication, a capsule is a group of neural vectors within one-head attention and regularized by a disagreement term. Thus, each capsule can capture relation features in an unique s",
+      "overlap_with_next": "urage the capsules to be different from each other, improving the diversity of subspaces among multiple capsules and discriminating overlapped relation features more clearly. The ﬁ",
+      "text": "pplication, a capsule is a group of neural vectors within one-head attention and regularized by a disagreement term. Thus, each capsule can capture relation features in an unique semantic space. In detail, the orientation of the attention vector inside one head indicates one certain factor of a speciﬁc relation, while its length means the probability that this relational factor exists. We reorganize each attention head ofH r to form a low-level capsule denoted asu∈Rdu, where each capsule captures information in a speciﬁc semantic space. Formally, the above process is as follows: H r = [hr1;...;hrt ] (13) uk =g(hrk) = ‖hrk‖2 1 + ‖‖hrk‖‖2 hrk‖‖hrk‖‖ (14) wheret is the number of low-level capsules, which equals the quantity of heads. Eq. (14) is a squash function, shrinking the length of vectors from 0 to 1 to express the probability. To encourage the diversity of these capsules, disagreement regularization is applied to them: Dcapij = ui·uj‖ui‖‖uj‖ (15) Dcap = ∑ ijDcapij t2 (16) To minimizeDcap, we can encourage the capsules to be different from each other, improving the diversity of subspaces among multiple capsules and discriminating overlapped relation features more clearly. The ﬁ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04101,
+        -0.02376,
+        -0.01825,
+        0.02782,
+        -0.026
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "urage the capsules to be different from each other, improving the diversity of subspaces among multiple capsules and discriminating overlapped relation features more clearly. The ﬁ",
+      "overlap_with_next": "ich sums up the loss for both the relations present and absent from the instances. This margin loss function is integrated into our model as follows: Lj =Yjmax(0, (S +γ)−‖rj‖)2+ λ(",
+      "text": "urage the capsules to be different from each other, improving the diversity of subspaces among multiple capsules and discriminating overlapped relation features more clearly. The ﬁnal disagreement regularization term is the average of multi-head and capsule disagreement: D = Dsub +Dcap 2 (17) whereD is the ﬁnal disagreement regularization term which only works for the training process. [Page 6] High-Level Capsules with Dynamic Routing After the low-level capsules capturing the different aspects of semantic information, the high-level cap- sulesr∈Rdr are produced from them to gather scattered information and form speciﬁc relation features, which are calculated as follows: rj =g( ∑ cijW hjui) (18) where W hj ∈ Rdu×dr are parameters for high-level capsules and cij are coupling coefﬁcients that are determined by the dynamic routing process described in (Sabour et al., 2017). Loss Function The sliding-margin loss function used in the capsule network enables the prediction of multiple over- lapped relations, which sums up the loss for both the relations present and absent from the instances. This margin loss function is integrated into our model as follows: Lj =Yjmax(0, (S +γ)−‖rj‖)2+ λ(",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07688,
+        -0.02098,
+        -0.02056,
+        -0.00805,
+        -0.03278
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ich sums up the loss for both the relations present and absent from the instances. This margin loss function is integrated into our model as follows: Lj =Yjmax(0, (S +γ)−‖rj‖)2+ λ(",
+      "overlap_with_next": "e effects of different parts of RA-CapNet. Finally, we present the case study. 4.1 Dataset and Experimental Setup Dataset. To evaluate the effects of RA-CapNet, we conduct experime",
+      "text": "ich sums up the loss for both the relations present and absent from the instances. This margin loss function is integrated into our model as follows: Lj =Yjmax(0, (S +γ)−‖rj‖)2+ λ(1−Yj)max(0,‖rj‖− (S−γ))2 (19) whereγ is the width of the margin,S is a learnable threshold for “no relation” (NA), andλ is the down- weighting of the loss for absent relations. Yj = 1 if the relation corresponding to rj is present in the sentence andYj = 0 otherwise. Afterward, the ﬁnal loss is deﬁned as follows: loss = ∑ j Lj +βD +β′‖θ‖2 (20) whereβ andβ′ are hyperparameters used to restrict the disagreement regularization andL2 regularization of all parametersθ. In this paper, we use the Adam (Kingma and Ba, 2014) to minimize the ﬁnal loss. 4 Experiments Our experiments are devised to demonstrate that RA-CapNet can identify highly overlapped relations of informal instances in distant supervision. In this section, we ﬁrst introduce the dataset and experimental setup. Then, we evaluate the overall performance of RA-CapNet and the effects of different parts of RA-CapNet. Finally, we present the case study. 4.1 Dataset and Experimental Setup Dataset. To evaluate the effects of RA-CapNet, we conduct experime",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03512,
+        0.00117,
+        -0.03639,
+        -0.02806,
+        -0.042
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "e effects of different parts of RA-CapNet. Finally, we present the case study. 4.1 Dataset and Experimental Setup Dataset. To evaluate the effects of RA-CapNet, we conduct experime",
+      "overlap_with_next": "ncluding NA). Evaluation Metric. As mentioned in (Mintz et al., 2009), we use the held-out metrics to evaluate RA-CapNet. The held-out evaluation offers an automatic way to assess ",
+      "text": "e effects of different parts of RA-CapNet. Finally, we present the case study. 4.1 Dataset and Experimental Setup Dataset. To evaluate the effects of RA-CapNet, we conduct experiments on two datasets. NYT-10 is a standard dataset constructed by (Riedel et al., 2010), which aligns relational tuples in Freebase (Bol- lacker et al., 2008) with the corpus of New York Times. Sentences from 2005-2006 are used as the training set, while sentences from 2007 are used for testing. NYT-18 is a larger dataset constructed by (Zhang et al., 2020) with the same creation method as NYT-10, which crawls 2008-2017 contexts from the NYT. All the sentences are divided into ﬁve parts with the same relation distribution for ﬁve-fold cross-validation. The details of the datasets are illustrated in Table 1. Datasets Training (k) Testing (k) Rel.Sen. Ent. Sen. Ent. NYT-10 523 281 172 97 53 NYT-18 2446 1234 611 394 503 Table 1: The dataset information. Sen., Ent. and Rel. indicate numbers of sentences, entity pairs and relations (including NA). Evaluation Metric. As mentioned in (Mintz et al., 2009), we use the held-out metrics to evaluate RA-CapNet. The held-out evaluation offers an automatic way to assess ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00109,
+        -0.00249,
+        -0.05753,
+        0.018,
+        -0.00572
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "ncluding NA). Evaluation Metric. As mentioned in (Mintz et al., 2009), we use the held-out metrics to evaluate RA-CapNet. The held-out evaluation offers an automatic way to assess ",
+      "overlap_with_next": "w-level capsule numbert 16 16 Valid relation classm 52 502 Sliding marginγ 0.4 0.4 Down-weightingλ 1.0 1.0 Learning ratelr 0.0001 0.0001 Dropout probabilityp 0.5 0.5 Weight of disa",
+      "text": "ncluding NA). Evaluation Metric. As mentioned in (Mintz et al., 2009), we use the held-out metrics to evaluate RA-CapNet. The held-out evaluation offers an automatic way to assess models with the PR curve and [Page 7] Precision at top 100 or 10k predictions (P@100 on NYT-10 or P@10k on NYT-18) at all numbers of instances under each entity pair, which indicates that all instances under the entity pair are used to represent the relation. Parameter .In our work, we use the Skip-Gram (Mikolov et al., 2013) to pretrain our word embedding matrices. The words of an entity are concatenated when it has multiple words. The grid search and cross- validation are used to adjust important hyperparameters of the networks. Our ﬁnal parameter settings are illustrated in Table 2. Parameter NYT-10 NYT-18 Batch sizeb 50 50 Word embedding sizek 50 360 Position embedding sizep 5 5 Sentence lengthl 100 100 LSTM hidden sized 256 256 Multi-head numbern 16 16 FFN hidden sized′ 512 512 Capsule dimensions [du,d r] [16,16] [16,16] Low-level capsule numbert 16 16 Valid relation classm 52 502 Sliding marginγ 0.4 0.4 Down-weightingλ 1.0 1.0 Learning ratelr 0.0001 0.0001 Dropout probabilityp 0.5 0.5 Weight of disa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05411,
+        -0.02867,
+        -0.00555,
+        -0.00031,
+        -0.00274
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "w-level capsule numbert 16 16 Valid relation classm 52 502 Sliding marginγ 0.4 0.4 Down-weightingλ 1.0 1.0 Learning ratelr 0.0001 0.0001 Dropout probabilityp 0.5 0.5 Weight of disa",
+      "overlap_with_next": "iu et al., 2018) propose a BGRU-based approach to reduce inner-sentence noise. PCNN+INTRA+INTER (Ye and Ling, 2019) propose to emphasize true labeled sentences and bags. A TT+CAPNE",
+      "text": "w-level capsule numbert 16 16 Valid relation classm 52 502 Sliding marginγ 0.4 0.4 Down-weightingλ 1.0 1.0 Learning ratelr 0.0001 0.0001 Dropout probabilityp 0.5 0.5 Weight of disagreementβ 0.001 0.001 L2 penaltyβ′ 1e-08 0.0 Table 2: Parameter settings. 4.2 Overall Performance 0.0 0.1 0.2 0.3 0.4 0.5 0.6 Recall 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0Precision PCNN BGRU+ATT PCNN+ATT BGRU+SET ATT-CAPNET PCNN+INTRA+INTER QARE+ATT RA-CAPNET Figure 4: Precision-recall curves on NYT-10. 0.0 0.1 0.2 0.3 0.4 0.5 0.6 Recall 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00Precision PCNN PCNN+ATT BGRU+SET PCNN+INTRA+INTER BGRU+ATT ATT+CAPNET QARE+ATT RA-CAPNET Figure 5: Precision-recall curves on NYT-18. To evaluate our model, we select the following methods for comparison: PCNN (Zeng et al., 2015) present a piecewise CNN for relation extraction. PCNN+A TT(Lin et al., 2016) propose the selective attention mechanism with PCNN. BGRU+A TT(Zhou et al., 2016) present a BGRU-based model with word-level attention. [Page 8] BGRU+SET (Liu et al., 2018) propose a BGRU-based approach to reduce inner-sentence noise. PCNN+INTRA+INTER (Ye and Ling, 2019) propose to emphasize true labeled sentences and bags. A TT+CAPNE",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05507,
+        -0.01482,
+        -0.01858,
+        -0.0199,
+        0.00128
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "iu et al., 2018) propose a BGRU-based approach to reduce inner-sentence noise. PCNN+INTRA+INTER (Ye and Ling, 2019) propose to emphasize true labeled sentences and bags. A TT+CAPNE",
+      "overlap_with_next": " which indicates that the relation query multi-head attention and disagreement regularization are useful for overlapped relation extraction. Model PR curve areaNYT-10 NYT-18 BGRU+A",
+      "text": "iu et al., 2018) propose a BGRU-based approach to reduce inner-sentence noise. PCNN+INTRA+INTER (Ye and Ling, 2019) propose to emphasize true labeled sentences and bags. A TT+CAPNET(Zhang et al., 2019) put forward an attentive capsule network for relation extraction. QARE+A TT(Zhang et al., 2020) propose improved multi-head attention with transfer learning. We compare our method with baselines on two datasets. For both datasets, the PR curves on NYT-10 and NYT-18 are shown in Figure 4 and Figure 5. We ﬁnd that: (1) BGRU+SET performs well on NYT- 10 but poorly on NYT-18. This demonstrates that BGRU+SET is not well-handled on highly informal instances because the complex instances in NYT-18 are difﬁcult to be parsed precisely by the conven- tional parser. (2) RA-CapNet achieves the best PR curve among all baselines on both datasets, which improves the PR curve signiﬁcantly. This veriﬁes that our model is effective in capturing overlapped and scattered relation features. (3) RA-CapNet outperforms ATT+CAPNET, which indicates that the relation query multi-head attention and disagreement regularization are useful for overlapped relation extraction. Model PR curve areaNYT-10 NYT-18 BGRU+A",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05748,
+        -0.02425,
+        -0.04059,
+        -0.00574,
+        -0.00129
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " which indicates that the relation query multi-head attention and disagreement regularization are useful for overlapped relation extraction. Model PR curve areaNYT-10 NYT-18 BGRU+A",
+      "overlap_with_next": "g on overlapped relation extraction. (2) Capnet- based models achieve better performance on the highly complex NYT-18 dataset, which results from their capability of handling overl",
+      "text": " which indicates that the relation query multi-head attention and disagreement regularization are useful for overlapped relation extraction. Model PR curve areaNYT-10 NYT-18 BGRU+ATT 0.337 0.596 PCNN+ATT 0.356 0.511 BGRU+SET 0.392 0.290 ATT-CAPNET 0.415 0.647 PCNN+INTRA+INTER 0.423 0.617 QARE+ATT 0.428 0.645 RA-CAPNET 0.526 0.780 Table 3: Precision-recall curve areas. Model P@100 P@10k PCNN 72.3 81.0 PCNN+ATT 82.0 82.2 BGRU+ATT 74.0 88.1 BGRU+SET 87.0 67.4 PCNN+INTRA+INTER 91.8 - ATT+CAPNET 84.0 - QARE+ATT 93.0 91.6 RA-CAPNET 98.0 96.6 Table 4: P@100 and P@10k. A detailed comparison of all approaches, the areas of the PR curves, P@100 and P@10k on NYT-10 or NYT-18, are illustrated in Table 3 and Table 4. From the tables, we ﬁnd that: (1) RA-CapNet is the ﬁrst method to increase the PR curve area over 0.5 on NYT-10 while improving it on NYT-18 to 0.7. In P@100 and P@10k, our model also achieves superior performance. This result further demonstrates the effectiveness of RA-CapNet with multi-instance learning on overlapped relation extraction. (2) Capnet- based models achieve better performance on the highly complex NYT-18 dataset, which results from their capability of handling overl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03944,
+        -0.01503,
+        -0.04718,
+        -0.00064,
+        -0.01822
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "g on overlapped relation extraction. (2) Capnet- based models achieve better performance on the highly complex NYT-18 dataset, which results from their capability of handling overl",
+      "overlap_with_next": "ET: Our model. In Figure 6 and 7, the result indicates that: (1) ATT-CAPNET improves the performance of R-MHATT by incorporating the capsule network for handling the multiple relat",
+      "text": "g on overlapped relation extraction. (2) Capnet- based models achieve better performance on the highly complex NYT-18 dataset, which results from their capability of handling overlapped relations and complex sentences. 4.3 Ablation Study 0.0 0.1 0.2 0.3 0.4 0.5 0.6 Recall 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0Precision ATT-CAPNET A-CAPNET HR-CAPNET CR-CAPNET RA-CAPNET R-MHATT Figure 6: PR curves of our models. Model PR curve area R-MHATT 0.383 ATT-CAPNET 0.415 A-CAPNET 0.449 HR-CAPNET 0.493 CR-CAPNET 0.501 RA-CAPNET 0.526 Figure 7: PR curve areas of our models. To further evaluate the impacts of different parts on RA-CapNet, we compare the performance on the [Page 9] NYT-10 dataset of RA-CapNet with ﬁve settings: R-MHA TT: Two multi-head attention layers with relation query attention. A TT-CAPNET: The same as above. A-CAPNET: RA-CapNet without disagreement regularization. HR-CAPNET: RA-CapNet without capsule disagreement regularization. CR-CAPNET: RA-CapNet without multi-head disagreement regularization. RA-CAPNET: Our model. In Figure 6 and 7, the result indicates that: (1) ATT-CAPNET improves the performance of R-MHATT by incorporating the capsule network for handling the multiple relat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00896,
+        -0.0143,
+        -0.0262,
+        0.0191,
+        -0.01567
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "ET: Our model. In Figure 6 and 7, the result indicates that: (1) ATT-CAPNET improves the performance of R-MHATT by incorporating the capsule network for handling the multiple relat",
+      "overlap_with_next": "both effective for relation extraction. 4.4 Case Study IDInstances S1 that is one reason that [hunan]'s fast-growing provincial capital, [changsha], is beginning to siphon some wor",
+      "text": "ET: Our model. In Figure 6 and 7, the result indicates that: (1) ATT-CAPNET improves the performance of R-MHATT by incorporating the capsule network for handling the multiple relations. (2) Compared with ATT- CAPNET, A-CAPNET improves the PR curve area from 0.415 to 0.449. This proves that relation query multi-head attention helps the capsule network extract salient relation features from different represen- tations at different positions. (3) HR-CAPNET further increases the PR curve area to 0.493, which proves the effectiveness of our disagreement regularization on multiple heads in discriminating the di- verse overlapped relation features. (4) Compared with A-CAPNET, CR-CAPNET achieves 0.501 of the PR curve area. This demonstrates that disagreement regularization on the capsules helps models distin- guish multiple relation features more clearly. (5) Our complete model, RA-CAPNET, achieves the best performance, showing that the relation query multi-head attention and disagreement regularization term are both effective for relation extraction. 4.4 Case Study IDInstances S1 that is one reason that [hunan]'s fast-growing provincial capital, [changsha], is beginning to siphon some wor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01102,
+        0.00472,
+        0.0001,
+        0.01448,
+        -0.03198
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "both effective for relation extraction. 4.4 Case Study IDInstances S1 that is one reason that [hunan]'s fast-growing provincial capital, [changsha], is beginning to siphon some wor",
+      "overlap_with_next": "lations. (2) InS2, only RA-CapNet predicts the correct relation of “/location/location/contains”. This result demonstrates that by incorporating relation query multi-head attention",
+      "text": "both effective for relation extraction. 4.4 Case Study IDInstances S1 that is one reason that [hunan]'s fast-growing provincial capital, [changsha], is beginning to siphon some workers. Model PCNN+ATT BGRU+ATT ATT+CAPNET QARE+ATT RA-CAPNET LLC ✗ ✗ ✓ ✗ ✓ LPC ✓ ✓ ✓ ✓ ✓ S2 the land is near calgary; while that is one of [alberta]’s largest cities, the capital is[edmonton]. Model PCNN+ATT BGRU+ATT ATT+CAPNET QARE+ATT RA-CAPNET LLC ✗ ✗ ✗ ✗ ✓ LPC ✗ ✗ ✓ ✗ ✓ LCC ✓ ✓ ✓ ✓ ✓ Figure 7: Prediction results of different models on some samples. “LLC”, “LPC” and “LCC” represent relation labels of “/location/location/contains”, ”/location/province/capital” and ”/loca- tion/country/capital”. In Figure 7, we randomly select two samples from NYT-10 to analyze the prediction performance of different models, where the entities are labeled in the red and bold brackets. From the ﬁgure, we ﬁnd the following: (1) In S1 and S2, compared with CNN/RNN/Attention-based methods, the capsule-based approaches can predict multiple similar relations. (2) InS2, only RA-CapNet predicts the correct relation of “/location/location/contains”. This result demonstrates that by incorporating relation query multi-head attention",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0457,
+        0.04376,
+        -0.05397,
+        -0.00668,
+        -0.05219
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "lations. (2) InS2, only RA-CapNet predicts the correct relation of “/location/location/contains”. This result demonstrates that by incorporating relation query multi-head attention",
+      "overlap_with_next": "is partially supported by Chinese National Research Fund (NSFC) Key Project No. 61532013 and No. 61872239; BNU-UIC Institute of Artiﬁcial Intelligence and Future Networks funded by",
+      "text": "lations. (2) InS2, only RA-CapNet predicts the correct relation of “/location/location/contains”. This result demonstrates that by incorporating relation query multi-head attention and disagreement regularization in the capsule network, RA-CapNet makes further progress in discriminating overlapped relations. 5 Conclusion and Future Work In this paper, we propose a novel regularized attentive capsule network for overlapped relation extrac- tion. RA-CapNet embeds relation query multi-head attention into the capsule network and uses a novel disagreement regularization term to encourage the diversity among heads and capsules, making it capa- [Page 10] ble of gathering salient information from diverse semantic spaces. Our model is resistant to the noise of distant supervision and achieves signiﬁcant improvements on both standard and complex datasets. In the future, we will experiment with different forms of regularization terms and their application to other components of our model. Acknowledgements This work is partially supported by Chinese National Research Fund (NSFC) Key Project No. 61532013 and No. 61872239; BNU-UIC Institute of Artiﬁcial Intelligence and Future Networks funded by",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02163,
+        0.00774,
+        -0.01193,
+        0.03804,
+        -0.03082
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "is partially supported by Chinese National Research Fund (NSFC) Key Project No. 61532013 and No. 61872239; BNU-UIC Institute of Artiﬁcial Intelligence and Future Networks funded by",
+      "overlap_with_next": "e Zettlemoyer, and Daniel S Weld. 2011. Knowledge-based weak supervision for information extraction of overlapping relations. In Proceedings of the ACL. Guoliang Ji, Kang Liu, Shiz",
+      "text": "is partially supported by Chinese National Research Fund (NSFC) Key Project No. 61532013 and No. 61872239; BNU-UIC Institute of Artiﬁcial Intelligence and Future Networks funded by Beijing Normal University (Zhuhai) and AI and data Science Hub, United International College (UIC), Zhuhai, Guangdong, China. References Kurt Bollacker, Colin Evans, Praveen Paritosh, Tim Sturge, and Jamie Taylor. 2008. Freebase: a collaboratively created graph database for structuring human knowledge. In Proceedings of the ACM SIGMOD. Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and Oksana Yakhnenko. 2013. Translat- ing embeddings for modeling multi-relational data. In Proceedings of the NeurIPS. Jun Feng, Minlie Huang, Li Zhao, Yang Yang, and Xiaoyan Zhu. 2018. Reinforcement learning for relation classiﬁcation from noisy data. In Proceedings of the AAAI. Alex Graves. 2013. Generating sequences with recurrent neural networks. arXiv preprint arXiv:1308.0850. Raphael Hoffmann, Congle Zhang, Xiao Ling, Luke Zettlemoyer, and Daniel S Weld. 2011. Knowledge-based weak supervision for information extraction of overlapping relations. In Proceedings of the ACL. Guoliang Ji, Kang Liu, Shiz",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05576,
+        -0.00378,
+        -0.03806,
+        0.0078,
+        -0.00059
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "e Zettlemoyer, and Daniel S Weld. 2011. Knowledge-based weak supervision for information extraction of overlapping relations. In Proceedings of the ACL. Guoliang Ji, Kang Liu, Shiz",
+      "overlap_with_next": "y Dean. 2013. Efﬁcient estimation of word representations in vector space. Mike Mintz, Steven Bills, Rion Snow, and Dan Jurafsky. 2009. Distant supervision for relation extraction ",
+      "text": "e Zettlemoyer, and Daniel S Weld. 2011. Knowledge-based weak supervision for information extraction of overlapping relations. In Proceedings of the ACL. Guoliang Ji, Kang Liu, Shizhu He, and Jun Zhao. 2017. Distant supervision for relation extraction with sentence- level attention and entity descriptions. In Proceedings of the AAAI. Wei Jia, Dai Dai, Xinyan Xiao, and Hua Wu. 2019. Arnor: Attention regularization based noise reduction for distant supervision relation classiﬁcation. In Proceedings of the ACL. Diederik P Kingma and Jimmy Ba. 2014. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980. Yankai Lin, Shiqi Shen, Zhiyuan Liu, Huanbo Luan, and Maosong Sun. 2016. Neural relation extraction with selective attention over instances. In Proceedings of the ACL. Tianyi Liu, Xinsong Zhang, Wanhao Zhou, and Weijia Jia. 2018. Neural relation extraction via inner-sentence noise reduction and transfer learning. In Proceedings of the EMNLP. Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013. Efﬁcient estimation of word representations in vector space. Mike Mintz, Steven Bills, Rion Snow, and Dan Jurafsky. 2009. Distant supervision for relation extraction ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05092,
+        -0.00979,
+        -0.00358,
+        0.00814,
+        -0.01197
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "y Dean. 2013. Efﬁcient estimation of word representations in vector space. Mike Mintz, Steven Bills, Rion Snow, and Dan Jurafsky. 2009. Distant supervision for relation extraction ",
+      "overlap_with_next": "] Mihai Surdeanu, Julie Tibshirani, Ramesh Nallapati, and Christopher D Manning. 2012. Multi-instance multi- label learning for relation extraction. In Proceedings of the 2012 Join",
+      "text": "y Dean. 2013. Efﬁcient estimation of word representations in vector space. Mike Mintz, Steven Bills, Rion Snow, and Dan Jurafsky. 2009. Distant supervision for relation extraction without labeled data. In Proceedings of the Joint Conference of the ACL and the AFNLP . Makoto Miwa and Mohit Bansal. 2016. End-to-end relation extraction using lstms on sequences and tree struc- tures. In Proceedings of the ACL. Pengda Qin, XU Weiran, and William Yang Wang. 2018a. Dsgan: Generative adversarial training for distant supervision relation extraction. In Proceedings of the ACL. Pengda Qin, XU Weiran, and William Yang Wang. 2018b. Robust distant supervision relation extraction via deep reinforcement learning. In Proceedings of the ACL. Sebastian Riedel, Limin Yao, and Andrew McCallum. 2010. Modeling relations and their mentions without labeled text. In Proceedings of the ECML and PKDD . Sara Sabour, Nicholas Frosst, and Geoffrey E Hinton. 2017. Dynamic routing between capsules. In Proceedings of the NeurIPS. [Page 11] Mihai Surdeanu, Julie Tibshirani, Ramesh Nallapati, and Christopher D Manning. 2012. Multi-instance multi- label learning for relation extraction. In Proceedings of the 2012 Join",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08118,
+        -0.00862,
+        -0.00581,
+        -0.01634,
+        -0.02279
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "] Mihai Surdeanu, Julie Tibshirani, Ramesh Nallapati, and Christopher D Manning. 2012. Multi-instance multi- label learning for relation extraction. In Proceedings of the 2012 Join",
+      "overlap_with_next": "eep neural network. In Proceedings of COLING. Daojian Zeng, Kang Liu, Yubo Chen, and Jun Zhao. 2015. Distant supervision for relation extraction via piecewise convolutional neural ",
+      "text": "] Mihai Surdeanu, Julie Tibshirani, Ramesh Nallapati, and Christopher D Manning. 2012. Multi-instance multi- label learning for relation extraction. In Proceedings of the 2012 Joint Conference on EMNLP and CoNLL . Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In Proceedings of the NeurIPS. Yan Xu, Lili Mou, Ge Li, Yunchuan Chen, Hao Peng, and Zhi Jin. 2015. Classifying relations via long short term memory networks along shortest dependency paths. In Proceedings of the EMNLP. Baosong Yang, Zhaopeng Tu, Derek F Wong, Fandong Meng, Lidia S Chao, and Tong Zhang. 2018. Modeling localness for self-attention networks. In Proceedings of the EMNLP. Zhi-Xiu Ye and Zhen-Hua Ling. 2019. Distant supervision relation extraction with intra-bag and inter-bag atten- tions. In Proceedings of the ACL. Daojian Zeng, Kang Liu, Siwei Lai, Guangyou Zhou, and Jun Zhao. 2014. Relation classiﬁcation via convolu- tional deep neural network. In Proceedings of COLING. Daojian Zeng, Kang Liu, Yubo Chen, and Jun Zhao. 2015. Distant supervision for relation extraction via piecewise convolutional neural ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0697,
+        -0.01683,
+        -0.02112,
+        0.00585,
+        -0.01938
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31354,
+      "length": 754,
+      "overlap_with_previous": "eep neural network. In Proceedings of COLING. Daojian Zeng, Kang Liu, Yubo Chen, and Jun Zhao. 2015. Distant supervision for relation extraction via piecewise convolutional neural ",
+      "overlap_with_next": "",
+      "text": "eep neural network. In Proceedings of COLING. Daojian Zeng, Kang Liu, Yubo Chen, and Jun Zhao. 2015. Distant supervision for relation extraction via piecewise convolutional neural networks. In Proceedings of the EMNLP. Xinsong Zhang, Pengshuai Li, Weijia Jia, and Hai Zhao. 2019. Multi-labeled relation extraction with attentive capsule network. In Proceedings of the AAAI. X. Zhang, T. Liu, P. Li, W. Jia, and H. Zhao. 2020. Robust neural relation extraction via multi-granularity noises reduction. IEEE Transactions on Knowledge and Data Engineering . Peng Zhou, Wei Shi, Jun Tian, Zhenyu Qi, Bingchen Li, Hongwei Hao, and Bo Xu. 2016. Attention-based bidirectional long short-term memory networks for relation classiﬁcation. In Proceedings of the ACL.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06675,
+        -0.03813,
+        0.01859,
+        0.01717,
+        -0.02059
+      ]
+    }
+  ]
+}

@@ -1,0 +1,708 @@
+{
+  "paper_id": "b7a81579-ce02-45c3-a2a1-9566decc4c38",
+  "filename": "056_Computer_Vision_ANR_Articulated_Neural_Rendering_for_Virtual_Avatars.pdf",
+  "title": "ANR: Articulated Neural Rendering for Virtual Avatars",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 41,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "plethora of applications. However , in this case the neural shading step must account for deformations that are pos- sibly not captured in the mesh, as well as alignment in- accura",
+      "text": "[Page 1] ANR: Articulated Neural Rendering for Virtual Avatars Amit Raj 1 Julian Tanke2 James Hays1 Minh V o3 Carsten Stoll4 Christoph Lassner3 1Georgia Tech 2University of Bonn 3Facebook Reality Labs 4Epic Games Figure 1: We present Articulated Neural Rendering (ANR), a rendering framework capable of producing highly realistic avatars. Similar to Deferred Neural Rendering (DNR) [37], ANR uses neural networks to convert a latent texture on a coarse mesh (left) into an RGB image (right). Unlike DNR, which is ineffective when the mesh geometry is inaccurate or deforms during motion, ANR explicitly accounts for such geometric misalignment and pose-dependent deformation. Abstract The combination of traditional rendering with neural networks in Deferred Neural Rendering (DNR) [37] pro- vides a compelling balance between computational com- plexity and realism of the resulting images. Using skinned meshes for rendering articulating objects is a natural ex- tension for the DNR framework and would open it up to a plethora of applications. However , in this case the neural shading step must account for deformations that are pos- sibly not captured in the mesh, as well as alignment in- accura",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01585,
+        -0.00927,
+        0.00458,
+        0.00791,
+        -0.04581
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "plethora of applications. However , in this case the neural shading step must account for deformations that are pos- sibly not captured in the mesh, as well as alignment in- accura",
+      "overlap_with_next": "- delity [21, 22, 28, 29]. These methods often use expensive and intricate capture setups which prevent easy digitization and transfer of the resulting models [7, 8, 11]. The recen",
+      "text": "plethora of applications. However , in this case the neural shading step must account for deformations that are pos- sibly not captured in the mesh, as well as alignment in- accuracies and dynamics—which can confound the DNR pipeline. We present Articulated Neural Rendering (ANR), a novel framework based on DNR which explicitly addresses its limitations for virtual human avatars. We show the su- periority of ANR not only with respect to DNR but also with methods specialized for avatar creation and anima- tion. In two user studies, we observe a clear preference for our avatar model and we demonstrate state-of-the-art performance on quantitative evaluation metrics. Perceptu- ally, we observe better temporal stability, level of detail and plausibility. More results are available at our project page: https://anr-avatars.github.io. 1. Introduction Capturing realistic appearance is one of the important goals of computer vision. Progress in 3D rendering and neural networks has led to approaches with remarkable ﬁ- delity [21, 22, 28, 29]. These methods often use expensive and intricate capture setups which prevent easy digitization and transfer of the resulting models [7, 8, 11]. The recen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05249,
+        -0.03404,
+        0.00147,
+        0.0165,
+        -0.03533
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "- delity [21, 22, 28, 29]. These methods often use expensive and intricate capture setups which prevent easy digitization and transfer of the resulting models [7, 8, 11]. The recen",
+      "overlap_with_next": "e complex deformation-dependent effects. Furthermore, the mesh used for rendering is usually not a 1 arXiv:2012.12890v1 [cs.CV] 23 Dec 2020 [Page 2] Figure 2: Schematic overview of",
+      "text": "- delity [21, 22, 28, 29]. These methods often use expensive and intricate capture setups which prevent easy digitization and transfer of the resulting models [7, 8, 11]. The recent deferred neural rendering paradigm offers an exciting op- portunity to work with inaccurate geometry and relatively simple neural shaders while capturing complex scenes with view-dependent effects realistically [1, 26, 37]. In a ﬁrst step, the geometry is rasterized using a neural latent texture which is then translated to an RGB image using a convolu- tional network. Both, the rendering network as well as the neural texture, are optimized to produce realistic results. Deferred neural rendering works particularly well for rigid objects. Its pipeline could be extended to deformable objects in a natural way: a skinned mesh could be used for capturing the geometry. The rasterized neural texture from the posed mesh could then be translated to an RGB image. While this idea is conceptually simple, the neural network has to learn more complex deformation-dependent effects. Furthermore, the mesh used for rendering is usually not a 1 arXiv:2012.12890v1 [cs.CV] 23 Dec 2020 [Page 2] Figure 2: Schematic overview of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00807,
+        0.00495,
+        0.01161,
+        0.00677,
+        -0.0359
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "e complex deformation-dependent effects. Furthermore, the mesh used for rendering is usually not a 1 arXiv:2012.12890v1 [cs.CV] 23 Dec 2020 [Page 2] Figure 2: Schematic overview of",
+      "overlap_with_next": " ing (ANR) to account for these problems. ANR system- atically rebuilds DNR from the neural shading model archi- tecture to the optimization scheme. We use ANR to tackle one of the",
+      "text": "e complex deformation-dependent effects. Furthermore, the mesh used for rendering is usually not a 1 arXiv:2012.12890v1 [cs.CV] 23 Dec 2020 [Page 2] Figure 2: Schematic overview of the proposed framework. Given a coarse, animated 3D body mesh, ANR produces a detailed avatar. Using rasterized IUV images of the mesh using a weak perspective projection, we render an 8 channel neural texture into image space. A ﬁrst stage,R1, transforms the texture into another, reﬁned latent representation, which we combine with the normal information. The second stageR2 uses this information to create an RGB rendering and a foreground mask. The rendering can extend beyond the coarse mesh, in this case we visualize only slight reﬁnement for painting the shirt. perfect representation of the real geometry, leading to align- ment problems. These problems are currently not taken into account [1, 26, 37], which limits the application of DNR in scenarios with deformable objects. In this paper, we present Articulated Neural Render- ing (ANR) to account for these problems. ANR system- atically rebuilds DNR from the neural shading model archi- tecture to the optimization scheme. We use ANR to tackle one of the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00456,
+        -0.02551,
+        -0.00174,
+        0.00584,
+        -0.03168
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": " ing (ANR) to account for these problems. ANR system- atically rebuilds DNR from the neural shading model archi- tecture to the optimization scheme. We use ANR to tackle one of the",
+      "overlap_with_next": "ngle model, leading to de- coupling of the neural texture and the shading model. Ow- ing to the consistent surface parameterization of the statisti- cal body model, our model can l",
+      "text": " ing (ANR) to account for these problems. ANR system- atically rebuilds DNR from the neural shading model archi- tecture to the optimization scheme. We use ANR to tackle one of the most challenging problems for animation: vir- tual human avatars. Fig. 1 shows an example of an avatar rendered using ANR. Our method employs a simple statistical human body model ﬁtted to a training video to capture the body shape statistics and 3D pose information for each frame [38]. This body model only represents the coarse body geome- try without clothing and hair. Consequently, direct use of the DNR pipeline leads to unrealistic and blurry results. We use keyframes from the video to learn the static ap- pearance encoded in the neural texture, and use the other frames to learn the dynamic pose-conditioned rendering of the appearance. Our keyframes-based training scheme en- ables the model to converge 5X faster and produces quan- titatively better avatars than DNR. We simultaneously train ANR on multiple identities in a single model, leading to de- coupling of the neural texture and the shading model. Ow- ing to the consistent surface parameterization of the statisti- cal body model, our model can l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04018,
+        -0.02499,
+        -0.00995,
+        0.01853,
+        -0.03922
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ngle model, leading to de- coupling of the neural texture and the shading model. Ow- ing to the consistent surface parameterization of the statisti- cal body model, our model can l",
+      "overlap_with_next": "ent of the coarse body mesh and pose-dependent deformation. • Using ANR, we present the ﬁrst neural avatar model that can capture and render multiple identities with only one set o",
+      "text": "ngle model, leading to de- coupling of the neural texture and the shading model. Ow- ing to the consistent surface parameterization of the statisti- cal body model, our model can leverage such semantic cor- respondences to modify and mix components from multi- ple neural textures, enabling virtual try-on by changing re- gions in the neural texture. While our model works solely in 2D, we experimentally validate that it can render near photorealistic and persistent 3D appearance of people with a very small network (161M parameters). In two user stud- ies, we demonstrate that we not only outperform the DNR pipeline, but also several methods dedicated to creating vir- tual avatars [35, 40]. Perceptually, the presented method is temporally stable and captures ﬁne appearance details. Our contributions are threefold: • We propose ANR, a novel neural rendering frame- work, to generate high-quality virtual avatars from coarse 3D shape and arbitrary skeletal motions. Key to ANR is to account for geometric misalignment of the coarse body mesh and pose-dependent deformation. • Using ANR, we present the ﬁrst neural avatar model that can capture and render multiple identities with only one set o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0711,
+        0.00458,
+        0.01075,
+        0.01551,
+        -0.02932
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ent of the coarse body mesh and pose-dependent deformation. • Using ANR, we present the ﬁrst neural avatar model that can capture and render multiple identities with only one set o",
+      "overlap_with_next": "dance. We will discuss several frameworks from both of these schools as well as some hybrid methods, which are closest to our approach. 2 [Page 3] Inference in 3D Space: The Religh",
+      "text": "ent of the coarse body mesh and pose-dependent deformation. • Using ANR, we present the ﬁrst neural avatar model that can capture and render multiple identities with only one set of network parameters in addition to an identity speciﬁc neural texture map. • The explicit texture space makes it possible to edit or mix identities, which is novel in the context of neural rendering for avatars. For higher quality results, ﬁne-tuning the model on a spe- ciﬁc identity is an option. This makes the resulting avatars directly applicable in use cases where the range of motion is known or can be estimated well, for example for virtual assistants or game characters. 2. Related Work Among many methods to create and render articulated models, a majority of them follow the classical pipeline of acquiring an accurate 4D geometry reconstruction with de- tailed textures painted on this geometry. Using machine learning, several recent methods have set out to perform inference mostly in 2D space, only using rough or no 3D guidance. We will discuss several frameworks from both of these schools as well as some hybrid methods, which are closest to our approach. 2 [Page 3] Inference in 3D Space: The Religh",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00465,
+        0.00053,
+        0.0068,
+        0.05817,
+        -0.04248
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "dance. We will discuss several frameworks from both of these schools as well as some hybrid methods, which are closest to our approach. 2 [Page 3] Inference in 3D Space: The Religh",
+      "overlap_with_next": "Cap [12] cap- tures accurate geometry from monocular video by predict- ing a parameterized human conﬁguration and deformation model. Our approach also uses monocular video to cap- ",
+      "text": "dance. We will discuss several frameworks from both of these schools as well as some hybrid methods, which are closest to our approach. 2 [Page 3] Inference in 3D Space: The Relightables [11] propose a system that captures accurate geometry and texture using a controlled light stage. This allows for relightable rendering of the captured identity in different environments. Lom- bardi et al. [21] use a multi camera setup to determine the average texture and deformations on a base mesh and use a neural network to generate view speciﬁc texture to ren- der high ﬁdelity images from different viewpoints. Using a similar system, Brualla et al. [27] train a network to perform completion and super resolution of the rendered 3D model. In a single-view regime, Alldiek et al. [2, 3] generate avatars by learning to regress accurate geometry and texture using purely synthetic data. Zhi et al. [44] estimate personalized avatar with ﬁne geometry and texture by ﬁnetuning on the test video using self-supervised losses. DeepCap [12] cap- tures accurate geometry from monocular video by predict- ing a parameterized human conﬁguration and deformation model. Our approach also uses monocular video to cap- ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00526,
+        0.01206,
+        -0.02615,
+        0.00744,
+        -0.01829
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "Cap [12] cap- tures accurate geometry from monocular video by predict- ing a parameterized human conﬁguration and deformation model. Our approach also uses monocular video to cap- ",
+      "overlap_with_next": "he works by [24, 18] focus on pose conditioned image generation of people, but with lower res- olution. Grigorev et al. [10] solve the novel view synthesis problem by formulating i",
+      "text": "Cap [12] cap- tures accurate geometry from monocular video by predict- ing a parameterized human conﬁguration and deformation model. Our approach also uses monocular video to cap- ture a digital avatar. However, instead of deforming and reﬁning the avatar geometry parameterized by a statistical model, we advocate for avatars with high-capacity texture that compensates for such geometric inaccuracies (such as clothing and hairs) for arbitrary body pose and view-point rendering. Inference in 2D Space: Meanwhile, speciﬁc architectures are designed for motion re-targeting, novel view synthesis and identity transfer, which primarily use only pixel and pose information [4, 6, 25, 36, 43]. Neverova et al. [30] use DensePose for novel viewpoint synthesis, which is lim- ited by the DensePose body coverage and accuracy. [31] propose a semi-parametric approach which uses a combi- nation of previously captured RGB(D) images and neural rendering to infer novel views in an approach similar to im- age based rendering. The works by [24, 18] focus on pose conditioned image generation of people, but with lower res- olution. Grigorev et al. [10] solve the novel view synthesis problem by formulating i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00887,
+        -0.00014,
+        -0.00329,
+        0.02151,
+        -0.03077
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "he works by [24, 18] focus on pose conditioned image generation of people, but with lower res- olution. Grigorev et al. [10] solve the novel view synthesis problem by formulating i",
+      "overlap_with_next": "ork, we leverage the reconstructed geometry instead of noisy DensePose corre- spondences to generate the UV coordinates for every pixel, enabling us to maintain better texture cons",
+      "text": "he works by [24, 18] focus on pose conditioned image generation of people, but with lower res- olution. Grigorev et al. [10] solve the novel view synthesis problem by formulating it as texture inpainting in Dense- Pose UV space. SwapNet [32] learns to transfer clothing in- formation by disentangling the notion of pose and clothing without being identity speciﬁc. Human appearance trans- fer [42] learns to generate novel views and transfer identi- ties by performing human parsing and 3D shape and pose ﬁtting. We generate 3D textured avatars, enabling all these tasks with no additional guiding signals or changes in a sin- gle framework. Hybrid Approaches: The DNR framework [37] uses a mostly rigid mesh and a neural texture to translate the ren- dering result into an image. We detail this approach in Sec. 3.1 and reformulate it to account for handling fully articulated objects. Textured neural avatars [35] present a framework to learn neural avatars in an end-to-end man- ner from multiview data. Unlike this work, we leverage the reconstructed geometry instead of noisy DensePose corre- spondences to generate the UV coordinates for every pixel, enabling us to maintain better texture cons",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02273,
+        -0.01217,
+        -0.00494,
+        0.01104,
+        -0.02252
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ork, we leverage the reconstructed geometry instead of noisy DensePose corre- spondences to generate the UV coordinates for every pixel, enabling us to maintain better texture cons",
+      "overlap_with_next": " generating clothing and body deforma- tions in the rendering stage while using a simple parametric body model to ﬁt the body pose and shape. 3. Approach Articulated Neural Renderi",
+      "text": "ork, we leverage the reconstructed geometry instead of noisy DensePose corre- spondences to generate the UV coordinates for every pixel, enabling us to maintain better texture consistency across viewpoints. Our work is also related to the Liquid Warping Gan [20] which performs appearance transfer and motion retargeting in a single network. However, our framework provides explicit access to the learned texture allowing for ﬁne grained edits of appearance. Additionally, our frame- work uses a lower number of parameters, and thus can be trained at a higher resolution. Neural rendering and reen- actment [19] trains a network to translate from 3D pose to image. However, their framework involves capturing a rigged template mesh for every individual and requiring ad- ditional depth and body part information. Recently, implicit representations with impressive geometry reconstruction of clothed humans reconstruction from a single image are be- coming popular [14, 34]. We distinguish ourselves from these methods by generating clothing and body deforma- tions in the rendering stage while using a simple parametric body model to ﬁt the body pose and shape. 3. Approach Articulated Neural Renderi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.0071,
+        -0.00761,
+        -0.01418,
+        -0.01486,
+        -0.01903
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": " generating clothing and body deforma- tions in the rendering stage while using a simple parametric body model to ﬁt the body pose and shape. 3. Approach Articulated Neural Renderi",
+      "overlap_with_next": "age Iuv to RGB color. DNR optimizes T∗,R∗ = argmin T ,R ∑ ||I−R (T, Iuv)|| (1) on all training images I of the same object. The neural im- age Iuv is the result of rasterizing the ",
+      "text": " generating clothing and body deforma- tions in the rendering stage while using a simple parametric body model to ﬁt the body pose and shape. 3. Approach Articulated Neural Rendering (ANR) can generate highly detailed representations of articulated objects. Unlike tradi- tional rendering pipelines which use a high resolution mesh and detailed RGB texture for this purpose, we use a low res- olution mesh but a high- dimensional neural texture to ren- der its detailed RGB appearance from novel views using a neural network. Fig. 2 shows an outline of the proposed framework. In the following, we ﬁrst present an overview of DNR [37] before presenting our novel ANR framework and its training scheme. 3.1. Preliminary: Deferred Neural Rendering DNR [37] translates high dimensional neural latent tex- tures on traditional meshes into RGB images with a neural translator network. Concretely, letT be a high-dimensional neural texture (a tensor of shapeW×H×C) and letR be the neural rendering model converting a neural image Iuv to RGB color. DNR optimizes T∗,R∗ = argmin T ,R ∑ ||I−R (T, Iuv)|| (1) on all training images I of the same object. The neural im- age Iuv is the result of rasterizing the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01777,
+        -0.02887,
+        -0.00151,
+        0.01863,
+        -0.02541
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "age Iuv to RGB color. DNR optimizes T∗,R∗ = argmin T ,R ∑ ||I−R (T, Iuv)|| (1) on all training images I of the same object. The neural im- age Iuv is the result of rasterizing the ",
+      "overlap_with_next": "g accordingly. We refer to the supplementary video for a demonstration of temporal stability. 3.2. Articulated Neural Rendering While DNR is conceptually powerful, it requires accu",
+      "text": "age Iuv to RGB color. DNR optimizes T∗,R∗ = argmin T ,R ∑ ||I−R (T, Iuv)|| (1) on all training images I of the same object. The neural im- age Iuv is the result of rasterizing the mesh to image space with the appropriate camera parameters and conﬁguration and texturing it with the neural texture T . The model is fully deﬁned with the optimized texture T∗ and the opti- mized neural rendering model R∗. DNR uses a U-Net ar- chitecture [33] for implementingR and a standard gradient descent based optimization with the ADAM optimizer [17]. 3 [Page 4] Figure 3: Images generated by ANR on a challenging animation scenario with clothing deformations. We successfully synthesize images of such deformations and regions outside of the body mesh. As highlighted in the ﬁgure, region coverage as well as shading are pose dependent. The example frames are unseen poses for this identity and rendering model. Additionally, the model is able to temporally interpolate between this pose and others and adjust the simulated clothing accordingly. We refer to the supplementary video for a demonstration of temporal stability. 3.2. Articulated Neural Rendering While DNR is conceptually powerful, it requires accu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03443,
+        -0.04381,
+        -0.01465,
+        -0.00389,
+        -0.03901
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "g accordingly. We refer to the supplementary video for a demonstration of temporal stability. 3.2. Articulated Neural Rendering While DNR is conceptually powerful, it requires accu",
+      "overlap_with_next": "s of the rasterized mesh. We address both problems by adding a second prediction: an extra single-channel soft mask M∈ [0, 1]. The predicted mask is used to blend the generated ava",
+      "text": "g accordingly. We refer to the supplementary video for a demonstration of temporal stability. 3.2. Articulated Neural Rendering While DNR is conceptually powerful, it requires accu- rate 3D geometry to learn view dependent appearance in- formation. Such an assumption is difﬁcult to make in prac- tice, especially for articulated, clothed human appearance, whose shape is often represented by a coarse statistical body shape model [23] (see Fig. 3). We address this problem in the rendering pipeline, while retaining the ability to work with a coarse, animated mesh to (1) maintain the high ren- dering speed and (2) be able to optimize the ﬁnal appear- ance generation in the neural network. Consequently, we re-visit the neural rendering component,R. Our ﬁrst observation is that R not only has to paint the texture inside regions of the neural image Iuv but also be- yond its boundaries due to the use of the coarse mesh. The network should also be aware of the extent to which it needs to paint outside the boundaries of the rasterized mesh. We address both problems by adding a second prediction: an extra single-channel soft mask M∈ [0, 1]. The predicted mask is used to blend the generated ava",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02108,
+        -0.00449,
+        0.01278,
+        -0.00738,
+        -0.01795
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "s of the rasterized mesh. We address both problems by adding a second prediction: an extra single-channel soft mask M∈ [0, 1]. The predicted mask is used to blend the generated ava",
+      "overlap_with_next": "y of the U-Net does not improve generation quality (see Tab. 2). Further- more, we observe that the model cannot consistently ren- der local geometry—a problem that increasingly em",
+      "text": "s of the rasterized mesh. We address both problems by adding a second prediction: an extra single-channel soft mask M∈ [0, 1]. The predicted mask is used to blend the generated avatar with the ground- truth background image for training. To prevent the model from predicting a degenerated zero mask (which would minimize the loss to zero), we provide supervision for the mask from an automatic image matting method [9]. Note that while training on the pre-segmented image is another option, this approach is sensitive to erroneous segmentation which prevents the generated images to grow beyond their input coarse body boundaries. Comparing the blended im- age with the ground truth image allows gradients to ﬂow to the mask which in turn makes it potentially better than the supervised input mask. While this addresses the immediate problem of generat- ing content outside of the true geometry silhouette, it leaves geometric details and pose-dependent rendering untouched. We notice that naively increasing the capacity of the U-Net does not improve generation quality (see Tab. 2). Further- more, we observe that the model cannot consistently ren- der local geometry—a problem that increasingly em",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01956,
+        0.01094,
+        -0.03454,
+        -0.00353,
+        -0.00921
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "y of the U-Net does not improve generation quality (see Tab. 2). Further- more, we observe that the model cannot consistently ren- der local geometry—a problem that increasingly em",
+      "overlap_with_next": ". Loss Functions and Regularization Scheme With the higher requirements for stability and level of detail and deformations in the articulated setting, we ﬁnd that using a simple 𝓁1",
+      "text": "y of the U-Net does not improve generation quality (see Tab. 2). Further- more, we observe that the model cannot consistently ren- der local geometry—a problem that increasingly emerges in the articulated setting when geometry is animated. We address problems with the geometry details and the pose- dependent effects at the same time by splitting the neural rendering network in two stages:R1 andR2. Both compo- nents are shallow U-Nets and produce renderings at original image resolution. We can inject the normal information into the rendering process by concatenating the rendered normal image and output ofR1 to the input ofR2. We enforce an additional RGB loss on the ﬁrst three output channels ofR1 to aid in convergence. The ANR model is deﬁned as ˆM, ˆI, ˆJ =R2(R1(T, Iuv), Inorm), (2) where ˆJ are the ﬁrst three channels from the result of R1 andI norm is the rasterized normal image. This model has the necessary capacity and the necessary outputs for han- dling the articulated neural rendering problem. 3.3. Loss Functions and Regularization Scheme With the higher requirements for stability and level of detail and deformations in the articulated setting, we ﬁnd that using a simple 𝓁1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01097,
+        -0.00701,
+        -0.02227,
+        0.00071,
+        -0.0102
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": ". Loss Functions and Regularization Scheme With the higher requirements for stability and level of detail and deformations in the articulated setting, we ﬁnd that using a simple 𝓁1",
+      "overlap_with_next": "ed RGB and ground truth images as Lp( ˆM, ˆI, ˆJ; M, I) = ˆM||ˆJ− I|| + ˆM||ˆI− I||, (3) where ˆJ are the ﬁrst three channels of the result fromR1. Mask Loss: Similarly, we use a B",
+      "text": ". Loss Functions and Regularization Scheme With the higher requirements for stability and level of detail and deformations in the articulated setting, we ﬁnd that using a simple 𝓁1 loss is insufﬁcient (see Tab. 2). Fur- thermore, we observe that it deteriorates performance as the training progresses: once the model learns to reproduce the rough appearance, inaccuracies in tracking and alignment of the mesh have an increasingly negative impact (see Fig. 5). We use adversarial learning and feature loss computation to 4 [Page 5] guide the model to generate realistic and accurate appear- ance without having to rely on accurate registration. Our loss function is a weighted sum of the photometric lossLp, feature lossLf eat, mask lossLmask, adversarial lossLadv, and total variation lossLtvi. Note that while the rasteriza- tion is non-differentiable, ANR is fully differentiable given the precomputed rasterized UV lookup to paint I uv from the neural textureT . Pixel Loss: We enforce an 𝓁1 loss between the generated RGB and ground truth images as Lp( ˆM, ˆI, ˆJ; M, I) = ˆM||ˆJ− I|| + ˆM||ˆI− I||, (3) where ˆJ are the ﬁrst three channels of the result fromR1. Mask Loss: Similarly, we use a B",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01707,
+        0.00561,
+        -0.0426,
+        -0.01157,
+        -0.01451
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "ed RGB and ground truth images as Lp( ˆM, ˆI, ˆJ; M, I) = ˆM||ˆJ− I|| + ˆM||ˆI− I||, (3) where ˆJ are the ﬁrst three channels of the result fromR1. Mask Loss: Similarly, we use a B",
+      "overlap_with_next": "e mask and the generated image. Ltv(ˆI, ˆM) = βITV (ˆI′) +βmTV ( ˆM), (6) where βI and βm are weights associated with Image and mask TV loss respectively (see supp. mat. for a deta",
+      "text": "ed RGB and ground truth images as Lp( ˆM, ˆI, ˆJ; M, I) = ˆM||ˆJ− I|| + ˆM||ˆI− I||, (3) where ˆJ are the ﬁrst three channels of the result fromR1. Mask Loss: Similarly, we use a Binary Cross Entropy loss for the mask Lmask( ˆM; M) = BCE( ˆM, M) (4) For all following loss deﬁnitions, we introduce the short- hand ˆI′ for the blended version of the generated output with the scene background B given the predicted mask: ˆI′ = ˆMˆI + (1− ˆM)B. Feature Loss: To increase sharpness in the rendered out- puts, we enforce a feature loss [16]: Lf eat(ˆI, ˆM; I) = ∑ j wj||φj(ˆI′)−φj(I)||, (5) whereφj are features from thej-th layer of a pretrained fea- ture extractor andwj is the weight associated with the j-th feature loss term. TV Loss: Since the texture is optimized over multiple frames, slight misalignments can cause the learned texture to have certain high frequency artifacts, especially for small regions such as face and hands. To encourage smooth gen- erated images, we enforce a total-variation loss on both, the mask and the generated image. Ltv(ˆI, ˆM) = βITV (ˆI′) +βmTV ( ˆM), (6) where βI and βm are weights associated with Image and mask TV loss respectively (see supp. mat. for a deta",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00028,
+        -0.00503,
+        -0.04235,
+        -0.01446,
+        -0.00028
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "e mask and the generated image. Ltv(ˆI, ˆM) = βITV (ˆI′) +βmTV ( ˆM), (6) where βI and βm are weights associated with Image and mask TV loss respectively (see supp. mat. for a deta",
+      "overlap_with_next": "earances in the video, to learn the neural textureT and use the other frames to dynamically blend between the appearances in the keyframes in the neural rendererR. We select keyfra",
+      "text": "e mask and the generated image. Ltv(ˆI, ˆM) = βITV (ˆI′) +βmTV ( ˆM), (6) where βI and βm are weights associated with Image and mask TV loss respectively (see supp. mat. for a detailed deﬁnition of this loss). Adversarial Loss: Adversarial training [13] is well-suited for enforcing realism of the results and encourage the coarse body mask to extend to the true geometry silhouette. To en- courage a high level of detail in the results, we use a multi- scale discriminatorD [41] and express the loss as Ladv(ˆI) =D(ˆI′, 1). (7) Total loss: The loss used to trainR is then given as Ltotal = ∑ i∈L λiLi (8) where L ={p,feat,mask,adv,tv } is the set of all losses. 3.4. Optimization Despite the extended set of losses and weight balanc- ing, we ﬁnd that for clothing with large surface deforma- tions, the model starts averaging ﬁne textures in areas of high deformation. To mitigate this problem, we propose a split optimization strategy. Speciﬁcally, we use a small set of keyframes{Ki}ni=1, capturing static salient appearances in the video, to learn the neural textureT and use the other frames to dynamically blend between the appearances in the keyframes in the neural rendererR. We select keyfra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01865,
+        0.00275,
+        -0.04589,
+        -0.00168,
+        -0.00354
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "earances in the video, to learn the neural textureT and use the other frames to dynamically blend between the appearances in the keyframes in the neural rendererR. We select keyfra",
+      "overlap_with_next": "vk , Inormk )). (10) Note that while Eq. 9 is optimized for all the images, Eq. 10 is applied only to the keyframes to mitigate the geometric misalignment of the coarse body mesh. ",
+      "text": "earances in the video, to learn the neural textureT and use the other frames to dynamically blend between the appearances in the keyframes in the neural rendererR. We select keyframes by greedily adding a small number of frames in the video sequence such that their cumulative silhouette coverage is maximized. This ensures that the en- tire pose-space is adequately covered to capture texture de- tails at all locations on the body. Using a smaller number of frames (less than 10% of training frames) reduces the tex- ture averaging. During training, we alternate between train- ing the identity speciﬁc neural texture from the keyframes and the rendering network from the remaining frames. Em- pirically, we observe that this optimization scheme helps the translator network converge up to 5X faster and produces quantitatively better avatars (see Tab. 1). Overall, our opti- mization alternates between the following two objectives argmin R ∑ Ltotal(I, M,R(T, Iuv, Inorm)), (9) argmin T ,R ∑ k∈K Ltotal(Ik, Mk,R(T, Iuvk , Inormk )). (10) Note that while Eq. 9 is optimized for all the images, Eq. 10 is applied only to the keyframes to mitigate the geometric misalignment of the coarse body mesh. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01297,
+        0.00351,
+        -0.00726,
+        0.0288,
+        -0.02459
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "vk , Inormk )). (10) Note that while Eq. 9 is optimized for all the images, Eq. 10 is applied only to the keyframes to mitigate the geometric misalignment of the coarse body mesh. ",
+      "overlap_with_next": "tialization of T for all identities by uni- formly sampling in [−1, 1]. Since R has much larger ca- pacity thanT , this strategy prevents the model from using the distinct noise pa",
+      "text": "vk , Inormk )). (10) Note that while Eq. 9 is optimized for all the images, Eq. 10 is applied only to the keyframes to mitigate the geometric misalignment of the coarse body mesh. Multi-instance Training. We further extend the training scheme beyond a single capture instance. Since we use the same statistical mesh regardless of identity, allowing us to capture identity information only in the neural texture, our framework can naturally train on multiple identities simul- taneously in a single network. During optimization, we se- lect an identity for every step at random and use an identity- speciﬁc neural textureTi for the respective identity for the update step. The multi-instance training offers the addi- tional beneﬁt that the neural rendering component R gen- eralizes beyond a single identity and can be used to render new identities by only using a novel neural textureT . Regularization. To improve generalization, we addition- ally employ two training regularization schemes. First, we use the same initialization of T for all identities by uni- formly sampling in [−1, 1]. Since R has much larger ca- pacity thanT , this strategy prevents the model from using the distinct noise pa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0194,
+        0.01262,
+        -0.02026,
+        0.03651,
+        -0.01607
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "tialization of T for all identities by uni- formly sampling in [−1, 1]. Since R has much larger ca- pacity thanT , this strategy prevents the model from using the distinct noise pa",
+      "overlap_with_next": "erized coarse body model. 4. Experiments We use the ANR pipeline to build a realistic virtual hu- man avatar pipeline: we assume a setting where a user per- forms a recording of th",
+      "text": "tialization of T for all identities by uni- formly sampling in [−1, 1]. Since R has much larger ca- pacity thanT , this strategy prevents the model from using the distinct noise patterns in each randomly initializedT to memorize the identity and thus encourages decoupling ofT andR. Second, we perturb the input sampling grid with a 5 [Page 6] Figure 4: Comparisons for novel pose and view synthesis with Textured Neural Avatar (TNA) [35], vid2vid (V2V) [40] and Deferred Neural Renderer (DNR) [37]. Our method (ANR) preserves the facial details better compared to competing methods. Additionally, our method is able to capture view dependent structures like hairline and clothing overhang more accurately and leads to more realistic and believable shading. uniform samples from[−0.02, 0.02] and clamp the resulting grid back to [−1, 1]. This form of data augmentation pre- vents the network from relying strictly on the spatial extent of the sampling grid as the ground truth human silhouette can exist outside the rasterized coarse body model. 4. Experiments We use the ANR pipeline to build a realistic virtual hu- man avatar pipeline: we assume a setting where a user per- forms a recording of th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03712,
+        0.00799,
+        0.00114,
+        0.04001,
+        -0.02763
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "erized coarse body model. 4. Experiments We use the ANR pipeline to build a realistic virtual hu- man avatar pipeline: we assume a setting where a user per- forms a recording of th",
+      "overlap_with_next": "variant of Pix2Pix [15, 41] for bothR1 andR2 and train the model on 1024× 1024 image resolution. The images are normalized to the range [-1,1]. Each identity is Table 1: Results of",
+      "text": "erized coarse body model. 4. Experiments We use the ANR pipeline to build a realistic virtual hu- man avatar pipeline: we assume a setting where a user per- forms a recording of themselves with accurate tracking, in which his/her full appearance is visible, to create an avatar model. To ease the tracking, we capture 6 videos using a Kinect V2 where the depth data is only used for tracking. Each video is about 3∼5 min long. We obtain a coarse mesh in real-time by solving an inverse kinematic problem to ﬁt the posed body shape to the 3D point cloud similar to [39], making use of additional detected body keypoints [5]. Our dataset is harder than the previously released iPer dataset [36] as our actors are not centered and are free to move any- where in the frame. As parametric body model, we use a blendshape-based, SMPL-like [23] human model to provide the coarse mesh structure. The model is coarse and has only 1831 vertices and 3658 faces; the skeletal rig has 74 joints. 4.1. Implementation Details We use a variant of Pix2Pix [15, 41] for bothR1 andR2 and train the model on 1024× 1024 image resolution. The images are normalized to the range [-1,1]. Each identity is Table 1: Results of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02722,
+        -0.0179,
+        -0.00667,
+        0.03089,
+        -0.01925
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "variant of Pix2Pix [15, 41] for bothR1 andR2 and train the model on 1024× 1024 image resolution. The images are normalized to the range [-1,1]. Each identity is Table 1: Results of",
+      "overlap_with_next": "hereas we aim to ﬁnd a middle ground. We also present comparisons to baseline DNR [37], trained with ad- ditional feature losses for a fairer comparison. Fig. 4 shows these compari",
+      "text": "variant of Pix2Pix [15, 41] for bothR1 andR2 and train the model on 1024× 1024 image resolution. The images are normalized to the range [-1,1]. Each identity is Table 1: Results of novel pose synthesis of avatars learned using different methods. Our model is trained on all identi- ties simultaneously. SSIM↑ FLIP↓ LPIPS↓ rIPFIP↑ mFID↓ User Study V2V 0.9252 0.0363 0.0703 - 140 8% TNA 0.9366 0.0323 0.1198 -2.6% 150 3% DNR 0.9398 0.0342 0.0918 7.7% 92 9% ANR 0.9738 0.0289 0.0508 18.6% 74 81.6% encoded in a 256×256×8 neural texture. For each recorded sequence, we use the ﬁrst 1500 frames to trainR and about 150 key frames to trainT . The remaining images are used as test set. We augment the data with random cropping and random rescaling by a factorf∼ [0.5, 1.25]. 4.2. Evaluation Baseline and Metric : We include a comparison with two baselines: Textured Neural Avatar (TNA) [35] and vid2vid (V2V) [40]. These methods are fundamentally different and span the space of 2D (V2V) and 3D (TNA) inference ap- proaches, whereas we aim to ﬁnd a middle ground. We also present comparisons to baseline DNR [37], trained with ad- ditional feature losses for a fairer comparison. Fig. 4 shows these compari",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03613,
+        -0.02595,
+        -0.02142,
+        0.01389,
+        -0.01361
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "hereas we aim to ﬁnd a middle ground. We also present comparisons to baseline DNR [37], trained with ad- ditional feature losses for a fairer comparison. Fig. 4 shows these compari",
+      "overlap_with_next": "lations marked with (-so) are run without the suggested split optimization strategy. SSIM↑ LPIPS↓ FLIP↓ Loss ablation Pixel only 0.968 0.086 0.029 Pixel+feat 0.966 0.065 0.033 Pixe",
+      "text": "hereas we aim to ﬁnd a middle ground. We also present comparisons to baseline DNR [37], trained with ad- ditional feature losses for a fairer comparison. Fig. 4 shows these comparisons. Evidently, ANR preserves the facial de- tails better compared to competing methods. Additionally, it is able to capture view dependent structures like hairline and clothing overhang more accurately and leads to more realistic and believable shading. We also quantify these ren- 6 [Page 7] Figure 5: Qualitative ablation study for each term in the loss function and the normal channels on a multi-identity model. The ﬁrst four columns do not use normal informa- tion: (a) Only pixel loss; (b) Pixel and feature losses; (c) Pixel, feature, and mask losses; (d) Pixel, feature, mask, and TV losses; (e) All losses + normal; (f) All loses + nor- mal + split optimization. Notice that the local textures and facial details are better preserved with split optimization. Table 2: Loss and model ablation study for the ANR model. The model ablations marked with (-so) are run without the suggested split optimization strategy. SSIM↑ LPIPS↓ FLIP↓ Loss ablation Pixel only 0.968 0.086 0.029 Pixel+feat 0.966 0.065 0.033 Pixe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05447,
+        -0.04495,
+        -0.02332,
+        0.01184,
+        -0.03469
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "lations marked with (-so) are run without the suggested split optimization strategy. SSIM↑ LPIPS↓ FLIP↓ Loss ablation Pixel only 0.968 0.086 0.029 Pixel+feat 0.966 0.065 0.033 Pixe",
+      "overlap_with_next": "ls improves the level of detail in the reconstruction and aids in reasoning about self occlusion and temporal consistency (shown in the sup- plementary video), split optimization d",
+      "text": "lations marked with (-so) are run without the suggested split optimization strategy. SSIM↑ LPIPS↓ FLIP↓ Loss ablation Pixel only 0.968 0.086 0.029 Pixel+feat 0.966 0.065 0.033 Pixel+feat+TV 0.963 0.064 0.032 Model ablations 1 stage(-so) 0.962 0.070 0.036 1 stage 0.965 0.063 0.034 2 stage(-so) 0.968 0.058 0.032 Ours 0.974 0.050 0.028 derings using the standard SSIM, LPIPS, FLIP supervised metrics on held out test set frames, and the mFID unsuper- vised metric on human-ﬁgure-only avatars in novel poses. Tab. 1 shows these comparisons. Our model outperforms the competing approaches on these benchmarks by a no- table margin on all metrics. Ablation Study: To quantify the effectiveness of the pro- posed improvements, we run two ablation studies. Fig. 5 shows the rendered results with different loss terms re- moved. We notice that without the mask and feature loss (Pixel only), the model produces unrealistically “fat” or “thin” avatars. The feature loss (Pixel+feat) improves the visual quality. Adding the normals improves the level of detail in the reconstruction and aids in reasoning about self occlusion and temporal consistency (shown in the sup- plementary video), split optimization d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07078,
+        -0.04342,
+        -0.02487,
+        -0.00757,
+        -0.00883
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "ls improves the level of detail in the reconstruction and aids in reasoning about self occlusion and temporal consistency (shown in the sup- plementary video), split optimization d",
+      "overlap_with_next": "ed from TNA, Vid2Vid, DNR, and our ANR. Each person was presented with 20 stimuli of avatars in novel poses for 5s (see supplementary material for details). ANR was pre- ferred 81.",
+      "text": "ls improves the level of detail in the reconstruction and aids in reasoning about self occlusion and temporal consistency (shown in the sup- plementary video), split optimization drastically improves the level of detail. Note the jump in perceptual quality of the rendered face using the split-optimization scheme. Lastly, we show that our two-stage neural render with inter- mediate normal injection outperforms the single-stage ap- proach with the same capacity, validating our network de- sign choice. This trend is quantitatively conﬁrmed in Tab. 2. User Study: While SSIM, LPIPS, or FLIP are the most widely-used metrics for generative tasks, they are merely proxy metrics which do not pay attention to salient regions (e.g., for faces or patterns on shirts) and do not strictly mea- sure perceptual quality. To demonstrate the efﬁcacy of our method, we conduct a 4-alternative forced-choice percep- tual study with 80 participants, where users were given a choice to pick the best avatar out of the results generated from TNA, Vid2Vid, DNR, and our ANR. Each person was presented with 20 stimuli of avatars in novel poses for 5s (see supplementary material for details). ANR was pre- ferred 81.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04825,
+        -0.03195,
+        -0.00404,
+        0.0282,
+        -0.02873
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "ed from TNA, Vid2Vid, DNR, and our ANR. Each person was presented with 20 stimuli of avatars in novel poses for 5s (see supplementary material for details). ANR was pre- ferred 81.",
+      "overlap_with_next": " in capacity. 5. Applications We use a single ANR model to digitize and render avatars for several applications. Please refer to the supple- mentary video for more examples. Novel ",
+      "text": "ed from TNA, Vid2Vid, DNR, and our ANR. Each person was presented with 20 stimuli of avatars in novel poses for 5s (see supplementary material for details). ANR was pre- ferred 81.6% of the time. Furthermore, to test the photo- realism of our avatars, we conducted another 2-Alternative forced choice study where users were presented a real image and an image of our avatar in different poses, and asked to pick the real image. Our model was able to fool users 30% of the time (50% being random chance) in this test. This shows the realistic rendering performance of our model. Model Efﬁciency: We calculate the relative improvement in LPIPS of each approach (x) over vid2vid (V2V) scaled by factor of improvement in number of parameters (#p) as rIPFIP(x) = LPIPSv2v− LPIPSx LPIPSv2v ∗ log(#pv2v/#px)log(#pV 2V ) Particularly, this metric lies in (-∞,1] and reaches a maxi- mum value for ground truth images. This metrics highlights that we beneﬁt from our design choices compared to DNR, and not solely from differences in capacity. 5. Applications We use a single ANR model to digitize and render avatars for several applications. Please refer to the supple- mentary video for more examples. Novel ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07147,
+        -0.01221,
+        0.0047,
+        0.02108,
+        -0.06998
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": " in capacity. 5. Applications We use a single ANR model to digitize and render avatars for several applications. Please refer to the supple- mentary video for more examples. Novel ",
+      "overlap_with_next": "f the pose- dependent deformation appearance generation. 7 [Page 8] Figure 6: Viewpoint generalization demonstration. The proposed model model is robust to viewpoint variation, eve",
+      "text": " in capacity. 5. Applications We use a single ANR model to digitize and render avatars for several applications. Please refer to the supple- mentary video for more examples. Novel View Synthesis: To render the avatar from novel views, we only need to rasterize the tracked mesh using the scene camera parameters to create the UV lookups. The avatar can be readily generated using the neural rendererR. See Fig. 6 for an illustration and the supplementary video for additional results. The viewpoint stability is unlike most image-based CNN approaches, which often synthesize in- consistent appearance with varying viewpoints [40]. Animation: The learned neural identity can be retargeted to any motion from a motion capture database. Fig. 7 shows renderings of the same motion sequence from multi- ple views. Importantly, our model adds vivid and realistic pose-dependent deformation to the rendered avatar, which is not possible for other methods using skinned, but coarse meshes [14]. Fig. 3 provides a detailed view of the pose- dependent deformation appearance generation. 7 [Page 8] Figure 6: Viewpoint generalization demonstration. The proposed model model is robust to viewpoint variation, eve",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00048,
+        -0.00733,
+        -0.00434,
+        0.04113,
+        -0.03124
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "f the pose- dependent deformation appearance generation. 7 [Page 8] Figure 6: Viewpoint generalization demonstration. The proposed model model is robust to viewpoint variation, eve",
+      "overlap_with_next": "ey to our work is the ability to account for geo- metric misalignment and pose-dependent surface deforma- tion. Our solutions are carefully integrated into an end-to- Figure 8: Vir",
+      "text": "f the pose- dependent deformation appearance generation. 7 [Page 8] Figure 6: Viewpoint generalization demonstration. The proposed model model is robust to viewpoint variation, even for unseen poses, and shows high level of detail. Figure 7: Avatar animation example. Any motion capture data that can be used to animate the base mesh can be used to drive the avatar. All avatars shown here are rendered us- ing a single neural network. Replacement of Textures / Virtual Try-On: The learned neural texture is not directly interpretable. However, for two identities trained on the same neural rendering network, we can swap parts of the neural volume to generate identities with swapped faces/clothing items, as shown in Fig. 8. This is unlike fully 3D based approaches which require detailed captures for each new avatar [11]. 6. Conclusion We introduce Articulated Neural Rendering (ANR), a novel neural rendering framework, to generate high-quality virtual avatars with arbitrary skeletal animations and view- points. Key to our work is the ability to account for geo- metric misalignment and pose-dependent surface deforma- tion. Our solutions are carefully integrated into an end-to- Figure 8: Vir",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01894,
+        -0.01404,
+        0.01027,
+        0.01669,
+        -0.02555
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ey to our work is the ability to account for geo- metric misalignment and pose-dependent surface deforma- tion. Our solutions are carefully integrated into an end-to- Figure 8: Vir",
+      "overlap_with_next": "re at Facebook. We thank Tiancheng Zhi and Tony Tung for help with data processing and Michael Zollh ¨oefer for the fruitful discussions. 8 [Page 9] References [1] Kara-Ali Aliev, ",
+      "text": "ey to our work is the ability to account for geo- metric misalignment and pose-dependent surface deforma- tion. Our solutions are carefully integrated into an end-to- Figure 8: Virtual Try-On example. Our method enables tex- ture mixing by swapping the regions of the neural texture of the desired RGB appearance. This example validates the disentanglement of appearance and neural shading network when ANR is trained on multiple identities. end learning framework with a novel neural rendering ar- chitecture and adjusted optimization scheme. Additionally, ANR can render multiple avatars using a single neural ren- dering model. Through decoupling of texture and geometry it allows for mixing and editing of appearance. For future work, we see potential directions in further mitigating the impact of geometric misalignment and improving resiliency towards large pose tracking errors as well as incorporating environmental lighting into the rendering process. Acknowledgement This work was done while AR, JT, and CS were at Facebook. We thank Tiancheng Zhi and Tony Tung for help with data processing and Michael Zollh ¨oefer for the fruitful discussions. 8 [Page 9] References [1] Kara-Ali Aliev, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03085,
+        -0.02293,
+        0.01069,
+        0.00452,
+        -0.0259
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "re at Facebook. We thank Tiancheng Zhi and Tony Tung for help with data processing and Michael Zollh ¨oefer for the fruitful discussions. 8 [Page 9] References [1] Kara-Ali Aliev, ",
+      "overlap_with_next": " , pages 8340– 8348, 2018. 3 [5] Zhe Cao, Gines Hidalgo, Tomas Simon, Shih-En Wei, and Yaser Sheikh. Openpose: realtime multi-person 2d pose estimation using part afﬁnity ﬁelds. ar",
+      "text": "re at Facebook. We thank Tiancheng Zhi and Tony Tung for help with data processing and Michael Zollh ¨oefer for the fruitful discussions. 8 [Page 9] References [1] Kara-Ali Aliev, Artem Sevastopolsky, Maria Kolos, Dmitry Ulyanov, and Victor Lempitsky. Neural point-based graph- ics. arXiv preprint arXiv:1906.08240, 2019. 1, 2 [2] Thiemo Alldieck, Marcus Magnor, Bharat Lal Bhatnagar, Christian Theobalt, and Gerard Pons-Moll. Learning to re- construct people in clothing from a single rgb camera. InThe IEEE Conference on Computer Vision and Pattern Recogni- tion (CVPR), June 2019. 3 [3] Thiemo Alldieck, Marcus Magnor, Weipeng Xu, Christian Theobalt, and Gerard Pons-Moll. Video based reconstruction of 3d people models. In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018. 3 [4] Guha Balakrishnan, Amy Zhao, Adrian V Dalca, Fredo Du- rand, and John Guttag. Synthesizing images of humans in unseen poses. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , pages 8340– 8348, 2018. 3 [5] Zhe Cao, Gines Hidalgo, Tomas Simon, Shih-En Wei, and Yaser Sheikh. Openpose: realtime multi-person 2d pose estimation using part afﬁnity ﬁelds. ar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0056,
+        0.00554,
+        -0.03861,
+        0.03823,
+        -0.008
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " , pages 8340– 8348, 2018. 3 [5] Zhe Cao, Gines Hidalgo, Tomas Simon, Shih-En Wei, and Yaser Sheikh. Openpose: realtime multi-person 2d pose estimation using part afﬁnity ﬁelds. ar",
+      "overlap_with_next": "a part grouping network. In Proceedings of the European Confer- ence on Computer Vision (ECCV) , pages 770–785, 2018. 4 [10] Artur Grigorev, Artem Sevastopolsky, Alexander Vakhi- t",
+      "text": " , pages 8340– 8348, 2018. 3 [5] Zhe Cao, Gines Hidalgo, Tomas Simon, Shih-En Wei, and Yaser Sheikh. Openpose: realtime multi-person 2d pose estimation using part afﬁnity ﬁelds. arXiv preprint arXiv:1812.08008, 2018. 6 [6] Caroline Chan, Shiry Ginosar, Tinghui Zhou, and Alexei A Efros. Everybody dance now. In Proceedings of the IEEE International Conference on Computer Vision , pages 5933– 5942, 2019. 3 [7] Alvaro Collet, Ming Chuang, Pat Sweeney, Don Gillett, Den- nis Evseev, David Calabrese, Hugues Hoppe, Adam Kirk, and Steve Sullivan. High-quality streamable free-viewpoint video. ACM Transactions on Graphics (ToG) , 34(4):1–13, 2015. 1 [8] Paul Debevec, Tim Hawkins, Chris Tchou, Haarm-Pieter Duiker, Westley Sarokin, and Mark Sagar. Acquiring the reﬂectance ﬁeld of a human face. In Proceedings of the 27th annual conference on Computer graphics and interac- tive techniques, pages 145–156, 2000. 1 [9] Ke Gong, Xiaodan Liang, Yicheng Li, Yimin Chen, Ming Yang, and Liang Lin. Instance-level human parsing via part grouping network. In Proceedings of the European Confer- ence on Computer Vision (ECCV) , pages 770–785, 2018. 4 [10] Artur Grigorev, Artem Sevastopolsky, Alexander Vakhi- t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01851,
+        -0.00901,
+        -0.03945,
+        0.02984,
+        -0.01246
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "a part grouping network. In Proceedings of the European Confer- ence on Computer Vision (ECCV) , pages 770–785, 2018. 4 [10] Artur Grigorev, Artem Sevastopolsky, Alexander Vakhi- t",
+      "overlap_with_next": "r. Adversarial texture optimization from rgb-d scans. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 1559– 1568, 2020. 5 [14] Zeng Hua",
+      "text": "a part grouping network. In Proceedings of the European Confer- ence on Computer Vision (ECCV) , pages 770–785, 2018. 4 [10] Artur Grigorev, Artem Sevastopolsky, Alexander Vakhi- tov, and Victor Lempitsky. Coordinate-based texture in- painting for pose-guided image generation. arXiv preprint arXiv:1811.11459, 2018. 3 [11] Kaiwen Guo, Peter Lincoln, Philip Davidson, Jay Busch, Xueming Yu, Matt Whalen, Geoff Harvey, Sergio Orts- Escolano, Rohit Pandey, Jason Dourgarian, et al. The re- lightables: volumetric performance capture of humans with realistic relighting. ACM Transactions on Graphics (TOG) , 38(6):1–19, 2019. 1, 3, 8 [12] Marc Habermann, Weipeng Xu, Michael Zollhoefer, Ger- ard Pons-Moll, and Christian Theobalt. Deepcap: Monoc- ular human performance capture using weak supervision. In IEEE Conference on Computer Vision and Pattern Recogni- tion (CVPR). IEEE, jun 2020. 3 [13] Jingwei Huang, Justus Thies, Angela Dai, Abhijit Kundu, Chiyu Jiang, Leonidas J Guibas, Matthias Nießner, and Thomas Funkhouser. Adversarial texture optimization from rgb-d scans. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 1559– 1568, 2020. 5 [14] Zeng Hua",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02131,
+        -0.01051,
+        -0.01501,
+        -0.0035,
+        -0.0116
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "r. Adversarial texture optimization from rgb-d scans. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 1559– 1568, 2020. 5 [14] Zeng Hua",
+      "overlap_with_next": "fer, Hyeongwoo Kim, Florian Bernard, Marc Habermann, Wenping Wang, and Christian Theobalt. Neural rendering and reenactment of human actor videos, 2018. 3 [20] Wen Liu, Zhixin Piao",
+      "text": "r. Adversarial texture optimization from rgb-d scans. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 1559– 1568, 2020. 5 [14] Zeng Huang, Yuanlu Xu, Christoph Lassner, Hao Li, and Tony Tung. Arch: Animatable reconstruction of clothed hu- mans, 2020. 3, 7 [15] Phillip Isola, Jun-Yan Zhu, Tinghui Zhou, and Alexei A Efros. Image-to-image translation with conditional adver- sarial networks. In CVPR, 2017. 6 [16] Justin Johnson, Alexandre Alahi, and Li Fei-Fei. Perceptual losses for real-time style transfer and super-resolution. In European conference on computer vision , pages 694–711. Springer, 2016. 5 [17] Diederik P Kingma and Jimmy Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 , 2014. 3 [18] Christoph Lassner, Gerard Pons-Moll, and Peter V Gehler. A generative model of people in clothing. In Proceedings of the IEEE International Conference on Computer Vision , pages 853–862, 2017. 3 [19] Lingjie Liu, Weipeng Xu, Michael Zollhoefer, Hyeongwoo Kim, Florian Bernard, Marc Habermann, Wenping Wang, and Christian Theobalt. Neural rendering and reenactment of human actor videos, 2018. 3 [20] Wen Liu, Zhixin Piao",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0232,
+        -0.00441,
+        -0.02197,
+        0.01263,
+        -0.01118
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "fer, Hyeongwoo Kim, Florian Bernard, Marc Habermann, Wenping Wang, and Christian Theobalt. Neural rendering and reenactment of human actor videos, 2018. 3 [20] Wen Liu, Zhixin Piao",
+      "overlap_with_next": " Jia, Qianru Sun, Bernt Schiele, Tinne Tuyte- laars, and Luc Van Gool. Pose guided person image genera- tion. In Advances in Neural Information Processing Systems, pages 406–416, 2",
+      "text": "fer, Hyeongwoo Kim, Florian Bernard, Marc Habermann, Wenping Wang, and Christian Theobalt. Neural rendering and reenactment of human actor videos, 2018. 3 [20] Wen Liu, Zhixin Piao, Min Jie, Wenhan Luo, Lin Ma, and Shenghua Gao. Liquid warping gan: A uniﬁed framework for human motion imitation, appearance transfer and novel view synthesis. In The IEEE International Conference on Computer Vision (ICCV), 2019. 3 [21] Stephen Lombardi, Jason Saragih, Tomas Simon, and Yaser Sheikh. Deep appearance models for face rendering. ACM Transactions on Graphics (TOG), 37(4):1–13, 2018. 1, 3 [22] Stephen Lombardi, Tomas Simon, Jason Saragih, Gabriel Schwartz, Andreas Lehrmann, and Yaser Sheikh. Neural vol- umes: Learning dynamic renderable volumes from images. ACM Transactions on Graphics (TOG), 38(4):65, 2019. 1 [23] Matthew Loper, Naureen Mahmood, Javier Romero, Ger- ard Pons-Moll, and Michael J. Black. SMPL: A skinned multi-person linear model. ACM Trans. Graphics (Proc. SIGGRAPH Asia), 2015. 4, 6 [24] Liqian Ma, Xu Jia, Qianru Sun, Bernt Schiele, Tinne Tuyte- laars, and Luc Van Gool. Pose guided person image genera- tion. In Advances in Neural Information Processing Systems, pages 406–416, 2",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04514,
+        -0.02075,
+        -0.01002,
+        -0.02841,
+        0.0062
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": " Jia, Qianru Sun, Bernt Schiele, Tinne Tuyte- laars, and Luc Van Gool. Pose guided person image genera- tion. In Advances in Neural Information Processing Systems, pages 406–416, 2",
+      "overlap_with_next": "nting scenes as neural radiance ﬁelds for view syn- thesis, 2020. 1 [29] Koki Nagano, Huiwen Luo, Zejian Wang, Jaewoo Seo, Jun Xing, Liwen Hu, Lingyu Wei, and Hao Li. Deep face nor",
+      "text": " Jia, Qianru Sun, Bernt Schiele, Tinne Tuyte- laars, and Luc Van Gool. Pose guided person image genera- tion. In Advances in Neural Information Processing Systems, pages 406–416, 2017. 3 [25] Liqian Ma, Qianru Sun, Stamatios Georgoulis, Luc Van Gool, Bernt Schiele, and Mario Fritz. Disentangled person image generation. In Proceedings of the IEEE Con- ference on Computer Vision and Pattern Recognition , pages 99–108, 2018. 3 [26] Ricardo Martin-Brualla, Rohit Pandey, Soﬁen Bouaziz, Matthew Brown, and Dan B Goldman. Gelato: Generative latent textured objects. In ECCV, 2020. 1, 2 [27] Ricardo Martin-Brualla, Rohit Pandey, Shuoran Yang, Pavel Pidlypenskyi, Jonathan Taylor, Julien Valentin, Sameh Khamis, Philip Davidson, Anastasia Tkach, Peter Lincoln, 9 [Page 10] et al. Lookingood: enhancing performance capture with real- time neural re-rendering. arXiv preprint arXiv:1811.05029 , 2018. 3 [28] Ben Mildenhall, Pratul P. Srinivasan, Matthew Tancik, Jonathan T. Barron, Ravi Ramamoorthi, and Ren Ng. Nerf: Representing scenes as neural radiance ﬁelds for view syn- thesis, 2020. 1 [29] Koki Nagano, Huiwen Luo, Zejian Wang, Jaewoo Seo, Jun Xing, Liwen Hu, Lingyu Wei, and Hao Li. Deep face nor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04057,
+        0.00706,
+        -0.01698,
+        -0.00799,
+        -0.01756
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "nting scenes as neural radiance ﬁelds for view syn- thesis, 2020. 1 [29] Koki Nagano, Huiwen Luo, Zejian Wang, Jaewoo Seo, Jun Xing, Liwen Hu, Lingyu Wei, and Hao Li. Deep face nor",
+      "overlap_with_next": "[33] Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U- net: Convolutional networks for biomedical image segmen- tation. In International Conference on Medical image com- putin",
+      "text": "nting scenes as neural radiance ﬁelds for view syn- thesis, 2020. 1 [29] Koki Nagano, Huiwen Luo, Zejian Wang, Jaewoo Seo, Jun Xing, Liwen Hu, Lingyu Wei, and Hao Li. Deep face nor- malization. ACM Transactions on Graphics (TOG), 38(6):1– 16, 2019. 1 [30] Natalia Neverova, Riza Alp Guler, and Iasonas Kokkinos. Dense pose transfer. In Proceedings of the European con- ference on computer vision (ECCV) , pages 123–138, 2018. 3 [31] Rohit Pandey, Anastasia Tkach, Shuoran Yang, Pavel Pid- lypenskyi, Jonathan Taylor, Ricardo Martin-Brualla, Andrea Tagliasacchi, George Papandreou, Philip Davidson, Cem Ke- skin, et al. V olumetric capture of humans with a single rgbd camera via semi-parametric learning. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recogni- tion, pages 9709–9718, 2019. 3 [32] Amit Raj, Patsorn Sangkloy, Huiwen Chang, James Hays, Duygu Ceylan, and Jingwan Lu. Swapnet: Image based gar- ment transfer. In European Conference on Computer Vision, pages 679–695. Springer, 2018. 3 [33] Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U- net: Convolutional networks for biomedical image segmen- tation. In International Conference on Medical image com- putin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03026,
+        -0.02177,
+        -0.02581,
+        0.00811,
+        -0.01493
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "[33] Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U- net: Convolutional networks for biomedical image segmen- tation. In International Conference on Medical image com- putin",
+      "overlap_with_next": "Recognition, pages 118–126, 2018. 3, 6 [37] Justus Thies, Michael Zollh ¨ofer, and Matthias Nießner. De- ferred neural rendering: Image synthesis using neural tex- tures. ACM Trans",
+      "text": "[33] Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U- net: Convolutional networks for biomedical image segmen- tation. In International Conference on Medical image com- puting and computer-assisted intervention , pages 234–241. Springer, 2015. 3 [34] Shunsuke Saito, Tomas Simon, Jason Saragih, and Hanbyul Joo. Pifuhd: Multi-level pixel-aligned implicit function for high-resolution 3d human digitization. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recogni- tion, June 2020. 3 [35] Aliaksandra Shysheya, Egor Zakharov, Kara-Ali Aliev, Renat Bashirov, Egor Burkov, Karim Iskakov, Aleksei Ivakhnenko, Yury Malkov, Igor Pasechnik, Dmitry Ulyanov, et al. Textured neural avatars. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition , pages 2387–2397, 2019. 2, 3, 6 [36] Chenyang Si, Wei Wang, Liang Wang, and Tieniu Tan. Mul- tistage adversarial losses for pose-based human image syn- thesis. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 118–126, 2018. 3, 6 [37] Justus Thies, Michael Zollh ¨ofer, and Matthias Nießner. De- ferred neural rendering: Image synthesis using neural tex- tures. ACM Trans",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03415,
+        -0.01885,
+        -0.03219,
+        0.0053,
+        -0.00228
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "Recognition, pages 118–126, 2018. 3, 6 [37] Justus Thies, Michael Zollh ¨ofer, and Matthias Nießner. De- ferred neural rendering: Image synthesis using neural tex- tures. ACM Trans",
+      "overlap_with_next": "ansfer. In Proceed- ings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 5391–5399, 2018. 3 [43] Bo Zhao, Xiao Wu, Zhi-Qi Cheng, Hao Liu, Zequn Jie, and Ji",
+      "text": "Recognition, pages 118–126, 2018. 3, 6 [37] Justus Thies, Michael Zollh ¨ofer, and Matthias Nießner. De- ferred neural rendering: Image synthesis using neural tex- tures. ACM Transactions on Graphics (TOG) , 38(4):1–12, 2019. 1, 2, 3, 6 [38] Aaron Walsman, Weilin Wan, Tanner Schmidt, and Dieter Fox. Dynamic high resolution deformable articulated track- ing. In 3DV, 2017. 2 [39] Aaron Walsman, Weilin Wan, Tanner Schmidt, and Dieter Fox. Dynamic high resolution deformable articulated track- ing. In 3D Vision, 2017. 6 [40] Ting-Chun Wang, Ming-Yu Liu, Jun-Yan Zhu, Guilin Liu, Andrew Tao, Jan Kautz, and Bryan Catanzaro. Video-to- video synthesis. In Advances in Neural Information Pro- cessing Systems (NeurIPS), 2018. 2, 6, 7 [41] Ting-Chun Wang, Ming-Yu Liu, Jun-Yan Zhu, Andrew Tao, Jan Kautz, and Bryan Catanzaro. High-resolution image syn- thesis and semantic manipulation with conditional gans. In CVPR, 2018. 5, 6 [42] Mihai Zanﬁr, Alin-Ionut Popa, Andrei Zanﬁr, and Cristian Sminchisescu. Human appearance transfer. In Proceed- ings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 5391–5399, 2018. 3 [43] Bo Zhao, Xiao Wu, Zhi-Qi Cheng, Hao Liu, Zequn Jie, and Ji",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0193,
+        -0.02607,
+        0.00308,
+        0.01659,
+        -0.03508
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 41338,
+      "length": 538,
+      "overlap_with_previous": "ansfer. In Proceed- ings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 5391–5399, 2018. 3 [43] Bo Zhao, Xiao Wu, Zhi-Qi Cheng, Hao Liu, Zequn Jie, and Ji",
+      "overlap_with_next": "",
+      "text": "ansfer. In Proceed- ings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 5391–5399, 2018. 3 [43] Bo Zhao, Xiao Wu, Zhi-Qi Cheng, Hao Liu, Zequn Jie, and Jiashi Feng. Multi-view image generation from a single- view. In Proceedings of the 26th ACM international con- ference on Multimedia, pages 383–391, 2018. 3 [44] Tiancheng Zhi, Christoph Lassner, Tony Tung, Carsten Stoll, Srinivasa G Narasimhan, and Minh V o. Texmesh: Recon- structing detailed human texture and geometry from rgb-d video. In ECCV, 2020. 3 10",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0099,
+        -0.02338,
+        -0.00473,
+        -0.01245,
+        -0.01288
+      ]
+    }
+  ]
+}

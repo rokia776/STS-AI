@@ -1,0 +1,351 @@
+{
+  "paper_id": "0022a198-13f2-41c3-94cd-0bc492ad5d4f",
+  "filename": "009_NLP_Neural_document_expansion_for_ad-hoc_information_retrieval.pdf",
+  "title": "Neural document expansion for ad-hoc information retrieval",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 20,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "e the vocabulary mismatch problem. Document expansion has been shown to be particularly eﬀective for short text retrieval and language-model based retrieval [Tao et al., 2006, Efro",
+      "text": "[Page 1] Neural document expansion for ad-hoc information retrieval Cheng Tang ⋆ ⋆ ⋆, Andrew Arnold † Amazon Abstract. Recently, Nogueira et al. [2019] proposed a new approach to document expansion based on a neural Seq2Seq model, showing signif- icant improvement on short text retrieval task. However, this approach needs a large amount of in-domain training data. In this paper, we show that this neural document expansion approach can be eﬀectively adapted to standard IR tasks, where labels are scarce and many long documents are present. 1 Introduction In traditional ad-hoc retrieval, queries and documents are represented by variants of bag-of-words representations. This leads to the so called vocabulary mismatch problem: when a query contains words that do not exactly match words in a relevant document, the search engine may fail to retrieve this document. Query expansion and document expansion, the methods of adding additional terms to the original query or document, are two popular solution to alleviate the vocabulary mismatch problem. Document expansion has been shown to be particularly eﬀective for short text retrieval and language-model based retrieval [Tao et al., 2006, Efro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04035,
+        -0.0226,
+        -0.00167,
+        0.02072,
+        -0.01848
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "e the vocabulary mismatch problem. Document expansion has been shown to be particularly eﬀective for short text retrieval and language-model based retrieval [Tao et al., 2006, Efro",
+      "overlap_with_next": "ment expansion approach and explore its performance on standard IR benchmarking dataset. Our main contributions are: 1. Adapting the method to unlabeled datasets by exploring trans",
+      "text": "e the vocabulary mismatch problem. Document expansion has been shown to be particularly eﬀective for short text retrieval and language-model based retrieval [Tao et al., 2006, Efron et al., 2012]. Most of the existing works in document expansion are unsupervised: using information from the corpus to augment document representation, e.g., retrieval based [Efron et al., 2012] and clustering based [Liu and Croft, 2004, Tao et al., 2006], or using external information to augment document representation [Agirre et al., 2010, Sherman and Efron, 2017]. Recently, Nogueira et al. [2019] proposed a new approach to document ex- pansion, which is based on a popular generative sequence-to-sequence model (Seq2Seq) in NLP, transformers [Wolf et al., 2020]. It leverages supervision to train the model to predict expansion terms conditional on each document. The paper has shown signiﬁcant improvement on passage (short document) datasets, when trained in-domain. In this paper, we follow this line of supervised neu- ral document expansion approach and explore its performance on standard IR benchmarking dataset. Our main contributions are: 1. Adapting the method to unlabeled datasets by exploring trans",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08799,
+        -0.00777,
+        -0.0025,
+        0.05084,
+        -0.01545
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "ment expansion approach and explore its performance on standard IR benchmarking dataset. Our main contributions are: 1. Adapting the method to unlabeled datasets by exploring trans",
+      "overlap_with_next": "t eﬀective for training the document expansion model is the MSMarco passage-ranking dataset [Bajaj et al., 2018]. Domain adaptation Since most IR datasets are short of annotated qu",
+      "text": "ment expansion approach and explore its performance on standard IR benchmarking dataset. Our main contributions are: 1. Adapting the method to unlabeled datasets by exploring transfer learning and weak-supervision ap- proaches. 2. Adapting the method to traditional IR datasets, where a large num- ber of long documents are present. ⋆ ⋆ ⋆ tcheng@amazon.com † anarnld@amazon.com arXiv:2012.14005v1 [cs.IR] 27 Dec 2020 [Page 2] document counts Fig. 1: Left: document lengths distribution in Robust04; Right: distribution of relevant passage (answer-containing passage) indices in MSMarco-documents 2 Document retrieval with Seq2Seq models In this section, we discuss our approach to document expansion. Train a passage level document expansion model We follow the approach of Nogueira et al. [2019]: we use data of format ( p, q), where q is a question and p is a passage relevant to it. A Seq2Seq model is trained so that conditional on input p, it learns to generate the ground-truth question q. The dataset we found most eﬀective for training the document expansion model is the MSMarco passage-ranking dataset [Bajaj et al., 2018]. Domain adaptation Since most IR datasets are short of annotated qu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05842,
+        0.00888,
+        -0.03299,
+        0.03034,
+        -0.02792
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "t eﬀective for training the document expansion model is the MSMarco passage-ranking dataset [Bajaj et al., 2018]. Domain adaptation Since most IR datasets are short of annotated qu",
+      "overlap_with_next": "ent may yield sub-optimal performance. Figure 1-Left shows the document lengths distribution of Robust04 dataset. We see that most of the documents are around 1000-tokens long, whi",
+      "text": "t eﬀective for training the document expansion model is the MSMarco passage-ranking dataset [Bajaj et al., 2018]. Domain adaptation Since most IR datasets are short of annotated queries, it is important to explore ways to adapt the document expansion model to out- of-domain unlabeled datasets. We explored two simple approaches: zero-shot transfer and weak supervision (retrieval-based pseudo annotation). In zero-shot transfer, we directly apply a model trained from one domain to another; in retrieval-based pseudo annotation, we issue out-of-domain queries to a target corpus and treat the top- k returned documents as “relevant”. Adaptation to long documents Due to the memory overhead of transformer- based models, the maximal input length of this family of models are constrained to be short. We trained our expansion models on passage-level datasets. However, during inference time, a standard IR dataset is usually a mixture of short and long documents, and expanding on an arbitrarily capped portion of a document may yield sub-optimal performance. Figure 1-Left shows the document lengths distribution of Robust04 dataset. We see that most of the documents are around 1000-tokens long, whi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07357,
+        -0.00355,
+        -0.03829,
+        0.05159,
+        -0.02075
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "ent may yield sub-optimal performance. Figure 1-Left shows the document lengths distribution of Robust04 dataset. We see that most of the documents are around 1000-tokens long, whi",
+      "overlap_with_next": " From MSMarco-QA dataset, we can obtain (q, p, a) triplets so that we know passage p contains an answer for question q. We treat this as a signal of question-passage relevance. The",
+      "text": "ent may yield sub-optimal performance. Figure 1-Left shows the document lengths distribution of Robust04 dataset. We see that most of the documents are around 1000-tokens long, which has exceeded the typical input length transformer based models can take [Hofst¨ atter et al., 2020]. To deal with this problem, we explored three strategies (see experiment results at Table 3: “Long document generation methods” section): 1. concatenation of paragraph generation (CONCAT in Table 3): Split each long document into overlapping passages, respecting natural sentence [Page 3] boundaries (with sliding window size to be around 60 tokens, since this is roughly the median size of passages in MSMarco dataset, which we used for training) and run expansion inference on each passage. All generated expansions are directly appended to the original documents. 2. ﬁrst k sentences (FIRST-K in Table 3) : Run expansion model on the ﬁrst k whole sentences of each document. This strategy is based on our analysis of MSMarco datasets. From MSMarco-QA dataset, we can obtain (q, p, a) triplets so that we know passage p contains an answer for question q. We treat this as a signal of question-passage relevance. The",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0199,
+        -0.01432,
+        -0.03638,
+        0.00377,
+        -0.02121
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": " From MSMarco-QA dataset, we can obtain (q, p, a) triplets so that we know passage p contains an answer for question q. We treat this as a signal of question-passage relevance. The",
+      "overlap_with_next": "-answering tasks, i.e., MSMarco passage- ranking [Bajaj et al., 2018], Natural Questions [Kwiatkowski et al., 2019], and SQuAD [Rajpurkar et al., 2018]. In addition, we also used a",
+      "text": " From MSMarco-QA dataset, we can obtain (q, p, a) triplets so that we know passage p contains an answer for question q. We treat this as a signal of question-passage relevance. Then we can trace these passages back to the document they belong to using the MSMarco- documents dataset. Comparing “Capped passage generation methods” to “Long document generation methods” in Table 3, we see that the “Long doc- ument generation methods”, and in particular, the CONCAT and FIRST-K generation methods are more eﬀective. 3. passage-importance indicator (PI in Table 3): Before seeing any ques- tions, we predict which passage will be queried using a unsupervised pre- dictor [Bendersky and Kurland, 2008], and generate expansion exclusively based on this passage. In our experiments, this method do not yield good performance, likely due to the low quality of the passage-importance predic- tor. 3 Experiments To train the document expansion models, we selected datasets that are typically used for passage-ranking and question-answering tasks, i.e., MSMarco passage- ranking [Bajaj et al., 2018], Natural Questions [Kwiatkowski et al., 2019], and SQuAD [Rajpurkar et al., 2018]. In addition, we also used a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01541,
+        -0.0245,
+        -0.03905,
+        0.01332,
+        -0.03062
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "-answering tasks, i.e., MSMarco passage- ranking [Bajaj et al., 2018], Natural Questions [Kwiatkowski et al., 2019], and SQuAD [Rajpurkar et al., 2018]. In addition, we also used a",
+      "overlap_with_next": "sed zero- shot transfer model has competitive performance to in-domain trained-from- scratch models. Once decided on the zero-shot transfer learning approach, we tried several ﬁne-",
+      "text": "-answering tasks, i.e., MSMarco passage- ranking [Bajaj et al., 2018], Natural Questions [Kwiatkowski et al., 2019], and SQuAD [Rajpurkar et al., 2018]. In addition, we also used a TREC collection short-document dataset, microblogs [Lin et al., 2014]. To evaluate the perfor- mance of document expansion method on information retrieval, we additionally add the standard IR benchmarking dataset Robust04 [Voorhees, 2004]. Our base- line retrieval methods, BM25 and Query Likelihood (QL), use implementation from the open-source Anserini toolkit [Yang et al., 2017]; for Seq2Seq models, we experimented with transformers (OpenNMT implementation [Klein et al., 2017]) and pre-trained BART (Huggingface Pytorch implementation [Wolf et al., 2020]). 3.1 Retrieval performance on passage datasets From Table 1, we see that retrieval-based weak supervision, while showing good performance as training signal for neural retrieval models [Dehghani et al., 2017], does not yield good document expansion models. Instead, the BART-based zero- shot transfer model has competitive performance to in-domain trained-from- scratch models. Once decided on the zero-shot transfer learning approach, we tried several ﬁne-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05362,
+        0.00386,
+        -0.02201,
+        0.04726,
+        0.00097
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "sed zero- shot transfer model has competitive performance to in-domain trained-from- scratch models. Once decided on the zero-shot transfer learning approach, we tried several ﬁne-",
+      "overlap_with_next": "3 0.3879 0.9764 0.8056 (ﬁne-tuning 0.5297 0.465 0.8302 0.4501 0.9787 0.8121 BART) (0.7949) (0.2674) Table 1: In-domain trained and weakly-supervised document expansion model; for M",
+      "text": "sed zero- shot transfer model has competitive performance to in-domain trained-from- scratch models. Once decided on the zero-shot transfer learning approach, we tried several ﬁne-tuning strategies with the BART model (Table 2), drawing inspiration from [Yilmaz et al., 2019]. We found that ﬁne-tuning pre-trained [Page 4] BART with MSMarco-passages dataset and with a mixed MSMarco-passages and microblogs dataset produces the best document expansion models. Although less eﬀective, our experiment suggests that other passage-level datasets such as Natural Questions and SQuAD, can also be used as sources to train document expansion models. DE models MSMarco-passages Natural Questions SQuAD-v2 Trec-DL Trec-DL (DEV) (DEV) R@100 MAP R@100 MAP R@100 MAP BM25 0.4531 0.3773 0.7619 0.3616 0.9737 0.7997 (0.7619) ( 0.3616) In-domain trained 0.4545 0.3872 0.8671 0.4450 0.9754 0.7915 transformer (0.7127) (0.2203) W eakly supervised transformer NA NA 0.7649 0.3608 0.9717 0.7913 Zero-shot transfer (transformer) NA NA 0.7773 0.3879 0.9764 0.8056 (ﬁne-tuning 0.5297 0.465 0.8302 0.4501 0.9787 0.8121 BART) (0.7949) (0.2674) Table 1: In-domain trained and weakly-supervised document expansion model; for M",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06411,
+        -0.01525,
+        -0.05375,
+        0.02004,
+        0.01403
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "3 0.3879 0.9764 0.8056 (ﬁne-tuning 0.5297 0.465 0.8302 0.4501 0.9787 0.8121 BART) (0.7949) (0.2674) Table 1: In-domain trained and weakly-supervised document expansion model; for M",
+      "overlap_with_next": "] described in Section 2. The result of applying passage-level trained document expansion model to Robust04 can be found in Table 3. Traditional IR baselines In addition to tf-idf ",
+      "text": "3 0.3879 0.9764 0.8056 (ﬁne-tuning 0.5297 0.465 0.8302 0.4501 0.9787 0.8121 BART) (0.7949) (0.2674) Table 1: In-domain trained and weakly-supervised document expansion model; for MSMarco-passages, we have two test sets: DEV and Trec-DL [Craswell et al., 2020] DE models Natural Questions SQuAD-v2 Robust04R@100 MAP R@100 MAP R@100 MAP BM25 0.7619 0.3616 0.9737 0.7997 0.4152 0.2553 MSMarco-passages 0.8302 0.4501 0.9787 0.8121 0.4229 0.2620 MSMarco-passage → microblogs 0.7931 0.4 0.9757 0.7962 0.4206 0.2533 MSMarco-passages + microblogs 0.8239 0.4437 0.9787 0.8133 0.4212 0.2630 Natural Questions 0.9031 0.5271 0.9782 0.8099 0.4190 0.2626 SQuAD-v2 0.8173 0.4228 0.9798 0.8156 0.4218 0.2616 Table 2: Zero-shot transfer of passage-level DE model 3.2 Retrieval performance on Robust04 To test the performance of passage-level trained document expansion model on standard IR corpus, we ﬁxed the passage-level model to be “MSMaroc-passage + microblog” trained. Then we explored three expansion generation methods as [Page 5] described in Section 2. The result of applying passage-level trained document expansion model to Robust04 can be found in Table 3. Traditional IR baselines In addition to tf-idf ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04443,
+        -0.00139,
+        -0.03983,
+        -0.0021,
+        0.00541
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "] described in Section 2. The result of applying passage-level trained document expansion model to Robust04 can be found in Table 3. Traditional IR baselines In addition to tf-idf ",
+      "overlap_with_next": "aring “Capped passage generation methods” to “Long document generation meth- ods”, we see that for both BM25 and QLD, the two long document expansion methods, CONCAT and FIRST-K, h",
+      "text": "] described in Section 2. The result of applying passage-level trained document expansion model to Robust04 can be found in Table 3. Traditional IR baselines In addition to tf-idf based BM25, we applied doc- ument expansion to two popular language-model based retrieval methods: query- likelihood with Dirichlet Smooth (QLD) and query-likelihood with Jelinek-Mercer smoothing (QLJM). We found that document expansion has good performance with QLD. We speculate that this is because the way our current document ex- pansion model works is similar to the Dirichlet smoothing model, which models the process of adding unseen words to the original documents by drawing from a background distribution based on the entire corpus. Here, the document expan- sion model in addition samples words from the query distribution (conditional on each document). Since document expansion does not signiﬁcantly improve QLJM, we did not include it in the rest of our experiments. Capped passage generation vs Long document generation Comparing “Capped passage generation methods” to “Long document generation meth- ods”, we see that for both BM25 and QLD, the two long document expansion methods, CONCAT and FIRST-K, h",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0435,
+        -0.01912,
+        -0.04138,
+        0.01494,
+        -0.02555
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "aring “Capped passage generation methods” to “Long document generation meth- ods”, we see that for both BM25 and QLD, the two long document expansion methods, CONCAT and FIRST-K, h",
+      "overlap_with_next": "oint out that comparing to RM3, which requires two rounds of retrieval at query time, document expansion model is applied oﬄine and does not add additional computational overhead a",
+      "text": "aring “Capped passage generation methods” to “Long document generation meth- ods”, we see that for both BM25 and QLD, the two long document expansion methods, CONCAT and FIRST-K, have better performance. The fact the CON- CAT has the best performance suggests that even if most queries are targeting the head portion of a document (Figure 1-Right), using information from the entire document may still be beneﬁcial to expansion generation. Performance with pseudo-relevance feedback and BERT re-ranker Since document expansion is one of several techniques that can improve the document retrieval performance, we also want to understand how it works when combined with other techniques. In our experiments, we ﬁrst explored combining the best performing document expansion model with RM3 [Abdul-jaleel et al., 2004], a popular query expansion method based on pseudo-relevance feedback. While RM3 alone signiﬁcantly improves the baseline retrieval performance, DE** 1 can still add an additional boost on top. We want to point out that comparing to RM3, which requires two rounds of retrieval at query time, document expansion model is applied oﬄine and does not add additional computational overhead a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03917,
+        -0.01848,
+        -0.04807,
+        0.0003,
+        -0.02345
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "oint out that comparing to RM3, which requires two rounds of retrieval at query time, document expansion model is applied oﬄine and does not add additional computational overhead a",
+      "overlap_with_next": ".2502 QLJM 0.3995 0.2287 Capped passage BM25+passage-DE* 0.4212 0.2630 generation methods QLD+passage-DE* 0.4270 0.2620 QLJM+passage-DE* 0.4058 0.2350 Long document BM25+DE* (CONCA",
+      "text": "oint out that comparing to RM3, which requires two rounds of retrieval at query time, document expansion model is applied oﬄine and does not add additional computational overhead at run time. BM25 with document and query expansion makes a ﬁrst-stage ranker in the ranking pipeline. In our last experiment, we test its end-to-end perfor- mance when combined with a second-stage neural ranker, BERT [Nogueira and Cho, 2019]. To evaluate the end-to-end result, we used metrics R@k and P @k for small k, mimicking what the ranking system presents to a user (the top- k ranked documents). Our experiment results indicate that our document expan- sion models are complementary to query expansion as a ﬁrst-stage ranker and can improve the end-to-end ranking performance when combined with a second- stage ranker. 1 DE** indicates concatenation of paragraph generation with MSMarco+microblog trained passage model. [Page 6] Experiment category Methods Robust04 R@100 MAP Traditional BM25 0.4152 0.2553 IR baselines QLD 0.4157 0.2502 QLJM 0.3995 0.2287 Capped passage BM25+passage-DE* 0.4212 0.2630 generation methods QLD+passage-DE* 0.4270 0.2620 QLJM+passage-DE* 0.4058 0.2350 Long document BM25+DE* (CONCA",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0388,
+        -0.0207,
+        -0.02195,
+        0.00102,
+        -0.01815
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": ".2502 QLJM 0.3995 0.2287 Capped passage BM25+passage-DE* 0.4212 0.2630 generation methods QLD+passage-DE* 0.4270 0.2620 QLJM+passage-DE* 0.4058 0.2350 Long document BM25+DE* (CONCA",
+      "overlap_with_next": " We explored simple approaches to adapt the model to standard IR dataset (Robust04) where a large number of long documents are present, and we showed that adapting the passage-leve",
+      "text": ".2502 QLJM 0.3995 0.2287 Capped passage BM25+passage-DE* 0.4212 0.2630 generation methods QLD+passage-DE* 0.4270 0.2620 QLJM+passage-DE* 0.4058 0.2350 Long document BM25+DE* (CONCAT) 0.4283 0.2631 generation methods BM25+DE* (FIRST-K) 0.4226 0.2625 BM25+DE* (PI) 0.4212 0.2588 QLD+DE* (CONCAT) 0.4290 0.2615 QLD+DE* (FIRST-K) 0.4272 0.2625 QLD+DE* (PI) 0.4259 0.2577 DE+pseudo-relevance feedback BM25+RM3 0.4517 0.2941 BM25+RM3+DE** 0.4641 0.3035 DE + BERT reranker End-to-end metrics R@10 P@10 P@5 BM25 + BERT 0.2771 0.3731 0.4137 BM25 + RM3 + BERT 0.2608 0.3803 0.4048 BM25 + DE** + BERT 0.2824 0.3767 0.4161 BM25 + RM3 + DE** + BERT 0.2726 0.3944 0.4241 Table 3: Robust04 experiments (DE*: MSMarco-passage+microblog trained pas- sage model; DE**: concatenation of paragraph generation, CONCAT, with DE*) 4 Conclusion We showed that a document expansion model trained on passage-level datasets of (question, relevant passage) pairs can be directly applied to out-of-domain IR datasets to improve retrieval performance. We explored simple approaches to adapt the model to standard IR dataset (Robust04) where a large number of long documents are present, and we showed that adapting the passage-leve",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03747,
+        0.00072,
+        -0.03933,
+        0.01156,
+        -0.02312
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " We explored simple approaches to adapt the model to standard IR dataset (Robust04) where a large number of long documents are present, and we showed that adapting the passage-leve",
+      "overlap_with_next": "nsion. In Proceedings of the Main Conference on Human Language Technology Conference of the North Ameri- can Chapter of the Association of Computational Linguistics , HLT-NAACL ’06",
+      "text": " We explored simple approaches to adapt the model to standard IR dataset (Robust04) where a large number of long documents are present, and we showed that adapting the passage-level trained model to long documents further improves retrieval performance. How- ever, our current simple adaptations to long documents do not signiﬁcantly im- prove the model performance (see Table 3, Long document generation methods). We cannot conclude whether this is due to the nature of the relevant passage distribution over long documents (i.e., they tend to be the ﬁrst few passages of any document, according to Figure 1-Right). Hence, it may be worth exploring model architectures that allow longer input sequences, for example, by switching to sparse attention layers [Beltagy et al., 2020]. [Page 7] Bibliography Rodrigo Nogueira, Wei Yang, Jimmy Lin, and Kyunghyun Cho. Document expansion by query prediction, 2019. Tao Tao, Xuanhui Wang, Qiaozhu Mei, and ChengXiang Zhai. Language model information retrieval with document expansion. In Proceedings of the Main Conference on Human Language Technology Conference of the North Ameri- can Chapter of the Association of Computational Linguistics , HLT-NAACL ’06",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02025,
+        -0.00304,
+        -0.03357,
+        0.02542,
+        -0.03009
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "nsion. In Proceedings of the Main Conference on Human Language Technology Conference of the North Ameri- can Chapter of the Association of Computational Linguistics , HLT-NAACL ’06",
+      "overlap_with_next": " Association for Computing Ma- chinery. ISBN 1581138814. https://doi.org/10.1145/1008992.1009026. URL https://doi.org/10.1145/1008992.1009026. Eneko Agirre, Xabier Arregi, and Aran",
+      "text": "nsion. In Proceedings of the Main Conference on Human Language Technology Conference of the North Ameri- can Chapter of the Association of Computational Linguistics , HLT-NAACL ’06, page 407–414, USA, 2006. Association for Computational Linguistics. https://doi.org/10.3115/1220835.1220887. URL https://doi.org/10.3115/ 1220835.1220887. Miles Efron, Peter Organisciak, and Katrina Fenlon. Improving retrieval of short texts through document expansion. In Proceedings of the 35th International ACM SIGIR Conference on Research and Develop- ment in Information Retrieval , SIGIR ’12, page 911–920, New York, NY, USA, 2012. Association for Computing Machinery. ISBN 9781450314725. https://doi.org/10.1145/2348283.2348405. URL https://doi.org/10.1145/ 2348283.2348405. Xiaoyong Liu and W. Bruce Croft. Cluster-based retrieval using language models. In Proceedings of the 27th Annual International ACM SIGIR Con- ference on Research and Development in Information Retrieval , SIGIR ’04, page 186–193, New York, NY, USA, 2004. Association for Computing Ma- chinery. ISBN 1581138814. https://doi.org/10.1145/1008992.1009026. URL https://doi.org/10.1145/1008992.1009026. Eneko Agirre, Xabier Arregi, and Aran",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02517,
+        -0.01218,
+        -0.01186,
+        0.02331,
+        -0.00225
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " Association for Computing Ma- chinery. ISBN 1581138814. https://doi.org/10.1145/1008992.1009026. URL https://doi.org/10.1145/1008992.1009026. Eneko Agirre, Xabier Arregi, and Aran",
+      "overlap_with_next": "e- of-the-art natural language processing, 2020. Payal Bajaj, Daniel Campos, Nick Craswell, Li Deng, Jianfeng Gao, Xiaodong Liu, Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tr",
+      "text": " Association for Computing Ma- chinery. ISBN 1581138814. https://doi.org/10.1145/1008992.1009026. URL https://doi.org/10.1145/1008992.1009026. Eneko Agirre, Xabier Arregi, and Arantxa Otegi. Document expansion based on wordnet for robust ir. In COLING, 2010. Garrick Sherman and Miles Efron. Document expansion using external col- lections. In Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval , SIGIR ’17, page 1045–1048, New York, NY, USA, 2017. Association for Computing Machin- ery. ISBN 9781450350228. https://doi.org/10.1145/3077136.3080716. URL https://doi.org/10.1145/3077136.3080716. Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement De- langue, Anthony Moi, Pierric Cistac, Tim Rault, R´ emi Louf, Morgan Funtow- icz, Joe Davison, Sam Shleifer, Patrick von Platen, Clara Ma, Yacine Jernite, Julien Plu, Canwen Xu, Teven Le Scao, Sylvain Gugger, Mariama Drame, Quentin Lhoest, and Alexander M. Rush. Huggingface’s transformers: State- of-the-art natural language processing, 2020. Payal Bajaj, Daniel Campos, Nick Craswell, Li Deng, Jianfeng Gao, Xiaodong Liu, Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05025,
+        0.00166,
+        -0.01022,
+        0.01025,
+        -0.00274
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "e- of-the-art natural language processing, 2020. Payal Bajaj, Daniel Campos, Nick Craswell, Li Deng, Jianfeng Gao, Xiaodong Liu, Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tr",
+      "overlap_with_next": "8, page 162–174, Berlin, Heidelberg, 2008. Springer-Verlag. ISBN 3540786457. Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redﬁeld, Michael Collins, Ankur Parikh, Chris Alberti, Dan",
+      "text": "e- of-the-art natural language processing, 2020. Payal Bajaj, Daniel Campos, Nick Craswell, Li Deng, Jianfeng Gao, Xiaodong Liu, Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tri Nguyen, Mir Rosenberg, Xia Song, Alina Stoica, Saurabh Tiwary, and Tong Wang. Ms marco: A human generated machine reading comprehension dataset, 2018. Sebastian Hofst¨ atter, Hamed Zamani, Bhaskar Mitra, Nick Craswell, and Al- lan Hanbury. Local self-attention over long text for eﬃcient document re- [Page 8] trieval. In Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval , SIGIR ’20, page 2021–2024, New York, NY, USA, 2020. Association for Computing Machin- ery. ISBN 9781450380164. https://doi.org/10.1145/3397271.3401224. URL https://doi.org/10.1145/3397271.3401224. Michael Bendersky and Oren Kurland. Utilizing passage-based language models for document retrieval. In Proceedings of the IR Research, 30th European Conference on Advances in Information Retrieval , ECIR’08, page 162–174, Berlin, Heidelberg, 2008. Springer-Verlag. ISBN 3540786457. Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redﬁeld, Michael Collins, Ankur Parikh, Chris Alberti, Dan",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01574,
+        -0.01979,
+        -0.00455,
+        0.00781,
+        -0.01226
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "8, page 162–174, Berlin, Heidelberg, 2008. Springer-Verlag. ISBN 3540786457. Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redﬁeld, Michael Collins, Ankur Parikh, Chris Alberti, Dan",
+      "overlap_with_next": "iew of the trec 2004 robust track. 2004. Peilin Yang, Hui Fang, and Jimmy Lin. Anserini: Enabling the use of lucene for information retrieval research. In Proceedings of the 40th I",
+      "text": "8, page 162–174, Berlin, Heidelberg, 2008. Springer-Verlag. ISBN 3540786457. Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redﬁeld, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein, Illia Polosukhin, Matthew Kel- cey, Jacob Devlin, Kenton Lee, Kristina N. Toutanova, Llion Jones, Ming-Wei Chang, Andrew Dai, Jakob Uszkoreit, Quoc Le, and Slav Petrov. Natural questions: a benchmark for question answering research. Transactions of the Association of Computational Linguistics , 2019. Pranav Rajpurkar, Robin Jia, and Percy Liang. Know what you don’t know: Unanswerable questions for SQuAD. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers), pages 784–789, Melbourne, Australia, July 2018. Association for Computational Linguistics. https://doi.org/10.18653/v1/P18-2124. URL https://www.aclweb.org/anthology/P18-2124. J. Lin, Y. Wang, M. Efron, and Garrick Sherman. Overview of the trec-2014 microblog track. In TREC, 2014. E. Voorhees. Overview of the trec 2004 robust track. 2004. Peilin Yang, Hui Fang, and Jimmy Lin. Anserini: Enabling the use of lucene for information retrieval research. In Proceedings of the 40th I",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06494,
+        0.01673,
+        -0.03225,
+        -0.02657,
+        -0.01621
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "iew of the trec 2004 robust track. 2004. Peilin Yang, Hui Fang, and Jimmy Lin. Anserini: Enabling the use of lucene for information retrieval research. In Proceedings of the 40th I",
+      "overlap_with_next": "on Retrieval , SIGIR ’17, page 65–74, New York, NY, USA, 2017. Association for Computing Machinery. ISBN 9781450350228. https://doi.org/10.1145/3077136.3080832. URL https://doi.org",
+      "text": "iew of the trec 2004 robust track. 2004. Peilin Yang, Hui Fang, and Jimmy Lin. Anserini: Enabling the use of lucene for information retrieval research. In Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval , SIGIR ’17, page 1253–1256, New York, NY, USA, 2017. Association for Computing Machinery. ISBN 9781450350228. https://doi.org/10.1145/3077136.3080721. URL https://doi.org/10.1145/ 3077136.3080721. Guillaume Klein, Yoon Kim, Yuntian Deng, Jean Senellart, and Alexander Rush. OpenNMT: Open-source toolkit for neural machine translation. In Proceedings of ACL 2017, System Demonstrations , pages 67–72, Vancouver, Canada, July 2017. Association for Computational Linguistics. URL https://www.aclweb. org/anthology/P17-4012. Mostafa Dehghani, Hamed Zamani, Aliaksei Severyn, Jaap Kamps, and W. Bruce Croft. Neural ranking models with weak supervision. In Pro- ceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval , SIGIR ’17, page 65–74, New York, NY, USA, 2017. Association for Computing Machinery. ISBN 9781450350228. https://doi.org/10.1145/3077136.3080832. URL https://doi.org",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05772,
+        -0.00925,
+        -0.0068,
+        0.01205,
+        -0.00267
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20292,
+      "length": 912,
+      "overlap_with_previous": "on Retrieval , SIGIR ’17, page 65–74, New York, NY, USA, 2017. Association for Computing Machinery. ISBN 9781450350228. https://doi.org/10.1145/3077136.3080832. URL https://doi.org",
+      "overlap_with_next": "",
+      "text": "on Retrieval , SIGIR ’17, page 65–74, New York, NY, USA, 2017. Association for Computing Machinery. ISBN 9781450350228. https://doi.org/10.1145/3077136.3080832. URL https://doi.org/10.1145/ 3077136.3080832. Zeynep Akkalyoncu Yilmaz, W. Yang, Haotian Zhang, and Jimmy Lin. Cross- domain modeling of sentence-level evidence for document retrieval. In EMNLP/IJCNLP, 2019. [Page 9] Nick Craswell, Bhaskar Mitra, Emine Yilmaz, Daniel Campos, and Ellen M. Voorhees. Overview of the trec 2019 deep learning track, 2020. Nasreen Abdul-jaleel, James Allan, W. Bruce Croft, O Diaz, Leah Larkey, Xi- aoyan Li, Mark D. Smucker, and Courtney Wade. Umass at trec 2004: Novelty and hard. In In Proceedings of TREC-13 , 2004. Rodrigo Nogueira and Kyunghyun Cho. Passage re-ranking with bert. arXiv preprint arXiv:1901.04085, 2019. Iz Beltagy, Matthew E. Peters, and Arman Cohan. Longformer: The long- document transformer, 2020.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05881,
+        -0.0201,
+        -0.02412,
+        -0.00233,
+        -0.00144
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1184 @@
+{
+  "paper_id": "c40c3634-a476-48c6-9132-557a4d87ad70",
+  "filename": "082_Machine_Learning_Upper_Confidence_Bounds_for_Combining_Stochastic_Bandits.pdf",
+  "title": "082_Machine_Learning_Upper_Confidence_Bounds_for_Combining_Stochastic_Bandits.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 69,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "tion This paper studies the classiccontextual bandit problemin a stochastic setting [1, 2], which is a generalization of the even more classical multi-armed bandit problem [3]. In ",
+      "text": "[Page 1] Upper Conﬁdence Bounds for Combining Stochastic Bandits Ashok Cutkosky Boston University Boston, MA ashok@cutkosky.com Abhimanyu Das Google Research Mountain View, CA abhidas@google.com Manish Purohit Google Research Mountain View, CA mpurohit@google.com Abstract We provide a simple method to combine stochastic bandit algorithms. Our approach is based on a “meta-UCB” procedure that treats each ofN individual bandit algorithms as arms in a higher-levelN-armed bandit problem that we solve with a variant of the classic UCB algorithm. Our ﬁnal regret depends only on the regret of the base algorithm with the best regret in hindsight. This approach provides an easy and intuitive alternative strategy to the CORRAL algorithm for adversarial bandits, without requiring the stability conditions imposed by CORRAL on the base algorithms. Our results match lower bounds in several settings, and we provide empirical validation of our algorithm on misspeciﬁed linear bandit and model selection problems. 1 Introduction This paper studies the classiccontextual bandit problemin a stochastic setting [1, 2], which is a generalization of the even more classical multi-armed bandit problem [3]. In ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02989,
+        -0.03191,
+        -0.05899,
+        -0.00038,
+        -0.00514
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "tion This paper studies the classiccontextual bandit problemin a stochastic setting [1, 2], which is a generalization of the even more classical multi-armed bandit problem [3]. In ",
+      "overlap_with_next": "le another might do better if the reward is independent of the context). This plethora of prior algorithms necessitates a “meta-decision”: If the environment is not known in advanc",
+      "text": "tion This paper studies the classiccontextual bandit problemin a stochastic setting [1, 2], which is a generalization of the even more classical multi-armed bandit problem [3]. In each of T rounds indexed byt = 1,...,T , we observe an i.i.d. randomcontext ct∈C, which we use to select anaction at =xt(ct)∈A based on somepolicy xt :C→A. Then, we receive a noisy rewardˆrt∈ [0, 1], whose expectation is a function of onlyct and at: E[rt|ct,at] =r(ct,at). The goal is to perform nearly as well as the best policy in hindsight by minimizing theregret: Regret = T∑ t=1 r⋆−r(ct,at) where r⋆ = infx∈X Ec[r(c,x (c))], andX is some space of possible policies. This problem and variants has been extensively studied under diverse assumptions about the space of policiesX and distributions of the rewards and values forr⋆. (e.g. see [4, 1, 2, 5, 6, 7]). Many of these algorithms have diﬀerent behaviors in diﬀerent environments (e.g. one algorithm might do much better if the rewardr(ct,at) is a linear function of the context, while another might do better if the reward is independent of the context). This plethora of prior algorithms necessitates a “meta-decision”: If the environment is not known in advanc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04215,
+        0.01713,
+        -0.04394,
+        0.02527,
+        -0.01562
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "le another might do better if the reward is independent of the context). This plethora of prior algorithms necessitates a “meta-decision”: If the environment is not known in advanc",
+      "overlap_with_next": "t ﬁrst, and then begin to perform well later. A naive strategy might discard such algorithms based on the poor early performance, so some enhanced form of exploration is necessary ",
+      "text": "le another might do better if the reward is independent of the context). This plethora of prior algorithms necessitates a “meta-decision”: If the environment is not known in advance, which algorithm should be used for the task at hand? Even in hindsight, it may not be obvious which algorithm was most optimized for the experienced environment, and so this meta-decision can be quite diﬃcult. We model this meta-decision by assuming we have access toN base bandit algorithmsA1,..., AN. We will attempt to design a meta-algorithm whose regret is comparable to the best regret experienced 1 arXiv:2012.13115v1 [cs.LG] 24 Dec 2020 [Page 2] by any base algorithm in hindsight for the current environment. Since we don’t know in advance which base algorithm will be optimal for the current environment, we need to address this problem in an online fashion. On thetth round, we will choose some indexit and play the action suggested by the algorithmAit. The primary diﬃculty is that some base algorithms might perform poorly at ﬁrst, and then begin to perform well later. A naive strategy might discard such algorithms based on the poor early performance, so some enhanced form of exploration is necessary ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00634,
+        -0.00842,
+        -0.04199,
+        0.03676,
+        -0.02328
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "t ﬁrst, and then begin to perform well later. A naive strategy might discard such algorithms based on the poor early performance, so some enhanced form of exploration is necessary ",
+      "overlap_with_next": "oreover, our general technique is in our view both diﬀerent and much simpler. Our regret bound also improves on (1) by virtue of being non-uniform over the base algorithms: given a",
+      "text": "t ﬁrst, and then begin to perform well later. A naive strategy might discard such algorithms based on the poor early performance, so some enhanced form of exploration is necessary for success. A pioneering prior work on this setting has considered theadversarial rather than stochastic case [8], and utilizes a sampling based on mirror descent with a clever mirror-map. Somewhat simplifying these results, suppose each algorithmAi guarantees regretCiTαi for someCi and αi1. Given a user-speciﬁed learning rate parameterη∈ R, [8, 9] guarantee: Regret≤ min j≤N C 1 αj j Tη 1−αj αj +Tη + Nη (1) The value ofη is chosen apriori, but the values ofCi need not be known. To gain a little intuition for this expression, suppose allαi = 1/2, and setη = √ N√ T . Then the regret ismini≤NC2i√NT . In this paper, we leverage the stochastic environment to avoid requiring some technical stability conditions needed in [8]: our result is a true black-box meta-algorithm that does not require any modiﬁcations to the base algorithms. Moreover, our general technique is in our view both diﬀerent and much simpler. Our regret bound also improves on (1) by virtue of being non-uniform over the base algorithms: given a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04332,
+        -0.00086,
+        -0.04464,
+        0.01434,
+        -0.00598
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "oreover, our general technique is in our view both diﬀerent and much simpler. Our regret bound also improves on (1) by virtue of being non-uniform over the base algorithms: given a",
+      "overlap_with_next": "instead design an algorithm that is in some sense “future-proof”, as new algorithms can be easily incorporated as new base algorithmsAi. In a recent independent work, [9] has exten",
+      "text": "oreover, our general technique is in our view both diﬀerent and much simpler. Our regret bound also improves on (1) by virtue of being non-uniform over the base algorithms: given any parametersη1,...,η N, we obtain Regret≤ min j≤N C 1 αj j Tη 1−αj αj j +Tηj + ∑ i⁄=j 1 ηi (2) This recovers (1) when allηi are equal. In general one can think of the values1ηi as specifying a kindof prior over theAi which allows us to develop more delicate trade-oﬀs between their performances. For example, consider again the setting when allαi = 1/2. If we believe thatA1 is more likely to perform well, then by settingη1 = 1√T and ηj = N√T for j ⁄= 1, we can obtain a regret of min(C21√T, min2≤j≤NC2jN√T )). This type of bound is in some sense a continuation of a general trend in the bandit community towards ﬁnding algorithms that adapt to various properties of the environment that are unknown in foresight (e.g [10, 11, 12, 13]). However, instead of committing to some property (e.g. large value of r⋆, or small variance ofˆr), we instead design an algorithm that is in some sense “future-proof”, as new algorithms can be easily incorporated as new base algorithmsAi. In a recent independent work, [9] has exten",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02266,
+        0.01274,
+        -0.05237,
+        0.01407,
+        -0.01826
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "instead design an algorithm that is in some sense “future-proof”, as new algorithms can be easily incorporated as new base algorithmsAi. In a recent independent work, [9] has exten",
+      "overlap_with_next": "hat can achieve such results. Their algorithm is similar to ours, but we devise a somewhat more intricate method that is able to not only obtain the results outlined previously, bu",
+      "text": "instead design an algorithm that is in some sense “future-proof”, as new algorithms can be easily incorporated as new base algorithmsAi. In a recent independent work, [9] has extended the techniques of [8] to our same stochastic setting. They use a clever smoothing technique to also dispense with the stability condition required by [8], and achieve the regret bound (1). In addition to achieving the non-uniform bound (2), we also improve upon their work in two other ways: our algorithm requires onlyO(N) space in contrast to O(TN ) space, and we allow for our base algorithms to only guarantee in-expectation rather than high-probability bounds. In the stochastic setting, it is frequently possible to obtainlogarithmic regret subject to various forms of “gap” assumptions on the actions. However, the method of [8], even when considered in the stochastic setting as in [9], seems unable to obtain such bounds. Instead, [14] has recently provided 1in many common settings, αi = 1/2 2 [Page 3] a method based on UCB that can achieve such results. Their algorithm is similar to ours, but we devise a somewhat more intricate method that is able to not only obtain the results outlined previously, bu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00865,
+        0.01413,
+        -0.05546,
+        -0.01995,
+        -0.01429
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "hat can achieve such results. Their algorithm is similar to ours, but we devise a somewhat more intricate method that is able to not only obtain the results outlined previously, bu",
+      "overlap_with_next": "n G. The rest of this paper is organized as follows. In section 2 we describe our formal setup and some assumptions. In section 3 we provide our algorithm and main regret bound in ",
+      "text": "hat can achieve such results. Their algorithm is similar to ours, but we devise a somewhat more intricate method that is able to not only obtain the results outlined previously, but also match the logarithmic regret bounds provided by [14]. In the stochastic setting, [15] introduces a new model selection technique called Regret Balancing. However this approach requires knowledge of the exact regret bounds of the optimal base algorithm. Our approach not only avoids this requirement, but also results in stronger regret guarantees than those in that paper. We also consider an extension of our techniques to the setting of linear contextual bandits with adversarial features. In this case we require some modiﬁcations to our combiner algorithm and assume that the base algorithms are in fact instances of linUCB [16] or similar conﬁdence-ellipsoid based algorithms. However, subject to these restrictions we are able to recover essentially similar results as in the non-adversarial setting, which we present in Section G. The rest of this paper is organized as follows. In section 2 we describe our formal setup and some assumptions. In section 3 we provide our algorithm and main regret bound in ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.0127,
+        0.00156,
+        -0.03851,
+        0.01695,
+        -0.02506
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "n G. The rest of this paper is organized as follows. In section 2 we describe our formal setup and some assumptions. In section 3 we provide our algorithm and main regret bound in ",
+      "overlap_with_next": "or anyHt. The distribution of ˆrt is independent of all other values conditioned onxt and ct. We will also writer(x) = Ec∼Dc[r(c,x )] and rt =r(ct,xt(ct)). Letx⋆∈ argmaxr(x). Deﬁne",
+      "text": "n G. The rest of this paper is organized as follows. In section 2 we describe our formal setup and some assumptions. In section 3 we provide our algorithm and main regret bound in a high-probability setting. In section 5, we extend our analysis to in-expectation regret bounds as well as providing an automatic tuning of some parameters in the main algorithm. In section 6 we sketch some ways in which our algorithm can be applied, and show that it matches some prior lower bound frontiers. Finally, in section 7 we provide empirical validation of our algorithm. 2 Problem Setup We letA be a space of actions,X a space of policies, andC a space of contexts. Each policy is a function C→A. (random policies can be modeled by pushing the random bits into the context). In each roundt = 1,...,T we choosext∈X, then see an i.i.d. random contextct, and then receive a random rewardˆrt∈ [0, 1]. LetHt denote the sequencex1,c 1, ˆr1,..., ˆrt−1,xt,ct. There is an unknown function r : C×A→ R such that E[ˆrt|Ht] = r(ct,xt(ct)) for anyHt. The distribution of ˆrt is independent of all other values conditioned onxt and ct. We will also writer(x) = Ec∼Dc[r(c,x )] and rt =r(ct,xt(ct)). Letx⋆∈ argmaxr(x). Deﬁne",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02317,
+        0.00133,
+        -0.00589,
+        0.02723,
+        -0.01784
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "or anyHt. The distribution of ˆrt is independent of all other values conditioned onxt and ct. We will also writer(x) = Ec∼Dc[r(c,x )] and rt =r(ct,xt(ct)). Letx⋆∈ argmaxr(x). Deﬁne",
+      "overlap_with_next": ",x iT and ˆri1,..., ˆriT such thatxit is the output ofAi on the input sequencexi1,ci1, ˆri1,...,x it−1,cit−1, ˆrit−1 and ˆrit is a reward obtained by choosing policyxit with contex",
+      "text": "or anyHt. The distribution of ˆrt is independent of all other values conditioned onxt and ct. We will also writer(x) = Ec∼Dc[r(c,x )] and rt =r(ct,xt(ct)). Letx⋆∈ argmaxr(x). Deﬁner⋆ = Ecr(c,x⋆(c)). Then we deﬁne the regret (often called “pseudo-regret” instead) as: Regret = T∑ t=1 r⋆−rt Each base bandit algorithmAi can be viewed as a randomized procedure that takes any sequence x1,c 1, ˆr1,...,x t−1,ct−1, ˆrt−1 and outputs somext∈X. At thetth round of the bandit game, our algorithm will choose some indexit∈{ 1,...,N }. Then we obtain policyxitT (it,t) from Ait, and take action xt = xitT (it,t)(ct). The policyxitT (it,t) is the output ofAit on the input sequence of policies,contexts, and rewards for all the prior rounds for which we have chosen this same indexit. After receiving the rewardˆrt, we send this reward as feedback toAit. In order to formalize this analysis more cleanly, for alli, we deﬁneT independent random variables ci1,...,c iT, where each cit ∼ Dc. Further, we deﬁne random variables xi1,...,x iT and ˆri1,..., ˆriT such thatxit is the output ofAi on the input sequencexi1,ci1, ˆri1,...,x it−1,cit−1, ˆrit−1 and ˆrit is a reward obtained by choosing policyxit with contex",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02586,
+        -0.01163,
+        -0.0378,
+        0.03455,
+        -0.03388
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": ",x iT and ˆri1,..., ˆriT such thatxit is the output ofAi on the input sequencexi1,ci1, ˆri1,...,x it−1,cit−1, ˆrit−1 and ˆrit is a reward obtained by choosing policyxit with contex",
+      "overlap_with_next": "re high-probability bounds on the regret of the base algorithms, while in the second setting we do not. Our approach to the in-expectation setting will be a construction that uses ",
+      "text": ",x iT and ˆri1,..., ˆriT such thatxit is the output ofAi on the input sequencexi1,ci1, ˆri1,...,x it−1,cit−1, ˆrit−1 and ˆrit is a reward obtained by choosing policyxit with contextcit. We also deﬁne random variables rit = E[ˆrit|xi1,ci1, ˆri1,..., ˆrit−1,cit−1]. 3 [Page 4] Then we can rephrase the high-level action of our algorithm as follows: We choose some index it∈{ 1,...,N }. Then we play policyxt = xitT (it,t), see contextct = citT (it,t), and obtain reward ˆrt = ˆritT (it,t). We deﬁnert =ritT (it,t). Note that the distribution of the observed reward∑Tt=1 ˆrt as well as the expected reward∑Tt=1rt is maintained by this description of the random variables. 2.1 Assumptions We will consider two settings for the base algorithms in our analysis. First, a high-probability setting in which we wish to provide a regret bound that holds with probability at least1−δ for some givenδ. Second, an in-expectation setting in which we simply wish to bound the expected value of the regret. In the ﬁrst setting, we require high-probability bounds on the regret of the base algorithms, while in the second setting we do not. Our approach to the in-expectation setting will be a construction that uses ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01772,
+        -0.00363,
+        -0.04365,
+        0.03745,
+        -0.02837
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "re high-probability bounds on the regret of the base algorithms, while in the second setting we do not. Our approach to the in-expectation setting will be a construction that uses ",
+      "overlap_with_next": "lgorithms based the optimism principle can be made to work in this setting for any desiredδ. We will refer to an indexJ that satisﬁed (3) as being “well-speciﬁed”. To gain intuitio",
+      "text": "re high-probability bounds on the regret of the base algorithms, while in the second setting we do not. Our approach to the in-expectation setting will be a construction that uses our high-probability algorithm as a black-box. Thus, the majority of our analysis takes place in the high-probability setting (in Section 3), for which we now describe the assumptions. Inthehigh-probabilitysetting, weassumethereare(known)numbers C1,...,C N andα1,...,α N∈ [ 12, 1], aδ >0 and an (unknown) setS⊂{ 1,...,N } such that with probability at least1−δ, there is someJ∈S such that for allt≤T, t∑ τ=1 r⋆−rJτ≤CJtαJ (3) Intuitively, this is saying that each algorithmAi comes with aputative regret boundCitαi, and with high probability there issomeAi with i∈S for which its claimed regret bound is in fact correct. The assumption is stronger asS becomes smaller, and our ﬁnal results will depend on the size ofS. In Section F, we provide some examples of algorithms that satisfy the requirement (3). Generally, it turns out that most algorithms based the optimism principle can be made to work in this setting for any desiredδ. We will refer to an indexJ that satisﬁed (3) as being “well-speciﬁed”. To gain intuitio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03725,
+        -0.01237,
+        -0.0298,
+        0.02471,
+        -0.01755
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "lgorithms based the optimism principle can be made to work in this setting for any desiredδ. We will refer to an indexJ that satisﬁed (3) as being “well-speciﬁed”. To gain intuitio",
+      "overlap_with_next": "ot only do we require high-probability rather than in-expectation regret bounds, we require at least one base algorithm to be well-speciﬁed, and we require knowledge of the putativ",
+      "text": "lgorithms based the optimism principle can be made to work in this setting for any desiredδ. We will refer to an indexJ that satisﬁed (3) as being “well-speciﬁed”. To gain intuition about our results, we recommend that the reader supposes thatS is a singleton S ={J} for some unknown indexJ, andαi = 1/2 for alli (note thatS may be much smaller than the set of indices for which 3 holds). As a concrete example, suppose|X| =K and ct = 0 for all t, so that we are playing a classicK-armed bandits problem. LetA1 be an instance of UCB, but restricted to the ﬁrst10 arms, whileA2 is instance of UCB restricted to the lastK− 10 arms. Then, we can setC1 =O( √ 10 log(T 2/δ) and C2 =O(√(K− 10) log(T 2/δ). Now, depending on which is the optimal arm, we may haveS ={1} or S ={2}. Although S ={1, 2} would also satisfy the assumptions, since our results improve whenS is smaller andS is unknown to the algorithm, we are free to choose the smallest possibleS. These assumptions may seem stronger than prior work at ﬁrst glance: not only do we require high-probability rather than in-expectation regret bounds, we require at least one base algorithm to be well-speciﬁed, and we require knowledge of the putativ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04038,
+        0.02986,
+        -0.08398,
+        0.0218,
+        -0.01428
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "ot only do we require high-probability rather than in-expectation regret bounds, we require at least one base algorithm to be well-speciﬁed, and we require knowledge of the putativ",
+      "overlap_with_next": "ave very similarly to independent bounded random variables with meanr⋆ in that their average valueˆµJt = 1t∑tτ=1 ˆrJτ concentrates aboutr⋆ with radiusCJtαJ−1. From this, one might ",
+      "text": "ot only do we require high-probability rather than in-expectation regret bounds, we require at least one base algorithm to be well-speciﬁed, and we require knowledge of the putative regret bounds through the coeﬃcients Ci and αi. Prior work in this setting (e.g. [8, 9]) dispenses with the last two requirements, and [8] also dispenses with the high-probability requirement. However, it turns out that through a simple doubling construction, we can easily incorporate base algorithms with unknown regret bounds that hold only in expectation into our framework. The ability to handle unknown regret bounds dispenses with the well-speciﬁed assumption. We describe this construction and the relevant assumptions in Section 5, and show that it only weakens our analysis by log factors. 4 [Page 5] 3 UCB over Bandits In this Section, we describe our meta-learner for the high-probability setting. The intuition is based on upper-conﬁdence bounds: ﬁrst, we observe that the unknown well-speciﬁed algorithmAJ’s rewards ˆrJτ behave very similarly to independent bounded random variables with meanr⋆ in that their average valueˆµJt = 1t∑tτ=1 ˆrJτ concentrates aboutr⋆ with radiusCJtαJ−1. From this, one might ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03738,
+        -0.01629,
+        -0.05323,
+        0.03428,
+        -0.013
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ave very similarly to independent bounded random variables with meanr⋆ in that their average valueˆµJt = 1t∑tτ=1 ˆrJτ concentrates aboutr⋆ with radiusCJtαJ−1. From this, one might ",
+      "overlap_with_next": "t turns out that so long as∑tτ=1 ˆµiτ− ˆriτ≤Citαi, the rewardsˆriτ are “well-behaved” enough that our meta-UCB algorithm can operate correctly. We address the second issue by emplo",
+      "text": "ave very similarly to independent bounded random variables with meanr⋆ in that their average valueˆµJt = 1t∑tτ=1 ˆrJτ concentrates aboutr⋆ with radiusCJtαJ−1. From this, one might imagine that for any indexi, the value ofˆµit +Citαi−1 gives some kind of upper-conﬁdence bound for the ﬁnal total reward of algorithmi. We could then feed these estimates into a UCB-style algorithm that views theN base algorithms asN arms. Unfortunately, such an approach is complicated by two issues. First, the putative regret bounds for eachAi may not actually hold, which could damage the validity of our conﬁdence estimates. Second, the conﬁdence bounds for diﬀerent algorithms may have very imbalanced behavior due to the diﬀerent values ofCi and αi, and we would like our ﬁnal regret bound to depend only onCJ and αJ. We address the ﬁrst issue by keeping track of the statistic∑tτ=1 ˆµiτ− ˆriτ. If∑tτ=1 ˆµiτ− ˆriτ≥Citαi at any time, then we can conclude thati is not the well-speciﬁed indexJ and so we simply discard Ai. Moreover, it turns out that so long as∑tτ=1 ˆµiτ− ˆriτ≤Citαi, the rewardsˆriτ are “well-behaved” enough that our meta-UCB algorithm can operate correctly. We address the second issue by emplo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.023,
+        -0.01651,
+        -0.0481,
+        0.00453,
+        -0.01154
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "t turns out that so long as∑tτ=1 ˆµiτ− ˆriτ≤Citαi, the rewardsˆriτ are “well-behaved” enough that our meta-UCB algorithm can operate correctly. We address the second issue by emplo",
+      "overlap_with_next": "T do Set U(i,t− 1) = ˆµiT (i,t−1) + min ( 1, CiT (i,t−1)αi+√8 log(T 3N/δ)T (i,t−1)T (i,t−1) )− RiT for alli. Set it = argmaxi∈ItU(i,t− 1). Update T (it,t ) =T (it,t− 1) + 1and T (j",
+      "text": "t turns out that so long as∑tτ=1 ˆµiτ− ˆriτ≤Citαi, the rewardsˆriτ are “well-behaved” enough that our meta-UCB algorithm can operate correctly. We address the second issue by employingshifted conﬁdence intervalsin a construction analogous to that employed by [17], who designed aK-armed bandit algorithm with a regret bound that depends on the identity of the best arm. Essentially, each algorithmAi is associated with atarget regret bound, Ri, and each conﬁdence interval is decreased byRiT . Assuming Ri satisﬁes some technical conditions, this will guarantee that the regret is at mostO(RJ) for anyJ such thatAJ is well-speciﬁed. Formally, our algorithm is provided in Algorithm 1, and its analysis is given in Theorem 1, proved in Appendix B. Note that little eﬀort has been taken to improve the constants or log factors. Algorithm 1 Bandit Combiner Input: Bandit algorithmsA1,..., AN, numbersC1,...,C N, α1,...,α N, R1,...,R N, T. Set T (i, 0) = 0 for alli, set ˆµi0 = 0 for alli, and setI1 ={1,...,N } for t = 1...T do Set U(i,t− 1) = ˆµiT (i,t−1) + min ( 1, CiT (i,t−1)αi+√8 log(T 3N/δ)T (i,t−1)T (i,t−1) )− RiT for alli. Set it = argmaxi∈ItU(i,t− 1). Update T (it,t ) =T (it,t− 1) + 1and T (j",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02819,
+        -0.0134,
+        -0.0636,
+        -0.00752,
+        -0.02876
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "T do Set U(i,t− 1) = ˆµiT (i,t−1) + min ( 1, CiT (i,t−1)αi+√8 log(T 3N/δ)T (i,t−1)T (i,t−1) )− RiT for alli. Set it = argmaxi∈ItU(i,t− 1). Update T (it,t ) =T (it,t− 1) + 1and T (j",
+      "overlap_with_next": "rt≤ 3 sup j∈S Rj Note that the algorithm does not know the setS. The conditions onRi in this Theorem are somewhat opaque, so to unpack this a bit we provide the following corollary",
+      "text": "T do Set U(i,t− 1) = ˆµiT (i,t−1) + min ( 1, CiT (i,t−1)αi+√8 log(T 3N/δ)T (i,t−1)T (i,t−1) )− RiT for alli. Set it = argmaxi∈ItU(i,t− 1). Update T (it,t ) =T (it,t− 1) + 1and T (j,t ) =T (j,t− 1) for j⁄=it. Get T (it,t )th policyxt =xitT (it,t) from Ait. See contextct and play actionxt(ct). Receive reward ˆrt = ˆriT (it,t), provide rewardˆrt and contextct as feedback toAit. Update ˆµitT (it,t) = 1T (it,t)∑T (it,t)τ=1 ˆritτ . if ∑T (it,t)τ=1 ˆµitτ−1− ˆritτ ≥CitT (it,t )αit + 3√log(T 3N/δ)T (it,t ) then It =It−1−{it}. else It =It−1. end if end for 5 [Page 6] Theorem 1. Suppose there is a setS⊂{ 1,...,N } such that with probability at least1−δ, there is some J∈S such that t∑ τ=1 r⋆−rJτ≤CJtαJ for allt≤T. Further, suppose theCi and αi are known, and theRi satisfy: Ri≥CiTαi Ri≥ ∑ k⁄=i max  (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N/δ)T Rk ] Letrt = E[ˆritT (it,t)] be the expected reward of Algorithm 1 at timet. Then, with probability at least1− 3δ, the regret satisﬁes: T∑ t=1 r⋆−rt≤ 3 sup j∈S Rj Note that the algorithm does not know the setS. The conditions onRi in this Theorem are somewhat opaque, so to unpack this a bit we provide the following corollary",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02324,
+        0.02631,
+        -0.04517,
+        0.01805,
+        -0.0182
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "rt≤ 3 sup j∈S Rj Note that the algorithm does not know the setS. The conditions onRi in this Theorem are somewhat opaque, so to unpack this a bit we provide the following corollary",
+      "overlap_with_next": "actors and constants. Then by some martingale concentration bounds combined with the high-probability regret bound onAJ, we have thatr⋆≤ U(J,t− 1) + RJT for allt with high probabil",
+      "text": "rt≤ 3 sup j∈S Rj Note that the algorithm does not know the setS. The conditions onRi in this Theorem are somewhat opaque, so to unpack this a bit we provide the following corollary: Corollary 2. Suppose there is a setS⊂{ 1,...,N } such that with probability at least1−δ, there is some J∈S such that∑tτ=1r⋆−rJτ≤CJtαJ for allt≤T. Further, suppose we are givenN positive real numbersη1,...,η N. SetRi via: Ri =CiTαi + (1−αi) 1−αi αi (1 +αi) 1 αi α 1−αi αi i C 1 αi i Tη 1−αi αi i + 288 log(T 3N/δ)Tηi +∑ k⁄=i 1 ηk Then, with probability at least1− 3δ, the regret of Algorithm 1 satisﬁes: Regret≤ 3 sup j∈S Rj = ˜O ( sup j∈S CjTαj +C 1 αj j Tη 1−αj αj j +Tηj + ∑ k⁄=j 1 ηk   In most settings,CJ≥ 1 and η≥T−α, so thatCJTαJ is smaller thanC 1 αJ J Tη 1−αi αi J . 6 [Page 7] Proof sketch of Theorem 1.While the full proof of Theorem 1 is deferred to the appendix, we sketch the main ideas here. For simplicity, we consider the case thatαi = 12 for all i, assume that S ={J} is a singleton set, assumeCi≥ 1, and drop all log factors and constants. Then by some martingale concentration bounds combined with the high-probability regret bound onAJ, we have thatr⋆≤ U(J,t− 1) + RJT for allt with high probabil",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04853,
+        0.02592,
+        -0.03669,
+        0.00402,
+        -0.01973
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "actors and constants. Then by some martingale concentration bounds combined with the high-probability regret bound onAJ, we have thatr⋆≤ U(J,t− 1) + RJT for allt with high probabil",
+      "overlap_with_next": "JT (i,T )T + supZ≥0 2Ci√Z− RiZT ≤ RJT (i,T )T + C2iTRi Now summing over all indicesi⁄=J, we use the fact that∑iT (i,T )≤T and the assumption that∑ i⁄=J C2iT Ri ≤O(RJ) to conclude t",
+      "text": "actors and constants. Then by some martingale concentration bounds combined with the high-probability regret bound onAJ, we have thatr⋆≤ U(J,t− 1) + RJT for allt with high probability. Furthermore, by martingale concentration again, we have thatˆµit≤r⋆ +√t. Therefore, an algorithm is dropped from the set It only if∑T (i,t)τ=1 r⋆−rit≥Ci√T (i,t ), which does not happen for algorithmAJ with probability at least 1−δ. Further, by deﬁnition ofIt and another martingale bound, all algorithmsi satisfy∑T (i,T ) τ=1 ˆµiτ−1−riτ≤Ci√T (i,T ) +√T (i,T )≤ 2Ci√T (i,T ) with high probability. Let us consider the instantaneous regretr⋆−rt on some round in whichit ⁄= J. In this case, we must have U(it,t− 1)≥U(J,t− 1), so that we can write: r⋆−rt =r⋆−ritT (it,t) =r⋆−U(J,t− 1) +U(J,t− 1)−U(it,t− 1) +U(it,t− 1)−ritT (it,t) ≤ RJ T + ˆµitT (it,t−1)−ritT (it,t)− RitT = RJ T + ˆµitT (it,t)−1−ritT (it,t)− RitT Summing over all timesteps for which algorithmi is chosen, we have ∑ it=i r⋆−rt≤ RJT (i,T )T + 2Ci√T (i,T )− RiT (i,T )T ≤ RJT (i,T )T + supZ≥0 2Ci√Z− RiZT ≤ RJT (i,T )T + C2iTRi Now summing over all indicesi⁄=J, we use the fact that∑iT (i,T )≤T and the assumption that∑ i⁄=J C2iT Ri ≤O(RJ) to conclude t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01595,
+        0.01966,
+        -0.00866,
+        0.03219,
+        0.00159
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "JT (i,T )T + supZ≥0 2Ci√Z− RiZT ≤ RJT (i,T )T + C2iTRi Now summing over all indicesi⁄=J, we use the fact that∑iT (i,T )≤T and the assumption that∑ i⁄=J C2iT Ri ≤O(RJ) to conclude t",
+      "overlap_with_next": "τ≤CJtαJ Also, for alli, deﬁneTi =T (i,T ) and ∆i by: ∆i = 1T (i,Ti− 1) T (i,Ti−1)∑ τ=1 r⋆−riτ And letB⊂{ 1,...,N } with J /∈B be the set of indices with∆i> 2RJT for i∈B. Fori⁄=J, l",
+      "text": "JT (i,T )T + supZ≥0 2Ci√Z− RiZT ≤ RJT (i,T )T + C2iTRi Now summing over all indicesi⁄=J, we use the fact that∑iT (i,T )≤T and the assumption that∑ i⁄=J C2iT Ri ≤O(RJ) to conclude that the regret over all rounds in whichAJ is not chosen is at most O(RJ). For the rounds in whichAJ is chosen, we experience regretCJ √ T (J,T )≤CJ √ T≤RJ, which concludes the Theorem. 4 Gap-dependent regret bounds In this section, we provide an analog of the standard “gap-dependent” bound for UCB. As a motivating example, consider the setting in which allAi for i⁄=J never play any policyx with r(x)≥r⋆− ∆i for some∆i≥ 0. In this case, we might hope to perform much better, in the same way that standard UCB obtains logarithmic regret when the suboptimal arms have a non-negligible gap between their rewards and the optimal rewards. Speciﬁcally, we have the following result, whose proof is deferred to Section C: 7 [Page 8] Theorem 3. Suppose that there is someJ∈{ 1,...,N } such that with probability at least1−δ, we have: t∑ τ=1 r⋆−rJτ≤CJtαJ Also, for alli, deﬁneTi =T (i,T ) and ∆i by: ∆i = 1T (i,Ti− 1) T (i,Ti−1)∑ τ=1 r⋆−riτ And letB⊂{ 1,...,N } with J /∈B be the set of indices with∆i> 2RJT for i∈B. Fori⁄=J, l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04225,
+        0.03797,
+        -0.05826,
+        0.0295,
+        -0.00193
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "τ≤CJtαJ Also, for alli, deﬁneTi =T (i,T ) and ∆i by: ∆i = 1T (i,Ti− 1) T (i,Ti−1)∑ τ=1 r⋆−riτ And letB⊂{ 1,...,N } with J /∈B be the set of indices with∆i> 2RJT for i∈B. Fori⁄=J, l",
+      "overlap_with_next": "−αi i ) . As another example of this Theorem in action, let us consider the setting studied by [14]. Speciﬁcally, eachAi has a putative regret bound of∑tτ=1r⋆−riτ≤√ki log(t)t for a",
+      "text": "τ≤CJtαJ Also, for alli, deﬁneTi =T (i,T ) and ∆i by: ∆i = 1T (i,Ti− 1) T (i,Ti−1)∑ τ=1 r⋆−riτ And letB⊂{ 1,...,N } with J /∈B be the set of indices with∆i> 2RJT for i∈B. Fori⁄=J, letCi> 0 and αi≤ 1 for i⁄=J be arbitrary. Then with probability at least1− 3δ, the regret of Algorithm 1 satisﬁes: T∑ t=1 r⋆−rt≤ T (J,T)∑ τ=1 r⋆−rJτ +∑ i∈B 1 + 512 log(T 3N/δ)∆i + 4 1 1−αiC 1 1−αi i ∆ αi 1−αi i + min   ∑ k⁄=J,k/∈B 2RJ, RJ + ∑ k⁄=J,k/∈B max  (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N/δ)TRk     Notethatwehavemadenoconditionson Ri inthisexpression. Inparticular, considerthecasethat each algorithmAi considers only a subset of the possible policies, and thatAJ is the only algorithm that is allowed to choose the optimal policy with rewardr⋆. Then ∆i is at least the gap between the reward of the best policy available toAi and r⋆. Thus for large enoughT, B will be all indices except J, so that the overall regret provided in Theorem 3 is∑T (J,T)τ=1 r⋆−rJτ + ˜O ( ∑ i⁄=J C 1 1−αi i ∆ αi1−αi i ) . As another example of this Theorem in action, let us consider the setting studied by [14]. Speciﬁcally, eachAi has a putative regret bound of∑tτ=1r⋆−riτ≤√ki log(t)t for a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01213,
+        0.01606,
+        -0.03689,
+        -0.00021,
+        -0.01549
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "−αi i ) . As another example of this Theorem in action, let us consider the setting studied by [14]. Speciﬁcally, eachAi has a putative regret bound of∑tτ=1r⋆−riτ≤√ki log(t)t for a",
+      "overlap_with_next": "l regret of ifAJ rather than the regretbound CJ √ T. Thus if AJ outperforms this bound and obtains logarithmic regret, our combiner algorithm will also obtain logarithmic regret, w",
+      "text": "−αi i ) . As another example of this Theorem in action, let us consider the setting studied by [14]. Speciﬁcally, eachAi has a putative regret bound of∑tτ=1r⋆−riτ≤√ki log(t)t for allt≤ T for someki, andAJ in fact obtains its bound. However, for alli⁄=J,Ai also suﬀers∑tτ=1r⋆−rit≥ ∆it for allt for some constant∆i. For example, this might occur if eachAi is restricted to some subset of actions that does not include the best action. Now, recall that we made no restrictions ofRi in Theorem 3, so we are free to setRi = 0 for alli. Then, we will haveB ={1,...,J − 1,J + 1,N} and obtain the following Corollary: Corollary 4. Suppose k1,...,k N are such that for some J, AJ guarantees ∑tτ=1r⋆− rJτ ≤√ kJ log(t)t for all t≤ T. Further, suppose that for all i⁄= J, ∑tτ=1r⋆−rit ≥ ∆it for all t for some constant∆i. Then with Ci = √ ki log(T ), αi = 12 and Ri = 0, with probability at least 1− 3δ, Algorithm 1 guarantees regret: T (J,T)∑ t=1 r⋆−rJt +∑ i⁄=J 512 log(T 3N/δ) ∆i + 16ki log(T )∆i Notably, the ﬁrst term is theactual regret of ifAJ rather than the regretbound CJ √ T. Thus if AJ outperforms this bound and obtains logarithmic regret, our combiner algorithm will also obtain logarithmic regret, w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00787,
+        0.02292,
+        -0.03396,
+        -0.01043,
+        -0.02707
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "l regret of ifAJ rather than the regretbound CJ √ T. Thus if AJ outperforms this bound and obtains logarithmic regret, our combiner algorithm will also obtain logarithmic regret, w",
+      "overlap_with_next": "tains expected regret CiTαi. We duplicate this algorithmM =O(log2(1/δ)) times. Then by Markov inequality, each individual duplicate obtains regret at most2CiTαi with probability at",
+      "text": "l regret of ifAJ rather than the regretbound CJ √ T. Thus if AJ outperforms this bound and obtains logarithmic regret, our combiner algorithm will also obtain logarithmic regret, which is not obviously possible using techniques based on the Corral algorithm [8]. Note that this result also appears to improve upon [14] (Theorem 4.2) by removing alog(T ) factor, but this is because we have assumed knowledge of the time horizonT in order to setCi. 8 [Page 9] 5 Unknown and In-Expectation Bounds on Base Algorithms In this section, we show how to remedy two surface-level issues with Algorithm 1. First, we require knowledge of the valuesCi and αi. Second, we require a high-probability regret bound for the well-speciﬁed base algorithmAJ. Here, we show that a simple duplication and doubling-based technique suﬃces to address both issues. First, let us gain some intuition for how to convert an in-expectation bound into a high-probability bound suitable for use in Theorem 1. Suppose we are given an algorithm that maintains expected regret CiTαi. We duplicate this algorithmM =O(log2(1/δ)) times. Then by Markov inequality, each individual duplicate obtains regret at most2CiTαi with probability at",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01489,
+        0.0038,
+        -0.02516,
+        0.02133,
+        -0.01702
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "tains expected regret CiTαi. We duplicate this algorithmM =O(log2(1/δ)) times. Then by Markov inequality, each individual duplicate obtains regret at most2CiTαi with probability at",
+      "overlap_with_next": "ty. ForM =⌈log2(1/δ)⌉ and K =⌈log2(T )⌉ and L =⌈ log2(T )2 ⌉, we duplicate eachAi MKL times, specifying each duplicateAi,x,y,z by a multi-index (i,x,y,z )∈ [N]× [M]× [K]× [L]. To e",
+      "text": "tains expected regret CiTαi. We duplicate this algorithmM =O(log2(1/δ)) times. Then by Markov inequality, each individual duplicate obtains regret at most2CiTαi with probability at least1/2. Therefore, with probability at least1− 12M = 1−δ, at least one of the duplicates obtains regret at most2CiTαi. Then in the terminology of Theorem 1, we letS be the set of duplicate algorithms and so we satisfy the hypothesis of the Theorem. This argument is slightly ﬂawed as-is because we need ananytime regret bound for the base algorithms, but it turns out this is ﬁxable by another use of Markov and union bound inequality. We then use a variant on the doubling trick to avoid requiring knowledge of C and α. The full construction is described below in Theorem 5, with proof in Appendix D. Theorem 5. Suppose that for someJ, there is some unknown¯CJ and ¯αJ such thatAJ ensures E[∑tτ=1r⋆−rJτ ]≤ ¯CJt¯αJ for allt≤T. Further, suppose we are given positive numbersη1,...,η N. Letδ∈ (0, 1) be some user-speciﬁed failure probability. ForM =⌈log2(1/δ)⌉ and K =⌈log2(T )⌉ and L =⌈ log2(T )2 ⌉, we duplicate eachAi MKL times, specifying each duplicateAi,x,y,z by a multi-index (i,x,y,z )∈ [N]× [M]× [K]× [L]. To e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00886,
+        -0.00324,
+        -0.01955,
+        0.02478,
+        -0.01954
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "ty. ForM =⌈log2(1/δ)⌉ and K =⌈log2(T )⌉ and L =⌈ log2(T )2 ⌉, we duplicate eachAi MKL times, specifying each duplicateAi,x,y,z by a multi-index (i,x,y,z )∈ [N]× [M]× [K]× [L]. To e",
+      "overlap_with_next": " example, suppose that the spaceA is a ﬁnite set ofK arms andX consists of theK constant functions mapping all contexts to a single arm. This setup describes the classicK-armed ban",
+      "text": "ty. ForM =⌈log2(1/δ)⌉ and K =⌈log2(T )⌉ and L =⌈ log2(T )2 ⌉, we duplicate eachAi MKL times, specifying each duplicateAi,x,y,z by a multi-index (i,x,y,z )∈ [N]× [M]× [K]× [L]. To each duplicate we associateCi,x,y,z = 2y and αi,x,y,z = min ( 1, 1/2 + zlog(T ) ) . Let ηi,x,y,z = ηi. Specify Ri,x,y,z as a function ofηi,x,y,z as described in Theorem 2. Then with probability at least1− 3δ, Algorithm 1 guarantees regret: Regret≤O ( ¯CJT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−¯αJ ¯αJ J + log ( T 3N δ ) TηJ + N∑ i=1 log(1/δ) log2(T ) ηi ) so that the expected regret is bounded by: E[Regret]≤O ( ¯CJT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−¯αJ ¯αJ J + log ( T 3N δ ) TηJ + N∑ i=1 log(1/δ) log2(T ) ηi +Tδ ) 6 Examples and Optimality In this section, we provide some illustrative examples of how our approach can be used. We will also highlight a few examples in which our construction matches lower bounds. The proofs are straightforward applications of Theorems 1 and 2, and are deferred to Appendix E. 9 [Page 10] 6.1 K-Armed Bandits For our ﬁrst example, suppose that the spaceA is a ﬁnite set ofK arms andX consists of theK constant functions mapping all contexts to a single arm. This setup describes the classicK-armed ban",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02951,
+        0.04317,
+        -0.0627,
+        -0.018,
+        -0.02643
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " example, suppose that the spaceA is a ﬁnite set ofK arms andX consists of theK constant functions mapping all contexts to a single arm. This setup describes the classicK-armed ban",
+      "overlap_with_next": " K constant functions again. In this case, it is possible the rewardr(c,a ) is a ﬁxed linear function ⟨β,c (a)⟩ for someβ∈ Rd, in which case the linUCB algorithm [16] can obtain re",
+      "text": " example, suppose that the spaceA is a ﬁnite set ofK arms andX consists of theK constant functions mapping all contexts to a single arm. This setup describes the classicK-armed bandit problem. LetN =K and suppose eachAi is a naive algorithm that simply pulls armi on every round. We consider aAi to be well-speciﬁed if theith arm is in fact the optimal arm, in which case it is clear we may setCi = 0, αi = 12 for alli. In the high-probability setting, we letS be the singleton set containing only the unknown optimal index. In this case, the conditions onRi of Theorem 1 correspond almost exactly (up to constants and log factors) with the pareto frontier for regret bounds described in [17], showing that using our construction in this setting allows us to match this lower bound frontier. 6.2 Misspeciﬁed Linear Bandit For our second example, suppose that the spaceA is a ﬁnite set ofK arms, and that the contextct is a constantct =c and provides a featurec(a)∈ Rd for each arma∈A. The space of policies is the set of K constant functions again. In this case, it is possible the rewardr(c,a ) is a ﬁxed linear function ⟨β,c (a)⟩ for someβ∈ Rd, in which case the linUCB algorithm [16] can obtain re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04131,
+        0.01141,
+        -0.05376,
+        -0.01673,
+        -0.02531
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": " K constant functions again. In this case, it is possible the rewardr(c,a ) is a ﬁxed linear function ⟨β,c (a)⟩ for someβ∈ Rd, in which case the linUCB algorithm [16] can obtain re",
+      "overlap_with_next": "nce of linUCB andA2 be an instance of the ordinary UCB algorithm. LetP andQ be any two numbers such that PQ =KT and both are greater than √ d log(K)T. We consider two cases, either",
+      "text": " K constant functions again. In this case, it is possible the rewardr(c,a ) is a ﬁxed linear function ⟨β,c (a)⟩ for someβ∈ Rd, in which case the linUCB algorithm [16] can obtain regret˜O(√d log(K)t). On the other hand, in general the reward might be totally unrelated to the context, in which case one might wish to fall back on the UCB algorithm which obtains regret˜O(√Kt). By settingA1 to be linUCB andA2 to be ordinary UCB, we say thatS ={1} if the rewards are indeed linear, and S ={2} otherwise. Further, we setC1 = √ d log(K), C2 = √ K andα1 =α2 = 12. Now letP andQ be any two numbers such thatPQ =KT and bothP and Q are greater than √ d log(k)T. Then appropriate application of Corollary 2, yields regretO(P ) in the linear setting and regretO(Q) in general. This again matches the frontier of regret bounds for this scenario described in Theorem 24.4 of [5] (see also Lemma 6.1 of [9]). Formally, we have the following Corollary: Corollary 6. Suppose ct : A→ Rd for all t. Suppose K≥ d log(K). LetA1 be an instance of linUCB andA2 be an instance of the ordinary UCB algorithm. LetP andQ be any two numbers such that PQ =KT and both are greater than √ d log(K)T. We consider two cases, either",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0567,
+        0.02115,
+        -0.05487,
+        -0.04329,
+        -0.01427
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "nce of linUCB andA2 be an instance of the ordinary UCB algorithm. LetP andQ be any two numbers such that PQ =KT and both are greater than √ d log(K)T. We consider two cases, either",
+      "overlap_with_next": " Rd for each arma∈A, and we are guaranteed that the reward is a linear function of the context. The question now is whether the fulld-dimensions are actually necessary. Speciﬁcally",
+      "text": "nce of linUCB andA2 be an instance of the ordinary UCB algorithm. LetP andQ be any two numbers such that PQ =KT and both are greater than √ d log(K)T. We consider two cases, either the reward is a linear function ofct, or it is not. ThenA1 guarantees regret ˜O(√d log(K)t) with probability1−δ in the ﬁrst case, whileA2 guarantees regret ˜O(√Kt) in the second case. Setη1 = Pd log(K)T = KQd log(K) and η2 = 1P = QKT . Then using theRi construction of Corollary 2, with probability at least1− 3δ, we guarantee regret˜O(P ) with linear rewards, and˜O(Q) otherwise. Note that we leverage our ability to use non-uniformη values in this Corollary. It is not so obvious how to obtain this full frontier using the prior uniform bound (1), although it is of course conceivable that more detailed analysis of prior algorithms might allow for this same result. 6.3 Linear Model Selection For our third example, we consider the case of model selection for linear bandits. In this setting, the contextct again speciﬁes featuresct(a)∈ Rd for each arma∈A, and we are guaranteed that the reward is a linear function of the context. The question now is whether the fulld-dimensions are actually necessary. Speciﬁcally",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06296,
+        -0.00824,
+        -0.05749,
+        -0.01063,
+        -0.01465
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": " Rd for each arma∈A, and we are guaranteed that the reward is a linear function of the context. The question now is whether the fulld-dimensions are actually necessary. Speciﬁcally",
+      "overlap_with_next": "eward is always a linear function ofct. Suppose that the reward is in fact purely a linear function of the ﬁrstd⋆ coordinates ofct. Suppose the action set A has ﬁnite cardinalityK.",
+      "text": " Rd for each arma∈A, and we are guaranteed that the reward is a linear function of the context. The question now is whether the fulld-dimensions are actually necessary. Speciﬁcally, if there is somed⋆ such that the reward is in fact a linear function of the ﬁrstd⋆ coordinates of the context only, then we would like our regret to depend ond⋆ rather thand. This setting has been studied before in the context of a ﬁnite set of actions in [18, 19]. These 10 [Page 11] (a) Linear Rewards (b) Non-Linear Rewards Figure 1: Misspeciﬁed Linear Bandit Figure 2: Model Selection Experiments prior works impose some additional technical conditions on the distribution of rewards and contexts provided by the environment. Under their conditions, [19] obtains regret ˜O(√d⋆T ) while under somewhat weaker conditions, [18] obtains regret ˜O(√d⋆T +T 3/4). In contrast, we require no extra conditions, and obtain regret˜O(d⋆ √ T ). The construction is detailed in the following Corollary: Corollary 7. Supposect∈ Rd for allt and the reward is always a linear function ofct. Suppose that the reward is in fact purely a linear function of the ﬁrstd⋆ coordinates ofct. Suppose the action set A has ﬁnite cardinalityK.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06446,
+        0.00281,
+        -0.05072,
+        -0.02356,
+        -0.01428
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "eward is always a linear function ofct. Suppose that the reward is in fact purely a linear function of the ﬁrstd⋆ coordinates ofct. Suppose the action set A has ﬁnite cardinalityK.",
+      "overlap_with_next": "∈ [K] is associated with a feature vectorxa∈ Rd that is chosen from the uniform distribution on the unit sphere. Let β∈ Rd also chosen from the unit sphere be a ﬁxed unknown parame",
+      "text": "eward is always a linear function ofct. Suppose that the reward is in fact purely a linear function of the ﬁrstd⋆ coordinates ofct. Suppose the action set A has ﬁnite cardinalityK. LetAi be an instance of linUCB of [16] restricted to the ﬁrst2i coordinates of the context. SetCi = √ 2i log(K), αi = 12, andηi = 1√T. Then using the instantiation of Algorithm 1 from Theorem 2, we obtain regret˜O ( d⋆ log(K) √ T ) . If instead the setA is inﬁnite, letAi be an instance of the linUCB algorithm for inﬁnite arms [20, 21] restricted to the ﬁrst2i coordinates. SetCi = 2i, αi = 12, andηi = 1√T. Then we obtain regret˜O(d2⋆√T). 7 Experimental Validation We now demonstrate empirical validation of our results in two diﬀerent application settings. For our ﬁrst experiment, we consider the misspeciﬁed linear bandit setting. We use ordinary UCB and 11 [Page 12] linUCB as the two base algorithms. For simplicity we focus on the ordinary stochastic bandits framework (i.e. we assume the context remains ﬁxed over time). Each arma∈ [K] is associated with a feature vectorxa∈ Rd that is chosen from the uniform distribution on the unit sphere. Let β∈ Rd also chosen from the unit sphere be a ﬁxed unknown parame",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06209,
+        0.02078,
+        -0.04677,
+        -0.02472,
+        -0.02461
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "∈ [K] is associated with a feature vectorxa∈ Rd that is chosen from the uniform distribution on the unit sphere. Let β∈ Rd also chosen from the unit sphere be a ﬁxed unknown parame",
+      "overlap_with_next": "two settings respectively. In both settings, the combiner uses UCB and linUCB as the base algorithms and the putative regret bounds for UCB and linUCB are computed empirically on i",
+      "text": "∈ [K] is associated with a feature vectorxa∈ Rd that is chosen from the uniform distribution on the unit sphere. Let β∈ Rd also chosen from the unit sphere be a ﬁxed unknown parameter vector. Finally, for each arm a, we chooseµa∈ R to be speciﬁed later. The reward for arma at any time stept is set to be αµa + (1−α) √ d·⟨β,xa⟩ +ηt whereηt∼N (0,σ ) is independently sampled noise and0≤α≤ 1 is a ﬁxed constant. Leta⋆ = argmina∈[K]⟨β,xa⟩ be the worst arm with respect to the linear component of the reward. For any arma⁄= a⋆, we setµa = 0.25√d·⟨β,xa⟩, whereas we setµa⋆ = 1. We consider two diﬀerent settings ofα. Whenα = 0, the reward is simply a linear function of the arms and we expect the linUCB algorithm to outperform the ordinary UCB algorithm. On the other hand, when α = 1, the rewards are constructed so that the linUCB algorithm essentially never chooses the arm a⋆ and thus incurs linear regret whereas the ordinary UCB algorithm still guaranteesO(√T ) regret. Figures 1a and 1b show the performance on these two settings respectively. In both settings, the combiner uses UCB and linUCB as the base algorithms and the putative regret bounds for UCB and linUCB are computed empirically on i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05365,
+        -0.00644,
+        -0.07473,
+        -0.01262,
+        0.01101
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "two settings respectively. In both settings, the combiner uses UCB and linUCB as the base algorithms and the putative regret bounds for UCB and linUCB are computed empirically on i",
+      "overlap_with_next": "∗. The Combiner algorithm is an implementation of Algorithm 1 withlogd base algorithms where each base algorithmAi is an instance of LinUCB restricted to the ﬁrst2i dimensions of t",
+      "text": "two settings respectively. In both settings, the combiner uses UCB and linUCB as the base algorithms and the putative regret bounds for UCB and linUCB are computed empirically on independent instances of the non-linear and linear reward settings respectively. For our second experiment, we consider the model selection problem in linear bandits. As earlier, each arma∈ K is associated with a feature vectorxa sampled independently from the unit sphere. The parameter vectorβ∈ Rd is chosen so that ﬁrst eachβj∼N (0, 1), ∀j≤d∗ and βj = 0, otherwise, and then normalized to be of unit length. The reward for arma at any time step t is set to be⟨β,xa⟩ +ηt where as earlierηt∼N (0,σ ) is independently sampled noise. Figure 2 demonstrates the performance of three diﬀerent algorithms in this setting withd = 128,d∗ = 8 and K = 1000. The Baseline algorithm is a vanilla LinUCB algorithm that works on the ambient dimension d, while theOracle is a LinUCB algorithm that works on the true dimensionality of the reward parameterd∗. The Combiner algorithm is an implementation of Algorithm 1 withlogd base algorithms where each base algorithmAi is an instance of LinUCB restricted to the ﬁrst2i dimensions of t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05273,
+        -0.01758,
+        -0.09067,
+        0.00843,
+        -0.01327
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "∗. The Combiner algorithm is an implementation of Algorithm 1 withlogd base algorithms where each base algorithmAi is an instance of LinUCB restricted to the ﬁrst2i dimensions of t",
+      "overlap_with_next": ". In the future, we hope to see advancements in this area. For example, can we maintain logarithmic regret in benign settings? Further, in the full-information setting, one can oft",
+      "text": "∗. The Combiner algorithm is an implementation of Algorithm 1 withlogd base algorithms where each base algorithmAi is an instance of LinUCB restricted to the ﬁrst2i dimensions of the features. The putative regret boundCi for each base algorithmAi is computed empirically on independent instances where the corresponding algorithm is well-speciﬁed. We set the target regret boundRi← (C2i +N)√T where N = logd is the number of base algorithms. The experimental results validate our theoretical ﬁndings and show that the combiner algorithm is able to adapt to the true dimensionality of the rewards. 8 Conclusion We have introduced a new method for combining stochastic bandit algorithms in such a way that our ﬁnal regret may depend only on the regret of the best base algorithm in hindsight. Our method is based on upper-conﬁdence techniques, and provides a contrast to prior work based on mirror descent [8]. We verify empirically that our technique can be used to solve some model selection and misspeciﬁcation problems. In the future, we hope to see advancements in this area. For example, can we maintain logarithmic regret in benign settings? Further, in the full-information setting, one can oft",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02338,
+        -0.01606,
+        -0.04717,
+        0.00687,
+        -0.02498
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": ". In the future, we hope to see advancements in this area. For example, can we maintain logarithmic regret in benign settings? Further, in the full-information setting, one can oft",
+      "overlap_with_next": "achine learning, 47(2-3):235–256, 2002. [5] Tor Lattimore and Csaba Szepesvári. Bandit algorithms.preprint, page 28, 2018. [6] Ambuj Tewari and Susan A Murphy. From ads to interven",
+      "text": ". In the future, we hope to see advancements in this area. For example, can we maintain logarithmic regret in benign settings? Further, in the full-information setting, one can often combine algorithms with minimal overhead. Are there any bandit settings in which such ideal behavior is possible? 12 [Page 13] References [1] John Langford and Tong Zhang. The epoch-greedy algorithm for multi-armed bandits with side information. In Advances in neural information processing systems, pages 817–824, 2008. [2] Alina Beygelzimer, John Langford, Lihong Li, Lev Reyzin, and Robert Schapire. Contextual bandit algorithms with supervised learning guarantees. In Proceedings of the Fourteenth International Conference on Artiﬁcial Intelligence and Statistics, pages 19–26, 2011. [3] Tze Leung Lai and Herbert Robbins. Asymptotically eﬃcient adaptive allocation rules.Advances in applied mathematics, 6(1):4–22, 1985. [4] Peter Auer, Nicolo Cesa-Bianchi, and Paul Fischer. Finite-time analysis of the multiarmed bandit problem. Machine learning, 47(2-3):235–256, 2002. [5] Tor Lattimore and Csaba Szepesvári. Bandit algorithms.preprint, page 28, 2018. [6] Ambuj Tewari and Susan A Murphy. From ads to interven",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0501,
+        0.01852,
+        -0.04643,
+        0.02312,
+        -0.02205
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "achine learning, 47(2-3):235–256, 2002. [5] Tor Lattimore and Csaba Szepesvári. Bandit algorithms.preprint, page 28, 2018. [6] Ambuj Tewari and Susan A Murphy. From ads to interven",
+      "overlap_with_next": "ry, pages 42–1, 2012. [11] Chen-Yu Wei and Haipeng Luo. More adaptive algorithms for adversarial bandits.Proceedings of Machine Learning Research, 75, 2018. [12] Jean-Yves Audibert",
+      "text": "achine learning, 47(2-3):235–256, 2002. [5] Tor Lattimore and Csaba Szepesvári. Bandit algorithms.preprint, page 28, 2018. [6] Ambuj Tewari and Susan A Murphy. From ads to interventions: Contextual bandits in mobile health. In Mobile Health, pages 495–517. Springer, 2017. [7] Alekh Agarwal, Daniel Hsu, Satyen Kale, John Langford, Lihong Li, and Robert Schapire. Taming the monster: A fast and simple algorithm for contextual bandits. InInternational Conference on Machine Learning, pages 1638–1646, 2014. [8] Alekh Agarwal, Haipeng Luo, Behnam Neyshabur, and Robert E Schapire. Corralling a band of bandit algorithms. InConference on Learning Theory, pages 12–38, 2017. [9] Aldo Pacchiano, My Phan, Yasin Abbasi-Yadkori, Anup Rao, Julian Zimmert, Tor Lattimore, and Csaba Szepesvari. Model selection in contextual stochastic bandit problems.arXiv preprint arXiv:2003.01704, 2020. [10] Sébastien Bubeck and Aleksandrs Slivkins. The best of both worlds: Stochastic and adversarial bandits. In Conference on Learning Theory, pages 42–1, 2012. [11] Chen-Yu Wei and Haipeng Luo. More adaptive algorithms for adversarial bandits.Proceedings of Machine Learning Research, 75, 2018. [12] Jean-Yves Audibert",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04742,
+        0.01808,
+        -0.03022,
+        0.00595,
+        -0.02457
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ry, pages 42–1, 2012. [11] Chen-Yu Wei and Haipeng Luo. More adaptive algorithms for adversarial bandits.Proceedings of Machine Learning Research, 75, 2018. [12] Jean-Yves Audibert",
+      "overlap_with_next": "Statistics, pages 208–214, 2011. [17] Tor Lattimore. The pareto regret frontier for bandits. InAdvances in Neural Information Processing Systems, pages 208–216, 2015. [18] Dylan J ",
+      "text": "ry, pages 42–1, 2012. [11] Chen-Yu Wei and Haipeng Luo. More adaptive algorithms for adversarial bandits.Proceedings of Machine Learning Research, 75, 2018. [12] Jean-Yves Audibert, Rémi Munos, and Csaba Szepesvári. Exploration–exploitation tradeoﬀ using variance estimates in multi-armed bandits.Theoretical Computer Science, 410(19):1876–1902, 2009. [13] Avishek Ghosh, Abishek Sankararaman, and Kannan Ramchandran. Problem-complexity adaptive model selection for stochastic linear bandits.arXiv preprint arXiv:2006.02612, 2020. [14] Raman Arora, Teodor V Marinov, and Mehryar Mohri. Corralling stochastic bandit algorithms. arXiv preprint arXiv:2006.09255, 2020. [15] Yasin Abbasi-Yadkori, Aldo Pacchiano, and My Phan. Regret balancing for bandit and rl model selection. arXiv preprint arXiv:2006.05491, 2020. 13 [Page 14] [16] Wei Chu, Lihong Li, Lev Reyzin, and Robert Schapire. Contextual bandits with linear payoﬀ functions. In Proceedings of the Fourteenth International Conference on Artiﬁcial Intelligence and Statistics, pages 208–214, 2011. [17] Tor Lattimore. The pareto regret frontier for bandits. InAdvances in Neural Information Processing Systems, pages 208–216, 2015. [18] Dylan J ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0388,
+        0.00936,
+        -0.0422,
+        0.0197,
+        -0.03308
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "Statistics, pages 208–214, 2011. [17] Tor Lattimore. The pareto regret frontier for bandits. InAdvances in Neural Information Processing Systems, pages 208–216, 2015. [18] Dylan J ",
+      "overlap_with_next": "1–122, 2012. [23] Aleksandrs Slivkins. Introduction to multi-armed bandits.Foundations and Trends in Machine Learning, 12(1-2):1–286, 2019. [24] Yasin Abbasi-Yadkori, David Pal, an",
+      "text": "Statistics, pages 208–214, 2011. [17] Tor Lattimore. The pareto regret frontier for bandits. InAdvances in Neural Information Processing Systems, pages 208–216, 2015. [18] Dylan J Foster, Akshay Krishnamurthy, and Haipeng Luo. Model selection for contextual bandits. In Advances in Neural Information Processing Systems, pages 14714–14725, 2019. [19] Niladri S Chatterji, Vidya Muthukumar, and Peter L Bartlett. Osom: A simultaneously optimal algorithm for multi-armed and linear contextual bandits.arXiv preprint arXiv:1905.10040, 2019. [20] Yasin Abbasi-Yadkori, Dávid Pál, and Csaba Szepesvári. Improved algorithms for linear stochastic bandits. InAdvances in Neural Information Processing Systems, pages 2312–2320, 2011. [21] Varsha Dani, Thomas P. Hayes, and Sham M. Kakade. Stochastic linear optimization under bandit feedback. InCOLT, 2008. [22] Sébastien Bubeck and Nicolò Cesa-Bianchi. Regret analysis of stochastic and nonstochastic multi-armed bandit problems.Foundations and Trends in Machine Learning, 5(1):1–122, 2012. [23] Aleksandrs Slivkins. Introduction to multi-armed bandits.Foundations and Trends in Machine Learning, 12(1-2):1–286, 2019. [24] Yasin Abbasi-Yadkori, David Pal, an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03364,
+        -0.0051,
+        -0.05181,
+        0.01498,
+        -0.01663
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "1–122, 2012. [23] Aleksandrs Slivkins. Introduction to multi-armed bandits.Foundations and Trends in Machine Learning, 12(1-2):1–286, 2019. [24] Yasin Abbasi-Yadkori, David Pal, an",
+      "overlap_with_next": "have: T (i,t)∑ τ=1 ˆriτ−riτ≤√8 log(T 3N/δ)T (i,t ) Proof. We prove only the ﬁrst statement. The proof of the second is entirely symmetrical. Fix a giveni. For any τ ≤ T deﬁne zτ = ",
+      "text": "1–122, 2012. [23] Aleksandrs Slivkins. Introduction to multi-armed bandits.Foundations and Trends in Machine Learning, 12(1-2):1–286, 2019. [24] Yasin Abbasi-Yadkori, David Pal, and Csaba Szepesvari. Online-to-conﬁdence-set conversions and application to sparse stochastic bandits. InArtiﬁcial Intelligence and Statistics, pages 1–9, 2012. [25] H Brendan McMahan. A survey of algorithms and analysis for adaptive online learning.The Journal of Machine Learning Research, 18(1):3117–3166, 2017. [26] Elad Hazan, Amit Agarwal, and Satyen Kale. Logarithmic regret algorithms for online convex optimization. Machine Learning, 69(2-3):169–192, 2007. 14 [Page 15] A Lemmas for analysis of Algorithm 1 Before proving Theorem 1, we need a few Lemmas. For the most part, these are straightforward veriﬁcation of intuitive concentration bounds. Lemma 8. With probability at least1−δ/T≥ 1−δ, for alli, for allt, we have: T (i,t)∑ τ=1 riτ− ˆriτ≤√8 log(T 3N/δ)T (i,t ) Similarly, with probability at least1−δ, for alli, for allt, we have: T (i,t)∑ τ=1 ˆriτ−riτ≤√8 log(T 3N/δ)T (i,t ) Proof. We prove only the ﬁrst statement. The proof of the second is entirely symmetrical. Fix a giveni. For any τ ≤ T deﬁne zτ = ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03777,
+        0.02974,
+        -0.04264,
+        0.01593,
+        -0.01761
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "have: T (i,t)∑ τ=1 ˆriτ−riτ≤√8 log(T 3N/δ)T (i,t ) Proof. We prove only the ﬁrst statement. The proof of the second is entirely symmetrical. Fix a giveni. For any τ ≤ T deﬁne zτ = ",
+      "overlap_with_next": " for alli, for allt, we have: T (i,t)∑ τ=1 ˆµiτ−r⋆≤ 2√8 log(T 3N/δ)T (i,t ) Proof. Following the same argument as in Lemma 8, we have that for anyi and t, Prob [ t∑ τ=1 ˆriτ−riτ≥√8",
+      "text": "have: T (i,t)∑ τ=1 ˆriτ−riτ≤√8 log(T 3N/δ)T (i,t ) Proof. We prove only the ﬁrst statement. The proof of the second is entirely symmetrical. Fix a giveni. For any τ ≤ T deﬁne zτ = riτ− ˆriτ, we recall thatriτ is the expected value of the τth action ofAi given the past history - ift is the ﬁrst time thatT (i,t ) = τ, we have riτ = E[ˆriτ|ˆr1,..., ˆrt−1]. Notice thatzτ∈ [−1, 1] is a martingale diﬀerence sequence. Now for anyϵ we apply Azuma’s inequality to obtain for anyt: Prob [ t∑ τ=1 riτ− ˆriτ≥ϵ ] = Prob [ t∑ τ=1 zτ≥ϵ ] ≤ exp (−ϵ2 8t ) In particular, settingϵ = √ 8t log(T 3N/δ), we have that Prob [ t∑ τ=1 riτ− ˆriτ≥√8 log(T 3N/δ)t ] ≤ δT 3N Therefore: Prob   T (i,t)∑ τ=1 riτ− ˆriτ≥√8 log(T 3N/δ)T (i,t )   = T∑ t′=1 Prob [ t′∑ τ=1 riτ− ˆriτ≥√8 log(T 3N/δ)t′ and T (i,t ) =t′ ] ≤ T∑ t′=1 Prob [ t′∑ τ=1 riτ− ˆriτ≥√8 log(T 3N/δ)t′ ] ≤ δNT 2 Then union bound over theN indices i and T values oft completes the Lemma. Similarly, we have the following result: 15 [Page 16] Lemma 9. With probability at least1−δ, for alli, for allt, we have: T (i,t)∑ τ=1 ˆµiτ−r⋆≤ 2√8 log(T 3N/δ)T (i,t ) Proof. Following the same argument as in Lemma 8, we have that for anyi and t, Prob [ t∑ τ=1 ˆriτ−riτ≥√8",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01129,
+        0.03225,
+        -0.03199,
+        0.01614,
+        0.00073
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": " for alli, for allt, we have: T (i,t)∑ τ=1 ˆµiτ−r⋆≤ 2√8 log(T 3N/δ)T (i,t ) Proof. Following the same argument as in Lemma 8, we have that for anyi and t, Prob [ t∑ τ=1 ˆriτ−riτ≥√8",
+      "overlap_with_next": "τ=1 r⋆− ˆrJτ≤CJT (J,t )αJ r⋆− ˆµJT (i,t−1)≤ min ( 1,CJT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) ) T (J,t−1)∑ τ=1 ˆµJτ−1− ˆrJτ≤CJT (J,t− 1)αJ + 3√8 log(TN/δ )T (J,t− 1) 16 [Page ",
+      "text": " for alli, for allt, we have: T (i,t)∑ τ=1 ˆµiτ−r⋆≤ 2√8 log(T 3N/δ)T (i,t ) Proof. Following the same argument as in Lemma 8, we have that for anyi and t, Prob [ t∑ τ=1 ˆriτ−riτ≥√8 log(T 3N/δ)t ] ≤ δT 3N Further, note that sincerit≤r⋆ for alli and t,∑tτ=1 ˆriτ−riτ≤√8 log(T 3N/δ)t implies ˆµit−r⋆≤√ 8 log(T 3N/δ)√ t . Therefore, for anyi and t, Prob [ ˆµit−r⋆≥ √ 8 log(T 3N/δ)√ t ] ≤ δT 3N Further, observe that ifˆµit−r⋆≤ √ 8 log(T 3N/δ)√ t for allt, then ˆ∑tτ=1µiτ−r⋆≤ 2√8 log(T 3N/δ)t. Therefore for any givent and i: Prob   T (i,t)∑ τ=1 ˆµiτ−r⋆≥ 2√8 log(T 3N/δ)√T (i,t )   = T∑ t′=1 Prob [ t′∑ τ=1 ˆµiτ−r⋆≥ 2√8 log(T 3N/δ)√t′ and T (i,t ) =t′ ] ≤ T∑ t′=1 Prob [ t′∑ τ=1 ˆµiτ−r⋆≥ 2√8 log(T 3N/δ)√t′ ] ≤ T∑ t′=1 Prob [ ˆµiτ−r⋆≤ √ 8 log(T 3N/δ)√τ for allτ≤t′ ] ≤ T∑ t′=1 t′∑ τ=1 Prob [ ˆµiτ−r⋆≤ √ 8 log(T 3N/δ)√τ ] ≤ δTN Now a union bound over theT values oft and N values ofi completes the statement. Lemma 10. With probability at least1− 3δ, there is someJ ∈ S such that for allt we have simultaneously: T (J,t)∑ τ=1 r⋆− ˆrJτ≤CJT (J,t )αJ r⋆− ˆµJT (i,t−1)≤ min ( 1,CJT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) ) T (J,t−1)∑ τ=1 ˆµJτ−1− ˆrJτ≤CJT (J,t− 1)αJ + 3√8 log(TN/δ )T (J,t− 1) 16 [Page ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03245,
+        0.0239,
+        -0.04892,
+        0.00495,
+        -0.01495
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "τ=1 r⋆− ˆrJτ≤CJT (J,t )αJ r⋆− ˆµJT (i,t−1)≤ min ( 1,CJT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) ) T (J,t−1)∑ τ=1 ˆµJτ−1− ˆrJτ≤CJT (J,t− 1)αJ + 3√8 log(TN/δ )T (J,t− 1) 16 [Page ",
+      "overlap_with_next": "JT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) Now for the third equation, observeˆµJ0 = 0, so that T (J,t−1)∑ τ=1 ˆµiτ−1−r⋆≤ T (J,t−1)∑ τ=1 ˆµiτ−r⋆ ≤ T (J,t−1)∑ τ=1 √ 8 log(T 3N/δ)",
+      "text": "τ=1 r⋆− ˆrJτ≤CJT (J,t )αJ r⋆− ˆµJT (i,t−1)≤ min ( 1,CJT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) ) T (J,t−1)∑ τ=1 ˆµJτ−1− ˆrJτ≤CJT (J,t− 1)αJ + 3√8 log(TN/δ )T (J,t− 1) 16 [Page 17] Proof. By assumption, with probability1−δ we have that there is someJ∈S such that for allt, T (J,t−1)∑ t=1 r⋆−rJτ≤CJT (J,t− 1)αJ (4) Next, by Lemma 8 we have with probability at least1−δ, for allt, T (J,t−1)∑ τ=1 rJτ− ˆrJτ≤√8 log(T 3N/δ)T (J,t− 1) (5) and by Lemma 9, with probability1−δ we have for allt: T (J,t)∑ τ=1 ˆµJτ−r⋆≤ 2√8 log(T 3N/δ)T (J,t ) (6) All three equations then hold with probability at least1− 3δ. Let us condition on this probability 1− 3δ event. Then the ﬁrst equation in the Lemma is immediately satisﬁed. For the second equation, observe that sinceˆµJT (J,t−1) and r⋆ are both in[0, 1], the statement is true so long as the minimum binds to 1. Further, forT (J,t− 1)⁄= 0, we have r⋆− ˆµJT (J,t−1) = 1T (J,t− 1) T (J,t−1)∑ τ=1 r⋆− ˆrJτ = 1T (J,t− 1) T (J,t−1)∑ τ=1 r⋆−rJτ + 1T (J,t− 1) T (J,t−1)∑ τ=1 rJτ− ˆrJτ ≤CJT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) Now for the third equation, observeˆµJ0 = 0, so that T (J,t−1)∑ τ=1 ˆµiτ−1−r⋆≤ T (J,t−1)∑ τ=1 ˆµiτ−r⋆ ≤ T (J,t−1)∑ τ=1 √ 8 log(T 3N/δ)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03905,
+        0.06003,
+        -0.05917,
+        -0.00074,
+        0.00286
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "JT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) Now for the third equation, observeˆµJ0 = 0, so that T (J,t−1)∑ τ=1 ˆµiτ−1−r⋆≤ T (J,t−1)∑ τ=1 ˆµiτ−r⋆ ≤ T (J,t−1)∑ τ=1 √ 8 log(T 3N/δ)",
+      "overlap_with_next": "1−riT (i,t)≤ 1 and the statement follows. One more technical fact: Lemma 12. Supposeα∈ [1/2, 1). Then for any constantsA,B≥ 0, sup Z≥0 AZα−BZ =α α1−α (1−α)A 1 1−α B α 1−α Proof. We",
+      "text": "JT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) Now for the third equation, observeˆµJ0 = 0, so that T (J,t−1)∑ τ=1 ˆµiτ−1−r⋆≤ T (J,t−1)∑ τ=1 ˆµiτ−r⋆ ≤ T (J,t−1)∑ τ=1 √ 8 log(T 3N/δ)√τ ≤ 2 √ 8 log(T 3N/δ)T (J,t− 1) Combining these equations yields: T (J,t−1)∑ τ=1 ˆµJτ−1− ˆrJτ = T (J,t−1)∑ τ=1 ˆµJτ−1−r⋆ +r⋆−rJτ +rJτ− ˆrJτ ≤ 2 √ 8 log(T 3N/δ)T (J,t− 1) +CJT (J,t− 1)αJ +√8 log(T 3N/δ)T (J,t− 1) ≤CJT (J,t− 1)αJ + 3√8 log(T 3N/δ)T (J,t− 1) 17 [Page 18] We also need a bound on the performance of the misspeciﬁed algorithms: Lemma 11. With probability at least1−δ, all indicesi satisfy: T (i,T )∑ τ=1 ˆµiτ−1−riτ≤CiT (i,T )αi + 4√8 log(TN/δ )T (i,T ) + 1 Proof. Let t be the smallest time such thatT (i,t ) = T (i,T ). Then it =i, so we must have that i∈It. Therefore: T (i,t−1)∑ τ=1 ˆµiτ−1− ˆriτ≤CiT (i,t− 1)αi + 3√8 log(T 3N/δ)(T (i,t− 1)) Next, by Lemma 8, we have that with probability at least1−δ, T (i,t−1)∑ τ=1 ˆriτ−riτ≤√8 log(T 3N/δ)T (i,t− 1) Then observe that since all rewards are in[0, 1], we must haveˆµiT (i,t)−1−riT (i,t)≤ 1 and the statement follows. One more technical fact: Lemma 12. Supposeα∈ [1/2, 1). Then for any constantsA,B≥ 0, sup Z≥0 AZα−BZ =α α1−α (1−α)A 1 1−α B α 1−α Proof. We",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02995,
+        0.02945,
+        -0.04193,
+        0.00986,
+        0.00541
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "1−riT (i,t)≤ 1 and the statement follows. One more technical fact: Lemma 12. Supposeα∈ [1/2, 1). Then for any constantsA,B≥ 0, sup Z≥0 AZα−BZ =α α1−α (1−α)A 1 1−α B α 1−α Proof. We",
+      "overlap_with_next": "of. To begin, observe that by Lemma 10 and Lemma 11, with probability1− 4δ, there is some J∈S such that for allt and alli, we have T (J,T)∑ τ=1 r⋆−rJτ≤CJT (J,T )αJ (7) r⋆− ˆµJT (J,",
+      "text": "1−riT (i,t)≤ 1 and the statement follows. One more technical fact: Lemma 12. Supposeα∈ [1/2, 1). Then for any constantsA,B≥ 0, sup Z≥0 AZα−BZ =α α1−α (1−α)A 1 1−α B α 1−α Proof. We diﬀerentiate with respect toZ to obtain: αAZα−1 =B Z = (αA B ) 1 1−α Now substitute this value back into the original expression: AXα−BX =(α α1−α−α 11−α)A 11−α B α 1−α =α α 1−α (1−α)A 1 1−α B α 1−α 18 [Page 19] B Proof of Theorem 1 Now we are in a position to prove Theorem 1, which we restate below for reference: Theorem 1. Suppose there is a setS⊂{ 1,...,N } such that with probability at least1−δ, there is some J∈S such that t∑ τ=1 r⋆−rJτ≤CJtαJ for allt≤T. Further, suppose theCi and αi are known, and theRi satisfy: Ri≥CiTαi Ri≥ ∑ k⁄=i max  (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N/δ)T Rk ] Letrt = E[ˆritT (it,t)] be the expected reward of Algorithm 1 at timet. Then, with probability at least1− 3δ, the regret satisﬁes: T∑ t=1 r⋆−rt≤ 3 sup j∈S Rj Note that the algorithm does not know the setS. Proof. To begin, observe that by Lemma 10 and Lemma 11, with probability1− 4δ, there is some J∈S such that for allt and alli, we have T (J,T)∑ τ=1 r⋆−rJτ≤CJT (J,T )αJ (7) r⋆− ˆµJT (J,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01166,
+        0.03666,
+        -0.03959,
+        0.00095,
+        -0.00075
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "of. To begin, observe that by Lemma 10 and Lemma 11, with probability1− 4δ, there is some J∈S such that for allt and alli, we have T (J,T)∑ τ=1 r⋆−rJτ≤CJT (J,T )αJ (7) r⋆− ˆµJT (J,",
+      "overlap_with_next": "wingidentity: ∑ t| it=i U(i,t− 1)− ˆµiT (i,t−1) = T (i,T )∑ τ=1 min ( 1,Ci(τ− 1)αi−1 + √ 8 log(T 3N/δ)√τ− 1 )− RiT ≤ 1− T (i,T )Ri T + T (i,T )∑ τ=1 Ciταi−1 + √ 8 log(T 3N/δ)√τ ≤ 1",
+      "text": "of. To begin, observe that by Lemma 10 and Lemma 11, with probability1− 4δ, there is some J∈S such that for allt and alli, we have T (J,T)∑ τ=1 r⋆−rJτ≤CJT (J,T )αJ (7) r⋆− ˆµJT (J,t−1)≤ min ( 1,CJT (J,t− 1)αJ−1 + √ 8 log(T 3N/δ)√ T (J,t− 1) ) (8) J∈It T (i,T )∑ τ=1 ˆµiτ−1−riτ≤CiT (i,T )αi + 4√8 log(TN/δ )T (i,T ) + 1 (9) All of our analysis is conditioned on this probability1− 4δ event. First, notice that by (8), we have that we have that: r⋆≤U(J,t− 1) +RJT for allt. 19 [Page 20] Now we write the regret: T∑ t=1 r⋆−rt = T∑ t=1 r⋆−ritT (it,t) = ∑ it=J r⋆−rJT (J,t) +∑ it⁄=J r⋆−ritT (it,t) First let’s consider the indices for whichit =J: ∑ it=J r⋆−rJT (J,t)≤CJT (J,T )αJ≤RJ Next, ifit⁄=J, we must haveU(it,t− 1)≥U(J,t− 1) since J∈It for allt. Then: r⋆ =r⋆−U(J,t− 1) +U(J,t− 1)−U(it,t− 1) +U(it,t− 1) ≤ RJ T +U(it,t− 1) Therefore: ∑ it⁄=J r⋆−ritT (it,t)≤∑ it⁄=J RJ T +U(it,t− 1)−ritT (it,t) ≤RJ + ∑ it⁄=J U(it,t− 1)−ritT (it,t) Let us focus on the sum∑it⁄=JU(it,t− 1)−ritT (it,t). As a ﬁrst step, we observe the followingidentity: ∑ t| it=i U(i,t− 1)− ˆµiT (i,t−1) = T (i,T )∑ τ=1 min ( 1,Ci(τ− 1)αi−1 + √ 8 log(T 3N/δ)√τ− 1 )− RiT ≤ 1− T (i,T )Ri T + T (i,T )∑ τ=1 Ciταi−1 + √ 8 log(T 3N/δ)√τ ≤ 1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0372,
+        0.05138,
+        -0.05146,
+        0.03467,
+        -0.00175
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "wingidentity: ∑ t| it=i U(i,t− 1)− ˆµiT (i,t−1) = T (i,T )∑ τ=1 min ( 1,Ci(τ− 1)αi−1 + √ 8 log(T 3N/δ)√τ− 1 )− RiT ≤ 1− T (i,T )Ri T + T (i,T )∑ τ=1 Ciταi−1 + √ 8 log(T 3N/δ)√τ ≤ 1",
+      "overlap_with_next": " 1−αi αiR αi 1−αi , 288 log(T 3N/δ)TRi ] Therefore by our conditions on theRi, we have ∑ i⁄=J (1 +αi)CiT (i,T )αi αi + 6 √ 8 log(T 3N/δ)T (i,T )− T (i,T )Ri T ≤ ∑ i⁄=J max [ (1−αi)",
+      "text": "wingidentity: ∑ t| it=i U(i,t− 1)− ˆµiT (i,t−1) = T (i,T )∑ τ=1 min ( 1,Ci(τ− 1)αi−1 + √ 8 log(T 3N/δ)√τ− 1 )− RiT ≤ 1− T (i,T )Ri T + T (i,T )∑ τ=1 Ciταi−1 + √ 8 log(T 3N/δ)√τ ≤ 1− T (i,T )Ri T + CiT (i,T )αiαi + 2√8 log(T 3N/δ)T (i,T ) 20 [Page 21] Now we use this observation as follows: ∑ it⁄=J U(it,t− 1)− ˆritT (it,t) =∑ it⁄=J ˆµitT (it,t−1)−ritT (it,t) +U(it,t− 1)− ˆµitT (it,t−1) ≤ ∑ i⁄=J   ∑ t| it=i ˆµiT (i,t−1)−ritT (it,t) +U(i,t− 1)− ˆµiT (i,t−1)   ≤ ∑ i⁄=J 1− T (i,T )Ri T + CiT (i,T )αiαi + 2√8 log(T 3N/δ)T (i,T ) +T (i,T )∑τ=1 ˆµiτ−1−riτ ≤ ∑ i⁄=J −T (i,T )Ri T + CiT (i,T )αiαi + 3√8 log(T 3N/δ)T (i,T ) +T (i,T )∑τ=1 ˆµiτ−1−riτ ≤ ∑ i⁄=J (1 +αi)CiT (i,T )αi αi + 6 √ 8 log(T 3N/δ)T (i,T )− T (i,T )Ri T Now we use a simple trick that allows us to apply Lemma 12: (1 +αi)CiT (i,T )αi αi + 6 √ 8 log(T 3N/δ)T (i,T )− T (i,T )Ri T ≤ sup Z (1 +αi)CiZαi αi + 6 √ 8 log(T 3N/δ)Z− ZRi T ≤ max [ sup Z (1 +αi)2CiZαi αi − ZRi T , supZ 12 √ 8 log(T 3N/δ)Z− ZRi T ] ≤ max [ (1−αi)(1 +αi) 1 1−αi (2Ci) 1 1−αiT αi 1−αi αiR αi 1−αi , 288 log(T 3N/δ)TRi ] Therefore by our conditions on theRi, we have ∑ i⁄=J (1 +αi)CiT (i,T )αi αi + 6 √ 8 log(T 3N/δ)T (i,T )− T (i,T )Ri T ≤ ∑ i⁄=J max [ (1−αi)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03991,
+        0.03824,
+        -0.04781,
+        -0.0101,
+        -0.02387
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": " 1−αi αiR αi 1−αi , 288 log(T 3N/δ)TRi ] Therefore by our conditions on theRi, we have ∑ i⁄=J (1 +αi)CiT (i,T )αi αi + 6 √ 8 log(T 3N/δ)T (i,T )− T (i,T )Ri T ≤ ∑ i⁄=J max [ (1−αi)",
+      "overlap_with_next": "j Tη 1−αj αj j +Tηj + ∑ k⁄=j 1 ηk   Proof. Observe that by deﬁnition ofRi we have: Ri≥CiTαi Further, due to the second and third terms in the deﬁnition ofRi respectively, we have",
+      "text": " 1−αi αiR αi 1−αi , 288 log(T 3N/δ)TRi ] Therefore by our conditions on theRi, we have ∑ i⁄=J (1 +αi)CiT (i,T )αi αi + 6 √ 8 log(T 3N/δ)T (i,T )− T (i,T )Ri T ≤ ∑ i⁄=J max [ (1−αi)(1 +αi) 1 1−αi (2Ci) 1 1−αiT αi 1−αi αiR αi 1−αi , 288 log(T 3N/δ)TRi ] ≤RJ And so putting all this together we have with probability at least1− 3δ: T∑ t=1 r⋆− ˆrt = ∑ it=J r⋆− ˆrJT (J,t) +∑ it⁄=J r⋆− ˆritT (it,t) ≤RJ +RJ +RJ≤ 3RJ for some J∈S. Therefore with probability at least1− 3δ, the regret is bounded by3 supj∈SRj. 21 [Page 22] B.1 Proof of Corollary 2 Now we prove Corollary 2: Corollary 2. Suppose there is a setS⊂{ 1,...,N } such that with probability at least1−δ, there is some J∈S such that∑tτ=1r⋆−rJτ≤CJtαJ for allt≤T. Further, suppose we are givenN positive real numbersη1,...,η N. SetRi via: Ri =CiTαi + (1−αi) 1−αi αi (1 +αi) 1 αi α 1−αi αi i C 1 αi i Tη 1−αi αi i + 288 log(T 3N/δ)Tηi +∑ k⁄=i 1 ηk Then, with probability at least1− 3δ, the regret of Algorithm 1 satisﬁes: Regret≤ 3 sup j∈S Rj = ˜O ( sup j∈S CjTαj +C 1 αj j Tη 1−αj αj j +Tηj + ∑ k⁄=j 1 ηk   Proof. Observe that by deﬁnition ofRi we have: Ri≥CiTαi Further, due to the second and third terms in the deﬁnition ofRi respectively, we have",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04014,
+        0.01999,
+        -0.03919,
+        -0.02429,
+        -0.00923
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "j Tη 1−αj αj j +Tηj + ∑ k⁄=j 1 ηk   Proof. Observe that by deﬁnition ofRi we have: Ri≥CiTαi Further, due to the second and third terms in the deﬁnition ofRi respectively, we have",
+      "overlap_with_next": "∈B 1 + 512 log(T 3N/δ)∆i + 4 1 1−αiC 1 1−αi i ∆ αi 1−αi i + min   ∑ k⁄=J,k/∈B 2RJ, RJ + ∑ k⁄=J,k/∈B max  (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N",
+      "text": "j Tη 1−αj αj j +Tηj + ∑ k⁄=j 1 ηk   Proof. Observe that by deﬁnition ofRi we have: Ri≥CiTαi Further, due to the second and third terms in the deﬁnition ofRi respectively, we have the following: 1 ηi ≥ (1−αi)(1 +αi) 1 1−αi (2Ci) 1 1−αiT αi 1−αi αiR αi 1−αi i 1 ηi ≥ 288 log(T 3N/δ)TRi Finally, due to the last term in the deﬁnition ofRi, we have: Ri≥ ∑ k⁄=i 1 ηk ≥ ∑ k⁄=i max    (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N/δ)TRk    Therefore theseRi satisfy the conditions of Theorem 1, and so we are done. 22 [Page 23] C Proof of Theorem 3 Theorem 3. Suppose that there is someJ∈{ 1,...,N } such that with probability at least1−δ, we have: t∑ τ=1 r⋆−rJτ≤CJtαJ Also, for alli, deﬁneTi =T (i,T ) and ∆i by: ∆i = 1T (i,Ti− 1) T (i,Ti−1)∑ τ=1 r⋆−riτ And letB⊂{ 1,...,N } with J /∈B be the set of indices with∆i> 2RJT for i∈B. Fori⁄=J, letCi> 0 and αi≤ 1 for i⁄=J be arbitrary. Then with probability at least1− 3δ, the regret of Algorithm 1 satisﬁes: T∑ t=1 r⋆−rt≤ T (J,T)∑ τ=1 r⋆−rJτ +∑ i∈B 1 + 512 log(T 3N/δ)∆i + 4 1 1−αiC 1 1−αi i ∆ αi 1−αi i + min   ∑ k⁄=J,k/∈B 2RJ, RJ + ∑ k⁄=J,k/∈B max  (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02226,
+        0.05303,
+        -0.04635,
+        -0.01637,
+        -0.00955
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "∈B 1 + 512 log(T 3N/δ)∆i + 4 1 1−αiC 1 1−αi i ∆ αi 1−αi i + min   ∑ k⁄=J,k/∈B 2RJ, RJ + ∑ k⁄=J,k/∈B max  (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N",
+      "overlap_with_next": ", note from the proof of Theorem 1, that with probability at least1−δ, we have: r⋆≤U(J,t− 1) +RJT for allt. For anyi, deﬁneTi as the last time at whichAi is chosen by Algorithm 1. ",
+      "text": "∈B 1 + 512 log(T 3N/δ)∆i + 4 1 1−αiC 1 1−αi i ∆ αi 1−αi i + min   ∑ k⁄=J,k/∈B 2RJ, RJ + ∑ k⁄=J,k/∈B max  (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N/δ)TRk     Proof. We begin with the regret decomposition: T∑ t=1 r⋆−rt = T (J,T)∑ τ=1 r⋆−rJτ + ∑ i/∈B,i⁄=J T (i,T )∑ τ=1 r⋆−riτ +∑ i∈B T (i,T )∑ τ=1 r⋆−riτ The ﬁrst sum in the above is already in the form we desire. The second sum could be bounded using the same argument as in the proof of Theorem 1 by: RJ + ∑ k⁄=J,k/∈B max  (1−αk)(1 +αk) 1 1−αk (2Ck) 1 1−αkT αk 1−αk αkR αk 1−αk k , 288 log(T 3N/δ)TRk   However, we can also bound it another way. By deﬁnition ofB, for anyi /∈B, we have: T (i,T )∑ τ=1 r⋆−riτ≤T ∆i≤ 2RJ so that the second sum is also bounded by ∑ k⁄=J,k/∈B 2RJ This leads to the expression involving a minimum in the Theorem statement. 23 [Page 24] For the last term, our proof proceeds by counting how many times we choose an algorithmAi for i∈B. We only choose such an algorithm whenU(i,t− 1)≥U(J,t− 1). Further, note from the proof of Theorem 1, that with probability at least1−δ, we have: r⋆≤U(J,t− 1) +RJT for allt. For anyi, deﬁneTi as the last time at whichAi is chosen by Algorithm 1. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01774,
+        0.02487,
+        -0.04327,
+        0.00695,
+        -0.01009
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": ", note from the proof of Theorem 1, that with probability at least1−δ, we have: r⋆≤U(J,t− 1) +RJT for allt. For anyi, deﬁneTi as the last time at whichAi is chosen by Algorithm 1. ",
+      "overlap_with_next": "i− 1) ) T (i,Ti− 1)≤ 512 log(T 3N/δ)∆2i + 4 1 1−αiC 1 1−αi i ∆ 1 1−αi i Therefore, observing that by deﬁnition we haveT (i,Ti− 1) + 1 =Ti =T (i,T ), we have: T (i,T )∑ τ=1 r⋆−riτ≤ ",
+      "text": ", note from the proof of Theorem 1, that with probability at least1−δ, we have: r⋆≤U(J,t− 1) +RJT for allt. For anyi, deﬁneTi as the last time at whichAi is chosen by Algorithm 1. Our goal is to bound Ti for alli∈B. By deﬁnition, we must haveU(i,Ti− 1)≥U(J,Ti− 1). Then, observe that from Lemma 8, we have that with probability at least1−δ, for alli∈B: ˆµiT (i,Ti−1)−r⋆ + ∆i = 1T (i,Ti− 1) T (i,Ti−1)∑ τ=1 ˆriτ−riτ≤ 2 √ 8 log(T 3N/δ)√ T (i,Ti− 1) Deﬁne Z(i,t ) = min ( 1, CiT (i,t)αi +√8 log(T 3N/δ)T (i,t)T (i,t) ). Then by the previous line and by deﬁnition of U(i,Ti− 1), we have with probability at least1− 2δ, U(i,Ti− 1)≤ 2 √ 8 log(T 3N/δ)√ T (i,Ti− 1) +r⋆− ∆i +Z(i,Ti− 1)− RiT ≤ 2 √ 8 log(T 3N/δ)√ T (i,Ti− 1) +U(J,Ti− 1) +RJT − ∆i +Z(i,Ti− 1)− RiT Therefore, ifU(i,Ti− 1)≥U(J,Ti− 1), we must have: ∆i + RiT − RJT ≤ 2 √ 8 log(T 3N/δ)√ T (i,Ti− 1) + min ( 1,CiT (i,Ti− 1)αi +√8 log(T 3N/δ)T (i,Ti− 1)T (i,Ti− 1) ) (10) ∆i 2 ≤ 2 √ 8 log(T 3N/δ)√ T (i,Ti− 1) + min ( 1,CiT (i,Ti− 1)αi +√8 log(T 3N/δ)T (i,Ti− 1)T (i,Ti− 1) ) T (i,Ti− 1)≤ 512 log(T 3N/δ)∆2i + 4 1 1−αiC 1 1−αi i ∆ 1 1−αi i Therefore, observing that by deﬁnition we haveT (i,Ti− 1) + 1 =Ti =T (i,T ), we have: T (i,T )∑ τ=1 r⋆−riτ≤ ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01055,
+        0.02735,
+        -0.04225,
+        0.03128,
+        -0.00882
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "i− 1) ) T (i,Ti− 1)≤ 512 log(T 3N/δ)∆2i + 4 1 1−αiC 1 1−αi i ∆ 1 1−αi i Therefore, observing that by deﬁnition we haveT (i,Ti− 1) + 1 =Ti =T (i,T ), we have: T (i,T )∑ τ=1 r⋆−riτ≤ ",
+      "overlap_with_next": "JT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−¯αJ ¯αJ J + log ( T 3N δ ) TηJ + N∑ i=1 log(1/δ) log2(T ) ηi ) so that the expected regret is bounded by: E[Regret]≤O ( ¯CJT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−",
+      "text": "i− 1) ) T (i,Ti− 1)≤ 512 log(T 3N/δ)∆2i + 4 1 1−αiC 1 1−αi i ∆ 1 1−αi i Therefore, observing that by deﬁnition we haveT (i,Ti− 1) + 1 =Ti =T (i,T ), we have: T (i,T )∑ τ=1 r⋆−riτ≤ 1 +T (i,Ti− 1)∆i ≤ 1 + 512 log(T 3N/δ)∆i + 4 1 1−αiC 1 1−α i ∆ αi 1−αi i 24 [Page 25] D Proof of Theorem 5 In this section, we provide a proof of Theorem 5, restated below: Theorem 5. Suppose that for someJ, there is some unknown¯CJ and ¯αJ such thatAJ ensures E[∑tτ=1r⋆−rJτ ]≤ ¯CJt¯αJ for allt≤T. Further, suppose we are given positive numbersη1,...,η N. Letδ∈ (0, 1) be some user-speciﬁed failure probability. ForM =⌈log2(1/δ)⌉ and K =⌈log2(T )⌉ and L =⌈ log2(T )2 ⌉, we duplicate eachAi MKL times, specifying each duplicateAi,x,y,z by a multi-index (i,x,y,z )∈ [N]× [M]× [K]× [L]. To each duplicate we associateCi,x,y,z = 2y and αi,x,y,z = min ( 1, 1/2 + zlog(T ) ) . Let ηi,x,y,z = ηi. Specify Ri,x,y,z as a function ofηi,x,y,z as described in Theorem 2. Then with probability at least1− 3δ, Algorithm 1 guarantees regret: Regret≤O ( ¯CJT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−¯αJ ¯αJ J + log ( T 3N δ ) TηJ + N∑ i=1 log(1/δ) log2(T ) ηi ) so that the expected regret is bounded by: E[Regret]≤O ( ¯CJT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01772,
+        0.01701,
+        -0.04321,
+        0.01435,
+        0.01714
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "JT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−¯αJ ¯αJ J + log ( T 3N δ ) TηJ + N∑ i=1 log(1/δ) log2(T ) ηi ) so that the expected regret is bounded by: E[Regret]≤O ( ¯CJT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−",
+      "overlap_with_next": "¯y, ¯ZtαJ,j,¯y,¯ziϵ With ϵ = 12(log2(T )+1), by union bound over theV ≤ log2(T ) + 1values ofi, we have that for any givenj, with probability at least1/2, ti∑ τ=1 r⋆−rJ,j,¯y,¯zτ ≤ ",
+      "text": "JT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−¯αJ ¯αJ J + log ( T 3N δ ) TηJ + N∑ i=1 log(1/δ) log2(T ) ηi ) so that the expected regret is bounded by: E[Regret]≤O ( ¯CJT ¯αJ + ¯C 1 ¯αJ J T ¯αJη 1−¯αJ ¯αJ J + log ( T 3N δ ) TηJ + N∑ i=1 log(1/δ) log2(T ) ηi +Tδ ) Proof. Let ¯y =⌈log2( ¯CJ)⌉, and let¯z =⌈ ¯αJ− 12log2(T ). Then observe sinceT 1/ log2(T ) = 2, we have that forall x and t≤T, ¯CJt¯αJ≤CJ,x,¯y,¯ztαJ,x,¯y,¯z≤ 4 ¯CJt¯αJ Next, let ¯S ={(J,x, ¯y, ¯z) :x∈ [M]}. Then we claim that with probability at least1−δ, there exists some ¯J = (J, ¯x, ¯u, ¯z)∈ ¯S such that such thatA ¯J obtains regret∑tτ=1r⋆−r ¯Jτ≤CJ,x,¯y,¯ztαJ,x,¯y,¯z for allt≤T. The conclusion of the Theorem will then follow from Theorem 2, observing that the total number of duplicates for each algorithm isMKL =O(log(1/δ) log2(T )). Let us prove the claim. DeﬁneV =⌈log2(T )⌉ and deﬁne the sequencet1,...,t V byti = 2i for i<V and tV =T. Then for anyϵ> 0 and anyi and anyj, by Markov inequality, with probability at least 1−ϵ we have ti∑ τ=1 r⋆−rJ,j,¯y,¯zτ ≤ CJ,j,¯y, ¯ZtαJ,j,¯y,¯ziϵ With ϵ = 12(log2(T )+1), by union bound over theV ≤ log2(T ) + 1values ofi, we have that for any givenj, with probability at least1/2, ti∑ τ=1 r⋆−rJ,j,¯y,¯zτ ≤ ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04008,
+        0.02398,
+        -0.04246,
+        0.01167,
+        -0.01023
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": "¯y, ¯ZtαJ,j,¯y,¯ziϵ With ϵ = 12(log2(T )+1), by union bound over theV ≤ log2(T ) + 1values ofi, we have that for any givenj, with probability at least1/2, ti∑ τ=1 r⋆−rJ,j,¯y,¯zτ ≤ ",
+      "overlap_with_next": "r function ofct, or it is not. ThenA1 guarantees regret ˜O(√d log(K)t) with probability1−δ in the ﬁrst case, whileA2 guarantees regret ˜O(√Kt) in the second case. Setη1 = Pd log(K)",
+      "text": "¯y, ¯ZtαJ,j,¯y,¯ziϵ With ϵ = 12(log2(T )+1), by union bound over theV ≤ log2(T ) + 1values ofi, we have that for any givenj, with probability at least1/2, ti∑ τ=1 r⋆−rJ,j,¯y,¯zτ ≤ 2(log2(T ) + 1)CJ,j,¯y, ¯ZtαJ,j,¯y,¯zi (11) 25 [Page 26] for alli. There areM multi-index ¯J of the form (J,j, ¯y, ¯z). Thus the probability thatnone of them satisﬁes (11) for alli is at most 12M≤δ. Therefore, with probability at least1−δ, we have that (11) holds for alli some j and multi-index ¯J = (J,j, ¯y, ¯z). Next, observe thatr⋆−r ¯Jt ≥ 0 for allt with probability 1. Therefore, with probability1−δ, for anyt we setti such thatt≤ti≤ 2t and have t∑ τ=1 r⋆−r ¯J τ≤ ti∑ τ=1 r⋆−r ¯J τ ≤ 2C(log2(T ) + 1)√ti ≤ 4C(log2(T ) + 1) √ t E Proofs for Section 6 Corollary 6. Suppose ct : A→ Rd for all t. Suppose K≥ d log(K). LetA1 be an instance of linUCB andA2 be an instance of the ordinary UCB algorithm. LetP andQ be any two numbers such that PQ =KT and both are greater than √ d log(K)T. We consider two cases, either the reward is a linear function ofct, or it is not. ThenA1 guarantees regret ˜O(√d log(K)t) with probability1−δ in the ﬁrst case, whileA2 guarantees regret ˜O(√Kt) in the second case. Setη1 = Pd log(K)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07225,
+        0.0272,
+        -0.03856,
+        0.03814,
+        -0.00573
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "r function ofct, or it is not. ThenA1 guarantees regret ˜O(√d log(K)t) with probability1−δ in the ﬁrst case, whileA2 guarantees regret ˜O(√Kt) in the second case. Setη1 = Pd log(K)",
+      "overlap_with_next": "A has ﬁnite cardinalityK. LetAi be an instance of linUCB of [16] restricted to the ﬁrst2i coordinates of the context. SetCi = √ 2i log(K), αi = 12, andηi = 1√T. Then using the inst",
+      "text": "r function ofct, or it is not. ThenA1 guarantees regret ˜O(√d log(K)t) with probability1−δ in the ﬁrst case, whileA2 guarantees regret ˜O(√Kt) in the second case. Setη1 = Pd log(K)T = KQd log(K) and η2 = 1P = QKT . Then using theRi construction of Corollary 2, with probability at least1− 3δ, we guarantee regret˜O(P ) with linear rewards, and˜O(Q) otherwise. Proof. The regret bounds onA1 andA2 are standard from analysis of the respective algorithms. We setα1 =α2 = 12 and setC1 = ˜O(√d log(K)) and C2 = ˜O(√K), where the constants and log factors in the ˜O notations come from the regret bounds onA1 andA2. Then if the rewards are linear, then applying Theorem 2 yields regret˜O ( d log(K)Tη 1 + 1η2 ) = ˜O(X) (with S ={1}), while otherwise we have ˜O ( KTη 2 + 1η1 ) = ˜O ( Y + d log(K)YK ) = ˜O (Y ) (with S ={2}). Corollary 7. Supposect∈ Rd for allt and the reward is always a linear function ofct. Suppose that the reward is in fact purely a linear function of the ﬁrstd⋆ coordinates ofct. Suppose the action set A has ﬁnite cardinalityK. LetAi be an instance of linUCB of [16] restricted to the ﬁrst2i coordinates of the context. SetCi = √ 2i log(K), αi = 12, andηi = 1√T. Then using the inst",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05274,
+        0.01892,
+        -0.01601,
+        -0.02333,
+        -0.01102
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "A has ﬁnite cardinalityK. LetAi be an instance of linUCB of [16] restricted to the ﬁrst2i coordinates of the context. SetCi = √ 2i log(K), αi = 12, andηi = 1√T. Then using the inst",
+      "overlap_with_next": "technique needed in Theorem 5. The analysis in this section is standard and more detailed discussion can be found in various texts (e.g. [5, 22, 23]). UCB and related algorithms ma",
+      "text": "A has ﬁnite cardinalityK. LetAi be an instance of linUCB of [16] restricted to the ﬁrst2i coordinates of the context. SetCi = √ 2i log(K), αi = 12, andηi = 1√T. Then using the instantiation of Algorithm 1 from Theorem 2, we obtain regret˜O ( d⋆ log(K) √ T ) . If instead the setA is inﬁnite, letAi be an instance of the linUCB algorithm for inﬁnite arms [20, 21] restricted to the ﬁrst2i coordinates. SetCi = 2i, αi = 12, andηi = 1√T. Then we obtain regret˜O(d2⋆√T). Proof. For the ﬁnite action setting, [16] proves, supposingd⋆≤ ˆd, then an instance of linUCB restricted to the ﬁrst ˆd dimensions will obtain regret at most ˜O( √ ˆd log(K)T ). In the inﬁnite action setting, [20] shows that the OFUL algorithm obtains regret˜O( ˆd√T ). The corollary is then a consequence of Theorem 2. 26 [Page 27] F High-Probability Regret and the Optimism Principle In this section we sketch a proof that UCB-like algorithms tend to satisfy the high-probability conditions required by Theorem 1, without resorting to the duplication technique needed in Theorem 5. The analysis in this section is standard and more detailed discussion can be found in various texts (e.g. [5, 22, 23]). UCB and related algorithms ma",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05556,
+        0.01168,
+        -0.03865,
+        -0.01395,
+        -0.02332
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": "technique needed in Theorem 5. The analysis in this section is standard and more detailed discussion can be found in various texts (e.g. [5, 22, 23]). UCB and related algorithms ma",
+      "overlap_with_next": "bability 1−δ event, the analysis proceeds as follows: r⋆−rxt≤r⋆−U(⋆,t,δ ) +U(⋆,t,δ )−U(xt,t,δ ) +U(xt,t,δ )−rxt ≤U(xt,t,δ )−rxt ≤U(xt,t,δ )−L(xt,t,δ ) where L(x,t,δ ) = infC(x,t,δ ",
+      "text": "technique needed in Theorem 5. The analysis in this section is standard and more detailed discussion can be found in various texts (e.g. [5, 22, 23]). UCB and related algorithms make use of theoptimism principle. The intuitive idea is to maintain for each policyx a bound on the best possible value for the expected reward ofx given the data seen so far. At each round, the policy with the largest such bound is chosen. In general, the bound for a policy is some mixture of its past observed performance and some uncertainty due to lack of data, so that the upper bound is larger both if a policy has done well in the past, or if it has not been explored in the past. More formally, we consider an algorithm UCB-like if for each policyx and round indext it produces a conﬁdence setC(x,t,δ )⊂ R such that with probability at least1−δ, the expected rewardrx satisﬁes rx∈C(x,t,δ ) for allx for allt. At each time step, the algorithm plays the armxt = argmaxxU(x,t,δ ), whereU(x,t,δ ) = supC(x,t,δ ). Conditioned on this probability 1−δ event, the analysis proceeds as follows: r⋆−rxt≤r⋆−U(⋆,t,δ ) +U(⋆,t,δ )−U(xt,t,δ ) +U(xt,t,δ )−rxt ≤U(xt,t,δ )−rxt ≤U(xt,t,δ )−L(xt,t,δ ) where L(x,t,δ ) = infC(x,t,δ ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01407,
+        -0.00087,
+        -0.04439,
+        0.01918,
+        -0.01992
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "bability 1−δ event, the analysis proceeds as follows: r⋆−rxt≤r⋆−U(⋆,t,δ ) +U(⋆,t,δ )−U(xt,t,δ ) +U(xt,t,δ )−rxt ≤U(xt,t,δ )−rxt ≤U(xt,t,δ )−L(xt,t,δ ) where L(x,t,δ ) = infC(x,t,δ ",
+      "overlap_with_next": "rewards. It can be shown that τ∑ t=1 U(xt,t,δ )−L(xt,t,δ )≤O(C(δ) √ Kτ ) for any sequencex1,...,x τ. Therefore so long as the conﬁdence intervals are correct for all timest, which ",
+      "text": "bability 1−δ event, the analysis proceeds as follows: r⋆−rxt≤r⋆−U(⋆,t,δ ) +U(⋆,t,δ )−U(xt,t,δ ) +U(xt,t,δ )−rxt ≤U(xt,t,δ )−rxt ≤U(xt,t,δ )−L(xt,t,δ ) where L(x,t,δ ) = infC(x,t,δ ). Thus, with probability at least1−δ, the total regret at any time τ≤T is τ∑ t=1 r⋆−rt≤ τ∑ t=1 U(xt,t,δ )−L(xt,t,δ ) Many UCB-like bounds operate by providing a bound on∑Tt=1U(xt,t,δ )−L(xt,t,δ ) that holds for every possible sequence ofxt - not just those ones that are chosen by the algorithm. Algorithms with regret bounds that can be derived in this manner include the standard UCB algorithm for K-armed bandits [3], as well as the linear UCB algorithm for potentially inﬁnitely armed linear bandits [21, 20]. In the case of ordinary UCB,C(x,t,δ ) = [µx− C(δ)√T (x,t−1),µx + C(δ)√T (x,t−1)] where C is some constant that isO( √ log(T/δ )) and µx is the empirical average of all prior rewards observed from armx. Here we observe thatU(xt,t,δ )−L(xt,t,δ ), conditioned on the sequence of arm pulls, is independent of the actual observed rewards. It can be shown that τ∑ t=1 U(xt,t,δ )−L(xt,t,δ )≤O(C(δ) √ Kτ ) for any sequencex1,...,x τ. Therefore so long as the conﬁdence intervals are correct for all timest, which ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06035,
+        0.00517,
+        -0.07441,
+        -0.00282,
+        2e-05
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "rewards. It can be shown that τ∑ t=1 U(xt,t,δ )−L(xt,t,δ )≤O(C(δ) √ Kτ ) for any sequencex1,...,x τ. Therefore so long as the conﬁdence intervals are correct for all timest, which ",
+      "overlap_with_next": "linear contextual bandits withadversarial rather than stochastic contexts and show that a variant of our combiner Algorithm 1 can combine instances of standard conﬁdence- ellipsoid",
+      "text": "rewards. It can be shown that τ∑ t=1 U(xt,t,δ )−L(xt,t,δ )≤O(C(δ) √ Kτ ) for any sequencex1,...,x τ. Therefore so long as the conﬁdence intervals are correct for all timest, which happens with probability at least1−δ, we have a bound on the regret ofO(C(δ) √ Kτ ) In the case of linUCB, we have the more complicated set: C(x,t,δ ) = [⟨ˆθ,x⟩− C(δ) √ x⊤Vt−1x,⟨ˆθ,x⟩ +C(δ) √ x⊤Vt−1x] where ˆθ is the regularized least-squares regression solution for the linear parameterθ, Vt−1 = λI +∑t−1τ=1xiτx⊤iτ, and C(δ) again is constant that isO(√d log(T/δ )). Again, we observe that 27 [Page 28] U(xt,t,δ )−L(xt,t,δ ), conditioned on the sequence of arm pulls, is independent of the actual observed rewards. It can be shown that τ∑ t=1 U(xt,t,δ )−L(xt,t,δ )≤O(C(δ) √ dτ log(τ)) for any sequencex1,...,x τ. Thus with probability at least1−δ, the conﬁdence intervals are all correct, and so we have regret at mostO(C(δ) √ d log(τ)τ) =O(d √ log(T/δ )τ). G Combining Linear Bandits with Adversarial Contexts In this section we consider linear contextual bandits withadversarial rather than stochastic contexts and show that a variant of our combiner Algorithm 1 can combine instances of standard conﬁdence- ellipsoid",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06893,
+        0.02084,
+        -0.08079,
+        0.00153,
+        -0.01104
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "linear contextual bandits withadversarial rather than stochastic contexts and show that a variant of our combiner Algorithm 1 can combine instances of standard conﬁdence- ellipsoid",
+      "overlap_with_next": "rs to obtain a regret bound that depends onT and dJ, but notdi for i⁄= J. Speciﬁcally, we will obtain a result analogous to Theorem 1 that will enable regret˜O(d2J√T ). By mild abu",
+      "text": "linear contextual bandits withadversarial rather than stochastic contexts and show that a variant of our combiner Algorithm 1 can combine instances of standard conﬁdence- ellipsoid based bandit algorithms. Formally, let us allow each learnerAi to receive a context mapping ψit :A→ Rdi that maps actions inA to feature vectors inRdi. The learner will use this mapping to minimize regret. We suppose there is someJ such that for allt and a, the reward for actiona at time t is⟨ψJt (a),θ⋆⟩ for someθ⋆∈ RdJ. For simplicity of exposition, we consider the case in which ‖θ⋆‖≤ 1,‖ψit(a)‖≤ 1 for alli, t, anda, and the observed rewards satisfy|ˆrit|≤ 1 with probability 1. We consider the regret with respect to the optimal action at timet. That is, deﬁne r⋆,t = maxa∈A⟨ψJt (a),θ⋆⟩ and the regret as: T∑ t=1 r⋆,t−rt where rt is the expected loss of the chosen action. The standard base learner for this problem is LinUCB (e.g see [16, 5], which would obtain a base regret of˜O(dJ √ T ). We would like to combine many base learners to obtain a regret bound that depends onT and dJ, but notdi for i⁄= J. Speciﬁcally, we will obtain a result analogous to Theorem 1 that will enable regret˜O(d2J√T ). By mild abu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03412,
+        0.00436,
+        -0.04602,
+        -0.0018,
+        -0.02375
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": "rs to obtain a regret bound that depends onT and dJ, but notdi for i⁄= J. Speciﬁcally, we will obtain a result analogous to Theorem 1 that will enable regret˜O(d2J√T ). By mild abu",
+      "overlap_with_next": "nt this ﬁxed scaling. The arguments are essentially identical using standard time-varying schedules forβ. Next, we change our criterion for eliminating algorithms from the active s",
+      "text": "rs to obtain a regret bound that depends onT and dJ, but notdi for i⁄= J. Speciﬁcally, we will obtain a result analogous to Theorem 1 that will enable regret˜O(d2J√T ). By mild abuse of notation, we will writeaitT (it,t) to indicate the feature under the mapψit of the T (it,t )th action taken by algorithmAit. Deﬁne the regularized empirical covariance matrixMit as: Mit =λI + t∑ τ=1 (aiτ)⊤aiτ and deﬁne the linear regression estimate forθ⋆: ˆµit = argmin θ λ‖θ‖2 + t∑ τ=1 (⟨aiτ,θ⟩− riτ)2 Now, we redeﬁne our UCB combiner with conﬁdence intervals. First, set β = 4160 log ( T log2( √ T/ log(T/δ )) + 2 δ ) + 6λ + 16d log(1 +T/λ) 28 [Page 29] and then deﬁne: U(i,t− 1) = max a∈A ⟨ψit(a), ˆµiT (i,t)−1⟩ +β√ψit(a)⊤(MiT (i,t)−1)−1ψit(a)− RiT We setAi to be the linUCB algorithm (e.g. [16]). At timet, it suggests the action: argmax a∈A ⟨ψit(a), ˆµiT (i,t)−1⟩ +β√ψit(a)⊤(MiT (i,t)−1)−1ψit(a) (12) We note that it is more typical to use a time-varying value forβ, but in order to simplify the use of indices somewhat we present this ﬁxed scaling. The arguments are essentially identical using standard time-varying schedules forβ. Next, we change our criterion for eliminating algorithms from the active s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02349,
+        0.00411,
+        -0.05674,
+        0.01246,
+        -0.01133
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": "nt this ﬁxed scaling. The arguments are essentially identical using standard time-varying schedules forβ. Next, we change our criterion for eliminating algorithms from the active s",
+      "overlap_with_next": "[ˆritT (it,t)] be the expected reward of Algorithm 2 at timet. Then, with probability at least1− 3δ, the regret satisﬁes: T∑ t=1 r⋆−rt≤ 3RJ 29 [Page 30] Algorithm 2 Adversarial Lin",
+      "text": "nt this ﬁxed scaling. The arguments are essentially identical using standard time-varying schedules forβ. Next, we change our criterion for eliminating algorithms from the active setIt. We deﬁne the quantity: zit =⟨ait, ˆµit−1⟩− ˆrit−β√(ait)⊤(Mit−1)−1(ait) and we decide to eliminate an algorithm if it ever does not satisfy: t∑ τ=1 ziτ≤ 2√t log(T/δ ) (13) or if it does not satisfy 2 t∑ τ=1 β √ (aiτ)⊤(Miτ−1)−1(aiτ)≤Citαi (14) Formally, the algorithm is stated in Algorithm 2. We will use a proof similar to that of Theorem 1 to show the following: Theorem 13. Suppose there is someJ∈{ 1,...,N } such that with probability at least1−δ: t∑ τ=1 r⋆−rJτ≤ 2 t∑ τ=1 β √ (aJτ )⊤(MJτ−1)−1aJτ ≤CJtαJ (15) and also for alla∈ A, the expected rewardrt(a) =⟨ψJt (a),θ⋆⟩ for someθ⋆ with‖θ⋆‖≤ 1 for all t≤T. Further, suppose all the base learnersAi are linUCB algorithms using prediction (12),Ci and αi are known, and theRi satisfy: Ri≥CiTαi Ri≥ ∑ k⁄=i max  24T Rk , (1−αk)α αk 1−αk k (2Ck) 1 1−αkT αk 1−αk R αk 1−αk k   Letrt = E[ˆritT (it,t)] be the expected reward of Algorithm 2 at timet. Then, with probability at least1− 3δ, the regret satisﬁes: T∑ t=1 r⋆−rt≤ 3RJ 29 [Page 30] Algorithm 2 Adversarial Lin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05205,
+        -0.01608,
+        -0.02874,
+        0.02836,
+        0.00089
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "[ˆritT (it,t)] be the expected reward of Algorithm 2 at timet. Then, with probability at least1− 3δ, the regret satisﬁes: T∑ t=1 r⋆−rt≤ 3RJ 29 [Page 30] Algorithm 2 Adversarial Lin",
+      "overlap_with_next": "at standard matrix analysis (e.g. see Lemma 17) shows that T∑ τ=1 β √ (aJτ )⊤(MJτ−1)−1aJτ≤ ˜O(dJ√T) so that by settingCi = ˜O(d2i ) and αi = 1/2 for alli, Theorem 13 yields a regre",
+      "text": "[ˆritT (it,t)] be the expected reward of Algorithm 2 at timet. Then, with probability at least1− 3δ, the regret satisﬁes: T∑ t=1 r⋆−rt≤ 3RJ 29 [Page 30] Algorithm 2 Adversarial Linear Bandit Combiner Input: Numbers{Ci},{αi},{Ri}, T. Set T (i, 0) = 0 for alli, set ˆµi0 = 0 for alli, and setI1 ={1,...,N } Set β = 4160 log ( T log2( √ T/ log(T/δ ))+2 δ ) + 6λ + 16d log(1 +T/λ) for t = 1...T do Set Mit =λI +∑tτ=1(aiτ)⊤aiτ Set U(i,t− 1) = maxa∈A⟨ψit(a), ˆµiT (i,t)−1⟩ +β√ψit(a)⊤(MiT (i,t)−1)−1ψit(a)− RiT . Set it = argmaxi∈ItU(i,t− 1). Update T (it,t ) =T (it,t− 1) + 1and T (j,t ) =T (j,t− 1) for j⁄=it. Get T (it,t )th actionat =aitT (it,t) fromAit. Receive reward ˆrt = ˆritT (it,t), provide rewardˆrt as feedback toAit. Set ˆµitT (it,t) = argminθλ‖θ‖2 +∑tτ=1(⟨aitτ,θ⟩− ˆritτ )2. Set zitt =⟨aitT (it,t), ˆµitT (it,t)−1⟩− ˆrt−β√(at)⊤(MitT (it,t)−1)−1(at) if∑T (it,t)τ=1 zitτ > 2√T (it,t ) log(T/δ ) or 2∑T (it,t)τ=1 β√(aitτ )⊤(Mitτ−1)−1(aitτ )>C itT (it,t )αit then It =It−1−{it}. else It =It−1. end if end for Note that standard matrix analysis (e.g. see Lemma 17) shows that T∑ τ=1 β √ (aJτ )⊤(MJτ−1)−1aJτ≤ ˜O(dJ√T) so that by settingCi = ˜O(d2i ) and αi = 1/2 for alli, Theorem 13 yields a regre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00689,
+        -0.00311,
+        -0.04459,
+        0.00623,
+        -0.01531
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 62400,
+      "length": 1200,
+      "overlap_with_previous": "at standard matrix analysis (e.g. see Lemma 17) shows that T∑ τ=1 β √ (aJτ )⊤(MJτ−1)−1aJτ≤ ˜O(dJ√T) so that by settingCi = ˜O(d2i ) and αi = 1/2 for alli, Theorem 13 yields a regre",
+      "overlap_with_next": ") +zitT (it,t) + 2β√a⊤t (MitT (it,t)−1)−1at− RitT + ˆritT (it,t)−ritT (it,t) where the last inequality follows from the deﬁnition ofzit. Now, r⋆,t−U(J,t− 1)− RjT = r⋆,t− maxa∈A[ˆµJ",
+      "text": "at standard matrix analysis (e.g. see Lemma 17) shows that T∑ τ=1 β √ (aJτ )⊤(MJτ−1)−1aJτ≤ ˜O(dJ√T) so that by settingCi = ˜O(d2i ) and αi = 1/2 for alli, Theorem 13 yields a regret bound of˜O(d2J√T ), just as we encountered in the case of stochastic contexts. Proof. First, recall that by our linUCB update forAi (12), we have U(it,t− 1) =⟨at, ˆµitT (it,t)−1⟩ +β√a⊤t (MiT (i,t)−1)−1at− RitT Now, we write the regret: T∑ t=1 r⋆,t−rt = T∑ t=1 r⋆,t−ritT (it,t) = ∑ it=J r⋆,t−rJT (J,t) +∑ it⁄=J r⋆,t−ritT (it,t) First let’s consider the indices for whichit = J. Notice that by Corollary 15 and Lemma 17, a well-speciﬁed learnerAJ is never eliminated with probability at least1− 2δ, and we further have by 30 [Page 31] Theorem 16: ∑ it=J r⋆,t−rJT (J,t)≤CJT (J,T )αJ≤RJ Next, ifit⁄=J, we must haveU(it,t− 1)≥U(J,t− 1) since J∈It for allt. Then: r⋆,t−ritT (it,t)≤r⋆,t−U(J,t− 1) +U(it,t− 1)−ritT (it,t) =r⋆,t−U(J,t− 1) + ˆµitT (it,t−1)at +β√a⊤t (MitT (it,t)−1)−1at− RitT − ˆritT (it,t) + ˆritT (it,t)−ritT (it,t) =r⋆,t−U(J,t− 1) +zitT (it,t) + 2β√a⊤t (MitT (it,t)−1)−1at− RitT + ˆritT (it,t)−ritT (it,t) where the last inequality follows from the deﬁnition ofzit. Now, r⋆,t−U(J,t− 1)− RjT = r⋆,t− maxa∈A[ˆµJ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03023,
+        0.01571,
+        -0.03265,
+        -0.0105,
+        0.00164
+      ]
+    },
+    {
+      "chunk_index": 61,
+      "start_char": 62220,
+      "end_char": 63420,
+      "length": 1200,
+      "overlap_with_previous": ") +zitT (it,t) + 2β√a⊤t (MitT (it,t)−1)−1at− RitT + ˆritT (it,t)−ritT (it,t) where the last inequality follows from the deﬁnition ofzit. Now, r⋆,t−U(J,t− 1)− RjT = r⋆,t− maxa∈A[ˆµJ",
+      "overlap_with_next": " (14). 31 [Page 32] Therefore, ∑ it⁄=J r⋆,t−ritT (it,t)≤RJ +∑ i⁄=J [ −T (i,T )Ri T + √ 24 log(T 3N/δ)T (i,T ) +CiT (i,T )αi ] ≤RJ + ∑ i⁄=J max { sup Z [ −ZRi T + 2 √ 24 log(T 3N/δ)",
+      "text": ") +zitT (it,t) + 2β√a⊤t (MitT (it,t)−1)−1at− RitT + ˆritT (it,t)−ritT (it,t) where the last inequality follows from the deﬁnition ofzit. Now, r⋆,t−U(J,t− 1)− RjT = r⋆,t− maxa∈A[ˆµJT (J,t−1)a +β√aT (MJT (J,t)−1)−1a]≤ 0, with probability 1−δ by Corollary 15. Therefore, conditioned on this1−δ event, we have ∑ it⁄=J r⋆,t−ritT (it,t) =∑ i⁄=J ∑ t|it=i r⋆,t−ritT (it,t) ≤ ∑ i⁄=J ∑ t|it=i RJ T +zitT (it,t) + 2β√a⊤t (MiT (i,t)−1)−1at− RiT + ˆriT (i,t)−riT (i,t) ≤RJ + ∑ i⁄=J  −T (i,T )Ri T + 2 √ T (i,T ) log(T/δ ) + ∑ t|it=i ˆriT (i,t)−riT (i,t) + ∑ t|it=i 2β √ a⊤t (MiT (i,t)−1)−1at   ≤RJ + ∑ i⁄=J [ −T (i,T )Ri T + 2 √ T (i,T ) log(T/δ ) + √ 8 log(T 3N/δ)T (i,T ) + ∑ t|it=i 2β √ a⊤t (MiT (i,t)−1)−1at   ≤RJ + ∑ i⁄=J [ −T (i,T )Ri T + √ 24 log(T 3N/δ)T (i,T ) + ∑ t|it=i 2β √ a⊤t (MiT (i,t)−1)−1at   where the third inequality is from equation (13), and the last inequality follows from Lemma 8 Now,∑t|it=i 2β√a⊤t (MiT (i,t)−1)−1at≤CiT (i,T )αi, where the inequality follows from the second condition for being inIt (14). 31 [Page 32] Therefore, ∑ it⁄=J r⋆,t−ritT (it,t)≤RJ +∑ i⁄=J [ −T (i,T )Ri T + √ 24 log(T 3N/δ)T (i,T ) +CiT (i,T )αi ] ≤RJ + ∑ i⁄=J max { sup Z [ −ZRi T + 2 √ 24 log(T 3N/δ)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02628,
+        0.04423,
+        -0.0233,
+        0.00741,
+        9e-05
+      ]
+    },
+    {
+      "chunk_index": 62,
+      "start_char": 63240,
+      "end_char": 64440,
+      "length": 1200,
+      "overlap_with_previous": " (14). 31 [Page 32] Therefore, ∑ it⁄=J r⋆,t−ritT (it,t)≤RJ +∑ i⁄=J [ −T (i,T )Ri T + √ 24 log(T 3N/δ)T (i,T ) +CiT (i,T )αi ] ≤RJ + ∑ i⁄=J max { sup Z [ −ZRi T + 2 √ 24 log(T 3N/δ)",
+      "overlap_with_next": "on G. Our proof technique is however slightly diﬀerent from these works - it is a variant on the online-to-conﬁdence set conversion idea of [24] that might have some indepenedent i",
+      "text": " (14). 31 [Page 32] Therefore, ∑ it⁄=J r⋆,t−ritT (it,t)≤RJ +∑ i⁄=J [ −T (i,T )Ri T + √ 24 log(T 3N/δ)T (i,T ) +CiT (i,T )αi ] ≤RJ + ∑ i⁄=J max { sup Z [ −ZRi T + 2 √ 24 log(T 3N/δ)Z ] , sup Z [ −ZRi T + 2CiT (i,T )αi ]} By Lemma 12: ≤RJ + ∑ i⁄=J max  24T Ri , (1−αi)α αi 1−αi i (2Ci) 1 1−αiT αi 1−αi R αi 1−αi i   ≤ 2RJ This component of the regret due toit⁄=J is now in the same form as in the proof of the Theorem 1 and can be bounded byO(RJ) by an almost identical analysis. And so, putting all this together we have with probability at least1− 3δ,∑Tt=1r⋆,t−rt≤ 3RJ. Therefore with probability at least1− 3δ, the regret is bounded by3Rj. H Adversarial linear contextual bandits analysis In this section we analyze the standard conﬁdence ellipsoid technique for linear contextual bandits in the case of adversarial contexts. We do not claim these results are novel (essentially similar and tighter analysis can be found in [16, 20]). We include this section for completeness and to complement the analysis in Section G. Our proof technique is however slightly diﬀerent from these works - it is a variant on the online-to-conﬁdence set conversion idea of [24] that might have some indepenedent i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05782,
+        0.03801,
+        -0.01744,
+        0.01463,
+        -0.01305
+      ]
+    },
+    {
+      "chunk_index": 63,
+      "start_char": 64260,
+      "end_char": 65460,
+      "length": 1200,
+      "overlap_with_previous": "on G. Our proof technique is however slightly diﬀerent from these works - it is a variant on the online-to-conﬁdence set conversion idea of [24] that might have some indepenedent i",
+      "overlap_with_next": "d×d identity matrix. Deﬁne ˆµt = argmin ‖θ‖≤1 λ 2‖θ‖2 + 12 t−1∑τ=1(⟨at,θ⟩− yt)2 In roundt, we choose at = argmax a ⟨a,µt−1⟩ +βt−1 √ a⊤A−1t−1a (16) for some appropriate scaling fact",
+      "text": "on G. Our proof technique is however slightly diﬀerent from these works - it is a variant on the online-to-conﬁdence set conversion idea of [24] that might have some indepenedent interest. In the linear contextual bandit problem, in each round the adversary reveals a mappingψt from the set of actionsA to Rd. There is an unknown ﬁxedθ⋆∈ Rd such that the expected reward of action a is always⟨ψt(a),θ⋆⟩. We assume‖ψt(a)‖≤ 1 for alla and t and‖θ⋆‖≤ 1. Leta1,...,a T be the actions chosen by the algorithm overT rounds. Then the regret is deﬁned as: T∑ t=1 max a∈A ⟨ψt(a)−ψt(at),θ⋆⟩ By abuse of notation, we will identify actions with their associated vectors in order to writea⋆t and at instead of argmaxaψt(a) and ψt(at). Thus, the regret is T∑ t=1 ⟨a⋆t−at,θ⋆⟩ After playing actionat, we observeyt∈ [−1, 1]2 with E[yt|at] =⟨at,θ⋆⟩. 2it is also possible to consider subgaussian yt, but we stick with bounded values here for simplicity 32 [Page 33] Deﬁne At =λI +∑tτ=1a⊤τaτ, whereλ> 0 is some scalar parameter, andI is thed×d identity matrix. Deﬁne ˆµt = argmin ‖θ‖≤1 λ 2‖θ‖2 + 12 t−1∑τ=1(⟨at,θ⟩− yt)2 In roundt, we choose at = argmax a ⟨a,µt−1⟩ +βt−1 √ a⊤A−1t−1a (16) for some appropriate scaling fact",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05847,
+        -0.00176,
+        -0.03463,
+        0.01872,
+        -0.00346
+      ]
+    },
+    {
+      "chunk_index": 64,
+      "start_char": 65280,
+      "end_char": 66480,
+      "length": 1200,
+      "overlap_with_previous": "d×d identity matrix. Deﬁne ˆµt = argmin ‖θ‖≤1 λ 2‖θ‖2 + 12 t−1∑τ=1(⟨at,θ⟩− yt)2 In roundt, we choose at = argmax a ⟨a,µt−1⟩ +βt−1 √ a⊤A−1t−1a (16) for some appropriate scaling fact",
+      "overlap_with_next": "⋆⟩2− 16 vuu√log(log2(√T/ log(1/δ)) + 2δ ) T∑t=1⟨at, ˆµt−θ⋆⟩2 − 16 log ( log2( √ T/ log(1/δ)) + 2 δ ) Next, use the identityA−B √ A≥ A2− 2B2: ≥ 14 T∑t=1⟨at, ˆµt−θ⋆⟩2− 1040 log(log2(",
+      "text": "d×d identity matrix. Deﬁne ˆµt = argmin ‖θ‖≤1 λ 2‖θ‖2 + 12 t−1∑τ=1(⟨at,θ⟩− yt)2 In roundt, we choose at = argmax a ⟨a,µt−1⟩ +βt−1 √ a⊤A−1t−1a (16) for some appropriate scaling factorβt we will choose shortly. We claim the following: Lemma 14. With probability at least1−δ, (θ⋆− ˆµt)⊤At(θ⋆− ˆµt)≤ 4160 log ( log2( √ T/ log(1/δ)) + 2 δ ) + 6λ + 16d log(1 +T/λ) Proof. Observe that ˆµt is the output of the follow-the-regularized-leader algorithm (e.g. [25]) on the losses 𝓁t(µ) = 12(⟨at,µ⟩− yt)2 with constant regularizerλ2‖µ‖2 restricted to vectors of norm at most 1. Thus, by [25] Theorem 2, we have T∑ t=1 1 2(⟨at,µt⟩− yt)2− 12(⟨at,θ⋆⟩− yt)2≤ λ2‖θ⋆‖2 + T∑t=1(⟨at,µt⟩− yt)2a⊤t A−1t at2 ≤ λ2 + 4 T∑t=1 a⊤t A−1t at2 ≤ λ2 + 4d log(1 +T/λ) where the last line is by [26] Lemma 11. Now, letzt =yt−⟨at,θ⋆⟩. Observe thatE[zt] = 0 and zt is 2-subgaussian. Therefore: T∑ t=1 1 2(⟨at, ˆµt⟩− yt)2− 12(⟨at,θ⋆⟩− yt)2 = T∑t=1 12⟨at, ˆµt−θ⋆⟩2−zt⟨at, ˆµt−θ⋆⟩ Now by Lemma 18, with probability at least1−δ we have: ≥ T∑ t=1 1 2⟨at, ˆµt−θ⋆⟩2− 16 vuu√log(log2(√T/ log(1/δ)) + 2δ ) T∑t=1⟨at, ˆµt−θ⋆⟩2 − 16 log ( log2( √ T/ log(1/δ)) + 2 δ ) Next, use the identityA−B √ A≥ A2− 2B2: ≥ 14 T∑t=1⟨at, ˆµt−θ⋆⟩2− 1040 log(log2(",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05202,
+        0.0052,
+        -0.04149,
+        -0.00515,
+        -0.02126
+      ]
+    },
+    {
+      "chunk_index": 65,
+      "start_char": 66300,
+      "end_char": 67500,
+      "length": 1200,
+      "overlap_with_previous": "⋆⟩2− 16 vuu√log(log2(√T/ log(1/δ)) + 2δ ) T∑t=1⟨at, ˆµt−θ⋆⟩2 − 16 log ( log2( √ T/ log(1/δ)) + 2 δ ) Next, use the identityA−B √ A≥ A2− 2B2: ≥ 14 T∑t=1⟨at, ˆµt−θ⋆⟩2− 1040 log(log2(",
+      "overlap_with_next": "ˆµt)⊤At(θ⋆− ˆµt)≤β2t Therefore ⟨a,θ⋆⟩ =⟨a, ˆµt−1⟩ +⟨a,θ⋆− ˆµt−1⟩ ≤⟨a, ˆµt−1⟩ +βt √ a⊤A−1t−1a 34 [Page 35] This shows the last claim of the Corollary. Now letxt =⟨at,θ⋆⟩− yt. Notice",
+      "text": "⋆⟩2− 16 vuu√log(log2(√T/ log(1/δ)) + 2δ ) T∑t=1⟨at, ˆµt−θ⋆⟩2 − 16 log ( log2( √ T/ log(1/δ)) + 2 δ ) Next, use the identityA−B √ A≥ A2− 2B2: ≥ 14 T∑t=1⟨at, ˆµt−θ⋆⟩2− 1040 log(log2(√T/ log(1/δ)) + 2δ ) 33 [Page 34] Thus with probability at least1−δ: T∑ t=1 1 4⟨at, ˆµt−θ⋆⟩2≤ 1040 log ( log2( √ T/ log(1/δ)) + 2 δ ) + λ2 + 4d log(1 +T/λ) λ‖ˆµt−θ⋆‖2 + T∑ t=1 ⟨at, ˆµt−θ⋆⟩2≤ 4160 log ( log2( √ T/ log(1/δ)) + 2 δ ) + 6λ + 16d log(1 +T/λ) (ˆµt−θ⋆)⊤At(ˆµt−θ⋆)≤ 4160 log ( log2( √ T/ log(1/δ)) + 2 δ ) + 6λ + 16d log(1 +T/λ) This Lemma has an important corollary: Corollary 15. Deﬁne β2t = 4160 log ( T log2( √ T/ log(T/δ )) + 2 δ ) + 6λ + 16d log(1 +T/λ) and zt =⟨at, ˆµt⟩− yt−βt √ a⊤t Atat Then E[zt]≤ 0 and with probability at least1− 2δ τ∑ t=1 zt≤ 2 √ τ log(T/δ ) and also max a ⟨a,θ⋆⟩− maxa ⟨a, ˆµt−1⟩ +βt √ a⊤A−1t−1a≤ 0 for allτ≤T Proof. First, we claim that with probability at least1−δ, for anya: ⟨a, ˆµt−1−θ⋆⟩− βt √ a⊤At−1a≤ 0 for allt. To see this, notice that by Lemma 14, we have with probability1−δ for allt. (θ⋆− ˆµt)⊤At(θ⋆− ˆµt)≤β2t Therefore ⟨a,θ⋆⟩ =⟨a, ˆµt−1⟩ +⟨a,θ⋆− ˆµt−1⟩ ≤⟨a, ˆµt−1⟩ +βt √ a⊤A−1t−1a 34 [Page 35] This shows the last claim of the Corollary. Now letxt =⟨at,θ⋆⟩− yt. Notice",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02039,
+        0.03495,
+        -0.03815,
+        0.00038,
+        -0.014
+      ]
+    },
+    {
+      "chunk_index": 66,
+      "start_char": 67320,
+      "end_char": 68520,
+      "length": 1200,
+      "overlap_with_previous": "ˆµt)⊤At(θ⋆− ˆµt)≤β2t Therefore ⟨a,θ⋆⟩ =⟨a, ˆµt−1⟩ +⟨a,θ⋆− ˆµt−1⟩ ≤⟨a, ˆµt−1⟩ +βt √ a⊤A−1t−1a 34 [Page 35] This shows the last claim of the Corollary. Now letxt =⟨at,θ⋆⟩− yt. Notice",
+      "overlap_with_next": "5 [Page 36] Thus by Cauchy-Schwarz and the monotonicity ofβt: T∑ t=1 ⟨a⋆t−at,θ⋆⟩≤ 2βT vuu√T T∑ t=1 a⊤t A−1t−1at Now deﬁne ˆAt = λ2I +∑tτ=1a⊤τaτ. Since‖at‖≤ 1, if we setλ≥ 2, we mus",
+      "text": "ˆµt)⊤At(θ⋆− ˆµt)≤β2t Therefore ⟨a,θ⋆⟩ =⟨a, ˆµt−1⟩ +⟨a,θ⋆− ˆµt−1⟩ ≤⟨a, ˆµt−1⟩ +βt √ a⊤A−1t−1a 34 [Page 35] This shows the last claim of the Corollary. Now letxt =⟨at,θ⋆⟩− yt. Notice that E[xt] = 0 and xt∈ [−2, 2]. Thus we have with probability at least1−δ, τ∑ t=1 xt≤ 2 √ τ log(T/δ ) for allτ. Combining all together proves the Corollary. Next, we need to bound the actual regret of this algorithm: Theorem 16. Set β2t = 4160 log ( T log2( √ T/ log(T/δ )) + 2 δ ) + 6λ + 16d log(1 +T/λ) Then, ifλ≥ 2, with probability at least1−δ: T∑ t=1 ⟨a⋆t−at,θ⋆⟩≤ 1 T∑ t=1 βt √ a⊤t A−1t−1at ≤βT √ dT log(1 + 2T/λ) = ˜O ( d √ T ) Proof. By Lemma 14, we have (θ⋆− ˆµt)⊤At(θ⋆− ˆµt)≤β2t for allt with probability at least1−δ. Therefore conditioned on this1−δ probability event, for anya: ⟨a,θ⋆⟩ =⟨aˆµt−1⟩ +⟨a,θ⋆− ˆµt−1⟩ ≤⟨a, ˆµt−1⟩ +βt−1 √ a⊤A−1t−1a so by deﬁnition ofat: ≤⟨at, ˆµt−1⟩ +βt−1 √ a⊤t A−1t−1at Similarly, we have ⟨at,θ⋆⟩ =⟨at, ˆµt−1⟩ +⟨at,θ⋆− ˆµt−1⟩ ≥⟨at, ˆµt−1⟩− βt √ a⊤t A−1t−1at Therefore: ⟨a⋆t−at,θ⋆⟩≤ 2βt √ a⊤t A−1t−1at 35 [Page 36] Thus by Cauchy-Schwarz and the monotonicity ofβt: T∑ t=1 ⟨a⋆t−at,θ⋆⟩≤ 2βT vuu√T T∑ t=1 a⊤t A−1t−1at Now deﬁne ˆAt = λ2I +∑tτ=1a⊤τaτ. Since‖at‖≤ 1, if we setλ≥ 2, we mus",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04714,
+        0.01478,
+        -0.00914,
+        -0.02034,
+        -0.00495
+      ]
+    },
+    {
+      "chunk_index": 67,
+      "start_char": 68340,
+      "end_char": 69540,
+      "length": 1200,
+      "overlap_with_previous": "5 [Page 36] Thus by Cauchy-Schwarz and the monotonicity ofβt: T∑ t=1 ⟨a⋆t−at,θ⋆⟩≤ 2βT vuu√T T∑ t=1 a⊤t A−1t−1at Now deﬁne ˆAt = λ2I +∑tτ=1a⊤τaτ. Since‖at‖≤ 1, if we setλ≥ 2, we mus",
+      "overlap_with_next": " 2)δ ) Proof. The proof should follow from standard inequalities. Here we just check thatxt being random does not cause a signiﬁcant problem... DeﬁneSτ =∑τt=1ztxt. Note thatS1,S 2,",
+      "text": "5 [Page 36] Thus by Cauchy-Schwarz and the monotonicity ofβt: T∑ t=1 ⟨a⋆t−at,θ⋆⟩≤ 2βT vuu√T T∑ t=1 a⊤t A−1t−1at Now deﬁne ˆAt = λ2I +∑tτ=1a⊤τaτ. Since‖at‖≤ 1, if we setλ≥ 2, we must have a⊤t A−1t−1at≤a⊤t ˆA−1t at Now, again by [26] Lemma 11, we have: T∑ t=1 a⊤t ˆA−1t at≤d log(1 + 2T/λ) which concludes the Theorem. Finally, one more check: Lemma 17. Supposeλ≥ 2. Then for allt, t∑ τ=1 βτ √ a⊤t A−1t−1at≤βt√dt log(1 + 2t/λ) Proof. Since‖at‖≤ 1, we have a⊤t A−1t−1at≤a⊤t ˆA−1t−1at where ˆAt = λ2I + t∑τ=1a⊤τaτ Then by Cauchy-Schwarz and the monotonicity ofβt: t∑ τ=1 βτ √ a⊤t A−1t−1at≤βt√t vuu√ t∑ τ=1 a⊤τA−1τ−1aτ ≤βt √ t vuu√ t∑ τ=1 a⊤τ ˆA−1τ aτ now use [26] Lemma 11 once again: ≤βt √ dt log(1 + 2t/λ) 36 [Page 37] Lemma 18. Supposex1,...,X T are arbitrary random variables with|xt|≤ 1 almost surely. Suppose z1,...,z T are such that E[zt|x1,...,x t] = 0 and zt is 1-subgaussian givenx1,...,x t. Then with probability at least1−δ: T∑ t=1 ztxt≥− 4 vuu√log(log2(√T/ log(1/δ)) + 2)δ ) T∑t=1x2T + 4 log(log2(√T/ log(1/δ)) + 2)δ ) Proof. The proof should follow from standard inequalities. Here we just check thatxt being random does not cause a signiﬁcant problem... DeﬁneSτ =∑τt=1ztxt. Note thatS1,S 2,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04505,
+        0.02341,
+        -0.03232,
+        0.0133,
+        -0.00148
+      ]
+    },
+    {
+      "chunk_index": 68,
+      "start_char": 69360,
+      "end_char": 70198,
+      "length": 838,
+      "overlap_with_previous": " 2)δ ) Proof. The proof should follow from standard inequalities. Here we just check thatxt being random does not cause a signiﬁcant problem... DeﬁneSτ =∑τt=1ztxt. Note thatS1,S 2,",
+      "overlap_with_next": "",
+      "text": " 2)δ ) Proof. The proof should follow from standard inequalities. Here we just check thatxt being random does not cause a signiﬁcant problem... DeﬁneSτ =∑τt=1ztxt. Note thatS1,S 2,... is a martingale. For anyη, we have: P [ST≥ϵ]≤ exp−ηϵ E[exp(ηSTt)] = exp−ηϵ E[exp(ηST−1) exp(ηzTxT )] = exp−ηϵ E[exp(ηST−1) E[exp(ηzTxT )|x1,...,x T ]] ≤ exp(−ηϵ) E[exp(ηSt−1) exp(η2x2T/2)] repeating forT steps: ≤ exp(−ηϵ +η2 T∑ t=1 x2T/2) Therefore with probability at least1−δ, ST≤ log(1/δ)η +η T∑t=1x2T Then, consideringη = 2k for−⌈log2(√T/ log(1/δ))⌉≤ k≤ 0, we have that with probability at least 1−δ, ST≤ min −⌈log2( √ T/ log(1/δ))⌉≤k≤0 log ( log2( √ T/ log(1/δ))+2 δ ) 2k + 2k T∑ t=1 x2T ≤ 2 inf η∈[ √ log(1/δ)/T, 1] log ( log2( √ T/ log(1/δ))+2 δ ) η +η T∑ t=1 x2T ≤ 4 vuu√log(log2(√T/ log(1/δ)) + 2δ ) T∑t=1x2T + 4 log(log2(√T/ log(1/δ)) + 2δ ) 37",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07039,
+        0.03417,
+        -0.02344,
+        0.00284,
+        -0.001
+      ]
+    }
+  ]
+}

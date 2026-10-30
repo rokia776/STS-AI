@@ -1,0 +1,1048 @@
+{
+  "paper_id": "fdde367a-c877-40c5-900b-914a6ccf956a",
+  "filename": "067_Computer_Vision_IAN_Combining_Generative_Adversarial_Networks_for_Imaginative_Face_Generation.pdf",
+  "title": "067_Computer_Vision_IAN_Combining_Generative_Adversarial_Networks_for_Imaginative_Face_Generation.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 61,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "m cross-entropy minimization between the distributions of GAN and the set Y. Then, We introduce a cascaded framework for GANs that try to address the task of imagining a new distri",
+      "text": "[Page 1] IAN: Combining Generative Adversarial Networks for Imaginative Face Generation Abdullah Hamdi, Bernard Ghanem King Abdullah University of Science and Technology (KAUST), Thuwal, Saudi Arabia {abdullah.hamdi, Bernard.Ghanem } @kaust.edu.sa Abstract Generative Adversarial Networks (GANs) have gained momentum for their ability to model image distributions. They learn to emulate the training set and that enables sam- pling from that domain and using the knowledge learned for useful applications. Several methods proposed enhanc- ing GANs, including regularizing the loss with some fea- ture matching. We seek to push GANs beyond the data in the training and try to explore unseen territory in the image manifold. We ﬁrst propose a new regularizer for GAN based on K-nearest neighbor (K-NN) selective feature matching to a target set Y in high-level feature space, during the adver- sarial training of GAN on the base set X, and we call this novel model K-GAN. We show that minimizing the added term follows from cross-entropy minimization between the distributions of GAN and the set Y. Then, We introduce a cascaded framework for GANs that try to address the task of imagining a new distri",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03933,
+        -0.01438,
+        -0.02846,
+        -0.04413,
+        -0.02812
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "m cross-entropy minimization between the distributions of GAN and the set Y. Then, We introduce a cascaded framework for GANs that try to address the task of imagining a new distri",
+      "overlap_with_next": " have seen before. For example, if someone were told to imagine the face of a creature between humans and dogs, they would probably pick a starting creature X ( human Sampling GAN ",
+      "text": "m cross-entropy minimization between the distributions of GAN and the set Y. Then, We introduce a cascaded framework for GANs that try to address the task of imagining a new distribution that combines the base set X and target set Y by cascading sampling GANs with trans- lation GANs, and we dub the cascade of such GANs as the Imaginative Adversarial Network (IAN). We conduct an ob- jective and subjective evaluation for different IAN setups in the addressed task and show some useful applications for these IANs, like manifold traversing and creative face gen- eration for characters’ design in movies or video games. 1. Introduction Future AI agents will be interacting with humans and performing more advanced tasks than just classiﬁcation or detection. Among the qualities of such agents is to push the boundary for human knowledge, using a unique capability that we humans take for granted - namely - imagination. Imagination can be roughly deﬁned as the ability to envision what we have not seen based on what we have seen before. For example, if someone were told to imagine the face of a creature between humans and dogs, they would probably pick a starting creature X ( human Sampling GAN ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01799,
+        -0.04841,
+        -0.01866,
+        -0.02005,
+        -0.01862
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " have seen before. For example, if someone were told to imagine the face of a creature between humans and dogs, they would probably pick a starting creature X ( human Sampling GAN ",
+      "overlap_with_next": "work (IAN). Deep neural networks have shown great success in push- ing the envelope with regards to discriminative tasks, such as classiﬁcation and detection [18, 31]. It is clear ",
+      "text": " have seen before. For example, if someone were told to imagine the face of a creature between humans and dogs, they would probably pick a starting creature X ( human Sampling GAN Translation GAN IAN Base Set Y (X,Y) Imaginative Output Set Random latent vector X Target Set Figure 1. We address the task of generating samples from a domain between base set X and target set Y . We do this by introducing cas- caded framework of GANs. The ﬁrst GAN generate samples from learned distribution and the other GAN is conditioned on the out- put of the ﬁrst set X to translate to Y . We dub the cascade of GANs for sampling and image translation as the Imaginative Adversarial Network (IAN). The ﬁnal samples combine characteristics of both sets X and Y or dog) and then think of different alterations for different samples of X to bring them closer to the target creature Y .The ﬂowchart in Fig 1 illustrates this process from which we obtained intuition for our cascaded-GANs framework we call the Imaginative Adversarial Network (IAN). Deep neural networks have shown great success in push- ing the envelope with regards to discriminative tasks, such as classiﬁcation and detection [18, 31]. It is clear ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03006,
+        -0.05917,
+        -0.01563,
+        0.0019,
+        0.01001
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "work (IAN). Deep neural networks have shown great success in push- ing the envelope with regards to discriminative tasks, such as classiﬁcation and detection [18, 31]. It is clear ",
+      "overlap_with_next": "ations of GAN have been put forward to over- come some of the impediments it faces (e.g. instability dur- ing training) [1, 3, 5, 10, 33, 36, 43, 46]. Interestingly, GANs have prov",
+      "text": "work (IAN). Deep neural networks have shown great success in push- ing the envelope with regards to discriminative tasks, such as classiﬁcation and detection [18, 31]. It is clear that large- scale fully annotated datasets ( e.g. ImageNet [32]) have played a crucial role in this development. However, they are still inﬂuenced by biases, which limit their usefulness in the wild [39]. The cost of laborious labeling of data (e.g. activity localization in videos or pixel-level segmenta- tion) leads us to look for alternative unsupervised ways that can enable further improvements in computer vision tasks. In this context, Generative Adversarial Networks (GANs) have emerged as a promising family of unsupervised learn- ing techniques that have recently shown the ability to model simple natural images, including faces and ﬂowers [9]. In the last couple of years, this topic has gained a large amount 1 arXiv:1904.07916v1 [cs.CV] 16 Apr 2019 [Page 2] of attention from the community, and since its inception, many variations of GAN have been put forward to over- come some of the impediments it faces (e.g. instability dur- ing training) [1, 3, 5, 10, 33, 36, 43, 46]. Interestingly, GANs have prov",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05913,
+        -0.01835,
+        -0.03313,
+        -0.0192,
+        -0.0091
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "ations of GAN have been put forward to over- come some of the impediments it faces (e.g. instability dur- ing training) [1, 3, 5, 10, 33, 36, 43, 46]. Interestingly, GANs have prov",
+      "overlap_with_next": "work has been done to maximize innovation in synthesized GAN sample [7], it is limited in scope to the speciﬁc domain of art and does not specify the direction of innovation. Our p",
+      "text": "ations of GAN have been put forward to over- come some of the impediments it faces (e.g. instability dur- ing training) [1, 3, 5, 10, 33, 36, 43, 46]. Interestingly, GANs have proven useful in several core image process- ing and computer vision tasks, including image inpainting [44], style transfer [14], super-resolution [12, 20],manifold traversing [48], hand pose estimation [42], and face recog- nition [40]. These success cases indicate that GANs have the potential to learn (in an unsupervised way) important underlying natural image properties that are exploited in turn to synthesize images. However, one characteristic of the GAN is that it is bounded to the data that it uses for training. In many cases, it might degenerate to simply memorizing training data, thus, limiting its ability to discover new “territory” in the manifold of natural images. The ability to discover un- seen territory is crucial because it can help to bypass the domain adaptation problem of classiﬁcation [21]. Although some recent work has been done to maximize innovation in synthesized GAN sample [7], it is limited in scope to the speciﬁc domain of art and does not specify the direction of innovation. Our p",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01206,
+        -0.0022,
+        -0.02605,
+        -0.02121,
+        -0.00533
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "work has been done to maximize innovation in synthesized GAN sample [7], it is limited in scope to the speciﬁc domain of art and does not specify the direction of innovation. Our p",
+      "overlap_with_next": "reserving the GAN modelling of X. Furthermore, most of the meth- ods relied on taking the features of sampled data without validating their quality before matching to them.We pro- ",
+      "text": "work has been done to maximize innovation in synthesized GAN sample [7], it is limited in scope to the speciﬁc domain of art and does not specify the direction of innovation. Our proposed proposed IAN goes beyond this limitation by deﬁning a generic base set X and target set Y . Our proposed regularized K-GAN is inspired by recent work on feature matching in adversarial image generation [6, 14, 27, 28, 34, 43, 16, 26], which aims to match the gen- erated image to another set of images in high-dimensional feature space. However, Johnson et al. [14] is optimizing for a single image not a distribution, while Warde-Farley and Bengio [43] matching was bounded to denoising lo- cal features of GAN. We utilize more general features of AlexNet [18] trained on ImageNet[32] object classiﬁcation. Unlike the common practice of modeling base class X and enforcing the generated output to follow certain class label or features of class X [6, 27, 28], we aim to push toward features of target set Y different from X while preserving the GAN modelling of X. Furthermore, most of the meth- ods relied on taking the features of sampled data without validating their quality before matching to them.We pro- ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0065,
+        -0.01185,
+        -0.06947,
+        -0.00917,
+        -0.00232
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "reserving the GAN modelling of X. Furthermore, most of the meth- ods relied on taking the features of sampled data without validating their quality before matching to them.We pro- ",
+      "overlap_with_next": "ning of any GAN, and we call this novel model K-GAN. We show that minimizing the added term follows from cross entropy minimization between Y and the GAN distribution . (2) We pres",
+      "text": "reserving the GAN modelling of X. Furthermore, most of the meth- ods relied on taking the features of sampled data without validating their quality before matching to them.We pro- pose to follow K-nearest neighbor approach in the high- level feature space in the training of GAN. Recently, Cy- cleGAN [49] showed excellent results in image-to-image translation from source domain X to target domain Y based on cycle consistency regularizer to adversarial loss, but as pointed out in their paper, it fails to model transformation when there are geometrical differences between objects in X and Y . We propose to utilize CycleGAN as the transla- tion GAN in our IAN framework combined with different sampling GAN variations ( including our novel K-GAN ) to achieve the goal of modeling new meaningful distribution between X and Y . Contributions. (1) We propose a new regularizer for GAN that uses K-nearest neighbor (K-NN) selective feature matching to target set Y in high-level feature space during the adversarial training of any GAN, and we call this novel model K-GAN. We show that minimizing the added term follows from cross entropy minimization between Y and the GAN distribution . (2) We pres",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0384,
+        0.00142,
+        -0.06449,
+        -0.011,
+        0.00028
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ning of any GAN, and we call this novel model K-GAN. We show that minimizing the added term follows from cross entropy minimization between Y and the GAN distribution . (2) We pres",
+      "overlap_with_next": "he loss function LGAN(G, DX, PX): min G max D LGAN(G, DX, PX) = Ex∼px(x)[log D(x)] +Ez∼pz(z)[log(1− D(G(z)))] (1) where PX is the distribution of images in domain X,z∈Rd is the lat",
+      "text": "ning of any GAN, and we call this novel model K-GAN. We show that minimizing the added term follows from cross entropy minimization between Y and the GAN distribution . (2) We present a cascade framework for GAN to push its output away from the base domain X to target Y . We call this setup the Imaginative Adversarial Network (IAN). We conduct objective and subjective eval- uation for different IAN setups in the addressed task and show some useful applications for these IANs , like multi- domain manifold traversing. 2. Related Work 2.1. Generative Adversarial Network Generative Adversarial Networks (GANs) [9] are gener- ative models consisting of a Discriminator DX and a Gen- erator G that are adversarially trained in a similar manner as a minimax game. The discriminator tries to determine if a given image is real (from training) or fake (generated by G). The Generator on the other hand is trying to change the generated samples to better fool DX. This can be formu- lated as the following minimax game on the loss function LGAN(G, DX, PX): min G max D LGAN(G, DX, PX) = Ex∼px(x)[log D(x)] +Ez∼pz(z)[log(1− D(G(z)))] (1) where PX is the distribution of images in domain X,z∈Rd is the lat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04968,
+        -0.02164,
+        -0.03825,
+        -0.01147,
+        -0.00318
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "he loss function LGAN(G, DX, PX): min G max D LGAN(G, DX, PX) = Ex∼px(x)[log D(x)] +Ez∼pz(z)[log(1− D(G(z)))] (1) where PX is the distribution of images in domain X,z∈Rd is the lat",
+      "overlap_with_next": " Perceptual similarity. A similar technique is used for style transfer and super res- olution by Johnson et al. [14]. They try to match covari- ance matrix of deep features of some",
+      "text": "he loss function LGAN(G, DX, PX): min G max D LGAN(G, DX, PX) = Ex∼px(x)[log D(x)] +Ez∼pz(z)[log(1− D(G(z)))] (1) where PX is the distribution of images in domain X,z∈Rd is the latent uniformly random vector. Zhao et al . intro- duces energy-based loss for GANs [47], and recent GANs uses the Wasserstein distance instead of K-L divergence as objective [1, 3]. Both EBGAN [47] and BEGNA [3] uses auto-encoder Discriminator network with its loss deﬁned as L2 pixel difference between input and output. 2.2. Feature Matching (FM) The method of Warde-Farley and Bengio [43] uses De- noising Auto Encoder (DAE) feature matching to enhance the training of the generator and to increase the diversity of the samples. The work of Dosovitskiy A. and Brox T. [6] shows that a conditioning network C (also called Com- paritor) can be incorporated in the GAN loss by adding a discrepancy loss in deep feature space, which measures the difference between the generated image and same class im- ages in this feature space to increase Perceptual similarity. A similar technique is used for style transfer and super res- olution by Johnson et al. [14]. They try to match covari- ance matrix of deep features of some",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02356,
+        -0.04753,
+        -0.05627,
+        -0.02275,
+        0.00249
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " Perceptual similarity. A similar technique is used for style transfer and super res- olution by Johnson et al. [14]. They try to match covari- ance matrix of deep features of some",
+      "overlap_with_next": "e generator to produce more innovative sam- ples. We tackle the same problem but through a different approach. As compared to [7], we deﬁne a target set Y with distribution PY (dif",
+      "text": " Perceptual similarity. A similar technique is used for style transfer and super res- olution by Johnson et al. [14]. They try to match covari- ance matrix of deep features of some image (extracted from VGGNet [35])and match that to some target domain. Shri- vastava et al . [34] uses GAN loss to improve the quality of synthetic images and used the deep features of a network [Page 3] trained on classifying eye gaze to maintain the key elements of the synthetic data (e.g. the direction of gaze). Plug&Play [28] uses DAE to model the FC7 and Conv5 layers of C network and shows that it can improve the quality of the generator network under some conditions. 2.3. Guiding the Generator to New Distributions As pointed out by Elgammal et al. [7], GANs by nature emulate but do not innovate, hence their work introduces the Creative Adversarial Network (CAN) to tackle this issue. They add a loss to the traditional GAN loss to encourage the generator to increase its entropy so as to fool the discrimina- tor, leading the generator to produce more innovative sam- ples. We tackle the same problem but through a different approach. As compared to [7], we deﬁne a target set Y with distribution PY (dif",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04697,
+        -0.05281,
+        -0.0195,
+        0.00268,
+        0.00842
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "e generator to produce more innovative sam- ples. We tackle the same problem but through a different approach. As compared to [7], we deﬁne a target set Y with distribution PY (dif",
+      "overlap_with_next": "results in image translation by imposing cycle consistency between two generators (each takes images as input). It produces a sharp translation from one domain X to another domain ",
+      "text": "e generator to produce more innovative sam- ples. We tackle the same problem but through a different approach. As compared to [7], we deﬁne a target set Y with distribution PY (different from the data distribution PX) that guides the generator to new territory. In this context, the work of LIU and Tuzel [21, 22] introduces CoGAN to model the joint distribution by coupling two GANs in par- allel with shared network weights. This aids domain adap- tation when simple distributions are available (e.g. MNIST [19]). However, it does not work well for more complex domains as compared to CycleGAN [49]. Bang et al. try to translate images of one class to another class that is has similar attributes by learning joint features and then match- ing the mean features of the two classes [2] Unlike image manipulation [25], which manipulates individual image at a time, we manipulate the entire distribution ofG from which we can sample. 2.4. Cycle-Consistent Adversarial Networks Recently, CyclGAN [49] has shown compelling results in image translation by imposing cycle consistency between two generators (each takes images as input). It produces a sharp translation from one domain X to another domain ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0422,
+        -0.04067,
+        -0.03623,
+        0.01852,
+        0.02296
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "results in image translation by imposing cycle consistency between two generators (each takes images as input). It produces a sharp translation from one domain X to another domain ",
+      "overlap_with_next": "e to produce varying translations [11] .The work of Choi et al. utilizes CycleGAN with multiple classes [4]. Gokaslan et al. im- prove shape deformations for CycleGAN[8]. We addres",
+      "text": "results in image translation by imposing cycle consistency between two generators (each takes images as input). It produces a sharp translation from one domain X to another domain Y with no paired training. CycleGAN has the following loss on the two distributions PX and PY : LCycGAN(A, B, DX, DY ) = LGAN(A, DX, PX) + LGAN(B, DY, PY ) +λ Lco(A, B) (2) where A, B are the two generators,DX and DY are the dis- criminators for domains X andY respectively. Lco(A, B) is the cycle consistency loss of the CycleGAN that encour- ages that B(A(x)) = x and is deﬁned as: Lco(A, B) =Ex∼px(x)[‖B(A(x)))− x‖1] +Ey∼py(y)[‖A(B(y)))− y‖1]] (3) where λ is controls the consistency regularizer. Although CycleGAN shows compelling results when the images translation occurs in texture or color, it shows less success when the translation requires geometric changes. This is due to the limited features modeling CyclGAN performs.A more recent work by Huanget al. utilized cycle consistency in feature space by separating content and style to produce varying translations [11] .The work of Choi et al. utilizes CycleGAN with multiple classes [4]. Gokaslan et al. im- prove shape deformations for CycleGAN[8]. We addres",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03169,
+        -0.0214,
+        -0.06166,
+        0.00016,
+        0.02839
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "e to produce varying translations [11] .The work of Choi et al. utilizes CycleGAN with multiple classes [4]. Gokaslan et al. im- prove shape deformations for CycleGAN[8]. We addres",
+      "overlap_with_next": "rst stage and translate them to a different do- main.In the ﬁrst stage (sampling stage), we use the classical DCGAN[29] and recent BEGAN[3], along with their K-NN regularized versi",
+      "text": "e to produce varying translations [11] .The work of Choi et al. utilizes CycleGAN with multiple classes [4]. Gokaslan et al. im- prove shape deformations for CycleGAN[8]. We address CycleGAN limitation in our proposed method by enforcing change in the object’s deep features, which tend to go be- yond mere texture representation. We do this by introduc- ing K-nearest neighbor feature matching (KNN-FM), which encourages the generated sample to be close in deep fea- ture space to its NN in the target set. Interestingly, we also see that this type of matching can also be viewed mathe- matically as a way to reduce the cross-entropy between the target distribution PY and the distribution of the generated images. 3. Methodology We propose Imaginative Adversarial Network (IAN), a two-stage cascade imaginative model that aims to generate samples that resemble base set X and target set Y . First, we sample from a GAN by a latent vector z, then the second stage is a translation GAN, that takes the samples from the ﬁrst stage and translate them to a different do- main.In the ﬁrst stage (sampling stage), we use the classical DCGAN[29] and recent BEGAN[3], along with their K-NN regularized versi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00892,
+        -0.04765,
+        -0.02415,
+        0.00465,
+        0.03977
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "rst stage and translate them to a different do- main.In the ﬁrst stage (sampling stage), we use the classical DCGAN[29] and recent BEGAN[3], along with their K-NN regularized versi",
+      "overlap_with_next": "a regularizing hyperpa- rameter. We replace the cross entropy H(G(z), PY ) with the following K-NN regularizer: LKNN(G, PY ) = Ez∼pz(z) k∑ n=1 ‖C(G(z))− rn (C (G (z)))‖22 (5) [Page",
+      "text": "rst stage and translate them to a different do- main.In the ﬁrst stage (sampling stage), we use the classical DCGAN[29] and recent BEGAN[3], along with their K-NN regularized versions . We use the recent CycleGAN [49] as a second stage with both stages trained on the same X and Y sets and cascaded during the sampling to obtain an out- put that both have key properties of X and Y as illustrated in the ﬂowchart in Fig 2. For start , we develop the K-NN regularized GAN in the following subsection. 3.1. K-GAN K-GAN adds to the traditional GAN loss in Eq (1) a term that encourages the generator distribution Pg towards a target distribution PY through cross entropy minimiza- tion. The similarity ofPg to PX is also encouraged through the traditional GAN loss. The K-GAN loss is deﬁned as fol- lows: LKGAN(G, DX, PX, PY ) = LGAN(G, DX, PX) +µEz∼pz(z)[H(G(z), PY )] (4) where the added term is the cross entropy between the image distribution of our generator Pg and the image dis- tribution of the target PY , andµ is a regularizing hyperpa- rameter. We replace the cross entropy H(G(z), PY ) with the following K-NN regularizer: LKNN(G, PY ) = Ez∼pz(z) k∑ n=1 ‖C(G(z))− rn (C (G (z)))‖22 (5) [Page",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02417,
+        -0.01491,
+        -0.08518,
+        -0.00574,
+        0.01498
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "a regularizing hyperpa- rameter. We replace the cross entropy H(G(z), PY ) with the following K-NN regularizer: LKNN(G, PY ) = Ez∼pz(z) k∑ n=1 ‖C(G(z))− rn (C (G (z)))‖22 (5) [Page",
+      "overlap_with_next": "is is the distance between a generated sample from G by a latent vector z and its K-NN samples of the target distri- bution PY from the total M samples available from PY . This dis",
+      "text": "a regularizing hyperpa- rameter. We replace the cross entropy H(G(z), PY ) with the following K-NN regularizer: LKNN(G, PY ) = Ez∼pz(z) k∑ n=1 ‖C(G(z))− rn (C (G (z)))‖22 (5) [Page 4] Gz GAN Random Input L2 regularize G D X Base Set Feature Extraction. . . K-NN . . . . . .... C(G(z)) Feature Set(ψ) Y Target Set Output of regularized K-GAN G(z) C Gradient flow Figure 2. K-GAN as a ﬂavoured sampling GAN : We propose K-NN regularizer for GAN that models a set X to push it further toward target set Y . In red frame left is the standard GAN of Generator G, Discriminator D. We add regularizer (right) with deep features extracted by conditioning network C on target Y and output of G. The target of regression in deep feature space is selected based on K-NN search in the Features set of Y . Samples of K-GAN maintain X main appearance but obtain some Y properties (e.g. the pandas eyes and nose above). The output of regularized G can then be passed to image translation network e.g. CycleGAN to obtain a full IAN . This is the distance between a generated sample from G by a latent vector z and its K-NN samples of the target distri- bution PY from the total M samples available from PY . This dis",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04875,
+        -0.00388,
+        -0.03574,
+        -0.00119,
+        0.00591
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "is is the distance between a generated sample from G by a latent vector z and its K-NN samples of the target distri- bution PY from the total M samples available from PY . This dis",
+      "overlap_with_next": " we get Eq.(5), ﬁrst we look at PY . Since acquiring a full description of PY in deep feature space is infeasible in most cases, we settle to approximate it us- ing M target sample",
+      "text": "is is the distance between a generated sample from G by a latent vector z and its K-NN samples of the target distri- bution PY from the total M samples available from PY . This distance is not in pixels, but in high-level feature space deﬁned by the Comparitor networkC(b)∈Rs which takes an image b∈Rh×w as input and outputs feature vector (in our case it was FC7 and FC6 of AlexNet [18] trained on ImageNet [32]). Refer to Fig 2 for visualization. rn(c) is the K’th NN function, a parametric (with parameter n) or- der selection function that selects an element yi from a set of M−n + 1 elements based on how close it is to input vector c. It can be described by the following: rn(c) = arg min yi∈ψn ‖c− yi‖2, (6) whereψn is the set of deep features of M−n + 1 images representing the target distribution PY . The optimization in (6) is discrete and the resulting function rk(c) is compli- cated and indifferentiable but ﬁxing it to current estimate of G solve the problem. See Sec.4.2 for training details. To show how we get Eq.(5), ﬁrst we look at PY . Since acquiring a full description of PY in deep feature space is infeasible in most cases, we settle to approximate it us- ing M target sample",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06825,
+        -0.01968,
+        -0.03717,
+        0.0132,
+        -0.00059
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " we get Eq.(5), ﬁrst we look at PY . Since acquiring a full description of PY in deep feature space is infeasible in most cases, we settle to approximate it us- ing M target sample",
+      "overlap_with_next": "ng loga- rithm of expectation of both sides, we obtain upper bound on the cross entropy Ez∼pz(z)[H(G(z), PY )]. The bound found is the one in (5), and by minimizing that bound we m",
+      "text": " we get Eq.(5), ﬁrst we look at PY . Since acquiring a full description of PY in deep feature space is infeasible in most cases, we settle to approximate it us- ing M target samples. We can get a proxy distribution of PY by using Kernel Density Estimation (KDE) on the deep features extracted by deep network C(x) from those M samples in PY . By picking Gaussian kernel for the KDE, the proxy distribution estimator ˆPY,proxy is deﬁned by a Bayesian non-parametric way at any point C(b)∈Rs for b∈Rh×w as follows: ˆPY,proxy(b) = 1Mσ√2π M∑ i=1 exp ( −‖C(b)− C(yi)‖22 σ2 ) (7) yi is the ith sample describing PY andσ2 is the Gaussian kernel variance. For far images from the M samples of ˆPY,proxy the probability becomes exponentially negligible. Hence, we we can investigate the effect of a subset of K points (out of the M points C(yi)) that are closest to C(b) to compute (7). We replace M by K in (7), and then use Jansen inequality on that modiﬁed KDE to get a bound on the expression. By replacing b by G(z) and taking loga- rithm of expectation of both sides, we obtain upper bound on the cross entropy Ez∼pz(z)[H(G(z), PY )]. The bound found is the one in (5), and by minimizing that bound we m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02875,
+        -0.0114,
+        -0.02202,
+        -0.00845,
+        -0.01449
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "ng loga- rithm of expectation of both sides, we obtain upper bound on the cross entropy Ez∼pz(z)[H(G(z), PY )]. The bound found is the one in (5), and by minimizing that bound we m",
+      "overlap_with_next": "udgment of all samples. Using K-features rather than a single feature at each training iteration will further improve the robustness. This is due to the fact that features at layer",
+      "text": "ng loga- rithm of expectation of both sides, we obtain upper bound on the cross entropy Ez∼pz(z)[H(G(z), PY )]. The bound found is the one in (5), and by minimizing that bound we minimize the cross entropy in Eq.(4). For a detailed deriva- tion, please see the Appendix . The K-GAN objective is therefore deﬁned as follows: min G max D LGAN(G, DX, PX) +µ LKNN(G, PY ), (8) where the two terms follow from (1) and (5) respectively. The goal of employing KNN-FM in our loss is to utilize the distribution obtained by deep features of some set Y to guide the generation of the GAN. If GAN generated sam- ples are close to all samples of target set Y in deep fea- tures, we become more conﬁdent about the ”objectiveness” of our samples. However, measuring the distance to all sam- [Page 5] ples features in a set is computationally expensive, espe- cially in an iterative optimization like what is in GAN train- ing. Hence, following the neighbors to guide the generation seems a viable alternative to the expensive global judgment of all samples. Using K-features rather than a single feature at each training iteration will further improve the robustness. This is due to the fact that features at layer",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04074,
+        -0.01839,
+        -0.05455,
+        -0.00477,
+        -0.01848
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "udgment of all samples. Using K-features rather than a single feature at each training iteration will further improve the robustness. This is due to the fact that features at layer",
+      "overlap_with_next": "K- GAN model developed in Sec.3.1,along with other Vanilla GANs, and cascade them with the recently developed cy- cleGAN [49] after training each separately with some ﬁne- tuning (",
+      "text": "udgment of all samples. Using K-features rather than a single feature at each training iteration will further improve the robustness. This is due to the fact that features at layers (i.e. FC6 and FC7) of AlexNet are prone to small imperceptible noise. To demon- strate this, we add uniform noise with a maximum pixel cor- ruption of 4% to 10000 randomly selected images from the ImageNet validation set. This resulted in a relative change in intensity values as high as 20%. This shows that the high- level feature space is prone to noise and depending on that solely can lead us astray from the objective we seek. That is why many previous works [28, 43] adapted the DAE in their architectures to mitigate the volatility of deep features. So, using the K-nearest neighbor goes along the same direction with smoothing parameter K. 3.2. IAN Cascade As described in Sec.1, an IAN model consists of a sam- pling GAN and a translation GAN to generate samples that capture the properties of two sets X and Y . We utilize our K- GAN model developed in Sec.3.1,along with other Vanilla GANs, and cascade them with the recently developed cy- cleGAN [49] after training each separately with some ﬁne- tuning (",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03726,
+        -0.00858,
+        -0.05145,
+        -0.01582,
+        -0.001
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "K- GAN model developed in Sec.3.1,along with other Vanilla GANs, and cascade them with the recently developed cy- cleGAN [49] after training each separately with some ﬁne- tuning (",
+      "overlap_with_next": "ing feature match- ing to the target set, which results in geometric change that is appended by the appearance transfer of CycleGAN. Regularization. While the CycleGAN is trained o",
+      "text": "K- GAN model developed in Sec.3.1,along with other Vanilla GANs, and cascade them with the recently developed cy- cleGAN [49] after training each separately with some ﬁne- tuning (see Sec.4.2 for training details). The goal is to utilize the ability of CycleGAN to transfer appearance for our sake to generate natural looking samples that capture key prop- erties and appearance of both X and Y . By using K-GAN as input to the CycleGAN, the later gains these advantages: Sampling. z vector sampling is a property of GAN to sample from the modeled distribution. However, CycleGAN is conditioned on input images.Hence, we use the sampling in K-GAN and transform the output with CycleGAN. While this can be done by any GAN, we show in Sec.5 how the combination of K-GAN+CycleGAN outperforms others in many metrics. Object geometry. As pointed out by its authors, Cycle- GAN is limited to the appearance transfer when it comes to cross-class translation ( e.g. transforming cat to dog) [49]. We try to tackle this by enforcing feature match- ing to the target set, which results in geometric change that is appended by the appearance transfer of CycleGAN. Regularization. While the CycleGAN is trained o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01461,
+        0.00068,
+        -0.04665,
+        0.01416,
+        -0.00341
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ing feature match- ing to the target set, which results in geometric change that is appended by the appearance transfer of CycleGAN. Regularization. While the CycleGAN is trained o",
+      "overlap_with_next": "ure extraction, multiple forward passes, and backpropagations are required for updatingG. We used FC7 because it semantic information about the object and used usually for discrimi",
+      "text": "ing feature match- ing to the target set, which results in geometric change that is appended by the appearance transfer of CycleGAN. Regularization. While the CycleGAN is trained on nat- ural images, it is used here to translate synthetic images pro- duced by other GANs. This poses the risk of amplifying the imperfections produced by the ﬁrst GAN. We show in Sec.5.1 that regularizing the GAN (as in K-GAN) limits the possible outputs which helps in mitigating this effect of error ampliﬁcation when CycleGAN is ﬁne tuned to the regular- ized samples. The diversity of the ﬁnal samples is achieved by the cascade effect with CycleGAN. 4. Experiments 4.1. Implementation Details For the K-GAN part, we use the basic network imple- mented in DCGAN [29] and the more advanced architecture in BEGAN[3] . The KNN-FM term makes use of deep fea- tures extracted from the FC6 and FC7 layers of AlexNet [18] pre-trained on ImageNet[32]. AlexNet was favored over deeper networks because at each iteration of training K-GAN, feature extraction, multiple forward passes, and backpropagations are required for updatingG. We used FC7 because it semantic information about the object and used usually for discrimi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01575,
+        -0.00977,
+        -0.05316,
+        -0.00245,
+        0.01252
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "ure extraction, multiple forward passes, and backpropagations are required for updatingG. We used FC7 because it semantic information about the object and used usually for discrimi",
+      "overlap_with_next": "r dis- tinctive features, the abundance of facial data, and range of difﬁculty. We call this ﬁltered dataset Zoo-Faces, and it will be made publicly available with the code. Refer ",
+      "text": "ure extraction, multiple forward passes, and backpropagations are required for updatingG. We used FC7 because it semantic information about the object and used usually for discriminative tasks [30]. We used FC6 because it helped in transferring the key properties of the object along with FC7. We use the same CycleGAN network as proposed in [49], in which they used the PatchGAN discriminator im- plemented in [12] and U-Net Generators. The image output samples all have 227×227 pixel resolution. 4.2. Training Training Data We used CelebA [24] as our base set X and we used 10 different animal classes from ImageNet [32] as our target set Y . The Y dataset was manually ﬁltered to be suitable for the task of imagining humanoid animals by ensuring that the face of the animal appears in the image. Each of the Y target classes contains 100 to 500 images. The Y classes are gorillas, chow chow dog, Egyptian cat, koala ,lion, Norwegian-elkhound dog, panda, Samoyed-dog, spider, and tiger. They were used because of their dis- tinctive features, the abundance of facial data, and range of difﬁculty. We call this ﬁltered dataset Zoo-Faces, and it will be made publicly available with the code. Refer ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05325,
+        -0.05077,
+        -0.04952,
+        0.01305,
+        0.01216
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "r dis- tinctive features, the abundance of facial data, and range of difﬁculty. We call this ﬁltered dataset Zoo-Faces, and it will be made publicly available with the code. Refer ",
+      "overlap_with_next": " algorithm [23] to search for K-NN features in the previously obtained set ψn that are close to the current sample from [Page 6] Figure 3. Samples from K-BEGAN and its correspondin",
+      "text": "r dis- tinctive features, the abundance of facial data, and range of difﬁculty. We call this ﬁltered dataset Zoo-Faces, and it will be made publicly available with the code. Refer to the Appendix for some qualitative examples from this dataset. We tried to use ImageNet [32] without ﬁltering, and that did not help to achieve the objective, and therefore we had to use ﬁltered data collected from the internet. See Sec.5.3 for more details. Before training, we take the Zoo-Faces dataeset and extract the FC7 and FC6 features by the Comparitor C (AlexNet) to obtain 20 different feature matrices of FC7 and FC6 for the 10 classes. These fea- ture sets are then passed to the K-GAN to be used in training. Training Procedure Since we are running a gradient descent based algorithm (Adam optimizer [17]), by ﬁxing the argument of rk(.) in Eq.(6) to the current estimate of the generatorGt at time step t, the term rn(C(Gt(z))) is just a constant dn,t at that iter- ation. For step t and parametern =K, we use the ball-tree algorithm [23] to search for K-NN features in the previously obtained set ψn that are close to the current sample from [Page 6] Figure 3. Samples from K-BEGAN and its correspondin",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02547,
+        -0.01553,
+        -0.05194,
+        -0.00902,
+        -0.01077
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " algorithm [23] to search for K-NN features in the previously obtained set ψn that are close to the current sample from [Page 6] Figure 3. Samples from K-BEGAN and its correspondin",
+      "overlap_with_next": "rding to KNN-FM on CelebA and each class from Zoo-faces as target Y . At each iteration, we search the KNN features of FC7 and FC6 in ΨFC7, ΨFC6, which are the matrices of features",
+      "text": " algorithm [23] to search for K-NN features in the previously obtained set ψn that are close to the current sample from [Page 6] Figure 3. Samples from K-BEGAN and its corresponding IAN: green-framed columns are K-BEGAN samples, orange-framed columns are full-IAN samples, each row is one X-Y IAN model where X:faces and Y is a class in zoo-faces. The far left and far right blue framed columns are the closest training examples to the neighboring K-GAN and IAN samples respectively. Gt(z). The term in Eq.(5) becomes just an𝓁2 regularizer: Ez∼pz(z) k∑ n=1 ‖C(G(z))− dn,t‖22 (9) For practical reasons, we minimize the distance between C(G(z)) and the average of theK neighbors instead of the distances to all of them independently. This is justiﬁed and can be seen by expanding the norms and looking argument minimizer to realize it is the same in both cases. please refer to the Appendix for detailed mathematical justiﬁcation. We trained each GAN on CelebA and then used the pretrained model to ﬁne tune the K-GAN according to KNN-FM on CelebA and each class from Zoo-faces as target Y . At each iteration, we search the KNN features of FC7 and FC6 in ΨFC7, ΨFC6, which are the matrices of features",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02827,
+        0.00438,
+        -0.04316,
+        -0.02375,
+        -0.00743
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "rding to KNN-FM on CelebA and each class from Zoo-faces as target Y . At each iteration, we search the KNN features of FC7 and FC6 in ΨFC7, ΨFC6, which are the matrices of features",
+      "overlap_with_next": "err (.) model X Y avg X Y avg real(X) 100 0.02 50.01 0 67.09 33.54 real(Y) 10.38 63.29 36.84 55.33 0 27.66 real(X)+Cyc 12.24 44.03 28.13 48.57 54.95 51.76 DCGAN[29] 95.90 0.03 47.9",
+      "text": "rding to KNN-FM on CelebA and each class from Zoo-faces as target Y . At each iteration, we search the KNN features of FC7 and FC6 in ΨFC7, ΨFC6, which are the matrices of features of class Y and pick the mean of the two K features as two regulariza- tion targets for the GAN. Because of the use of the ball-tree search [23] and SciPy library [15], the search is done real- time and delay of the training time of K-GAN is only 70% more compared to GAN with similar structure and for small target class Y of 100-500 instances. In general, the time complexity of the tree search is approximatelyO(s logM), wheres is the feature dimensionality, andM is the number of features in Ψ. The CycleGAN was trained independently on a subset of CelebA and each one of the 10 classes of Y and then ﬁne tuned with samples of the ﬁrst stage.This procedure was followed to obtain 10 K-DCGAN , 10 K-BEGAN , and 10 different CycleGANs corresponding to the 10 classes in Zoo-Faces. The coefﬁcient of the KNN regularizer is picked score(.) err (.) model X Y avg X Y avg real(X) 100 0.02 50.01 0 67.09 33.54 real(Y) 10.38 63.29 36.84 55.33 0 27.66 real(X)+Cyc 12.24 44.03 28.13 48.57 54.95 51.76 DCGAN[29] 95.90 0.03 47.9",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02098,
+        -0.01239,
+        -0.05638,
+        -0.03414,
+        -0.00694
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "err (.) model X Y avg X Y avg real(X) 100 0.02 50.01 0 67.09 33.54 real(Y) 10.38 63.29 36.84 55.33 0 27.66 real(X)+Cyc 12.24 44.03 28.13 48.57 54.95 51.76 DCGAN[29] 95.90 0.03 47.9",
+      "overlap_with_next": "fferent GANs, the last seven rows are cascaded GANs.Scores are averaged over the 10 different Y sets See Sec.5.1 for details to be 0.001 for FC7 and 0.0001 for FC6. 4.3. Sampling A",
+      "text": "err (.) model X Y avg X Y avg real(X) 100 0.02 50.01 0 67.09 33.54 real(Y) 10.38 63.29 36.84 55.33 0 27.66 real(X)+Cyc 12.24 44.03 28.13 48.57 54.95 51.76 DCGAN[29] 95.90 0.03 47.97 47.11 64.23 55.67 mxGAN 90.38 0.04 45.21 47.98 64.40 56.19 BEGAN[3] 87.88 0.02 43.95 45.66 60.27 52.97 P.GAN [6] 97.69 0.04 48.86 46.63 63.10 54.87 K-DCGAN 98.77 0.04 49.40 46.97 63.61 55.29 K-BEGAN 97.29 0.25 48.77 44.43 58.10 51.27 rand+Cyc 1.44 0.08 0.76 49.42 53.12 51.27 DCGAN+Cyc 9.49 40.47 24.98 49.37 53.51 51.44 mxGAN+Cyc 9.75 39.11 24.43 49.97 53.93 51.95 P.GAN+Cyc 7.73 39.35 23.54 49.41 53.42 51.41 BEGAN+Cyc 30.05 46.44 38.24 49.04 52.03 50.53 K-DCGAN+Cyc 10.19 39.62 24.90 49.12 52.89 51.00 K-BEGAN+Cyc 22.95 53.26 38.11 49.67 52.80 51.23 Table 1. Objective Evaluation :The percentage scores (more is bet- ter) and normalized pixel-error percentage (less is better) for base set X, and target set Y .bold is best and underlined is second best. First three rows are actual data put for reference.The following six rows are different GANs, the last seven rows are cascaded GANs.Scores are averaged over the 10 different Y sets See Sec.5.1 for details to be 0.001 for FC7 and 0.0001 for FC6. 4.3. Sampling A",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03947,
+        -0.04808,
+        -0.05677,
+        -0.04851,
+        -0.00909
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "fferent GANs, the last seven rows are cascaded GANs.Scores are averaged over the 10 different Y sets See Sec.5.1 for details to be 0.001 for FC7 and 0.0001 for FC6. 4.3. Sampling A",
+      "overlap_with_next": "AN) as baselines for fair compar- ison with our K-GAN and its cascade. DCGAN , BEGAN: Vanilla DCGAN [29] and BEGAN[3] trained on CelebA. mxGAN: naive approach of combining X, and o",
+      "text": "fferent GANs, the last seven rows are cascaded GANs.Scores are averaged over the 10 different Y sets See Sec.5.1 for details to be 0.001 for FC7 and 0.0001 for FC6. 4.3. Sampling After training, the models are cascaded, and sampling takes place in which we sample latent random vector z∈ [−1, 1]d,d = 100 and pass it as input to the GANs and K- GANs similarly (No feature search happens at this stage). The image samples are then passed as input to the Cycle- GAN trained on the same X and Y sets that K-GAN was trained on. We obtain the output of an IAN model as in Fig 3 for K-BEGAN+CycleGAN. We show the closest training example next to some samples, as advised by [38]. More samples are provided in the Appendix . 5. Results 5.1. Objective Evaluation Baselines: Ultimately, we want our generated samples to be indistin- guishable from real samples; hence, we include the training images from X and Y as a reference for GAN model eval- uation. We include the following GAN models (along with their cascade with CycleGAN) as baselines for fair compar- ison with our K-GAN and its cascade. DCGAN , BEGAN: Vanilla DCGAN [29] and BEGAN[3] trained on CelebA. mxGAN: naive approach of combining X, and o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00479,
+        -0.02987,
+        -0.06946,
+        -0.01848,
+        0.01964
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "AN) as baselines for fair compar- ison with our K-GAN and its cascade. DCGAN , BEGAN: Vanilla DCGAN [29] and BEGAN[3] trained on CelebA. mxGAN: naive approach of combining X, and o",
+      "overlap_with_next": "given for the subjects that were asked to classify the samples from different IANs ( guessing the target Y class from the imaginative sample ) .The higher the HCA the more easily i",
+      "text": "AN) as baselines for fair compar- ison with our K-GAN and its cascade. DCGAN , BEGAN: Vanilla DCGAN [29] and BEGAN[3] trained on CelebA. mxGAN: naive approach of combining X, and one class of Y by mixing the two sets as one training set of the DCGAN. [Page 7] model (1) (2) (3) (4) (5) (6) avg HCA (1) N/A 25.7 34.5 47.3 34.9 31.8 34.8 N/A (2) 74.3 N/A 38.8 38.8 36.90 4.0 47.2 N/A (3) 65.5 61.20 N/A 71.6 35.9 32.7 53.4 64.3 (4) 52.7 47.50 28.4 N/A 24.8 20.7 34.8 68.3 (5) 65.1 63.10 64.1 75.2 N/A 54.4 64.4 58.0 (6) 68.2 53.00 67.3 79.3 45.60 N/A 62.7 64.0 Table 2. Human Subjective Evaluation :Pair-wise quality com- parison and Human Classiﬁcation Accuracy (HCA) for six dif- ferent models [(1):BEGAN, (2):K-BEGAN, (3):DCGAN+Cyc, (4):K-DCGAN+Cyc, (5):BEGAN+Cyc, (6):K-BEGAN+Cyc] . The Pair-wise percentages represent the frequency that a certain model’s samples were preferred against their rival’s model sam- ples by human subjects ( the higher the more humans favoured that model) .HCA is for a classiﬁcation task given for the subjects that were asked to classify the samples from different IANs ( guessing the target Y class from the imaginative sample ) .The higher the HCA the more easily i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02411,
+        -0.02268,
+        -0.05278,
+        -0.02516,
+        0.01819
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "given for the subjects that were asked to classify the samples from different IANs ( guessing the target Y class from the imaginative sample ) .The higher the HCA the more easily i",
+      "overlap_with_next": "k[37] softmax probability of the modeled class directly (averaged over all samples), and then average the score over all models learned on the different classes and call this score",
+      "text": "given for the subjects that were asked to classify the samples from different IANs ( guessing the target Y class from the imaginative sample ) .The higher the HCA the more easily identiﬁable are the samples. See Sec.5.2 for more details PerceptualGAN: feature matching GAN without the use of KNN search (random K selection), similar to [6]. rand+Cyc: random noise translated with trained Cycle- GAN. Evaluation Metrics: As indicated by Theis et al . [38], evaluating the genera- tive models based on log likelihood’s approximations ( e.g. Parzen window) should be avoided, and the models should be evaluated in the application they are being used in. To evaluate the imagination capability of our IAN model, we use the idea of inception score proposed by Salimans et al. [33] on the target class Y . However, since we are develop- ing different models for each class and the goal is not to model the data but to imagine new distributions between X and Y , we adopt the score for that purpose. We use the inception network[37] softmax probability of the modeled class directly (averaged over all samples), and then average the score over all models learned on the different classes and call this score",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04152,
+        -0.02068,
+        -0.01182,
+        0.00491,
+        0.00414
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "k[37] softmax probability of the modeled class directly (averaged over all samples), and then average the score over all models learned on the different classes and call this score",
+      "overlap_with_next": "different setups. We cal- (c)(a) (d) (b) Figure 4. Ablation study: (a) Hard Imagination, trying to trans- late images from set X ( e.g. tiger) to very different set Y ( e.g. ﬂower)",
+      "text": "k[37] softmax probability of the modeled class directly (averaged over all samples), and then average the score over all models learned on the different classes and call this score(Y). For base class assessment (the face), we use face detector accuracy as a metric. We used OpenCV [13] implementation of the famous Viola-Jones detector [41] to measure how our transformed faces retained the proper- ties of the face. The face score(X) in table 1 is deﬁned as the percentage of images which the detector triggered a face. We use an extra evaluation criterion followed by [6] and [48] by taking the normalized pixel-wise error deﬁned as follows: err (x) = ‖NN(x)‖2J where NN(x) is the pixel- wise nearest neighbor to x in the training, J is the average distance between uniform random noise in the training data. An err(x) = 1 means our samples are no better than random noise, and a err (x) = 0 indicates we generated a sample from training. For sampling, we follow a similar procedure to [33] by using 1000 samples from different setups. We cal- (c)(a) (d) (b) Figure 4. Ablation study: (a) Hard Imagination, trying to trans- late images from set X ( e.g. tiger) to very different set Y ( e.g. ﬂower)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04524,
+        -0.02336,
+        -0.04501,
+        0.0056,
+        0.01207
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "different setups. We cal- (c)(a) (d) (b) Figure 4. Ablation study: (a) Hard Imagination, trying to trans- late images from set X ( e.g. tiger) to very different set Y ( e.g. ﬂower)",
+      "overlap_with_next": " the samples from the different IAN models respectively. Quality Pair-wise Comparison In this experiment , the human subjects were shown human faces and a class from Zoo-Faces and ",
+      "text": "different setups. We cal- (c)(a) (d) (b) Figure 4. Ablation study: (a) Hard Imagination, trying to trans- late images from set X ( e.g. tiger) to very different set Y ( e.g. ﬂower) using CycleGAN.(b-d)studying the effect of altering parts of the model on the GAN output and its corresponding cascaded sample with CycleGAN (b)abandoning the K-NN search produce high frequency artifacts. (c)abandoning the KNN-FM ampliﬁes blurriness after the cascade.(d)BEGAN vs DCGAN as base model. In all part, red is failure and green is success. culate the scores and error for both X and Y and the average of both on all the samples of each model for all ten classes of Y and the base class X. Table 1 summarizes the results. 5.2. Subjective Evaluation The nature of the task we are addressing, i.e. imagina- tion , is subjective and involves human judgment. Therefore , we did extensive human experiments using Amazon Me- chanical Turk online tool. We designed two experiments to evaluate the quality and the information conveyed by the samples from the different IAN models respectively. Quality Pair-wise Comparison In this experiment , the human subjects were shown human faces and a class from Zoo-Faces and ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02589,
+        -0.05114,
+        -0.04716,
+        0.00093,
+        0.01814
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": " the samples from the different IAN models respectively. Quality Pair-wise Comparison In this experiment , the human subjects were shown human faces and a class from Zoo-Faces and ",
+      "overlap_with_next": " dataset to give a total of 40 IAN models .A hun- dred samples ( like the ones in Fig. 3) were drawn from each model to give a total of 4K images as a testing set for the annotator",
+      "text": " the samples from the different IAN models respectively. Quality Pair-wise Comparison In this experiment , the human subjects were shown human faces and a class from Zoo-Faces and then shown a pair of samples from two different setups . The task was to pick the one which was better looking and represent both the human face and the given class. A total of 15,000 pairs were shown to more than 150 unique human annotators to compare the quality of the generated samples from 6 different setups( 4 IANs and 2 GANs) with 15 combinations .The percentages shown in table 2 represent the frequency of human subjects picking that model against its rival , averaged over the 10 different classes of Zoo-faces. The higher the percentage of a model the better humans view the samples of that model. Human Subjective Classiﬁcation Experiment In this experiment , the human subjects were asked to clas- sify the samples generated from each IAN setup .Four IAN setups were trained on 10 different Y target classes from the Zoo-Faces dataset to give a total of 40 IAN models .A hun- dred samples ( like the ones in Fig. 3) were drawn from each model to give a total of 4K images as a testing set for the annotator",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04486,
+        -0.05089,
+        -0.02978,
+        -0.01212,
+        -0.00838
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " dataset to give a total of 40 IAN models .A hun- dred samples ( like the ones in Fig. 3) were drawn from each model to give a total of 4K images as a testing set for the annotator",
+      "overlap_with_next": "ls and very far from the faces. We found that the more signiﬁcant the difference is between X and Y the harder it becomes to produce meaningful results from the IAN structure. We s",
+      "text": " dataset to give a total of 40 IAN models .A hun- dred samples ( like the ones in Fig. 3) were drawn from each model to give a total of 4K images as a testing set for the annotators to classify. A total of 25 unique human partici- pants classiﬁed the samples to the closest animal from Zoo- Faces classes. The Human Classiﬁcation Accuracy (HCA) is shown in table 2 . The HCA indicates how easily identiﬁable are these generated samples. Please refer to Appendix for the Human Confusion Matrices of the four setups. [Page 8] Figure 5. Multi-domain image manifold traversing : moving from one point to another in different Y classes using the same pair in base set X . The top row is the actual traversing by con- vexing the codes obtained by the auto-encoder of BEGAN [3] and then decoding the convex codes .The other rows are translations of the ﬁrst row bu using different CycleGANs. 5.3. Ablation Study Changing the Training Data We tried different data other than faces, and by using target class Y that are not animals and very far from the faces. We found that the more signiﬁcant the difference is between X and Y the harder it becomes to produce meaningful results from the IAN structure. We s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00103,
+        -0.06861,
+        -0.03992,
+        0.00679,
+        -0.00014
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "ls and very far from the faces. We found that the more signiﬁcant the difference is between X and Y the harder it becomes to produce meaningful results from the IAN structure. We s",
+      "overlap_with_next": " in the objective and hence produce better samples. Abandoning the Regularizer Using GAN to produce samples of the modeled data X then passing those samples to a trained cycleGAN t",
+      "text": "ls and very far from the faces. We found that the more signiﬁcant the difference is between X and Y the harder it becomes to produce meaningful results from the IAN structure. We show some cases ofhard imagi- nation (e.g. tiger to ﬂower and shoe to tiger) in Fig 4(a) with success (maintaining some key X properties after translation to Y) and failure (losing all X properties after translation). We reason that the further the classes in feature space, the possibility for the network to converge to a local minimum increases and hence not reaching to the target distribution. Abandoning the Search Picking a random image in the target set and using its fea- tures as the target of the regularizer seems to be a valid sim- pler option. However, randomly picking features can cause a rapid change in the objective of the GAN and hence intro- duce high-frequency artifacts as in Fig 4(b). These artifacts amplify when the samples pass by CycleGAN, and as results in table 1 suggest. Picking KNN features ensures stability in the objective and hence produce better samples. Abandoning the Regularizer Using GAN to produce samples of the modeled data X then passing those samples to a trained cycleGAN t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02643,
+        -0.00149,
+        -0.02688,
+        0.02122,
+        -0.0021
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": " in the objective and hence produce better samples. Abandoning the Regularizer Using GAN to produce samples of the modeled data X then passing those samples to a trained cycleGAN t",
+      "overlap_with_next": "the inception accuracy and be very close from the inception of an actual image. Also, it increases its likeability score in table 2 by about 15%. However, it deteriorates the reali",
+      "text": " in the objective and hence produce better samples. Abandoning the Regularizer Using GAN to produce samples of the modeled data X then passing those samples to a trained cycleGAN to transform them and give the ﬁnal samples seems intuitive. However, as we argued in section 3.2, and as can be seen in Fig 4 (c), using un-regularized GAN and building on top that can lead to systemic failure in which the error can amplify. Different GAN structures using the advanced BEGAN[3] instead of DCGAN[29] as base model produced better results from resulting K-GAN and IANs. 4(d) Celebrity gorilla cat lion koala Norwegian dog panda Samoyed spider tiger Figure 6. Imaginative Faces:: generating samples for humanoid animal characters from movie celebrities by using different IAN models trained in Sec.4 can help in character design for movies and video games. 5.4. Discussion Investigating the results in Fig 3 and tables 1 and 2 , we see that cascading any GAN model by CycleGAN increase the realism of target class Y by 40% in the inception accuracy and be very close from the inception of an actual image. Also, it increases its likeability score in table 2 by about 15%. However, it deteriorates the reali",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02876,
+        -0.03643,
+        -0.07711,
+        0.02118,
+        -0.00294
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "the inception accuracy and be very close from the inception of an actual image. Also, it increases its likeability score in table 2 by about 15%. However, it deteriorates the reali",
+      "overlap_with_next": "points between these two latent vectors, we obtain zi,i ∈ [1,··· ,N ] and ﬁnding the corresponding decoded images as Ddecoder(zi). By translating these samples by Cy- cleGAN, we ca",
+      "text": "the inception accuracy and be very close from the inception of an actual image. Also, it increases its likeability score in table 2 by about 15%. However, it deteriorates the realism of the base class (the human face in our case). adding the K-NN regulizer made it easier for both Inception Network Softmax and humans HCA. The human likeability tends to favour unregularized IAN over regularized IAN , but K-GAN still outperforms GANs. 6. Applications 6.1. Multi-Domain Image Manifold Traversing We follow the standard practice of utilizing the mod- eled distribution in manifold traversing [48]. But since we have trained different IANs on teh same X and different Y , we can do multi-traversing for different manifolds with only two images. First, we pick two training samples from X, e.g. xR1, xR2 . Then, we utilize the auto-encoder archi- tecture of the discriminator of the trained BEGAN to en- code the two samples and obtain their latent vectors z∗1, z∗2 as follows: z∗ = Dencoder(xR) Then, by taking N con- vex points between these two latent vectors, we obtain zi,i ∈ [1,··· ,N ] and ﬁnding the corresponding decoded images as Ddecoder(zi). By translating these samples by Cy- cleGAN, we ca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02364,
+        -0.03716,
+        -0.02722,
+        0.01371,
+        -0.00588
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "points between these two latent vectors, we obtain zi,i ∈ [1,··· ,N ] and ﬁnding the corresponding decoded images as Ddecoder(zi). By translating these samples by Cy- cleGAN, we ca",
+      "overlap_with_next": "unterparts for each celebrity in Fig 6. 7. Conclusion and Future Work We have shown that using K-NN feature matching regu- larizer in GAN setup with two different sets (base X, tar",
+      "text": "points between these two latent vectors, we obtain zi,i ∈ [1,··· ,N ] and ﬁnding the corresponding decoded images as Ddecoder(zi). By translating these samples by Cy- cleGAN, we can traverse different Y manifolds with only two samples from X as in Fig 5. More qualitative results of this application are provided in the Appendix . 6.2. Generating Imaginative Faces to Help in Char- acter Design Concept art plays an important role in character design in movies and video games. Automating creative concept art can be done by generating a lot of sketches for char- [Page 9] acters from which the artist would pick some and develop upon them the full model. This can reduce time and money in developing characters, and help the artist in generating creative concepts. To demonstrate this, we take a collec- tion of celebrities from CelebA and encode them using the BEGAN Discriminator, as in Sec.6.1. Then, we pass the decoded instances to the CycleGAN for different animals from the Zoo-Faces dataset, obtaining animal counterparts for each celebrity in Fig 6. 7. Conclusion and Future Work We have shown that using K-NN feature matching regu- larizer in GAN setup with two different sets (base X, tar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01896,
+        -0.02628,
+        -0.03333,
+        0.02358,
+        0.01176
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "unterparts for each celebrity in Fig 6. 7. Conclusion and Future Work We have shown that using K-NN feature matching regu- larizer in GAN setup with two different sets (base X, tar",
+      "overlap_with_next": " gan, 2017. arXiv:1701.07875. 2 [2] D. Bang and H. Shim. Resembled generative adversarial net- works:two domains with similar attributes. In BMVC, 2018. 3 [3] D. Berthelot, T. Schu",
+      "text": "unterparts for each celebrity in Fig 6. 7. Conclusion and Future Work We have shown that using K-NN feature matching regu- larizer in GAN setup with two different sets (base X, target Y) helps in obtaining key properties of Y while keeping the GAN modeling of X with mathematical justiﬁcation. We also, presented a framework for cascading GANs to address the task of imagining new distributions that combine base set X and target set Y .We experiments with different IAN setups and show that while the regularized IAN comprising of K-GAN and CycleGAN was easily identiﬁable by Incep- tion networks and humans , humans favoured Vanilla IAN sometimes .We showed some applications like multi-domain manifold traversing. Extending the IAN for more than two classes follow directly from our work. A potential use is to utilize IAN in zero-shot learning in which we learn from the generated samples based on some priors about the new class of unseen samples. References [1] M. Arjovsky, S. Chintala, and L. Bottou. Wasserstein gan, 2017. arXiv:1701.07875. 2 [2] D. Bang and H. Shim. Resembled generative adversarial net- works:two domains with similar attributes. In BMVC, 2018. 3 [3] D. Berthelot, T. Schu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04425,
+        -0.00617,
+        -0.0544,
+        0.0155,
+        -0.00263
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": " gan, 2017. arXiv:1701.07875. 2 [2] D. Bang and H. Shim. Resembled generative adversarial net- works:two domains with similar attributes. In BMVC, 2018. 3 [3] D. Berthelot, T. Schu",
+      "overlap_with_next": ", I. Guyon, and R. Garnett, editors, Advances in Neural Information Processing Systems 29, pages 658–666. Curran Associates, Inc., 2016. 2, 6, 7 [7] A. M. Elgammal, B. Liu, M. Elho",
+      "text": " gan, 2017. arXiv:1701.07875. 2 [2] D. Bang and H. Shim. Resembled generative adversarial net- works:two domains with similar attributes. In BMVC, 2018. 3 [3] D. Berthelot, T. Schumm, and L. Metz. BEGAN: bound- ary equilibrium generative adversarial networks. CoRR, abs/1703.10717, 2017. 2, 3, 5, 6, 8 [4] Y . Choi, M. Choi, M. Kim, J.-W. Ha, S. Kim, and J. Choo. Stargan: Uniﬁed generative adversarial networks for multi- domain image-to-image translation. InThe IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , June 2018. 3 [5] E. L. Denton, S. Chintala, a. szlam, and R. Fergus. Deep generative image models using a laplacian pyramid of adver- sarial networks. In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, editors, Advances in Neural Information Processing Systems 28, pages 1486–1494. Cur- ran Associates, Inc., 2015. 2 [6] A. Dosovitskiy and T. Brox. Generating images with per- ceptual similarity metrics based on deep networks. In D. D. Lee, M. Sugiyama, U. V . Luxburg, I. Guyon, and R. Garnett, editors, Advances in Neural Information Processing Systems 29, pages 658–666. Curran Associates, Inc., 2016. 2, 6, 7 [7] A. M. Elgammal, B. Liu, M. Elho",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03513,
+        -0.01542,
+        -0.0288,
+        -0.02655,
+        0.01061
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": ", I. Guyon, and R. Garnett, editors, Advances in Neural Information Processing Systems 29, pages 658–666. Curran Associates, Inc., 2016. 2, 6, 7 [7] A. M. Elgammal, B. Liu, M. Elho",
+      "overlap_with_next": "er Vision and Pattern Recognition (CVPR) , July 2017. 2 [11] X. Huang, M.-Y . Liu, S. Belongie, and J. Kautz. Multimodal unsupervised image-to-image translation. In The European Co",
+      "text": ", I. Guyon, and R. Garnett, editors, Advances in Neural Information Processing Systems 29, pages 658–666. Curran Associates, Inc., 2016. 2, 6, 7 [7] A. M. Elgammal, B. Liu, M. Elhoseiny, and M. Mazzone. CAN: creative adversarial networks, generating ”art” by learning about styles and deviating from style norms. CoRR, abs/1706.07068, 2017. 2, 3 [8] A. Gokaslan, V . Ramanujan, D. Ritchie, K. In Kim, and J. Tompkin. Improving shape deformation in unsupervised image-to-image translation. In ECCV, 2018. 3 [9] I. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley, S. Ozair, A. Courville, and Y . Bengio. Gen- erative adversarial nets. In Z. Ghahramani, M. Welling, C. Cortes, N. D. Lawrence, and K. Q. Weinberger, edi- tors, Advances in Neural Information Processing Systems 27, pages 2672–2680. Curran Associates, Inc., 2014. 1, 2 [10] S. Gurumurthy, R. Kiran Sarvadevabhatla, and R. Venkatesh Babu. Deligan : Generative adversarial networks for diverse and limited data. In The IEEE Confer- ence on Computer Vision and Pattern Recognition (CVPR) , July 2017. 2 [11] X. Huang, M.-Y . Liu, S. Belongie, and J. Kautz. Multimodal unsupervised image-to-image translation. In The European Co",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05018,
+        0.00896,
+        -0.00137,
+        -0.00172,
+        0.01744
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "er Vision and Pattern Recognition (CVPR) , July 2017. 2 [11] X. Huang, M.-Y . Liu, S. Belongie, and J. Kautz. Multimodal unsupervised image-to-image translation. In The European Co",
+      "overlap_with_next": "14. 5 [18] A. Krizhevsky, I. Sutskever, and G. E. Hinton. Imagenet classiﬁcation with deep convolutional neural networks. In F. Pereira, C. J. C. Burges, L. Bottou, and K. Q. Weinb",
+      "text": "er Vision and Pattern Recognition (CVPR) , July 2017. 2 [11] X. Huang, M.-Y . Liu, S. Belongie, and J. Kautz. Multimodal unsupervised image-to-image translation. In The European Conference on Computer Vision (ECCV), September 2018. 3 [12] P. Isola, J.-Y . Zhu, T. Zhou, and A. A. Efros. Image-to-image translation with conditional adversarial networks. arxiv, 2016. 2, 5 [13] Itseez. Open source computer vision library. https:// github.com/itseez/opencv, 2015. 7 [14] J. Johnson, A. Alahi, and F. fei Li. Perceptual losses for real- time style transfer and super-resolution. In ECCV, 2016. 2 [15] E. Jones, T. Oliphant, P. Peterson, et al. SciPy: Open source scientiﬁc tools for Python, 2001–. [Online; accessed ¡to- day¿]. 6 [16] T. Karras, T. Aila, S. Laine, and J. Lehtinen. Progressive growing of GANs for improved quality, stability, and varia- tion. In International Conference on Learning Representa- tions, 2018. 2 [17] D. P. Kingma and J. Ba. Adam: A method for stochastic optimization. CoRR, abs/1412.6980, 2014. 5 [18] A. Krizhevsky, I. Sutskever, and G. E. Hinton. Imagenet classiﬁcation with deep convolutional neural networks. In F. Pereira, C. J. C. Burges, L. Bottou, and K. Q. Weinb",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06972,
+        -0.00174,
+        -0.01818,
+        0.01668,
+        0.00117
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "14. 5 [18] A. Krizhevsky, I. Sutskever, and G. E. Hinton. Imagenet classiﬁcation with deep convolutional neural networks. In F. Pereira, C. J. C. Burges, L. Bottou, and K. Q. Weinb",
+      "overlap_with_next": " S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, Advances in Neural Information Pro- [Page 10] cessing Systems 30, pages 700–708. Curran Associates, Inc",
+      "text": "14. 5 [18] A. Krizhevsky, I. Sutskever, and G. E. Hinton. Imagenet classiﬁcation with deep convolutional neural networks. In F. Pereira, C. J. C. Burges, L. Bottou, and K. Q. Weinberger, editors, Advances in Neural Information Processing Systems 25, pages 1097–1105. Curran Associates, Inc., 2012. 1, 2, 4, 5 [19] Y . LeCun, L. Bottou, Y . Bengio, and P. Haffner. Gradient- based learning applied to document recognition. In Intelli- gent Signal Processing, pages 306–351. IEEE Press, 2001. 3 [20] C. Ledig, L. Theis, F. Huszar, J. Caballero, A. Cunning- ham, A. Acosta, A. Aitken, A. Tejani, J. Totz, Z. Wang, and W. Shi. Photo-realistic single image super-resolution using a generative adversarial network. In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , July 2017. 2 [21] M. Liu and O. Tuzel. Coupled generative adversarial net- works. CoRR, abs/1606.07536, 2016. 2, 3 [22] M.-Y . Liu, T. Breuel, and J. Kautz. Unsupervised image- to-image translation networks. In I. Guyon, U. V . Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, Advances in Neural Information Pro- [Page 10] cessing Systems 30, pages 700–708. Curran Associates, Inc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05291,
+        -0.00765,
+        0.00473,
+        -0.00314,
+        0.00779
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": " S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, Advances in Neural Information Pro- [Page 10] cessing Systems 30, pages 700–708. Curran Associates, Inc",
+      "overlap_with_next": "tworks. In D. D. Lee, M. Sugiyama, U. V . Luxburg, I. Guyon, and R. Garnett, edi- tors, Advances in Neural Information Processing Systems 29, pages 3387–3395. Curran Associates, In",
+      "text": " S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, Advances in Neural Information Pro- [Page 10] cessing Systems 30, pages 700–708. Curran Associates, Inc., 2017. 3 [23] T. Liu, A. W. Moore, and A. Gray. New algorithms for efﬁ- cient high-dimensional nonparametric classiﬁcation.Journal of Machine Learning Research, 7 (2006) 11351158, 2006. 5, 6 [24] Z. Liu, P. Luo, X. Wang, and X. Tang. Deep learning face attributes in the wild. In Proceedings of International Con- ference on Computer Vision (ICCV), 2015. 5 [25] J. Lu, K. Sunkavalli, N. Carr, S. Hadap, and D. A. Forsyth. A visual representation for editing face images. CoRR, abs/1612.00522, 2016. 3 [26] T. Miyato, T. Kataoka, M. Koyama, and Y . Yoshida. Spectral normalization for generative adversarial networks. In Inter- national Conference on Learning Representations, 2018. 2 [27] A. Nguyen, A. Dosovitskiy, J. Yosinski, T. Brox, and J. Clune. Synthesizing the preferred inputs for neurons in neural networks via deep generator networks. In D. D. Lee, M. Sugiyama, U. V . Luxburg, I. Guyon, and R. Garnett, edi- tors, Advances in Neural Information Processing Systems 29, pages 3387–3395. Curran Associates, In",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02817,
+        -0.01306,
+        -0.01035,
+        -0.00072,
+        -0.02363
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "tworks. In D. D. Lee, M. Sugiyama, U. V . Luxburg, I. Guyon, and R. Garnett, edi- tors, Advances in Neural Information Processing Systems 29, pages 3387–3395. Curran Associates, In",
+      "overlap_with_next": "s, Inc., 2015. 1 [32] O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. S. Bernstein, A. C. Berg, and F. Li. Imagenet large scale ",
+      "text": "tworks. In D. D. Lee, M. Sugiyama, U. V . Luxburg, I. Guyon, and R. Garnett, edi- tors, Advances in Neural Information Processing Systems 29, pages 3387–3395. Curran Associates, Inc., 2016. 2 [28] A. Nguyen, J. Yosinski, Y . Bengio, A. Dosovitskiy, and J. Clune. Plug & play generative networks: Conditional iterative generation of images in latent space. CoRR, abs/1612.00005, 2016. 2, 5 [29] A. Radford, L. Metz, and S. Chintala. Unsupervised repre- sentation learning with deep convolutional generative adver- sarial networks. CoRR, abs/1511.06434, 2015. 3, 5, 6, 8 [30] A. S. Razavian, H. Azizpour, J. Sullivan, and S. Carls- son. CNN features off-the-shelf: an astounding baseline for recognition. CoRR, abs/1403.6382, 2014. 5 [31] S. Ren, K. He, R. Girshick, and J. Sun. Faster r-cnn: Towards real-time object detection with region proposal networks. In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, editors,Advances in Neural Information Process- ing Systems 28, pages 91–99. Curran Associates, Inc., 2015. 1 [32] O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. S. Bernstein, A. C. Berg, and F. Li. Imagenet large scale ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04994,
+        -0.0067,
+        -0.02346,
+        0.02929,
+        0.00174
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "s, Inc., 2015. 1 [32] O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. S. Bernstein, A. C. Berg, and F. Li. Imagenet large scale ",
+      "overlap_with_next": "ategorical generative adversarial network. InICLR, 2016. 2 [37] C. Szegedy, W. Liu, Y . Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan, V . Vanhoucke, and A. Rabinovich. Going de",
+      "text": "s, Inc., 2015. 1 [32] O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. S. Bernstein, A. C. Berg, and F. Li. Imagenet large scale visual recognition challenge. CoRR, abs/1409.0575, 2014. 1, 2, 4, 5 [33] T. Salimans, I. Goodfellow, W. Zaremba, V . Cheung, A. Rad- ford, X. Chen, and X. Chen. Improved techniques for train- ing gans. In D. D. Lee, M. Sugiyama, U. V . Luxburg, I. Guyon, and R. Garnett, editors, Advances in Neural In- formation Processing Systems 29, pages 2234–2242. Curran Associates, Inc., 2016. 2, 7 [34] A. Shrivastava, T. Pﬁster, O. Tuzel, J. Susskind, W. Wang, and R. Webb. Learning from simulated and unsupervised images through adversarial training. InThe IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , July 2017. 2 [35] K. Simonyan and A. Zisserman. Very deep convolu- tional networks for large-scale image recognition. CoRR, abs/1409.1556, 2014. 2 [36] J. T. Springenberg. Unsupervised and semi-supervised learn- ing with categorical generative adversarial network. InICLR, 2016. 2 [37] C. Szegedy, W. Liu, Y . Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan, V . Vanhoucke, and A. Rabinovich. Going de",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06322,
+        0.01071,
+        -0.03969,
+        0.0048,
+        0.0017
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "ategorical generative adversarial network. InICLR, 2016. 2 [37] C. Szegedy, W. Liu, Y . Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan, V . Vanhoucke, and A. Rabinovich. Going de",
+      "overlap_with_next": "ey and Y . Bengio. Improving generative adver- sarial networks with denoising feature matching. In CVPR, 2017. 2, 5 [44] R. Yeh, C. Chen, T. Lim, M. Hasegawa-Johnson, and M. N. Do.",
+      "text": "ategorical generative adversarial network. InICLR, 2016. 2 [37] C. Szegedy, W. Liu, Y . Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan, V . Vanhoucke, and A. Rabinovich. Going deeper with convolutions. In Computer Vision and Pattern Recognition (CVPR), 2015. 7 [38] L. Theis, A. van den Oord, and M. Bethge. A note on the evaluation of generative models. In ICLR, 2016. 6, 7 [39] A. Torralba and A. A. Efros. Unbiased look at dataset bias. In CVPR, 2011. 1 [40] L. Tran, X. Yin, and X. Liu. Disentangled representation learning gan for pose-invariant face recognition. In The IEEE Conference on Computer Vision and Pattern Recog- nition (CVPR), July 2017. 2 [41] P. Viola and M. Jones. Rapid object detection using a boosted cascade of simple features. In CVPR, 2001. 7 [42] C. Wan, T. Probst, L. Van Gool, and A. Yao. Crossing nets: Combining gans and vaes with a shared latent space for hand pose estimation. In The IEEE Conference on Computer Vi- sion and Pattern Recognition (CVPR), July 2017. 2 [43] D. Warde-Farley and Y . Bengio. Improving generative adver- sarial networks with denoising feature matching. In CVPR, 2017. 2, 5 [44] R. Yeh, C. Chen, T. Lim, M. Hasegawa-Johnson, and M. N. Do.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03546,
+        -0.01934,
+        -0.0163,
+        -0.00644,
+        -0.00332
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "ey and Y . Bengio. Improving generative adver- sarial networks with denoising feature matching. In CVPR, 2017. 2, 5 [44] R. Yeh, C. Chen, T. Lim, M. Hasegawa-Johnson, and M. N. Do.",
+      "overlap_with_next": "[Page 11] A. Deriving the KNN Loss We would like to show how to reach our ﬁnal objective in (10) from the initial expression in (11) min G max D LGAN(G, DX, PX) +µ LKNN(G, PY ), (1",
+      "text": "ey and Y . Bengio. Improving generative adver- sarial networks with denoising feature matching. In CVPR, 2017. 2, 5 [44] R. Yeh, C. Chen, T. Lim, M. Hasegawa-Johnson, and M. N. Do. Semantic image inpainting with perceptual and contex- tual losses. CoRR, abs/1607.07539, 2016. 2 [45] C. Z. Convexity, jensens inequality, 2012. In: Inequalities. Springer, Berlin, Heidelberg. 11 [46] J. Zhao, M. Mathieu, and Y . LeCun. Energy-based genera- tive adversarial network. arXiv preprint arXiv:1609.03126, 2016. 2 [47] J. J. Zhao, M. Mathieu, and Y . LeCun. Energy-based gen- erative adversarial network. CoRR, abs/1609.03126, 2016. 2 [48] J.-Y . Zhu, P. Kr ¨ahenb¨uhl, E. Shechtman, and A. A. Efros. Generative visual manipulation on the natural image mani- fold. In Proceedings of European Conference on Computer Vision (ECCV), 2016. 2, 7, 8 [49] J.-Y . Zhu, T. Park, P. Isola, and A. A. Efros. Unpaired image- to-image translation using cycle-consistent adversarial net- works. arXiv preprint arXiv:1703.10593, 2017. 2, 3, 5 [Page 11] A. Deriving the KNN Loss We would like to show how to reach our ﬁnal objective in (10) from the initial expression in (11) min G max D LGAN(G, DX, PX) +µ LKNN(G, PY ), (1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05924,
+        0.00612,
+        -0.011,
+        -0.03009,
+        -0.00139
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "[Page 11] A. Deriving the KNN Loss We would like to show how to reach our ﬁnal objective in (10) from the initial expression in (11) min G max D LGAN(G, DX, PX) +µ LKNN(G, PY ), (1",
+      "overlap_with_next": "lects an elementyi from a set ofM−n+1 elements based on how close it is to input vector c. It can be described by the following: rn(c) = arg min yi∈ψn ‖c− yi‖2, (14) whereψn is the",
+      "text": "[Page 11] A. Deriving the KNN Loss We would like to show how to reach our ﬁnal objective in (10) from the initial expression in (11) min G max D LGAN(G, DX, PX) +µ LKNN(G, PY ), (10) min G max D LGAN(G, DX, PX) +µEz∼pz(z)[H(G(z), PY )] (11) for Generator G and discriminator DX of modeled base set X with distribution PX and latent vector z∈Rd,the GAN loss LGAN(G, DX, PX) is given by LGAN(G, DX, PX) =Ex∼px(x)[log D(x)] +Ez∼pz(z)[log(1− D(G(z)))] (12) For Target set Y with distributionPY , the K-nearest neigh- bor loss LKNN(G, PY ) is deﬁned as follows: LKNN(G, PY ) =Ez∼pz(z) k∑ n=1 ‖C(G(z))−rn (C (G (z)))‖22 (13) This is the distance between a generated sample from G by a latent vector z and its K nearest neighbors samples of the target distribution PY . This distance in not pixels, but in high-level feature space deﬁned by the Comparitor network C(b)∈ Rs which takes an image b∈ Rh×w as input and outputs feature vector . rn(c) is the K-nearest neighbor function, a parametric order selection function that selects an elementyi from a set ofM−n+1 elements based on how close it is to input vector c. It can be described by the following: rn(c) = arg min yi∈ψn ‖c− yi‖2, (14) whereψn is the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03677,
+        0.00051,
+        -0.05345,
+        -0.02268,
+        -0.01918
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "lects an elementyi from a set ofM−n+1 elements based on how close it is to input vector c. It can be described by the following: rn(c) = arg min yi∈ψn ‖c− yi‖2, (14) whereψn is the",
+      "overlap_with_next": "l for the KDE, the proxy distribution estimator ˆPY,proxy is deﬁned by a Bayesian non- parametric way at any point C(b)∈Rs for b∈Rh×w as follows: ˆPY,proxy(b) = 1Mσ√2π M∑ i=1 exp (",
+      "text": "lects an elementyi from a set ofM−n+1 elements based on how close it is to input vector c. It can be described by the following: rn(c) = arg min yi∈ψn ‖c− yi‖2, (14) whereψn is the set of deep features of M−n + 1 images representing the target distributionPY . The total number of samples features we have for PY is M , where the function rn(c) selects the nearest nth feature out of the remaining furthest M-n+1 features after removing the nearest n-1 from the global set of all features . For the Cross-entropy in (11) , we use the following deﬁ- nition of cross entropy H between two distributions p,q as follows : H(p,q ) =Ep[− logq] (15) To show the derivation , we ﬁrst look into PY . Since ac- quiring a full description of PY in deep feature space is infeasible in most cases, we settle to approximate it using M target samples. We can get a proxy distribution ofPY by using Kernel Density Estimation (KDE) on the deep features extracted by deep network C(x) from thoseM samples in PY . By picking Gaussian kernel for the KDE, the proxy distribution estimator ˆPY,proxy is deﬁned by a Bayesian non- parametric way at any point C(b)∈Rs for b∈Rh×w as follows: ˆPY,proxy(b) = 1Mσ√2π M∑ i=1 exp (",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04654,
+        -0.03178,
+        -0.01903,
+        0.01226,
+        -0.00664
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "l for the KDE, the proxy distribution estimator ˆPY,proxy is deﬁned by a Bayesian non- parametric way at any point C(b)∈Rs for b∈Rh×w as follows: ˆPY,proxy(b) = 1Mσ√2π M∑ i=1 exp (",
+      "overlap_with_next": "ri is just like in (14) and C is like in (13), and pickingλi = 1K ,andn =K, inequality (18) becomes : exp(− 1K K∑ i=1 ‖C(b)− ri(C(b))‖22) ≤ 1K K∑ i=1 exp(−‖C(b)− ri(C(b))‖22) (19) ",
+      "text": "l for the KDE, the proxy distribution estimator ˆPY,proxy is deﬁned by a Bayesian non- parametric way at any point C(b)∈Rs for b∈Rh×w as follows: ˆPY,proxy(b) = 1Mσ√2π M∑ i=1 exp ( −‖C(b)− C(yi)‖22 σ2 ) (16) yi is the ith sample describing PY andσ2 is the Gaussian kernel variance. For far images from the M samples of ˆPY,proxy the probability becomes exponentially negligible. Hence, we we can investigate the effect of a subset of K points (out of the M points C(yi)) that are closest to C(b) to compute (16). We replace M by K in (16), and pick σ = 1 for simplicity to get the following : ˆPY,proxy(b)≈ 1M√2π K∑ i=1 exp ( −‖C(b)− ri(C(b))‖22) (17) where ri is described in (14). We use a ﬁnite discrete special form of the Jansen inequality described by Theorem 7.3 of ([45]) as follows f( n∑ i=1 uiλi) ≤ n∑ i=1 f(ui)λi (18) wheref is convex function for anyui ,λi are set ofn weights with∑ni=1λi = 1 . By Picking f(x) = exp( −x) a convex function deﬁned in[0,∞)d, and picking ui(b) = ‖C(b)− ri(C(b))‖22 for b∈Rh×w, ri is just like in (14) and C is like in (13), and pickingλi = 1K ,andn =K, inequality (18) becomes : exp(− 1K K∑ i=1 ‖C(b)− ri(C(b))‖22) ≤ 1K K∑ i=1 exp(−‖C(b)− ri(C(b))‖22) (19) ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04228,
+        0.00851,
+        -0.02587,
+        -0.03227,
+        -0.01257
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": "ri is just like in (14) and C is like in (13), and pickingλi = 1K ,andn =K, inequality (18) becomes : exp(− 1K K∑ i=1 ‖C(b)− ri(C(b))‖22) ≤ 1K K∑ i=1 exp(−‖C(b)− ri(C(b))‖22) (19) ",
+      "overlap_with_next": "that the left side is the cross entropy betweenG,PY , and the second term in the right hand side is scaled version of the KNN loss LKNN(G, PY ) in (13),to get : Ez∼pz(z)[H(G(z), PY",
+      "text": "ri is just like in (14) and C is like in (13), and pickingλi = 1K ,andn =K, inequality (18) becomes : exp(− 1K K∑ i=1 ‖C(b)− ri(C(b))‖22) ≤ 1K K∑ i=1 exp(−‖C(b)− ri(C(b))‖22) (19) Noting that the right-hand side of (19) is scaled version of the proxy distribution approximate ˆPY,proxy(b) described in (17), we reach to the following inequality exp(− 1K K∑ i=1 ‖C(b)− ri(C(yi))‖22) ≤ M √ 2π K ˆPY,proxy(b) (20) Taking the natural logarithm ( a monotonically non- decreasing function) of both sides of (20) and then negating [Page 12] both sides results in the following inequality : − log ( M √ 2π K ˆPY,proxy(b) ) ≤ 1K K∑ i=1 ‖C(b)− ri(C(yi)‖22) (21) Rearranging (21) to get the following: − log ˆPY,proxy(b) ≤ logM √ 2π K + 1K K∑ i=1 ‖C(b)− ri(C(yi)‖22) (22) By replacing theb by the output of the generatorG(z) sam- pled from latent vector z and taking the expectation, we get the following expected upper bound Ez∼pz(z)[− log ˆPY,proxy(G(z))] ≤ logM √ 2π K + Ez∼pz(z)[ 1K K∑ i=1 ‖C(G(z))− ri(C(yi)‖22)] (23) We note that the left side is the cross entropy betweenG,PY , and the second term in the right hand side is scaled version of the KNN loss LKNN(G, PY ) in (13),to get : Ez∼pz(z)[H(G(z), PY",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04248,
+        0.03823,
+        -0.05328,
+        -0.00227,
+        -0.03931
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "that the left side is the cross entropy betweenG,PY , and the second term in the right hand side is scaled version of the KNN loss LKNN(G, PY ) in (13),to get : Ez∼pz(z)[H(G(z), PY",
+      "overlap_with_next": "e time step t. By starting from Eq.(25) and using the notationf(w) instead of C(G(z, w)),and ¯d as the mean 1k∑ki=1 di, Eq.(25) can be expanded as the following arg min w k∑ i=1 ‖f",
+      "text": "that the left side is the cross entropy betweenG,PY , and the second term in the right hand side is scaled version of the KNN loss LKNN(G, PY ) in (13),to get : Ez∼pz(z)[H(G(z), PY )] ≤ logM √ 2π K + M √ 2π K LKNN(G, PY )(24) The expression in (24) gives upper bound for the cross en- tropy using the KNN loss. By minimizing the KNN loss for parameters of G as in (10) we insure minimizing the cross entropyEz∼pz(z)[H(G(z), PY )] as in (11) and hence estab- lish mathematical justiﬁcation for using KNN loss instead of cross entropy. [Page 13] B. Justifying regressing to the mean of the K-features instead of each independently during the training of K-GAN We would like to show that the equivalence of : arg min w Ez∼pz(z) k∑ i=1 ‖C(G(z, w))− di‖22 (25) arg min w Ez∼pz(z) ‖‖‖‖‖C(G(z, w))− 1k k∑i=1 di‖‖‖‖‖22 (26) where C is the feature extraction network , G(z, w) is the Generator network with parametersw and random sampling latent vector z sampled from uniform distribution, and di’s are theK chosen features in the time step t. By starting from Eq.(25) and using the notationf(w) instead of C(G(z, w)),and ¯d as the mean 1k∑ki=1 di, Eq.(25) can be expanded as the following arg min w k∑ i=1 ‖f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05109,
+        -0.00255,
+        -0.04987,
+        -0.00761,
+        -0.011
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "e time step t. By starting from Eq.(25) and using the notationf(w) instead of C(G(z, w)),and ¯d as the mean 1k∑ki=1 di, Eq.(25) can be expanded as the following arg min w k∑ i=1 ‖f",
+      "overlap_with_next": "Face Generation for Character Design Aid We show more examples of celebrity zoo in the following page. D. image Manifold Traversing We do image manifold traversing for more classes",
+      "text": "e time step t. By starting from Eq.(25) and using the notationf(w) instead of C(G(z, w)),and ¯d as the mean 1k∑ki=1 di, Eq.(25) can be expanded as the following arg min w k∑ i=1 ‖f(w)− di‖22 = arg min w 1 k k∑ i=1 ‖f(w)− di‖22 = arg min w 1 k k∑ i=1 ⟨f(w), f(w)⟩− 2k k∑ i=1 ⟨f(w), di⟩ + 1k k∑ i=1 ⟨di, di⟩ = arg min w ⟨f(w), f(w)⟩− 2 ⟨ f(w), ¯d⟩ + 1k k∑i=1⟨di, di⟩ = arg min w ⟨f(w), f(w)⟩− 2 ⟨ f(w), ¯d⟩ (27) where⟨.,.⟩ is the inner product and after utilizing the prop- erty∑i⟨a, di⟩ =⟨a,∑i di⟩. On the other hand, Eq.(26) can be expanded ( with the new notation ) as the following arg min w ‖f(w)− ¯d‖22 = arg min w ⟨f(w), f(w)⟩− 2 ⟨ f(w), ¯d⟩ +⟨¯d, ¯d⟩ = arg min w ⟨f(w), f(w)⟩− 2 ⟨ f(w), ¯d⟩ (28) We can see that the ﬁnal expressions in Eq.(27) and Eq.(28) are equivalent. Hence , the equivalence between Eq.(25) and Eq.(26) is established , and picking the mean of the K-NN features at each iteration is mathematically jus- tiﬁed , while improving the speed of the training of the K- GAN. [Page 14] C. Imaginative Face Generation for Character Design Aid We show more examples of celebrity zoo in the following page. D. image Manifold Traversing We do image manifold traversing for more classes",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05176,
+        0.00694,
+        -0.03542,
+        -0.0017,
+        -0.01445
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": "Face Generation for Character Design Aid We show more examples of celebrity zoo in the following page. D. image Manifold Traversing We do image manifold traversing for more classes",
+      "overlap_with_next": " to another in different Y classes using the same pair in base set X [Page 18] Figure 12. multi-domain image manifold traversing: Multi-domain image manifold traversing: moving fro",
+      "text": "Face Generation for Character Design Aid We show more examples of celebrity zoo in the following page. D. image Manifold Traversing We do image manifold traversing for more classes. [Page 15] Celebrity gorilla cat lionkoala Norwegiandog panda Samoyed spider tigerChowchow Figure 7. Imaginative Faces: using different IAN models trained in Sec.4 [Page 16] Figure 8. multi-domain image manifold traversing : Multi-domain image manifold traversing: moving from one point to another in different Y classes using the same pair in base set X Figure 9. multi-domain image manifold traversing : Multi-domain image manifold traversing: moving from one point to another in different Y classes using the same pair in base set X [Page 17] Figure 10. multi-domain image manifold traversing: Multi-domain image manifold traversing: moving from one point to another in different Y classes using the same pair in base set X Figure 11. multi-domain image manifold traversing: Multi-domain image manifold traversing: moving from one point to another in different Y classes using the same pair in base set X [Page 18] Figure 12. multi-domain image manifold traversing: Multi-domain image manifold traversing: moving fro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04871,
+        -0.02257,
+        -0.00886,
+        -0.00399,
+        -0.00627
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": " to another in different Y classes using the same pair in base set X [Page 18] Figure 12. multi-domain image manifold traversing: Multi-domain image manifold traversing: moving fro",
+      "overlap_with_next": "value ofµ hyperparam- eter (coefﬁcient of the KNN regularizer) was picked to be 0.001 for FC7 and 0.0001 for FC6. For χ the subset of fea- tures picked by KNN search during the tra",
+      "text": " to another in different Y classes using the same pair in base set X [Page 18] Figure 12. multi-domain image manifold traversing: Multi-domain image manifold traversing: moving from one point to another in different Y classes using the same pair in base set X [Page 19] E. Selecting the Parameter K and µ for Train- ing K-GAN To study the effect of changing the K parameter of near- est neighbor search, we look at the cardinality of the setχ (a subset of the set Ψ of a high level feature of the targetY ).χ contains different features from class Y that have been se- lected during the KNN search in K-GAN training. A bigger χ cardinality is an indication of a better hyper-parameter se- lection, which means we have more effectively utilized the set Ψ and the KNN search did not pick one feature several times during the training. We use this number as a valida- tion metric to assess the quality of the training. We picked K = 4 because it compromises both the utilization of Ψ and the stability of the training. The value ofµ hyperparam- eter (coefﬁcient of the KNN regularizer) was picked to be 0.001 for FC7 and 0.0001 for FC6. For χ the subset of fea- tures picked by KNN search during the tra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06446,
+        -0.01466,
+        -0.06349,
+        0.00506,
+        -0.00419
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "value ofµ hyperparam- eter (coefﬁcient of the KNN regularizer) was picked to be 0.001 for FC7 and 0.0001 for FC6. For χ the subset of fea- tures picked by KNN search during the tra",
+      "overlap_with_next": "e of the K-GAN model and producing only a single image. Table 3 shows the values of K andµFC7,µ FC7 picked to train the ﬁnal 10 K-GAN models that we reported its samples and did al",
+      "text": "value ofµ hyperparam- eter (coefﬁcient of the KNN regularizer) was picked to be 0.001 for FC7 and 0.0001 for FC6. For χ the subset of fea- tures picked by KNN search during the training of K-GAN out of M features, the following Fig 13 shows percentage of card(χ) to M for different choice of target class Y and different values of hyper-parameter K. We used this per- centage as quick validation metric to assess the quality of the training. We picked K such that we covers large per- centage of the target set while preserving the uniqueness of each image feature. Also , since we are taking the mean of the KNN features , larger K is less prone to noise especially if there is an image in the training that is very unique from others and can be picked by the KNN search several times. TheµFC7,µ FC7 (the coefﬁcients of FC7 and FC6 regulariz- ers of K-GAN ) were picked to insure that the key properties were indeed transferred from Y to X, at the same time not over-regularizing the model which can lead to the collapse of the K-GAN model and producing only a single image. Table 3 shows the values of K andµFC7,µ FC7 picked to train the ﬁnal 10 K-GAN models that we reported its samples and did al",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04471,
+        -0.01456,
+        -0.06107,
+        -0.02789,
+        -0.00132
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "e of the K-GAN model and producing only a single image. Table 3 shows the values of K andµFC7,µ FC7 picked to train the ﬁnal 10 K-GAN models that we reported its samples and did al",
+      "overlap_with_next": "igure 16. Samples of the Zoo-Faces dataset Figure 17. Samples of the Zoo-Faces dataset Figure 18. Samples of the Zoo-Faces dataset Figure 19. Samples of the Zoo-Faces dataset Figur",
+      "text": "e of the K-GAN model and producing only a single image. Table 3 shows the values of K andµFC7,µ FC7 picked to train the ﬁnal 10 K-GAN models that we reported its samples and did all the tests on for the 10 different Zoo-Faces dataset classes. 0 10 20 30 40 50 60 70 80 90 100 K=1 K=4 K=8 caridinality percentage(%) ape chowchow lion norwegian_elkhound panda samoyed_dog spider tiger egyptian_cat Koala Figure 13. The percentage of used features in training K-GAN model with K= 1,4,and 8 , and using different target classes Y K-GAN model K µFC7 µFC6 Apes 8 0.012 0.001 egyptian-cat 8 0.010 0.001 Chowchow 8 0.012 0.001 koala 4 0.010 0.001 Lion 8 0.010 0.001 Norwegian elkhound 4 0.012 0.001 panda 4 0.010 0.001 samoyed dog 4 0.010 0.001 spider 8 0.010 0.001 tiger 4 0.010 0.001 Table 3. The values of parameter K and coefﬁcients of regularizer used in training different K-GAN models. [Page 20] F. Samples of the Zoo-Faces Dataset Figure 14. Samples of the Zoo-Faces dataset Figure 15. Samples of the Zoo-Faces dataset Figure 16. Samples of the Zoo-Faces dataset Figure 17. Samples of the Zoo-Faces dataset Figure 18. Samples of the Zoo-Faces dataset Figure 19. Samples of the Zoo-Faces dataset Figur",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04723,
+        -0.02057,
+        -0.0604,
+        -0.03821,
+        -0.0204
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": "igure 16. Samples of the Zoo-Faces dataset Figure 17. Samples of the Zoo-Faces dataset Figure 18. Samples of the Zoo-Faces dataset Figure 19. Samples of the Zoo-Faces dataset Figur",
+      "overlap_with_next": " Figure 33. Samples of K-GAN model trained on tigers and faces [Page 24] H. Confusion Matrices for Human classiﬁca- tion experiment JRULOODV FKRZFKRZ NRDODV HJ\\SWLDQBFDW OLRQV QRUZ",
+      "text": "igure 16. Samples of the Zoo-Faces dataset Figure 17. Samples of the Zoo-Faces dataset Figure 18. Samples of the Zoo-Faces dataset Figure 19. Samples of the Zoo-Faces dataset Figure 20. Samples of the Zoo-Faces dataset [Page 21] Figure 21. Samples of the Zoo-Faces dataset Figure 22. Samples of the Zoo-Faces dataset Figure 23. Samples of the Zoo-Faces dataset [Page 22] G. Samples of the K-GAN, K-GAN + Cycle- GAN Models Figure 24. Samples of K-GAN model trained on Apes and faces Figure 25. Samples of K-GAN model trained on egyptian-cat and faces Figure 26. Samples of K-GAN model trained on chowchow and faces Figure 27. Samples of full IAN model trained on koalas and faces Figure 28. Samples of K-GAN model trained on lions and faces Figure 29. Samples of full IAN model trained on norwegian elkhoundand faces Figure 30. Samples of K-GAN model trained on pandas and faces [Page 23] Figure 31. Samples of full IAN model trained on samoyed dog and faces Figure 32. Samples of K-GAN model trained on spiders and faces Figure 33. Samples of K-GAN model trained on tigers and faces [Page 24] H. Confusion Matrices for Human classiﬁca- tion experiment JRULOODV FKRZFKRZ NRDODV HJ\\SWLDQBFDW OLRQV QRUZ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02199,
+        -0.03467,
+        -0.05409,
+        -0.0208,
+        -0.03005
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": " Figure 33. Samples of K-GAN model trained on tigers and faces [Page 24] H. Confusion Matrices for Human classiﬁca- tion experiment JRULOODV FKRZFKRZ NRDODV HJ\\SWLDQBFDW OLRQV QRUZ",
+      "overlap_with_next": "\u0017\u0019 \u001b \u0018 \u0017 \u0016 \u0019 \u0014\u0014 \u0017 \u0019 \u0014\u0015 \u001a \u0017\u0016 \u0018 \u0017 \u0016 \u0019 \u0017 \u0013 \u001b \u0013 \u0013 \u0018 \u0015 \u0013 \u0016 \u0013 \u0013 \u0014 \u0013 \u0013 \u0014 \u0013 \u0015 \u0017 \u0013 \u0014 \u0013 .\u0010'&*$1\u000e&\\F\u0003 \u0017 \u0003+XPDQ\u0003&RQIXVLRQ\u0003PDWUL[ \u0013 \u0015\u0013 \u0017\u0013 \u0019\u0013 \u001b\u0013 Figure 35. Confusion Matrix for K-DCGAN + CycleGA",
+      "text": " Figure 33. Samples of K-GAN model trained on tigers and faces [Page 24] H. Confusion Matrices for Human classiﬁca- tion experiment JRULOODV FKRZFKRZ NRDODV HJ\\SWLDQBFDW OLRQV QRUZHJLDQBHONKRXQG SDQGDV VDPR\\HGBGRJ VSLGHUV WLJHUV SUHGLFWHG\u0003,$1\u0003FODVV WLJHUV VSLGHUV VDPR\\HGBGRJ SDQGDV QRUZHJLDQBHONKRXQG OLRQV HJ\\SWLDQBFDW NRDODV FKRZFKRZ JRULOODV DFWXDO\u0003,$1\u0003FODVV \u0013 \u0014 \u0013 \u0013 \u0013 \u0013 \u0013 \u0013 \u0013 \u001b \u0014 \u0015 \u0014 \u0015 \u0013 \u0013 \u0013 \u0013 \u001b\u001a \u0019 \u0013 \u0014 \u0013 \u0013 \u0013 \u0016 \u0013 \u0017 \u0014 \u0013 \u0016 \u0013 \u0015 \u0013 \u001b \u0018\u001b \u0014\u001a \u0015 \u0013 \u001a \u0017 \u001b \u0014\u0014 \u0013 \u0018\u0016 \u0017 \u0018 \u001a \u0013 \u0013 \u0015 \u0014 \u0014 \u001b\u0019 \u0013 \u0013 \u0014 \u0015 \u0019 \u0015 \u0013 \u001a\u0019 \u0019 \u0016 \u0014 \u0013 \u0014 \u0019 \u0017 \u0014\u0016 \u0014 \u0015 \u001a\u001b \u0013 \u0016 \u0014 \u0013 \u0014 \u0013 \u0013 \u0019 \u0016 \u0015 \u001b \u0015 \u0013 \u0014\u0015 \u0015 \u0014 \u001b\u0017 \u0013 \u0013 \u0013 \u0015 \u0013 \u0013 \u0017 \u0013 '&*$1\u000e&\\F\u0003 \u0016 \u0003&RQIXVLRQ\u0003PDWUL[ \u0013 \u0015\u0013 \u0017\u0013 \u0019\u0013 \u001b\u0013 Figure 34. Confusion Matrix for DCGAN + CycleGAN JRULOODV FKRZFKRZ NRDODV HJ\\SWLDQBFDW OLRQV QRUZHJLDQBHONKRXQG SDQGDV VDPR\\HGBGRJ VSLGHUV WLJHUV SUHGLFWHG\u0003,$1\u0003FODVV WLJHUV VSLGHUV VDPR\\HGBGRJ SDQGDV QRUZHJLDQBHONKRXQG OLRQV HJ\\SWLDQBFDW NRDODV FKRZFKRZ JRULOODV DFWXDO\u0003,$1\u0003FODVV \u0013 \u0013 \u0013 \u0013 \u0013 \u0013 \u0013 \u0013 \u0013 \u0013 \u0015 \u0014 \u0014 \u0013 \u0013 \u0013 \u0013 \u0017 \u0014 \u0013 \u0013 \u0014 \u0013 \u0013 \u0013 \u0013 \u001b \u0013 \u0013 \u0016 \u0018 \u0018 \u0018 \u001a \u0016\u0019 \u0014\u0018 \u001a \u001a \u0014 \u0013 \u0018 \u001b \u0013 \u0019\u001a \u0015 \u0014\u0016 \u0016 \u0013 \u0013 \u0014 \u0014 \u0013 \u001b\u001a \u0014 \u0013 \u0013 \u0017 \u0018 \u0018 \u001a \u0017\u0019 \u001b \u0018 \u0017 \u0016 \u0019 \u0014\u0014 \u0017 \u0019 \u0014\u0015 \u001a \u0017\u0016 \u0018 \u0017 \u0016 \u0019 \u0017 \u0013 \u001b \u0013 \u0013 \u0018 \u0015 \u0013 \u0016 \u0013 \u0013 \u0014 \u0013 \u0013 \u0014 \u0013 \u0015 \u0017 \u0013 \u0014 \u0013 .\u0010'&*$1\u000e&\\F\u0003 \u0017 \u0003+XPDQ\u0003&RQIXVLRQ\u0003PDWUL[ \u0013 \u0015\u0013 \u0017\u0013 \u0019\u0013 \u001b\u0013 Figure 35. Confusion Matrix for K-DCGAN + CycleGA",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00171,
+        -0.04156,
+        -0.06716,
+        -0.01685,
+        -0.00671
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "\u0017\u0019 \u001b \u0018 \u0017 \u0016 \u0019 \u0014\u0014 \u0017 \u0019 \u0014\u0015 \u001a \u0017\u0016 \u0018 \u0017 \u0016 \u0019 \u0017 \u0013 \u001b \u0013 \u0013 \u0018 \u0015 \u0013 \u0016 \u0013 \u0013 \u0014 \u0013 \u0013 \u0014 \u0013 \u0015 \u0017 \u0013 \u0014 \u0013 .\u0010'&*$1\u000e&\\F\u0003 \u0017 \u0003+XPDQ\u0003&RQIXVLRQ\u0003PDWUL[ \u0013 \u0015\u0013 \u0017\u0013 \u0019\u0013 \u001b\u0013 Figure 35. Confusion Matrix for K-DCGAN + CycleGA",
+      "overlap_with_next": "\u0015 \u0016 \u0013 \u0013 \u0014 \u0015 \u0013 \u0018 \u0014\u0013 \u0013 \u0016 \u0019 \u0014\u0013 \u0013 \u0013 \u0016 \u0014 \u0014\u0016 \u001a \u0018 \u0016\u0018 \u0014\u0013 \u0015\u0016 \u0015 \u0013 \u0013 \u0015 \u0015 \u0016 \u001b\u001b \u0015 \u0013 \u0014 \u0014 \u0013 \u0015\u0019 \u0013 \u0018 \u0017\u0013 \u0014 \u0014\u0016 \u0017 \u0016 \u0018 \u0015 \u0013 \u0016 \u0019 \u0016 \u0014 \u0014 \u0017 \u0013 \u0019 \u0016\u001a \u0013 \u0018 \u0014\u0014 \u0014 \u0015\u0015 \u001a \u0014 \u0017\u001b \u0013 \u0014\u0017 \u0016 \u0018 \u0013 \u0014 \u001b \u0014\u0014 .\u0010%(*$1\u000e&\\F\u0003 \u0019 \u0003+XPDQ\u0003",
+      "text": "\u0017\u0019 \u001b \u0018 \u0017 \u0016 \u0019 \u0014\u0014 \u0017 \u0019 \u0014\u0015 \u001a \u0017\u0016 \u0018 \u0017 \u0016 \u0019 \u0017 \u0013 \u001b \u0013 \u0013 \u0018 \u0015 \u0013 \u0016 \u0013 \u0013 \u0014 \u0013 \u0013 \u0014 \u0013 \u0015 \u0017 \u0013 \u0014 \u0013 .\u0010'&*$1\u000e&\\F\u0003 \u0017 \u0003+XPDQ\u0003&RQIXVLRQ\u0003PDWUL[ \u0013 \u0015\u0013 \u0017\u0013 \u0019\u0013 \u001b\u0013 Figure 35. Confusion Matrix for K-DCGAN + CycleGAN JRULOODV FKRZFKRZ NRDODV HJ\\SWLDQBFDW OLRQV QRUZHJLDQBHONKRXQG SDQGDV VDPR\\HGBGRJ VSLGHUV WLJHUV SUHGLFWHG\u0003,$1\u0003FODVV WLJHUV VSLGHUV VDPR\\HGBGRJ SDQGDV QRUZHJLDQBHONKRXQG OLRQV HJ\\SWLDQBFDW NRDODV FKRZFKRZ JRULOODV DFWXDO\u0003,$1\u0003FODVV \u0014 \u0014 \u0013 \u0013 \u0016 \u0013 \u0014 \u0015 \u001b \u001b\u0016 \u0019 \u0014 \u0015 \u0014\u0013 \u0016 \u0018 \u0014 \u001b \u0016\u0019 \u0015\u001a \u0015 \u0014 \u0014\u0013 \u0016 \u0013 \u0017 \u0014\u0019 \u0019\u0016 \u0013 \u0013 \u0013 \u0013 \u0017 \u0013 \u0013 \u001a \u001a\u001a \u0014\u0013 \u0014 \u0013 \u001a \u0017 \u0014\u0014 \u0014\u0014 \u0018 \u0016\u0018 \u001b \u0014\u0018 \u0016 \u0013 \u0015 \u0019 \u0014 \u0018 \u0019\u0019 \u0015 \u0013 \u0013 \u0017 \u0014\u0016 \u0014\u0016 \u0014 \u0017 \u0017 \u0016 \u0014\u001b \u0015 \u0017 \u0016 \u0015 \u0019 \u0015 \u0018\u0016 \u0016 \u0019 \u0015 \u0019 \u001b \u0017 \u0018 \u0018\u0013 \u0013 \u0014 \u0014\u0016 \u0016 \u0017 \u0014\u0017 \u0019 \u0016 \u0019\u0015 \u0014 \u0016 \u0014\u0014 \u0016 \u0019 \u0015 \u0016 \u001a \u0014 %(*$1\u000e&\\F\u0003 \u0018 \u0003+XPDQ\u0003&RQIXVLRQ\u0003PDWUL[ \u0013 \u0014\u0018 \u0016\u0013 \u0017\u0018 \u0019\u0013 \u001a\u0018 Figure 36. Confusion Matrix for BEGAN + CycleGAN JRULOODV FKRZFKRZ NRDODV HJ\\SWLDQBFDW OLRQV QRUZHJLDQBHONKRXQG SDQGDV VDPR\\HGBGRJ VSLGHUV WLJHUV SUHGLFWHG\u0003,$1\u0003FODVV WLJHUV VSLGHUV VDPR\\HGBGRJ SDQGDV QRUZHJLDQBHONKRXQG OLRQV HJ\\SWLDQBFDW NRDODV FKRZFKRZ JRULOODV DFWXDO\u0003,$1\u0003FODVV \u0013 \u0013 \u0013 \u0013 \u0018 \u0013 \u0013 \u0013 \u0015 \u0015 \u0013 \u0013 \u0015 \u0016 \u0013 \u0015 \u0014 \u0017 \u0019\u0018 \u0015\u0015 \u0013 \u0013 \u0016 \u0013 \u0013 \u0015 \u0016 \u0013 \u0013 \u0014 \u0015 \u0013 \u0018 \u0014\u0013 \u0013 \u0016 \u0019 \u0014\u0013 \u0013 \u0013 \u0016 \u0014 \u0014\u0016 \u001a \u0018 \u0016\u0018 \u0014\u0013 \u0015\u0016 \u0015 \u0013 \u0013 \u0015 \u0015 \u0016 \u001b\u001b \u0015 \u0013 \u0014 \u0014 \u0013 \u0015\u0019 \u0013 \u0018 \u0017\u0013 \u0014 \u0014\u0016 \u0017 \u0016 \u0018 \u0015 \u0013 \u0016 \u0019 \u0016 \u0014 \u0014 \u0017 \u0013 \u0019 \u0016\u001a \u0013 \u0018 \u0014\u0014 \u0014 \u0015\u0015 \u001a \u0014 \u0017\u001b \u0013 \u0014\u0017 \u0016 \u0018 \u0013 \u0014 \u001b \u0014\u0014 .\u0010%(*$1\u000e&\\F\u0003 \u0019 \u0003+XPDQ\u0003",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02676,
+        -0.03338,
+        -0.07925,
+        -0.02656,
+        -0.02193
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 61461,
+      "length": 261,
+      "overlap_with_previous": "\u0015 \u0016 \u0013 \u0013 \u0014 \u0015 \u0013 \u0018 \u0014\u0013 \u0013 \u0016 \u0019 \u0014\u0013 \u0013 \u0013 \u0016 \u0014 \u0014\u0016 \u001a \u0018 \u0016\u0018 \u0014\u0013 \u0015\u0016 \u0015 \u0013 \u0013 \u0015 \u0015 \u0016 \u001b\u001b \u0015 \u0013 \u0014 \u0014 \u0013 \u0015\u0019 \u0013 \u0018 \u0017\u0013 \u0014 \u0014\u0016 \u0017 \u0016 \u0018 \u0015 \u0013 \u0016 \u0019 \u0016 \u0014 \u0014 \u0017 \u0013 \u0019 \u0016\u001a \u0013 \u0018 \u0014\u0014 \u0014 \u0015\u0015 \u001a \u0014 \u0017\u001b \u0013 \u0014\u0017 \u0016 \u0018 \u0013 \u0014 \u001b \u0014\u0014 .\u0010%(*$1\u000e&\\F\u0003 \u0019 \u0003+XPDQ\u0003",
+      "overlap_with_next": "",
+      "text": "\u0015 \u0016 \u0013 \u0013 \u0014 \u0015 \u0013 \u0018 \u0014\u0013 \u0013 \u0016 \u0019 \u0014\u0013 \u0013 \u0013 \u0016 \u0014 \u0014\u0016 \u001a \u0018 \u0016\u0018 \u0014\u0013 \u0015\u0016 \u0015 \u0013 \u0013 \u0015 \u0015 \u0016 \u001b\u001b \u0015 \u0013 \u0014 \u0014 \u0013 \u0015\u0019 \u0013 \u0018 \u0017\u0013 \u0014 \u0014\u0016 \u0017 \u0016 \u0018 \u0015 \u0013 \u0016 \u0019 \u0016 \u0014 \u0014 \u0017 \u0013 \u0019 \u0016\u001a \u0013 \u0018 \u0014\u0014 \u0014 \u0015\u0015 \u001a \u0014 \u0017\u001b \u0013 \u0014\u0017 \u0016 \u0018 \u0013 \u0014 \u001b \u0014\u0014 .\u0010%(*$1\u000e&\\F\u0003 \u0019 \u0003+XPDQ\u0003&RQIXVLRQ\u0003PDWUL[ \u0013 \u0015\u0013 \u0017\u0013 \u0019\u0013 \u001b\u0013 Figure 37. Confusion Matrix for K-BEGAN + CycleGAN",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01445,
+        -0.01497,
+        -0.0652,
+        -0.02483,
+        -0.02281
+      ]
+    }
+  ]
+}

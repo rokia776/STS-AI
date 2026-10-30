@@ -1,0 +1,470 @@
+{
+  "paper_id": "e8d6475a-a331-413a-bdde-e92067bde262",
+  "filename": "013_NLP_End-to-End_Speech_Translation_with_Knowledge_Distillation.pdf",
+  "title": "End-to-End Speech Translation with Knowledge Distillation",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 27,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "paper, we propose a knowledge distilla- tion approach to improve ST model by transferring the knowl- edge from text translation model. Speciﬁcally, we ﬁrst train a text translation",
+      "text": "[Page 1] End-to-End Speech Translation with Knowledge Distillation Yuchen Liu1,2, Hao Xiong 4, Zhongjun He 4, Jiajun Zhang 1,2, Hua Wu4, Haifeng Wang4 and Chengqing Zong1,2,3 1NLPR, Institute of Automation, Chinese Academy of Sciences, Beijing, China 2University of Chinese Academy of Sciences, China 3CAS Center for Excellence in Brain Science and Intelligence Technology, Beijing, China 4Baidu Inc. No. 10, Shangdi 10th Street, Beijing, 100085, China {yuchen.liu, jjzhang, cqzong }@nlpr.ia.ac.cn, {xionghao05, hezhongjun, wu hua, wanghaifeng}@baidu.com Abstract End-to-end speech translation (ST), which directly translates from source language speech into target language text, has at- tracted intensive attentions in recent years. Compared to con- ventional pipepine systems, end-to-end ST models have ad- vantages of lower latency, smaller model size and less error propagation. However, the combination of speech recognition and text translation in one model is more difﬁcult than each of these two tasks. In this paper, we propose a knowledge distilla- tion approach to improve ST model by transferring the knowl- edge from text translation model. Speciﬁcally, we ﬁrst train a text translation",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03515,
+        -0.0041,
+        -0.00463,
+        -0.01375,
+        -0.0185
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "paper, we propose a knowledge distilla- tion approach to improve ST model by transferring the knowl- edge from text translation model. Speciﬁcally, we ﬁrst train a text translation",
+      "overlap_with_next": "ge [1, 2, 3, 4, 5]. This pipeline system usually suffers from time delay, parameter redundancy and error accumulation. In contrast, end-to-end ST, based on an encoder- decoder arch",
+      "text": "paper, we propose a knowledge distilla- tion approach to improve ST model by transferring the knowl- edge from text translation model. Speciﬁcally, we ﬁrst train a text translation model, regarded as a teacher model, and then ST model is trained to learn output probabilities from teacher model through knowledge distillation. Experiments on English- French Augmented LibriSpeech and English-Chinese TED cor- pus show that end-to-end ST is possible to implement on both similar and dissimilar language pairs. In addition, with the in- struction of teacher model, end-to-end ST model can gain sig- niﬁcant improvements by over 3.5 BLEU points. Index Terms: Speech recognition, Speech translation, Knowl- edge distillation, Transformer 1. Introduction Conventional speech translation system is a pipeline of two main components: an automatic speech recognition (ASR) model which provides transcripts of source language utterances, and a text machine translation (MT) model which translates the transcripts to target language [1, 2, 3, 4, 5]. This pipeline system usually suffers from time delay, parameter redundancy and error accumulation. In contrast, end-to-end ST, based on an encoder- decoder arch",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02643,
+        -0.01639,
+        -0.00286,
+        0.01488,
+        0.00461
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "ge [1, 2, 3, 4, 5]. This pipeline system usually suffers from time delay, parameter redundancy and error accumulation. In contrast, end-to-end ST, based on an encoder- decoder arch",
+      "overlap_with_next": "ake full advantage of text data. We notice that the per- formance between end-to-end ST and MT model exists a huge gap, thus how to utilize MT model to help instruct end-to-end ST ",
+      "text": "ge [1, 2, 3, 4, 5]. This pipeline system usually suffers from time delay, parameter redundancy and error accumulation. In contrast, end-to-end ST, based on an encoder- decoder architecture with attention mechanism, is more com- pact and efﬁcient. It can directly generate translations from raw audio and jointly optimize parameters on the ﬁnal goal. There- fore, this model has become a new trend in speech translation research studies [6, 7, 8, 9, 10, 11]. However, despite appealing advantages of end-to-end ST model, its performance is generally inferior. One of the im- portant reasons is due to extremely scarce data which includes speech in source language paired with text in target language. Previous studies resort pretraining or multi-task learning ap- proaches to improve the translation quality. They either pretrain ASR task on high-resource data [11], or use multi-task learn- ing to train ST model with ASR or MT model simultaneously [9, 10]. Nevertheless, they only gain limited improvements and do not take full advantage of text data. We notice that the per- formance between end-to-end ST and MT model exists a huge gap, thus how to utilize MT model to help instruct end-to-end ST ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00441,
+        -2e-05,
+        -0.0326,
+        0.0142,
+        0.01605
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ake full advantage of text data. We notice that the per- formance between end-to-end ST and MT model exists a huge gap, thus how to utilize MT model to help instruct end-to-end ST ",
+      "overlap_with_next": "this paper, we present a method based on knowledge dis- tillation for end-to-end ST model to learn knowledge from text translation model. We ﬁrst train a text translation model on ",
+      "text": "ake full advantage of text data. We notice that the per- formance between end-to-end ST and MT model exists a huge gap, thus how to utilize MT model to help instruct end-to-end ST model is of great signiﬁcance. It is a challenge to train an end-to-end ST model directly from speech signal without text guidance while achieving com- parable performance as text translation model. Given that text translation models are superior to ST model, we consider ST model can be improved by leveraging knowledge distillation . In knowledge distillation, there is usually a big teacher model with a small student model. It has been shown that the output probabilities of teacher model are smooth, which are easier for student model to learn from than ground-truth text [12]. Thus, a student model can be taught by imitating the behaviour of teacher model, such as output probabilities [12, 13], hidden rep- resentation [14, 15], or generated sequence [16], and alleviate the performance gap between itself and the teacher model. In this paper, we present a method based on knowledge dis- tillation for end-to-end ST model to learn knowledge from text translation model. We ﬁrst train a text translation model on ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0263,
+        -0.02458,
+        -0.01417,
+        -0.00708,
+        -0.0011
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "this paper, we present a method based on knowledge dis- tillation for end-to-end ST model to learn knowledge from text translation model. We ﬁrst train a text translation model on ",
+      "overlap_with_next": "g results in ASR ﬁelds [2, 4, 17]. Recent works purpose a further attempt to combine these two tasks together by building an end-to-end speech-to-text translation without the use o",
+      "text": "this paper, we present a method based on knowledge dis- tillation for end-to-end ST model to learn knowledge from text translation model. We ﬁrst train a text translation model on par- allel text data (regarded as teacher) and then an end-to-end ST model (regarded as student) is trained by learning from ground- truth translations and the outputs of teacher model simultane- ously. Experiments conducted on 100h English-French Aug- mented LibriSpeech corpus and 542h English-Chinese TED corpus show that it is possible to train a compact end-to-end speech translation model on both similar and dissimilar lan- guage pairs. With the instruction of teacher model, end-to-end ST model can gain signiﬁcant improvements, approaching to the traditional pipeline system. 2. Related Work End-to-end model has already become a dominant paradigm in machine translation task, which adopts an encoder-decoder ar- chitecture and generates target words from left to right at each step [1, 3, 5]. This model has also achieved promising results in ASR ﬁelds [2, 4, 17]. Recent works purpose a further attempt to combine these two tasks together by building an end-to-end speech-to-text translation without the use o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01982,
+        -0.01275,
+        0.01584,
+        -0.00275,
+        -0.00464
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "g results in ASR ﬁelds [2, 4, 17]. Recent works purpose a further attempt to combine these two tasks together by building an end-to-end speech-to-text translation without the use o",
+      "overlap_with_next": "anslation task. Bansal et al. [11] ﬁnd pretraining encoder on higher-resource language ASR training data can achieve gains in low-resource speech translation system. However, these",
+      "text": "g results in ASR ﬁelds [2, 4, 17]. Recent works purpose a further attempt to combine these two tasks together by building an end-to-end speech-to-text translation without the use of source language translation during learning or decoding. Anastasopoulos et al. [6] use k-means clustering to cluster repeated audio patterns and automatically align spoken words with their translations. Duong et al. [7] focus on the alignment between speech and translated phrase but not to directly pre- dict the ﬁnal translations. B ´erard et al. [8] give the ﬁrst proof of the potential for end-to-end speech-to-text translation with- out using source language. They further conduct experimetns on a larger English-to-French dataset and pre-train encoder and arXiv:1904.08075v1 [cs.CL] 17 Apr 2019 [Page 2] decoder which improves performance [10]. Weiss et al. [9] also use multi-task learning and show that end-to-end model can outperform a cascade of independently trained pipeline system on Fisher Callhome Spanish-English speech translation task. Bansal et al. [11] ﬁnd pretraining encoder on higher-resource language ASR training data can achieve gains in low-resource speech translation system. However, these",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01888,
+        0.02801,
+        -0.01614,
+        0.00495,
+        -0.02547
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "anslation task. Bansal et al. [11] ﬁnd pretraining encoder on higher-resource language ASR training data can achieve gains in low-resource speech translation system. However, these",
+      "overlap_with_next": "SR, ST and MT). The model archi- tecture is similar with Transformer [5], which is the state-of-art model in MT task. Recently, this model also begins to be used in ASR task, showi",
+      "text": "anslation task. Bansal et al. [11] ﬁnd pretraining encoder on higher-resource language ASR training data can achieve gains in low-resource speech translation system. However, these work mainly focus on pretraining acoustic encoder and do not take full advantage of text data. Knowledge distillation is ﬁrst adopted to apply for model compression, the main idea of which is to train a smaller stu- dent model to mimic a larger teacher model, by minimizing the loss between the teacher and student predictions. It has soon been applied to a variety of tasks, like image classiﬁcation [12, 18, 19, 20], speech recognition [12] and natural language processing [13, 16, 21]. The teacher and student model in con- ventional knowledge distillation usually handle the same task, while in our method the teacher model and student model have different input modalities where teacher uses text as input and student uses speech. 3. Models In this paper, we apply end-to-end models with the same archi- tecture for all three tasks (ASR, ST and MT). The model archi- tecture is similar with Transformer [5], which is the state-of-art model in MT task. Recently, this model also begins to be used in ASR task, showi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01698,
+        -0.0286,
+        -0.02051,
+        0.02987,
+        -0.00617
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "SR, ST and MT). The model archi- tecture is similar with Transformer [5], which is the state-of-art model in MT task. Recently, this model also begins to be used in ASR task, showi",
+      "overlap_with_next": "k to prevent present positions attending to future positions during training. To be detailed, multi-head attention technique is applied in self-attention and encoder-decoder attent",
+      "text": "SR, ST and MT). The model archi- tecture is similar with Transformer [5], which is the state-of-art model in MT task. Recently, this model also begins to be used in ASR task, showing a decent performance [22, 23]. In this section, we ﬁrst describe the core architecture of Transformer and then show how this model is applied to ASR/ST and MT task. 3.1. Core Module of Transformer Transformer is an encoder-decoder architecture which entirely relies on self-attention mechanism including scaled dot-product attention and multi-head attention. It consists of N stacked en- coder and decoder layers. Each encoder layer has two blocks, which is a self-attention block followed by a feed-forward block. Decoder layer has the same architecture with encoder layer except an extra encoder-decoder attention block to per- form attention over the output of the top encoder layer. Resid- ual connection and layer normalization are employed around each block. In addition, the self-attention block in the decoder is modiﬁed with mask to prevent present positions attending to future positions during training. To be detailed, multi-head attention technique is applied in self-attention and encoder-decoder attent",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00454,
+        -0.02911,
+        -0.04359,
+        0.02605,
+        -0.01325
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "k to prevent present positions attending to future positions during training. To be detailed, multi-head attention technique is applied in self-attention and encoder-decoder attent",
+      "overlap_with_next": "ntion softmax N MT encoder MT decoder N Text Distillation Loss Figure 1: Model architecture of our method. The left part is ST model, regarded as a student model, whose input is sp",
+      "text": "k to prevent present positions attending to future positions during training. To be detailed, multi-head attention technique is applied in self-attention and encoder-decoder attention blocks to obtain in- formation from different representation subspaces at different positions. Each head is corresponding to a scaled dot-product attention, which operates on query Q, key K and value V: Attention(Q, K, V) = softmax( QKT√dk )V (1) wheredk is the dimension of the key. Then the output values are concatenated, MultiHead(Q, K, V) = Concat(head 1,··· , headh)WO where headi = Attention(QWQi , KWKi , VWVi ) (2) where the WQi ∈ Rdmodel×dq , WKi ∈ Rdmodel×dk, WVi ∈ Rdmodel×dv and WO ∈ Rdv×dmodel are projection matrices Multi-Head Attention Linear Positional Encoding Multi-Head Attention Feed Forward Networks Feed Forward Networks Multi-Head Attention softmax N N ST encoder ST decoder Multi-Head Attention Word Embedding Positional Encoding Multi-Head Attention Feed Forward Networks Feed Forward Networks Multi-Head Attention softmax N MT encoder MT decoder N Text Distillation Loss Figure 1: Model architecture of our method. The left part is ST model, regarded as a student model, whose input is sp",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00775,
+        -0.0221,
+        -0.0732,
+        -0.00979,
+        -0.03199
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ntion softmax N MT encoder MT decoder N Text Distillation Loss Figure 1: Model architecture of our method. The left part is ST model, regarded as a student model, whose input is sp",
+      "overlap_with_next": "k to convert raw speech signal into a sequence of acoustic features and then apply mean and variance normal- ization. To prevent the GPU memory overﬂow and produce ap- proximate hi",
+      "text": "ntion softmax N MT encoder MT decoder N Text Distillation Loss Figure 1: Model architecture of our method. The left part is ST model, regarded as a student model, whose input is speech sig- nal. The right part is MT model, regarded as a teacher model, whose input is the source sentence corresponding to the input of student model. The output of both student model and teacher model is target sentence. The top part is distillation loss, where the student model not only matches the ground-truth, but also the output probabilities of the teacher model. that are learned. dq = dk = dv = dmodel/h,h is the number of heads. Position-wise feed-forward block is composed of two linear transformations with a ReLU activation in between. FFN(x) = max(0,x W1 + b1)W2 + b2 (3) where the weights W1∈ Rdmodel×df f , W2∈ Rdf f×dmodel and the biases b1∈ Rdf f , b2∈ Rdmodel. 3.2. ASR/ST Model The ASR/ST model is shown in the left part of Figure 1, whose input is a series of discrete-time speech signal. We ﬁrst use log-Mel ﬁlterbank to convert raw speech signal into a sequence of acoustic features and then apply mean and variance normal- ization. To prevent the GPU memory overﬂow and produce ap- proximate hi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00717,
+        -0.03303,
+        -0.04278,
+        -0.02595,
+        -0.01208
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "k to convert raw speech signal into a sequence of acoustic features and then apply mean and variance normal- ization. To prevent the GPU memory overﬂow and produce ap- proximate hi",
+      "overlap_with_next": "del and ASR/ST model is the input to the encoder. In MT model, X = (x1,x 2,··· ,x n) is a sequence of tokens, rep- resenting source sentence. We embed the words in sequence X into ",
+      "text": "k to convert raw speech signal into a sequence of acoustic features and then apply mean and variance normal- ization. To prevent the GPU memory overﬂow and produce ap- proximate hidden representation length against target length, we apply frame stack and downsample similar to [24, 25]. The ﬁnal acoustic feature sequence isS = (s1,s 2,··· ,s n) with dimen- sion ofdf ilterbank×numstack. Then the feature sequence is fed into a linear transformation with a normalization layer to map with model dimension dmodel. In addition, positional en- codings are added to the feature sequence in order to enable the model to attend by relative positions. This sequence is ﬁnally treated as the input into Transformer model. Other parts are the same with Transformer model. For ASR the input to decoder is source language text, while the input to decoder in ST is target language text. [Page 3] 3.3. MT Model We also use Transformer to train a baseline MT model, as shown in the right part of Figure 1. The difference between MT model and ASR/ST model is the input to the encoder. In MT model, X = (x1,x 2,··· ,x n) is a sequence of tokens, rep- resenting source sentence. We embed the words in sequence X into ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02712,
+        -0.01863,
+        -0.03537,
+        0.00268,
+        -0.01578
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "del and ASR/ST model is the input to the encoder. In MT model, X = (x1,x 2,··· ,x n) is a sequence of tokens, rep- resenting source sentence. We embed the words in sequence X into ",
+      "overlap_with_next": "uence,|V| is the vocabulary size of the output language, yt is the t-th output token, 1 (yt = k) is an indicator function which indicates whether the output token is equal to the g",
+      "text": "del and ASR/ST model is the input to the encoder. In MT model, X = (x1,x 2,··· ,x n) is a sequence of tokens, rep- resenting source sentence. We embed the words in sequence X into a real continuous space with the dimension of Rdmodel, which can be fed into a neural network. 3.4. Knowledge Distillation Training an end-to-end ST model is considerably difﬁcult than MT model. The accuracy of the later model is usually much higher than the former. Therefore, we present MT model as a teacher to teach ST model. Here we give a description of the idea of knowledge distillation. Denote D = (s,x,y ) as the corpus of triple data corre- sponding to speech signal, transcription in source language and its translation. The log-likelihood loss of ST model can be for- mulated as follows: LST(D;θ) =− ∑ (s,y)∈D logP (y|s;θ) (4) logP (y|s;θ) = N∑ t=1 |V|∑ k=1 1 (yt =k)logP (yt =k|y<t,s ;θ) (5) wheres is the acoustic feature sequence of source speech signal, y is the target translated sentence,N is the length of the output sequence,|V| is the vocabulary size of the output language, yt is the t-th output token, 1 (yt = k) is an indicator function which indicates whether the output token is equal to the g",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01493,
+        -0.02495,
+        -0.03224,
+        -0.00433,
+        -0.00237
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "uence,|V| is the vocabulary size of the output language, yt is the t-th output token, 1 (yt = k) is an indicator function which indicates whether the output token is equal to the g",
+      "overlap_with_next": "by automatically aligning e-books in French with English ut- terances of LibriSpeech, which contains 236 hours of speech in total. They provide quadruplet: English speech signal, E",
+      "text": "uence,|V| is the vocabulary size of the output language, yt is the t-th output token, 1 (yt = k) is an indicator function which indicates whether the output token is equal to the ground- truth. We denote the output distribution of teacher model for to- kenyt asQ(yt|y<t,x ;θT ), andx is the source transcribed sen- tence which corresponds to speech signal s. Then the cross entropy between the distributions of teacher and student is: LKD(D;θ,θ T ) =− ∑ (x,y)∈D N∑ t=1 |V|∑ k=1 Q(yt =k|y<t,x ;θT ) logP (yt =k|y<t,x ;θ) (6) In distillation loss, the student not only matches the out- put of ground-truth, but also the output probabilities of teacher model, which is more smooth and yields smaller variance in gradients [12]. Then the total loss function is, LALL(D;θ;θT ) = (1−λ)LST(D;θ) +λLKD(D;θ,θ T ) (7) whereλ is a hyper-parameter to trade off these two loss terms. 4. Experiments 4.1. Datasets We conduct experiments on Augmented LibriSpeech which is collected by [26] and available for free. This corpus is built by automatically aligning e-books in French with English ut- terances of LibriSpeech, which contains 236 hours of speech in total. They provide quadruplet: English speech signal, E",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05021,
+        -0.01981,
+        -0.02116,
+        -0.01872,
+        -0.01565
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "by automatically aligning e-books in French with English ut- terances of LibriSpeech, which contains 236 hours of speech in total. They provide quadruplet: English speech signal, E",
+      "overlap_with_next": "de each audio ﬁle into small segments based on timestamps instead of voice activity detection (V AD), because it eliminates the inﬂuence of improper fragments and guaran- tees each",
+      "text": "by automatically aligning e-books in French with English ut- terances of LibriSpeech, which contains 236 hours of speech in total. They provide quadruplet: English speech signal, En- glish transcription, French text translations from alignment of e-books and Google Translate references. Following [10], We only use the 100 hours clean train set for training, with 2 hours development set and 4 hours test set, which corresponds to 47,271, 1071 and 2048 utterances respectively. To be consistent with their settings, we also double the training size by concate- nating the aligned references with the Google Translate refer- ences. To verify whether the end-to-end speech translation model can handle on dissimilar language pairs, we build a corpus in English-Chinese direction. The raw data (including video, sub- titles and timestamps) are crawled from TED website1. For each talk, we build a wav audio ﬁle extracted from video by ffmpeg2. We also collect its corresponding transcript and save in txt for- mat. We divide each audio ﬁle into small segments based on timestamps instead of voice activity detection (V AD), because it eliminates the inﬂuence of improper fragments and guaran- tees each",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04471,
+        -0.01284,
+        -0.0026,
+        0.00688,
+        -0.0161
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "de each audio ﬁle into small segments based on timestamps instead of voice activity detection (V AD), because it eliminates the inﬂuence of improper fragments and guaran- tees each",
+      "overlap_with_next": "malize punctuations with the Moses scripts3. For Augmented LibriSpeech corpus, we ap- ply BPE [27] on the combination of English and French text to obtain subword units. The number",
+      "text": "de each audio ﬁle into small segments based on timestamps instead of voice activity detection (V AD), because it eliminates the inﬂuence of improper fragments and guaran- tees each utterance containing complete semantic information, which is important for translation. In the end, we totally get 317,088 utterances (∼542 hours). Development and test sets are split according to the partition in IWSLT. We use dev2010 as development set and tst2015 as test set, which has 835 ut- terances (∼1.48 hours) and 1,223 utterances (∼2.37 hours) re- spectively. The remaining data are put into training set. We will release this dataset to public as a benchmark soon. 4.2. Experimental Setup Our acoustic features are 80-dimensional log-Mel ﬁlterbanks extracted with a step size of 10ms and window size of 25ms and extended with mean subtraction and variance normaliza- tion. The features are stacked with 3 frames to the left and downsample to a 30ms frame rate. For text data, we lowercase all the texts, tokenize and apply normalize punctuations with the Moses scripts3. For Augmented LibriSpeech corpus, we ap- ply BPE [27] on the combination of English and French text to obtain subword units. The number",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04924,
+        -0.02155,
+        -0.02458,
+        0.03711,
+        -0.01847
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "malize punctuations with the Moses scripts3. For Augmented LibriSpeech corpus, we ap- ply BPE [27] on the combination of English and French text to obtain subword units. The number",
+      "overlap_with_next": "ayers in above models are all set to 6. We train our models with Adam optimizer [29] with β1 = 0.9,β2 = 0.98 andϵ = 10−9 on 2 NVIDIA V100 GPUs. 4.3. Results Table 1 shows the resul",
+      "text": "malize punctuations with the Moses scripts3. For Augmented LibriSpeech corpus, we ap- ply BPE [27] on the combination of English and French text to obtain subword units. The number of merge operations in BPE is set to 8K, resulting in a shared vocabulary with 8,159 sub- words. For TED English-Chinese, the merge number is 30K, and vocabulary size are 28,912 and 30,000, respectively. We re- port case-insensitive BLEU scores [28] by multi-bleu.pl script for the evaluation of ST and MT tasks and use word error rates (WER) to evaluate ASR task. Because the size of Augmented LibriSpeech is relatively small, we set the hidden size dmodel = 256 , the ﬁlter size in feed-forward layer df f = 1024 , the head number h = 8 , the residual dropout and attention dropout are 0.1. For TED English-Chinese, we set the hidden sizedmodel = 512 with the ﬁlter sizedf f = 2048. MT model, as a teacher model, can use bigger parameters. We use 512 hidden sizes, 2048 ﬁlter sizes with 8 heads.The number of encoder layers and decoder layers in above models are all set to 6. We train our models with Adam optimizer [29] with β1 = 0.9,β2 = 0.98 andϵ = 10−9 on 2 NVIDIA V100 GPUs. 4.3. Results Table 1 shows the resul",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04582,
+        -0.04423,
+        -0.0029,
+        -0.01755,
+        -0.01332
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ayers in above models are all set to 6. We train our models with Adam optimizer [29] with β1 = 0.9,β2 = 0.98 andϵ = 10−9 on 2 NVIDIA V100 GPUs. 4.3. Results Table 1 shows the resul",
+      "overlap_with_next": "-end 12.3 12.9 15.5Pre-trained 12.6 13.3 Ours Pipeline 15.75 17.85 18.4 End-to-end 10.19 13.15 17.8Pre-trained 13.89 14.30 KD 14.96 17.02 tasks. Contrary to [10] which uses charact",
+      "text": "ayers in above models are all set to 6. We train our models with Adam optimizer [29] with β1 = 0.9,β2 = 0.98 andϵ = 10−9 on 2 NVIDIA V100 GPUs. 4.3. Results Table 1 shows the results for the ASR and MT tasks on Aug- mented LibriSpeech. It can be seen that Transformer model signiﬁcantly outperforms in both ASR and MT tasks, with 0.92 WER reduction and 4.1 BLEU scores improvement in beam search compared to [10]. We contribute it to the superior per- formance of Transformer model which is good at modeling long distance in sequence-to-sequence tasks, especially for MT 1https://www.ted.com 2http://ffmpeg.org 3https://www.statmt.org/moses/ [Page 4] Table 1: ASR and MT results on test set of Augmented Lib- riSpeech. LibriSpeech Method WER(↓) BLEU(↑) B´erard [10] greedy 19.9 19.2beam search 17.9 18.8 Ours greedy 21.46 21.35beam search 16.98 22.91 Table 2: ST results on Augmented LibriSpeech test. KD denotes knowledge distillation. LibriSpeech Method greedy beam ensemble B´erard [10] Pipeline 14.6 14.6 15.8 End-to-end 12.3 12.9 15.5Pre-trained 12.6 13.3 Ours Pipeline 15.75 17.85 18.4 End-to-end 10.19 13.15 17.8Pre-trained 13.89 14.30 KD 14.96 17.02 tasks. Contrary to [10] which uses charact",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02353,
+        -0.03376,
+        -0.0322,
+        -0.0427,
+        -0.01665
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "-end 12.3 12.9 15.5Pre-trained 12.6 13.3 Ours Pipeline 15.75 17.85 18.4 End-to-end 10.19 13.15 17.8Pre-trained 13.89 14.30 KD 14.96 17.02 tasks. Contrary to [10] which uses charact",
+      "overlap_with_next": "shows that this method can bring signiﬁcant improvement on the BLEU score which increases from 14.30 to 17.02. With the instruction of MT model, the performance gap is alleviated, ",
+      "text": "-end 12.3 12.9 15.5Pre-trained 12.6 13.3 Ours Pipeline 15.75 17.85 18.4 End-to-end 10.19 13.15 17.8Pre-trained 13.89 14.30 KD 14.96 17.02 tasks. Contrary to [10] which uses characters as output units, we consider subword units can also obtain improvements. For ST task, we have four settings. The pipeline model uses ASR outputs as MT inputs, where ASR model and MT model are described above. The end-to-end model is directly trained on source speech signal paired with target text transla- tions. The pre-trained model is identical to end-to-end model, but it is initialized with ASR and MT models. Knowledge dis- tillation (KD) is our method which uses MT model as teacher model to instruct end-to-end ST model. As shown in Table 2, all four settings surpass the results in [10]. Noticing that there exists a huge gap between the perfor- mance of the end-to-end ST model and MT model, even if the end-to-end ST model is pretrained, thus we conduct knowledge distillation to instruct ST model with MT model. The result shows that this method can bring signiﬁcant improvement on the BLEU score which increases from 14.30 to 17.02. With the instruction of MT model, the performance gap is alleviated, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02274,
+        -0.01817,
+        -0.04247,
+        -0.01217,
+        -0.0105
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "shows that this method can bring signiﬁcant improvement on the BLEU score which increases from 14.30 to 17.02. With the instruction of MT model, the performance gap is alleviated, ",
+      "overlap_with_next": "cher model, we explore different hyper-parametersλ of the distillation loss on Augmented Lib- riSpeech. With λ increasing, ST will pay more attention to the teacher model. When λ e",
+      "text": "shows that this method can bring signiﬁcant improvement on the BLEU score which increases from 14.30 to 17.02. With the instruction of MT model, the performance gap is alleviated, approaching to the pipeline system. It demonstrates the effec- tiveness of our method. We also conduct experiments on English-Chinese to verify our methods. Table 3 presents the results of MT and ST mod- els. Pipeline model combines both the ASR (WER is 18.2%) and MT models. It is difﬁcult to train end-to-end ST model from random initialization parameters, for the reordering be- tween dissimilar language pairs is difﬁcult to align with frame based speech representations. The end-to-end ST model here is pretrained with ASR. With knowledge distillation, it can ob- tain signiﬁcant simprovements, proving the generality of our method. Although end-to-end ST does not outperform pipeline system, it shows the potential to implement a compact end-to- end model even on dissimilar language pairs. 4.4. Analysis To evaluate the effect of teacher model, we explore different hyper-parametersλ of the distillation loss on Augmented Lib- riSpeech. With λ increasing, ST will pay more attention to the teacher model. When λ e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02796,
+        -0.02208,
+        -0.00962,
+        -0.02084,
+        -0.00265
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "cher model, we explore different hyper-parametersλ of the distillation loss on Augmented Lib- riSpeech. With λ increasing, ST will pay more attention to the teacher model. When λ e",
+      "overlap_with_next": "r tokens, especially for MT model, while the attention in ST (b) model tends to be smoothed out across many input frames. However, with the help of MT model, the attention of ST mo",
+      "text": "cher model, we explore different hyper-parametersλ of the distillation loss on Augmented Lib- riSpeech. With λ increasing, ST will pay more attention to the teacher model. When λ equals 0, it is the pre-trained end-to- end model; when λ is 1, it will ignore ground-truth and only learn from the teacher. As Table 4 shows, the performance be- comes better with the increasing of λ. End-to-end ST obtains Table 3: MT and ST results on TED English-Chinese test. TED MT Pipeline End-to-end KD BLEU 27.08 22.28 16.80 19.55 Table 4: The effect of teacher model weight on ST results. λ 0.0 0.2 0.4 0.6 0.8 1.0 BLEU 14.30 15.68 16.73 16.62 16.93 17.02 the best performance when it only learns the output distributions of teacher model. We further analyze how knowledge from MT model helps ST through visualizations of the encoder-decoder attention. Figure 2 shows an example. The attentions of ASR (a) and MT (c) models have more conﬁdent than ST model. Each output token in the former two model concentrates on speciﬁc frames or tokens, especially for MT model, while the attention in ST (b) model tends to be smoothed out across many input frames. However, with the help of MT model, the attention of ST mo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.042,
+        -0.03063,
+        -0.03028,
+        -0.01745,
+        -0.00886
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "r tokens, especially for MT model, while the attention in ST (b) model tends to be smoothed out across many input frames. However, with the help of MT model, the attention of ST mo",
+      "overlap_with_next": "R, end- to-end ST, MT and end-to-end ST with KD, respectively. 5. Conclusions In this work, we present knowledge distillation method to im- prove the end-to-end ST model by transfe",
+      "text": "r tokens, especially for MT model, while the attention in ST (b) model tends to be smoothed out across many input frames. However, with the help of MT model, the attention of ST model with KD (d) becomes more concentrated. For example, the speech framesl = 45∼ 55 are corresponding to “was talking” in ASR (a), which can be translated to “se parlait” in French (c). The attention in ST model with KD has more weights on frames l = 45∼ 55 than that in original ST model. 0 20 40 60 80 i think she was talking to herself <eos> (a) 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0 20 40 60 80 je crois qu' elle se parlait à elle-même . <eos> (b) 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 i think she wastalking to herself<eos> je crois qu' elle se parlait à elle-même . <eos> (c) 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0 20 40 60 80 je crois qu' elle se parlait à elle-même . <eos> (d) 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 Figure 2: The visualizations of attention in different models. (a), (b), (c), (d) are the encoder-decoder attention of ASR, end- to-end ST, MT and end-to-end ST with KD, respectively. 5. Conclusions In this work, we present knowledge distillation method to im- prove the end-to-end ST model by transfe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02128,
+        -0.01547,
+        -0.02945,
+        -0.01352,
+        -0.01034
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "R, end- to-end ST, MT and end-to-end ST with KD, respectively. 5. Conclusions In this work, we present knowledge distillation method to im- prove the end-to-end ST model by transfe",
+      "overlap_with_next": "machine translation system: bridg- ing the gap between human and machine translation . arXiv preprint arXix:1609.08144, 2016. [4] C.-C. Chiu, T. N. Sainath, Y . Wu, R. Prabhavalkar",
+      "text": "R, end- to-end ST, MT and end-to-end ST with KD, respectively. 5. Conclusions In this work, we present knowledge distillation method to im- prove the end-to-end ST model by transferring the knowledge from MT model. Experiments on two language pairs demon- strate that with the instruction of MT model, end-to-end ST model can gain signiﬁcant improvements. Although the end- to-end ST does not outperform pipeline system, it shows the potential to come close in performance. In the future we will utilize other knowledges like the outputs from ASR model to further improve the performance of ST model. 6. References [1] D. Bahdanau, K. Cho, and Y . Bengio, “Neural machine translation by jointly learning to align and translate,” in Proc. ICLR, 2015. [Page 5] [2] W. Chan, N. Jaitly, Q. Le, and O. Vinyals, “Listen, attend and spell: A neural network for large vocabulary conversational speech recognition,” in Proc. ICASSP, 2016. [3] Y . Wu, M. Schuster, Z. Chen, Q. V . Le, and e. a. Moham- mad Norouzi, Googles neural machine translation system: bridg- ing the gap between human and machine translation . arXiv preprint arXix:1609.08144, 2016. [4] C.-C. Chiu, T. N. Sainath, Y . Wu, R. Prabhavalkar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02368,
+        -0.01176,
+        0.00325,
+        -0.00448,
+        -0.00025
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "machine translation system: bridg- ing the gap between human and machine translation . arXiv preprint arXix:1609.08144, 2016. [4] C.-C. Chiu, T. N. Sainath, Y . Wu, R. Prabhavalkar",
+      "overlap_with_next": "s- lation,” in NeurIPS Workshop on End-to-end Learning for Speech and Audio Processing, 2016. [9] R. J. Weiss, J. Chorowski, N. Jaitly, Y . Wu, and Z. Chen, “Sequence-to-sequence m",
+      "text": "machine translation system: bridg- ing the gap between human and machine translation . arXiv preprint arXix:1609.08144, 2016. [4] C.-C. Chiu, T. N. Sainath, Y . Wu, R. Prabhavalkar, P. Nguyen, Z. Chen, A. Kannan, R. J. Weiss, K. Rao, K. Goninaet al., “State- of-the-art speech recognition with sequence-to-sequence models,” in Proc. ICASSP, 2017. [5] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, “Attention is all you need,” Advances in Neural Information Processing Systems , pp. 5998– 6008, 2017. [6] A. Anastasopoulos, D. Chiang, and L. Duong, “An unsuper- vised probability model for speech-to-translation alignment of low-resource languages,” in Proc. EMNLP, 2016. [7] L. Duong, A. Anastasopoulos, D. Chiang, S. Bird, and T. Cohn, “An attentional model for speech translation without transcrip- tion,” in Proc. NAACL, 2016. [8] A. B ´erard, O. Pietquin, C. Servan, and L. Besacier, “Listen and translate: A proof of concept for end-to-end speech-to-text trans- lation,” in NeurIPS Workshop on End-to-end Learning for Speech and Audio Processing, 2016. [9] R. J. Weiss, J. Chorowski, N. Jaitly, Y . Wu, and Z. Chen, “Sequence-to-sequence m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0172,
+        -0.00887,
+        -0.00714,
+        0.00297,
+        0.00325
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "s- lation,” in NeurIPS Workshop on End-to-end Learning for Speech and Audio Processing, 2016. [9] R. J. Weiss, J. Chorowski, N. Jaitly, Y . Wu, and Z. Chen, “Sequence-to-sequence m",
+      "overlap_with_next": "learn- ing,” in Proc. CVPR, pp. 4133–4141, 2017. [15] A. Romero, N. Ballas, S. E. Kahou, A. Chassang, C. Gatta, and Y . Bengio, “Fitnets: Hints for thin deep nets,” in Proc. ICLR ,",
+      "text": "s- lation,” in NeurIPS Workshop on End-to-end Learning for Speech and Audio Processing, 2016. [9] R. J. Weiss, J. Chorowski, N. Jaitly, Y . Wu, and Z. Chen, “Sequence-to-sequence models can directly translate foreign speech,” in Proc. Interspeech, 2017. [10] A. B ´erard, L. Besacier, A. C. Kocabiyikoglu, and O. Pietquin, “End-to-end automatic speech translation of audiobooks,” in Proc. ICASSP, 2018. [11] S. Bansal, H. Kamper, K. Livescu, A. Lopez, and S. Gold- water, “Pre-training on high-resource speech recognition im- proves low-resource speech-to-text translation,” arXiv preprint arXiv:1809.01431, 2018. [12] G. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” arXiv preprint arXiv:1503.02531, 2015. [13] M. Freitag, Y . Al-Onaizan, and B. Sankaran, “Ensemble distillation for neural machine translation,” arXiv preprint arXiv:1702.01802, 2017. [14] J. Yim, D. Joo, J. Bae, and J. Kim, “A gift from knowledge distilla- tion: Fast optimization, network minimization and transfer learn- ing,” in Proc. CVPR, pp. 4133–4141, 2017. [15] A. Romero, N. Ballas, S. E. Kahou, A. Chassang, C. Gatta, and Y . Bengio, “Fitnets: Hints for thin deep nets,” in Proc. ICLR ,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03481,
+        0.01051,
+        0.00321,
+        0.00584,
+        -0.02016
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "learn- ing,” in Proc. CVPR, pp. 4133–4141, 2017. [15] A. Romero, N. Ballas, S. E. Kahou, A. Chassang, C. Gatta, and Y . Bengio, “Fitnets: Hints for thin deep nets,” in Proc. ICLR ,",
+      "overlap_with_next": "al neural machine translation with knowledge distillation,” in Proc. ICLR, 2019. [22] L. Dong, S. Xu, and B. Xu, “Speech-transformer: a no-recurrence sequence-to-sequence model for",
+      "text": "learn- ing,” in Proc. CVPR, pp. 4133–4141, 2017. [15] A. Romero, N. Ballas, S. E. Kahou, A. Chassang, C. Gatta, and Y . Bengio, “Fitnets: Hints for thin deep nets,” in Proc. ICLR , 2015. [16] Y . Kim and A. M. Rush, “Sequence-level knowledge distillation,” in Proc. EMNLP, 2016. [17] D. Bahdanau, J. Chorowski, D. Serdyuk, P. Brakel, and Y . Ben- gio, “End-to-end attention-based large vocabulary speech recog- nition,” in Proc. ICASSP, 2016. [18] Y . Li, J. Yang, Y . Song, L. Cao, J. Luo, and L.-J. Li, “Learn- ing from noisy labels with distillation,” in Proc. ICCV, pp. 1910– 1918, 2017. [19] C. Yang, L. Xie, S. Qiao, and A. Yuille, “Knowledge distillation in generations: More tolerant teachers educate better students,” in Proc. CVPR, 2018. [20] R. Anil, G. Pereyra, A. Passos, R. Ormandi, G. E. Dahl, and G. E. Hinton, “Large scale distributed neural network training through online distillation,” arXiv preprint arXiv:1804.03235, 2018. [21] X. Tan, Y . Ren, D. He, T. Qin, Z. Zhao, and T.-Y . Liu, “Multilin- gual neural machine translation with knowledge distillation,” in Proc. ICLR, 2019. [22] L. Dong, S. Xu, and B. Xu, “Speech-transformer: a no-recurrence sequence-to-sequence model for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05103,
+        -0.02181,
+        0.00015,
+        -0.00452,
+        -0.01074
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "al neural machine translation with knowledge distillation,” in Proc. ICLR, 2019. [22] L. Dong, S. Xu, and B. Xu, “Speech-transformer: a no-recurrence sequence-to-sequence model for",
+      "overlap_with_next": "A. Birch, “Neural machine transla- tion of rare words with subword units,” in Proc. ACL, 2016. [28] K. Papineni, S. Roukos, T. Ward, and W.-J. Zhu, “Bleu: a method for automatic ev",
+      "text": "al neural machine translation with knowledge distillation,” in Proc. ICLR, 2019. [22] L. Dong, S. Xu, and B. Xu, “Speech-transformer: a no-recurrence sequence-to-sequence model for speech recognition,” in Proc. ICASSP, pp. 5884–5888, 2018. [23] S. Zhou, L. Dong, S. Xu, and B. Xu, “Syllable-based sequence- to-sequence speech recognition with the transformer in mandarin chinese,” in Proc. Interspeech, 2018. [24] H. Sak, A. Senior, K. Rao, and F. Beaufays, “Fast and accurate recurrent neural network acoustic models for speech recognition,” in Proc. ICASSP, 2015. [25] A. Kannan, Y . Wu, P. Nguyen, T. N. Sainath, Z. Chen, and R. Prabhavalkar, “An analysis of incorporating an external lan- guage model into a sequence-to-sequence model,” in Proc. ICASSP, pp. 1–5828, 2018. [26] A. C. Kocabiyikoglu, L. Besacier, and O. Kraif, “Augmenting lib- rispeech with french translations: A multimodal corpus for direct speech translation evaluation,” Language Resources and Evalua- tion, 2018. [27] R. Sennrich, B. Haddow, and A. Birch, “Neural machine transla- tion of rare words with subword units,” in Proc. ACL, 2016. [28] K. Papineni, S. Roukos, T. Ward, and W.-J. Zhu, “Bleu: a method for automatic ev",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05255,
+        0.01053,
+        0.0054,
+        0.00882,
+        -0.01358
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 26865,
+      "length": 345,
+      "overlap_with_previous": "A. Birch, “Neural machine transla- tion of rare words with subword units,” in Proc. ACL, 2016. [28] K. Papineni, S. Roukos, T. Ward, and W.-J. Zhu, “Bleu: a method for automatic ev",
+      "overlap_with_next": "",
+      "text": "A. Birch, “Neural machine transla- tion of rare words with subword units,” in Proc. ACL, 2016. [28] K. Papineni, S. Roukos, T. Ward, and W.-J. Zhu, “Bleu: a method for automatic evaluation of machine translation,” in Proc. ACL , pp. 311–318, 2002. [29] D. P. Kingma and J. Ba, “Adam: A method for stochastic opti- mization,” in Proc. ICLR, 2015.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02659,
+        -0.0028,
+        -0.00321,
+        0.00676,
+        -0.00782
+      ]
+    }
+  ]
+}

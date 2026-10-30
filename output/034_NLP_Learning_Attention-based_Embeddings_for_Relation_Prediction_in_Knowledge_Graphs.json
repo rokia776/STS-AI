@@ -1,0 +1,640 @@
+{
+  "paper_id": "2be28f02-eac9-4e76-b725-cfea1f5a8047",
+  "filename": "034_NLP_Learning_Attention-based_Embeddings_for_Relation_Prediction_in_Knowledge_Graphs.pdf",
+  "title": "Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 37,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "ding that captures both entity and rela- tion features in any given entity’s neighbor- hood. Additionally, we also encapsulate re- lation clusters and multi-hop relations in our mo",
+      "text": "[Page 1] Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs Deepak Nathani∗ Jatin Chauhan∗ Charu Sharma∗ Manohar Kaul Department of Computer Science and Engineering, IIT Hyderbad {deepakn1019,chauhanjatin100,charusharma1991}@gmail.com, mkaul@iith.ac.in Abstract The recent proliferation of knowledge graphs (KGs) coupled with incomplete or partial in- formation, in the form of missing relations (links) between entities, has fueled a lot of research on knowledge base completion (also known as relation prediction). Several re- cent works suggest that convolutional neural network (CNN) based models generate richer and more expressive feature embeddings and hence also perform well on relation prediction. However, we observe that these KG embed- dings treat triples independently and thus fail to cover the complex and hidden information that is inherently implicit in the local neighbor- hood surrounding a triple. To this effect, our paper proposes a novel attention-based feature embedding that captures both entity and rela- tion features in any given entity’s neighbor- hood. Additionally, we also encapsulate re- lation clusters and multi-hop relations in our mo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04521,
+        -0.04714,
+        -0.00525,
+        0.01352,
+        -0.0098
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "ding that captures both entity and rela- tion features in any given entity’s neighbor- hood. Additionally, we also encapsulate re- lation clusters and multi-hop relations in our mo",
+      "overlap_with_next": "ever, KGs typically suffer from missing rela- tions (Socher et al., 2013a; West et al., 2014). This problem gives rise to the task of knowledge base completion (also referred to as",
+      "text": "ding that captures both entity and rela- tion features in any given entity’s neighbor- hood. Additionally, we also encapsulate re- lation clusters and multi-hop relations in our model. Our empirical study offers insights into the efﬁcacy of our attention-based model and we show marked performance gains in comparison to state-of-the-art methods on all datasets. 1 Introduction Knowledge graphs (KGs) represent knowledge bases (KBs) as a directed graph whose nodes and edges represent entities and relations be- tween entities, respectively. For example, in Fig- ure 1, a triple (London, capital of, United King- dom) is represented as two entities: London and United Kingdom along with a relation (capital of) linking them. KGs ﬁnd uses in a wide vari- ety of applications such as semantic search (Be- rant et al., 2013; Berant and Liang, 2014), dia- logue generation (He et al., 2017; Keizer et al., 2017), and question answering (Zhang et al., 2016; ∗ Equal Contribution Diefenbach et al., 2018), to name a few. How- ever, KGs typically suffer from missing rela- tions (Socher et al., 2013a; West et al., 2014). This problem gives rise to the task of knowledge base completion (also referred to as",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02869,
+        -0.00512,
+        -0.01722,
+        -0.02363,
+        -0.01351
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "ever, KGs typically suffer from missing rela- tions (Socher et al., 2013a; West et al., 2014). This problem gives rise to the task of knowledge base completion (also referred to as",
+      "overlap_with_next": "that are inherently present in the vicinity of a given entity in a KG. Motivated by the aforementioned observa- tions, we propose a generalized attention-based graph embedding for ",
+      "text": "ever, KGs typically suffer from missing rela- tions (Socher et al., 2013a; West et al., 2014). This problem gives rise to the task of knowledge base completion (also referred to as relation pre- diction), which entails predicting whether a given triple is valid or not. State-of-the-art relation prediction methods are known to be primarily knowledge embedding based models. They are broadly classiﬁed as translational models (Bordes et al., 2013; Yang et al., 2015; Trouillon et al., 2016) and con- volutional neural network (CNN) (Nguyen et al., 2018; Dettmers et al., 2018) based models. While translational models learn embeddings using sim- ple operations and limited parameters, they pro- duce low quality embeddings. In contrast, CNN based models learn more expressive embeddings due to their parameter efﬁciency and consideration of complex relations. However, both translational and CNN based models process each triple inde- pendently and hence fail to encapsulate the seman- tically rich and latent relations that are inherently present in the vicinity of a given entity in a KG. Motivated by the aforementioned observa- tions, we propose a generalized attention-based graph embedding for ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05901,
+        -0.01512,
+        -0.0051,
+        -0.0099,
+        0.01776
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "that are inherently present in the vicinity of a given entity in a KG. Motivated by the aforementioned observa- tions, we propose a generalized attention-based graph embedding for ",
+      "overlap_with_next": "eves these objectives by assigning different weight mass (attention) to nodes in a neighbor- hood and by propagating attention via layers in an iterative fashion. However, as the m",
+      "text": "that are inherently present in the vicinity of a given entity in a KG. Motivated by the aforementioned observa- tions, we propose a generalized attention-based graph embedding for relation prediction. For node classiﬁcation, graph attention networks (GATs) (Veliˇckovi´c et al., 2018) have been shown to focus on the most relevant portions of the graph, namely the node features in a 1-hop neighborhood. Given a KG and the task of relation prediction, our model generalizes and extends the attention mech- anism by guiding attention to both entity (node) and relation (edge) features in a multi-hop neigh- borhood of a given entity / node. Our idea is: 1) to capture multi-hop rela- tions (Lin et al., 2015) surrounding a given node, 2) to encapsulate the diversity of roles played by an entity in various relations, and 3) arXiv:1906.01195v1 [cs.LG] 4 Jun 2019 [Page 2] to consolidate the existing knowledge present in semantically similar relation clusters (Valverde- Rebaza and de Andrade Lopes, 2012). Our model achieves these objectives by assigning different weight mass (attention) to nodes in a neighbor- hood and by propagating attention via layers in an iterative fashion. However, as the m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05666,
+        -0.01598,
+        -0.02594,
+        -0.00066,
+        -0.00957
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "eves these objectives by assigning different weight mass (attention) to nodes in a neighbor- hood and by propagating attention via layers in an iterative fashion. However, as the m",
+      "overlap_with_next": "mbeddings that speciﬁcally target relation prediction on KGs. Secondly, we generalize and extend graph attention mechanisms to capture both entity and relation features in a multi-",
+      "text": "eves these objectives by assigning different weight mass (attention) to nodes in a neighbor- hood and by propagating attention via layers in an iterative fashion. However, as the model depth increases, the contribution of distant enti- ties decreases exponentially. To resolve this is- sue, we use relation composition as proposed by (Lin et al., 2015) to introduce an auxiliary edge between n-hop neighbors, which then readily al- lows the ﬂow of knowledge between entities. Our architecture is an encoder-decoder model where our generalized graph attention model and Con- vKB (Nguyen et al., 2018) play the roles of an encoder and decoder, respectively. Moreover, this method can be extended for learning effec- tive embeddings for Textual Entailment Graphs (KOTLERMAN et al., 2015), where global learn- ing has proven effective in the past as shown by (Berant et al., 2015) and (Berant et al., 2010). Our contributions are as follows. To the best of our knowledge, we are the ﬁrst to learn new graph attention based embeddings that speciﬁcally target relation prediction on KGs. Secondly, we generalize and extend graph attention mechanisms to capture both entity and relation features in a multi-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04315,
+        -0.01369,
+        -0.00174,
+        0.02481,
+        -0.00937
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "mbeddings that speciﬁcally target relation prediction on KGs. Secondly, we generalize and extend graph attention mechanisms to capture both entity and relation features in a multi-",
+      "overlap_with_next": " prediction. These methods can be broadly classiﬁed as: (i) composi- tional, (ii) translational, (iii) CNN based, and (iv) graph based models. Christopher Nolan RevenantTom Hardy L",
+      "text": "mbeddings that speciﬁcally target relation prediction on KGs. Secondly, we generalize and extend graph attention mechanisms to capture both entity and relation features in a multi-hop neighborhood of a given entity. Fi- nally, we evaluate our model on challenging re- lation prediction tasks for a wide variety of real- world datasets. Our experimental results indicate a clear and substantial improvement over state- of-the-art relation prediction methods. For in- stance, our attention-based embedding achieves an improvement of 104% over the state-of-the-art method for the Hits@1 metric on the popularFree- base (FB15K-237) dataset. The rest of the paper is structured as follows. We ﬁrst provide a review of related work in Sec- tion 2 and then our detailed approach in Section 3. Experimental results and dataset descriptions are reported in Section 4 followed by our conclusion and future research directions in Section 5. 2 Related Work Recently, several variants of KG embeddings have been proposed for relation prediction. These methods can be broadly classiﬁed as: (i) composi- tional, (ii) translational, (iii) CNN based, and (iv) graph based models. Christopher Nolan RevenantTom Hardy L",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04908,
+        -0.00815,
+        -0.01683,
+        0.00709,
+        -0.00059
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": " prediction. These methods can be broadly classiﬁed as: (i) composi- tional, (ii) translational, (iii) CNN based, and (iv) graph based models. Christopher Nolan RevenantTom Hardy L",
+      "overlap_with_next": "onal models like TransE (Bordes et al., 2013), DIST- MULT (Yang et al., 2015) and ComplEx (Trouil- lon et al., 2016) propose arguably simpler models. TransE considers the translati",
+      "text": " prediction. These methods can be broadly classiﬁed as: (i) composi- tional, (ii) translational, (iii) CNN based, and (iv) graph based models. Christopher Nolan RevenantTom Hardy LeonardoDiCaprio United KingdomLondon Jonathan Nolan colleague born_in nationality? colleague? acted_in acted_in born_in? capital_of directed colleague brother_of Figure 1: Subgraph of a knowledge graph contains ac- tual relations between entities (solid lines) and inferred relations that are initially hidden (dashed lines). RESCAL (Nickel et al., 2011), NTN (Socher et al., 2013b), and the Holo- graphic embedding model (HOLE) (Nickel et al., 2016) are examples of compositional based mod- els. Both RESCAL and NTN use tensor products which capture rich interactions, but require a large number of parameters to model relations and are thus cumbersome to compute. To combat these drawbacks, HOLE creates more efﬁcient and scalable compositional representations using the circular correlation of entity embeddings. In comparison, translational models like TransE (Bordes et al., 2013), DIST- MULT (Yang et al., 2015) and ComplEx (Trouil- lon et al., 2016) propose arguably simpler models. TransE considers the translati",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04564,
+        -0.00557,
+        0.02115,
+        0.04331,
+        0.02515
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "onal models like TransE (Bordes et al., 2013), DIST- MULT (Yang et al., 2015) and ComplEx (Trouil- lon et al., 2016) propose arguably simpler models. TransE considers the translati",
+      "overlap_with_next": "projection layer and an inner product layer for the ﬁnal predictions. Different feature maps are generated using multiple ﬁlters to ex- tract global relationships. Concatenation of",
+      "text": "onal models like TransE (Bordes et al., 2013), DIST- MULT (Yang et al., 2015) and ComplEx (Trouil- lon et al., 2016) propose arguably simpler models. TransE considers the translation operation between head and tail entities for relations. DIST- MULT (Yang et al., 2015) learns embeddings using a bilinear diagonal model which is a special case of the bilinear objective used in NTN and TransE. DISTMULT uses weighted element- wise dot products to model entity relations. ComplEx (Trouillon et al., 2016) generalizes DISTMULT (Yang et al., 2015) by using complex embeddings and Hermitian dot products instead. These translational models are faster, require fewer parameters and are relatively easier to train, but result in less expressive KG embeddings. Recently, two CNN based models have been proposed for relation prediction, namely ConvE (Dettmers et al., 2018) and Con- vKB (Nguyen et al., 2018). ConvE uses 2-D convolution over embeddings to predict links. It comprises of a convolutional layer, a fully connected projection layer and an inner product layer for the ﬁnal predictions. Different feature maps are generated using multiple ﬁlters to ex- tract global relationships. Concatenation of",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0458,
+        -0.00541,
+        0.00082,
+        0.01845,
+        0.0055
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "projection layer and an inner product layer for the ﬁnal predictions. Different feature maps are generated using multiple ﬁlters to ex- tract global relationships. Concatenation of",
+      "overlap_with_next": "he n-hop neigh- borhood of any given entity in the KG. 3 Our Approach We begin this section by introducing the notations and deﬁnitions used in the rest of the paper, fol- lowed by",
+      "text": "projection layer and an inner product layer for the ﬁnal predictions. Different feature maps are generated using multiple ﬁlters to ex- tract global relationships. Concatenation of these feature maps represents an input triple. These models are parameter efﬁcient but consider each [Page 3] triple independently without taking into account the relationships between the triples. A graph based neural network model called R-GCN (Schlichtkrull et al., 2018) is an exten- sion of applying graph convolutional networks (GCNs) (Kipf and Welling, 2017) to relational data. It applies a convolution operation to the neighborhood of each entity and assigns them equal weights. This graph based model does not outperform the CNN based models. Existing methods either learn KG embeddings by solely focusing on entity features or by taking into account the features of entities and relations in a disjoint manner. Instead, our proposed graph at- tention model holistically captures multi-hop and semantically similar relations in the n-hop neigh- borhood of any given entity in the KG. 3 Our Approach We begin this section by introducing the notations and deﬁnitions used in the rest of the paper, fol- lowed by",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03563,
+        -0.01654,
+        -0.00113,
+        0.00688,
+        0.00546
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "he n-hop neigh- borhood of any given entity in the KG. 3 Our Approach We begin this section by introducing the notations and deﬁnitions used in the rest of the paper, fol- lowed by",
+      "overlap_with_next": "ks (GA Ts) Graph convolutional networks (GCNs) (Kipf and Welling, 2017) gather information from the entity’s neighborhood and all neighbors contribute equally in the information pa",
+      "text": "he n-hop neigh- borhood of any given entity in the KG. 3 Our Approach We begin this section by introducing the notations and deﬁnitions used in the rest of the paper, fol- lowed by a brief background on graph attention networks (GATs) (Veliˇckovi´c et al., 2018). Fi- nally, we describe our proposed attention archi- tecture for knowledge graphs followed by our de- coder network. 3.1 Background A knowledge graph is denoted by G = (E,R ), where E and R represent the set of entities (nodes) and relations (edges), respectively. A triple (es,r,e o) is represented as an edge r be- tween nodes es ander inG1. Embedding models try to learn an effective representation of entities, relations, and a scoring function f, such that for a given input triple t = (es,r,e o),f(t) gives the likelihood of t being a valid triple. For example, Figure 1 shows the subgraph from a KG which infers missing links represented by dashed lines using existing triples such as (London, captial of, United Kingdom). 3.2 Graph Attention Networks (GA Ts) Graph convolutional networks (GCNs) (Kipf and Welling, 2017) gather information from the entity’s neighborhood and all neighbors contribute equally in the information pa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04591,
+        -0.03772,
+        0.0108,
+        -0.00401,
+        0.01085
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ks (GA Ts) Graph convolutional networks (GCNs) (Kipf and Welling, 2017) gather information from the entity’s neighborhood and all neighbors contribute equally in the information pa",
+      "overlap_with_next": "he input features to a higher di- mensional output feature space, anda is any atten- tion function of our choosing. Attention values for each edge are the impor- tance of the edge ",
+      "text": "ks (GA Ts) Graph convolutional networks (GCNs) (Kipf and Welling, 2017) gather information from the entity’s neighborhood and all neighbors contribute equally in the information pass- ing. To address the shortcomings of GCNs, (Veliˇckovi´c et al., 2018) introduced graph at- tention networks (GATs). GATs learn to assign 1 From here onwards, the pairs “ node / entity” and “ edge / relation” will be used interchangeably varying levels of importance to nodes in every node’s neighborhood, rather than treating all neighboring nodes with equal importance, as is done in GCN. The input feature set of nodes to a layer is x = {⃗ x1,⃗ x2,...,⃗ xN}. A layer produces a transformed set of node feature vectors x′ ={⃗ x′1,⃗ x′2,...,⃗ x′N}, where ⃗ xi and ⃗ x′i are input and output embed- dings of the entityei, andN is number of entities (nodes). A single GAT layer can be described as eij =a(W⃗ xi, W⃗ xj) (1) whereeij is the attention value of the edge(ei,e j) inG, W is a parametrized linear transformation matrix mapping the input features to a higher di- mensional output feature space, anda is any atten- tion function of our choosing. Attention values for each edge are the impor- tance of the edge ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04081,
+        -0.02342,
+        -0.03598,
+        0.01037,
+        -0.00204
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "he input features to a higher di- mensional output feature space, anda is any atten- tion function of our choosing. Attention values for each edge are the impor- tance of the edge ",
+      "overlap_with_next": "he concatenation operation, to achieve multi-head attention, as is shown in the following Equation 4. ⃗x′i =σ ( 1 K K∑ k=1 ∑ j∈Ni αkijWk⃗ xj ) (4) 3.3 Relations are Important Despi",
+      "text": "he input features to a higher di- mensional output feature space, anda is any atten- tion function of our choosing. Attention values for each edge are the impor- tance of the edge (ei,e j) ′ s features for a source node ei. Here, the relative attention αij is com- puted using a softmax function over all the val- ues in the neighborhood. Equation 2 shows the output of a layer. GAT employs multi-head atten- tion to stabilize the learning process as credited to (Vaswani et al., 2017). ⃗x′i =σ (∑ j∈Ni αijW⃗ xj ) (2) The multihead attention process of concatenating K attention heads is shown as follows in Equation 3. ⃗x′i = K‖‖‖ k=1 σ (∑ j∈Ni αkijWk⃗ xj ) (3) where‖ represents concatenation, σ represents any non-linear function,αkij are normalized atten- tion coefﬁcients of edge (ei,e j) calculated by the k-th attention mechanism, and Wk represents the corresponding linear transformation matrix of the k-th attention mechanism. The output embedding in the ﬁnal layer is calculated using averaging, in- stead of the concatenation operation, to achieve multi-head attention, as is shown in the following Equation 4. ⃗x′i =σ ( 1 K K∑ k=1 ∑ j∈Ni αkijWk⃗ xj ) (4) 3.3 Relations are Important Despi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01738,
+        -0.00463,
+        -0.05621,
+        -0.02273,
+        -0.03434
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "he concatenation operation, to achieve multi-head attention, as is shown in the following Equation 4. ⃗x′i =σ ( 1 K K∑ k=1 ∑ j∈Ni αkijWk⃗ xj ) (4) 3.3 Relations are Important Despi",
+      "overlap_with_next": "incorporate relation and neigh- boring node features in the attention mechanism. We deﬁne a single attentional layer, which is the building block of our model. Similar to GAT, our ",
+      "text": "he concatenation operation, to achieve multi-head attention, as is shown in the following Equation 4. ⃗x′i =σ ( 1 K K∑ k=1 ∑ j∈Ni αkijWk⃗ xj ) (4) 3.3 Relations are Important Despite the success of GATs, they are unsuitable for KGs as they ignore relation (edge) features, [Page 4] U.S. Chevrolet Ethan Horvath Barack Obama Washington D.C Samuel L. Jackson Michelle Obama wife_of president_of plays_for brand_of capital_of born_in native_of ﬁrst_lady αi1 αi2αi3 αi4 αi5 αi6 ei Figure 2: This ﬁgure shows the aggregation process of our graph attentional layer. αij represents relative attention values of the edge. The dashed lines represent an auxiliary edge from a n-hop neighbors, in this case n = 2. which are an integral part of KGs. In KGs, enti- ties play different roles depending on the relation they are associated with. For example, in Figure 1, entity Christopher Nolan appears in two differ- ent triples assuming the roles of a brother and a director. To this end, we propose a novel embed- ding approach to incorporate relation and neigh- boring node features in the attention mechanism. We deﬁne a single attentional layer, which is the building block of our model. Similar to GAT, our ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0291,
+        -0.00865,
+        -0.04316,
+        -0.00788,
+        0.00188
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "incorporate relation and neigh- boring node features in the attention mechanism. We deﬁne a single attentional layer, which is the building block of our model. Similar to GAT, our ",
+      "overlap_with_next": "quation 5. This oper- ation is also illustrated in the initial block of Fig- ure 4. ⃗ cijk = W1[⃗hi‖⃗hj‖⃗ gk] (5) where ⃗ cijk is the vector representation of a triple tkij. Vector",
+      "text": "incorporate relation and neigh- boring node features in the attention mechanism. We deﬁne a single attentional layer, which is the building block of our model. Similar to GAT, our framework is agnostic to the particular choice of attention mechanism. Each layer in our model takes two embedding matrices as input. Entity embeddings are repre- sented by a matrix H ∈ RNe×T , where the i-th row is the embedding of entity ei, Ne is the total number of entities, andT is the feature dimension of each entity embedding. With a similar construc- tion, the relation embeddings are represented by a matrix G∈ RNr×P . The layer then outputs the corresponding embedding matrices, H′∈ RNe×T′ and G′∈ RNr×P′. In order to obtain the new embedding for an entity ei, a representation of each triple associ- ated with ei is learned. We learn these embed- dings by performing a linear transformation over the concatenation of entity and relation feature vectors corresponding to a particular triple tkij = (ei,r k,e j), as is shown in Equation 5. This oper- ation is also illustrated in the initial block of Fig- ure 4. ⃗ cijk = W1[⃗hi‖⃗hj‖⃗ gk] (5) where ⃗ cijk is the vector representation of a triple tkij. Vector",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03116,
+        -0.01237,
+        0.00574,
+        0.0176,
+        -0.01625
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "quation 5. This oper- ation is also illustrated in the initial block of Fig- ure 4. ⃗ cijk = W1[⃗hi‖⃗hj‖⃗ gk] (5) where ⃗ cijk is the vector representation of a triple tkij. Vector",
+      "overlap_with_next": "lations connecting en- titiesei andej. The new embedding of the entity ei is the sum of each triple representation weighted by their attention values as shown in Equation 8. ⃗h′i =",
+      "text": "quation 5. This oper- ation is also illustrated in the initial block of Fig- ure 4. ⃗ cijk = W1[⃗hi‖⃗hj‖⃗ gk] (5) where ⃗ cijk is the vector representation of a triple tkij. Vectors ⃗hi,⃗hj, and ⃗ gk denote embeddings of entitiesei,e j and relation rk, respectively. Addi- tionally, W1 denotes the linear transformation ma- trix. Similar to (Veli ˇckovi´c et al., 2018), we learn softmax αij hihjgk Figure 3: Attention Mechanism the importance of each triple tkij denoted by bijk. We perform a linear transformation parameterized by a weight matrix W2 followed by application of the LeakyRelu non-linearity to get the absolute at- tention value of the triple (Equation 6). bijk = LeakyReLU ( W2cijk ) (6) To get the relative attention values softmax is ap- plied over bijk as shown in Equation 7. Figure 3 shows the computation of relative attention values αijk for a single triple. αijk = softmaxjk(bijk) (7) = exp(bijk)∑ n∈Ni ∑ r∈Rin exp(binr) whereNi denotes the neighborhood of entity ei andRij denotes the set of relations connecting en- titiesei andej. The new embedding of the entity ei is the sum of each triple representation weighted by their attention values as shown in Equation 8. ⃗h′i =",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04007,
+        -0.00129,
+        -0.02975,
+        -0.01388,
+        -0.01832
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "lations connecting en- titiesei andej. The new embedding of the entity ei is the sum of each triple representation weighted by their attention values as shown in Equation 8. ⃗h′i =",
+      "overlap_with_next": "nd yellow circles represents initial relation embedding vectors. This is the graph attention layer shown in Fig- ure 4. We perform a linear transformation on in- put relation embed",
+      "text": "lations connecting en- titiesei andej. The new embedding of the entity ei is the sum of each triple representation weighted by their attention values as shown in Equation 8. ⃗h′i =σ (∑ j∈Ni ∑ k∈Rij αijk ⃗ cijk ) (8) As suggested by (Veli ˇckovi´c et al., 2018), multi- head attention which was ﬁrst introduced by (Vaswani et al., 2017), is used to stabilize the learning process and encapsulate more informa- tion about the neighborhood. Essentially, M in- dependent attention mechanisms calculate the em- beddings, which are then concatenated, resulting in the following representation: ⃗h′i = M‖‖‖ m=1 σ (∑ j∈Ni αmijkcmijk ) (9) [Page 5] Graph Attention Layer 1 Triple N Christian Bale acted_in The Machinist Triple 1 Barack Obama president_of United States Attention Head 1 Attention Head 2 Graph Attention Layer 2 Training Loss Figure 4: This ﬁgure shows end-to-end architecture of our model. Dashed arrows in the ﬁgure represent concate- nation operation. Green circles represents initial entity embedding vectors and yellow circles represents initial relation embedding vectors. This is the graph attention layer shown in Fig- ure 4. We perform a linear transformation on in- put relation embed",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02294,
+        -0.02545,
+        -0.01698,
+        0.01268,
+        -0.00387
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "nd yellow circles represents initial relation embedding vectors. This is the graph attention layer shown in Fig- ure 4. We perform a linear transformation on in- put relation embed",
+      "overlap_with_next": "dding information to the entity em- beddings obtained from the ﬁnal attentional layer, Hf∈ RNe×T f as shown in Equation 12. H′′ = WEHt + Hf (12) In our architecture, we extend the ",
+      "text": "nd yellow circles represents initial relation embedding vectors. This is the graph attention layer shown in Fig- ure 4. We perform a linear transformation on in- put relation embedding matrix G, parameterized by a weight matrix WR ∈ RT×T′, where T′ is the dimensionality of output relation embeddings (Equation 10). G′ =G.WR (10) In the ﬁnal layer of our model, instead of concate- nating the embeddings from multiple heads we employ averaging to get ﬁnal embedding vectors for entities as shown in Equation 11. ⃗h′i =σ ( 1 M M∑ m=1 ∑ j∈Ni ∑ k∈Rij αmijkcmijk ) (11) However, while learning new embeddings, entities lose their initial embedding information. To re- solve this issue, we linearly transformHi to obtain Ht using a weight matrix WE∈ RT i×T f , where Hi represents the input entity embeddings to our model, Ht represents the transformed entity em- beddings, T i denotes the dimension of an initial entity embedding, and T f denotes the dimension of the ﬁnal entity embedding. We add this ini- tial entity embedding information to the entity em- beddings obtained from the ﬁnal attentional layer, Hf∈ RNe×T f as shown in Equation 12. H′′ = WEHt + Hf (12) In our architecture, we extend the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01893,
+        -0.0128,
+        -0.00408,
+        0.0023,
+        -0.02522
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "dding information to the entity em- beddings obtained from the ﬁnal attentional layer, Hf∈ RNe×T f as shown in Equation 12. H′′ = WEHt + Hf (12) In our architecture, we extend the ",
+      "overlap_with_next": "s and the introduction of an auxiliary edge betweenn-hop neighbors is also shown in Figure 2. We normalize the entity embeddings after every generalized GAT layer and prior to the ",
+      "text": "dding information to the entity em- beddings obtained from the ﬁnal attentional layer, Hf∈ RNe×T f as shown in Equation 12. H′′ = WEHt + Hf (12) In our architecture, we extend the notion of an edge to a directed path by introducing an aux- iliary relation for n-hop neighbors between two entities. The embedding of this auxiliary rela- tion is the summation of embeddings of all the relations in the path. Our model iteratively ac- cumulates knowledge from distant neighbors of an entity. As illustrated in ﬁgure 2, in the ﬁrst layer of our model, all entities capture informa- tion from their direct in-ﬂowing neighbors. In the second layer, U.S gathers information from en- tities Barack Obama, Ethan Horvath, Chevrolet, and Washington D.C, which already possess infor- mation about their neighbors Michelle Obama and Samuel L. Jackson, from a previous layer. In gen- eral, for a n layer model the incoming informa- tion is accumulated over a n-hop neighborhood. The aggregation process to learn new entity em- beddings and the introduction of an auxiliary edge betweenn-hop neighbors is also shown in Figure 2. We normalize the entity embeddings after every generalized GAT layer and prior to the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02797,
+        -0.02441,
+        0.01741,
+        0.0165,
+        -0.01548
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "s and the introduction of an auxiliary edge betweenn-hop neighbors is also shown in Figure 2. We normalize the entity embeddings after every generalized GAT layer and prior to the ",
+      "overlap_with_next": " Our model uses ConvKB (Nguyen et al., 2018) as a decoder. The aim of the convolutional layer is to analyze the global embedding properties of a tripletkij across each dimension an",
+      "text": "s and the introduction of an auxiliary edge betweenn-hop neighbors is also shown in Figure 2. We normalize the entity embeddings after every generalized GAT layer and prior to the ﬁrst layer, for every main iteration. 3.4 Training Objective Our model borrows the idea of a translational scoring function from (Bordes et al., 2013), which learns embeddings such that for a givenvalid triple tkij = (ei,r k,e j), the condition⃗hi+⃗ gk≈⃗hj holds, i.e.,ej is the nearest neighbor of ei connected via relationrk. Speciﬁcally, we try to learn entity and relation embeddings to minimize the L1-norm dis- similarity measure given bydtij =‖⃗hi+⃗ gk−⃗hj‖1. We train our model using hinge-loss which is given by the following expression L(Ω) = ∑ tij∈S ∑ t′ij∈S′ max{dt′ij−dtij +γ, 0} (13) whereγ >0 is a margin hyper-parameter,S is the set of valid triples, andS′ denotes the set of invalid [Page 6] triples, given formally as S′ ={tki′j|e′i∈E\\ ei}| {z } replace head entity ∪{tkij′|e′j∈E\\ ej}| {z } replace tail entity 3.5 Decoder Our model uses ConvKB (Nguyen et al., 2018) as a decoder. The aim of the convolutional layer is to analyze the global embedding properties of a tripletkij across each dimension an",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04804,
+        -0.01118,
+        -0.0324,
+        -0.00552,
+        0.0003
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": " Our model uses ConvKB (Nguyen et al., 2018) as a decoder. The aim of the convolutional layer is to analyze the global embedding properties of a tripletkij across each dimension an",
+      "overlap_with_next": "a Kinship (Lin et al., 2018). Previous works (Toutanova et al., 2015; Dettmers et al., 2018) suggest that the task of relation prediction in WN18 and FB15K suffers from the problem",
+      "text": " Our model uses ConvKB (Nguyen et al., 2018) as a decoder. The aim of the convolutional layer is to analyze the global embedding properties of a tripletkij across each dimension and to generalize the transitional characteristics in our model. The score function with multiple feature maps can be written formally as: f(tkij) = ( Ω‖‖‖ m=1 ReLU([⃗hi,⃗ gk,⃗hj]∗ωm) ) .W whereωm represents themth convolutional ﬁlter, Ω is a hyper-parameter denoting number of ﬁlters used,∗ is a convolution operator, andW∈ RΩk×1 represents a linear transformation matrix used to compute the ﬁnal score of the triple. The model is trained using soft-margin loss as L = ∑ tkij∈{S∪S′} log(1+ exp(ltkij.f(tkij)))+λ2‖W‖22 whereltkij = { 1 fortkij∈S −1 fortkij∈S′ 4 Experiments and Results 4.1 Datasets To evaluate our proposed method, we use ﬁve benchmark datasets: WN18RR (Dettmers et al., 2018), FB15k-237 (Toutanova et al., 2015), NELL-995 (Xiong et al., 2017), Uniﬁed Medi- cal Language Systems (UMLS) (Kok and Domin- gos, 2007) and Alyawarra Kinship (Lin et al., 2018). Previous works (Toutanova et al., 2015; Dettmers et al., 2018) suggest that the task of relation prediction in WN18 and FB15K suffers from the problem",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04049,
+        -0.02663,
+        -0.05545,
+        -0.02818,
+        0.00897
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "a Kinship (Lin et al., 2018). Previous works (Toutanova et al., 2015; Dettmers et al., 2018) suggest that the task of relation prediction in WN18 and FB15K suffers from the problem",
+      "overlap_with_next": "ep training procedure, i.e., we ﬁrst train our generalized GAT to encode in- formation about the graph entities and relations and then train a decoder model like ConvKB (Nguyen et ",
+      "text": "a Kinship (Lin et al., 2018). Previous works (Toutanova et al., 2015; Dettmers et al., 2018) suggest that the task of relation prediction in WN18 and FB15K suffers from the problem of inverse relations, whereby one can achieve state-of-the-art results using a simple reversal rule based model, as shown by (Dettmers et al., 2018). Therefore, correspond- ing subset datasets WN18RR and FB15k-237 were created to resolve the reversible relation problem in WN18 and FB15K. We used the data splits pro- vided by (Nguyen et al., 2018). Table 1 provides statistics of all datasets used. 4.2 Training Protocol We create two sets of invalid triples, each time re- placing either the head or tail entity in a triple by an invalid entity. We randomly sample equal num- ber of invalid triples from both the sets to ensure robust performance on detecting both head and tail entity. Entity and relation embeddings produced by TransE (Bordes et al., 2013; Nguyen et al., 2018) are used to initialize our embeddings. We follow a two-step training procedure, i.e., we ﬁrst train our generalized GAT to encode in- formation about the graph entities and relations and then train a decoder model like ConvKB (Nguyen et ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02403,
+        -0.02551,
+        -0.00953,
+        -0.00133,
+        -0.02046
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "ep training procedure, i.e., we ﬁrst train our generalized GAT to encode in- formation about the graph entities and relations and then train a decoder model like ConvKB (Nguyen et ",
+      "overlap_with_next": "t with ev- ery other entity ei′ ∈ E\\ ei, then we assign a score to each such triple. Subsequently, we sort these scores in ascending order and get the rank of a correct triple (ei,",
+      "text": "ep training procedure, i.e., we ﬁrst train our generalized GAT to encode in- formation about the graph entities and relations and then train a decoder model like ConvKB (Nguyen et al., 2018) to perform the relation pre- diction task. The original GAT update Equation 3 only aggregates information passed from 1-hop neighborhood, while our generalized GAT uses in- formation from the n-hop neighborhood. We use auxiliary relations to aggregate more information about the neighborhood in sparse graphs. We use Adam to optimize all the parameters with initial learning rate set at 0.001. Both the entity and re- lation embeddings of the ﬁnal layer are set to 200. The optimal hyper-parameters set for each dataset are mentioned in our supplementary section. 4.3 Evaluation Protocol In the relation prediction task, the aim is to pre- dict a triple (ei,r k,e j) with ei or ej missing, i.e., predict ei given (rk,e j) or predict ej given (ei,r k). We generate a set of (N− 1) corrupt triples for each entity ei by replacing it with ev- ery other entity ei′ ∈ E\\ ei, then we assign a score to each such triple. Subsequently, we sort these scores in ascending order and get the rank of a correct triple (ei,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03631,
+        -0.02159,
+        -0.02035,
+        -0.0057,
+        -0.01429
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "t with ev- ery other entity ei′ ∈ E\\ ei, then we assign a score to each such triple. Subsequently, we sort these scores in ascending order and get the rank of a correct triple (ei,",
+      "overlap_with_next": "34 3134 93,003 2.12 1 FB15k-237 14,541 237 272,115 17,535 20,466 310,116 18.71 8 NELL-995 75,492 200 149,678 543 3992 154,213 1.98 0 Kinship 104 25 8544 1068 1074 10,686 82.15 82.5",
+      "text": "t with ev- ery other entity ei′ ∈ E\\ ei, then we assign a score to each such triple. Subsequently, we sort these scores in ascending order and get the rank of a correct triple (ei,r k,e j). Similar to previous work ((Bordes et al., 2013), (Nguyen et al., 2018), (Dettmers et al., 2018)), we evaluate all the mod- els in a ﬁltered setting, i.e, during ranking we re- move corrupt triples which are already present in one of the training, validation, or test sets. This whole process is repeated by replacing the tail en- tity ej, and averaged metrics are reported. We report mean reciprocal rank (MRR), mean rank (MR) and the proportion of correct entities in the topN ranks (Hits@N) forN = 1, 3, and 10. 4.4 Results and Analysis Tables 2 and 3 present the prediction results on the test sets of all the datasets. The results clearly demonstrate that our proposed method 2 2 Our work [Page 7] # Edges Dataset # Entities # Relations Training Validation Test Total Mean in-degree Median in-degree WN18RR 40,943 11 86,835 3034 3134 93,003 2.12 1 FB15k-237 14,541 237 272,115 17,535 20,466 310,116 18.71 8 NELL-995 75,492 200 149,678 543 3992 154,213 1.98 0 Kinship 104 25 8544 1068 1074 10,686 82.15 82.5",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04092,
+        -0.01514,
+        -0.02943,
+        -0.04069,
+        -0.01037
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "34 3134 93,003 2.12 1 FB15k-237 14,541 237 272,115 17,535 20,466 310,116 18.71 8 NELL-995 75,492 200 149,678 543 3992 154,213 1.98 0 Kinship 104 25 8544 1068 1074 10,686 82.15 82.5",
+      "overlap_with_next": "ip Hits@N Hits@N MR MRR @1 @3 @10 MR MRR @1 @3 @10 DistMult (Yang et al., 2015) 4213 0.485 40.1 52.4 61 5.26 0.516 36.7 58.1 86.7 ComplEx (Trouillon et al., 2016) 4600 0.482 39.9 5",
+      "text": "34 3134 93,003 2.12 1 FB15k-237 14,541 237 272,115 17,535 20,466 310,116 18.71 8 NELL-995 75,492 200 149,678 543 3992 154,213 1.98 0 Kinship 104 25 8544 1068 1074 10,686 82.15 82.5 UMLS 135 46 5216 652 661 6529 38.63 20 Table 1: Dataset statistics WN18RR FB15K-237 Hits@N Hits@N MR MRR @1 @3 @10 MR MRR @1 @3 @10 DistMult (Yang et al., 2015) 7000 0.444 41.2 47 50.4 512 0.281 19.9 30.1 44.6 ComplEx (Trouillon et al., 2016) 7882 0.449 40.9 46.9 53 546 0.278 19.4 29.7 45 ConvE (Dettmers et al., 2018) 4464 0.456 41.9 47 53.1 245 0.312 22.5 34.1 49.7 TransE (Bordes et al., 2013) 2300 0.243 4.27 44.1 53.2 323 0.279 19.8 37.6 44.1 ConvKB (Nguyen et al., 2018) 1295 0.265 5.82 44.5 55.8 216 0.289 19.8 32.4 47.1 R-GCN (Schlichtkrull et al., 2018) 6700 0.123 20.7 13.7 8 600 0.164 10 18.1 30 Our work 1940 0.440 36.1 48.3 58.1 210 0.518 46 54 62.6 Table 2: Experimental results on WN18RR and FB15K-237 test sets. Hits@N values are in percentage. The best score is in bold and second best score is underlined. NELL-995 Kinship Hits@N Hits@N MR MRR @1 @3 @10 MR MRR @1 @3 @10 DistMult (Yang et al., 2015) 4213 0.485 40.1 52.4 61 5.26 0.516 36.7 58.1 86.7 ComplEx (Trouillon et al., 2016) 4600 0.482 39.9 5",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.029,
+        -0.00864,
+        -0.03625,
+        -0.05237,
+        -0.00183
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "ip Hits@N Hits@N MR MRR @1 @3 @10 MR MRR @1 @3 @10 DistMult (Yang et al., 2015) 4213 0.485 40.1 52.4 61 5.26 0.516 36.7 58.1 86.7 ComplEx (Trouillon et al., 2016) 4600 0.482 39.9 5",
+      "overlap_with_next": ": We study the dis- tribution of attention with increasing epochs for a particular node. Figure 5 shows this distribution on FB15k-237. In the initial stages of the learn- ing proc",
+      "text": "ip Hits@N Hits@N MR MRR @1 @3 @10 MR MRR @1 @3 @10 DistMult (Yang et al., 2015) 4213 0.485 40.1 52.4 61 5.26 0.516 36.7 58.1 86.7 ComplEx (Trouillon et al., 2016) 4600 0.482 39.9 52.8 60.6 2.48 0.823 73.3 89.9 97.11 ConvE (Dettmers et al., 2018) 3560 0.491 40.3 53.1 61.3 2.03 0.833 73.8 91.7 98.14 TransE (Bordes et al., 2013) 2100 0.401 34.4 47.2 50.1 6.8 0.309 0.9 64.3 84.1 ConvKB (Nguyen et al., 2018) 600 0.43 37.0 47 54.5 3.3 0.614 43.62 75.5 95.3 R-GCN (Schlichtkrull et al., 2018) 7600 0.12 8.2 12.6 18.8 25.92 0.109 3 8.8 23.9 Our work 965 0.530 44.7 56.4 69.5 1.94 0.904 85.9 94.1 98 Table 3: Experimental results on NELL-995 and Kinship test sets. Hits@N values are in percentage. The best score is in bold and second best score is underlined. signiﬁcantly outperforms state-of-the-art results on ﬁve metrics forFB15k-237, and on two metrics for WN18RR. We downloaded publicly available source codes to reproduce results of the state-of- the-art methods345678 on all the datasets. Attention Values vs Epochs : We study the dis- tribution of attention with increasing epochs for a particular node. Figure 5 shows this distribution on FB15k-237. In the initial stages of the learn- ing proc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04577,
+        0.01375,
+        -0.01446,
+        -0.02449,
+        -0.01126
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": ": We study the dis- tribution of attention with increasing epochs for a particular node. Figure 5 shows this distribution on FB15k-237. In the initial stages of the learn- ing proc",
+      "overlap_with_next": "es that when there is an increase in PageRank values, there is also a corresponding increase in MRR values. We ob- serve an anomaly to our observed correlation in case of NELL-995 ",
+      "text": ": We study the dis- tribution of attention with increasing epochs for a particular node. Figure 5 shows this distribution on FB15k-237. In the initial stages of the learn- ing process, the attention is distributed randomly. As the training progresses and our model gathers more information from the neighborhood, it as- signs more attention to direct neighbors and takes minor information from the more distant neigh- bors. Once the model converges, it learns to gather multi-hop and clustered relation information from then-hop neighborhood of the node. PageRank Analysis : We hypothesize that com- 3 TransE 4 DistMult 5 ComplEx 6 R-GCN 7 ConvE 8 ConvKB plex and hidden multi-hop relations among enti- ties are captured more succinctly in dense graphs as opposed to sparse graphs. To test this hypoth- esis, we perform an analysis similar to ConvE, where they study the correlation between mean PageRank and increase in MRR relative to Dist- Mult. We notice a strong correlation coefﬁcient of r = 0.808. Table 4 indicates that when there is an increase in PageRank values, there is also a corresponding increase in MRR values. We ob- serve an anomaly to our observed correlation in case of NELL-995 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03063,
+        -0.03378,
+        -0.01322,
+        0.01633,
+        -0.03118
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "es that when there is an increase in PageRank values, there is also a corresponding increase in MRR values. We ob- serve an anomaly to our observed correlation in case of NELL-995 ",
+      "overlap_with_next": "alues×1e−5. 1hop 2hop 3hop n-hop value 255-269 241-255 228-241 214-228 200-214attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (a) Epoch 0 1hop 2hop 3hop n-hop value 691-827 555",
+      "text": "es that when there is an increase in PageRank values, there is also a corresponding increase in MRR values. We ob- serve an anomaly to our observed correlation in case of NELL-995 versus WN18RR and attribute this to the highly sparse and hierarchical struc- ture of WN18RR which poses as a challenge to our method that does not capture information in a top- down recursive fashion. 4.5 Ablation Study We carry out an ablation study on our model, where we analyze the behavior of mean rank on a [Page 8] 1hop 2hop 3hop n-hop value 10.8-11.5 10.1-10.8 9.48-10.1 8.81-9.48 8.14-8.81attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (a) Epoch 0 1hop 2hop 3hop n-hop value 17.4-20.6 14.3-17.4 11.1-14.3 8.02-11.1 4.88-8.02attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (b) Epoch 1200 1hop 2hop 3hop n-hop value 17.3-20.3 14.3-17.3 11.3-14.3 8.39-11.3 5.41-8.39attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (c) Epoch 2400 Figure 5: Learning process of our model on FB15K-237 dataset. Y-axis represents attention values×1e−5. 1hop 2hop 3hop n-hop value 255-269 241-255 228-241 214-228 200-214attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (a) Epoch 0 1hop 2hop 3hop n-hop value 691-827 555",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0348,
+        -0.04424,
+        -0.01778,
+        -0.00791,
+        -0.03031
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "alues×1e−5. 1hop 2hop 3hop n-hop value 255-269 241-255 228-241 214-228 200-214attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (a) Epoch 0 1hop 2hop 3hop n-hop value 691-827 555",
+      "overlap_with_next": " relations from the proposed model has a huge impact on the results which suggests that the relation embeddings play a pivotal role in relation prediction. 5 Conclusion and Future ",
+      "text": "alues×1e−5. 1hop 2hop 3hop n-hop value 255-269 241-255 228-241 214-228 200-214attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (a) Epoch 0 1hop 2hop 3hop n-hop value 691-827 555-691 419-555 282-419 146-282attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (b) Epoch 1800 1hop 2hop 3hop n-hop value 383-448 318-383 253-318 188-253 122-188attention values ( X 1e-5 ) 0.0 0.2 0.4 0.6 0.8 1.0 (c) Epoch 3600 Figure 6: Learning process of our model on WN18RR dataset. Y-axis represents attention values×1e−5 Dataset PageRank Relative Increase NELL-995 1.32 0.025 WN18RR 2.44 -0.01 FB15k-237 6.87 0.237 UMLS 740 0.247 Kinship 961 0.388 Table 4: Mean PageRank×10−5 vs relative increase in MRR wrt. DistMult. test set when we omit path generalization (−PG), i.e., removing n-hop information, and omit re- lation Information (−Relations) from our model. Figure 7 shows that our model performs better than the two ablated models and we see a signiﬁ- cant drop in the results when using ablated models on NELL-995. Removing the relations from the proposed model has a huge impact on the results which suggests that the relation embeddings play a pivotal role in relation prediction. 5 Conclusion and Future ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04224,
+        -0.01404,
+        -0.01462,
+        -0.02099,
+        -0.04021
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": " relations from the proposed model has a huge impact on the results which suggests that the relation embeddings play a pivotal role in relation prediction. 5 Conclusion and Future ",
+      "overlap_with_next": " and exhaustive empirical analysis gives more in- sight into our method’s superiority for relation pre- diction on KGs. The proposed model can be ex- tended to learn embeddings for",
+      "text": " relations from the proposed model has a huge impact on the results which suggests that the relation embeddings play a pivotal role in relation prediction. 5 Conclusion and Future Work In this paper, we propose a novel approach for relation prediction. Our approach improves over the state-of-the-art models by signiﬁcant margins. Our proposed model learns new graph attention- 1000 1500 2000 2500 3000 Epochs 1000 2000 3000 4000 5000Mean Rank Our model -PG -Relations Figure 7: Epochs vs Mean Rank for our model and two ablated models on NELL-995. −PG (green) rep- resents the model after removing n-hop auxiliary rela- tions or path generalization,−Relations (blue) repre- sents model without taking relations into account and Our model (red) represents the entire model. based embeddings that speciﬁcally cater to rela- tion prediction on KGs. Additionally, we gener- alize and extend graph attention mechanisms to capture both entity and relation features in a multi- hop neighborhood of a given entity. Our detailed and exhaustive empirical analysis gives more in- sight into our method’s superiority for relation pre- diction on KGs. The proposed model can be ex- tended to learn embeddings for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06609,
+        -0.02564,
+        -0.01721,
+        0.0167,
+        -0.0312
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": " and exhaustive empirical analysis gives more in- sight into our method’s superiority for relation pre- diction on KGs. The proposed model can be ex- tended to learn embeddings for",
+      "overlap_with_next": "al Methods in Natural Lan- guage Processing (EMNLP), 2013 , pages 1533– 1544. Jonathan Berant, Ido Dagan, and Jacob Goldberger. 2010. Global learning of focused entailment graphs. ",
+      "text": " and exhaustive empirical analysis gives more in- sight into our method’s superiority for relation pre- diction on KGs. The proposed model can be ex- tended to learn embeddings for various tasks us- [Page 9] ing KGs such as dialogue generation (He et al., 2017; Keizer et al., 2017), and question answer- ing (Zhang et al., 2016; Diefenbach et al., 2018). In the future, we intend to extend our method to better perform on hierarchical graphs and capture higher-order relations between entities (like mo- tifs) in our graph attention model. Acknowledgments We gratefully acknowledge the support of NVIDIA Corporation with the donation of the Titan Xp GPU used for this research. References Jonathan Berant, Noga Alon, Ido Dagan, and Ja- cob Goldberger. 2015. Efﬁcient global learning of entailment graphs. Computational Linguistics , 41(2):221–263. Jonathan Berant, Andrew Chou, Roy Frostig, and Percy Liang. 2013. Semantic parsing on freebase from question-answer pairs. In Proceedings of the 2013 Conference on Empirical Methods in Natural Lan- guage Processing (EMNLP), 2013 , pages 1533– 1544. Jonathan Berant, Ido Dagan, and Jacob Goldberger. 2010. Global learning of focused entailment graphs. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03666,
+        -0.01227,
+        -0.01815,
+        0.01075,
+        -0.01172
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "al Methods in Natural Lan- guage Processing (EMNLP), 2013 , pages 1533– 1544. Jonathan Berant, Ido Dagan, and Jacob Goldberger. 2010. Global learning of focused entailment graphs. ",
+      "overlap_with_next": " on Artiﬁcial Intelligence (AAAI), 2018. Dennis Diefenbach, Kamal Singh, and Pierre Maret. 2018. Wdaqua-core1: a question answering ser- vice for rdf knowledge bases. In Companion ",
+      "text": "al Methods in Natural Lan- guage Processing (EMNLP), 2013 , pages 1533– 1544. Jonathan Berant, Ido Dagan, and Jacob Goldberger. 2010. Global learning of focused entailment graphs. In Proceedings of the 48th Annual Meet- ing of the Association for Computational Linguis- tics, pages 1220–1229, Uppsala, Sweden. Associa- tion for Computational Linguistics. Jonathan Berant and Percy Liang. 2014. Semantic parsing via paraphrasing. In Proceedings of the 52nd Annual Meeting of the Association for Com- putational Linguistics (ACL), 2014. Antoine Bordes, Nicolas Usunier, Alberto Garcia- Duran, Jason Weston, and Oksana Yakhnenko. 2013. Translating embeddings for modeling multi- relational data. In C. J. C. Burges, L. Bottou, M. Welling, Z. Ghahramani, and K. Q. Weinberger, editors, Advances in Neural Information Processing Systems (NIPS), 2013, pages 2787–2795. Tim Dettmers, Pasquale Minervini, Pontus Stenetorp, and Sebastian Riedel. 2018. Convolutional 2d knowledge graph embeddings. In Thirty-Second AAAI Conference on Artiﬁcial Intelligence (AAAI), 2018. Dennis Diefenbach, Kamal Singh, and Pierre Maret. 2018. Wdaqua-core1: a question answering ser- vice for rdf knowledge bases. In Companion ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0464,
+        0.01286,
+        0.00333,
+        -0.012,
+        -0.02536
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": " on Artiﬁcial Intelligence (AAAI), 2018. Dennis Diefenbach, Kamal Singh, and Pierre Maret. 2018. Wdaqua-core1: a question answering ser- vice for rdf knowledge bases. In Companion ",
+      "overlap_with_next": "supervised classiﬁcation with graph convolutional networks. In International Conference on Learning Representations (ICLR), 2017. Stanley Kok and Pedro Domingos. 2007. Statisti- ca",
+      "text": " on Artiﬁcial Intelligence (AAAI), 2018. Dennis Diefenbach, Kamal Singh, and Pierre Maret. 2018. Wdaqua-core1: a question answering ser- vice for rdf knowledge bases. In Companion of the The Web Conference 2018 on The Web Confer- ence (WWW), 2018, pages 1087–1091. International World Wide Web Conferences Steering Committee. He He, Anusha Balakrishnan, Mihail Eric, and Percy Liang. 2017. Learning symmetric collaborative di- alogue agents with dynamic knowledge graph em- beddings. In Proceedings of the 55th Annual Meet- ing of the Association for Computational Linguistics (ACL), 2017. Simon Keizer, Markus Guhe, Heriberto Cuayahuitl, Ioannis Efstathiou, Klaus-Peter Engelbrecht, Mi- hai Dobre, Alex Lascarides, and Oliver Lemon. 2017. Evaluating persuasion strategies and deep re- inforcement learning methods for negotiation dia- logue agents. In Proceedings of the 15th Confer- ence of the European Chapter of the Association for Computational Linguistics (ACL), 2017. Thomas N. Kipf and Max Welling. 2017. Semi- supervised classiﬁcation with graph convolutional networks. In International Conference on Learning Representations (ICLR), 2017. Stanley Kok and Pedro Domingos. 2007. Statisti- ca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05663,
+        0.00799,
+        0.01621,
+        -0.04141,
+        -0.02418
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "supervised classiﬁcation with graph convolutional networks. In International Conference on Learning Representations (ICLR), 2017. Stanley Kok and Pedro Domingos. 2007. Statisti- ca",
+      "overlap_with_next": " for knowledge base completion based on convolutional neural network. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Lingu",
+      "text": "supervised classiﬁcation with graph convolutional networks. In International Conference on Learning Representations (ICLR), 2017. Stanley Kok and Pedro Domingos. 2007. Statisti- cal predicate invention. In Proceedings of the 24th International Conference on Machine Learn- ing, (ICML), 2007. LILI KOTLERMAN, IDO DAGAN, BERNARDO MAGNINI, and LUISA BENTIVOGLI. 2015. Tex- tual entailment graphs. Natural Language Engi- neering, 21(5):699724. Xi Victoria Lin, Richard Socher, and Caiming Xiong. 2018. Multi-hop knowledge graph reasoning with reward shaping. In Proceedings of the 2018 Con- ference on Empirical Methods in Natural Language Processing (EMNLP), 2018. Yankai Lin, Zhiyuan Liu, Huanbo Luan, Maosong Sun, Siwei Rao, and Song Liu. 2015. Modeling rela- tion paths for representation learning of knowledge bases. In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2015. Dai Quoc Nguyen, Tu Dinh Nguyen, Dat Quoc Nguyen, and Dinh Phung. 2018. A novel embed- ding model for knowledge base completion based on convolutional neural network. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Lingu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07795,
+        -0.05258,
+        0.01581,
+        0.00319,
+        -0.02117
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " for knowledge base completion based on convolutional neural network. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Lingu",
+      "overlap_with_next": "or knowledge base completion. In C. J. C. Burges, L. Bottou, M. Welling, Z. Ghahra- mani, and K. Q. Weinberger, editors, Advances in Neural Information Processing Systems 26 (NIPS)",
+      "text": " for knowledge base completion based on convolutional neural network. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Hu- man Language Technologies (NAACL), 2018 , vol- ume 2, pages 327–333. Maximilian Nickel, Lorenzo Rosasco, Tomaso A Pog- gio, et al. 2016. Holographic embeddings of knowl- edge graphs. In (AAAI), 2016, volume 2, pages 3–2. Maximilian Nickel, V olker Tresp, and Hans-Peter Kriegel. 2011. A three-way model for collective learning on multi-relational data. In Proceedings of the 28th International Conference on International Conference on Machine Learning, (ICML), 2011. Michael Schlichtkrull, Thomas N Kipf, Peter Bloem, Rianne van den Berg, Ivan Titov, and Max Welling. [Page 10] 2018. Modeling relational data with graph convolu- tional networks. In European Semantic Web Confer- ence (ESWC), 2018, pages 593–607. Richard Socher, Danqi Chen, Christopher D Manning, and Andrew Ng. 2013a. Reasoning with neural ten- sor networks for knowledge base completion. In C. J. C. Burges, L. Bottou, M. Welling, Z. Ghahra- mani, and K. Q. Weinberger, editors, Advances in Neural Information Processing Systems 26 (NIPS)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04927,
+        -0.02428,
+        0.0292,
+        0.00022,
+        -0.00174
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "or knowledge base completion. In C. J. C. Burges, L. Bottou, M. Welling, Z. Ghahra- mani, and K. Q. Weinberger, editors, Advances in Neural Information Processing Systems 26 (NIPS)",
+      "overlap_with_next": "nk prediction in complex net- works based on cluster information. In Proceedings of the 21st Brazilian Conference on Advances in Ar- tiﬁcial Intelligence, (SBIA), 2012, pages 92–10",
+      "text": "or knowledge base completion. In C. J. C. Burges, L. Bottou, M. Welling, Z. Ghahra- mani, and K. Q. Weinberger, editors, Advances in Neural Information Processing Systems 26 (NIPS), 2013, pages 926–934. Richard Socher, Danqi Chen, Christopher D Manning, and Andrew Ng. 2013b. Reasoning with neural ten- sor networks for knowledge base completion. In Advances in neural information processing systems (NIPS), 2013, pages 926–934. Kristina Toutanova, Danqi Chen, Patrick Pantel, Hoi- fung Poon, Pallavi Choudhury, and Michael Ga- mon. 2015. Representing text for joint embedding of text and knowledge bases. In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2015, pages 1499– 1509. Th´eo Trouillon, Johannes Welbl, Sebastian Riedel,´Eric Gaussier, and Guillaume Bouchard. 2016. Complex embeddings for simple link prediction. In Inter- national Conference on Machine Learning (ICML), 2016, pages 2071–2080. Jorge Carlos Valverde-Rebaza and Alneu de An- drade Lopes. 2012. Link prediction in complex net- works based on cluster information. In Proceedings of the 21st Brazilian Conference on Advances in Ar- tiﬁcial Intelligence, (SBIA), 2012, pages 92–10",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02237,
+        -0.01429,
+        0.00996,
+        0.02592,
+        -0.00531
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "nk prediction in complex net- works based on cluster information. In Proceedings of the 21st Brazilian Conference on Advances in Ar- tiﬁcial Intelligence, (SBIA), 2012, pages 92–10",
+      "overlap_with_next": "ang, and William Yang Wang. 2017. Deeppath: A reinforcement learning method for knowledge graph reasoning. In Proceed- ings of the 2017 Conference on Empirical Methods in Natural L",
+      "text": "nk prediction in complex net- works based on cluster information. In Proceedings of the 21st Brazilian Conference on Advances in Ar- tiﬁcial Intelligence, (SBIA), 2012, pages 92–101. Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Ł ukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In I. Guyon, U. V . Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Gar- nett, editors, Advances in Neural Information Pro- cessing Systems (NIPS), 2017, pages 5998–6008. Petar Veliˇckovi´c, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Li `o, and Yoshua Bengio. 2018. Graph Attention Networks. International Conference on Learning Representations (ICLR), 2018. Robert West, Evgeniy Gabrilovich, Kevin Murphy, Shaohua Sun, Rahul Gupta, and Dekang Lin. 2014. Knowledge base completion via search-based ques- tion answering. In Proceedings of the 23rd Inter- national Conference on World Wide Web, (WWW), 2014, pages 515–526. Wenhan Xiong, Thien Hoang, and William Yang Wang. 2017. Deeppath: A reinforcement learning method for knowledge graph reasoning. In Proceed- ings of the 2017 Conference on Empirical Methods in Natural L",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06432,
+        -0.02063,
+        -0.01724,
+        0.0178,
+        -0.02599
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37387,
+      "length": 667,
+      "overlap_with_previous": "ang, and William Yang Wang. 2017. Deeppath: A reinforcement learning method for knowledge graph reasoning. In Proceed- ings of the 2017 Conference on Empirical Methods in Natural L",
+      "overlap_with_next": "",
+      "text": "ang, and William Yang Wang. 2017. Deeppath: A reinforcement learning method for knowledge graph reasoning. In Proceed- ings of the 2017 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2017. Bishan Yang, Wen-tau Yih, Xiaodong He, Jianfeng Gao, and Li Deng. 2015. Embedding Entities and Relations for Learning and Inference in Knowledge Bases. International Conference on Learning Rep- resentations (ICLR), 2015. Yuanzhe Zhang, Kang Liu, Shizhu He, Guoliang Ji, Zhanyi Liu, Hua Wu, and Jun Zhao. 2016. Ques- tion answering over knowledge base with neural at- tention combining global knowledge information. arXiv preprint arXiv:1606.00979, 2016.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05067,
+        -0.03054,
+        0.03179,
+        0.01641,
+        -0.02901
+      ]
+    }
+  ]
+}

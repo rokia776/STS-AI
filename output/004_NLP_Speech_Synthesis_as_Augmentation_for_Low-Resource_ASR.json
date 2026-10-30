@@ -1,0 +1,351 @@
+{
+  "paper_id": "b06a6a15-98dc-479c-a49e-f0148650ec5b",
+  "filename": "004_NLP_Speech_Synthesis_as_Augmentation_for_Low-Resource_ASR.pdf",
+  "title": "SPEECH SYNTHESIS AS AUGMENTATION FOR LOW-RESOURCE ASR",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 20,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " data augmentation, speech recognition, low resource languages 1. INTRODUCTION The modern speech processing system has a voracious ap- petite for data. The general trend in automat",
+      "text": "[Page 1] arXiv:2012.13004v1 [cs.CL] 23 Dec 2020 SPEECH SYNTHESIS AS AUGMENTATION FOR LOW-RESOURCE ASR Deblin Bagchi*, Shannon Wotherspoon*, Zhuolin Jiang, Prasanna Muthukumar † Raytheon BBN, Cambridge, MA-02138, USA {dbagchi, swothers, zjiang, pmuthuku }@bbn.com ABSTRACT Speech synthesis might hold the key to low-resource speech recognition. Data augmentation techniques have become an essential part of modern speech recognition training. Y et,they are simple, naive, and rarely reﬂect real-world conditions . Meanwhile, speech synthesis techniques have been rapidly getting closer to the goal of achieving human-like speech. I n this paper, we investigate the possibility of using synthes ized speech as a form of data augmentation to lower the resources necessary to build a speech recognizer. We experiment with three different kinds of synthesizers: statistical parame tric, neural, and adversarial. Our ﬁndings are interesting and po int to new research directions for the future. Index Terms — speech synthesis, data augmentation, speech recognition, low resource languages 1. INTRODUCTION The modern speech processing system has a voracious ap- petite for data. The general trend in automat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02003,
+        0.03275,
+        -0.04232,
+        0.01134,
+        -0.0317
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " data augmentation, speech recognition, low resource languages 1. INTRODUCTION The modern speech processing system has a voracious ap- petite for data. The general trend in automat",
+      "overlap_with_next": "gnition when dea l- ing with non-mainstream languages. Igbo, for instance, is spoken by 47 million speakers but no large corpus exists, and creating a several thousand hour Igbo co",
+      "text": " data augmentation, speech recognition, low resource languages 1. INTRODUCTION The modern speech processing system has a voracious ap- petite for data. The general trend in automatic speech recog - nition (ASR) systems today has been to create algorithms tha t can make use of increasingly larger datasets. These efforts have undoubtedly yielded impressive results. The ability t o learn effectively from large datasets has directly corresponded with recognition accuracy. Far from being unique to speech recognition, ASR’s counterpart, speech synthesis has also fol- lowed a similar trend. The original Blizzard challenge data set [1] consisted of a one-hour corpus. The most recent version [2] uses corpora several times larger. While this trend of ever larger datasets has led to great ad- vances in speech processing abilities, it has also ignored t he needs of several end-users. Large sized corpora are simply not available for a large variety of tasks. The most common use case with this constraint is speech recognition when dea l- ing with non-mainstream languages. Igbo, for instance, is spoken by 47 million speakers but no large corpus exists, and creating a several thousand hour Igbo co",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0034,
+        0.0219,
+        -0.02978,
+        0.00657,
+        -0.02666
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "gnition when dea l- ing with non-mainstream languages. Igbo, for instance, is spoken by 47 million speakers but no large corpus exists, and creating a several thousand hour Igbo co",
+      "overlap_with_next": " recognizers do. After all, statistical parametric speech synthesizers have even been built on as little as 30 minutes of speech data [5]. Speech syn - thesizers also offer a means",
+      "text": "gnition when dea l- ing with non-mainstream languages. Igbo, for instance, is spoken by 47 million speakers but no large corpus exists, and creating a several thousand hour Igbo corpus for ASR will be prohibitively expensive. Arguably, older techniques li ke Hidden Markov Models [3] would still be applicable when dealing with smaller corpora. However, it is important that we do not exclude poorly resourced languages from enjoying the advances of modern speech processing technologies. In this paper, we will therefore pursue a goal directly opposite the general trend of papers today. We will attempt ∗Equal contribution †Corresponding author: Prasanna Muthukumar, pmuthuku@bbn .com to reduce the amount of data required to build a viable speech recognizer while still using modern neural network based ASR techniques. We attempt this using speech synthesis techniques [4] as a form of data augmentation. The reason- ing behind this decision is that synthesizers typically req uire orders of magnitude less data than recognizers do. After all, statistical parametric speech synthesizers have even been built on as little as 30 minutes of speech data [5]. Speech syn - thesizers also offer a means",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00208,
+        -0.01914,
+        0.00178,
+        -0.00145,
+        -0.01827
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": " recognizers do. After all, statistical parametric speech synthesizers have even been built on as little as 30 minutes of speech data [5]. Speech syn - thesizers also offer a means",
+      "overlap_with_next": "[7]. We report our experiences with all three synthesizers. 2. PRIOR WORK Low-resource ASR and TTS have a rich and varied history. Technically, any ASR paper from 10 years ago or e",
+      "text": " recognizers do. After all, statistical parametric speech synthesizers have even been built on as little as 30 minutes of speech data [5]. Speech syn - thesizers also offer a means of data augmentation that is les s naive compared to standard augmentation techniques. For instance, a common form of data augmentation is to speed up or slow down existing speech. While this technique might improve accuracy, it does not reﬂect the true way that hu- mans speed up or slow down their speech. A synthesis-based augmentation technique, on the other hand, is more likely to reﬂect rate changes more accurately. We therefore believe that synthesis-based augmentation should yield even bette r results. We will investigate three different forms of speech syn- thesis and their performance when used as a means of data augmentation for ASR. The ﬁrst is the classic statistical pa ra- metric speech synthesis [4]. The second is the popular neura l synthesizer, Tacotron2 [6]. The third is the adversarial sy n- thesizer, WGANSing [7]. We report our experiences with all three synthesizers. 2. PRIOR WORK Low-resource ASR and TTS have a rich and varied history. Technically, any ASR paper from 10 years ago or e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.0034,
+        0.02918,
+        -0.02631,
+        0.01163,
+        -0.01356
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "[7]. We report our experiences with all three synthesizers. 2. PRIOR WORK Low-resource ASR and TTS have a rich and varied history. Technically, any ASR paper from 10 years ago or e",
+      "overlap_with_next": "o bootstrap ASR and TTS systems for the low-resource language. We, on the other hand, assume that no corpus is available apart from that of the low- [Page 2] resource language. We ",
+      "text": "[7]. We report our experiences with all three synthesizers. 2. PRIOR WORK Low-resource ASR and TTS have a rich and varied history. Technically, any ASR paper from 10 years ago or earlier can be considered a viable approach for low-resource ASR. How- ever, the closest related work to ours is the paper from Rosen - berg et al [8]. The authors describe an approach where the Tacotron speech synthesizer is used to augment real speech with the goal of increasing lexical and acoustic diversity. The major difference between Rosenberg et al. and our work is in the quantity of data used. Keeping in mind our goal of using the least amount of data possible, we use substantially smaller subsets of the Librispeech corpus [9]. Because we restricte d ourselves to using as little data as possible, we also had to resort to synthesizers beyond Tacotron that Rosenberg et al . use. Another closely related work is LRSpeech by Xu et al [10]. The authors target low-resource scenarios like we do but use a high-resource language to bootstrap ASR and TTS systems for the low-resource language. We, on the other hand, assume that no corpus is available apart from that of the low- [Page 2] resource language. We ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02627,
+        0.03759,
+        -0.01397,
+        0.02746,
+        -0.0102
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "o bootstrap ASR and TTS systems for the low-resource language. We, on the other hand, assume that no corpus is available apart from that of the low- [Page 2] resource language. We ",
+      "overlap_with_next": "ric synthesis For our experiments using statistical parametric speech sy n- thesis, we use the Clustergen synthesizer [15]. Clustergen uses the Festival system [16] to convert text",
+      "text": "o bootstrap ASR and TTS systems for the low-resource language. We, on the other hand, assume that no corpus is available apart from that of the low- [Page 2] resource language. We see our approach as complementary to that of Xu et al., and hope our approach is an interesting alternative. 3. EXPERIMENTS 3.1. Speech recognizer Our speech recognition models are trained using the BBN speech recognition system, Sage [11]. Sage is an extension of the popular Kaldi speech recognition toolkit [12]. Our ASR systems are multilingual initialized [13] hybrid TDNN- F models [14], trained for one epoch of lattice-free MMI (LF- MMI) and two epochs of sMBR. For language modeling, we train word-level trigram models. All our experiments in thi s paper will focus on the acoustic model since text data is typi - cally easier to obtain than labeled audio. We use 100 hours of Librispeech transcripts for language model data in all case s, and vary the amount of audio data as required by the experi- ment. 3.2. Statistical Parametric synthesis For our experiments using statistical parametric speech sy n- thesis, we use the Clustergen synthesizer [15]. Clustergen uses the Festival system [16] to convert text",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02742,
+        0.0097,
+        -0.00639,
+        0.01514,
+        -0.01569
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ric synthesis For our experiments using statistical parametric speech sy n- thesis, we use the Clustergen synthesizer [15]. Clustergen uses the Festival system [16] to convert text",
+      "overlap_with_next": "stin g ﬁndings anyway. They pointed out several ﬂaws in Mel Cep- stral Distortion (MCD), the objective metric we were using t o assess synthesis quality. We discuss these ﬂaws in s",
+      "text": "ric synthesis For our experiments using statistical parametric speech sy n- thesis, we use the Clustergen synthesizer [15]. Clustergen uses the Festival system [16] to convert text into a sequence of phonemes, and uses random forests to predict mel-frequency cepstral co-efﬁcients that correspond to the phonemes. While Clustergen generally produces good quality speech, we use it differently from its original intent. Clustergen i s heavily optimized towards a single speaker corpus. How- ever, most ASR corpora are multi-speaker, and only possess a few minutes of speech for each speaker. It is impossible to build a synthesis model for each speaker with such little data. We therefore attempted to build average models for groups of speakers. We identiﬁed similar speakers by clus- tering i-vectors [17]. We pretended that all the speech from a particular cluster was from the same speaker, and built a Clustergen model for it. These average models did not pro- duce high quality synthesis but resulted in some interestin g ﬁndings anyway. They pointed out several ﬂaws in Mel Cep- stral Distortion (MCD), the objective metric we were using t o assess synthesis quality. We discuss these ﬂaws in s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02053,
+        0.02342,
+        -0.04102,
+        -0.01454,
+        -0.02645
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "stin g ﬁndings anyway. They pointed out several ﬂaws in Mel Cep- stral Distortion (MCD), the objective metric we were using t o assess synthesis quality. We discuss these ﬂaws in s",
+      "overlap_with_next": "al training data Training data WER 20h real 12.7 20h real + 20h synth 12.6 20h real + 20h synth (MCD < 5) 12.7 20h real + 20h synth (MCD < 6) 12.7 20h real + 60h synth 13.0 20h rea",
+      "text": "stin g ﬁndings anyway. They pointed out several ﬂaws in Mel Cep- stral Distortion (MCD), the objective metric we were using t o assess synthesis quality. We discuss these ﬂaws in section 4 . Table 1 shows the results of using Clustergen as a data augmentation system. Here, Clustergen was trained on the speciﬁed amount of real speech and then used to synthesize the speciﬁed amount of synthetic speech. The ‘MCD < 5’ and ‘MCD < 6’ rows correspond to experiments where we left out synthetic voices that had MCD scores higher than the number. Table 2 shows the results of an experiment where we trained on either purely real speech or purely synthetic speech. The results in the second row were generated by building a separate Clustergen model for each speaker no matter how little the available data. The third row in the tab le is the result of clustering similar speakers using i-vector s. The results in both tables indicate that Clustergen’s speec h T able 1. ASR performance when using synthetic speech as additional training data Training data WER 20h real 12.7 20h real + 20h synth 12.6 20h real + 20h synth (MCD < 5) 12.7 20h real + 20h synth (MCD < 6) 12.7 20h real + 60h synth 13.0 20h rea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00726,
+        0.00439,
+        -0.04939,
+        -0.00997,
+        -0.02153
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "al training data Training data WER 20h real 12.7 20h real + 20h synth 12.6 20h real + 20h synth (MCD < 5) 12.7 20h real + 20h synth (MCD < 6) 12.7 20h real + 60h synth 13.0 20h rea",
+      "overlap_with_next": "o convert the mel spectrograms to raw speech. Tacotron2 has been shown to produce excellent quality speech in the past, but our pri- mary reason for choosing this synthesizer and w",
+      "text": "al training data Training data WER 20h real 12.7 20h real + 20h synth 12.6 20h real + 20h synth (MCD < 5) 12.7 20h real + 20h synth (MCD < 6) 12.7 20h real + 60h synth 13.0 20h real + 80h synth 12.8 40h real 12.0 40h real + 60h synth 13.0 80h real 11.4 80h real + 20h synth 11.5 T able 2. ASR performance when training on either purely real or purely synthetic speech Training data WER 80h real 11.4 80h synth, unclustered, 50 voices 36.2 80h synth, clustered, 5 voices 47.1 quality was not sufﬁcient to be useful as a data augmentation method. For neural TTS and adversarial TTS, we used Clustergen as a baseline. Since ASR training is computationally expen- sive, we did not train the ASR system whenever any synthe- sizer performed worse than the parametric synthesizer. 3.3. Neural TTS Tacotron2 [6] is a purely neural speech synthesizer that con - sists of a recurrent sequence-to-sequence neural network t hat takes as input character embeddings and predicts mel spec- trograms. We use Waveglow [18] as a vocoder to convert the mel spectrograms to raw speech. Tacotron2 has been shown to produce excellent quality speech in the past, but our pri- mary reason for choosing this synthesizer and w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01804,
+        -0.00162,
+        -0.02824,
+        0.0145,
+        -0.02049
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "o convert the mel spectrograms to raw speech. Tacotron2 has been shown to produce excellent quality speech in the past, but our pri- mary reason for choosing this synthesizer and w",
+      "overlap_with_next": " multi-speaker training by incorporating speaker e m- beddings as input in addition to the character embeddings. We experimented with both one-hot embedddings as well as i-vectors.",
+      "text": "o convert the mel spectrograms to raw speech. Tacotron2 has been shown to produce excellent quality speech in the past, but our pri- mary reason for choosing this synthesizer and waveglow was because there was open-source code available. We were successful in producing high quality synthesis from Tacotron2 by training on the 24 hour LJ Speech dataset [19], but had difﬁculty achieving similar results on any 1 ho ur CMU Arctic dataset [20]. Despite our best efforts, the best Tacotron2 could do on the one-hour corpus was babble in a voice that strongly resembled the original speaker. This te st is important because CMU Arctic is still larger and cleaner than any single voice we had for our ASR datasets. We there- fore had to rule out any possibility of training a Tacotron2 model exclusive for each voice in an ASR corpus. (Building an exclusive model for each voice in an ASR corpus would have been terribly expensive computationally anyway). To overcome this difﬁculty, we extended Tacotron2 to [Page 3] support multi-speaker training by incorporating speaker e m- beddings as input in addition to the character embeddings. We experimented with both one-hot embedddings as well as i-vectors.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00413,
+        0.01966,
+        -0.01659,
+        0.01555,
+        -0.02157
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": " multi-speaker training by incorporating speaker e m- beddings as input in addition to the character embeddings. We experimented with both one-hot embedddings as well as i-vectors.",
+      "overlap_with_next": "success they have had in related ﬁelds such as image generation. The toolkit we used for our experiments was actually a GAN-based singing synthesizer called WGANSing [7]. We chose ",
+      "text": " multi-speaker training by incorporating speaker e m- beddings as input in addition to the character embeddings. We experimented with both one-hot embedddings as well as i-vectors. One-hot embeddings gave us marginally better results than i-vectors but neither could match up to even the quality of Clustergen. Nor was there an easy way of quantify- ing the difference in quality between the i-vectors and one-hot embeddings. Since the quality of synthesis on our corpus was signiﬁcantly worse than using classical parametric synthe sis, we did not attempt our augmentation experiments. 3.4. Adversarial TTS In addition to the classical parametric and neural speech synthesizers, we also tested an adversarial synthesizer ba sed on Generative Adversarial Networks (GANs). Adversarial learning is a new machine learning technique that has had tremendous success in generating high-dimensional data. These techniques are still in the nascent stages for speech synthesis, but nevertheless show great promise because of the success they have had in related ﬁelds such as image generation. The toolkit we used for our experiments was actually a GAN-based singing synthesizer called WGANSing [7]. We chose ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01634,
+        0.0073,
+        -0.02594,
+        0.00648,
+        -0.00177
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "success they have had in related ﬁelds such as image generation. The toolkit we used for our experiments was actually a GAN-based singing synthesizer called WGANSing [7]. We chose ",
+      "overlap_with_next": " paper. We suspect that this sub-par performance is caused by the low amounts of training data we use. Low- resources are a requirement for our task. Unfortunately, th is requireme",
+      "text": "success they have had in related ﬁelds such as image generation. The toolkit we used for our experiments was actually a GAN-based singing synthesizer called WGANSing [7]. We chose WGANSing because it was the only open-source toolkit we could ﬁnd capable of open-vocabulary speech synthesis. The architecture of this system is the same as DCGANs [21] and is trained using the Wasserstein GAN algorithm. WGANSing takes as input a block of frame-wise linguis- tic features and singer identity features, and outputs voco der features that correspond to the block. The most problematic for us among the input features were the precise phone du- rations and the pitch contours required. These features mak e sense for synthesizing singing, but are very difﬁcult to gen er- ate for regular speech. We were therefore forced to modify the toolkit to avoid conditioning on these troublesome feature s. However, the resulting synthesis quality without these fea - tures was poor compared to the other synthesizers discussed in this paper. We suspect that this sub-par performance is caused by the low amounts of training data we use. Low- resources are a requirement for our task. Unfortunately, th is requireme",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01265,
+        0.03225,
+        -0.03821,
+        -0.00319,
+        -0.00826
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " paper. We suspect that this sub-par performance is caused by the low amounts of training data we use. Low- resources are a requirement for our task. Unfortunately, th is requireme",
+      "overlap_with_next": "eral ex- amples where the synthesized speech was unintelligible but the measured MCD was low. Clearly, single-speaker objec- tive metrics do not extrapolate well to multi-speaker t",
+      "text": " paper. We suspect that this sub-par performance is caused by the low amounts of training data we use. Low- resources are a requirement for our task. Unfortunately, th is requirement might also be the Achilles heel of adversarial ML. 4. DISCUSSION One major setback we faced in our series of experiments is the failure of Mel Cepstral Distortion (MCD) as a metric. In standard speech synthesis experiments, MCD has issues but is generally reliable. For instance, a rule of thumb is that an MCD reduction of 0.12 is equivalent to doubling the amount of training data [22]. Unfortunately, intuitive rul es and beliefs such as these only ended up being true for the standard speech synthesis training scenario of clean, sing le- speaker data. When training on noisy, multi-speaker data, n ot only was MCD a poor reﬂection of quality, but it was also extremely misleading. In informal tests, we found several i n- stances where the metric indicated high MCD but the synthe- sized speech was understandable. We also found several ex- amples where the synthesized speech was unintelligible but the measured MCD was low. Clearly, single-speaker objec- tive metrics do not extrapolate well to multi-speaker t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03857,
+        0.0108,
+        -0.0701,
+        -0.02639,
+        0.0044
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "eral ex- amples where the synthesized speech was unintelligible but the measured MCD was low. Clearly, single-speaker objec- tive metrics do not extrapolate well to multi-speaker t",
+      "overlap_with_next": "o made it difﬁcult to ex- tend the system to support multiple speakers. Despite being experts in speech synthesis and neural networks, progress was extremely difﬁcult. We hope that",
+      "text": "eral ex- amples where the synthesized speech was unintelligible but the measured MCD was low. Clearly, single-speaker objec- tive metrics do not extrapolate well to multi-speaker train ing scenarios. Another major pain point for us was the gordian knot that was Tacotron2. We faced tremendous engineering and re- search challenges in getting sensible performance from thi s synthesizer. The engineering challenges were primarily re - lated to the amount of compute required (at least the imple- mentation we used required this). Both Tacotron2 and Wave- glow could only be run on the fastest GPUs we had available, and then still took between days to weeks to converge. While we managed to overcome these through a lot of work, the re- search challenges proved more insurmountable. We were able to successfully replicate the default experiments in the op en- source Tacotron2 toolkit, but we had little success when run - ning the codebase on our own smaller dataset. The inscrutable nature of modern neural networks also made it difﬁcult to ex- tend the system to support multiple speakers. Despite being experts in speech synthesis and neural networks, progress was extremely difﬁcult. We hope that",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0133,
+        0.02901,
+        -0.01738,
+        -0.02155,
+        -0.01825
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "o made it difﬁcult to ex- tend the system to support multiple speakers. Despite being experts in speech synthesis and neural networks, progress was extremely difﬁcult. We hope that",
+      "overlap_with_next": "ean Colbath, Ilana Heintz, and Ron Coleman for all their support in this endeavor. [Page 4] 7. REFERENCES [1] Alan W Black and Keiichi Tokuda, “The blizzard challenge -2005: Evalua",
+      "text": "o made it difﬁcult to ex- tend the system to support multiple speakers. Despite being experts in speech synthesis and neural networks, progress was extremely difﬁcult. We hope that future work by us and oth- ers relieves researchers of this burden, and makes it easier to achieve positive results. 5. CONCLUSION The results of our experiments have mostly been disappoint- ing. It appears that modern speech synthesis has not yet ad- vanced to be of sufﬁcient use in training low-resource speec h recognizers. Nevertheless we still believe that as speech s yn- thesizers increase in quality, this approach will eventual ly be- come viable. We also hope that our experiments point to in- teresting future directions with a higher potential for suc cess. For instance, every synthesizer we explored in our paper has been heavily tuned for the human ear. It is highly likely that new synthesizers will need to be designed and built with the explicit goal of acting as sources of augmented data. 6. ACKNOWLEDGEMENT We thank Sean Colbath, Ilana Heintz, and Ron Coleman for all their support in this endeavor. [Page 4] 7. REFERENCES [1] Alan W Black and Keiichi Tokuda, “The blizzard challenge -2005: Evalua",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00029,
+        0.04235,
+        -0.0469,
+        0.00271,
+        -0.00454
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "ean Colbath, Ilana Heintz, and Ron Coleman for all their support in this endeavor. [Page 4] 7. REFERENCES [1] Alan W Black and Keiichi Tokuda, “The blizzard challenge -2005: Evalua",
+      "overlap_with_next": "ang, Ron J Weiss, Mike Schuster, Navdeep Jaitly, Zongheng Y ang, Zhifeng Chen, Y u Zhang, Y uxuan Wang, Rj Skerrv-Ryan, et al., “Natural TTS synthesis by conditioning wavenet on me",
+      "text": "ean Colbath, Ilana Heintz, and Ron Coleman for all their support in this endeavor. [Page 4] 7. REFERENCES [1] Alan W Black and Keiichi Tokuda, “The blizzard challenge -2005: Evaluating corpus-based speech synthesis on common datase ts,” in Ninth European Conference on Speech Communication and Tech nol- ogy, 2005. [2] Zhenhua Ling and Simon King, “The blizzard challenge 202 0: Evaluating corpus-based speech synthesis on common datase ts,” https://www.synsig.org/images/e/ee/Blizzard2020-Cal lforParticipation.pdf. [3] Lawrence Rabiner and B Juang, “An introduction to hidden markov models,” ieee assp magazine, vol. 3, no. 1, pp. 4–16, 1986. [4] Heiga Zen, Keiichi Tokuda, and Alan W Black, “Statistica l parametric speech synthesis,” speech communication, vol. 51, no. 11, pp. 1039– 1064, 2009. [5] Alan W Black and Prasanna Kumar Muthukumar, “Random fore sts for statistical speech synthesis,” in Sixteenth Annual Conference of the International Speech Communication Association , 2015. [6] Jonathan Shen, Ruoming Pang, Ron J Weiss, Mike Schuster, Navdeep Jaitly, Zongheng Y ang, Zhifeng Chen, Y u Zhang, Y uxuan Wang, Rj Skerrv-Ryan, et al., “Natural TTS synthesis by conditioning wavenet on me",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01483,
+        0.027,
+        -0.04035,
+        0.01748,
+        0.01761
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ang, Ron J Weiss, Mike Schuster, Navdeep Jaitly, Zongheng Y ang, Zhifeng Chen, Y u Zhang, Y uxuan Wang, Rj Skerrv-Ryan, et al., “Natural TTS synthesis by conditioning wavenet on me",
+      "overlap_with_next": "n Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2015, pp. 5206–5210. [10] Jin Xu, Xu Tan, Yi Ren, Tao Qin, Jian Li, Sheng Zhao, and Ti e- Y an Liu, “LRSpeech: Extremely l",
+      "text": "ang, Ron J Weiss, Mike Schuster, Navdeep Jaitly, Zongheng Y ang, Zhifeng Chen, Y u Zhang, Y uxuan Wang, Rj Skerrv-Ryan, et al., “Natural TTS synthesis by conditioning wavenet on mel spectrogram predictions,” in 2018 IEEE International Con- ference on Acoustics, Speech and Signal Processing (ICASSP ). IEEE, 2018, pp. 4779–4783. [7] Pritish Chandna, Merlijn Blaauw, Jordi Bonada, and Emil ia G´ omez, “WGANSing: A multi-voice singing voice synthesizer based o n the wasserstein-gan,” in 2019 27th European Signal Processing Confer- ence (EUSIPCO). IEEE, 2019, pp. 1–5. [8] Andrew Rosenberg, Y u Zhang, Bhuvana Ramabhadran, Y e Jia , Pedro Moreno, Y onghui Wu, and Zelin Wu, “Speech recognition with a ug- mented synthesized speech,” in 2019 IEEE Automatic Speech Recogni- tion and Understanding W orkshop (ASRU). IEEE, 2019, pp. 996–1002. [9] V assil Panayotov, Guoguo Chen, Daniel Povey, and Sanjee v Khudan- pur, “Librispeech: an ASR corpus based on public domain audi o books,” in 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2015, pp. 5206–5210. [10] Jin Xu, Xu Tan, Yi Ren, Tao Qin, Jian Li, Sheng Zhao, and Ti e- Y an Liu, “LRSpeech: Extremely l",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02481,
+        0.03781,
+        -0.01073,
+        0.01239,
+        0.0185
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "n Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2015, pp. 5206–5210. [10] Jin Xu, Xu Tan, Yi Ren, Tao Qin, Jian Li, Sheng Zhao, and Ti e- Y an Liu, “LRSpeech: Extremely l",
+      "overlap_with_next": "nd O. Kimball, “Impr oving deliv- erable speech-to-text systems with multilingual knowledge transfer,” in Proc. INTERSPEECH 2017, Stockholm, Sweden, 2017, pp. 127–131. [14] Daniel ",
+      "text": "n Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2015, pp. 5206–5210. [10] Jin Xu, Xu Tan, Yi Ren, Tao Qin, Jian Li, Sheng Zhao, and Ti e- Y an Liu, “LRSpeech: Extremely low-resource speech synthes is and recognition,” in Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining , 2020, pp. 2802– 2812. [11] Roger Hsiao, Ralf Meermeier, Tim Ng, Zhongqiang Huang, Maxwell Jordan, Enoch Kan, Tanel Alum¨ ae, Jan Silovsk´ y, William Hartmann, Francis Keith, et al., “Sage: The new BBN speech processing p lat- form,” in Proc. INTERSPEECH 2016, San Francisco, California, USA, 2016, pp. 3022–3026. [12] Daniel Povey, Arnab Ghoshal, Gilles Boulianne, Lukas B urget, Ondrej Glembek, Nagendra Goel, Mirko Hannemann, Petr Motlicek, Y a nmin Qian, Petr Schwarz, et al., “The Kaldi speech recognition to olkit,” in IEEE 2011 workshop on automatic speech recognition and understand- ing. IEEE Signal Processing Society, 2011, number CONF. [13] J.Z. Ma, F. Keith, T. Ng, M.-h. Siu, and O. Kimball, “Impr oving deliv- erable speech-to-text systems with multilingual knowledge transfer,” in Proc. INTERSPEECH 2017, Stockholm, Sweden, 2017, pp. 127–131. [14] Daniel ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05001,
+        0.01579,
+        -0.00581,
+        -0.00559,
+        -0.00146
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "nd O. Kimball, “Impr oving deliv- erable speech-to-text systems with multilingual knowledge transfer,” in Proc. INTERSPEECH 2017, Stockholm, Sweden, 2017, pp. 127–131. [14] Daniel ",
+      "overlap_with_next": "ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Sig nal Pro- cessing (ICASSP). IEEE, 2019, pp. 3617–3621. [19] Keith Ito and Linda Johnson, “The LJ speech d",
+      "text": "nd O. Kimball, “Impr oving deliv- erable speech-to-text systems with multilingual knowledge transfer,” in Proc. INTERSPEECH 2017, Stockholm, Sweden, 2017, pp. 127–131. [14] Daniel Povey, Gaofeng Cheng, Yiming Wang, Ke Li, Hainan Xu, Mahsa Y armohammadi, and Sanjeev Khudanpur, “Semi-orthogo nal low-rank matrix factorization for deep neural networks.,” in Inter- speech, 2018, pp. 3743–3747. [15] Alan W Black, “CLUSTERGEN: A statistical parametric sy nthesizer using trajectory modeling,” in Ninth International Conference on Spo- ken Language Processing, 2006. [16] Alan Black, Paul Taylor, and Richard Caley, “The festiv al speech syn- thesis system,” . [17] Najim Dehak, Patrick J Kenny, R´ eda Dehak, Pierre Dumou chel, and Pierre Ouellet, “Front-end factor analysis for speaker ver iﬁcation,” IEEE Transactions on Audio, Speech, and Language Processin g, vol. 19, no. 4, pp. 788–798, 2010. [18] Ryan Prenger, Rafael V alle, and Bryan Catanzaro, “Waveglow: A ﬂow- based generative network for speech synthesis,” in ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Sig nal Pro- cessing (ICASSP). IEEE, 2019, pp. 3617–3621. [19] Keith Ito and Linda Johnson, “The LJ speech d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05128,
+        -0.00397,
+        0.00281,
+        0.00229,
+        -0.02489
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20204,
+      "length": 824,
+      "overlap_with_previous": "ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Sig nal Pro- cessing (ICASSP). IEEE, 2019, pp. 3617–3621. [19] Keith Ito and Linda Johnson, “The LJ speech d",
+      "overlap_with_next": "",
+      "text": "ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Sig nal Pro- cessing (ICASSP). IEEE, 2019, pp. 3617–3621. [19] Keith Ito and Linda Johnson, “The LJ speech dataset,” https://keithito.com/LJ-Speech-Dataset , 2017. [20] John Kominek and Alan W Black, “The cmu arctic speech dat abases,” in Fifth ISCA workshop on speech synthesis , 2004. [21] Merlijn Blaauw, Jordi Bonada, and Ryunosuke Daido, “Da ta efﬁcient voice cloning for neural singing synthesis,” in ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Sig nal Pro- cessing (ICASSP). IEEE, 2019, pp. 6840–6844. [22] John Kominek, Tanja Schultz, and Alan W Black, “Synthes izer voice quality of new languages calibrated with mean mel cepstral d istortion,” in Spoken Languages Technologies for Under-Resourced Langua ges, 2008.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02747,
+        0.01271,
+        -0.0246,
+        -0.00149,
+        -0.02036
+      ]
+    }
+  ]
+}

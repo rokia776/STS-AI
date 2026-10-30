@@ -1,0 +1,538 @@
+{
+  "paper_id": "9900fc1e-94a8-4bd9-ac33-4c8e5cdfaca1",
+  "filename": "039_Computer_Vision_Image_to_Bengali_Caption_Generation_Using_Deep_CNN_and_Bidirectional_Gated_Recurrent_Unit.pdf",
+  "title": "Image to Bengali Caption Generation Using Deep CNN and Bidirectional Gated Recurrent Unit",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 31,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "model that generates natural language captions in the Bengali language from an image. Bengali people can use this research to break the language barrier and better understand each ",
+      "text": "[Page 1] 2020 23rd International Conference on Computer and Information Technology (ICCIT), 19-21 December, 2020. Image to Bengali Caption Generation Using Deep CNN and Bidirectional Gated Recurrent Unit Al Momin Faruk CSE American International University-Bangladesh Dhaka,Bangladesh almominfaruk@gmail.com Hasan Al Faraby CSE American International University-Bangladesh Dhaka,Bangladesh hasanalfaraby.dev@gmail.com Md. Muzahidul Azad CSE American International University-Bangladesh Dhaka,Bangladesh marufmuzahidul@gmail.com Md. Riduyan Fedous CSE American International University-Bangladesh Dhaka,Bangladesh mdrfridu786@gmail.com Md. Kishor Morol CSE American International University-Bangladesh Dhaka,Bangladesh kishor@aiub.edu Abstract—There is very little notable research on generating descriptions of the Bengali language. About 243 million people speak in Bengali, and it is the 7th most spoken language on the planet. The purpose of this research is to propose a CNN and Bidirectional GRU based architecture model that generates natural language captions in the Bengali language from an image. Bengali people can use this research to break the language barrier and better understand each ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06621,
+        -0.01657,
+        0.00597,
+        -0.00157,
+        -0.02028
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "model that generates natural language captions in the Bengali language from an image. Bengali people can use this research to break the language barrier and better understand each ",
+      "overlap_with_next": "nit, Bangla image captioning I. I NTRODUCTION Caption generating from an image is one of the challenging tasks in the ﬁeld of computer vision and natural language processing (NLP).",
+      "text": "model that generates natural language captions in the Bengali language from an image. Bengali people can use this research to break the language barrier and better understand each other’s perspectives. It will also help many blind people with their everyday lives. This paper used an encoder-decoder approach to generate captions. We used a pre-trained Deep convolutional neural network (DCNN) called InceptonV3image embedding model as the encoder for analysis, classiﬁcation, and annotation of the dataset’s images Bidirectional Gated Recurrent unit (BGRU) layer as the decoder to generate captions. Argmax and Beam search is used to produce the highest possible quality of the captions. A new dataset called BNATURE is used, which comprises 8000 images with ﬁve captions per image. It is used for training and testing the proposed model. We obtained BLEU-1, BLEU-2, BLEU-3, BLEU-4 and Meteor is 42.6, 27.95, 23, 66, 16.41 28.7, respectively. Index Terms—Deep convolution neural network, Bidirectional gated recurrent unit, Bangla image captioning I. I NTRODUCTION Caption generating from an image is one of the challenging tasks in the ﬁeld of computer vision and natural language processing (NLP).",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03625,
+        -0.04525,
+        -0.01329,
+        -0.01032,
+        0.01113
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "nit, Bangla image captioning I. I NTRODUCTION Caption generating from an image is one of the challenging tasks in the ﬁeld of computer vision and natural language processing (NLP).",
+      "overlap_with_next": "ickr30k, Etc. These models have shown impressive performance in the COCO captioning challenge [2]. According to the automatic metrics, their result may have surpassed human perform",
+      "text": "nit, Bangla image captioning I. I NTRODUCTION Caption generating from an image is one of the challenging tasks in the ﬁeld of computer vision and natural language processing (NLP). It has a considerable impact on different ﬁelds of machine learning. For example, it can help visually impaired people better understand the content of images on the web. In many different areas, it can also have favorable impacts, such as human-computer interaction, security, etc. Caption generation models can help solve the computer vision challenge of determining what objects are in an image. However, it has to be powerful enough also to express the relationship between the objects in natural language. Due to these problems, it made caption generation seen as a massive problem for a long time. Nevertheless, there has been signiﬁcant progress in approaching this problem using end to end approaches [1]. Many CNN & RNN based neural network captioning models are trained with parallel image description datasets such as MSCOCO, Flickr30k, Etc. These models have shown impressive performance in the COCO captioning challenge [2]. According to the automatic metrics, their result may have surpassed human perform",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06951,
+        -0.03082,
+        0.01066,
+        0.0147,
+        0.00067
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ickr30k, Etc. These models have shown impressive performance in the COCO captioning challenge [2]. According to the automatic metrics, their result may have surpassed human perform",
+      "overlap_with_next": "ral network (CNN) or ConvNet was used as an encoder. InceptionV3 was used as the architecture of CNN. It has an impressive performance in image annotation [31]. (GRU) The Gated rec",
+      "text": "ickr30k, Etc. These models have shown impressive performance in the COCO captioning challenge [2]. According to the automatic metrics, their result may have surpassed human performance in some instances. As it seems, previous research on the caption generating model on the English language has been carried out in great success. It has produced an impressive result in generating English captions. However, there has been very little research conducted which produces captions in the Bengali language. Much research uses machine learning, computer vision, and natural language processing in the Bengali language [3] [4]. However, there are no signiﬁcant works towards building an image captioning system in the Bengali language. This paper follows the latest in machine translation principles known as encoder-decoder [6]. Which is proven to produce an impressive result in generating proper sentences like [7] [8] for image captioning problem. The function of feature extraction of the given image in convolutional neural network (CNN) or ConvNet was used as an encoder. InceptionV3 was used as the architecture of CNN. It has an impressive performance in image annotation [31]. (GRU) The Gated rec",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05191,
+        -0.03445,
+        -0.00842,
+        0.00305,
+        0.00416
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "ral network (CNN) or ConvNet was used as an encoder. InceptionV3 was used as the architecture of CNN. It has an impressive performance in image annotation [31]. (GRU) The Gated rec",
+      "overlap_with_next": "v:2012.12139v1 [cs.CV] 22 Dec 2020 [Page 2] sufﬁcient to say that despite the success of the captioning models, this problem is far from being solved. The rest of the paper is orga",
+      "text": "ral network (CNN) or ConvNet was used as an encoder. InceptionV3 was used as the architecture of CNN. It has an impressive performance in image annotation [31]. (GRU) The Gated recurrent unit was used as a decoder, which helped to produce captions from CNN image function extraction input. GRU has been used to overcome some problems which are present in Recurrent Neural Network (RNN). Problems like vanishing gradients have been solved by using GRU instead of RNN [9]. In our proposed architecture model, we replaced the LSTM layer with GRU for efﬁciency and better results. As it is similar to a paper proposed by Vinyals et al. [6]. By following the architecture model, especially in the Bengali Language, ”text-to-image generation” works can be easily solved by changing the ConvNet encoder as desired. However, in today’s reality performance of end to end captioning models is far from satisfactory according to the metrics based on human judgment [10]. Therefore, it is 978-0-7381-2333-2/20/$31.00 ©2020 IEEE arXiv:2012.12139v1 [cs.CV] 22 Dec 2020 [Page 2] sufﬁcient to say that despite the success of the captioning models, this problem is far from being solved. The rest of the paper is orga",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06102,
+        -0.01869,
+        0.00393,
+        -0.02505,
+        -0.00047
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "v:2012.12139v1 [cs.CV] 22 Dec 2020 [Page 2] sufﬁcient to say that despite the success of the captioning models, this problem is far from being solved. The rest of the paper is orga",
+      "overlap_with_next": " Jishan et al. cite [11] where they used Hybrid RNN to produce caption from images. Earlier image captioning approaches are visual primitive recognizer paired with a rule-based sen",
+      "text": "v:2012.12139v1 [cs.CV] 22 Dec 2020 [Page 2] sufﬁcient to say that despite the success of the captioning models, this problem is far from being solved. The rest of the paper is organized as follows: In section, II-V we describe our proposed approach for caption generation. Back-End model architecture, Image processing, caption processing and new datasets. Section VI-VIII illustrates caption generations, the evaluation metrics, the results in tabular format and the discussion. Section IX-X concludes the paper with conclusion and references. A. Related Works Here we brieﬂy discuss some related works on Convolu- tional Neural Network (CNN), Gated Neural Network (GRU) and Recurrent Neural network (RNN) and Image captioning, etc. 1) Image Captioning: There are lots of image captioning works in English language. But we did not ﬁnd any reputable research on image captioning in the Bengali language. There are a few recent works on image captioning using the Bengali language like “IMAGETOTEXT” architecture model by Jishan et al. cite [11] where they used Hybrid RNN to produce caption from images. Earlier image captioning approaches are visual primitive recognizer paired with a rule-based sen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05592,
+        -0.00634,
+        -0.01172,
+        0.00443,
+        -0.00722
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": " Jishan et al. cite [11] where they used Hybrid RNN to produce caption from images. Earlier image captioning approaches are visual primitive recognizer paired with a rule-based sen",
+      "overlap_with_next": "ecame popular in 2012 by Krizhevsk et al. [15], he won large scale visual recognition challenge (ILSVRC) in 2012 with ALEXNET architecture model. After that time CNN is used widely",
+      "text": " Jishan et al. cite [11] where they used Hybrid RNN to produce caption from images. Earlier image captioning approaches are visual primitive recognizer paired with a rule-based sen- tence generator. There might be another method including a framework using attempted sentences and introducing the scene’s triplets into the sentence as in [12], Another way is using a phase containing objects and their relationship in an image like in [13]. All of these rudimentary approaches succeed in generating captions from images nut the output is very rigid and unsatisfactory. Therefore, after Deep convolu- tional network and end-to-end pattern based caption generation method become available. Many researchers started using CNN based encoder and RNN or LSTM based decoder to generate captions from images [14]. The generated captions from these approaches are less rigid and more expressive and are many times better than the previous methods. 2) Convolutional Neural Network (CNN): Convolutional Neural network or CNN ﬁrst became popular in 2012 by Krizhevsk et al. [15], he won large scale visual recognition challenge (ILSVRC) in 2012 with ALEXNET architecture model. After that time CNN is used widely",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06772,
+        -0.01324,
+        0.0218,
+        0.00417,
+        -0.00111
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ecame popular in 2012 by Krizhevsk et al. [15], he won large scale visual recognition challenge (ILSVRC) in 2012 with ALEXNET architecture model. After that time CNN is used widely",
+      "overlap_with_next": "14 by Kyunghyun Cho et al. [7]. It is like the Long short term memory (LSTM) but with a forget gate. It has less parameter than LSTM. It performs similarly with LSTM on certain tas",
+      "text": "ecame popular in 2012 by Krizhevsk et al. [15], he won large scale visual recognition challenge (ILSVRC) in 2012 with ALEXNET architecture model. After that time CNN is used widely in various com- puter vision problems. CNN is used mainly for classifying images in classes b16, detecting objects in images [17] [22], annotating image [18]etc. There are other reasons that make CNN advance so rapidly. Such as datasets availability (e.g. MSCOCO, BNLIT, Flickr30k) [6] [19] [20] [11]. Also, the availability of GPU power that helps the model’s process of training faster. CNN is commonly used to address problems with image annotation. CNN solved high-precision image annotation problems. CNN architecture of its latest type, like InceptionV3 was the winner of ILSVRC in 2014 and Runner up by almost 94% in 2015 for image classiﬁcation problems with the top 5 accuracy category [21]. 3) Gated Recurrent Unit (GRU): Gated recurrent Units are gating mechanism of Recurrent Neural Network (RNN). GRU was ﬁrst introduced in 2014 by Kyunghyun Cho et al. [7]. It is like the Long short term memory (LSTM) but with a forget gate. It has less parameter than LSTM. It performs similarly with LSTM on certain tas",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05842,
+        -0.00906,
+        -0.00983,
+        -0.00248,
+        -0.00447
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "14 by Kyunghyun Cho et al. [7]. It is like the Long short term memory (LSTM) but with a forget gate. It has less parameter than LSTM. It performs similarly with LSTM on certain tas",
+      "overlap_with_next": " our captions. Convolution Neural Network (CNN) consists of convolution layers, which are the building blocks of this artiﬁcial neural network. CNN or ConvNet is so far is being ex",
+      "text": "14 by Kyunghyun Cho et al. [7]. It is like the Long short term memory (LSTM) but with a forget gate. It has less parameter than LSTM. It performs similarly with LSTM on certain task like polyphonic music modeling, speech signal modeling and NLP [23] [24]. GRU works better than LSTM in smaller and less frequent datasets. [25] [26] [20]. GRU is used in caption decoding instead of RNN to solve the problem of vanishing gradients. GRU also has a feature that helps it to recall a long series of sequences with other related features. II. A PPROACH A. Backend Model Architecture Deep learning is a part of machine learning which is based on artiﬁcial neural network to mimic the cognitive processes of human the brain in the recognition and visual knowledge retrieval. It has become one of the most populous computational techniques in the artiﬁcial intelligence nowadays. Among some of the popular deep learning architectures, we have used CNN (Convolution Neural Network) and RNN (Recurrent Neural Network) for producing our captions. Convolution Neural Network (CNN) consists of convolution layers, which are the building blocks of this artiﬁcial neural network. CNN or ConvNet is so far is being ex",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05333,
+        -0.03221,
+        0.00812,
+        -0.0189,
+        -0.02841
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " our captions. Convolution Neural Network (CNN) consists of convolution layers, which are the building blocks of this artiﬁcial neural network. CNN or ConvNet is so far is being ex",
+      "overlap_with_next": "l, are the small components of the CONV layer. In ConvNet, pooling layer comes after the CONV layer. The pooling layer gradually decreases the spatial representation size to dimini",
+      "text": " our captions. Convolution Neural Network (CNN) consists of convolution layers, which are the building blocks of this artiﬁcial neural network. CNN or ConvNet is so far is being extensively used for analyzing images and videos. Although image analysis has been the most popular use, CNN can be used to analyze other data or classiﬁcation problems as well. We can say CNN has more power to recognize the patterns and sense them. In CNN, there are input layer, convolution layer, pooling layers, fully connected layer, and output layer [38] shown in Fig. 1. The input layer holds the picture value of the picture as there are three colors channel value holds by this layer. The CONV layer measures the performance of neurons attached to the local input areas, each computing a dot-product between their weights and a tiny area with which input volumes are associated. The input volume is related to the increasing calculation of a dot between its weights and a small component. Learnable ﬁlters are also known as the kernel, are the small components of the CONV layer. In ConvNet, pooling layer comes after the CONV layer. The pooling layer gradually decreases the spatial representation size to dimini",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02394,
+        -0.02261,
+        -0.03284,
+        0.00474,
+        0.01708
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "l, are the small components of the CONV layer. In ConvNet, pooling layer comes after the CONV layer. The pooling layer gradually decreases the spatial representation size to dimini",
+      "overlap_with_next": "tions. We used this DCNN for extracting the image functions. We removed the last output layer that the extracted features can be used by GRU for predicting the sentences. Fig. 2. I",
+      "text": "l, are the small components of the CONV layer. In ConvNet, pooling layer comes after the CONV layer. The pooling layer gradually decreases the spatial representation size to diminish the number of parameters and network calculation and thereby, governance over ﬁtting. Fully Connected layer exists after the pooling layer. In fully connected. layer nodes have total links to all previous and next layer nodes. From a multi-layer perception, a fully connected layer plays the character of a classiﬁer [30]. After performing this layer, we obtain an output. Fig. 1. Convolution Neural Network (CNN). [Page 3] Inception V3 [31] is a DCNN (Deep Convolution Neural Network) winner of ILSVRC14. Inception V3 is the combination of lots of these blocks shown in Fig. 2. . In Fig. 2, the green-colored rectangles represent the convolution ﬁlters or kernels, and the red one is the pooling layers. There are also some extra pooling layers in Inception V3 blocks to change height and weight and softmax regression for making predictions. We used this DCNN for extracting the image functions. We removed the last output layer that the extracted features can be used by GRU for predicting the sentences. Fig. 2. I",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04347,
+        -0.00627,
+        -0.02994,
+        0.00041,
+        0.00461
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "tions. We used this DCNN for extracting the image functions. We removed the last output layer that the extracted features can be used by GRU for predicting the sentences. Fig. 2. I",
+      "overlap_with_next": "s similar to the other famous RNN types LSTM. Unlike LSTM, it has only two gates wherever LSTM has three gates. Because of less gate, GRU has fewer parameters than LSTM. GRU works ",
+      "text": "tions. We used this DCNN for extracting the image functions. We removed the last output layer that the extracted features can be used by GRU for predicting the sentences. Fig. 2. Inception V3 block. Recurrent neural networks (RNN) are a neural network type that is ideally acclimated to process data from sequential and other time-series data. In RNN, the previous step output is fed as the current stage entry. RNN has drastic use of language translation, voice command recognition, speech recognition, sentiment classiﬁcation, and image caption generation. For these operations, the model learns from inputs with a sequence and provides the outputs with a sequence. [9]. for the current output, RNN must remember the previous pieces of information for continuous prediction. RNN has memory for remembering all the steps which have been calculated [32]. Gated Recurrent Unit (GRU) is a particular type of RNN introduced by Cho et al. [7] in 2014 to subdue the problem of vanishing gradient. The functionalities of GRU is similar to the other famous RNN types LSTM. Unlike LSTM, it has only two gates wherever LSTM has three gates. Because of less gate, GRU has fewer parameters than LSTM. GRU works ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05793,
+        0.01188,
+        -0.01369,
+        0.01136,
+        0.00628
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "s similar to the other famous RNN types LSTM. Unlike LSTM, it has only two gates wherever LSTM has three gates. Because of less gate, GRU has fewer parameters than LSTM. GRU works ",
+      "overlap_with_next": " to decide the amount of precise information from the previous units should forget. The formula (2) also borrowed from [25] rt =σ(Wrxt +Urht−1) (2) Here the output of reset gate rt",
+      "text": "s similar to the other famous RNN types LSTM. Unlike LSTM, it has only two gates wherever LSTM has three gates. Because of less gate, GRU has fewer parameters than LSTM. GRU works the same as LSTM with some sequence like (i.e. sound, text). GRU uses so-called reset and update gate to dispel the problem Fig. 3. Gated Recurrent Unit (GRU). of vanishing gradient. These gates can be trained to keep information for long without losing the information through a period or eliminating unnecessary information to predict [25]. The whole GRU structure information is shown in Fig. 3. The update gate objective is to assess the model of how much previous information should pass to the future. The formula (1) borrowed from [25] zt =σ(Wzxt +Uzht−1) (1) Here the output of update gate zt for t time step. The weight matrix is Wz of update gate multiplied by the input of the current unit is xt, ht−1 hold the t-1 or previous unit information with the multiplication of Uz, which is its own weight. The model uses the reset gate to decide the amount of precise information from the previous units should forget. The formula (2) also borrowed from [25] rt =σ(Wrxt +Urht−1) (2) Here the output of reset gate rt",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05685,
+        0.03603,
+        -0.031,
+        0.01203,
+        -0.00883
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " to decide the amount of precise information from the previous units should forget. The formula (2) also borrowed from [25] rt =σ(Wrxt +Urht−1) (2) Here the output of reset gate rt",
+      "overlap_with_next": "he formula (4) also borrowed from [25] ht =zt⊙ht + (1−zt)⊙ ~ht (4) Here element wise multiplication with update gate zt and information from previous unit ht−1. Where element wise ",
+      "text": " to decide the amount of precise information from the previous units should forget. The formula (2) also borrowed from [25] rt =σ(Wrxt +Urht−1) (2) Here the output of reset gate rt for t time step. The weight matrix is Wr of reset gate multiplied by the input of the current unit is xt, ht−1hold the t-1 or previous unit information with the multiplication of Ur, which is its own weight. The current memory content uses the reset gate to store the information which is relevant from the past. The formula (3) also borrowed from [25] ~ht = tanh(Wxt +U (rt⊙ht−1)) (3) Here the output of current memory content ~ht for t time step. The weight matrix is W multiplied by the input of the current unit is xt,ht−1 hold the t-1 or previous unit information with the element wise multiplication of rt ,rt is the output of reset gate and U which is its own weight. The Final memory at current time step sets what to accumu- late from the current step and transfer it to the next layer. Update gate is needed for this operation. The formula (4) also borrowed from [25] ht =zt⊙ht + (1−zt)⊙ ~ht (4) Here element wise multiplication with update gate zt and information from previous unit ht−1. Where element wise ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01536,
+        0.04148,
+        -0.04968,
+        0.03929,
+        -0.0045
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "he formula (4) also borrowed from [25] ht =zt⊙ht + (1−zt)⊙ ~ht (4) Here element wise multiplication with update gate zt and information from previous unit ht−1. Where element wise ",
+      "overlap_with_next": " [19] [20] [11]. We used 6000 images for training, 1000 images for testing, and the rest of the images for validation. We used one NVIDIA GTX 1060. IV. I MAGE PREPROCESSING For fee",
+      "text": "he formula (4) also borrowed from [25] ht =zt⊙ht + (1−zt)⊙ ~ht (4) Here element wise multiplication with update gate zt and information from previous unit ht−1. Where element wise multiplication between (1 − zt) and current unit gives information ht. III. N EW DATASET During implementation, for training our model and for generating Bangla captions, we needed a Bangla dataset. We got two Bangla datasets called BANGLALEKHA [33] and BNLIT [34] for continued, but those datasets were [Page 4] packed with inaccuracy. They didn’t match the standard even though, according to the picture, BNLIT has one caption, and BANGLALEKHA has two captions for each. Because of lack of the dataset, we are proposing our new dataset called BNATURE. Our dataset consists of 8000 pictures with the dimension of 500 x 375 pixels . All these pictures represent Bangladeshi lifestyle and nature. Every image consists of 5 Bengali captions. The structure of the dataset is followed by recognized datasets like ﬂicker8k, ﬂicker30k, MSCOCO [6] [19] [20] [11]. We used 6000 images for training, 1000 images for testing, and the rest of the images for validation. We used one NVIDIA GTX 1060. IV. I MAGE PREPROCESSING For fee",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0365,
+        -0.03507,
+        -0.01815,
+        0.02139,
+        -0.01533
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " [19] [20] [11]. We used 6000 images for training, 1000 images for testing, and the rest of the images for validation. We used one NVIDIA GTX 1060. IV. I MAGE PREPROCESSING For fee",
+      "overlap_with_next": "VI. C APTION GENERATION The sentence generation process in the neural network is taken from the encoder-decoder modeling principle in the network and machine translation modeling [",
+      "text": " [19] [20] [11]. We used 6000 images for training, 1000 images for testing, and the rest of the images for validation. We used one NVIDIA GTX 1060. IV. I MAGE PREPROCESSING For feeding the dense layer of GRU we produced 2048-D shape. Preprocessing has been done to switch the images into RGB three dimensional arrays. The size of the array is (299, 299, 3). We used pillow, Caffe libraries for optimizations of our pictures. V. C APTION PREPROCESSING • We marked the captions with adding ” <start>” at ﬁrst of the captions and at the end of the captions we added ”<end>” token. This helped the system that it started producing the sentence when it got the ” <start>” token and it stopped creating the sentence when it saw the ”<end>” token. • We tokenized by separating the sentence word by word. We also captured all the unique words from our dataset • We converted all the text in sequence to convert all the words into the sequential word. This method produces a vector representing the series of Sentences in terms. VI. C APTION GENERATION The sentence generation process in the neural network is taken from the encoder-decoder modeling principle in the network and machine translation modeling [",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00081,
+        -0.017,
+        -0.00619,
+        -0.01917,
+        -0.03085
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "VI. C APTION GENERATION The sentence generation process in the neural network is taken from the encoder-decoder modeling principle in the network and machine translation modeling [",
+      "overlap_with_next": "3............,w t−1,I ) (5) ← −p (wt|I) = T∏ t=1 p(wT|wt+1,w t+2,w t+3.........w T,I ) (6) p(w1:T|I) = max( 1T T∑ t=1 (− →p (wt|I)), 1T T∑ t=1 (← −p (wt|I))) (7) where− →p (wt | I)",
+      "text": "VI. C APTION GENERATION The sentence generation process in the neural network is taken from the encoder-decoder modeling principle in the network and machine translation modeling [19]. Using encoder, the sequence of the word represents a distributed vector in this modeling. Then the model generates a new sequence of words with the experience of CNN by the help of decoder. The main target was to maximize the accuracy of the prediction of the perfect sentence while training. We used Bidirectional Recurrent Neural Network (BRNN) ﬁrst introduced by Schuster and Paliwal in 1997 [35], which we used to maximize the accuracy. BRNN predicts each word of the sequence based on previous and future elements. BRNN preform this sequencing using two RNN processing output one perform from left to right and another one from right to left. From these two outputs ultimately we choose the ﬁnal output of the sequence. The probability of predicting the next word using BRNN inspired from [36]. − →p (wt|I) = T∏ t=1 p(wt|w1,w 2,w 3............,w t−1,I ) (5) ← −p (wt|I) = T∏ t=1 p(wT|wt+1,w t+2,w t+3.........w T,I ) (6) p(w1:T|I) = max( 1T T∑ t=1 (− →p (wt|I)), 1T T∑ t=1 (← −p (wt|I))) (7) where− →p (wt | I)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04343,
+        -0.01923,
+        -0.02608,
+        0.04291,
+        -0.00221
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "3............,w t−1,I ) (5) ← −p (wt|I) = T∏ t=1 p(wT|wt+1,w t+2,w t+3.........w T,I ) (6) p(w1:T|I) = max( 1T T∑ t=1 (− →p (wt|I)), 1T T∑ t=1 (← −p (wt|I))) (7) where− →p (wt | I)",
+      "overlap_with_next": "oximate [6]. VII. E VALUATION METRICS We used Bilingual Evaluation Understudy (BLEU) [39] and METEOR [37]for the evaluation of our generated sentence from the model. If the generat",
+      "text": "3............,w t−1,I ) (5) ← −p (wt|I) = T∏ t=1 p(wT|wt+1,w t+2,w t+3.........w T,I ) (6) p(w1:T|I) = max( 1T T∑ t=1 (− →p (wt|I)), 1T T∑ t=1 (← −p (wt|I))) (7) where− →p (wt | I) predict the word in the way of forward order on the other hand ← −p (wt| I) predict the word in the way of backward order with the experience from the previous words. At last we have to choose these ﬁnal output of sentence from these two order we select more accurate one denoted by p(w1:T|I) the accurate one is selected by the max function. Whereas w is denoted as the one hot vector of 300 dimensional and t is the time step of producing the sentence. I is denoted as the input image. Whereas the loss function is L(I;S) =− N∑ t=0 logpt(St) (8) Beam Search evaluates the collection iteratively of the better k sentences until t as candidates for generating sentences of size t + 1, with only the best outcome k. We used Beam search with beam 3, 5, 7 to generate the captions. We also used argmax, which is considered to give better approximate [6]. VII. E VALUATION METRICS We used Bilingual Evaluation Understudy (BLEU) [39] and METEOR [37]for the evaluation of our generated sentence from the model. If the generat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0162,
+        -0.0098,
+        -0.02532,
+        0.00802,
+        0.01708
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "oximate [6]. VII. E VALUATION METRICS We used Bilingual Evaluation Understudy (BLEU) [39] and METEOR [37]for the evaluation of our generated sentence from the model. If the generat",
+      "overlap_with_next": "ed 1000 images that are unknown to the model to predict the captions. Every caption generated by the model compared by the 5 other reference sentences which are provided by human e",
+      "text": "oximate [6]. VII. E VALUATION METRICS We used Bilingual Evaluation Understudy (BLEU) [39] and METEOR [37]for the evaluation of our generated sentence from the model. If the generated sentence from the model matches precisely with the sentence generated by humans, then we will get bleu score of 1.0. If the generated sentence from the model does not match with the sentence made by humans, then we will get 0.0 bleu score. Bleu calculates the accuracy with an n-gram matric and n= 1, 2, 3, and 4 pn = ∑ n−gram∈cCount clip(n−gram)∑ n−gram∈cCount(n−gram) (9) Where c is the model generated output sentence and Count is the number of n-grams that appear in the output sentence and Count clip is the number of n-grams appear in the references according to the output n-gram. Fig. 4. Some samples of system generated sentences according to the pictures. [Page 5] VIII. R ESULT We analyze the capacity of the functioning hybrid deep model by looking at how effectively the test photos can be practically represented. We provided 1000 images that are unknown to the model to predict the captions. Every caption generated by the model compared by the 5 other reference sentences which are provided by human e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04443,
+        -0.02868,
+        -0.01836,
+        -0.00137,
+        0.00655
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "ed 1000 images that are unknown to the model to predict the captions. Every caption generated by the model compared by the 5 other reference sentences which are provided by human e",
+      "overlap_with_next": ". 5, and our loss has been decreased from 50% to% shown in Fig. 6. IX. D ISCUSSION After testing the trained model with 1000 pictures, the bleu score show in Table1 is satisfactory",
+      "text": "ed 1000 images that are unknown to the model to predict the captions. Every caption generated by the model compared by the 5 other reference sentences which are provided by human evaluation and the comparison score are described by us using Bleu and Meteor score. By using these scores, we could determine if our model is working better or not. In TABLE I, we illustrated the performance of our model using the BLEU and METEOR scores. How well the BEAM search where beam=3 and improved argmax search were shown. TABLE I Search BLEU-1 BLEU-2 BLEU-3 BLEU-4 METEOR BEAM 42.58 27.95 23.66 16.41 28.70 Argmax 40.54 25.22 20.59 13.50 28.10 After evaluation, we can see the Beam Search with beam 3 perform better than the Argmax Search. Whereas the bleu score and meteor score are 2% improved in the beam search. Fig. 5. Model performance on Accuracy Vs Epoch. Fig. 6. Model performance on Loss Vs Epoch. After training our model up to 100 epochs, our accuracy has been improved from 10% to 8%, then It got plateau shown in Fig. 5, and our loss has been decreased from 50% to% shown in Fig. 6. IX. D ISCUSSION After testing the trained model with 1000 pictures, the bleu score show in Table1 is satisfactory",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03082,
+        -0.03781,
+        -0.02587,
+        -0.03023,
+        0.01305
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": ". 5, and our loss has been decreased from 50% to% shown in Fig. 6. IX. D ISCUSSION After testing the trained model with 1000 pictures, the bleu score show in Table1 is satisfactory",
+      "overlap_with_next": "better than argmax in every n-gram. On the other hand, the meteor score between the beam and argmax search has not many differences. Although our mRNN (multimodal Recurrent Neural ",
+      "text": ". 5, and our loss has been decreased from 50% to% shown in Fig. 6. IX. D ISCUSSION After testing the trained model with 1000 pictures, the bleu score show in Table1 is satisfactory. Our new dataset helps us to achieve this result. In Fig. 4, we can see some pictures and model generated sentences based on the type of searching algorithm. We translated the model generated caption for those who do not know the Bengali language for them. In the ﬁrst picture, we can see the model can detect a kid or an adult’s photo. In the second one, the generated sentence is perfect according to the picture, and in the last one, it also can detect in which part of the boat the kid is sitting at, and even there is a reﬂection of the sky in the water. The generated sentence is quite detailed and accurate. Most of the model-generated captions are perfect or have little errors, but few of them are thoroughly irrelevant according to the test images. We evaluate our model with BELU=1, 2, 3, 4- gram metrics. Beam search performed better than argmax in every n-gram. On the other hand, the meteor score between the beam and argmax search has not many differences. Although our mRNN (multimodal Recurrent Neural ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02941,
+        -0.02425,
+        -0.01983,
+        -0.03316,
+        0.01405
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "better than argmax in every n-gram. On the other hand, the meteor score between the beam and argmax search has not many differences. Although our mRNN (multimodal Recurrent Neural ",
+      "overlap_with_next": "ng this, we keep a sign for making the Bangladesh Digital. We have used CNN (Convolution Neural Network) and RNN (Recurrent Neural Network) for producing our captions. For reliabil",
+      "text": "better than argmax in every n-gram. On the other hand, the meteor score between the beam and argmax search has not many differences. Although our mRNN (multimodal Recurrent Neural Network) performed ﬂawlessly, the limitation is that the Recurrent Neural Network can obtain the data of all pictures only by additive bias intercommunications, which are inadequate articulate than more intricate multiplicative interactions. X. C ONCLUSION In conclusion, there are three signiﬁcant beneﬁts in the three sectors. Firstly, blind peoples are taking beneﬁts from it. Secondly, Automated Robot can also beneﬁt from it. Finally, it will be an excellent system for foreigners who want to visit Bangladesh and want to know Bangladesh’s culture. That means this system will play a signiﬁcant role in Bangladesh’s tourism sector because this system can generate the Bengali caption of any pictures. Deep learning is a large area of machine learning. We use some bit of it. In the future, many systems can be made for humanity. By doing this, we keep a sign for making the Bangladesh Digital. We have used CNN (Convolution Neural Network) and RNN (Recurrent Neural Network) for producing our captions. For reliabil",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05986,
+        -0.02007,
+        0.01123,
+        -0.01257,
+        -0.01008
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "ng this, we keep a sign for making the Bangladesh Digital. We have used CNN (Convolution Neural Network) and RNN (Recurrent Neural Network) for producing our captions. For reliabil",
+      "overlap_with_next": "he accuracy and the BLEU score. REFERENCES [1] Madhyastha, P., Wang, J., & Specia, L. (2018). End-to-end image captioning exploits multimodal distributional similarity. arXiv prepr",
+      "text": "ng this, we keep a sign for making the Bangladesh Digital. We have used CNN (Convolution Neural Network) and RNN (Recurrent Neural Network) for producing our captions. For reliability and improved outcomes, we replaced the LSTM layer with GRU. Furthermore, it removes the vanishing gradients prob- lem. We have created a new dataset with 8000 pictures because of the error in existing datasets, and every picture has ﬁve captions. We used the pillow, Caffe libraries for optimizations of our photographs. We used Beam search with beam 3, 5, 7 to generate the captions. We also used argmax, which is considered to give a better approximate. For evaluating our system, we measure the bleu score and meteor score. Beam Search with beam 3 helped to improve our results. This system can play a signiﬁcant role in the automation sector in Bangladesh. We got an accuracy of 80%, but if the dataset becomes more massive, there are more chances to increase the accuracy. In future work, the bigger dataset of Bangla can improve the accuracy and the BLEU score. REFERENCES [1] Madhyastha, P., Wang, J., & Specia, L. (2018). End-to-end image captioning exploits multimodal distributional similarity. arXiv prepr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07743,
+        -0.0274,
+        0.01101,
+        -0.02816,
+        -0.00692
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "he accuracy and the BLEU score. REFERENCES [1] Madhyastha, P., Wang, J., & Specia, L. (2018). End-to-end image captioning exploits multimodal distributional similarity. arXiv prepr",
+      "overlap_with_next": "erence on Information and Communication Technology (ICoICT) (pp. 1-6). IEEE. [6] Vinyals, O., Toshev, A., Bengio, S., & Erhan, D. (2015). Show and tell: A neural image caption gene",
+      "text": "he accuracy and the BLEU score. REFERENCES [1] Madhyastha, P., Wang, J., & Specia, L. (2018). End-to-end image captioning exploits multimodal distributional similarity. arXiv preprint arXiv:1809.04144. [Page 6] [2] Cocodataset.org. 2020. COCO - Common Objects In Context. [on- line] Available at: ¡http://cocodataset.org/#captions-challenge2015¿ [Ac- cessed 21 July 2020]. [3] Mahal, S. N., Abir, B. M., & Bakhtiar, F. (2017). End to end Bangla handwritten and scene text detection using convolutional neural network (Doctoral dissertation, BRAC University). [4] Abujar, S., Masum, A. K. M., Chowdhury, S. M. H., Hasan, M., & Hossain, S. A. (2019, July). Bengali Text generation Using Bi- directional RNN. In 2019 10th International Conference on Computing, Communication and Networking Technologies (ICCCNT) (pp. 1-5). IEEE. [5] Nugraha, A. A., & Ariﬁanto, A. (2019, July). Generating Image De- scription on Indonesian Language using Convolutional Neural Network and Gated Recurrent Unit. In 2019 7th International Conference on Information and Communication Technology (ICoICT) (pp. 1-6). IEEE. [6] Vinyals, O., Toshev, A., Bengio, S., & Erhan, D. (2015). Show and tell: A neural image caption gene",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08083,
+        -0.01593,
+        0.01029,
+        -0.00014,
+        -0.01317
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "erence on Information and Communication Technology (ICoICT) (pp. 1-6). IEEE. [6] Vinyals, O., Toshev, A., Bengio, S., & Erhan, D. (2015). Show and tell: A neural image caption gene",
+      "overlap_with_next": " A. (2019). IMAGETOTEXT: IMAGE CAPTION GENER- ATION USING HYBRID RECURRENT NEURAL NETWORK. [12] Farhadi, A., Hejrati, M., Sadeghi, M. A., Young, P., Rashtchian, C., Hockenmaier, J.",
+      "text": "erence on Information and Communication Technology (ICoICT) (pp. 1-6). IEEE. [6] Vinyals, O., Toshev, A., Bengio, S., & Erhan, D. (2015). Show and tell: A neural image caption generator. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 3156-3164). [7] Cho, K., Van Merri ¨enboer, B., Gulcehre, C., Bahdanau, D., Bougares, F., Schwenk, H., & Bengio, Y . (2014). Learning phrase representations using RNN encoder-decoder for statistical machine translation. arXiv preprint arXiv:1406.1078. [8] Kiros, R., Salakhutdinov, R., & Zemel, R. S. (2014). Unifying visual- semantic embeddings with multimodal neural language models. arXiv preprint arXiv:1411.2539. [9] Lipton, Z. C., Berkowitz, J., & Elkan, C. (2015). A critical review of recurrent neural networks for sequence learning. arXiv preprint arXiv:1506.00019. [10] Cocodataset.org. 2020. COCO - Common Objects In Context. [online] Available at: <http://cocodataset.org/#captions-leaderboard> [Accessed 21 July 2020]. [11] JISHAN, M. A. (2019). IMAGETOTEXT: IMAGE CAPTION GENER- ATION USING HYBRID RECURRENT NEURAL NETWORK. [12] Farhadi, A., Hejrati, M., Sadeghi, M. A., Young, P., Rashtchian, C., Hockenmaier, J.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06201,
+        0.00251,
+        0.015,
+        0.00223,
+        0.00945
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": " A. (2019). IMAGETOTEXT: IMAGE CAPTION GENER- ATION USING HYBRID RECURRENT NEURAL NETWORK. [12] Farhadi, A., Hejrati, M., Sadeghi, M. A., Young, P., Rashtchian, C., Hockenmaier, J.",
+      "overlap_with_next": "isserman, A. (2014). Very deep convolu- tional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556. [17] Redmon, J., & Farhadi, A. (2018). Yolov3: An increme",
+      "text": " A. (2019). IMAGETOTEXT: IMAGE CAPTION GENER- ATION USING HYBRID RECURRENT NEURAL NETWORK. [12] Farhadi, A., Hejrati, M., Sadeghi, M. A., Young, P., Rashtchian, C., Hockenmaier, J.,& Forsyth, D. (2010, September). Every picture tells a story: Generating sentences from images. In European conference on computer vision (pp. 15-29). Springer, Berlin, Heidelberg [13] Li, S., Kulkarni, G., Berg, T., Berg, A., & Choi, Y . (2011, June). Composing simple image descriptions using web-scale n-grams. In Proceedings of the Fifteenth Conference on Computational Natural Language Learning (pp. 220-228). [14] Karpathy, A., & Fei-Fei, L. (2015). Deep visual-semantic alignments for generating image descriptions. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 3128-3137). [15] Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). Imagenet classi- ﬁcation with deep convolutional neural networks. In Advances in neural information processing systems (pp. 1097-1105). [16] Simonyan, K., & Zisserman, A. (2014). Very deep convolu- tional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556. [17] Redmon, J., & Farhadi, A. (2018). Yolov3: An increme",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.044,
+        -0.02252,
+        -0.00123,
+        0.0015,
+        0.00073
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "isserman, A. (2014). Very deep convolu- tional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556. [17] Redmon, J., & Farhadi, A. (2018). Yolov3: An increme",
+      "overlap_with_next": "EEE conference on computer vision and pattern recognition (pp. 2818-2826). [22] Chen, X., & Lawrence Zitnick, C. (2015). Mind’s eye: A recurrent visual representation for image cap",
+      "text": "isserman, A. (2014). Very deep convolu- tional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556. [17] Redmon, J., & Farhadi, A. (2018). Yolov3: An incremental improvement. arXiv preprint arXiv:1804.02767. [18] Wang, J., Yang, Y ., Mao, J., Huang, Z., Huang, C., & Xu, W. (2016). Cnn-rnn: A uniﬁed framework for multi-label image classiﬁcation. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 2285-2294). [19] Xu, K., Ba, J., Kiros, R., Cho, K., Courville, A., Salakhudinov, R. ... & Bengio, Y . (2015, June). Show, attend and tell: Neural image caption generation with visual attention. In International conference on machine learning (pp. 2048-2057). [20] Lu, D., Whitehead, S., Huang, L., Ji, H., & Chang, S. F. (2018). Entity- aware image caption generation. arXiv preprint arXiv:1804.07889. [21] Szegedy, C., Vanhoucke, V ., Ioffe, S., Shlens, J., & Wojna, Z. (2016). Rethinking the inception architecture for computer vision. In Proceed- ings of the IEEE conference on computer vision and pattern recognition (pp. 2818-2826). [22] Chen, X., & Lawrence Zitnick, C. (2015). Mind’s eye: A recurrent visual representation for image cap",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0633,
+        -0.00949,
+        -0.00158,
+        -0.00725,
+        -0.00698
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "EEE conference on computer vision and pattern recognition (pp. 2818-2826). [22] Chen, X., & Lawrence Zitnick, C. (2015). Mind’s eye: A recurrent visual representation for image cap",
+      "overlap_with_next": ". Building An Image Caption Generator With Deep Learning In Tensorﬂow. [online]freeCodeCamp.org. Avail- able at:¡https://www.freecodecamp.org/news/building-an-image-caption- genera",
+      "text": "EEE conference on computer vision and pattern recognition (pp. 2818-2826). [22] Chen, X., & Lawrence Zitnick, C. (2015). Mind’s eye: A recurrent visual representation for image caption generation. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 2422-2431). [23] Ravanelli, M., Brakel, P., Omologo, M., & Bengio, Y . (2018). Light gated recurrent units for speech recognition. IEEE Transactions on Emerging Topics in Computational Intelligence, 2(2), 92-102. [24] Su, Y ., & Kuo, C. C. J. (2019). On extended long short-term memory and dependent bidirectional recurrent neural network. Neurocomputing, 356, 151-161. [25] Chung, J., Gulcehre, C., Cho, K., & Bengio, Y . (2014). Empirical evaluation of gated recurrent neural networks on sequence modeling. arXiv preprint arXiv:1412.3555. [26] Gruber, N., & Jockisch, A. (2020). Are GRU cells more speciﬁc and LSTM cells more sensitive in motive classiﬁcation of text?. Frontiers in Artiﬁcial Intelligence, 3, 40. [27] Larson, Q., 2020. Building An Image Caption Generator With Deep Learning In Tensorﬂow. [online]freeCodeCamp.org. Avail- able at:¡https://www.freecodecamp.org/news/building-an-image-caption- genera",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07583,
+        0.01515,
+        0.00458,
+        -0.02014,
+        -0.01267
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": ". Building An Image Caption Generator With Deep Learning In Tensorﬂow. [online]freeCodeCamp.org. Avail- able at:¡https://www.freecodecamp.org/news/building-an-image-caption- genera",
+      "overlap_with_next": "rn recognition (pp. 1-9). [32] Mikolov, T., Kombrink, S., Burget, L., ˇCernock´y, J., & Khudanpur, S. (2011, May). Extensions of recurrent neural network language model. In 2011 IE",
+      "text": ". Building An Image Caption Generator With Deep Learning In Tensorﬂow. [online]freeCodeCamp.org. Avail- able at:¡https://www.freecodecamp.org/news/building-an-image-caption- generator-with-deep-learning-in-tensorﬂow-a142722e9b1f/¿ [Accessed 20 July 2020]. [28] Khandelwal, R., 2020. An Intuitive Explanation Of Beam Search. [online] Medium. Available at: <https://towardsdatascience.com/an- intuitive-explanation-of-beam-search-9b1d744e7a0f> [Accessed 20 July 2020]. [29] Mao, J., Xu, W., Yang, Y ., Wang, J., & Yuille, A. L. (2014). Ex- plain images with multimodal recurrent neural networks. arXiv preprint arXiv:1410.1090. [30] Yan, K., Huang, S., Song, Y ., Liu, W., & Fan, N. (2017, July). Face recognition based on convolution neural network. In 2017 36th Chinese Control Conference (CCC) (pp. 4077-4081). IEEE. [31] Szegedy, C., Liu, W., Jia, Y ., Sermanet, P., Reed, S., Anguelov, D., ... & Rabinovich, A. (2015). Going deeper with convolutions. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 1-9). [32] Mikolov, T., Kombrink, S., Burget, L., ˇCernock´y, J., & Khudanpur, S. (2011, May). Extensions of recurrent neural network language model. In 2011 IE",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05214,
+        -0.01229,
+        0.01358,
+        -0.01535,
+        0.0001
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "rn recognition (pp. 1-9). [32] Mikolov, T., Kombrink, S., Burget, L., ˇCernock´y, J., & Khudanpur, S. (2011, May). Extensions of recurrent neural network language model. In 2011 IE",
+      "overlap_with_next": "media (pp. 988-997). [37] Denkowski, M., & Lavie, A. (2014, June). Meteor universal: Language speciﬁc translation evaluation for any target language. In Proceedings of the ninth wo",
+      "text": "rn recognition (pp. 1-9). [32] Mikolov, T., Kombrink, S., Burget, L., ˇCernock´y, J., & Khudanpur, S. (2011, May). Extensions of recurrent neural network language model. In 2011 IEEE international conference on acoustics, speech and signal processing (ICASSP) (pp. 5528-5531). IEEE. [33] Biswas, M., Islam, R., Shom, G. K., Shopon, M., Mohammed, N., Momen, S., & Abedin, A. (2017). Banglalekha-isolated: A multi-purpose comprehensive dataset of handwritten bangla isolated characters. Data in brief, 12, 103-107. [34] Jishan, Md. Asifuzzaman; Mahmud, Khan Raqib; Azad, Abul Kalam Al (2020), “Bangla Natural Language Image to Text (BNLIT)”, Mendeley Data, v4 http://dx.doi.org/10.17632/ws3r82gnm8.4 [35] Schuster, M., & Paliwal, K. K. (1997). Bidirectional recurrent neural networks. IEEE transactions on Signal Processing, 45(11), 2673-2681. [36] Wang, C., Yang, H., Bartz, C., & Meinel, C. (2016, October). Image captioning with deep bidirectional LSTMs. In Proceedings of the 24th ACM international conference on Multimedia (pp. 988-997). [37] Denkowski, M., & Lavie, A. (2014, June). Meteor universal: Language speciﬁc translation evaluation for any target language. In Proceedings of the ninth wo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0896,
+        0.00757,
+        0.0013,
+        0.01796,
+        -0.00229
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31276,
+      "length": 676,
+      "overlap_with_previous": "media (pp. 988-997). [37] Denkowski, M., & Lavie, A. (2014, June). Meteor universal: Language speciﬁc translation evaluation for any target language. In Proceedings of the ninth wo",
+      "overlap_with_next": "",
+      "text": "media (pp. 988-997). [37] Denkowski, M., & Lavie, A. (2014, June). Meteor universal: Language speciﬁc translation evaluation for any target language. In Proceedings of the ninth workshop on statistical machine translation (pp. 376-380). [38] Albawi, S., Mohammed, T. A., & Al-Zawi, S. (2017, August). Un- derstanding of a convolutional neural network. In 2017 International Conference on Engineering and Technology (ICET) (pp. 1-6). IEEE. [39] Papineni, K., Roukos, S., Ward, T., & Zhu, W. J. (2002, July). BLEU: a method for automatic evaluation of machine translation. In Proceedings of the 40th annual meeting of the Association for Computational Linguistics (pp. 311-318).",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01061,
+        0.02488,
+        -0.00799,
+        -0.00642,
+        0.0032
+      ]
+    }
+  ]
+}

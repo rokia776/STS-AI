@@ -1,0 +1,572 @@
+{
+  "paper_id": "6bc7cdfd-d35a-441f-a0f5-c9bd5afa97e9",
+  "filename": "015_NLP_Automatic_Inference_of_Minimalist_Grammars_using_an_SMT-Solver.pdf",
+  "title": "Automatic Inference of Minimalist Grammars using an SMT-Solver",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 33,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " the Minimum Description Length principle and the Subset principle. Inferred grammars that were optimal with respect to certain combinations of these cost functions were found to a",
+      "text": "[Page 1] JMLR: Workshop and Conference Proceedings 1–11, 2019 LearnAut 2019 Automatic Inference of Minimalist Grammars using an SMT-Solver Sagar Indurkhya INDURKS @MIT.EDU MIT Abstract We introduce (1) a novel parser for Minimalist Grammars (MG), encoded as a system of ﬁrst-order logic formulae that may be evaluated using an SMT-solver, and (2) a novel procedure for inferring Minimalist Grammars using this parser. The input to this procedure is a sequence of sentences that have been annotated with syntactic relations such as semantic role labels (connecting arguments to predicates) and subject-verb agreement. The output of this procedure is a set of minimalist grammars, each of which is able to parse the sentences in the input sequence such that the parse for a sentence has the same syntactic relations as those speciﬁed in the annotation for that sentence. We applied this procedure to a set of sentences annotated with syntactic relations and evaluated the inferred grammars using cost functions inspired by the Minimum Description Length principle and the Subset principle. Inferred grammars that were optimal with respect to certain combinations of these cost functions were found to a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05529,
+        0.00346,
+        -0.01182,
+        0.00721,
+        0.00573
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " the Minimum Description Length principle and the Subset principle. Inferred grammars that were optimal with respect to certain combinations of these cost functions were found to a",
+      "overlap_with_next": "quire grammars that comport with contemporary theories of minimalist syntax (Chomsky (1995)).2 The remainder of this study is organized as follows: after reviewing the MG formalism",
+      "text": " the Minimum Description Length principle and the Subset principle. Inferred grammars that were optimal with respect to certain combinations of these cost functions were found to align with contemporary theories of syntax. Keywords: Minimalist Grammar, Satisﬁability Modulo Theory, Grammatical Inference 1. Introduction Inspired by earlier formulations of grammars using logic (Pereira and Warren (1983); Rayner et al. (1988); Stabler (1993); Rogers (1998); Graf (2013)) and recent, substantive improvements in the performance of SMT-solvers (De Moura and Bjørner (2011); Cadar and Sen (2013)), we have de- veloped a novel procedure, with the form of a model of language acquisition (Chomsky (1965)), for automatically inferring Minimalist Grammars (MG) (Stabler (1996)) from a sequence of sentences that have been annotated with syntactic relations for predicate-argument structure and morphologi- cal agreement .1 In this study, we report preliminary results that demonstrate our inference proce- dures’ capacity to acquire grammars that comport with contemporary theories of minimalist syntax (Chomsky (1995)).2 The remainder of this study is organized as follows: after reviewing the MG formalism",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04681,
+        -0.00097,
+        -0.02582,
+        -0.006,
+        0.0037
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "quire grammars that comport with contemporary theories of minimalist syntax (Chomsky (1995)).2 The remainder of this study is organized as follows: after reviewing the MG formalism",
+      "overlap_with_next": "syntax, see (Adger (2003); Hornstein et al. (2005); Radford (2009)). c© 2019 S. Indurkhya. arXiv:1905.02869v1 [cs.CL] 8 May 2019 [Page 2] INDURKHYA in (Section 5) we discuss how ou",
+      "text": "quire grammars that comport with contemporary theories of minimalist syntax (Chomsky (1995)).2 The remainder of this study is organized as follows: after reviewing the MG formalism and prior work on modeling MGs with logic (Section 2), we present our inference procedure (Section 3) and use it to infer a set of MG lexicons from the sequence of annotated sentences listed in Table 1 (Section 4); we identify members of the inferred set of MG lexicons that are optimal with respect to cost functions inspired by the Minimum Description Length (MDL) principle (Gr¨unwald (2007)) and the Subset principle (Berwick (1985); Wexler (1993)) and present several examples of these optimal MG lexicons, one of which aligns with contemporary minimalist syntax, producing for each sentence in the input sequence a parse tree that matches standard syntactic analysis . Finally, 1. Please contact the authors to obtain an implementation of the inference procedure introduced in this study. 2. For detailed presentations of minimalist syntax, see (Adger (2003); Hornstein et al. (2005); Radford (2009)). c© 2019 S. Indurkhya. arXiv:1905.02869v1 [cs.CL] 8 May 2019 [Page 2] INDURKHYA in (Section 5) we discuss how ou",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06813,
+        0.00458,
+        -0.00178,
+        -0.00261,
+        0.00972
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "syntax, see (Adger (2003); Hornstein et al. (2005); Radford (2009)). c© 2019 S. Indurkhya. arXiv:1905.02869v1 [cs.CL] 8 May 2019 [Page 2] INDURKHYA in (Section 5) we discuss how ou",
+      "overlap_with_next": " to as lexical items, each of which pairs a phonetic form 5 with a ﬁnite sequence of (syntactic) features. 6 (ii) merge, a recursive structure building operation that combines two ",
+      "text": "syntax, see (Adger (2003); Hornstein et al. (2005); Radford (2009)). c© 2019 S. Indurkhya. arXiv:1905.02869v1 [cs.CL] 8 May 2019 [Page 2] INDURKHYA in (Section 5) we discuss how our procedure, which takes the form of a computational model of language acquisition, may be applied to the evaluation of the Strong Minimalist Thesis.3 2. Minimalist Grammars The Minimalist Grammar (MG) formalism, introduced in Stabler (1996), is a well established for- mal model of syntax inspired by Chomsky (1995). We chose to use this formalism because: (i) MGs are mildly context-sensitive (Michaelis (1998)) and can model cross-serial dependencies that arise in natural language (Vijay-Shanker et al. (1987); Stabler (2004)); (ii) MGs can model displacement, a basic fact of natural language that enables a phrase to be interpreted both in its ﬁnal, surfaced position, as well as other positions within a syntactic structure (Chomsky (2013)).4 An MG consists of: (i) a lexicon, consisting of a ﬁnite set of atomic structures, referred to as lexical items, each of which pairs a phonetic form 5 with a ﬁnite sequence of (syntactic) features. 6 (ii) merge, a recursive structure building operation that combines two ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01165,
+        0.00343,
+        -0.01235,
+        -0.00884,
+        0.014
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": " to as lexical items, each of which pairs a phonetic form 5 with a ﬁnite sequence of (syntactic) features. 6 (ii) merge, a recursive structure building operation that combines two ",
+      "overlap_with_next": "nelli (2018). Rogers (1998) established that the axioms of GB theory are expressible with Monadic Second Order logic (MSO); subsequently, Graf (2013) produced an MSO axiomatization",
+      "text": " to as lexical items, each of which pairs a phonetic form 5 with a ﬁnite sequence of (syntactic) features. 6 (ii) merge, a recursive structure building operation that combines two structures to produce a new structure.7 Each application of merge consumes the ﬁrst feature from each of its two arguments, requiring that the two features have the same value; one of the two arguments then projects its feature sequence to the structure produced by merged. To parse a sentence, a set of lexical items is drawn from the lexicon and combined together, via the recursive application ofmerge, into a single structure in which all of the features have been consumed; if the ordering of the phonetic forms in the resulting structure aligns with the order of the words in the sentence being parsed, then the structure is considered to be a valid parse of the sentence. See Figure 2 and Figure 3 for examples of MG parses. Finally, let us consider whether an MG may be modeled with Satisﬁability Modulo Theory (SMT) (Barrett and Tinelli (2018). Rogers (1998) established that the axioms of GB theory are expressible with Monadic Second Order logic (MSO); subsequently, Graf (2013) produced an MSO axiomatization",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00084,
+        0.03233,
+        0.00943,
+        0.00688,
+        0.02464
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "nelli (2018). Rogers (1998) established that the axioms of GB theory are expressible with Monadic Second Order logic (MSO); subsequently, Graf (2013) produced an MSO axiomatization",
+      "overlap_with_next": "e local relations; by the Principle of Last Resort , movement is driven by morphological considerations – e.g. morphological agreement (Chomsky (1995)). 5. A phonetic form is eithe",
+      "text": "nelli (2018). Rogers (1998) established that the axioms of GB theory are expressible with Monadic Second Order logic (MSO); subsequently, Graf (2013) produced an MSO axiomatization for MGs 8, and notes that over ﬁnite domains these constraints may be expressed with ﬁrst order logic. As this study only considers models with ﬁnite domains, we can develop a ﬁnite theory of MGs with an axiomatization based in part on the MSO axiomatization of MGs 3. Chomsky (2008) The Strong Minimalist Thesis asserts that “language is an optimal solution to interface conditions that FL must satisfy; that is, language is an optimal way to link sound and meaning, where these notions are given a technical sense in terms of the interface systems that enter into the use and interpretation of expressions generated by an I-language. ”See also: Chomsky (2001). 4. A single phrase satisfying multiple interface conditions often requires that it undergo syntactic movement to establish a discontinuous structure (i.e. a chain) with multiple local relations; by the Principle of Last Resort , movement is driven by morphological considerations – e.g. morphological agreement (Chomsky (1995)). 5. A phonetic form is eithe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02753,
+        -0.00642,
+        0.03036,
+        -0.00112,
+        -0.00263
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "e local relations; by the Principle of Last Resort , movement is driven by morphological considerations – e.g. morphological agreement (Chomsky (1995)). 5. A phonetic form is eithe",
+      "overlap_with_next": " features for the two arguments be a selector and selectee, with the former projecting. 8. Graf (2013) also shows that constraints may be encoded in an MG lexicon if and only if th",
+      "text": "e local relations; by the Principle of Last Resort , movement is driven by morphological considerations – e.g. morphological agreement (Chomsky (1995)). 5. A phonetic form is either overt (e.g. a word in the sentence) or covert (i.e. unpronounced). 6. A feature has: (i) a value from a ﬁnite set of categories; (ii) a type, which is either selector, selectee, licensor or licensee, indicated by the preﬁx =, ∼, + and − respectively; a < or > preﬁxed before a selector preﬁx indicates that the selector triggers left or right head-movement respectively. There is also a special feature, C, that serves to indicate the completion of a parse. 7. Merge applies to two logically disjoint cases: (i) internal merge, for the case in which one argument is a substructure of the other (i.e. they are not disjoint), requires that the consumed features for the two arguments be a licensor and licensee, with the former projecting. (ii)external merge, for the case in which the two arguments are disjoint, requires that the consumed features for the two arguments be a selector and selectee, with the former projecting. 8. Graf (2013) also shows that constraints may be encoded in an MG lexicon if and only if th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02337,
+        -0.00301,
+        0.0026,
+        0.00678,
+        -0.0009
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": " features for the two arguments be a selector and selectee, with the former projecting. 8. Graf (2013) also shows that constraints may be encoded in an MG lexicon if and only if th",
+      "overlap_with_next": "he sentence; (iii) a function, Q, that takes as input a state, Si, and an annotated sentence, Ii, and outputs the successor state, Si+1; (iv) a function, R, that maps a state Si to",
+      "text": " features for the two arguments be a selector and selectee, with the former projecting. 8. Graf (2013) also shows that constraints may be encoded in an MG lexicon if and only if they are MSO expressible. 2 [Page 3] AUTOMATIC INFERENCE OF MINIMALIST GRAMMARS USING AN SMT-S OLVER developed by Graf (2013).9 We will express the theory with a multi-sort quantiﬁer-free10 ﬁrst-order logic extended with the theory of uninterpreted functions (i.e. the theory of equality), allowing us to model the theory with an SMT-solver and (decidably) identify interpretations of models. 3. Inference Procedure Our inference procedure takes the form of a computational model of language acquisition (Chomsky (1965)) consisting of: (i) an initial state, S0, consisting of a system of ﬁrst-order logical formulae that serve as axioms for deducing the class of minimalist lexicons; (ii) the input, consisting of a sequence ofn sentences, denotedI1,I 2,...,I n, each of which is annotated with syntactic relations between pairs of words in the sentence; (iii) a function, Q, that takes as input a state, Si, and an annotated sentence, Ii, and outputs the successor state, Si+1; (iv) a function, R, that maps a state Si to",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06752,
+        0.00956,
+        0.00249,
+        0.02735,
+        0.01933
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "he sentence; (iii) a function, Q, that takes as input a state, Si, and an annotated sentence, Ii, and outputs the successor state, Si+1; (iv) a function, R, that maps a state Si to",
+      "overlap_with_next": " symbols) to a formula for an MG lexicon (i.e. S0); by imposing constraints on the formulas for parse trees, the set of solutions to the lexicon formula is restricted. Let us now r",
+      "text": "he sentence; (iii) a function, Q, that takes as input a state, Si, and an annotated sentence, Ii, and outputs the successor state, Si+1; (iv) a function, R, that maps a state Si to a set of MG lexicons, Gi, with the property that for each sentence Ij in the input sequence, each lexicon L∈ Gi can produce a parse pLj such that the syntactic relations in pLj parse match those speciﬁed in the annotation ofsj.11 The procedure consumes the input sequence one annotated sentence at a time, using Q to drive the initial state, S0, to the ﬁnal state, Sn; the function R is then applied toSn to produce a set of MG lexicons,Gn, that constitutes the output of the inference procedure. (See Table-1 for an example of input to the procedure) We implemented this inference procedure by encoding an MG parser as a system of ﬁrst-order, quantiﬁer-free logical formulas that can be solved with an SMT-solver. 12 This system of formulas is composed of formulas for MG parse trees (see Section 3.1) that are connected (by way of shared symbols) to a formula for an MG lexicon (i.e. S0); by imposing constraints on the formulas for parse trees, the set of solutions to the lexicon formula is restricted. Let us now r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03094,
+        0.02706,
+        0.00521,
+        0.02105,
+        0.02468
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " symbols) to a formula for an MG lexicon (i.e. S0); by imposing constraints on the formulas for parse trees, the set of solutions to the lexicon formula is restricted. Let us now r",
+      "overlap_with_next": "ferred setGi is not enumerated; rather, 9. Although we use the concept of slices, presented in Graf (2013), our axiomatization does not utilize the ﬁrst-order theory of ﬁnite trees",
+      "text": " symbols) to a formula for an MG lexicon (i.e. S0); by imposing constraints on the formulas for parse trees, the set of solutions to the lexicon formula is restricted. Let us now review the role Q andR play in this. When the inference procedure consumes an annotated sentence from the input sequence, the function Q: (1) instantiates a formula for a MG parse; (2) translates the annotations for the sen- tence into (logic) formulas that constrain the parse tree – e.g. predicate-argument relations and morphological agreement are translated into locality constraints 13, and each sentence is marked as declarative or interrogative, indicating which of two pre-speciﬁed covert phonetic forms,ϵCDecl or ϵCIntr , must appear in a parse of the sentence (see Fig. 3 for an example); (3) adds these new formulas to the existing system of formulas inSi to produceSi+1. In order to compute the set of lexicons,Gi =R(Si), we used the Z3 SMT-solver to solve for the set of lexicons satisfying the formulae inSi.14 Note that the inferred setGi is not enumerated; rather, 9. Although we use the concept of slices, presented in Graf (2013), our axiomatization does not utilize the ﬁrst-order theory of ﬁnite trees",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02916,
+        0.00901,
+        -0.00552,
+        0.02791,
+        0.01773
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ferred setGi is not enumerated; rather, 9. Although we use the concept of slices, presented in Graf (2013), our axiomatization does not utilize the ﬁrst-order theory of ﬁnite trees",
+      "overlap_with_next": "ort logic formulas that may combine symbols from a set of additional logics deﬁned by a number of back- ground theories such as empty theory (i.e. the theory of uninterpreted funct",
+      "text": "ferred setGi is not enumerated; rather, 9. Although we use the concept of slices, presented in Graf (2013), our axiomatization does not utilize the ﬁrst-order theory of ﬁnite trees (originally presented in Backofen et al. (1995)). 10. The axioms in the theory must be quantiﬁer free as the SMT-solver cannot guarantee decidability for problems involving universal quantiﬁers; this is established via explicit quantiﬁcation. 11. In the case of the initial state, S0, since there are no constraints yet imposed by the input, R(S0) will map to the set of all minimalist lexicons. 12. All logical formulas in this study, being used to encode ﬁnite models over bounded domains, are ﬁrst-order and quantiﬁer-free; this has the beneﬁt that these formulas are decidable. 13. The principle of syntactic locality asserts that syntactic relations are established locally by merge (Sportiche et al. (2013)). 14. Z3 is a high-performance solver for Satisﬁability Modulo Theories (SMT) that can solve ﬁrst-order quantiﬁer-free multi-sort logic formulas that may combine symbols from a set of additional logics deﬁned by a number of back- ground theories such as empty theory (i.e. the theory of uninterpreted funct",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05669,
+        -0.00709,
+        -0.00481,
+        -0.00112,
+        0.01056
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "ort logic formulas that may combine symbols from a set of additional logics deﬁned by a number of back- ground theories such as empty theory (i.e. the theory of uninterpreted funct",
+      "overlap_with_next": "hese sorts, and a set of axioms constraining these functions that every minimalist parse tree must satisfy; additionally, the syntactic relations that annotate a sentence can also ",
+      "text": "ort logic formulas that may combine symbols from a set of additional logics deﬁned by a number of back- ground theories such as empty theory (i.e. the theory of uninterpreted functions with equality). See De Moura and Bjørner (2008) for further reference. 3 [Page 4] INDURKHYA it exists implicitly in the model produced by the SMT-solver (i.e. the solution to the system of logical formulas), and members of this set may be ﬁltered, searched and sampled by querying this model using Z3; since the number of inferred lexicons is often exponentially large due to symmetries, we do not enumerate the entire set of lexicons; instead we use Z3 to sample lexicons fromGi. 3.1. Modeling an MG Parse Tree We now provide an overview of a ﬁnite model of a minimalist parse tree, based closely on the MG formalism, that we have developed using a multi-sort ﬁrst-order quantiﬁer-free logic extended with the theory of equality and uninterpreted functions. The model consists of several sorts, uninter- preted functions acting over these sorts, and a set of axioms constraining these functions that every minimalist parse tree must satisfy; additionally, the syntactic relations that annotate a sentence can also ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02254,
+        0.00347,
+        -0.00569,
+        0.02697,
+        0.02146
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "hese sorts, and a set of axioms constraining these functions that every minimalist parse tree must satisfy; additionally, the syntactic relations that annotate a sentence can also ",
+      "overlap_with_next": "xioms for structural conﬁgurations for predicate- argument structure and projection of categories. 18 These axioms are derived from properties and principles of natural language sy",
+      "text": "hese sorts, and a set of axioms constraining these functions that every minimalist parse tree must satisfy; additionally, the syntactic relations that annotate a sentence can also be expressed as a set of axioms (ﬁrst order logic formulas) that further constrain the model. An interpretation of the model (consisting of interpretations of the uninterpreted functions) is thus a minimalist parse tree that accords with the speciﬁed syntactic relations for a given sentence. A (minimalist) parse tree 15 is modeled as a labeled directed acyclic graph 16, which is in turn modeled via (i) a ﬁnite sort, members of which are nodes in the graph and (ii) a set of (unary and binary) uninterpreted functions and predicates (acting over the sorts), that establish labeled edges in the graph.17 Interpretations of these functions and predicates are constrained by a set of axioms that include both: (a) an axiomatization for the MG formalism; (b) axioms that aid in expressing constraints imposed by interface conditions – e.g. axioms for structural conﬁgurations for predicate- argument structure and projection of categories. 18 These axioms are derived from properties and principles of natural language sy",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04268,
+        -0.01025,
+        0.01494,
+        9e-05,
+        0.00753
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "xioms for structural conﬁgurations for predicate- argument structure and projection of categories. 18 These axioms are derived from properties and principles of natural language sy",
+      "overlap_with_next": "lished by a unary uninterpreted function. Each node in the parse tree is labeled with a category. Categories are interpretable properties of lexical items that can project – the ca",
+      "text": "xioms for structural conﬁgurations for predicate- argument structure and projection of categories. 18 These axioms are derived from properties and principles of natural language syntax that are considered universal in so far as they apply to all natural languages (Chomsky (1995); Collins and Stabler (2016)). Let us now review aspects of linguistic theory from which these axioms are derived and discuss how these axioms constrain the model of the MG parse tree. In accordance with the theory of Bare Phrase Structure (BPS) (Chomsky (1995)), one of the uninterpreted functions is a binary function (over the nodes in the graph) that is constrained by axioms that model the recursive structure building operation, Merge (Chomsky (1995); Collins and Stabler (2016)); another unary functions models the chains produced by the movement of phrases within the parse tree. 19 Each node in the parse tree has a head, which is one of the leaf nodes (which correspond to lexical items) in the parse tree 20; this mapping is established by a unary uninterpreted function. Each node in the parse tree is labeled with a category. Categories are interpretable properties of lexical items that can project – the ca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05138,
+        -0.01445,
+        0.00978,
+        0.02558,
+        0.0168
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "lished by a unary uninterpreted function. Each node in the parse tree is labeled with a category. Categories are interpretable properties of lexical items that can project – the ca",
+      "overlap_with_next": ". An uninterpreted function for modeling head movement is also included, with relevant axioms in accordance with the Head-Movement constraint as given in (Baker (1988); Hale (1993)",
+      "text": "lished by a unary uninterpreted function. Each node in the parse tree is labeled with a category. Categories are interpretable properties of lexical items that can project – the category associated with a given 15. This tree corresponds to the derivation tree in the MG formalism. 16. Each node in this graph corresponds to a node in the parse tree and the graph is constrained so as to have a single element with no out-going edges (which corresponds to the root of the parse tree); nodes with no incoming edges correspond to atomic syntactic structures. 17. E.g. an uninterpreted binary predicate models dominance relations between nodes in the graph, and the transitive closure of this predicate establishes a binary tree in accordance with the Binary Branching Hypothesis (Radford (2009)). 18. Along with the ﬁnite sort that constitutes the nodes of the derivation tree, a number of additional ﬁnite sorts and functions mapping to and from them are employed to represent phonetic forms, features, categories, etc. 19. An uninterpreted function for modeling head movement is also included, with relevant axioms in accordance with the Head-Movement constraint as given in (Baker (1988); Hale (1993)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04507,
+        -0.02193,
+        -0.01352,
+        0.00286,
+        -0.00546
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": ". An uninterpreted function for modeling head movement is also included, with relevant axioms in accordance with the Head-Movement constraint as given in (Baker (1988); Hale (1993)",
+      "overlap_with_next": "ally, eating), arg(What, eating) I8 “Who was eating pizza?” agree(Who, was), arg(Who, eating), arg(pizza, eating) I9 “Pizza was eaten.” agree(pizza, was), arg(pizza, eaten) I10 “Wa",
+      "text": ". An uninterpreted function for modeling head movement is also included, with relevant axioms in accordance with the Head-Movement constraint as given in (Baker (1988); Hale (1993); Stabler (2001) 20. See Radford (2009) for a discussion of the Headedness Principle, according to which “every nonterminal node in a syntactic structure is a projection of a head word. ” 4 [Page 5] AUTOMATIC INFERENCE OF MINIMALIST GRAMMARS USING AN SMT-S OLVER Ii Sentence Syntactic Relations I1 “John has eaten pizza.” agree(John, has), arg(John, eaten), arg(pizza, eaten) I2 “Has Sally eaten pizza?” agree(Sally, has), arg(Sally, eaten), arg(pizza, eaten) I3 “What has John eaten?” agree(John, has), arg(John, eaten), arg(What, eaten) I4 “Who has eaten pizza?” agree(Who, has), arg(Who, eaten), arg(pizza, eaten) I5 “Sally was eating pizza.” agree(Sally, was), arg(Sally, eating), arg(pizza, eating) I6 “Was John eating pizza?” agree(John, was), arg(John, eating), arg(pizza, eating) I7 “What was Sally eating?” agree(Sally, was), arg(Sally, eating), arg(What, eating) I8 “Who was eating pizza?” agree(Who, was), arg(Who, eating), arg(pizza, eating) I9 “Pizza was eaten.” agree(pizza, was), arg(pizza, eaten) I10 “Wa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05058,
+        0.01445,
+        0.01258,
+        0.02491,
+        -0.02347
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ally, eating), arg(What, eating) I8 “Who was eating pizza?” agree(Who, was), arg(Who, eating), arg(pizza, eating) I9 “Pizza was eaten.” agree(pizza, was), arg(pizza, eaten) I10 “Wa",
+      "overlap_with_next": "tions and axioms encode the two extended projections C- T-V and P-D-N (Grimshaw (2005); Adger (2003)) that constrain what structural conﬁgurations the functional categories may be ",
+      "text": "ally, eating), arg(What, eating) I8 “Who was eating pizza?” agree(Who, was), arg(Who, eating), arg(pizza, eating) I9 “Pizza was eaten.” agree(pizza, was), arg(pizza, eaten) I10 “Was pizza eaten?” agree(pizza, was), arg(pizza, eaten) I11 “What was eaten?” agree(What, was), arg(What, eaten) Table 1: Input sequence of annotated sentences. The annotation of each sentence includes the syntactic relations listed for morphological agreement (indicated by agree) and predicate-argument structure (indicated by arg); the type of the sentence – i.e. either declarative or interrogative – is also annotated on each sentence (but not listed here). The sentences listed here include passive constructions (I9,I 10,I 11), yes/no-questions (I2,I 6,I 10) and wh-questions (I3,I 4,I 7,I 8,I 11). phrase is the category associated with the head of that phrase. An additional ﬁnite sort encodes the universal functional and lexical categories{CDeclarative,C Question,T,v,V } and{P,D,N } (Adger and Svenonius (2011)) and additional functions and axioms encode the two extended projections C- T-V and P-D-N (Grimshaw (2005); Adger (2003)) that constrain what structural conﬁgurations the functional categories may be ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03654,
+        0.00154,
+        0.01155,
+        0.02053,
+        -0.00372
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "tions and axioms encode the two extended projections C- T-V and P-D-N (Grimshaw (2005); Adger (2003)) that constrain what structural conﬁgurations the functional categories may be ",
+      "overlap_with_next": " relations as well as morphological agreement. 23 We validated the lexicons sampled fromG∗ by using an agenda-based MG parser (Harkema (2001)) to verify that the lexicon can be use",
+      "text": "tions and axioms encode the two extended projections C- T-V and P-D-N (Grimshaw (2005); Adger (2003)) that constrain what structural conﬁgurations the functional categories may be arranged in within a derivation that converges. Finally, we consider the axioms imposed on a given sentence by: (a) the linear ordering of the words in a sentence –linearization is modeled by a conjunction of axioms forlifting the derived tree from the derivation tree as presented in Graf (2013)21 and Kayne’s Linear Correspondence Axioms (Kayne (1994)); (b) the syntactic relations annotating a sentence – these are each translated into axioms for either morphological agreement or predicate-argument structure, the latter in accordance with the theory of argument structure in (Hale (1993)).22 4. Experiment We used our implementation of the procedure presented in Section 3 to infer a set of minimalist lexicons, denoted here asG∗, from an input sequence with eleven sentences (listed in Table-1), each annotated with predicate-argument relations as well as morphological agreement. 23 We validated the lexicons sampled fromG∗ by using an agenda-based MG parser (Harkema (2001)) to verify that the lexicon can be use",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03219,
+        -0.01567,
+        0.0145,
+        0.00273,
+        -0.00688
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " relations as well as morphological agreement. 23 We validated the lexicons sampled fromG∗ by using an agenda-based MG parser (Harkema (2001)) to verify that the lexicon can be use",
+      "overlap_with_next": "aten::=x2,+l,∼x2 eaten::=x2,+r, ∼x2 eaten::=x0,=x0, ∼x1 eating::<=x2,+l,∼x1 eating::=x2, ∼x2 eating::=x0,=x0, ∼x4 eating::=x2,+l,∼x2 has::=x1,+l, ∼x2 has::=x1,+l, ∼x2 has::∼x0,-l h",
+      "text": " relations as well as morphological agreement. 23 We validated the lexicons sampled fromG∗ by using an agenda-based MG parser (Harkema (2001)) to verify that the lexicon can be used to parse each sentence in the input sequence. Manual inspection of lexicons sampled fromG∗ revealed that many of them had a large number of lexical items and produced parses that do not resemble those found in contemporary theories of syntax – see Lexicon-A in Figure-1 for an example. 21. See also Collins and Stabler (2016). 22. This theory requires that the lexical heads associated with a predicate and its arguments must enter into particular structural conﬁgurations within a derivation. (See also Hale and Keyser (2002). 23. We bounded the acquisition model with the following parameters: a parse may have up to 3 instances of phrasal movement and up to one instance of head movement; lexical items may have at most 3 features. 5 [Page 6] INDURKHYA Lexicon-A Lexicon-B Lexicon-C eaten::<=x2,+l,∼x1 eaten::=x2, ∼x2 eaten::=x3, ∼x4 eaten::=x2,+l,∼x2 eaten::=x2,+r, ∼x2 eaten::=x0,=x0, ∼x1 eating::<=x2,+l,∼x1 eating::=x2, ∼x2 eating::=x0,=x0, ∼x4 eating::=x2,+l,∼x2 has::=x1,+l, ∼x2 has::=x1,+l, ∼x2 has::∼x0,-l h",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01206,
+        0.00186,
+        0.00451,
+        -0.00713,
+        -0.01233
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "aten::=x2,+l,∼x2 eaten::=x2,+r, ∼x2 eaten::=x0,=x0, ∼x1 eating::<=x2,+l,∼x1 eating::=x2, ∼x2 eating::=x0,=x0, ∼x4 eating::=x2,+l,∼x2 has::=x1,+l, ∼x2 has::=x1,+l, ∼x2 has::∼x0,-l h",
+      "overlap_with_next": "uble-colon. The phonetic forms ϵCdecl and ϵCintr are covert (unpro- nounced); their presence in a minimalist parse tree indicates whether the parse is of a declarative or interroga",
+      "text": "aten::=x2,+l,∼x2 eaten::=x2,+r, ∼x2 eaten::=x0,=x0, ∼x1 eating::<=x2,+l,∼x1 eating::=x2, ∼x2 eating::=x0,=x0, ∼x4 eating::=x2,+l,∼x2 has::=x1,+l, ∼x2 has::=x1,+l, ∼x2 has::∼x0,-l has::=x2,+l, ∼x2 john:: ∼x0,-l has::=x2,+r,∼x1 has:: ∼x2,-r,-r pizza:: ∼x0 john::=x0,∼x2 john::=x2,+r, ∼x2 pizza:: ∼x3,-l john::∼x2,-l,-r pizza::=x2,+r, ∼x2 sally:: ∼x0,-l pizza::=x2,∼x2 sally::=x2,+r, ∼x2 was::=x4,+l, ∼x2 pizza::=x2,+l,∼x2 was::=x2,+l, ∼x2 what:: ∼x0,-r sally::∼x2,-l,-r was::=x2,+l, ∼x2 what:: ∼x3,-l,-r sally::=x2,+l,∼x2 what:: ∼x2,-r,-l who:: ∼x0,-l,-r was::∼x2,-l,-l who::=x2,+r, ∼x0 ϵCdecl::=x2,C was::=x2,+r,∼x1 ϵCdecl::<=x2,C ϵCintr::<=x2,C what::=x1,∼x1 ϵCintr::=x2,C ϵCintr::<=x2,+r,C what::=x2,+l,∼x1 ϵCintr::<=x0,C who::∼x2,-l,-r ϵCdecl::<=x2,C ϵCdecl::=x1,C ϵCintr::=x1,C ϵCintr::<=x1,C Figure 1: Examples of inferred lexicons that satisfy the conditions imposed by the input sequence in Table-1. Each lexical item consists of a pairing of a phonetic form and a sequence of syntactic features, separated by a double-colon. The phonetic forms ϵCdecl and ϵCintr are covert (unpro- nounced); their presence in a minimalist parse tree indicates whether the parse is of a declarative or interroga",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02661,
+        -5e-05,
+        -0.01466,
+        0.01426,
+        0.00956
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "uble-colon. The phonetic forms ϵCdecl and ϵCintr are covert (unpro- nounced); their presence in a minimalist parse tree indicates whether the parse is of a declarative or interroga",
+      "overlap_with_next": " Finally, we further reﬁned this subset of G∗ by using Z3 to identify lexicons that were optimal with respect to two additional cost functions: 1. (minimize) the total number of se",
+      "text": "uble-colon. The phonetic forms ϵCdecl and ϵCintr are covert (unpro- nounced); their presence in a minimalist parse tree indicates whether the parse is of a declarative or interrogative sentence, respectively. We ﬁltered out lexicons such as these by using Z3 to identify lexicons in G∗ that were optimal with respect to a cost function that penalizes a lexicon for the number of lexical entries it has.24 This produced a subset of G∗ in which every lexicon had exactly 15 lexical items, the minimal number of lexical items required for a lexicon to be able to produce parses that accord with the speciﬁed input sequence. See Lexicon-B in Figure-1 for an example of a lexicon in this subset; see Figure-3 for an example of a parse produced by Lexicon-B. We manually inspected this subset of G∗ and found that most of the lexicons produced parses with many instances of internal merge that could have been eliminated without any side-effects, and that these parses that did not accord with contemporary theories of syntax. Finally, we further reﬁned this subset of G∗ by using Z3 to identify lexicons that were optimal with respect to two additional cost functions: 1. (minimize) the total number of se",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06551,
+        -0.00962,
+        -0.01044,
+        0.00998,
+        0.038
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " Finally, we further reﬁned this subset of G∗ by using Z3 to identify lexicons that were optimal with respect to two additional cost functions: 1. (minimize) the total number of se",
+      "overlap_with_next": " lexicon had exactly: 15 lexical items; 33 features in the lexicon (not including the special feature C); 125 features in the parses; at least 4 distinct selectional features. See ",
+      "text": " Finally, we further reﬁned this subset of G∗ by using Z3 to identify lexicons that were optimal with respect to two additional cost functions: 1. (minimize) the total number of selectional and licensing features in the lexicon and the parses; this cost function rewards reduction in the total size of both the lexicon and the derivations;25 24. We did this by encoding this cost function as a logical formula, adding it to the SMT-solver after running the inference procedure, and then re-solving; the resulting set of (inferred) minimalist grammars are optimal with respect to the speciﬁed cost functions. 25. This cost function is based on the MDL principle (Gr ¨unwald (2007)) as applied to MGs in (Stabler (1998)). 6 [Page 7] AUTOMATIC INFERENCE OF MINIMALIST GRAMMARS USING AN SMT-S OLVER 2. (maximize) the number of distinct selectional features in the lexicon; this cost function re- wards lexicons that are less inclusive (i.e. they are less likely to overgenerate).26 This produced a subset of G∗ in which each lexicon had exactly: 15 lexical items; 33 features in the lexicon (not including the special feature C); 125 features in the parses; at least 4 distinct selectional features. See ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06477,
+        -0.02801,
+        -0.01966,
+        0.01458,
+        0.02765
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " lexicon had exactly: 15 lexical items; 33 features in the lexicon (not including the special feature C); 125 features in the parses; at least 4 distinct selectional features. See ",
+      "overlap_with_next": ". The parse is assembled in a bottom-up manner via merge: ﬁrst “eating” merges with “what” and then with “Sally”, thus establishing (via locality) predicate- argument relations; on",
+      "text": " lexicon had exactly: 15 lexical items; 33 features in the lexicon (not including the special feature C); 125 features in the parses; at least 4 distinct selectional features. See Lexicon-C in Figure-1 for a representative member of this subset. We found that the lexicons in this subset were all of the same form – i.e. they are only differentiated by permutations of the feature values and other symmetries in the model – and that these lexicons produced parses that agreed with those prescribed by contemporary minimalist theories of syntax. (as presented in Hornstein et al. (2005), Adger (2003), and Radford (1997).) See Figure-2 for a parse produced by Lexicon-C that demonstrates several of the syntactic phenomenon that Lexicon-C models correctly (i.e. as prescribed by minimalist theories of syntax) while respecting the syntactic relations prescribed in sentenceI7 of Table-1. Figure 2: An MG parse for the sentence “What was Sally eating?” (seeI7 in Table-1 for annotations) derived from Lexicon-C in Figure-1. The parse is assembled in a bottom-up manner via merge: ﬁrst “eating” merges with “what” and then with “Sally”, thus establishing (via locality) predicate- argument relations; on",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04233,
+        0.01458,
+        -0.02716,
+        0.00048,
+        0.0114
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": ". The parse is assembled in a bottom-up manner via merge: ﬁrst “eating” merges with “what” and then with “Sally”, thus establishing (via locality) predicate- argument relations; on",
+      "overlap_with_next": "l always choose the least inclusive grammar available at each stage of acquisition; the adaption of this principle is a logical necessity if one assumes that the learner does not m",
+      "text": ". The parse is assembled in a bottom-up manner via merge: ﬁrst “eating” merges with “what” and then with “Sally”, thus establishing (via locality) predicate- argument relations; once the resulting structure then merges with “was”, “sally” then undergoes subject-raising by (internally) merging with “was”, thus establishing morphological agreement be- tween ‘”sally” and “was”. Next the head of the auxiliary verb “was” undergoes head movement to merge with the covert form, ϵCintr, which indicates that the sentence is an interrogative. Finally, “what” undergoes wh-fronting by (internally) merging withϵCintr. Wh-fronting and Subject-raising are triggered by different licensor features, the former by +r and the latter by +l. The feature se- quences displayed in internal nodes have an asterisk separating features that have already been consumed (on the left) from those that have not (on the right). 26. This cost function is based on the Subset Principle (Berwick (1985)), which asserts that a language learner will always choose the least inclusive grammar available at each stage of acquisition; the adaption of this principle is a logical necessity if one assumes that the learner does not m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0138,
+        0.00403,
+        0.0156,
+        0.03276,
+        -0.00585
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "l always choose the least inclusive grammar available at each stage of acquisition; the adaption of this principle is a logical necessity if one assumes that the learner does not m",
+      "overlap_with_next": "ductive inference that are relevant to cognitively-faithful models of language acquisition. We observe that by enabling and disabling axioms in our model, we can carry out experime",
+      "text": "l always choose the least inclusive grammar available at each stage of acquisition; the adaption of this principle is a logical necessity if one assumes that the learner does not make use of (indirect) negative evidence. See also Yang (2015, 2016). 7 [Page 8] INDURKHYA Figure 3: An MG parse for the sentence “What was Sally eating?” derived from Lexicon-B in Figure-1. Although this parse satisﬁes the constraints imposed by the annotations listed for I7 in Table-1, it does not accord with the parse prescribed by contemporary theories of syntax – e.g. nowhere in the parse does the auxiliary verb “was” establish a local relation with the main predicate “eating.” 5. Conclusion In this study we have (i) proposed and implemented a procedure for inferring MGs and (ii) used this procedure to infer an MG that closely aligns with contemporary theories of syntax, thus demonstrat- ing how linguistically-relevant MGs may be identiﬁed within the inferred set of MGs by optimizing cost functions derived from methods of inductive inference that are relevant to cognitively-faithful models of language acquisition. We observe that by enabling and disabling axioms in our model, we can carry out experime",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02118,
+        0.01479,
+        -0.01017,
+        0.00577,
+        -0.00324
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "ductive inference that are relevant to cognitively-faithful models of language acquisition. We observe that by enabling and disabling axioms in our model, we can carry out experime",
+      "overlap_with_next": "o the inference procedure) from treebanks such as PropBank (Kingsbury and Palmer (2002)) or the UD treebanks (Nivre et al. (2016)). 27. See Torr (2018) for an alternative approach ",
+      "text": "ductive inference that are relevant to cognitively-faithful models of language acquisition. We observe that by enabling and disabling axioms in our model, we can carry out experiments to determine which are redundant, and thereby gain insight into whether the linguistic principles, from which the axioms of the system are largely derived, are justiﬁed or can be discarded, thus aiding in the evaluation of the Strong Minimalist Thesis. Going forward, we plan to: incorporate phase theory (Chomsky (2001, 2008)) into our model of a minimalist parse tree, following the approach taken by Chesi (2007); examine the over-generations produced by the MGs inferred by our procedure and understand how these over-generations relate to the cost functions used by our procedure for identifying optimal grammars; investigate the potential for this procedure to be used for producing MG treebanks27, which may aid treebank based parsing strategies, by extracting sets of (partially) annotated sentences (that may be used as input to the inference procedure) from treebanks such as PropBank (Kingsbury and Palmer (2002)) or the UD treebanks (Nivre et al. (2016)). 27. See Torr (2018) for an alternative approach ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02163,
+        -0.00481,
+        -0.00183,
+        0.02248,
+        0.00689
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "o the inference procedure) from treebanks such as PropBank (Kingsbury and Palmer (2002)) or the UD treebanks (Nivre et al. (2016)). 27. See Torr (2018) for an alternative approach ",
+      "overlap_with_next": " theory of grammatical function changing. University of Chicago Press, 1988. Clark Barrett and Cesare Tinelli. Satisﬁability modulo theories. In Handbook of Model Checking, pages 3",
+      "text": "o the inference procedure) from treebanks such as PropBank (Kingsbury and Palmer (2002)) or the UD treebanks (Nivre et al. (2016)). 27. See Torr (2018) for an alternative approach to developing large-scale MG treebanks. 8 [Page 9] AUTOMATIC INFERENCE OF MINIMALIST GRAMMARS USING AN SMT-S OLVER Acknowledgments The author would like to thank Robert C. Berwick, Sandiway Fong, Beracah Yankama, and Norbert Hornstein for their suggestions, feedback, and inspiration. Additionally, the author is very grateful for the ﬁnancial support provided by Moody’s Investor Services. References David Adger. Core syntax: A minimalist approach , volume 33. Oxford University Press Oxford, 2003. David Adger and Peter Svenonius. Features in minimalist syntax.The Oxford handbook of linguistic minimalism, pages 27–51, 2011. Rolf Backofen, James Rogers, and Krishnamurti Vijay-Shanker. A ﬁrst-order axiomatization of the theory of ﬁnite trees. Journal of Logic, Language and Information, 4(1):5–39, 1995. Mark C. Baker. Incorporation: A theory of grammatical function changing. University of Chicago Press, 1988. Clark Barrett and Cesare Tinelli. Satisﬁability modulo theories. In Handbook of Model Checking, pages 3",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05899,
+        0.01331,
+        -0.0437,
+        0.00179,
+        0.0204
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": " theory of grammatical function changing. University of Chicago Press, 1988. Clark Barrett and Cesare Tinelli. Satisﬁability modulo theories. In Handbook of Model Checking, pages 3",
+      "overlap_with_next": "8, 2016. Leonardo De Moura and Nikolaj Bjørner. Z3: An efﬁcient smt solver. In Proceedings of the Theory and Practice of Software, 14th International Conference on Tools and Algori",
+      "text": " theory of grammatical function changing. University of Chicago Press, 1988. Clark Barrett and Cesare Tinelli. Satisﬁability modulo theories. In Handbook of Model Checking, pages 305–343. Springer, 2018. Robert C. Berwick. The acquisition of syntactic knowledge. MIT press, 1985. Cristian Cadar and Koushik Sen. Symbolic execution for software testing: three decades later. Commun. ACM, 56(2):82–90, 2013. Cristiano Chesi. An introduction to phase-based minimalist grammars: why move is top-down from left-to-right. Studies in linguistics, 2007. Noam Chomsky. Aspects of the theory of syntax. MIT Press, 1965. Noam Chomsky. The Minimalist Program. MIT Press, 1995. Noam Chomsky. Derivation by phase. In Michael Kenstowicz, editor,Ken Hale: A life in language, pages 1–52. MIT press, 2001. Noam Chomsky. On phases. Current Studies in Linguistics Series, 45:133, 2008. Noam Chomsky. Problems of projection. Lingua, 130:33–49, 2013. Chris Collins and Edward Stabler. A formalization of minimalist syntax. Syntax, 19(1):43–78, 2016. Leonardo De Moura and Nikolaj Bjørner. Z3: An efﬁcient smt solver. In Proceedings of the Theory and Practice of Software, 14th International Conference on Tools and Algori",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05037,
+        -0.01077,
+        0.00206,
+        -0.01,
+        0.03703
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "8, 2016. Leonardo De Moura and Nikolaj Bjørner. Z3: An efﬁcient smt solver. In Proceedings of the Theory and Practice of Software, 14th International Conference on Tools and Algori",
+      "overlap_with_next": "Kenneth Locke Hale and Samuel Jay Keyser. Prolegomenon to a theory of argument structure , volume 39. MIT press, 2002. Hendrik Harkema. Parsing minimalist languages. Citeseer, 2001",
+      "text": "8, 2016. Leonardo De Moura and Nikolaj Bjørner. Z3: An efﬁcient smt solver. In Proceedings of the Theory and Practice of Software, 14th International Conference on Tools and Algorithms for the Construction and Analysis of Systems , TACAS’08/ETAPS’08, pages 337–340. Springer-Verlag, 2008. 9 [Page 10] INDURKHYA Leonardo De Moura and Nikolaj Bjørner. Satisﬁability modulo theories: introduction and applica- tions. Communications of the ACM, 54(9):69–77, 2011. Thomas Graf. Local and transderivational constraints in syntax and semantics . PhD thesis, Uni- versity of California at Los Angeles, 2013. Jane B Grimshaw.Words and structure. Center for the Study of Language and Information, Stanford University, 2005. Peter D Gr¨unwald. The minimum description length principle. MIT press, 2007. Kenneth Hale. On argument structure and the lexical expression of syntactic relations. In Ken Hale and Samuel J. Keyser, editors, The view from Building 20: Essays in linguistics in honor of Sylvain Bromberger. MIT Press, 1993. Kenneth Locke Hale and Samuel Jay Keyser. Prolegomenon to a theory of argument structure , volume 39. MIT press, 2002. Hendrik Harkema. Parsing minimalist languages. Citeseer, 2001",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06324,
+        -0.00879,
+        -0.01234,
+        0.0089,
+        0.01654
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "Kenneth Locke Hale and Samuel Jay Keyser. Prolegomenon to a theory of argument structure , volume 39. MIT press, 2002. Hendrik Harkema. Parsing minimalist languages. Citeseer, 2001",
+      "overlap_with_next": "ages 137–144. Association for Computational Linguistics, 1983. Andrew Radford. Syntactic theory and the structure of English: A minimalist approach. Cambridge University Press, 199",
+      "text": "Kenneth Locke Hale and Samuel Jay Keyser. Prolegomenon to a theory of argument structure , volume 39. MIT press, 2002. Hendrik Harkema. Parsing minimalist languages. Citeseer, 2001. Norbert Hornstein, Jairo Nunes, and Kleanthes K Grohmann. Understanding minimalism. Cam- bridge University Press, 2005. Richard S Kayne. The antisymmetry of syntax. Number 25. MIT Press, 1994. Paul Kingsbury and Martha Palmer. From treebank to propbank. In LREC, pages 1989–1993. Citeseer, 2002. Jens Michaelis. Derivational minimalism is mildly context-sensitive. In LACL, volume 98, pages 179–198. Springer, 1998. Joakim Nivre, Marie-Catherine De Marneffe, Filip Ginter, Yoav Goldberg, Jan Hajic, Christopher D Manning, Ryan T McDonald, Slav Petrov, Sampo Pyysalo, Natalia Silveira, et al. Universal dependencies v1: A multilingual treebank collection. In LREC, 2016. Fernando C. N. Pereira and David H. D. Warren. Parsing as deduction. In Proceedings of the 21st Annual Meeting on Association for Computational Linguistics , ACL ’83, pages 137–144. Association for Computational Linguistics, 1983. Andrew Radford. Syntactic theory and the structure of English: A minimalist approach. Cambridge University Press, 199",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03518,
+        0.01323,
+        -0.01034,
+        0.01916,
+        0.01342
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ages 137–144. Association for Computational Linguistics, 1983. Andrew Radford. Syntactic theory and the structure of English: A minimalist approach. Cambridge University Press, 199",
+      "overlap_with_next": "Press, 1993. Edward P. Stabler. Acquiring languages with movement. Syntax, 1(1):72–97, 1998. Edward P Stabler. Recognizing head movement. In International Conference on Logical Asp",
+      "text": "ages 137–144. Association for Computational Linguistics, 1983. Andrew Radford. Syntactic theory and the structure of English: A minimalist approach. Cambridge University Press, 1997. Andrew Radford. An introduction to English sentence structure. Cambridge university press, 2009. Manny Rayner, ˚Asa Hugosson, and G ¨oran Hagert. Using a logic grammar to learn a lexicon. In Proceedings of the 12th conference on Computational linguistics-Volume 2 , pages 524–529. Association for Computational Linguistics, 1988. James Rogers. A descriptive approach to language-theoretic complexity. CSLI Publications, 1998. Dominique Sportiche, Hilda Koopman, and Edward Stabler. An introduction to syntactic analysis and theory. John Wiley & Sons, 2013. 10 [Page 11] AUTOMATIC INFERENCE OF MINIMALIST GRAMMARS USING AN SMT-S OLVER Edward Stabler. Derivational minimalism. In International Conference on Logical Aspects of Com- putational Linguistics, pages 68–95. Springer, 1996. Edward P Stabler. The Logical Approach to Syntax. MIT Press, 1993. Edward P. Stabler. Acquiring languages with movement. Syntax, 1(1):72–97, 1998. Edward P Stabler. Recognizing head movement. In International Conference on Logical Asp",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0262,
+        0.01798,
+        -0.00082,
+        -0.01533,
+        -0.01497
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "Press, 1993. Edward P. Stabler. Acquiring languages with movement. Syntax, 1(1):72–97, 1998. Edward P Stabler. Recognizing head movement. In International Conference on Logical Asp",
+      "overlap_with_next": "sional principle. In Knowledge and language , pages 217–239. Springer, 1993. Charles Yang. Negative knowledge from positive evidence. Language, 91(4):938–953, 2015. Charles Yang. T",
+      "text": "Press, 1993. Edward P. Stabler. Acquiring languages with movement. Syntax, 1(1):72–97, 1998. Edward P Stabler. Recognizing head movement. In International Conference on Logical Aspects of Computational Linguistics, pages 245–260. Springer, 2001. Edward P Stabler. Varieties of crossing dependencies: structure dependence and mild context sen- sitivity. Cognitive Science, 28(5):699–720, 2004. John Torr. Constraining mgbank: Agreement, l-selection and supertagging in minimalist grammars. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 590–600. Association for Computational Linguistics, 2018. K. Vijay-Shanker, David J. Weir, and Aravind K. Joshi. Characterizing structural descriptions pro- duced by various grammatical formalisms. In Proceedings of the 25th Annual Meeting on Asso- ciation for Computational Linguistics, ACL ’87, pages 104–111. Association for Computational Linguistics, 1987. Kenneth Wexler. The subset principle is an intensional principle. In Knowledge and language , pages 217–239. Springer, 1993. Charles Yang. Negative knowledge from positive evidence. Language, 91(4):938–953, 2015. Charles Yang. T",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01453,
+        -0.01903,
+        -0.01783,
+        0.03173,
+        -0.02198
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 32929,
+      "length": 289,
+      "overlap_with_previous": "sional principle. In Knowledge and language , pages 217–239. Springer, 1993. Charles Yang. Negative knowledge from positive evidence. Language, 91(4):938–953, 2015. Charles Yang. T",
+      "overlap_with_next": "",
+      "text": "sional principle. In Knowledge and language , pages 217–239. Springer, 1993. Charles Yang. Negative knowledge from positive evidence. Language, 91(4):938–953, 2015. Charles Yang. The price of linguistic productivity: How children learn to break the rules of lan- guage. MIT Press, 2016. 11",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05268,
+        -0.01622,
+        0.0015,
+        0.0066,
+        0.00967
+      ]
+    }
+  ]
+}

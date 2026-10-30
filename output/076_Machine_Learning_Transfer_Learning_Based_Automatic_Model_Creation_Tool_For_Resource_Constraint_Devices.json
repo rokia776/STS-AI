@@ -1,0 +1,419 @@
+{
+  "paper_id": "6dd356eb-978b-4e27-9992-ddbcdae65f7e",
+  "filename": "076_Machine_Learning_Transfer_Learning_Based_Automatic_Model_Creation_Tool_For_Resource_Constraint_Devices.pdf",
+  "title": "Transfer Learning Based Automatic Model Creation Tool For Resource Constraint Devices",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 24,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "ootprint of the model created from the tool by creating an Automatic Image and Audio classiﬁer and report the results of our experiments using Stanford Cars and ESC-50 dataset. Ind",
+      "text": "[Page 1] Transfer Learning Based Automatic Model Creation Tool For Resource Constraint Devices 1st Karthik Bhat Samsung R&D Institute Bangalore,India kv.bhat@samsung.com 2nd Manan Bhandari Samsung R&D Institute Bangalore,India m.bhandari@samsung.com 3rd ChangSeok Oh Samsung Research Seoul, South Korea seok.oh@samsung.com 4th Sujin Kim Samsung Research Seoul, South Korea sjsujin.kim@samsung.com 5th Jeeho Yoo Samsung Research Seoul, South Korea jeeho.yoo@samsung.com Abstract—With the enhancement of Machine Learning, many tools are being designed to assist developers to easily create their Machine Learn- ing models. In this paper, we propose a novel method for auto creation of such custom models for constraint devices using transfer learning without the need to write any machine learning code. We share the architecture of our automatic model creation tool and the CNN Model created by it using pretrained models such as YAMNet and MobileNetV2 as feature extractors. Finally, we demonstrate accuracy and memory footprint of the model created from the tool by creating an Automatic Image and Audio classiﬁer and report the results of our experiments using Stanford Cars and ESC-50 dataset. Ind",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05483,
+        -0.03694,
+        -0.04534,
+        0.00688,
+        0.00762
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "ootprint of the model created from the tool by creating an Automatic Image and Audio classiﬁer and report the results of our experiments using Stanford Cars and ESC-50 dataset. Ind",
+      "overlap_with_next": " [4], [5] are already becoming popular to address the above challenges. A survey of state of the art for AutoML can be found at [6]. Many tools such as CreateML by Apple and Cloud ",
+      "text": "ootprint of the model created from the tool by creating an Automatic Image and Audio classiﬁer and report the results of our experiments using Stanford Cars and ESC-50 dataset. Index Terms—Transfer Learning, AutoML I. Introduction Demand for Machine Learning (ML) Systems has been increasing over the past few years and has started to ﬁnd its application in many domains such as IoT, Medical Care,Energy Management etc. [1]–[3]. But even with the increase in the success of this concept, developers and business struggle to create and deploy their ML models due to the high learning curve involved in designing these models. This limits its use to a smaller com- munity of data scientists and engineers. Designing a ML Model requires specialized skill set and can be challenging for new developers and businesses. Hence, there has been a growing demand to create tools and systems that can automatically generate ML models for custom user data without much eﬀort or knowledge of Machine Learning. Concepts such as AutoML [4], [5] are already becoming popular to address the above challenges. A survey of state of the art for AutoML can be found at [6]. Many tools such as CreateML by Apple and Cloud ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06225,
+        -0.01667,
+        -0.0315,
+        0.00424,
+        0.01063
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": " [4], [5] are already becoming popular to address the above challenges. A survey of state of the art for AutoML can be found at [6]. Many tools such as CreateML by Apple and Cloud ",
+      "overlap_with_next": "nvolutional network on a very large dataset with diﬀerent classes is used either in the initialization or as a feature extrac- tor for a particular task. Major transfer learning sc",
+      "text": " [4], [5] are already becoming popular to address the above challenges. A survey of state of the art for AutoML can be found at [6]. Many tools such as CreateML by Apple and Cloud AutoML by Google have been released to address some of the above concerns. Though these tools are very helpful, they have their own limitations. In this paper, we explore a novel method to create an automatic model creation tool using transfer learning that is supported across multiple operating systems and further optimize the model created by our tool to execute on con- straint devices seamlessly overcoming the limita- tions of other tools. A. Transfer Learning Transfer Learning is a concept in machine learn- ing where the knowledge that is learnt while train- ing any model is applied to another similar model. Transfer learning frameworks and terms like do- main and task are summarized in [7]. In practice, training any convolutional network from scratch requires a lot of time and resources. Therefore, generally a pretrained convolutional network on a very large dataset with diﬀerent classes is used either in the initialization or as a feature extrac- tor for a particular task. Major transfer learning sc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03516,
+        -0.0161,
+        -0.05498,
+        0.03258,
+        0.00256
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "nvolutional network on a very large dataset with diﬀerent classes is used either in the initialization or as a feature extrac- tor for a particular task. Major transfer learning sc",
+      "overlap_with_next": "Classiﬁcation Image classiﬁcation refers to a computer vision process where the learning model takes an image as the input and outputs to which class it belongs to. The CNN (having",
+      "text": "nvolutional network on a very large dataset with diﬀerent classes is used either in the initialization or as a feature extrac- tor for a particular task. Major transfer learning scenarios are ConvNet as a ﬁxed feature extractor, ﬁne tuning of the ConvNet and pretrained models. Technical growth, learning and applications in daily life can be done via images and audios which are prominent in every ﬁeld like IoT, chatbots, self- driving cars etc. One of the main categories in neural network to do image recognition, image clas- siﬁcation, audio classiﬁcation etc. is convolutional neural network (CNN or ConvNet). A CNN com- prises of an input layer, multiple hidden layers and an output layer. The hidden layers mainly consist of many convolutional layers with ﬁlters, pooling, fully connected layers. The ﬁnal convolution mostly978-1-7281-6916-3/20/$31.00 ©2020 IEEE arXiv:2012.10056v1 [cs.LG] 18 Dec 2020 [Page 2] involves back propagation in order to weight the end product more accurately [8]. B. Image and Audio Classiﬁcation Image classiﬁcation refers to a computer vision process where the learning model takes an image as the input and outputs to which class it belongs to. The CNN (having",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06638,
+        -0.01495,
+        -0.03028,
+        0.01319,
+        0.00878
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "Classiﬁcation Image classiﬁcation refers to a computer vision process where the learning model takes an image as the input and outputs to which class it belongs to. The CNN (having",
+      "overlap_with_next": "bed in [12], [13] etc. Broadly, the audio classiﬁcation takes place by converting the audio input into an image and applying image classiﬁcation on it. This can be done by construc",
+      "text": "Classiﬁcation Image classiﬁcation refers to a computer vision process where the learning model takes an image as the input and outputs to which class it belongs to. The CNN (having multiple convolutional layers, ReLU layer, pooling layers, fully connected layer) takes an input image in the form of pixels and extract features for that image. This has many applications like classiﬁcation, similarity between images etc. Generally, pretrained CNN models like VGG16, VGG19, MobileNet are used for large im- age dataset in transfer learning. For classiﬁcation, support vector machine (SVM), OVR-SVMs, KNN (K-Nearest Neighbors) algorithm can be used. Some of the methods to do image classiﬁcation are described in [9], [10], [11] etc. Similarly, audio classiﬁcation refers to a process where audio or sounds from diﬀerent sources are classiﬁed using CNN. It has many important ap- plications like issuing commands to IoT devices, audio control for online gaming etc. Some of the methods to do audio classiﬁcation are described in [12], [13] etc. Broadly, the audio classiﬁcation takes place by converting the audio input into an image and applying image classiﬁcation on it. This can be done by construc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04817,
+        -0.00742,
+        -0.04843,
+        0.03133,
+        0.01981
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "bed in [12], [13] etc. Broadly, the audio classiﬁcation takes place by converting the audio input into an image and applying image classiﬁcation on it. This can be done by construc",
+      "overlap_with_next": "n be many applications of such classiﬁcations for which automated tools are being developed to provide user with a smooth procedure to train and classify their input. Create ML is ",
+      "text": "bed in [12], [13] etc. Broadly, the audio classiﬁcation takes place by converting the audio input into an image and applying image classiﬁcation on it. This can be done by constructing a spectrogram of the audio. Spectrogram is simply a plot of frequency versus time of the audio signal. Spectrograms represent the frequency information of time chunks stringed together as colored vertical bars in the audio as colors are in an image. These are basically two- dimensional graphs, with a third dimension repre- sented by colors. II. Related Work Image and audio classiﬁcation has found enor- mous applications in day-to-day life. Audio classi- ﬁcation can be used in surveillance systems that automatically detects incidents like car crashes, tyre skidding etc. It can also be used in user au- thentication, user family authentication, language detection etc. Some of the already implemented work includes urban sound classiﬁcation [14], get- ting information from news video [15] and many more. Apart from this, there can be many applications of such classiﬁcations for which automated tools are being developed to provide user with a smooth procedure to train and classify their input. Create ML is ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03857,
+        -0.00221,
+        -0.03601,
+        0.02101,
+        0.01122
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "n be many applications of such classiﬁcations for which automated tools are being developed to provide user with a smooth procedure to train and classify their input. Create ML is ",
+      "overlap_with_next": "on the subset of Stanford Car Dataset [16]. For Audio classiﬁcation, we evaluate the YAMNet Model as feature extractor. YAMNet is a pretrained deep net that predicts 521 audio clas",
+      "text": "n be many applications of such classiﬁcations for which automated tools are being developed to provide user with a smooth procedure to train and classify their input. Create ML is one such framework introduced by Apple to build the ML models for classiﬁcation using just drag and drop method. Another such framework is a cloud-based platform provided by Google called Cloud AutoML which is a simple graphical user in- terface tool to train, evaluate, improve, and deploy models based on the data. III. Our Contribution In this paper, we explore a novel method to cre- ate a cross platform Automatic ML model creation tool using Transfer Learning. We share the CNN architecture of models created by our tool for image and audio classiﬁcation and share their on device accuracy and memory footprint. For Image classiﬁcation, we evaluate VGG16, VGG19 and MobileNetV2 models as feature ex- tractors and compare the performance of these models with new user provided dataset. We achieve 94.1% accuracy in Image Classiﬁcation on the subset of Stanford Car Dataset [16]. For Audio classiﬁcation, we evaluate the YAMNet Model as feature extractor. YAMNet is a pretrained deep net that predicts 521 audio clas",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0585,
+        -0.02916,
+        -0.05807,
+        0.03159,
+        0.01462
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "on the subset of Stanford Car Dataset [16]. For Audio classiﬁcation, we evaluate the YAMNet Model as feature extractor. YAMNet is a pretrained deep net that predicts 521 audio clas",
+      "overlap_with_next": " tool and explain the architecture of the same. We can divide the tasks performed by the backend tool into 4 parts : • Automatic Data Preparation • Automatic Feature Extraction • M",
+      "text": "on the subset of Stanford Car Dataset [16]. For Audio classiﬁcation, we evaluate the YAMNet Model as feature extractor. YAMNet is a pretrained deep net that predicts 521 audio classes based on the AudioSet-YouTube corpus [17], and employs the MobilenetV1 depth-wise separable convolution ar- chitecture. We achieve 98 .4% in Audio Classiﬁca- tion on subset of ESC-50 [18] Environment Sounds Dataset. In both cases we were able to reduce the model size by ∼ 74%. IV. Automatic Model Creation Tool Workflow In this paper, we explain the architecture of our tool and how we use transfer learning to automati- cally extract features and train a custom model for user dataset on CPU. The tool currently supports model creation for image and audio classiﬁcation. The tool consists of frontend which is created using Typescript and Electron Framework and the backend CLI (Command Line Interface) which cre- ates the model automatically based on the data provided by the user. In this section, we explore the backend part of the tool and explain the architecture of the same. We can divide the tasks performed by the backend tool into 4 parts : • Automatic Data Preparation • Automatic Feature Extraction • M",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04885,
+        -0.03548,
+        -0.04944,
+        0.03917,
+        0.01461
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " tool and explain the architecture of the same. We can divide the tasks performed by the backend tool into 4 parts : • Automatic Data Preparation • Automatic Feature Extraction • M",
+      "overlap_with_next": "he above training and validation data is fed to the tool. The tool preprocesses this data and prepares it as expected by MobileNetV2 model. We perform the following operations on t",
+      "text": " tool and explain the architecture of the same. We can divide the tasks performed by the backend tool into 4 parts : • Automatic Data Preparation • Automatic Feature Extraction • Model Training and Evaluation • Model Compression for Constraint Devices We further explain how each of the above steps works in the tool by creating an Image and Audio Classiﬁer as explained in the next section. A. AUTOMATIC IMAGE CLASSIFIER For Automatic Image Classiﬁer, we use Mo- bileNetV2 model for feature extraction. The steps followed by the tool to create an automatic Image classiﬁer is as below- [Page 3] 1) Data Set: We use a subset of Stanford Cars data set. This data set consists of 16,185 images of 196 classes of cars. We take a subset of this data set consisting of ’AM General Hummer SUV 2000’, ’BMW 3 Series Wagon 2012’, ’Chevrolet Impala Sedan 2007’, ’Hyundai Elantra Touring Hatchback 2012’ and ’Rolls-Royce Ghost Sedan 2012’ . The above data is split into training and validation set. 2) Automatic Data Preparation: The above training and validation data is fed to the tool. The tool preprocesses this data and prepares it as expected by MobileNetV2 model. We perform the following operations on t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04525,
+        -0.05642,
+        -0.03483,
+        0.0403,
+        0.02371
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "he above training and validation data is fed to the tool. The tool preprocesses this data and prepares it as expected by MobileNetV2 model. We perform the following operations on t",
+      "overlap_with_next": "s(shape) generator← datagen.f lowF romDir(dir) i← 0 for inputBatch, labelsBatch∈ generator   f eaturesBatch← convBase.predict(inputBatch) comment: update the featu",
+      "text": "he above training and validation data is fed to the tool. The tool preprocesses this data and prepares it as expected by MobileNetV2 model. We perform the following operations on the input Image Data: • Input Images are resized to 224 X 224 • Re-scale the RGB coeﬃcients in the range 0-1 by scaling with a 1/255. • Apply Data Augmentation such as Horizon- tal Flip, Rotation and Zooming. This feature can be conﬁgured in tool by user as per the dataset. The processed input is sent to the next phase for feature extraction. 3) Feature Extraction: We load the MobileNetV2 model with pretrained weights and remove the last layer corresponding to prediction. We then pass the processed data to extract feature tensors using the MobileNetV2 model. The extracted features are of shape (samplecount, 7, 7, 1280). Algorithm IV.1: FeatureExtractor(weights) procedure extractFeatures(dir, sampleCount) convBase← M obileN etV2(weights) batchSize← 32 datagen← ImageDataGenerator (rescale) f eatures← np.zeros(shape) labels← np.zeros(shape) generator← datagen.f lowF romDir(dir) i← 0 for inputBatch, labelsBatch∈ generator   f eaturesBatch← convBase.predict(inputBatch) comment: update the featu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02366,
+        -0.01368,
+        -0.02899,
+        0.03764,
+        0.01369
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "s(shape) generator← datagen.f lowF romDir(dir) i← 0 for inputBatch, labelsBatch∈ generator   f eaturesBatch← convBase.predict(inputBatch) comment: update the featu",
+      "overlap_with_next": " classi- ﬁer with MobileNetV2 5) Model Compression and Inference: We club the MobileNetV2 model (without the classiﬁer) and our trained classiﬁer model to create the full model for",
+      "text": "s(shape) generator← datagen.f lowF romDir(dir) i← 0 for inputBatch, labelsBatch∈ generator   f eaturesBatch← convBase.predict(inputBatch) comment: update the feature array comment: update the labels array i← i + 1 if i∗ batchSize > = sampleCount then break return (f eatures, labels) Fig. 1. Image Classiﬁer Model Architecture 4) Model Designing and Training: The output of the feature extraction phase is then fed to the new model. The model consists of an input layer which accepts the extracted features and adds a Global- AveragePooling2D, a dropout to prevent overﬁtting and a dense layer with softmax activation function for classiﬁcation. Model architecture for the same is described in Figure 1. We ﬁt the extracted features of the test and validation data into the above model and create a custom model for our dataset. Figure 2 and 3 represents accuracy/loss and confusion matrix obtained with MobileNetV2 as feature extractor respectively. Fig. 2. Training/Validation accuracy and loss on car classi- ﬁer with MobileNetV2 5) Model Compression and Inference: We club the MobileNetV2 model (without the classiﬁer) and our trained classiﬁer model to create the full model for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03408,
+        -0.05229,
+        -0.03587,
+        0.02676,
+        0.00277
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": " classi- ﬁer with MobileNetV2 5) Model Compression and Inference: We club the MobileNetV2 model (without the classiﬁer) and our trained classiﬁer model to create the full model for",
+      "overlap_with_next": " from YAMNet is then fed as input for our model during training. We create a environment sound classiﬁer using our tool that can accurately classify musical instruments such as gui",
+      "text": " classi- ﬁer with MobileNetV2 5) Model Compression and Inference: We club the MobileNetV2 model (without the classiﬁer) and our trained classiﬁer model to create the full model for on device inference. Before we ﬂash the model onto device we optimize the model for size by [Page 4] Fig. 3. Confusion Matrix for Car Classiﬁcation applying post-training quantization such as weight quantization in which we quantify the weights from ﬂoating point to 8-bits of precision. At inference, weights are converted back from 8-bits of precision to ﬂoating point and computed using ﬂoating-point kernels. We are able to compress the model size by around 74% with an accuracy of around 94 .1% for the image classiﬁer created by the above tool. B. AUTOMATIC AUDIO CLASSIFIER For Automatic Audio Classiﬁer Model creation, we use YAMNet model for feature extraction. YAMNet is a pretrained deep net based on the AudioSet-YouTube corpus and employees Mo- bilenetV1 depth wise separable convolution archi- tecture. The extracted features from YAMNet is then fed as input for our model during training. We create a environment sound classiﬁer using our tool that can accurately classify musical instruments such as gui",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03054,
+        -0.04518,
+        -0.0366,
+        0.03874,
+        -0.00101
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " from YAMNet is then fed as input for our model during training. We create a environment sound classiﬁer using our tool that can accurately classify musical instruments such as gui",
+      "overlap_with_next": "Hz. • Finally a log mel spectrogram is computed and 50% overlapping frames are passed to YAMNet model for feature extraction. 3) Feature Extraction: In this phase, we preload the t",
+      "text": " from YAMNet is then fed as input for our model during training. We create a environment sound classiﬁer using our tool that can accurately classify musical instruments such as guitar, piano and ﬂute. 1) Data Set: We use a subset of ESC-50 Envi- ronment sound dataset for training our classiﬁer. The data set consists of 75 audio ﬁles of 5 classes (bell, clap, engine, rain and wind) which is used for training. The validation data consists of 25 audio ﬁles of the above classes. 2) Automatic Data Preparation: The tool pre- processes the training and validation data and prepares it as expected by YAMNet model. We perform the following operations of the input audio data : • Audio is re-sampled and converted to 16 kHz mono channel. • Frames below a threshold are removed to prevent model from training on silent audio frames. • A spectrogram is created using magnitudes of the STFT of window size of 25 ms and window hop of 10 ms. • A mel spectrogram is computed by mapping to 64 mel bins covering the range 125-7500 Hz. • Finally a log mel spectrogram is computed and 50% overlapping frames are passed to YAMNet model for feature extraction. 3) Feature Extraction: In this phase, we preload the t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05327,
+        -0.01242,
+        -0.07632,
+        0.04369,
+        0.00236
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "Hz. • Finally a log mel spectrogram is computed and 50% overlapping frames are passed to YAMNet model for feature extraction. 3) Feature Extraction: In this phase, we preload the t",
+      "overlap_with_next": "ts accuracy/loss and confusion matrix respectively, obtained on the training and validation set with YAMNet model. We can see that the model converges quickly and the training and ",
+      "text": "Hz. • Finally a log mel spectrogram is computed and 50% overlapping frames are passed to YAMNet model for feature extraction. 3) Feature Extraction: In this phase, we preload the trained weights of the YAMNet model and remove the last 3 layers corresponding to the pre- diction layer of the YAMNet model. We then pass each of the processed training and validation data from previous step to the YAMNet model and extract the feature tensors. The extracted features are tensor of shape (samplecount, 3, 2, 1024). 4) Model Designing and Training: The output of the feature extraction phase is then fed to the new model. The model consists of an input layer which accepts the extracted features and adds a GlobalAveragePooling2D and a dense layer with sigmoid activation function. Model architecture for the same is described in Figure 4. Fig. 4. Audio Classiﬁer Model We ﬁt the extracted features of the test and validation data into the above model and create a custom model for our dataset. Figure 5 and Figure 6 represents accuracy/loss and confusion matrix respectively, obtained on the training and validation set with YAMNet model. We can see that the model converges quickly and the training and ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01496,
+        -0.02758,
+        -0.05413,
+        0.01777,
+        0.00722
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "ts accuracy/loss and confusion matrix respectively, obtained on the training and validation set with YAMNet model. We can see that the model converges quickly and the training and ",
+      "overlap_with_next": "actor. A. Automatic Image Classiﬁcation In case of Image Classiﬁcation, we compared multiple models such as VGG16, VGG19 and MobileNetV2 on various datasets. Below are the results ",
+      "text": "ts accuracy/loss and confusion matrix respectively, obtained on the training and validation set with YAMNet model. We can see that the model converges quickly and the training and validation loss continue to decrease. 5) Model Compression and Inference: Finally, we club the YAMNet model (without the classiﬁer) and our trained classiﬁer model to create the full model for on device inference. We optimize the model for size as described in the Image Classiﬁer Model Compression and ﬂash it into device for inference. We are able to compress the model size by around 74%. [Page 5] Fig. 5. Training/Validation accuracy and loss on environ- ment sounds data Fig. 6. Confusion Matrix for Environment Sounds Classiﬁer We were able to achieve 98 .4% accuracy on device for the audio classiﬁer created by the above tool. V. Experiments and Results Before concluding on the default feature ex- tractor as MobileNetV2 for images and YAMNet for audio, we compare diﬀerent models and their accuracy and performance as feature extractor. A. Automatic Image Classiﬁcation In case of Image Classiﬁcation, we compared multiple models such as VGG16, VGG19 and MobileNetV2 on various datasets. Below are the results ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0276,
+        -0.02282,
+        -0.07032,
+        0.01422,
+        -0.00411
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "actor. A. Automatic Image Classiﬁcation In case of Image Classiﬁcation, we compared multiple models such as VGG16, VGG19 and MobileNetV2 on various datasets. Below are the results ",
+      "overlap_with_next": "el gave a better accuracy as feature extractor here as well. TABLE I Image Classification accuracy with different models as feature extractor Data Set VGG16 VGG19 MobileNetV2 Stand",
+      "text": "actor. A. Automatic Image Classiﬁcation In case of Image Classiﬁcation, we compared multiple models such as VGG16, VGG19 and MobileNetV2 on various datasets. Below are the results with subset of Images from Standford Car dataset, Food-11 dataset and Kaggle Flowers dataset. Standford Car Dataset: The data is same as explained in the Automatic Image Classiﬁer in the Section IV-A1. Food-11 Dataset: We used subset of Food-11 dataset with 4 categories are Noodles/Pasta, Rice, Soup, and Vegetable/Fruit and used around 40 images of each class for training the model. While VGG16 and VGG19 were able to achieve an ac- curacy of around 94%, MobileNetV2 gave better accuracy as feature extractor with an accuracy of 99% on validation data set. Kaggle Flowers Dataset: We used subset of ﬂowers-recognition dataset from Kaggle. The data consists of images corresponding to ﬁve classes: daisy, tulip, rose, sunﬂower, dandelion. For each class, we take about 50 photos for training/validat- ing of our model. The MobileNetV2 model gave a better accuracy as feature extractor here as well. TABLE I Image Classification accuracy with different models as feature extractor Data Set VGG16 VGG19 MobileNetV2 Stand",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05975,
+        -0.06386,
+        -0.02772,
+        -0.0059,
+        -0.00059
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "el gave a better accuracy as feature extractor here as well. TABLE I Image Classification accuracy with different models as feature extractor Data Set VGG16 VGG19 MobileNetV2 Stand",
+      "overlap_with_next": "hese audios ﬁles with y axis as Amplitude and x axis as time. These plotted wave forms were provided as inputs to VGG19 for feature extraction and the extracted features were fed t",
+      "text": "el gave a better accuracy as feature extractor here as well. TABLE I Image Classification accuracy with different models as feature extractor Data Set VGG16 VGG19 MobileNetV2 Standford Car Dataset 88% 87% 94.1% Food-11 Dataset 94% 94% 99% Flowers Dataset 88% 88% 93% As observed in Figure 9 and Table I, Mo- bileNetV2 gave better accuracy when compared to VGG16, VGG19 and other models. Also, Mo- bileNetV2 is better suited for constraint devices due to its smaller footprint as show in Table II. TABLE II Model size with different models as feature extractor Feature Extractor Uncompressed Size Compressed Size (MB) (MB) VGG16 58.9 14.7 VGG19 58.9 14.7 MobileNetV2 8.9 2.3 B. Automatic Audio Classiﬁcation In case of Audio Classiﬁcation, we tried two approaches: • Using Amplitude vs Time plots of Audio and VGG19 as feature extractor • Using log mel spectrogram and YAMNet as feature extractor. VGG19 as feature Extractor: In this approach, we divide the audio into ﬁxed length audio frames and plotted wave forms of these audios ﬁles with y axis as Amplitude and x axis as time. These plotted wave forms were provided as inputs to VGG19 for feature extraction and the extracted features were fed t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03239,
+        -0.04363,
+        -0.05424,
+        0.00745,
+        0.00544
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "hese audios ﬁles with y axis as Amplitude and x axis as time. These plotted wave forms were provided as inputs to VGG19 for feature extraction and the extracted features were fed t",
+      "overlap_with_next": "e 10. Pretrained YAMNet Model is also trained speciﬁcally for audio data and with large corpus of AudioSet dataset. Hence, the features extracted by the YAMNet model were able to c",
+      "text": "hese audios ﬁles with y axis as Amplitude and x axis as time. These plotted wave forms were provided as inputs to VGG19 for feature extraction and the extracted features were fed to the dense layer for classiﬁcation. But the above simple two dimensional representation of the audio ﬁles doesn’t capture the features of complex audio ﬁles as a result the accuracy of this approach was not good when tested on real world audio data. YAMNet as Feature Extractor: YAMNet as a feature extractor gave better accuracy than the above approach using VGG19 model as it uses a stabilized Log Mel Spectrogram as input to the [Page 6] Fig. 7. MobileNetV2, VGG16 and VGG19 as feature extractors on Flowers Dataset respectively Fig. 8. MobileNetV2, VGG16 and VGG19 as feature extractors on Food11 Dataset respectively Fig. 9. MobileNetV2, VGG16 and VGG19 as feature extractors on Standford Cars Dataset respectively Fig. 10. YAMNet as Feature Extractor model which is better able to capture the features of audio ﬁles as shown in Figure 10. Pretrained YAMNet Model is also trained speciﬁcally for audio data and with large corpus of AudioSet dataset. Hence, the features extracted by the YAMNet model were able to c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03619,
+        -0.0417,
+        -0.03358,
+        0.01653,
+        -0.01167
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "e 10. Pretrained YAMNet Model is also trained speciﬁcally for audio data and with large corpus of AudioSet dataset. Hence, the features extracted by the YAMNet model were able to c",
+      "overlap_with_next": " YAMNet ESC-50 Environment Sounds 98.4% Musical Instruments 99% VI. Conclusion and Future Work In this paper, we explored a novel approach to create an automatic model creation too",
+      "text": "e 10. Pretrained YAMNet Model is also trained speciﬁcally for audio data and with large corpus of AudioSet dataset. Hence, the features extracted by the YAMNet model were able to converge faster and gave better accuracy. We tested our Automatic Audio Classiﬁer Tool with the following dataset- ESC-50 Environment Sounds: ESC-50 dataset is a labeled collection of 2000 environmental audio recordings. We use a subset of this data set as explained in Section IV-B1. We were able to reach an accuracy of around 98.4% on validation and test dataset of the model based on YAMNet feature extractor. Musical Instrument: We created a custom dataset of musical instruments consisting of ﬂute, guitar and piano. The training data consists of 50 audio ﬁles for each of the 3 classes of length 10 sec. The validation set had 20 audio ﬁles for each of the 3 classes. We were able to get an accuracy of 99% with our automatic model created with YAMNet as feature extractor. TABLE III Audio Classification accuracy with YAMNet Data Set YAMNet ESC-50 Environment Sounds 98.4% Musical Instruments 99% VI. Conclusion and Future Work In this paper, we explored a novel approach to create an automatic model creation too",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02967,
+        -0.0276,
+        -0.06727,
+        0.04726,
+        4e-05
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": " YAMNet ESC-50 Environment Sounds 98.4% Musical Instruments 99% VI. Conclusion and Future Work In this paper, we explored a novel approach to create an automatic model creation too",
+      "overlap_with_next": "also able to achieve a compression of ∼ 74% from the standard model size using our tool. In future, this tool can be extended to create au- tomatic object detection, text classiﬁca",
+      "text": " YAMNet ESC-50 Environment Sounds 98.4% Musical Instruments 99% VI. Conclusion and Future Work In this paper, we explored a novel approach to create an automatic model creation tool using transfer learning. We described the components in- volved in our tool and demonstrated an automatic audio and image classiﬁer creation with our tool. In case of Image Classiﬁcation, we used Mo- bileNetV2 as it proved to be better suited for constraint devices and gave better accuracy than VGG16 and VGG19. The extracted features were fed to GlobalAveragePooling2D and a dense layer with softmax activation function for classiﬁcation. We were able to get an accuracy of 94 .1% on a subset of Stanford car dataset using our tool. For Audio Classiﬁcation, we used YAMNet Model for feature extraction and then fed the extracted fea- ture to GlobalAveragePooling2D and a dense layer with sigmoid activation function for classiﬁcation. We were able to get an accuracy of 98 .4% on the subset of ESC-50 Environment sound dataset. We were also able to achieve a compression of ∼ 74% from the standard model size using our tool. In future, this tool can be extended to create au- tomatic object detection, text classiﬁca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04649,
+        -0.01302,
+        -0.04804,
+        0.05695,
+        0.0123
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "also able to achieve a compression of ∼ 74% from the standard model size using our tool. In future, this tool can be extended to create au- tomatic object detection, text classiﬁca",
+      "overlap_with_next": "etworks (ICUFN) . IEEE, 2019, pp. 66–71. [4] H. Cai, J. Lin, Y. Lin, Z. Liu, K. Wang, T. Wang, L. Zhu, and S. Han, “Automl for architecting eﬃcient and specialized neural networks,",
+      "text": "also able to achieve a compression of ∼ 74% from the standard model size using our tool. In future, this tool can be extended to create au- tomatic object detection, text classiﬁcation, activ- ity classiﬁcation models. Auto data augmentation [Page 7] can be integrated with this tool which can further help to generalize the created model. References [1] R. R. Reddy, C. Mamatha, and R. G. Reddy, “A review on machine learning trends, application and challenges in internet of things,” in 2018 International Conference on Advances in Computing, Communications and In- formatics (ICACCI). IEEE, 2018, pp. 2389–2397. [2] H. Dou, “Applications of machine learning in the ﬁeld of medical care,” in 2019 34rd Youth Academic An- nual Conference of Chinese Association of Automation (YAC). IEEE, 2019, pp. 176–179. [3] R. A. Rashid, L. Chin, M. Sarijari, R. Sudirman, and T. Ide, “Machine learning for smart energy monitor- ing of home appliances using iot,” in 2019 Eleventh International Conference on Ubiquitous and Future Networks (ICUFN) . IEEE, 2019, pp. 66–71. [4] H. Cai, J. Lin, Y. Lin, Z. Liu, K. Wang, T. Wang, L. Zhu, and S. Han, “Automl for architecting eﬃcient and specialized neural networks,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06633,
+        0.00283,
+        -0.04277,
+        0.00806,
+        -0.01499
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "etworks (ICUFN) . IEEE, 2019, pp. 66–71. [4] H. Cai, J. Lin, Y. Lin, Z. Liu, K. Wang, T. Wang, L. Zhu, and S. Han, “Automl for architecting eﬃcient and specialized neural networks,",
+      "overlap_with_next": "onfer- ence on Electronics, Communication and Aerospace Technology (ICECA). IEEE, 2018, pp. 656–660. [10] A. R. S. R. Beaula, P. Marikkannu, A. Sungheetha, and C. Sahana, “Comparat",
+      "text": "etworks (ICUFN) . IEEE, 2019, pp. 66–71. [4] H. Cai, J. Lin, Y. Lin, Z. Liu, K. Wang, T. Wang, L. Zhu, and S. Han, “Automl for architecting eﬃcient and specialized neural networks,” IEEE Micro, 2019. [5] L. Tuggener, M. Amirian, K. Rombach, S. L¨ orwald, A. Varlet, C. Westermann, and T. Stadelmann, “Au- tomated machine learning in practice: state of the art and recent results,” in 2019 6th Swiss Conference on Data Science (SDS) . IEEE, 2019, pp. 31–36. [6] X. He, K. Zhao, and X. Chu, “Automl: A survey of the state-of-the-art,” arXiv preprint arXiv:1908.00709, 2019. [7] S. J. Pan and Q. Yang, “A survey on transfer learning,” IEEE Transactions on knowledge and data engineering , vol. 22, no. 10, pp. 1345–1359, 2009. [8] S. Albawi, T. A. Mohammed, and S. Al-Zawi, “Under- standing of a convolutional neural network,” in 2017 International Conference on Engineering and Technol- ogy (ICET). IEEE, 2017, pp. 1–6. [9] M. Shaha and M. Pawar, “Transfer learning for image classiﬁcation,” in 2018 Second International Confer- ence on Electronics, Communication and Aerospace Technology (ICECA). IEEE, 2018, pp. 656–660. [10] A. R. S. R. Beaula, P. Marikkannu, A. Sungheetha, and C. Sahana, “Comparat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0465,
+        -0.01068,
+        -0.01668,
+        0.01069,
+        0.01061
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "onfer- ence on Electronics, Communication and Aerospace Technology (ICECA). IEEE, 2018, pp. 656–660. [10] A. R. S. R. Beaula, P. Marikkannu, A. Sungheetha, and C. Sahana, “Comparat",
+      "overlap_with_next": "ted Conference on Computer Science and Information Systems (FedCSIS) . IEEE, 2019, pp. 57–60. [15] Y. Song, W.-H. Wang, and F.-J. Guo, “Feature extrac- tion and classiﬁcation for a",
+      "text": "onfer- ence on Electronics, Communication and Aerospace Technology (ICECA). IEEE, 2018, pp. 656–660. [10] A. R. S. R. Beaula, P. Marikkannu, A. Sungheetha, and C. Sahana, “Comparative study of distinctive image classiﬁcation techniques,” in 2016 10th International Conference on Intelligent Systems and Control (ISCO) . IEEE, 2016, pp. 1–8. [11] S.-J. Lee, T. Chen, L. Yu, and C.-H. Lai, “Image classiﬁcation based on the boost convolutional neural network,” IEEE Access, vol. 6, pp. 12 755–12 768, 2018. [12] G. Guo and S. Z. Li, “Content-based audio classiﬁca- tion and retrieval by support vector machines,” IEEE transactions on Neural Networks , vol. 14, no. 1, pp. 209–215, 2003. [13] T. Kim, J. Lee, and J. Nam, “Comparison and analysis of samplecnn architectures for audio classiﬁcation,” IEEE Journal of Selected Topics in Signal Processing , vol. 13, no. 2, pp. 285–297, 2019. [14] I. Lezhenin, N. Bogach, and E. Pyshkin, “Urban sound classiﬁcation using long short-term memory neural net- work,” in 2019 Federated Conference on Computer Science and Information Systems (FedCSIS) . IEEE, 2019, pp. 57–60. [15] Y. Song, W.-H. Wang, and F.-J. Guo, “Feature extrac- tion and classiﬁcation for a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0251,
+        0.01914,
+        -0.00442,
+        0.03395,
+        0.02285
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24424,
+      "length": 964,
+      "overlap_with_previous": "ted Conference on Computer Science and Information Systems (FedCSIS) . IEEE, 2019, pp. 57–60. [15] Y. Song, W.-H. Wang, and F.-J. Guo, “Feature extrac- tion and classiﬁcation for a",
+      "overlap_with_next": "",
+      "text": "ted Conference on Computer Science and Information Systems (FedCSIS) . IEEE, 2019, pp. 57–60. [15] Y. Song, W.-H. Wang, and F.-J. Guo, “Feature extrac- tion and classiﬁcation for audio information in news video,” in 2009 International Conference on Wavelet Analysis and Pattern Recognition . IEEE, 2009, pp. 43–46. [16] J. Krause, M. Stark, J. Deng, and L. Fei-Fei, “3d object representations for ﬁne-grained categorization,” in 4th International IEEE Workshop on 3D Representation and Recognition (3dRR-13), Sydney, Australia, 2013. [17] J. F. Gemmeke, D. P. Ellis, D. Freedman, A. Jansen, W. Lawrence, R. C. Moore, M. Plakal, and M. Ritter, “Audio set: An ontology and human-labeled dataset for audio events,” in 2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) . IEEE, 2017, pp. 776–780. [18] K. J. Piczak, “ESC: Dataset for Environmental Sound Classiﬁcation,” 2015. [Online]. Available: https: //doi.org/10.7910/DVN/YDEPUT",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04575,
+        -0.00089,
+        -0.03484,
+        0.03051,
+        -0.00685
+      ]
+    }
+  ]
+}

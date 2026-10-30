@@ -1,0 +1,385 @@
+{
+  "paper_id": "da584cb5-4da5-450b-bed7-33caa7e1364d",
+  "filename": "003_NLP_Should_I_visit_this_place_Inclusion_and_Exclusion_Phrase_Mining_from_Reviews.pdf",
+  "title": "Should I visit this place? Inclusion and Exclusion Phrase Mining from Reviews",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 22,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "lysis, and automatic itinerary generation, to the best o f our knowl- edge this is the ﬁrst work on inclusion/exclusion phrase min ing from tourism reviews. Using a dataset of 2000",
+      "text": "[Page 1] arXiv:2012.10226v1 [cs.IR] 18 Dec 2020 Should I visit this place? Inclusion and Exclusion Phrase Mining from Reviews Omkar Gurjar 1 and Manish Gupta 1,2 1IIIT-Hyderabad, India 2Microsoft, India omkar.gurjar@students.iiit.ac.in, manish.gupta@iiit. ac.in, gmanish@microsoft.com Abstract. Although several automatic itinerary generation services have made travel planning easy, often times travellers ﬁnd themselves in unique situations where they cannot make the best out of their trip. Visitors diﬀer in terms of many factors such as suﬀering from a disabil ity, being of a particular dietary preference, travelling with a toddl er, etc. While most tourist spots are universal, others may not be inclusiv e for all. In this paper, we focus on the problem of mining inclusion and ex clusion phrases associated with 11 such factors, from reviews relat ed to a tourist spot. While existing work on tourism data mining mainly focu ses on structured extraction of trip related information, person alized sentiment analysis, and automatic itinerary generation, to the best o f our knowl- edge this is the ﬁrst work on inclusion/exclusion phrase min ing from tourism reviews. Using a dataset of 2000",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06075,
+        -0.00623,
+        -0.02228,
+        0.01586,
+        -0.01175
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "lysis, and automatic itinerary generation, to the best o f our knowl- edge this is the ﬁrst work on inclusion/exclusion phrase min ing from tourism reviews. Using a dataset of 2000",
+      "overlap_with_next": "inerary planning systems 2 provide a holistic solution enabling transportation, lodging, sights, and food recommendations. How ever such rec- ommendation systems cannot incorporate",
+      "text": "lysis, and automatic itinerary generation, to the best o f our knowl- edge this is the ﬁrst work on inclusion/exclusion phrase min ing from tourism reviews. Using a dataset of 2000 reviews related to 1 000 tourist spots, our broad level classiﬁer provides a binary overlap F 1 of ∼80 and ∼82 to classify a phrase as inclusion or exclusion respective ly. Further, our inclusion/exclusion classiﬁer provides an F1 of ∼98 and ∼97 for 11- class inclusion and exclusion classiﬁcation respectively . We believe that our work can signiﬁcantly improve the quality of an automati c itinerary generation service. 1 Introduction Hundreds of millions of visitors travel across the globe every year r esulting into trillions of dollars of spending. Number of international tourist arriv als has seen a steady increase over the past few decades 1. Thanks to the availability of multiple online services like web maps, travel and stay booking, and automat ic planning, tourism has become a lot comfortable in recent years. Automated itinerary planning systems 2 provide a holistic solution enabling transportation, lodging, sights, and food recommendations. How ever such rec- ommendation systems cannot incorporate",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07388,
+        -0.03588,
+        -0.01879,
+        0.03186,
+        0.01095
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "inerary planning systems 2 provide a holistic solution enabling transportation, lodging, sights, and food recommendations. How ever such rec- ommendation systems cannot incorporate",
+      "overlap_with_next": "articular age/ height group: too old, or too young, too short. (2) Claustrophobia: Some spots consist of a lot of conﬁned spaces and hence unsuitable for claustrophobic visit ors. ",
+      "text": "inerary planning systems 2 provide a holistic solution enabling transportation, lodging, sights, and food recommendations. How ever such rec- ommendation systems cannot incorporate subtle user constraint s like a claustro- phobic user, visitors travelling with a toddler, visitors of a particular ethnicity with visa restrictions, etc. Indeed, many of them, do not even inco rporate tourist spot speciﬁc properties like what time of day is best to visit, tempora ry ad hoc 1 https://data.worldbank.org/indicator/ST.INT.ARVL 2 http://itineree.com/top-online-travel-planners/ [Page 2] 2 Gurjar and Gupta closures due to local vacations or maintenance work, visitor height /gender re- strictions, vegetarian friendly or not, etc. Tourist review websites are a gold mine of data related to very subtle re- strictions (or exclusions) associated with a tourist spot. In this wo rk, we focus on the following 11 diﬀerent factors regarding inclusion or exclusion n ature of tourist spots. (1)Age/Height: Disallow visitors of a particular age/ height group: too old, or too young, too short. (2) Claustrophobia: Some spots consist of a lot of conﬁned spaces and hence unsuitable for claustrophobic visit ors. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03676,
+        -0.02091,
+        -0.02682,
+        0.02299,
+        -0.03178
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "articular age/ height group: too old, or too young, too short. (2) Claustrophobia: Some spots consist of a lot of conﬁned spaces and hence unsuitable for claustrophobic visit ors. ",
+      "overlap_with_next": "ime durations. (11) Time: Various spots have a prefe rred visit timings, such as early morning, late evening, on Wednesdays, from S ep-Dec, etc. This category also includes ad hoc ",
+      "text": "articular age/ height group: too old, or too young, too short. (2) Claustrophobia: Some spots consist of a lot of conﬁned spaces and hence unsuitable for claustrophobic visit ors. (3) Cou- ples/Family: Some spots are family/kids friendly versus not. (4) Cro wd: Some spots are often heavily crowded, which may be repulsive to some visit ors. (5) Food: Some spots may serve low quality food, non-vegetarian food only, may not serve any food, may not allow any external food, may not allow alcoh olic drinks, etc. (6) Handicap: Some spots may not allow facilities for disabled folk s like lifts, ramps, etc. The terrain may not be wheel-chair or stroller friendly. (7) Hygiene: Some spots may be ﬁlthy, e.g., unclean toilets, littered beaches, etc . (8) Parking: Unavailability and ease of parking. (9) Price: Some spots may be very expensive for tourists. (10) Queues: Some spots may exhibit large queues lea ding to long wait times. Visitors on a tight schedule may want to avoid such places, or visit them in low wait time durations. (11) Time: Various spots have a prefe rred visit timings, such as early morning, late evening, on Wednesdays, from S ep-Dec, etc. This category also includes ad hoc ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02832,
+        -0.02647,
+        -0.03913,
+        0.00335,
+        -0.04099
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "ime durations. (11) Time: Various spots have a prefe rred visit timings, such as early morning, late evening, on Wednesdays, from S ep-Dec, etc. This category also includes ad hoc ",
+      "overlap_with_next": "ases from tourism review data. The problem is challenging: (1) Th ere can be many types of exclusions as discussed above. (2) These factors c an be expressed in lots of diﬀerent wa",
+      "text": "ime durations. (11) Time: Various spots have a prefe rred visit timings, such as early morning, late evening, on Wednesdays, from S ep-Dec, etc. This category also includes ad hoc closures due to maintenance or ot her reasons. In this paper, we focus on two related tasks: (1) Task 1 pertains t o mining in- clusion/exclusion phrases from tourism reviews. A phrase which per tains to any of the exclusions as mentioned above is labeled as an exclusion phrase , while a phrase related to inclusion of the above factors is labeled as an inclus ion phrase. (2) Task 2 is about ﬁne-grained classiﬁcation of inclusion/exclusion p hrases into one of the above 11 categories. “I had my kids who loved this museum ” and “ele- vators for those whom stairs are problematic” are examples of age and handicap inclusion phrases. “place was very crowded”, “would not recommen d the area for young children” are examples of crowd and age exclusion phrase s. We are the ﬁrst to propose the problem of extracting inclusion/exc lusion phrases from tourism review data. The problem is challenging: (1) Th ere can be many types of exclusions as discussed above. (2) These factors c an be expressed in lots of diﬀerent wa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.007,
+        -0.01493,
+        -0.01583,
+        0.02557,
+        -0.00064
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ases from tourism review data. The problem is challenging: (1) Th ere can be many types of exclusions as discussed above. (2) These factors c an be expressed in lots of diﬀerent wa",
+      "overlap_with_next": "phrases mined from ∼2000 reviews) [Page 3] Inclusion and Exclusion Phrase Mining from Reviews 3 publicly available 3. Our experiments show that the proposed models lead to practica",
+      "text": "ases from tourism review data. The problem is challenging: (1) Th ere can be many types of exclusions as discussed above. (2) These factors c an be expressed in lots of diﬀerent ways. (3) There could be multiple indirect referenc es (e.g. if the place allows gambling, likely kids are not allowed) or unrelated refer ences (e.g., a review talking about a tour guide’s “family” rather than if “fam ilies” are allowed at the spot). Overall, we make the following contributions in this paper: (1) We prop ose a novel task of mining inclusion/exclusion phrases from online tourist r eviews, and their ﬁne-grained classiﬁcation. (2) We model the ﬁrst task as a se quence label- ing problem, and the second one as a multi-class classiﬁcation. We inve stigate the eﬀectiveness of CRFs (Conditional Random Fields), BiLSTMs (Bid irectional Long Short-Term Memory networks), and Transformer models like BERT (Bidi- rectional Encoder Representations from Transformers). (3) W e make the code and the manually labeled dataset (2303 phrases mined from ∼2000 reviews) [Page 3] Inclusion and Exclusion Phrase Mining from Reviews 3 publicly available 3. Our experiments show that the proposed models lead to practica",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06443,
+        -0.00072,
+        -0.03259,
+        0.04047,
+        0.0016
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "phrases mined from ∼2000 reviews) [Page 3] Inclusion and Exclusion Phrase Mining from Reviews 3 publicly available 3. Our experiments show that the proposed models lead to practica",
+      "overlap_with_next": "itine rary generation problem has been studied extensively from multiple perspectives. Fr iggstad et al. [8] model the problem as an orienteering problem on a graph of tou rist spo",
+      "text": "phrases mined from ∼2000 reviews) [Page 3] Inclusion and Exclusion Phrase Mining from Reviews 3 publicly available 3. Our experiments show that the proposed models lead to practically usable classiﬁers. 2 Related Work T ourism Data Mining : Work on tourism data mining has mostly focused on structured extraction of trip related information [18], mining re views (per- sonalized sentiment analysis of tourist reviews [15], establishing revie w credibil- ity [1,7]), and automatic itinerary generation [2,3,5,8]. Popescu et al. [1 8] extract visit durations or information like “what can I visit in one day in this city? ” from Flickr data. Pantano et al. [15] predict tourists’ future preferen ces from reviews. Ayeh et al. [1] examine the credibility perceptions and online travelers ’ attitude towards using user-generated content (UGC). Filieri et al. [7] st udy the impact of source credibility, information quality, website quality, customer satisfaction, user experience on users’ trust towards UGC. The automatic itine rary generation problem has been studied extensively from multiple perspectives. Fr iggstad et al. [8] model the problem as an orienteering problem on a graph of tou rist spo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05436,
+        -0.01055,
+        -0.0241,
+        0.02308,
+        -0.00591
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "itine rary generation problem has been studied extensively from multiple perspectives. Fr iggstad et al. [8] model the problem as an orienteering problem on a graph of tou rist spo",
+      "overlap_with_next": "ded using BIO (begin , inside, outside) labeling. In this paper, we investigate the eﬀectiveness of such sequence labeling approaches for the inclusion/exclusion phrase mining task",
+      "text": "itine rary generation problem has been studied extensively from multiple perspectives. Fr iggstad et al. [8] model the problem as an orienteering problem on a graph of tou rist spots. Chang et al. [2] weigh diﬀerent factors like spot name, popularity, isR estau- rant, isAccomodation, etc. based on user interactions to optimize the process of trip planning. De et al. [5] aggregate across geo-temporal breadc rumbs data for multiple users to construct itineraries. Clearly, our system can be a n important sub-module to generate automated itineraries which are exclusion- sensitive. Sequence Labeling : Sequence labeling involves predicting an output label se- quence given an input text sequence. A label is generated per input token. Pop- ular sequence labeling models include CRFs [13], LSTMs [9], LSTM-CRFs [1 1], and Transformer models like BERT [6]. Many NLP tasks can be modeled a s sequence labeling tasks including opinion mining [12], part-of-speech t agging, etc. The labels for such tasks are typically encoded using BIO (begin , inside, outside) labeling. In this paper, we investigate the eﬀectiveness of such sequence labeling approaches for the inclusion/exclusion phrase mining task",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06637,
+        -0.0047,
+        -0.01841,
+        0.05878,
+        -0.00827
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "ded using BIO (begin , inside, outside) labeling. In this paper, we investigate the eﬀectiveness of such sequence labeling approaches for the inclusion/exclusion phrase mining task",
+      "overlap_with_next": " category as part of the dataset. These ∼2000 reviews were then manually labeled for inclusion/exclusion phras es using the BIO tagging, as well as their ﬁne categorization into on",
+      "text": "ded using BIO (begin , inside, outside) labeling. In this paper, we investigate the eﬀectiveness of such sequence labeling approaches for the inclusion/exclusion phrase mining task. Aspect Extraction : Aspect extraction has been studied widely in the past decade, mainly for product reviews, using supervised [19], semi-su pervised [14] as well as unsupervised [10] methods. In this work, we study aspe ct extraction for reviews in the tourism domain. 3 Proposed Approach 3.1 Dataset We ﬁrst obtained a list of top 1000 tourist spots from lonelyplanet.co m (a popu- lar tourist website). Next, we obtained a maximum of 2000 reviews co rrespond- ing to each of these spots from tripadvisor.com. Further, we broa dly ﬁltered out reviews (and then sentences) that could be potentially related to the eleven 3 https://github.com/omkar2810/Inclusion_Exclusion_Phrase_Mining [Page 4] 4 Gurjar and Gupta factors mentioned in Sec. 1 using a manually produced keyword list fo r each category. We provide the full keyword list per category as part of the dataset. These ∼2000 reviews were then manually labeled for inclusion/exclusion phras es using the BIO tagging, as well as their ﬁne categorization into on",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04681,
+        -0.00983,
+        -0.03359,
+        0.04282,
+        0.00903
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " category as part of the dataset. These ∼2000 reviews were then manually labeled for inclusion/exclusion phras es using the BIO tagging, as well as their ﬁne categorization into on",
+      "overlap_with_next": "t and found the Cohen’s Kappa to be 0.8 04 and 0.931 for the ﬁrst and the second tasks respectively, which is considere d as very good. 3.2 Methods We experiment with two diﬀerent ",
+      "text": " category as part of the dataset. These ∼2000 reviews were then manually labeled for inclusion/exclusion phras es using the BIO tagging, as well as their ﬁne categorization into one of the 11 cat- egories. A total of 2303 phrases were labeled with one of the 11 cat egories. The distribution across the categories is as follows: Age/Height: 324, C laustrophobia: 217, Couples/Family: 151, Crowd: 307, Food: 313, Handicap: 204, Hygiene: 95, Parking: 65, Price: 351, Queues: 185, and Time: 91. For the inclusio n/exclusion phrase mining task, a total of 2303 phrases from 2154 sentences were labeled. Phrases in these sentences which are not inclusion/exclusion are ma rked as oth- ers. Across these phrases, the word label distribution is as follows : B EXC: 1176, B INC: 1223, EXC: 5713, INC: 5455, O: 29976, where INC and EXC de note in- clusion and exclusion respectively. We make the code and the manually labeled dataset publicly available 3. On a small set of 115 instances, we measured the inter-annotator agreement and found the Cohen’s Kappa to be 0.8 04 and 0.931 for the ﬁrst and the second tasks respectively, which is considere d as very good. 3.2 Methods We experiment with two diﬀerent ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07447,
+        -0.03107,
+        -0.02143,
+        0.00554,
+        -0.00964
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "t and found the Cohen’s Kappa to be 0.8 04 and 0.931 for the ﬁrst and the second tasks respectively, which is considere d as very good. 3.2 Methods We experiment with two diﬀerent ",
+      "overlap_with_next": "emory logic. Bidirectionality helps propa gate in- formation across both directions leading to improved accuracies co mpared to unidirectional LSTMs. BiLSTM-CNNs [4] : BiLSTM-CNNs ",
+      "text": "t and found the Cohen’s Kappa to be 0.8 04 and 0.931 for the ﬁrst and the second tasks respectively, which is considere d as very good. 3.2 Methods We experiment with two diﬀerent word embedding methods: GloVe (Glo bal Vectors for Word Representation) [16] and ELMo (Embeddings fro m Language Models) [17]. We use CRFs, BiLSTMs, BiLSTM-CRFs and BERT for the ﬁr st sequence labeling task. We use traditional machine learning (ML) clas siﬁers like XGBoost and Support Vector Machines (SVMs) and deep learning (D L) models like BiLSTMs, LSTM-CNN and BERT for the multi-class classiﬁcation tas k. CRFs [13] : Conditional Random Fields (CRFs) are prediction models for tasks where contextual information or state of the neighbors aﬀect th e current predic- tion. They are a type of discriminative undirected probabilistic graph ical model. BiLSTMs [9]: Bidirectional LSTMs are the most popular traditional deep learn- ing models for sequence modeling. They model text sequences using recurrence and gate-controlled explicit memory logic. Bidirectionality helps propa gate in- formation across both directions leading to improved accuracies co mpared to unidirectional LSTMs. BiLSTM-CNNs [4] : BiLSTM-CNNs ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07849,
+        -0.01114,
+        0.00735,
+        -0.00444,
+        0.00693
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "emory logic. Bidirectionality helps propa gate in- formation across both directions leading to improved accuracies co mpared to unidirectional LSTMs. BiLSTM-CNNs [4] : BiLSTM-CNNs ",
+      "overlap_with_next": " tmax layer. [Page 5] Inclusion and Exclusion Phrase Mining from Reviews 5 4 Experiments For BiLSTM experiments, we used three layers, ReLU activation for hidden layers and softmax",
+      "text": "emory logic. Bidirectionality helps propa gate in- formation across both directions leading to improved accuracies co mpared to unidirectional LSTMs. BiLSTM-CNNs [4] : BiLSTM-CNNs use character-based CNNs to ﬁrst gener- ate the word embeddings. These word embeddings are further use d by the LSTM to generate the embedding for the text sequence. This is then con nected to a dense layer and then ﬁnally to the output softmax layer. BiLSTM-CRFs [11] : We combine a BiLSTM network and a CRF network to form a BiLSTM-CRF model. This network can eﬃciently use past input f eatures via a LSTM layer and sentence level tag information via a CRF layer. BERT [6]: BERT is a Transformer-encoder model trained in a bidirectional wa y. BERT has been shown to provide very high accuracies across a large number of NLP tasks. For the sequence labeling task, we connect the sema ntic output for each position to an output softmax layer. For multi-class classiﬁ cation, we connect semantic representation of CLS token to the output sof tmax layer. [Page 5] Inclusion and Exclusion Phrase Mining from Reviews 5 4 Experiments For BiLSTM experiments, we used three layers, ReLU activation for hidden layers and softmax",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07147,
+        0.00142,
+        -0.00161,
+        0.00552,
+        0.00606
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " tmax layer. [Page 5] Inclusion and Exclusion Phrase Mining from Reviews 5 4 Experiments For BiLSTM experiments, we used three layers, ReLU activation for hidden layers and softmax",
+      "overlap_with_next": "is- covering the right inclusion/exclusion label for each word. Also, pre cision values are typically lower than recall, which means that our models can detec t that the text impli",
+      "text": " tmax layer. [Page 5] Inclusion and Exclusion Phrase Mining from Reviews 5 4 Experiments For BiLSTM experiments, we used three layers, ReLU activation for hidden layers and softmax for output, SGD optimizer (with momentum=0.7, learning rate=1e-5, batch size=8), and cross-entropy loss. We trained f or 50 epochs. We used GloVe 200D word vectors. For BERT, we used the pretrained B ERT BASE model with 12 Transformer layers, Adam optimizer with learning rate =3e-5, max sequence length=128, batch size=8, and categorical cross entr opy loss. 4.1 Results Table 1 shows results for the inclusion/exclusion phrase mining task. As dis- cussed in [12], we use two metrics: (1) Binary Overlap which counts ev ery overlapping match between a predicted and true expression as cor rect, and (2) Proportional Overlap which imparts a partial correctness, propo rtional to the overlapping amount, to each match. BERT based method outperfo rms all other methods. This is because the 12 layers of self-attention help signiﬁc antly in dis- covering the right inclusion/exclusion label for each word. Also, pre cision values are typically lower than recall, which means that our models can detec t that the text impli",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02931,
+        -0.02763,
+        -0.04588,
+        0.00063,
+        0.02282
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "is- covering the right inclusion/exclusion label for each word. Also, pre cision values are typically lower than recall, which means that our models can detec t that the text impli",
+      "overlap_with_next": "han exclusion phrases. Deep learning based methods like LSTMs and BERT are better than traditional ML classiﬁers. BERT outperforms all othe r methods by a large margin for both the",
+      "text": "is- covering the right inclusion/exclusion label for each word. Also, pre cision values are typically lower than recall, which means that our models can detec t that the text implies some inclusion or exclusion but ﬁnd it diﬃcult to diﬀerent iate between the two. Model Inclusion Exclusion Precision Recall F1 Precision Recall F1 Prop Bin Prop Bin Prop Bin Prop Bin Prop Bin Prop Bin CRF + GloVe 0.354 0.417 0.531 0.758 0.425 0.538 0.372 0.392 0.524 0.728 0.435 0.512 BiLSTM + GloVe 0.456 0.590 0.573 0.643 0.508 0.615 0.506 0.638 0.570 0.668 0.536 0.650 BiLSTM CRF + GloVe 0.490 0.625 0.613 0.714 0.545 0.666 0.516 0.649 0.654 0.788 0.577 0.712 BiLSTM + ELMo 0.580 0.645 0.604 0.770 0.590 0.701 0.602 0.678 0.566 0.738 0.579 0.703 BERT 0.677 0.748 0.765 0.869 0.718 0.804 0.664 0.756 0.801 0.908 0.726 0.825 Table 1. Inclusion/Exclusion Phrase Mining Accuracy Results We present the results of our 11-class phrase classiﬁcation in Table 2. We observe that typically the accuracy is better for inclusion phrases rather than exclusion phrases. Deep learning based methods like LSTMs and BERT are better than traditional ML classiﬁers. BERT outperforms all othe r methods by a large margin for both the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07107,
+        -0.04322,
+        -0.01547,
+        0.00551,
+        0.01872
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "han exclusion phrases. Deep learning based methods like LSTMs and BERT are better than traditional ML classiﬁers. BERT outperforms all othe r methods by a large margin for both the",
+      "overlap_with_next": " Inclusion ExclusionPrecision Recall F1 Precision Recall F1 Precision Recall F1 SVM 0.725 0.631 0.626 0.759 0.635 0.649 0.665 0.626 0.604 XGBoost 0.802 0.796 0.797 0.802 0.785 0.78",
+      "text": "han exclusion phrases. Deep learning based methods like LSTMs and BERT are better than traditional ML classiﬁers. BERT outperforms all othe r methods by a large margin for both the inclusion and exclusion phrases. Further, we performed an end-to-end evaluation of our system. For each sentence in the test set, we ﬁrst obtained BIO predictions using ou r phrase mining system. Then, we perform 11-class classiﬁcation on these min ed phrases. Golden label for our predicted inclusion/exclusion phrase is set to th e ground truth label for the phrase with maximum intersection. For predicte d phrases which have no intersection with any golden phrase, we assume them t o belong to a special “sink” class, and they count towards loss in precision. G olden phrases not detected by our system count towards loss in recall. Such an ev aluation leads to an overall F1 of 0.748 (P=0.695, R=0.812), inclusion F1 of 0.739 (P= 0.691, R=0.795) and an exclusion F1 of 0.759 (P=0.700, R=0.830). [Page 6] 6 Gurjar and Gupta Model Total Inclusion ExclusionPrecision Recall F1 Precision Recall F1 Precision Recall F1 SVM 0.725 0.631 0.626 0.759 0.635 0.649 0.665 0.626 0.604 XGBoost 0.802 0.796 0.797 0.802 0.785 0.78",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06418,
+        -0.02267,
+        -0.02239,
+        0.00092,
+        0.02013
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": " Inclusion ExclusionPrecision Recall F1 Precision Recall F1 Precision Recall F1 SVM 0.725 0.631 0.626 0.759 0.635 0.649 0.665 0.626 0.604 XGBoost 0.802 0.796 0.797 0.802 0.785 0.78",
+      "overlap_with_next": "ars of togetherness”. Our two clas- siﬁers predict “O O O O O O O INC INC INC INC INC” and “Couples/Family” . Interestingly, it can relate “togetherness” with “Couples/Family” . 4.",
+      "text": " Inclusion ExclusionPrecision Recall F1 Precision Recall F1 Precision Recall F1 SVM 0.725 0.631 0.626 0.759 0.635 0.649 0.665 0.626 0.604 XGBoost 0.802 0.796 0.797 0.802 0.785 0.786 0.817 0.806 0.806 BiLSTM + GloVe 0.890 0.885 0.884 0.921 0.917 0.916 0.862 0.852 0.853 BiLSTM-CNN + GloVe 0.895 0.892 0.891 0.903 0.900 0.900 0.889 0.883 0.883 BiLSTM Attn + GloVe 0.914 0.911 0.911 0.938 0.934 0.934 0.894 0.887 0.889 BERT 0.978 0.978 0.978 0.983 0.982 0.982 0.975 0.973 0.973 Table 2. 11-class Categorization Accuracy Results Next, we present two examples of the output from our system. Co nsider the sentence: “The wheelchair wouldn’t go through the turnstile wh ich was disappointing”. Our inclusion/exclusion phrase mining BERT classiﬁer o utputs “B EXC EXC EXC EXC EXC EXC EXC O O O” while our 11-class classiﬁer labels this as “Handicap”. Our system was able to smartly associate “ wheelchair wouldn’t go through” with “handicap” category. Consider another example, “We came to Eiﬀel Tower to celebrate twenty ﬁve years of togetherness”. Our two clas- siﬁers predict “O O O O O O O INC INC INC INC INC” and “Couples/Family” . Interestingly, it can relate “togetherness” with “Couples/Family” . 4.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07239,
+        0.01346,
+        -0.02116,
+        0.00175,
+        0.01233
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ars of togetherness”. Our two clas- siﬁers predict “O O O O O O O INC INC INC INC INC” and “Couples/Family” . Interestingly, it can relate “togetherness” with “Couples/Family” . 4.",
+      "overlap_with_next": "un and the usual bar street of many cities.” Ca n’t really make out whether one should visit during the night or not. (3) Refer ences to other unrelated things: Consider this revie",
+      "text": "ars of togetherness”. Our two clas- siﬁers predict “O O O O O O O INC INC INC INC INC” and “Couples/Family” . Interestingly, it can relate “togetherness” with “Couples/Family” . 4.2 Error Analysis We performed a manual analysis of some of the errors made by our b est model. We found the following interesting patterns. (1) It is diﬃcult to pred ict the right label when the phrase can be provided multiple labels. E.g. “If you don ’t like crowds or feel claustrophobic being on narrow walkways full of gro ups of people ...” can be labeled into either of the Crowd or Claustrophobia categorie s. (2) Conﬂicting opinions mentioned in same review. “... Well worth the $25 ... The cost of the day was very expensive compared to Australian water p arks.” In this review, from a price perspective, it is diﬃcult to ﬁgure out whether t he spot is cheap or expensive. Similarly, consider another review: “Wednesd ay night is bike night in Beale Street so a lot of noise from at least 1000 bikes many highly decorated. It was fun and the usual bar street of many cities.” Ca n’t really make out whether one should visit during the night or not. (3) Refer ences to other unrelated things: Consider this revie",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03416,
+        0.00293,
+        -0.05776,
+        0.03426,
+        -0.00241
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "un and the usual bar street of many cities.” Ca n’t really make out whether one should visit during the night or not. (3) Refer ences to other unrelated things: Consider this revie",
+      "overlap_with_next": "ences 1. Ayeh, J.K., Au, N., Law, R.: “Do we believe in TripAdvisor? ” Examining credibility perceptions and online travelers’ attitude toward using us er-generated content. Journa",
+      "text": "un and the usual bar street of many cities.” Ca n’t really make out whether one should visit during the night or not. (3) Refer ences to other unrelated things: Consider this review: “... I was lucky enough to have a descendant who gave the garden tour and tell about the family (mo re than you might usually get) ...” The word “family” here does not indicate anything about inclusion/exclusion wrt families for the spot. 5 Conclusion In this paper, we proposed a novel task for mining of inclusion/exclu sion phrases and their detailed categorization. We investigated the eﬀectivenes s of various deep learning methods for the task. We found that BERT based met hods lead to a binary overlap F1 of ∼80 and ∼82 for the sequence labeling task, and an F1 of ∼98 and ∼97 for 11-class inclusion and exclusion classiﬁcation respectively. In the future, we plan to integrate this module as a part of a personaliz ed automated itinerary recommendation system. [Page 7] Inclusion and Exclusion Phrase Mining from Reviews 7 References 1. Ayeh, J.K., Au, N., Law, R.: “Do we believe in TripAdvisor? ” Examining credibility perceptions and online travelers’ attitude toward using us er-generated content. Journa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04636,
+        -0.03597,
+        -0.04682,
+        0.03026,
+        0.02035
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "ences 1. Ayeh, J.K., Au, N., Law, R.: “Do we believe in TripAdvisor? ” Examining credibility perceptions and online travelers’ attitude toward using us er-generated content. Journa",
+      "overlap_with_next": ".: Bert: Pre -training of deep bidirec- tional transformers for language understanding. arXiv pre print arXiv:1810.04805 (2018) 7. Filieri, R., Alguezaui, S., McLeay, F.: Why do tr",
+      "text": "ences 1. Ayeh, J.K., Au, N., Law, R.: “Do we believe in TripAdvisor? ” Examining credibility perceptions and online travelers’ attitude toward using us er-generated content. Journal of Travel Research 52(4), 437–452 (2013) 2. Chang, H.T., Chang, Y.M., Tsai, M.T.: ATIPS: automatic tr avel itinerary planning system for domestic areas. Computational intelligence and neuroscience (2016) 3. Chen, G., Wu, S., Zhou, J., Tung, A.K.: Automatic itinerar y planning for traveling services. IEEE transactions on knowledge and data engineer ing 26(3), 514–527 (2013) 4. Chiu, J.P., Nichols, E.: Named entity recognition with bi directional lstm-cnns. Transactions of the Association for Computational Linguis tics 4, 357–370 (2016) 5. De Choudhury, M., Feldman, M., Amer-Yahia, S., Golbandi, N., Lempel, R., Yu, C.: Automatic construction of travel itineraries using soc ial breadcrumbs. In: Pro- ceedings of the 21st ACM conference on Hypertext and hyperme dia. pp. 35–44 (2010) 6. Devlin, J., Chang, M.W., Lee, K., Toutanova, K.: Bert: Pre -training of deep bidirec- tional transformers for language understanding. arXiv pre print arXiv:1810.04805 (2018) 7. Filieri, R., Alguezaui, S., McLeay, F.: Why do tr",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04777,
+        -0.02385,
+        0.00325,
+        0.03023,
+        0.00705
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": ".: Bert: Pre -training of deep bidirec- tional transformers for language understanding. arXiv pre print arXiv:1810.04805 (2018) 7. Filieri, R., Alguezaui, S., McLeay, F.: Why do tr",
+      "overlap_with_next": "nguistics (Volume 1: Long Papers). pp. 388–397 (2017) 11. Huang, Z., Xu, W., Yu, K.: Bidirectional lstm-crf models for sequence tagging. arXiv preprint arXiv:1508.01991 (2015) 12. ",
+      "text": ".: Bert: Pre -training of deep bidirec- tional transformers for language understanding. arXiv pre print arXiv:1810.04805 (2018) 7. Filieri, R., Alguezaui, S., McLeay, F.: Why do travelers t rust tripadvisor? an- tecedents of trust towards consumer-generated media and it s inﬂuence on recom- mendation adoption and word of mouth. Tourism management 51, 174–185 (2015) 8. Friggstad, Z., Gollapudi, S., Kollias, K., Sarlos, T., Sw amy, C., Tomkins, A.: Orien- teering algorithms for generating travel itineraries. In: Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining. pp. 180–188 (2018) 9. Graves, A., Jaitly, N., Mohamed, A.r.: Hybrid speech reco gnition with deep bidi- rectional lstm. In: 2013 IEEE workshop on automatic speech r ecognition and un- derstanding. pp. 273–278. IEEE (2013) 10. He, R., Lee, W.S., Ng, H.T., Dahlmeier, D.: An unsupervis ed neural attention model for aspect extraction. In: Proceedings of the 55th Ann ual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). pp. 388–397 (2017) 11. Huang, Z., Xu, W., Yu, K.: Bidirectional lstm-crf models for sequence tagging. arXiv preprint arXiv:1508.01991 (2015) 12. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04773,
+        -0.02471,
+        -0.04327,
+        0.00387,
+        -0.01874
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "nguistics (Volume 1: Long Papers). pp. 388–397 (2017) 11. Huang, Z., Xu, W., Yu, K.: Bidirectional lstm-crf models for sequence tagging. arXiv preprint arXiv:1508.01991 (2015) 12. ",
+      "overlap_with_next": "ington, J., Socher, R., Manning, C.D.: Glove: Globa l vectors for word repre- sentation. In: Proceedings of the 2014 conference on empiri cal methods in natural language processing",
+      "text": "nguistics (Volume 1: Long Papers). pp. 388–397 (2017) 11. Huang, Z., Xu, W., Yu, K.: Bidirectional lstm-crf models for sequence tagging. arXiv preprint arXiv:1508.01991 (2015) 12. Irsoy, O., Cardie, C.: Opinion mining with deep recurren t neural networks. In: Proceedings of the 2014 conference on empirical methods in n atural language pro- cessing (EMNLP). pp. 720–728 (2014) 13. Laﬀerty, J.D., McCallum, A., Pereira, F.C.: Conditiona l random ﬁelds: Proba- bilistic models for segmenting and labeling sequence data. In: Proceedings of the Eighteenth International Conference on Machine Learning. pp. 282–289 (2001) 14. Mukherjee, A., Liu, B.: Aspect extraction through semi- supervised modeling. In: Proceedings of the 50th Annual Meeting of the Association fo r Computational Linguistics (Volume 1: Long Papers). pp. 339–348 (2012) 15. Pantano, E., Priporas, C.V., Stylos, N.: ‘you will like i t!’ using open data to predict tourists’ response to a tourist attraction. Tourism Manage ment 60, 430–438 (2017) 16. Pennington, J., Socher, R., Manning, C.D.: Glove: Globa l vectors for word repre- sentation. In: Proceedings of the 2014 conference on empiri cal methods in natural language processing",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05685,
+        -0.01164,
+        -0.0044,
+        0.01229,
+        -0.01287
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22178,
+      "length": 758,
+      "overlap_with_previous": "ington, J., Socher, R., Manning, C.D.: Glove: Globa l vectors for word repre- sentation. In: Proceedings of the 2014 conference on empiri cal methods in natural language processing",
+      "overlap_with_next": "",
+      "text": "ington, J., Socher, R., Manning, C.D.: Glove: Globa l vectors for word repre- sentation. In: Proceedings of the 2014 conference on empiri cal methods in natural language processing (EMNLP). pp. 1532–1543 (2014) [Page 8] 8 Gurjar and Gupta 17. Peters, M.E., Neumann, M., Iyyer, M., Gardner, M., Clark , C., Lee, K., Zettlemoyer, L.: Deep contextualized word representation s. arXiv preprint arXiv:1802.05365 (2018) 18. Popescu, A., Grefenstette, G.: Deducing trip related in formation from ﬂickr. In: Proceedings of the 18th international conference on World w ide web. pp. 1183–1184 (2009) 19. Wang, W., Pan, S.J., Dahlmeier, D., Xiao, X.: Recursive n eural conditional random ﬁelds for aspect-based sentiment analysis. arXiv preprint arXiv:1603.06679 (2016)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08522,
+        -0.02338,
+        0.01244,
+        0.02344,
+        -0.03264
+      ]
+    }
+  ]
+}

@@ -1,0 +1,793 @@
+{
+  "paper_id": "58c49388-3036-4b83-8fbd-4a5148b63df7",
+  "filename": "074_Machine_Learning_Unifying_Homophily_and_Heterophily_Network_Transformation_via_Motifs.pdf",
+  "title": "074_Machine_Learning_Unifying_Homophily_and_Heterophily_Network_Transformation_via_Motifs.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 46,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "iy preserving network transformation (H2NT) to capture HOP that ﬂexibly uniﬁes ho- mophily and heterophily. Speciﬁcally, H 2NT utilises motif representations to transform a net- wo",
+      "text": "[Page 1] Unifying Homophily and Heterophily Network Transformation via Motifs Yan Ge1 , Jun Ma2 , Li Zhang1 and Haiping Lu1 1Department of Computer Science, University of Shefﬁeld 2Amazon.com, Seattle, W A, USA {yge5, lzhang72, h.lu}@shefﬁeld.ac.uk, junmaa@amazon.com Abstract Higher-order proximity (HOP) is fundamental for most network embedding methods due to its sig- niﬁcant effects on the quality of node embedding and performance on downstream network analy- sis tasks. Most existing HOP deﬁnitions are based on either homophily to place close and highly in- terconnected nodes tightly in embedding space or heterophily to place distant but structurally simi- lar nodes together after embedding. In real-world networks, both can co-exist, and thus considering only one could limit the prediction performance and interpretability. However, there is no gen- eral and universal solution that takes both into consideration. In this paper, we propose such a simple yet powerful framework called homophily and heterophliy preserving network transformation (H2NT) to capture HOP that ﬂexibly uniﬁes ho- mophily and heterophily. Speciﬁcally, H 2NT utilises motif representations to transform a net- wo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0722,
+        -0.0571,
+        -0.00513,
+        0.01426,
+        -0.02335
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "iy preserving network transformation (H2NT) to capture HOP that ﬂexibly uniﬁes ho- mophily and heterophily. Speciﬁcally, H 2NT utilises motif representations to transform a net- wo",
+      "overlap_with_next": "h as social net- works [Fortunato, 2010 ], biological networks [Girvan and Newman, 2002 ] and trafﬁc networks [Asif et al. , 2016 ]. Network embedding (a.k.a. graph embedding) lear",
+      "text": "iy preserving network transformation (H2NT) to capture HOP that ﬂexibly uniﬁes ho- mophily and heterophily. Speciﬁcally, H 2NT utilises motif representations to transform a net- work into a new network with a hybrid assumption via micro-level and macro-level walk paths. H2NT can be used as an enhancer to be integrated with any existing network embedding methods without requiring any changes to latter methods. Because H2NT can sparsify networks with motif structures, it can also improve the computational efﬁciency of existing network embedding methods when inte- grated. We conduct experiments on node classiﬁca- tion, structural role classiﬁcation and motif predic- tion to show the superior prediction performance and computational efﬁciency over state-of-the-art methods. In particular, DeepWalk-based H 2NT achieves 24% improvement in terms of precision on motif prediction, while reducing 46% computa- tional time compared to the original DeepWalk. 1 Introduction Networks are ubiquitous in the real world, such as social net- works [Fortunato, 2010 ], biological networks [Girvan and Newman, 2002 ] and trafﬁc networks [Asif et al. , 2016 ]. Network embedding (a.k.a. graph embedding) lear",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06629,
+        -0.03174,
+        -0.00172,
+        0.0616,
+        -0.02283
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "h as social net- works [Fortunato, 2010 ], biological networks [Girvan and Newman, 2002 ] and trafﬁc networks [Asif et al. , 2016 ]. Network embedding (a.k.a. graph embedding) lear",
+      "overlap_with_next": "s of HOP: homophily, heterophily, and hybrid. In homophily [Fortunato, 2010], nodes that are highly intercon- nected and in the same community should be placed tightly in embedding",
+      "text": "h as social net- works [Fortunato, 2010 ], biological networks [Girvan and Newman, 2002 ] and trafﬁc networks [Asif et al. , 2016 ]. Network embedding (a.k.a. graph embedding) learns low- dimensional latent representations of nodes while preserving (a) Homophily (b) Heterophily (c) Hybrid (proposed) Figure 1: Three categories of higher-order proximity assumptions for network embedding: homophily, heterophily and hybrid (pro- posed). the structure and inherent properties of the network. It has been successfully applied in node classiﬁcation [Kipf and Welling, 2017], link prediction [Zhang et al. , 2018b ], and community detection [Wang et al., 2017]. Preserving higher-order proximity (HOP) instead of only considering direct neighbourhood relationship (e.g., adja- cency matrix) has been shown to be effective for network embedding since it can capture rich underlying structures of networks [Cao et al., 2015; Tang et al., 2015; Zhang et al., 2018b]. Based on the proximity assumption, there are three categories of HOP: homophily, heterophily, and hybrid. In homophily [Fortunato, 2010], nodes that are highly intercon- nected and in the same community should be placed tightly in embedding",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06123,
+        -0.02717,
+        0.00747,
+        0.01222,
+        -0.00148
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "s of HOP: homophily, heterophily, and hybrid. In homophily [Fortunato, 2010], nodes that are highly intercon- nected and in the same community should be placed tightly in embedding",
+      "overlap_with_next": "preserve HOP under the homophily assumption, Deep- Walk [Perozzi et al., 2014 ] employs random walks to gen- erate node sequences analogous to word sentences, and then the HOP is a",
+      "text": "s of HOP: homophily, heterophily, and hybrid. In homophily [Fortunato, 2010], nodes that are highly intercon- nected and in the same community should be placed tightly in embedding space. For example, in Fig. 1(a), proximity within the same department should be higher than different ones af- ter embedding, which beneﬁts community detection [Wang et al. , 2016 ] and node classiﬁcation [Perozzi et al. , 2014 ]. For heterophily [Klicpera et al. , 2019 ], nodes that are far away and in different groups, but due to their strong struc- tural similarity, they should be close after embedding. For example, in Fig. 1(b), department heads from different aca- demic areas (yellow nodes) should have stronger relation than their immediate neighbours due to the same job role under heterophily, good for structural role classiﬁcation [Rossi et al., 2019]. For hybrid assumption, both homophily and het- erophily can be ﬂexibly preserved, which potentially beneﬁts (long/short-range) link prediction task (e.g., Fig. 1(c)). To preserve HOP under the homophily assumption, Deep- Walk [Perozzi et al., 2014 ] employs random walks to gen- erate node sequences analogous to word sentences, and then the HOP is a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06397,
+        -0.00817,
+        -0.01462,
+        0.04472,
+        0.00315
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "preserve HOP under the homophily assumption, Deep- Walk [Perozzi et al., 2014 ] employs random walks to gen- erate node sequences analogous to word sentences, and then the HOP is a",
+      "overlap_with_next": "[Ribeiro et al., 2017] ﬁrst encodes the node structural similarity into a multi-layer graph, and then DeepWalk is performed on this multi-layer graph to learn node representations.",
+      "text": "preserve HOP under the homophily assumption, Deep- Walk [Perozzi et al., 2014 ] employs random walks to gen- erate node sequences analogous to word sentences, and then the HOP is approximately captured by a Skip-gram arXiv:2012.11400v2 [cs.SI] 27 Dec 2020 [Page 2] Table 1: Comparison with state-of-the-art methods in term of ful- ﬁlled (\u0014) and missing (\u0018) properties. Property DeepWalk LINE node2vec AROPE GCN struc2vec MotifSCH2NT Homophily \u0014 \u0014 \u0014 \u0014 \u0014 \u0018 \u0014 \u0014 Heterophily \u0018 \u0018 \u0014 \u0018 \u0018 \u0014 \u0018 \u0014 Motif \u0018 \u0018 \u0018 \u0018 \u0018 \u0018 \u0014 \u0014 model [Mikolov et al., 2013]. Graph convolutional network (GCN) [Kipf and Welling, 2017 ] aggregates the features of local neighbours for central node representation so that fea- ture vectors of nodes within the same community are more similar than those in different communities. Arbitrary-order proximity embedding (AROPE) [Zhang et al., 2018b] effec- tively and accurately preserves arbitrary-order proximity by reweighting the eigen-decompostion. To preserve HOP under the heterophily assumption, struc2vec [Ribeiro et al., 2017] ﬁrst encodes the node structural similarity into a multi-layer graph, and then DeepWalk is performed on this multi-layer graph to learn node representations.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07565,
+        -0.01942,
+        -0.00781,
+        0.05176,
+        -0.0038
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "[Ribeiro et al., 2017] ﬁrst encodes the node structural similarity into a multi-layer graph, and then DeepWalk is performed on this multi-layer graph to learn node representations.",
+      "overlap_with_next": "nnot take advantage of other more powerful net- work embedding methods proposed recently, such as GCN and AROPE. Additionally, most existing proximity preserv- ing methods still re",
+      "text": "[Ribeiro et al., 2017] ﬁrst encodes the node structural similarity into a multi-layer graph, and then DeepWalk is performed on this multi-layer graph to learn node representations. A recent transformation model graph diffusion convolution (GDC) [Klicpera et al. , 2019] generates a new network by constructing a diffusion graph obtained by a polynomial function, and then sparsify this diffusion graph by setting a threshold, but still overlooks the heterophily assumption. The higher-order proximities in the aforementioned meth- ods are deﬁned to be either homophily or heterophily. Such “one-size-ﬁt-all” proximity representation potentially limits the performance and interpretation on many network-based tasks. To alleviate this problem, one representativehybrid so- lution is the node2vec method [Grover and Leskovec, 2016], which ﬂexibly adopts both breadth-ﬁrst and depth-ﬁrst search strategies to conduct a biased random-walk process. How- ever, it is designed speciﬁcally for random-walk-based meth- ods and cannot take advantage of other more powerful net- work embedding methods proposed recently, such as GCN and AROPE. Additionally, most existing proximity preserv- ing methods still re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05997,
+        -0.0216,
+        -0.02289,
+        0.02396,
+        -0.01831
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "nnot take advantage of other more powerful net- work embedding methods proposed recently, such as GCN and AROPE. Additionally, most existing proximity preserv- ing methods still re",
+      "overlap_with_next": "two complementary components to repre- sent homophily and heterophily. The micro-level walk paths embody the homophily assumption, aiming to collect the sim- ilarity of close neigh",
+      "text": "nnot take advantage of other more powerful net- work embedding methods proposed recently, such as GCN and AROPE. Additionally, most existing proximity preserv- ing methods still rely on simple pairwise relations without considering motifs (e.g., triangles, 4-vertex cliques) that can directly capture interactions between more than two nodes [Benson et al., 2016]. For example, triangular structures, with three reciprocated edges connecting three nodes, play impor- tant roles in social networks [Kossinets and Watts, 2006] that can be partitioned into dense triangle communities with motif spectral clustering (MotifSC) [Benson et al., 2016]. This pa- per will focus on fundamental triangle motif structure, though our proposed method can be easily extended to other motifs. To design a general framework with a hybrid HOP assump- tion, we propose a homophily and heterophliy preserving network transformation (H2NT) with motif representations. Our H 2NT deﬁnes a new HOP by micro-level and macro- level walk paths as two complementary components to repre- sent homophily and heterophily. The micro-level walk paths embody the homophily assumption, aiming to collect the sim- ilarity of close neigh",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06526,
+        -0.01458,
+        -0.01278,
+        0.06129,
+        -0.015
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "two complementary components to repre- sent homophily and heterophily. The micro-level walk paths embody the homophily assumption, aiming to collect the sim- ilarity of close neigh",
+      "overlap_with_next": "re as follows: 1. We propose micro-level and macro-level walk paths to preserve homophily and heterophily in HOP by theoret- ically studying why most HOP preserving embedding metho",
+      "text": "two complementary components to repre- sent homophily and heterophily. The micro-level walk paths embody the homophily assumption, aiming to collect the sim- ilarity of close neighbours according to their homophily lev- els generated by motif information. The macro-level walk paths embody the heterophily assumption, aiming to encour- age walk paths to explore global information according to structural similarity. As a general framework, H 2NT is not limited to one spe- ciﬁc algorithm but can be integrated to any network em- bedding algorithm as a preprocessing step, without requiring changing their cores. Furthermore, the two walk path strate- gies can only rely on local motif structures and sparsify net- works and subsequently improve the computational efﬁciency when we integrate H 2NT with existing network embedding algorithms. Table 1 compares three desirable properties to show the uniqueness of H 2NT compared with several state- of-the-art (SOTA) methods. To summarise, the contributions of our paper are as follows: 1. We propose micro-level and macro-level walk paths to preserve homophily and heterophily in HOP by theoret- ically studying why most HOP preserving embedding metho",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06343,
+        -0.03168,
+        -0.02556,
+        0.08679,
+        -0.01055
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "re as follows: 1. We propose micro-level and macro-level walk paths to preserve homophily and heterophily in HOP by theoret- ically studying why most HOP preserving embedding metho",
+      "overlap_with_next": " aims to learn latent, low-dimensional representation of nodes while preserving network topol- ogy [Zhang et al., 2018a ]. Prior works have demonstrated that, the higher-order prox",
+      "text": "re as follows: 1. We propose micro-level and macro-level walk paths to preserve homophily and heterophily in HOP by theoret- ically studying why most HOP preserving embedding methods only hold a homophily assumption. 2. We propose a simple and novel framework to unify ho- mophily and heterophily representations according to micro-level and macro-level walk paths, and three in- stantiations. 3. We conduct experiments on three tasks, node classiﬁca- tion, structural role classiﬁcation, and motif prediction (a generalised link prediction problem) to show the su- perior performance over SOTA methods. 2 Preliminary 2.1 Notations. We denote scalars by lowercase letters, e.g., d, vectors by lowercase boldface letters, e.g., d, matrices by uppercase boldface, e.g., D. Let G = (V,E ) be an undirected un- weighted graph (network) with V ={v1, v2, . . . , vn} being the set of n nodes, i.e., n =|V|, and E ={e1, e 2, . . . , en} being the set of edges connecting two nodes. 2.2 Higher-Order Proximity. Network embedding aims to learn latent, low-dimensional representation of nodes while preserving network topol- ogy [Zhang et al., 2018a ]. Prior works have demonstrated that, the higher-order prox",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07658,
+        -0.03074,
+        -0.02773,
+        0.04375,
+        0.00634
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " aims to learn latent, low-dimensional representation of nodes while preserving network topol- ogy [Zhang et al., 2018a ]. Prior works have demonstrated that, the higher-order prox",
+      "overlap_with_next": "j is denoted asa(l)ij . 3 Methodology 3.1 Theoretical Framework and Motivations [Page 3] In this section, we theoretically reveal why most network embedding algorithms only hold a ",
+      "text": " aims to learn latent, low-dimensional representation of nodes while preserving network topol- ogy [Zhang et al., 2018a ]. Prior works have demonstrated that, the higher-order proximities between nodes are of tremendous importance in capturing the underlying struc- ture of the network [Cao et al. , 2015; Ou et al. , 2016; Yang et al. , 2017; Feng et al. , 2018 ]. The adjacency ma- trix A can be treated as the ﬁrst-order proximity, which captures the pairwise proximity between nodes. However, the ﬁrst-order proximity is very sparse and insufﬁcient to fully model the relationships between nodes in most cases. In order to characterise the connections between nodes bet- ter, HOP is widely studied. Given A, an HOP can be de- ﬁned as a polynomial function of A [Zhang et al., 2018b]: S = w1A +w2A2 +... +wlAl, wherel is the order, and w1,...,w l are the weights for each term. Matrix Al denotes thelth-order proximity matrix, with multiplication ofl matri- ces A. The lth-order proximity value between nodes vi and vj is denoted asa(l)ij . 3 Methodology 3.1 Theoretical Framework and Motivations [Page 3] In this section, we theoretically reveal why most network embedding algorithms only hold a ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04027,
+        -0.00758,
+        -0.0115,
+        0.00478,
+        -0.00656
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "j is denoted asa(l)ij . 3 Methodology 3.1 Theoretical Framework and Motivations [Page 3] In this section, we theoretically reveal why most network embedding algorithms only hold a ",
+      "overlap_with_next": "f lth-order proximity betweenvi andvj isa(l)ij , thena(l)ik <a (l)ij. Our proof as shown in Supplementary Material is based on the following rule. Rule 1. (Chapman-Kolmogorov equat",
+      "text": "j is denoted asa(l)ij . 3 Methodology 3.1 Theoretical Framework and Motivations [Page 3] In this section, we theoretically reveal why most network embedding algorithms only hold a homophily assumption in HOP. This motivates us to propose micro-level and macro- level walk paths strategies to represent homophily and het- erophily in HOP. We ﬁrst introduce a fully-connected planted partition model (PPM) as follows [Condon and Karp, 2001]: Deﬁnition 1. (Fully-Connected PPM ) Let Gf ∼ Gf(mr,r,p,q ) be a graph sampled from the planted partition model on mr vertices, with r clusters C = {C1,··· ,C i,··· ,C r} each with exactly m vertices. The edge set is then generated as follows: two vertices{vi,v j}∈ Ci are connected with weightp otherwise with weightq < p to ensure well-connected clusters. We prove the following lemma to show a relationship be- tween homophily and HOP. Lemma 1. Let Gf ∼ Gf(mr,r,p,q ) be a fully-connected PPM with r clusters C ={C1,··· ,C i,··· ,C r}, nodes { vi,v j}∈ Cs andvk∈ Ct, the value of lth-order proximity betweenvi andvj isa(l)ij , thena(l)ik <a (l)ij. Our proof as shown in Supplementary Material is based on the following rule. Rule 1. (Chapman-Kolmogorov equat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06474,
+        -0.04414,
+        -0.03097,
+        0.03446,
+        -0.01654
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "f lth-order proximity betweenvi andvj isa(l)ij , thena(l)ik <a (l)ij. Our proof as shown in Supplementary Material is based on the following rule. Rule 1. (Chapman-Kolmogorov equat",
+      "overlap_with_next": "that characterise the task-relevant HOP w.r.t. homophily or heterophily? Subsequently, to ex- plicitly reveal the characteristics of HOP, we categorise all possible walk paths into",
+      "text": "f lth-order proximity betweenvi andvj isa(l)ij , thena(l)ik <a (l)ij. Our proof as shown in Supplementary Material is based on the following rule. Rule 1. (Chapman-Kolmogorov equations) [Tijms, 2012], a(l)ik = kn∑ z=1 a(l−1)iz ·azk, a(l)ij = kn∑ z=1 a(l−1)iz ·azj. (1) Observations. We have two main observations: 1) From Lemma 1, we see that most existing HOPs hold the assump- tion of homophily, so that in the embedding space, distance of two nodes residing in different communities being inher- ently larger than that of those in the same community. 2) Eqs (1) reveal that HOP between any pair of nodes vi andvj es- sentially represents the total similarity of a sequence of nodes traversed by all possible walk paths from vi to vj, and all walk paths share the same contributions to represent a(l)ij re- gardless of various downstream network tasks. However, we argue that every walk path should have task-relevant contribu- tions to a(l)ij . This inspires the following question: are there some speciﬁc walk paths that characterise the task-relevant HOP w.r.t. homophily or heterophily? Subsequently, to ex- plicitly reveal the characteristics of HOP, we categorise all possible walk paths into",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05681,
+        -0.02588,
+        -0.04293,
+        0.03676,
+        -0.02212
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "that characterise the task-relevant HOP w.r.t. homophily or heterophily? Subsequently, to ex- plicitly reveal the characteristics of HOP, we categorise all possible walk paths into",
+      "overlap_with_next": "ws across communities 1 and 2) walk paths represent the 5th-order proximity between nodes 1 and 2; 2) The green node contributes more centrality to the red node than any blue node.",
+      "text": "that characterise the task-relevant HOP w.r.t. homophily or heterophily? Subsequently, to ex- plicitly reveal the characteristics of HOP, we categorise all possible walk paths into micro-level and macro-level walk paths as two complementary components to represent HOP. Our proposed deﬁnitions are below. Deﬁnition 2. (Micro-level walk path ) A micro-level walk path connectingvi andvj is a sequence of verticesV′ = (vi, vk,··· ,vj) traversed a sequence of edges E′ = (e1,e1,··· , en) that ensuresV′⊆Ci andE′⊆Ci. Deﬁnition 3. (Macro-level walk path ) A macro-level walk path connectingvi andvj is a sequence of verticesV′ = (vi, vk,··· ,vj) traversed a sequence of edges E′ = (e1,e1,··· , en) andE′∩Cj⁄=φ andE′∩Ci⁄=φ andi⁄=j. For example, in Fig 2, we observe that orange (micro-level) path and dark-green (macro-level) path play very different roles to induce a ﬁve-step connectivity pattern from node 1 to Figure 2: Illustration: 1) Micro-level (orange arrows within the com- munity 1) and macro-level (dark green arrows across communities 1 and 2) walk paths represent the 5th-order proximity between nodes 1 and 2; 2) The green node contributes more centrality to the red node than any blue node.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05132,
+        -0.05694,
+        -0.0444,
+        0.06899,
+        -0.0029
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ws across communities 1 and 2) walk paths represent the 5th-order proximity between nodes 1 and 2; 2) The green node contributes more centrality to the red node than any blue node.",
+      "overlap_with_next": "echanism to guide the walk. This allows us to focus on task-relevant parts of the graph while eliminating the noise in the rest of the graph which results in the network embed- din",
+      "text": "ws across communities 1 and 2) walk paths represent the 5th-order proximity between nodes 1 and 2; 2) The green node contributes more centrality to the red node than any blue node. node 2, although both can contribute to 5th-order proximity between node 1 and 2. Under the homophily assumption, the orange path has more expressive power than the dark-green path since it is likely to leverage tightly close neighbourhood similarity within a community, which may beneﬁt community detection and node classiﬁcation tasks. In contrast, under the heterophily assumption, the dark-green path has more appro- priate expressive power than the orange path to heterophily since it tends to use weak-connectivity and distant neighbour- hood similarity across communities, good for structural role classiﬁcation. Moreover, only homophily or heterophily can- not be suitable for all network-based tasks. In general, micro/macro-level walk paths allow us to cap- ture the structure of the traversed region and provide an at- tention mechanism to guide the walk. This allows us to focus on task-relevant parts of the graph while eliminating the noise in the rest of the graph which results in the network embed- din",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04883,
+        -0.03455,
+        -0.0343,
+        0.04562,
+        -0.01266
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "echanism to guide the walk. This allows us to focus on task-relevant parts of the graph while eliminating the noise in the rest of the graph which results in the network embed- din",
+      "overlap_with_next": "lk matrix P is widely used but both are noisy and sparse. Another choice is to perform community detection so that homophily character of each edge can be clearly shown, such as by",
+      "text": "echanism to guide the walk. This allows us to focus on task-relevant parts of the graph while eliminating the noise in the rest of the graph which results in the network embed- ding that provides better predictive performance. Note that different from the breadth-ﬁrst and depth-ﬁrst approximately search in node2vec, ﬁxed length of micro-level and macro- level walk paths will be exhaustedly and accurately consid- ered to represent HOP between two nodes. While they share a general idea that representation of a node is determined by its neighbourhoods that need to be ﬂexibly deﬁned. Building on the above discussions, in the following we pro- pose H2NT that deﬁnes new HOP to ﬂexibly preserve both homophily and heterophily by characterising walk paths with micro-level and macro-level walk paths. It is a generic model that can be used as a preprocessing step to provide input to any network embedding methods. 3.2 Homophily Proximity Representation To represent homophily proximity, adjacency matrix A or random walk matrix P is widely used but both are noisy and sparse. Another choice is to perform community detection so that homophily character of each edge can be clearly shown, such as by",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07328,
+        -0.04324,
+        -0.02558,
+        0.06932,
+        -0.01068
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "lk matrix P is widely used but both are noisy and sparse. Another choice is to perform community detection so that homophily character of each edge can be clearly shown, such as by",
+      "overlap_with_next": "ian- gle motif, but it can be easily generated to any other type of motifs. The intuition of homophily proximity represen- tation (Eq. (2)) is that motif representation smooths out",
+      "text": "lk matrix P is widely used but both are noisy and sparse. Another choice is to perform community detection so that homophily character of each edge can be clearly shown, such as by spectral clustering [Ng et al., 2002]). However, this will lead to a binary-valued output edge (i.e., within or across communities) and limits our ability in exploring un- seen patterns of a network. To address the above challenges, we adopt a scalable and smooth community detection method with motif representa- tions [Benson et al., 2016] to represent homophily proximity [Page 4] Figure 3: The H2NT framework. The colour bar indicates the weight scales of edges. (See text for details.) as AM , AM(i,j ) = ∑ vi,vj∈V 1 (vi,v j occurinM) (2) where i ⁄= j, vi and vj belong to motif M , and 1 (s) is the truth-value indicator function, i.e., 1 (s) = 1 if the state- ment s is true and 0 otherwise. Note that the weight is added to AM(i,j ) only if node vi and vj occur in the given mo- tif M. In this paper, we only focus on undirected trian- gle motif, but it can be easily generated to any other type of motifs. The intuition of homophily proximity represen- tation (Eq. (2)) is that motif representation smooths out",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07558,
+        -0.01783,
+        -0.02293,
+        -0.00111,
+        0.0023
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ian- gle motif, but it can be easily generated to any other type of motifs. The intuition of homophily proximity represen- tation (Eq. (2)) is that motif representation smooths out",
+      "overlap_with_next": "and then ho- mophily proximity is naturally revealed in this constructed motif graph. The number of triangles containing an edge e(vi,v j) indicates the level of contributions to r",
+      "text": "ian- gle motif, but it can be easily generated to any other type of motifs. The intuition of homophily proximity represen- tation (Eq. (2)) is that motif representation smooths out the neighbourhood over the graph, acting as denoise ﬁlter due to removed edges that do not participate in any motif. More importantly, the value in homophily proximity representation indicates the level of homophily as quantiﬁed in Lemma 2 extended from [Tsourakakis et al. , 2017 ] and our proof as shown in Supplementary Material: Lemma 2. LetG∼G(mk,k,p,q ) be an unweitghted graph sampled by a generalized PPM, {vi,v j}∈ Ci and{vk}∈ Cj,{vd}∈ Cb, j ⁄= b and e(vi,v j)∈ E,e (vd,v k)∈ E. We use E[w(vi,v j)] to indicate the expected number of tri- angles containing the edge {vi,v j}, then E[w(vd,v k)] < E[w(vi,v j)]. Lemma 2 shows the effectiveness of homophily proximity by the triangular motif. Speciﬁcally, an edge within a com- munity will contain more triangles than that of edge cross communities under the planted partition model and then ho- mophily proximity is naturally revealed in this constructed motif graph. The number of triangles containing an edge e(vi,v j) indicates the level of contributions to r",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06902,
+        -0.01361,
+        -0.02786,
+        0.00792,
+        -0.0081
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "and then ho- mophily proximity is naturally revealed in this constructed motif graph. The number of triangles containing an edge e(vi,v j) indicates the level of contributions to r",
+      "overlap_with_next": "endship, and negative relationsG− en- code enmity interactions [Leskovec et al., 2010]. Essentially, a signed network is represented by two networks with largely different structur",
+      "text": "and then ho- mophily proximity is naturally revealed in this constructed motif graph. The number of triangles containing an edge e(vi,v j) indicates the level of contributions to represent ho- mophily proximity between vi andvj. Leveraging this idea further, it will help us characterise whether a walk path is likely to explore local, close neighbourhoods or global far- away nodes. 3.3 Heterophily Proximity Representation Most of existing network embedding algorithms (e.g., Deep- Walk, AROPE) hold a homophily assumption in HOP but overlook heterophily. To discover heterophily proximity, we encourage macro-level walk paths to contribute more to prox- imity since it reﬂects the similarity of neighbourhoods in global position. However, estimation of macro-level walk paths seems non-straightforward to overcome because het- erophily information is not explicitly provided in most com- mon networks. A signed network G± = ( G+,G−) has both positive and negative edge weights, where positive re- lationsG+ encode friendship, and negative relationsG− en- code enmity interactions [Leskovec et al., 2010]. Essentially, a signed network is represented by two networks with largely different structur",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09106,
+        -0.0482,
+        -0.02505,
+        0.03662,
+        -0.00707
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "endship, and negative relationsG− en- code enmity interactions [Leskovec et al., 2010]. Essentially, a signed network is represented by two networks with largely different structur",
+      "overlap_with_next": "ves while preserving heterophily: H =−AM + M, (3) where M(i,j ) = {fmax(AM) vi,v j are contained in a triangle, 0 otherwise, wherefmax(AM) indicates a maximum value in AM . Het- er",
+      "text": "endship, and negative relationsG− en- code enmity interactions [Leskovec et al., 2010]. Essentially, a signed network is represented by two networks with largely different structural properties. Inspired by signed networks, we propose motif-aware signed networks G±M = (G+M,G−M). where G+M and G−M are homophily and heterophily networks respectively. An intuition of designing G±M is based on a random walk the- ory that homophily/heterophily edges increase the probabil- ity of staying in/escaping from a community. We represent homophily as AM shown in the last section. We represent heterophily as−AM by turning all values in AM into their opposite numbers. We interpret that the larger −AM(i,j ), the higher chance to achieve macro-level walk paths that ex- plore global structures. However, most network embedding methods do not have capacity to handle negative weights. To develop a general and universal network transformer model, we use the following simple but efﬁcient approach to transit negatives into positives while preserving heterophily: H =−AM + M, (3) where M(i,j ) = {fmax(AM) vi,v j are contained in a triangle, 0 otherwise, wherefmax(AM) indicates a maximum value in AM . Het- er",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06875,
+        -0.03655,
+        -0.00773,
+        -0.00069,
+        0.00625
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "ves while preserving heterophily: H =−AM + M, (3) where M(i,j ) = {fmax(AM) vi,v j are contained in a triangle, 0 otherwise, wherefmax(AM) indicates a maximum value in AM . Het- er",
+      "overlap_with_next": "en to red is larger than that from any immediate blue nodes, which shows intuitively our heuristic analysis. The reason is that the red one can access the grey ones only through th",
+      "text": "ves while preserving heterophily: H =−AM + M, (3) where M(i,j ) = {fmax(AM) vi,v j are contained in a triangle, 0 otherwise, wherefmax(AM) indicates a maximum value in AM . Het- erophily proximity (H) can be achieved by Eq. (3). Building upon [Alvarez-Socorro et al., 2015] and [Zhang et al. , 2018b ], heterophily proximity ( H) is a proper rep- resentation of node centrality as an application of structural similarity. Heuristically, contribution centrality is a centrality measure that has more inﬂuence on centrality from one given node to central node with greater contribution centrality. The inﬂuence on centrality can be quantiﬁed with closeness cen- trality [Estrada and Rodriguez-Velazquez, 2005 ] that is the number of times a node acts as a bridge along the shortest path between two other nodes. Heterophily proximity permits us to quantify the contribution centrality. For example, regard- ing Fig. 2 as a heterophily proximity network, considering centrality of red node, centrality contribution from green to red is larger than that from any immediate blue nodes, which shows intuitively our heuristic analysis. The reason is that the red one can access the grey ones only through th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05577,
+        -0.02787,
+        -0.0209,
+        0.01724,
+        -0.02274
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "en to red is larger than that from any immediate blue nodes, which shows intuitively our heuristic analysis. The reason is that the red one can access the grey ones only through th",
+      "overlap_with_next": "at controls over the importance of heterophily. Fig 3 illustrates the proposed H2NT framework. Our framework H2NT can be integrated with any network embedding methods as a preproce",
+      "text": "en to red is larger than that from any immediate blue nodes, which shows intuitively our heuristic analysis. The reason is that the red one can access the grey ones only through the green, and the blue nodes are redundant for the red one, because it can access directly each blue node without any intermediary. Therefore, our heterophily proximity can efﬁciently encode contribution centrality. 3.4 Uniﬁcation and Instantiations We linearly unify the homophily and heterophily proximity as follows: Q = AM +λH, (4) [Page 5] However, micro-level walk paths are still able to represent proximity with increasing of orders due to the inherit graph structure. To prevent it, we need to enlarge the difference of entries in H. Considering the scalability issue in the net- work embedding ﬁeld, we focus on a linear combination (λ), but similar ideas (e.g., non-linear operators) can be straight- forwardly generalised. The ﬁrst-order proximity Q ﬂexibly shows homophily and heterophily characteristics by hyper- parameterλ that controls over the importance of heterophily. Fig 3 illustrates the proposed H2NT framework. Our framework H2NT can be integrated with any network embedding methods as a preproce",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07411,
+        0.00027,
+        -0.01748,
+        0.04425,
+        -0.03196
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "at controls over the importance of heterophily. Fig 3 illustrates the proposed H2NT framework. Our framework H2NT can be integrated with any network embedding methods as a preproce",
+      "overlap_with_next": "ew is the window size, Φ(vi) is the representation ofvi. Under the proposed H 2NT framework, instead of uniformly random sampling neighbours of vi, we adopt a biased sampling strat",
+      "text": "at controls over the importance of heterophily. Fig 3 illustrates the proposed H2NT framework. Our framework H2NT can be integrated with any network embedding methods as a preprocessing step to provide in- put to them. Here we select three representative algorithms, AROPE on matrix factorisation, DeepWalk on random walks and GCN on convolutional neural networks. • H2NT-AROPE (H2NT-A). To preserve HOP, we use a linear combination of power of biased matrix Q as fol- lows, PM =w1Q +w2Q2 +... +wlQl. Whenλ = 0, we interpret Qr(i,j ) (1≤ r≤ l) as the total number of motifs traversed by all possible l-length walk paths connecting nodesvi andvj. Increasingλ results in more similarity from global neighbours to represent the HOP betweenvi andvj. Moreover, beneﬁting from AROPE, H2NT-A can explore arbitrary walk lengthl between two nodes without increase computational complexity. • H2NT-DeepWalk(H2NT-D). The objective function of DeepWalk can be written as: max Φ log Pr ({vi−w,...,v i−1,v i+1,...,v i+w}| Φ(vi)), wherew is the window size, Φ(vi) is the representation ofvi. Under the proposed H 2NT framework, instead of uniformly random sampling neighbours of vi, we adopt a biased sampling strat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02459,
+        -0.01342,
+        -0.01134,
+        0.06938,
+        -0.01886
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "ew is the window size, Φ(vi) is the representation ofvi. Under the proposed H 2NT framework, instead of uniformly random sampling neighbours of vi, we adopt a biased sampling strat",
+      "overlap_with_next": " is small, and otherwise, it will give more attention to neighbour- hoods that has heterophily assumption. Complexity Analysis. The time complexity of homophily representation can ",
+      "text": "ew is the window size, Φ(vi) is the representation ofvi. Under the proposed H 2NT framework, instead of uniformly random sampling neighbours of vi, we adopt a biased sampling strategy. Different from the biased sampling strategy in node2vec that considers a second- order random walks by tuning two out-in parameters, H2NT-D only needs to tune one unifying parameter λ. A small λ makes it more likely to sample local, close neighbours. By contrast, a large λ makes it more likely to sample global, far-away neighbours. • H2NT-GCN (H2NT-G). The layer-wise propagation rule in GCN can be written as, H(l+1) =σ( ˜D− 12 ˜Q ˜D− 12 H(l)W(l)), (5) where ˜Q = Q + IN , IN is an identity matrix, ˜Dii =∑ j ˜Qij, W(l) is a layer-speciﬁc trainable weight ma- trix, H(l) is an activation in the lth layer; H(0) is the given feature matrix, and σ(·) is an activation function. From Eq. (5), H 2NT-G can discriminate the neighbour- hoods. Speciﬁcally, it will give more attention to neigh- bourhoods that has homophily assumption if λ is small, and otherwise, it will give more attention to neighbour- hoods that has heterophily assumption. Complexity Analysis. The time complexity of homophily representation can ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09994,
+        -0.01652,
+        -0.00925,
+        0.02395,
+        -0.00335
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " is small, and otherwise, it will give more attention to neighbour- hoods that has heterophily assumption. Complexity Analysis. The time complexity of homophily representation can ",
+      "overlap_with_next": "exity, which is the number of non-zero entriesj≤| E| in AM . Only j =|E| when the network is complete. Thus the total complexity of H2NT isO(n3)+O(j) after ignoring lower order ter",
+      "text": " is small, and otherwise, it will give more attention to neighbour- hoods that has heterophily assumption. Complexity Analysis. The time complexity of homophily representation can be as large asO(n3) for a complete graph, wheren is the number of nodes in the network. Let t is the Table 2: Statistics of networks with isolated nodes removed. #Test Triangles indicates the number of removed triangles as testing set for motif prediction. Network |V| | E| Edge Density Labels #Test Triangles Amherst 2,021 81,492 40.3 15 10K Hamilton 2,116 87,486 41.3 15 10K Mich 2,924 54,903 18.7 13 10K Rochester 4,140 14,5309 35.1 19 10K Brazil 131 1,038 7.9 4 200 Europe 399 5,995 15.0 4 300 USA 1,190 13,599 11.4 4 500 number of triangle of a input network G. While most real networks are far from complete so the actual complexity is much lower than t < O(n3). According to empirical study in [Benson et al., 2015], the value oft in real-world networks is linear with|E|. For heterophily and uniﬁcation step, each has the same complexity, which is the number of non-zero entriesj≤| E| in AM . Only j =|E| when the network is complete. Thus the total complexity of H2NT isO(n3)+O(j) after ignoring lower order ter",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0563,
+        -0.02948,
+        -0.00885,
+        -0.01333,
+        0.01071
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "exity, which is the number of non-zero entriesj≤| E| in AM . Only j =|E| when the network is complete. Thus the total complexity of H2NT isO(n3)+O(j) after ignoring lower order ter",
+      "overlap_with_next": "dow size {1, 2, 3, 4, 5, 6} and use default settings for other hyperparameters. 2) LINE 2: study two versions of LINE that preserves the ﬁrst-order proximity (LINE-1st) and second-",
+      "text": "exity, which is the number of non-zero entriesj≤| E| in AM . Only j =|E| when the network is complete. Thus the total complexity of H2NT isO(n3)+O(j) after ignoring lower order terms. 4 Experiments Datasets. We conduct extensive experiments on the follow- ing seven real networks covering social networks and trafﬁc networks: 1) Amherst, Hamilton, Mich, Rochester [Traud et al., 2012] are the Facebook social networks at different uni- versities in US. We use class year as the node labels in node classiﬁcation. 2) Brazil, Europe, USA are air-trafﬁc networks from [Ribeiro et al., 2017]. Nodes indicate airports and edges correspond to commercial airlines. We use the level of airport activity (e.g., passenger trafﬁc) as the node labels in structural role classiﬁcation. Statistics of networks are shown in Table 2. Baselines. We extensively compare the proposed H 2NT with the following eight state-of-the-art methods covering network embedding methods and a SOTA network trans- former method: 1) Deepwalk 1: vary window size {1, 2, 3, 4, 5, 6} and use default settings for other hyperparameters. 2) LINE 2: study two versions of LINE that preserves the ﬁrst-order proximity (LINE-1st) and second-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04051,
+        -0.03076,
+        0.00031,
+        0.01982,
+        -0.00081
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "dow size {1, 2, 3, 4, 5, 6} and use default settings for other hyperparameters. 2) LINE 2: study two versions of LINE that preserves the ﬁrst-order proximity (LINE-1st) and second-",
+      "overlap_with_next": "github.com/klicperajo/gdc [Page 6] Table 3: Motif prediction (i.e. generalised link prediction) results reported in precision @ Np. The best results are in bold and the second best",
+      "text": "dow size {1, 2, 3, 4, 5, 6} and use default settings for other hyperparameters. 2) LINE 2: study two versions of LINE that preserves the ﬁrst-order proximity (LINE-1st) and second-order proximity (LINE-2nd). We use the default settings for other hyperpa- rameters. 3) node2vec 3: vary the bias hyperparameters in- ward, outward from{0.25, 0.5, 1, 2, 4} and use the default settings for other hyperparameters. 4) AROPE 4: tune the number of preserved higher-order proximity {1, 2, 3, 4, 5, 6} andwi = 0.1i. 5) struc2vec 5: study all four different opti- misation strategies of struc2vec. 6) Graph Neural Network 6: use the default settings to conduct experiments. 7) MotifSC: use the default settings to conduct experiments. 8) GDC 7: study two variants of GDC, and combine GDC with AROPE 1https://github.com/phanein/deepwalk 2https://github.com/snowkylin/line 3https://github.com/aditya-grover/node2vec 4https://github.com/ZW-ZHANG/AROPE 5https://github.com/leoribeiro/struc2vec 6https://github.com/tkipf/pygcn 7https://github.com/klicperajo/gdc [Page 6] Table 3: Motif prediction (i.e. generalised link prediction) results reported in precision @ Np. The best results are in bold and the second best",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05259,
+        -0.03039,
+        -0.02467,
+        -0.00092,
+        -0.0007
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "github.com/klicperajo/gdc [Page 6] Table 3: Motif prediction (i.e. generalised link prediction) results reported in precision @ Np. The best results are in bold and the second best",
+      "overlap_with_next": " 10}, and sparsity threshold {10−5, 10−4, 10−3, 10−2}. For our method, we study three varia- tions: H 2NT-A, H2NT-D and H2NT-G. H2NT-A and H2NT- D take the number of proximity as{1",
+      "text": "github.com/klicperajo/gdc [Page 6] Table 3: Motif prediction (i.e. generalised link prediction) results reported in precision @ Np. The best results are in bold and the second best ones are underlined . We set Np to 500 for all trafﬁc networks and 10k for all Facebook social networks. Methods Amherst Hamilton Mich Rochester Brazil USA Europe MotifSC 0.658 0.654 0.702 0.873 0.096 0.187 0.331 AROPE 0.894 0.898 0.928 0.955 0.548 0.985 0.742 DeepWalk 0.639 0.658 0.789 0.864 0.050 0.060 0.035 LINE-1st 0.082 0.084 0.085 0.088 0.066 0.088 0.082 LINE-2nd 0.310 0.310 0.307 0.319 0.075 0.062 0.060 node2vec 0.094 0.085 0.087 0.097 0.125 0.100 0.295 struc2vec 0.167 0.181 0.225 0.152 0.387 0.628 0.126 GDC-A 0.679 0.734 0.665 0.774 0.515 0.881 0.635 GDC-D 0.821 0.811 - - 0.121 0.397 0.282 H2NT-A 0.928 0.927 0.927 0.978 0.578 0.986 0.747 H2NT-D 0.864 0.857 0.938 0.972 0.098 0.777 0.324 (GDC-A), DeepWalk (GDC-D) and GCN (GDC-G) with rec- ommended transport probability{0.05, 0.15, 0.3}, exponen- tial in heat kernel {1, 5, 10}, and sparsity threshold {10−5, 10−4, 10−3, 10−2}. For our method, we study three varia- tions: H 2NT-A, H2NT-D and H2NT-G. H2NT-A and H2NT- D take the number of proximity as{1",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04037,
+        -0.0662,
+        -0.02235,
+        -0.01906,
+        -0.01526
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": " 10}, and sparsity threshold {10−5, 10−4, 10−3, 10−2}. For our method, we study three varia- tions: H 2NT-A, H2NT-D and H2NT-G. H2NT-A and H2NT- D take the number of proximity as{1",
+      "overlap_with_next": "on @Np = 1Np∑Npi=1δi, whereδi =1 means the i-th reconstructed motif is correct (i.e., the reconstructed motif ex- ists in the network),δi =0 otherwise andNp is the number of evalua",
+      "text": " 10}, and sparsity threshold {10−5, 10−4, 10−3, 10−2}. For our method, we study three varia- tions: H 2NT-A, H2NT-D and H2NT-G. H2NT-A and H2NT- D take the number of proximity as{1, 2, 3, 4, 5, 6} andλ = {0.1, 0.3, 0.5, 0.7, 1.3, 1.5, 1.7 }. H 2NT-G uses the same λ with other variant but only uses two layers. The dimension of embedding vector is 128 for all social networks and 16 for all trafﬁc networks considering the num- ber of nodes in graphs. The best performance results for all methods will be reported, with termination of the computa- tion if no complete result is returned within twelve hours. We use the open-source Python library GEM 8 [Goyal and Ferrara, 2018] to study all methods under the same software framework. All experiments were performed on a Linux ma- chine with 2.4GHz Intel Core and 16G memory. We will re- lease the code for H2NT. Evaluation Metrics. For motif prediction, we use precision@Np to evaluate the performance [Wang et al., 2016; Zhang et al. , 2018b ]. It is deﬁned as: precision @Np = 1Np∑Npi=1δi, whereδi =1 means the i-th reconstructed motif is correct (i.e., the reconstructed motif ex- ists in the network),δi =0 otherwise andNp is the number of evalua",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05503,
+        -0.0514,
+        0.00212,
+        0.015,
+        -0.02964
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "on @Np = 1Np∑Npi=1δi, whereδi =1 means the i-th reconstructed motif is correct (i.e., the reconstructed motif ex- ists in the network),δi =0 otherwise andNp is the number of evalua",
+      "overlap_with_next": " experiments, we ﬁrst randomly remove some trian- gles to be used as testing set. The number of removed tri- 8https://github.com/palash1992/GEM angles are shown in Table 2 (the rig",
+      "text": "on @Np = 1Np∑Npi=1δi, whereδi =1 means the i-th reconstructed motif is correct (i.e., the reconstructed motif ex- ists in the network),δi =0 otherwise andNp is the number of evaluated motifs. For node and structural role classiﬁcation, we use accuracy, i.e. the percentage of nodes whose labels are correctly classiﬁed, to evaluate the performance [Zhang et al., 2018a]: Accuracy(y, ˆy) = 1n∑ni=1 I (ˆyi =yi), whereˆy andy are predicted label and true label respectively, I is an indicator operator (1 if two labels are equal otherwise 0). Motif Prediction. Besides links, motifs are small sub- graphs fundamental in networks. Thus, prediction of motif structures is important in real applications. Therefore, we de- sign the motif prediction task as a generalised link prediction task in our evaluation. We focus on fundamental triangle pre- diction task, though it can be generalised to other motif struc- tures. GCN and H 2NT-G are not studied here since GCN is primarily designed for node classiﬁcation tasks. In our experiments, we ﬁrst randomly remove some trian- gles to be used as testing set. The number of removed tri- 8https://github.com/palash1992/GEM angles are shown in Table 2 (the rig",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08989,
+        -0.03429,
+        -0.00591,
+        0.00384,
+        0.01383
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": " experiments, we ﬁrst randomly remove some trian- gles to be used as testing set. The number of removed tri- 8https://github.com/palash1992/GEM angles are shown in Table 2 (the rig",
+      "overlap_with_next": "ecision@Np to evaluate. Here, we set the maximal Np as 500 for all trafﬁc networks and 10,000 for all Facebook social networks (noting the total number of triangles is at ex- ponen",
+      "text": " experiments, we ﬁrst randomly remove some trian- gles to be used as testing set. The number of removed tri- 8https://github.com/palash1992/GEM angles are shown in Table 2 (the right most column). Then we train all models in the rest of the network. Note that the summation of the number of triangles in testing and training are not equal with the total number of triangles in the original graph since triangle structures are correlated with each other in a network. To evaluate the performance, we take the fol- lowing ﬁve steps: 1) Positive sampling: we sample existing triangles (i.e., testing set) in the original graph. 2) Negative sampling: we sample three-node tuples and ensure every tu- ple cannot compose triangles in the original graph. Its quan- tity is ten times over positive samples. 3) After obtaining em- bedding of nodes, we calculate the mean of tuplewise similar- ity (e.g., dot product) in positive and negative sampling sets. 4) Mix and sort similarity of negative and positive together, and use precision@Np to evaluate. Here, we set the maximal Np as 500 for all trafﬁc networks and 10,000 for all Facebook social networks (noting the total number of triangles is at ex- ponen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03122,
+        -0.04648,
+        -0.02017,
+        -0.0232,
+        -0.00655
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ecision@Np to evaluate. Here, we set the maximal Np as 500 for all trafﬁc networks and 10,000 for all Facebook social networks (noting the total number of triangles is at ex- ponen",
+      "overlap_with_next": "ion of nodes as training set and leave the rest as test set. Then, we train a one-vs-all logistic regression with L2 regularisa- tion. We repeat the process for 10 times and report",
+      "text": "ecision@Np to evaluate. Here, we set the maximal Np as 500 for all trafﬁc networks and 10,000 for all Facebook social networks (noting the total number of triangles is at ex- ponential scale) and with the reasoning that for a good model, the similarity of positive sampling should be larger than that of negative sampling. 5) Calculate all precision@Np from 1 to maximum Np and average them. Finally, the average re- sults of 5 runs are reported in Table 3. We have following observations: 1) H 2NT-A achieves the overall best performance over all datasets, and AROPE achieves the second best. 2) H 2NT-A improves the AROPE by 2.23% on average. Additionally, H 2NT-D can improve DeepWalk by 23.9% for all social networks on average, and it even can improve more than ten times for two sparse USA and Europe trafﬁc networks. It shows the effectiveness of H2NT for preserving triangle structures in embedding space. Node Classiﬁcation. We evaluate the node classiﬁcation performance. Speciﬁcally, we randomly select a portion of nodes as training set and leave the rest as test set. Then, we train a one-vs-all logistic regression with L2 regularisa- tion. We repeat the process for 10 times and report",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04431,
+        -0.04666,
+        -0.00753,
+        0.03155,
+        -0.02333
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "ion of nodes as training set and leave the rest as test set. Then, we train a one-vs-all logistic regression with L2 regularisa- tion. We repeat the process for 10 times and report",
+      "overlap_with_next": " H 2NT-based methods. It could be caused by sparsity problem of H 2NT-based methods due to motif representation, and especially for Brazil, the most sparse network among all datase",
+      "text": "ion of nodes as training set and leave the rest as test set. Then, we train a one-vs-all logistic regression with L2 regularisa- tion. We repeat the process for 10 times and report the aver- age accuracy in Table 4. We have following observations: 1) H2NT-D achieves the overall best performance. 2) H 2NT-D and H2NT-A have poorer results than DeepWalk and AROPE, i.e., there is degradation rather than improvement. The reason could be matrix factorisation and convolutional neural net- work are less sensitive to heterophily. Structural Role Classiﬁcation. Earlier, we heuristically show that the H 2NT can help preserve node centrality as an application of the structural role classiﬁcation. To validate the effectiveness, we conduct this task on Brazil, USA and Europe and show result in Table 5 with 90% training ratio. We observe that: 1) H2NT-A and H2NT-D achieve the best performance on Europe and USA respectively. Struc2vec is speciﬁcally designed to this task so it achieves better per- formance on Brazil than H 2NT-based methods. It could be caused by sparsity problem of H 2NT-based methods due to motif representation, and especially for Brazil, the most sparse network among all datase",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0622,
+        -0.02162,
+        -0.01938,
+        0.02524,
+        -0.0314
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": " H 2NT-based methods. It could be caused by sparsity problem of H 2NT-based methods due to motif representation, and especially for Brazil, the most sparse network among all datase",
+      "overlap_with_next": "21 0.804 0.842 0.861 0.864 0.711 0.768 0.787 0.798 0.807 0.464 0.506 0.523 0.536 0.547 node2vec 0.277 0.317 0.331 0.348 0.354 0.252 0.292 0.319 0.334 0.340 0.226 0.247 0.258 0.257 ",
+      "text": " H 2NT-based methods. It could be caused by sparsity problem of H 2NT-based methods due to motif representation, and especially for Brazil, the most sparse network among all datasets. 2) H 2NT-based method can improve the overall performance of original methods. For example, in Europe, H2NT-D, H2NT-A and H2NT-G improve 17.8%, 7.9% and 24.3% over original DeepWalk, AROPE, and GCN respectively. Computational Efﬁciency. Table 6 compares the com- putational time of the original AROPE, DeepWalk and GCN [Page 7] Table 4: Node classiﬁcation results (accuracy) on three datasets. The best results are in bold and the second best ones are underlined . The results of LINE-1st and LINE-2nd have much lower accuracy so they are not shown. Hamilton Rochester Mich %Lables 2% 4% 6% 8% 10% 2% 4% 6% 8% 10% 2% 4% 6% 8% 10% MotifSC 0.209 0.218 0.255 0.249 0.327 0.210 0.221 0.244 0.279 0.303 0.208 0.233 0.231 0.239 0.241 AROPE 0.770 0.840 0.862 0.874 0.876 0.717 0.770 0.790 0.799 0.811 0.465 0.506 0.524 0.537 0.542 DeepWalk 0.721 0.804 0.842 0.861 0.864 0.711 0.768 0.787 0.798 0.807 0.464 0.506 0.523 0.536 0.547 node2vec 0.277 0.317 0.331 0.348 0.354 0.252 0.292 0.319 0.334 0.340 0.226 0.247 0.258 0.257 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02002,
+        -0.03342,
+        -0.02288,
+        0.02845,
+        -0.00229
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "21 0.804 0.842 0.861 0.864 0.711 0.768 0.787 0.798 0.807 0.464 0.506 0.523 0.536 0.547 node2vec 0.277 0.317 0.331 0.348 0.354 0.252 0.292 0.319 0.334 0.340 0.226 0.247 0.258 0.257 ",
+      "overlap_with_next": "ope and USA with 90% training data. The results of LINE-1st and LINE-2nd have much lower accuracy so they are not shown. The best results are in bold and the second best ones are u",
+      "text": "21 0.804 0.842 0.861 0.864 0.711 0.768 0.787 0.798 0.807 0.464 0.506 0.523 0.536 0.547 node2vec 0.277 0.317 0.331 0.348 0.354 0.252 0.292 0.319 0.334 0.340 0.226 0.247 0.258 0.257 0.257 GCN 0.649 0.679 0.704 0.742 0.747 0.605 0.660 0.650 0.680 0.675 0.422 0.494 0.531 0.549 0.550 struc2vec 0.218 0.238 0.251 0.260 0.271 0.201 0.207 0.211 0.214 0.215 0.196 0.208 0.220 0.224 0.225 GDC-D 0.758 0.829 0.848 0.859 0.862 0.690 0.738 0.756 0.765 0.773 0.475 0.505 0.513 0.524 0.532 GDC-A 0.224 0.284 0.317 0.313 0.423 0.212 0.238 0.274 0.332 0.389 0.211 0.237 0.247 0.242 0.251 GDC-G 0.481 0.592 0.660 0.730 0.719 0.187 0.421 0.269 0.431 0.413 0.260 0.329 0.380 0.477 0.409 H2NT-D 0.789 0.843 0.866 0.877 0.879 0.745 0.780 0.796 0.802 0.811 0.485 0.507 0.525 0.535 0.541 H2NT-A 0.729 0.795 0.815 0.824 0.829 0.680 0.723 0.744 0.744 0.754 0.438 0.450 0.460 0.470 0.465 H2NT-G 0.642 0.688 0.730 0.738 0.745 0.605 0.646 0.662 0.674 0.669 0.412 0.484 0.511 0.529 0.533 Table 5: Structural role classiﬁcation results on Brazil, Europe and USA with 90% training data. The results of LINE-1st and LINE-2nd have much lower accuracy so they are not shown. The best results are in bold and the second best ones are u",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06194,
+        0.01261,
+        -0.03032,
+        -0.01918,
+        -0.02087
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ope and USA with 90% training data. The results of LINE-1st and LINE-2nd have much lower accuracy so they are not shown. The best results are in bold and the second best ones are u",
+      "overlap_with_next": "peline from input original network to output network embedding. We have two key observations: 1) Our H 2NT-A, H2NT-D and H 2NT-G can improve efﬁciency of AROPE, DeepWalk, and GCN b",
+      "text": "ope and USA with 90% training data. The results of LINE-1st and LINE-2nd have much lower accuracy so they are not shown. The best results are in bold and the second best ones are underlined. Datasets MotifSC AROPE DeepWalk node2vec GCN struc2vec GDC-D GDC-A GDC-GH2NT-D H2NT-A H2NT-G Brazil 0.564 0.686 0.429 0.450 0.379 0.736 0.607 0.436 0.428 0.514 0.664 0.500 Europe 0.365 0.535 0.365 0.422 0.362 0.568 0.530 0.452 0.350 0.430 0.577 0.450 USA 0.379 0.589 0.493 0.479 0.549 0.608 0.588 0.519 0.403 0.629 0.600 0.565 Table 6: Computational time (in seconds). The last row shows the average with the most efﬁcient result in bold and the second underlined. Datasets AROPE H 2NT-A DeepWalk H2NT-D GCN H 2NT-G Amherst 3.99 2.79 216.97 99.17 26.46 28.34 Hamilton 4.06 2.84 218.87 112.23 32.57 28.10 Mich 5.35 2.63 306.91 121.21 25.46 19.89 Rochester 5.40 3.96 443.54 311.06 72.17 64.42 Average 4.70 3.05 296.57 160.92 39.16 35.19 with H 2NT-A, H 2NT-D and H 2NT-G. For our H 2NT, the computational time includes the whole pipeline from input original network to output network embedding. We have two key observations: 1) Our H 2NT-A, H2NT-D and H 2NT-G can improve efﬁciency of AROPE, DeepWalk, and GCN b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02739,
+        -0.03687,
+        -0.04368,
+        0.00166,
+        0.00297
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "peline from input original network to output network embedding. We have two key observations: 1) Our H 2NT-A, H2NT-D and H 2NT-G can improve efﬁciency of AROPE, DeepWalk, and GCN b",
+      "overlap_with_next": " for motif prediction task on Hamilton. We see that H2NT-A is less sensitive to the unifying weight than the number of HOP. The right one shows the perfor- mance variation of H 2NT",
+      "text": "peline from input original network to output network embedding. We have two key observations: 1) Our H 2NT-A, H2NT-D and H 2NT-G can improve efﬁciency of AROPE, DeepWalk, and GCN by 35.1%, 45.7% and 10.1% respectively. This is because our H2NT only use local motif structures and sparsify the origi- nal graph, which accelerates the optimisation process of com- bined methods and improves efﬁciency. 2) We further study the overhead of the motif representation calculation. Our studies show that the motif calculation is not the most im- portant part in computational cost, e.g. it accounts for only 5% and 8% of the total time of H 2NT-A on Amherst and Rochester, respectively. Thus, the efﬁciency gain due to in- creased sparsity has exceeded this small overhead, leading to an overall improvement of computational efﬁciency. Sensitivity Analysis. We conduct a sensitivity study for two hyperparamters: the order of HOPP and unifying weight λ, as shown in Fig. 4. The left one shows the performance variation of H2NT-A for motif prediction task on Hamilton. We see that H2NT-A is less sensitive to the unifying weight than the number of HOP. The right one shows the perfor- mance variation of H 2NT",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00507,
+        -0.02672,
+        0.00295,
+        0.04211,
+        -0.02362
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": " for motif prediction task on Hamilton. We see that H2NT-A is less sensitive to the unifying weight than the number of HOP. The right one shows the perfor- mance variation of H 2NT",
+      "overlap_with_next": "k embedding methods without requiring changing their cores such that it can take advantage of powerful network embed- ding methods proposed recently. We conducted experiments on no",
+      "text": " for motif prediction task on Hamilton. We see that H2NT-A is less sensitive to the unifying weight than the number of HOP. The right one shows the perfor- mance variation of H 2NT-D for node classiﬁcation task on Hamilton. We see that H 2NT-D is more sensitive to the uni- fying weight than the number of HOP. 0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 λ 0.70 0.75 0.80 0.85 0.90Precision Hamilton P-1 P-2 P-3 P-4 P-5 P-6 0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 λ 0.810 0.815 0.820 0.825 0.830 0.835Accuracy Hamilton P-1 P-2 P-3 P-4 P-5 P-6 Figure 4: Sensitivity analysis on two hyperparameters proximity or- derP and unifying weightλ. Left: H 2NT-A for motif prediction on Hamilton. Right: H 2NT-D for node classiﬁcation on Hamilton. 5 Conclusion In this paper, we proposed an H 2NT framework that makes use of motif representations to transform a network into a new network preserving both homophily and heterophily via ﬂex- ible and complementary micro-level and macro-level walk paths. H 2NT can be integrated with any existing network embedding methods without requiring changing their cores such that it can take advantage of powerful network embed- ding methods proposed recently. We conducted experiments on no",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04157,
+        -0.04488,
+        -0.01652,
+        0.03747,
+        -0.00974
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "k embedding methods without requiring changing their cores such that it can take advantage of powerful network embed- ding methods proposed recently. We conducted experiments on no",
+      "overlap_with_next": " higher-order network structures. In Proceedings of the 2015 SIAM International Conference on Data Mining, pages 118–126. SIAM, 2015. [Benson et al., 2016] Austin R Benson, David F",
+      "text": "k embedding methods without requiring changing their cores such that it can take advantage of powerful network embed- ding methods proposed recently. We conducted experiments on node classiﬁcation, structural role classiﬁcation and newly designed motif (link) prediction to show the superior predic- tion performance. Acknowledgement. This work is supported by the Amazon Research Awards 2018. References [Alvarez-Socorro et al., 2015] AJ Alvarez-Socorro, GC Herrera-Almarza, and LA Gonz ´alez-D´ıaz. Eigen- centrality based on dissimilarity measures reveals central nodes in complex networks. Scientiﬁc reports, 5:17095, 2015. [Page 8] [Asif et al., 2016] Muhammad Tayyab Asif, Nikola Mitro- vic, Justin Dauwels, and Patrick Jaillet. Matrix and tensor based methods for missing data estimation in large trafﬁc networks. IEEE Transactions on intelligent transportation systems, 17(7):1816–1825, 2016. [Benson et al., 2015] Austin R Benson, David F Gleich, and Jure Leskovec. Tensor spectral clustering for partition- ing higher-order network structures. In Proceedings of the 2015 SIAM International Conference on Data Mining, pages 118–126. SIAM, 2015. [Benson et al., 2016] Austin R Benson, David F",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04183,
+        -0.0324,
+        -0.00783,
+        0.01539,
+        -0.00857
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": " higher-order network structures. In Proceedings of the 2015 SIAM International Conference on Data Mining, pages 118–126. SIAM, 2015. [Benson et al., 2016] Austin R Benson, David F",
+      "overlap_with_next": "cs reports, 486(3-5):75–174, 2010. [Girvan and Newman, 2002] Michelle Girvan and Mark EJ Newman. Community structure in social and biological networks. Proceedings of the national ",
+      "text": " higher-order network structures. In Proceedings of the 2015 SIAM International Conference on Data Mining, pages 118–126. SIAM, 2015. [Benson et al., 2016] Austin R Benson, David F Gleich, and Jure Leskovec. Higher-order organization of complex net- works. Science, 353(6295):163–166, 2016. [Cao et al., 2015] Shaosheng Cao, Wei Lu, and Qiongkai Xu. Grarep: Learning graph representations with global structural information. In CIKM, pages 891–900. ACM, 2015. [Condon and Karp, 2001] Anne Condon and Richard M Karp. Algorithms for graph partitioning on the planted partition model. Random Structures & Algorithms , 18(2):116–140, 2001. [Estrada and Rodriguez-Velazquez, 2005] Ernesto Estrada and Juan A Rodriguez-Velazquez. Subgraph centrality in complex networks. Physical Review E , 71(5):056103, 2005. [Feng et al., 2018] Rui Feng, Yang Yang, Wenjie Hu, Fei Wu, and Yueting Zhang. Representation learning for scale- free networks. In AAAI, 2018. [Fortunato, 2010] Santo Fortunato. Community detection in graphs. Physics reports, 486(3-5):75–174, 2010. [Girvan and Newman, 2002] Michelle Girvan and Mark EJ Newman. Community structure in social and biological networks. Proceedings of the national ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05097,
+        -0.03628,
+        -0.01163,
+        0.0053,
+        0.0085
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "cs reports, 486(3-5):75–174, 2010. [Girvan and Newman, 2002] Michelle Girvan and Mark EJ Newman. Community structure in social and biological networks. Proceedings of the national ",
+      "overlap_with_next": "el Huttenlocher, and Jon Kleinberg. Signed networks in social media. In Proceedings of the SIGCHI conference on human factors in computing systems, pages 1361–1370, 2010. [Mikolov ",
+      "text": "cs reports, 486(3-5):75–174, 2010. [Girvan and Newman, 2002] Michelle Girvan and Mark EJ Newman. Community structure in social and biological networks. Proceedings of the national academy of sci- ences, 99(12):7821–7826, 2002. [Goyal and Ferrara, 2018] Palash Goyal and Emilio Ferrara. Graph embedding techniques, applications, and perfor- mance: A survey. Knowledge-Based Systems, 151:78–94, 2018. [Grover and Leskovec, 2016] Aditya Grover and Jure Leskovec. node2vec: Scalable feature learning for networks. In KDD, pages 855–864. ACM, 2016. [Kipf and Welling, 2017] Thomas N. Kipf and Max Welling. Semi-supervised classiﬁcation with graph convolutional networks. In ICLR, 2017. [Klicpera et al., 2019] Johannes Klicpera, Stefan Weißen- berger, and Stephan G ¨unnemann. Diffusion improves graph learning. In NeurIPS, 2019. [Kossinets and Watts, 2006] Gueorgi Kossinets and Dun- can J Watts. Empirical analysis of an evolving social net- work. science, 311(5757):88–90, 2006. [Leskovec et al., 2010] Jure Leskovec, Daniel Huttenlocher, and Jon Kleinberg. Signed networks in social media. In Proceedings of the SIGCHI conference on human factors in computing systems, pages 1361–1370, 2010. [Mikolov ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08369,
+        -0.01559,
+        -0.02019,
+        0.01869,
+        0.02186
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "el Huttenlocher, and Jon Kleinberg. Signed networks in social media. In Proceedings of the SIGCHI conference on human factors in computing systems, pages 1361–1370, 2010. [Mikolov ",
+      "overlap_with_next": "aniel R Figueiredo. struc2vec: Learning node representations from structural identity. In KDD, pages 385–394. ACM, 2017. [Rossi et al., 2019] Ryan A Rossi, Di Jin, Sungchul Kim, Ne",
+      "text": "el Huttenlocher, and Jon Kleinberg. Signed networks in social media. In Proceedings of the SIGCHI conference on human factors in computing systems, pages 1361–1370, 2010. [Mikolov et al., 2013] Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributed rep- resentations of words and phrases and their composition- ality. In NeurIPS, pages 3111–3119, 2013. [Ng et al., 2002] Andrew Y Ng, Michael I Jordan, and Yair Weiss. On spectral clustering: Analysis and an algorithm. In NeurIPS, pages 849–856, 2002. [Ou et al., 2016] Mingdong Ou, Peng Cui, Jian Pei, Ziwei Zhang, and Wenwu Zhu. Asymmetric transitivity preserv- ing graph embedding. In Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discov- ery and data mining, pages 1105–1114, 2016. [Perozzi et al., 2014] Bryan Perozzi, Rami Al-Rfou, and Steven Skiena. Deepwalk: Online learning of social rep- resentations. In KDD, pages 701–710. ACM, 2014. [Ribeiro et al., 2017] Leonardo FR Ribeiro, Pedro HP Saverese, and Daniel R Figueiredo. struc2vec: Learning node representations from structural identity. In KDD, pages 385–394. ACM, 2017. [Rossi et al., 2019] Ryan A Rossi, Di Jin, Sungchul Kim, Ne",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05305,
+        -0.01254,
+        0.00823,
+        -0.00466,
+        -0.00682
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "aniel R Figueiredo. struc2vec: Learning node representations from structural identity. In KDD, pages 385–394. ACM, 2017. [Rossi et al., 2019] Ryan A Rossi, Di Jin, Sungchul Kim, Ne",
+      "overlap_with_next": "Conferences Steering Committee, 2017. [Wang et al., 2016] Daixin Wang, Peng Cui, and Wenwu Zhu. Structural deep network embedding. In KDD, pages 1225–1234. ACM, 2016. [Wang et al.,",
+      "text": "aniel R Figueiredo. struc2vec: Learning node representations from structural identity. In KDD, pages 385–394. ACM, 2017. [Rossi et al., 2019] Ryan A Rossi, Di Jin, Sungchul Kim, Nesreen K Ahmed, Danai Koutra, and John Boaz Lee. From community to role-based graph embeddings. arXiv preprint arXiv:1908.08572, 2019. [Tang et al., 2015] Jian Tang, Meng Qu, Mingzhe Wang, Ming Zhang, Jun Yan, and Qiaozhu Mei. Line: Large- scale information network embedding. In WWW, pages 1067–1077. International World Wide Web Conferences Steering Committee, 2015. [Tijms, 2012] Henk Tijms. Understanding probability. Cam- bridge University Press, 2012. [Traud et al., 2012] Amanda L Traud, Peter J Mucha, and Mason A Porter. Social structure of facebook networks. Physica A: Statistical Mechanics and its Applications , 391(16):4165–4180, 2012. [Tsourakakis et al., 2017] Charalampos E Tsourakakis, Jakub Pachocki, and Michael Mitzenmacher. Scal- able motif-aware graph clustering. In WWW, pages 1451–1460. International World Wide Web Conferences Steering Committee, 2017. [Wang et al., 2016] Daixin Wang, Peng Cui, and Wenwu Zhu. Structural deep network embedding. In KDD, pages 1225–1234. ACM, 2016. [Wang et al.,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04782,
+        -0.00384,
+        -0.01215,
+        0.00554,
+        -0.00738
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "Conferences Steering Committee, 2017. [Wang et al., 2016] Daixin Wang, Peng Cui, and Wenwu Zhu. Structural deep network embedding. In KDD, pages 1225–1234. ACM, 2016. [Wang et al.,",
+      "overlap_with_next": "1,··· , Ci,··· , Ck}, nodes{ vi, vj}∈ Cs and vk∈ Ct, the value of lth-order proximity between vi and vj is a(l)ij , then, a(l)ik < a (l)ij , (1) Proof. Based on Chapman-Kolmogorov ",
+      "text": "Conferences Steering Committee, 2017. [Wang et al., 2016] Daixin Wang, Peng Cui, and Wenwu Zhu. Structural deep network embedding. In KDD, pages 1225–1234. ACM, 2016. [Wang et al., 2017] Xiao Wang, Peng Cui, Jing Wang, Jian Pei, Wenwu Zhu, and Shiqiang Yang. Community pre- serving network embedding. In AAAI, 2017. [Yang et al., 2017] Cheng Yang, Maosong Sun, Zhiyuan Liu, and Cunchao Tu. Fast network embedding enhancement via high order proximity approximation. In IJCAI, pages 3894–3900, 2017. [Zhang et al., 2018a] Daokun Zhang, Jie Yin, Xingquan Zhu, and Chengqi Zhang. Network representation learn- ing: A survey. IEEE transactions on Big Data, 2018. [Zhang et al., 2018b] Ziwei Zhang, Peng Cui, Xiao Wang, Jian Pei, Xuanrong Yao, and Wenwu Zhu. Arbitrary-order [Page 9] Supplementary Material Unifying Homophily and Heterophily Network Transformation via Motifs Lemmas and Proofs Proofs about Relationship between Homophily and HOP Lemma 1. Let Gf∼ Gf (mk, k, p, q) be a fully-connected PPM with k clusters C ={C1,··· , Ci,··· , Ck}, nodes{ vi, vj}∈ Cs and vk∈ Ct, the value of lth-order proximity between vi and vj is a(l)ij , then, a(l)ik < a (l)ij , (1) Proof. Based on Chapman-Kolmogorov ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0706,
+        -0.02635,
+        -0.01311,
+        -0.0339,
+        -0.02416
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "1,··· , Ci,··· , Ck}, nodes{ vi, vj}∈ Cs and vk∈ Ct, the value of lth-order proximity between vi and vj is a(l)ij , then, a(l)ik < a (l)ij , (1) Proof. Based on Chapman-Kolmogorov ",
+      "overlap_with_next": "l−1)iz = na(l−1)ik .Therefore, a(l)ij − a(l)ik = (p− q)(na(l−1)ij − na(l−1)ik ) = nl−1(p− q)l−1(aij− aik) = nl−1(p− q)l > 0. This completes the proof of the inequality Eq. (1). Pro",
+      "text": "1,··· , Ci,··· , Ck}, nodes{ vi, vj}∈ Cs and vk∈ Ct, the value of lth-order proximity between vi and vj is a(l)ij , then, a(l)ik < a (l)ij , (1) Proof. Based on Chapman-Kolmogorov equations (Tijms 2012), we have a(l)ik = kn∑ z=1 a(l−1)iz · azk, a (l)ij = kn∑ z=1 a(l−1)iz · azj (2) The above equations interpret the proximity that it is going from node vi to node vj in l steps is obtained by summing the proximity of the mutually events of going from node i to some node vk in the ﬁrst n− 1 walk steps and then going from node k to node j in the lth walk step. Therefore, the difference a(l)ij − a(l)ik = ∑z∈Cs a(l−1)iz · (aiz− azk) + ∑z∈Ct a(l−1)iz · (aiz− azk) + ∑z∈{Ch|1≤h≤k,h /∈{s,t}} a(l−1)iz · (aiz− azk) = ∑z∈Cs a(l−1)iz · (p− q)− ∑z∈Ct a(l−1)iz · (p− q). Then, according to Lemma 2 and Lemma 3, Lemma 2. Let Gf∼ Gf (nk, k, p, q),{vi, vd, ve}∈ Cs, then we have a(h)id = a(h)ie . Lemma 3. Let Gf∼ Gf (nk, k, p, q), vi∈ Cs,{vr, vs}∈ Ct, we have a(h)ir = a(h)is . we can have ∑z∈Ct a(l−1)iz = na(l−1)ij and ∑z∈Cs a(l−1)iz = na(l−1)ik .Therefore, a(l)ij − a(l)ik = (p− q)(na(l−1)ij − na(l−1)ik ) = nl−1(p− q)l−1(aij− aik) = nl−1(p− q)l > 0. This completes the proof of the inequality Eq. (1). Pro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04236,
+        -0.01339,
+        -0.05688,
+        -0.00178,
+        -0.00338
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "l−1)iz = na(l−1)ik .Therefore, a(l)ij − a(l)ik = (p− q)(na(l−1)ij − na(l−1)ik ) = nl−1(p− q)l−1(aij− aik) = nl−1(p− q)l > 0. This completes the proof of the inequality Eq. (1). Pro",
+      "overlap_with_next": "e third vertex is in another component. For simplicity we avoid lower order terms as asymptotically the difference does not matter. Thus the difference between E[w(vi, vj)] and E[w",
+      "text": "l−1)iz = na(l−1)ik .Therefore, a(l)ij − a(l)ik = (p− q)(na(l−1)ij − na(l−1)ik ) = nl−1(p− q)l−1(aij− aik) = nl−1(p− q)l > 0. This completes the proof of the inequality Eq. (1). Proofs about Effectiveness of Homophily Representation Lemma 4. Let G∼ G(mk, k, p, q) be an unweitghted graph sampled by a generalized PPM, {vi, vj}∈ Ci and{vk}∈ Cj, {vd}∈ Cb, j⁄= b and (vi, vj)∈ E, (vd, vk)∈ E. We use E[w(vi, vj)] to indicate the expected number of triangles containing the edge{vi, vj}, then E[w(vd, vk)] < E[w(vi, vj)]. (3) Proof. For the case of the edge (vi, vj): E[w(vi, vj)] = ( n− 2)p2 + (k− 1)nq2, The ﬁrst term (n− 2)p2 corresponds to triangles where the third vertex is in the same component as vi or vj, the second term (k− 1)nq2 to triangle where the third vertex is in another component. For the case of edge (vi, vk): E[w(vi, vk)] = 2( n− 1)pq + (k− 2)nq2 The ﬁrst term 2(n− 1)pq corresponds to triangles where the third vertex is in the same component as vior vk, the second term (k− 2)nq2 to triangle where the third vertex is in another component. For simplicity we avoid lower order terms as asymptotically the difference does not matter. Thus the difference between E[w(vi, vj)] and E[w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07448,
+        -0.0121,
+        -0.01102,
+        -0.04336,
+        -0.00066
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 46384,
+      "length": 484,
+      "overlap_with_previous": "e third vertex is in another component. For simplicity we avoid lower order terms as asymptotically the difference does not matter. Thus the difference between E[w(vi, vj)] and E[w",
+      "overlap_with_next": "",
+      "text": "e third vertex is in another component. For simplicity we avoid lower order terms as asymptotically the difference does not matter. Thus the difference between E[w(vi, vj)] and E[w(vi, vk)] E[w(vi, vj)]− E[w(vi, vk)] = np2 + (k− 1)nq2− 2npq− (k− 2)nq2 = n(p− q)2 > 0 This completes the proof of the inequality Eq.(3). [Page 10] References Tijms, H. 2012. Understanding probability. Cambridge University Press. proximity preserved network embedding. In KDD, pages 2778–2786. ACM, 2018.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03609,
+        0.00479,
+        0.00618,
+        -0.01948,
+        -0.01178
+      ]
+    }
+  ]
+}

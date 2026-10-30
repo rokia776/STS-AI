@@ -1,0 +1,878 @@
+{
+  "paper_id": "678fb6b9-d2d6-47d3-a280-a7b6cb5bc54a",
+  "filename": "091_Machine_Learning_Affirmative_Algorithms_The_Legal_Grounds_for_Fairness_as_Awareness.pdf",
+  "title": "091_Machine_Learning_Affirmative_Algorithms_The_Legal_Grounds_for_Fairness_as_Awareness.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 51,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "storical discrimination by the actor. Third, while limited, this doctrinal approach also guides the future of algorithmic fairness, mandating that adjustments be calibrated to the ",
+      "text": "[Page 1] 10/30/20 U. Chi. L. Rev. Online *134 Affirmative Algorithms: The Legal Grounds for Fairness as Awareness1 Daniel E. Ho2 Alice Xiang3 Abstract While there has been a flurry of research in algorithmic fairness, what is less recognized is that modern antidiscrimination law may prohibit the adoption of such techniques. We make three contributions. First, we discuss how such approaches will likely be deemed “algorithmic affirmative action,” posing serious legal risks of violating equal protection, particularly under the higher education jurisprudence. Such cases have increasingly turned toward anticlassification, demanding “individualized consideration” and barring formal, quantitative weights for race regardless of purpose . This case law is hence fundamentally incompatible with fairness in machine learning. Second, we argue that the government - contracting cases offer an alternative grounding for algorithmic fairness, as these cases permit exp licit and quantitative race -based remedies based on historical discrimination by the actor. Third, while limited, this doctrinal approach also guides the future of algorithmic fairness, mandating that adjustments be calibrated to the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04394,
+        -0.02043,
+        0.00478,
+        0.01657,
+        -0.01964
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "storical discrimination by the actor. Third, while limited, this doctrinal approach also guides the future of algorithmic fairness, mandating that adjustments be calibrated to the ",
+      "overlap_with_next": "l Intelligence; Director, Regulation, Evaluation, and Governance Lab, Stanford University. 3 Head of Fairness, Transparency, and Accountability Research at the Partnership on AI. [",
+      "text": "storical discrimination by the actor. Third, while limited, this doctrinal approach also guides the future of algorithmic fairness, mandating that adjustments be calibrated to the entity’s responsibility for historical discrimination causing present-day disparities . The contractor cases provide a legally viable path for algorithmic fairness under current constitutional doctrine but call for more research at the intersection of algorithmic fairness and causal inference to ensure that bias mitigation is tailored to specific causes and mechanisms of bias. 1 We thank Alexandra Chouldechova, Jacob Goldin, Peter Henderson, Jessica Hwang, Mark Krass, Patrick Leahy, Laura Trice, and Chris Wan for helpful comments. Authors are listed alphabetically and have equally contributed to this work. 2 William Benjamin Scott and Luna M. Scott Professor of Law; Professor of Political Science; Senior Fellow, Stanford Institute for Economic Policy Research; Associate Director of Stanford Institute for Human-Centered Artificial Intelligence; Director, Regulation, Evaluation, and Governance Lab, Stanford University. 3 Head of Fairness, Transparency, and Accountability Research at the Partnership on AI. [",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05772,
+        -0.03765,
+        0.00402,
+        -0.0062,
+        -0.00995
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "l Intelligence; Director, Regulation, Evaluation, and Governance Lab, Stanford University. 3 Head of Fairness, Transparency, and Accountability Research at the Partnership on AI. [",
+      "overlap_with_next": "6. The recent White House draft guidance on AI regulation similarly calls for “bias mitigation.” Yet equal-protection doctrine, particularly the affirmative-action cases, poses ser",
+      "text": "l Intelligence; Director, Regulation, Evaluation, and Governance Lab, Stanford University. 3 Head of Fairness, Transparency, and Accountability Research at the Partnership on AI. [Page 2] 10/30/20 U. Chi. L. Rev. Online *135 Introduction A central concern with the rise of artificial intelligence (AI) systems is bias. Whether in the form of criminal “risk assessment” tools used by judges, facial recognition technology deployed by border patrol agents, or algorithmic decision tools in benefits adjudication by welfare officials, algorithms can encode historical bias and wreak serious harm on racial, gender, and other minority groups. A substantial literature has emerged within machine learning around remedies for algorithmic bias, with the consensus position being that machine bias is best addressed through awareness of such “protected groups.”4 Responding to these concerns, the White House called for the “construction of algorithms that incorporate fairness properties into their design and execution” in 2016. The recent White House draft guidance on AI regulation similarly calls for “bias mitigation.” Yet equal-protection doctrine, particularly the affirmative-action cases, poses ser",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00881,
+        -0.01966,
+        -0.0234,
+        0.0117,
+        -0.04505
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "6. The recent White House draft guidance on AI regulation similarly calls for “bias mitigation.” Yet equal-protection doctrine, particularly the affirmative-action cases, poses ser",
+      "overlap_with_next": "oring means “individualized consideration,” which in turn “demands that race be used in a flexible, nonmechanical way.” What is less recognized is that these cases may neuter fairn",
+      "text": "6. The recent White House draft guidance on AI regulation similarly calls for “bias mitigation.” Yet equal-protection doctrine, particularly the affirmative-action cases, poses serious obstacles to algorithmic fairness. Equal-protection doctrine applies directly to government entities, preventing them from treating similarly situated individuals differently. The leading cases single out decision systems that formally classify and quantify by race as particularly noxious. In Gratz v. Bollinger, the Supreme Court found that the University of Michigan violated equal protection in awarding underrepresented minorities 20 points in a 150-point undergraduate admissions system. Michigan’s practice was not narrowly tailored to achieve the compelling state interest in the educational benefits from a diverse student body. In contrast, the Supreme Court found in Grutter v. Bollinger that Michigan Law School’s use of a “holistic” system without any formalization of points for minorities was constitutional. Narrow tailoring means “individualized consideration,” which in turn “demands that race be used in a flexible, nonmechanical way.” What is less recognized is that these cases may neuter fairn",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03053,
+        -0.02223,
+        -0.00866,
+        0.04329,
+        -0.04667
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "oring means “individualized consideration,” which in turn “demands that race be used in a flexible, nonmechanical way.” What is less recognized is that these cases may neuter fairn",
+      "overlap_with_next": "ese approaches might not ordinarily be thought of as affirmative action, just as in Gratz, they boil down to an adjustment that uses a protected attribute, such as race, in a kind ",
+      "text": "oring means “individualized consideration,” which in turn “demands that race be used in a flexible, nonmechanical way.” What is less recognized is that these cases may neuter fairness in machine learning. This is because the leading approaches to remedy algorithmic bias rely on protected attributes to promote “fair” (aka 4 We use “protected groups” to refer to groups conventionally protected under various antidiscrimination provisions, such as the Constitution’s Equal Protection Clause, Title VII of the Civil Rights Act, the Fair Housing Act, and the like. An important debate concerns how such conventional classifications fail to grapple with distinct harms at the intersection of these groups. For the leading work on this, see Kimberlé Crenshaw, Demarginalizing the Intersection of Race and Sex: A Black Feminist Critique of Antidiscrimination Doctrine, Feminist Theory and Antiracist Politics, 1989 U. CHI. LEGAL FORUM 139. [Page 3] 10/30/20 U. Chi. L. Rev. Online *136 unbiased) outcomes. Although many of these approaches might not ordinarily be thought of as affirmative action, just as in Gratz, they boil down to an adjustment that uses a protected attribute, such as race, in a kind ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04011,
+        0.01191,
+        -0.00967,
+        0.04532,
+        -0.03451
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ese approaches might not ordinarily be thought of as affirmative action, just as in Gratz, they boil down to an adjustment that uses a protected attribute, such as race, in a kind ",
+      "overlap_with_next": "e of machine learning within government has the promise to dramatically transform outdated government services, from protection of the environment to administering benefits program",
+      "text": "ese approaches might not ordinarily be thought of as affirmative action, just as in Gratz, they boil down to an adjustment that uses a protected attribute, such as race, in a kind of point system. One leading approach uses different thresholds for loan approvals for White and Black applicants to, for instance, equalize repayment rates. Another normalizes features across protected groups, such as by transforming test scores so that gender differences disappear. Yet another purposely selects features that predict the outcome, but are invariant to counterfactual changes in the protected group status. Such approaches have been packaged and billed as bias audit and mitigation measures. But anticlassification—the notion that the law should not classify individuals based on protected attributes—may render such forms of algorithmic fairness unlawful. This state of affairs is pernicious, particularly in light of two additional trends. First, machine learning has seen staggering advances over the past ten years. Use of machine learning within government has the promise to dramatically transform outdated government services, from protection of the environment to administering benefits program",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0458,
+        -0.00213,
+        -0.00813,
+        0.03075,
+        -0.03128
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "e of machine learning within government has the promise to dramatically transform outdated government services, from protection of the environment to administering benefits program",
+      "overlap_with_next": "ther contextual features, or (b) the protected attribute is used only in training, but not at deployment. While recent trends in antidiscrimination law help ascertain the legal ris",
+      "text": "e of machine learning within government has the promise to dramatically transform outdated government services, from protection of the environment to administering benefits programs to government service delivery. Second, Black Lives Matter has rightly triggered a social, intellectual, and political reckoning to grapple with longstanding forms of institutional racism.5 Anticlassification can impede serious examination of the sources and remedies for algorithmic bias, precisely when such examination is sorely needed. As governments explore the use of AI tools, the concerns about legal risk can lead to the worst approach of all: turning a blind eye. We consider the most viable legal justification for algorithmic fairness. In Part I, we sketch out what is known about the connection between affirmative action and algorithmic decision-making. We consider the claim that some fairness approaches do not violate anticlassification because either (a) the protected attribute is used in a holistic setting with many other contextual features, or (b) the protected attribute is used only in training, but not at deployment. While recent trends in antidiscrimination law help ascertain the legal ris",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04905,
+        -0.01656,
+        0.00243,
+        0.00811,
+        -0.02141
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ther contextual features, or (b) the protected attribute is used only in training, but not at deployment. While recent trends in antidiscrimination law help ascertain the legal ris",
+      "overlap_with_next": " higher education cases on diversity, the contractor cases hinge on inquiries that incentivize assessment, rather than willful blindness, of bias. These inquiries turn on (a) how m",
+      "text": "ther contextual features, or (b) the protected attribute is used only in training, but not at deployment. While recent trends in antidiscrimination law help ascertain the legal risk of specific 5 The scholarly literature here is voluminous, but for some leading accounts on the role of government policies, see Michelle Alexander, The New Jim Crow: Mass Incarceration in the Age of Colorblindness (2010); Ira Katznelson, When Affirmative Action Was White: An Untold History of Racial Inequality in Twentieth-Century America (2006); Richard Rothstein, The Color of Law: A Forgotten History of How Our Government Segregated America (2018). [Page 4] 10/30/20 U. Chi. L. Rev. Online *137 engineering approaches, the leading approaches are likely forms of algorithmic affirmative action, subject to strict scrutiny. In Part II, we argue that even if algorithmic fairness is a form of affirmative action, the appropriate jurisprudence is that of government contracting, not higher education. In contrast to the fixation in the higher education cases on diversity, the contractor cases hinge on inquiries that incentivize assessment, rather than willful blindness, of bias. These inquiries turn on (a) how m",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07024,
+        -0.00339,
+        0.00641,
+        0.01527,
+        -0.01724
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " higher education cases on diversity, the contractor cases hinge on inquiries that incentivize assessment, rather than willful blindness, of bias. These inquiries turn on (a) how m",
+      "overlap_with_next": "for private-sector entities, although much of the jurisprudence under other civil-rights provisions (e.g., Title VII of the Civil Rights Act, Equal Credit Opportunity Act) mirrors ",
+      "text": " higher education cases on diversity, the contractor cases hinge on inquiries that incentivize assessment, rather than willful blindness, of bias. These inquiries turn on (a) how much discrimination is attributable to the actor, and (b) whether the design and magnitude of voluntary affirmative action to remedy such disparities can be justified through a “strong basis in evidence.” This approach has key virtues: it provides the incentives to understand bias and enables the adoption of algorithmic decision tools to remedy historical bias. In Part III, we illustrate how the government-contractor cases would enable the examination of sources and remedies for algorithmic bias. In Part IV, we discuss the significant limitations of this approach, but we conclude in Part V that it remains the most promising legal justification for algorithmic fairness given the current legal landscape. Our focus in this Essay is on equal-protection doctrine, so our analysis applies primarily to government entities and may differ for private-sector entities, although much of the jurisprudence under other civil-rights provisions (e.g., Title VII of the Civil Rights Act, Equal Credit Opportunity Act) mirrors ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03968,
+        -0.00126,
+        0.04043,
+        0.00578,
+        0.01124
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "for private-sector entities, although much of the jurisprudence under other civil-rights provisions (e.g., Title VII of the Civil Rights Act, Equal Credit Opportunity Act) mirrors ",
+      "overlap_with_next": "a voluntary employer affirmative-action plan, see Jason R. Bent, Is Algorithmic Affirmative Action Legal?, 108 GEO. L.J. 803 (2020). That piece focuses less on the constitutional j",
+      "text": "for private-sector entities, although much of the jurisprudence under other civil-rights provisions (e.g., Title VII of the Civil Rights Act, Equal Credit Opportunity Act) mirrors equal-protection doctrine. I. What Is Algorithmic Affirmative Action? Is algorithmic fairness affirmative action? We first describe why modern antidiscrimination law is likely to consider most algorithmic fairness methods to be forms of affirmative action and also the serious legal doubt about government classification based on protected attributes. We then consider the most prominent defenses of approaches to algorithmic fairness, but conclude that there is a significant likelihood that those approaches would violate anticlassification.6 A. The Equal Protection Challenge The common “group fairness” approaches take a metric of interest, such as outcomes or false-positive rates, and seek to equalize these 6 For an analysis primarily under Title VII, which concludes that the most plausible rationale for algorithmic fairness is as a voluntary employer affirmative-action plan, see Jason R. Bent, Is Algorithmic Affirmative Action Legal?, 108 GEO. L.J. 803 (2020). That piece focuses less on the constitutional j",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06498,
+        0.00714,
+        0.01953,
+        0.02777,
+        -0.01195
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "a voluntary employer affirmative-action plan, see Jason R. Bent, Is Algorithmic Affirmative Action Legal?, 108 GEO. L.J. 803 (2020). That piece focuses less on the constitutional j",
+      "overlap_with_next": "olution would be to vary the cutoff for loans by subgroup (solid vertical lines). While this has the appealing result that the repayment rates are (roughly) equalized across groups",
+      "text": "a voluntary employer affirmative-action plan, see Jason R. Bent, Is Algorithmic Affirmative Action Legal?, 108 GEO. L.J. 803 (2020). That piece focuses less on the constitutional jurisprudence and we address the claim that the use of race in algorithmic- fairness models is “holistic” and therefore constitutional under Grutter below. [Page 5] 10/30/20 U. Chi. L. Rev. Online *138 metrics across groups. For example, one approach would vary the cutoff for a loan application to ensure that majority and minority groups have equal opportunities to secure a loan. Figure 1 illustrates this approach. The x-axis plots the credit score and the y-axis plots the number of individuals with a given credit score, with darker dots indicating defaults. The two histograms represent two demographic subgroups, which have an underlying difference in credit scores. Applying the same cutoff (dashed vertical line) would lead to different repayment rates across the subgroups. To promote equal opportunity, one algorithmic-fairness solution would be to vary the cutoff for loans by subgroup (solid vertical lines). While this has the appealing result that the repayment rates are (roughly) equalized across groups",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06935,
+        -0.01515,
+        0.00482,
+        0.01215,
+        -0.0371
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "olution would be to vary the cutoff for loans by subgroup (solid vertical lines). While this has the appealing result that the repayment rates are (roughly) equalized across groups",
+      "overlap_with_next": "text, the true positive rate equals the number of individuals who would repay the loan, whose credit scores were above the threshold for approval—i.e., people who got a loan and re",
+      "text": "olution would be to vary the cutoff for loans by subgroup (solid vertical lines). While this has the appealing result that the repayment rates are (roughly) equalized across groups, the use of different credit score thresholds is the kind of race-based point adjustment Gratz deemed problematic. Such adjustments would also violate the Equal Credit Opportunity Act’s bar on race-based decisions and, in the employment context, “race-norming” of aptitude tests outlawed by the Civil Rights Act of 1991. Indeed, if one converted the x-axis to indicate an aptitude test or a 150-point score admissions score, as in Gratz, it is functionally indistinguishable from affirmative action. [Page 6] 10/30/20 U. Chi. L. Rev. Online *139 Figure 1: “Equal Opportunity” Thresholds. This figure illustrates how the “equal opportunity” bias mitigation approach,7 which equalizes true positive rates, would lead to different thresholds between the two groups if they have different underlying distributions of credit scores. In this context, the true positive rate equals the number of individuals who would repay the loan, whose credit scores were above the threshold for approval—i.e., people who got a loan and re",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06663,
+        -0.01743,
+        -0.02018,
+        0.0089,
+        -0.03017
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "text, the true positive rate equals the number of individuals who would repay the loan, whose credit scores were above the threshold for approval—i.e., people who got a loan and re",
+      "overlap_with_next": "the age bracket were arrested for driving under the influence, compared to only 0.18 percent of women, was insufficient.8 “[P]roving broad sociological propositions by statistics i",
+      "text": "text, the true positive rate equals the number of individuals who would repay the loan, whose credit scores were above the threshold for approval—i.e., people who got a loan and repaid it—out of the total number of individuals who would have repaid the loan. The motivation for this approach is the idea that among individuals who would repay the loan, they should have equal opportunity to get a loan, regardless of whether they are in the orange or blue group. But should it not be different when the protected attribute helps to predict an outcome of interest? Here, the case law offers little help. Equalization based on actuarial outcomes remains suspect. In Craig v. Boren, the Supreme Court, establishing intermediate scrutiny for classifications based on sex, found that a minimum drinking age that was higher for men than women violated the Equal Protection Clause. The gender difference was not substantially related to the state interest to protect public health and safety. The fact that 2 percent of men in the age bracket were arrested for driving under the influence, compared to only 0.18 percent of women, was insufficient.8 “[P]roving broad sociological propositions by statistics i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05718,
+        -0.00138,
+        -0.03049,
+        -0.00532,
+        -0.03709
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "the age bracket were arrested for driving under the influence, compared to only 0.18 percent of women, was insufficient.8 “[P]roving broad sociological propositions by statistics i",
+      "overlap_with_next": "“[t]he use of sex-segregated actuarial tables to calculate retirement benefits violates Title VII whether or not the tables reflect an accurate prediction of the longevity of women",
+      "text": "the age bracket were arrested for driving under the influence, compared to only 0.18 percent of women, was insufficient.8 “[P]roving broad sociological propositions by statistics is a dubious business, and one that inevitably is in tension with the normative philosophy that underlies the Equal Protection Clause.” Similarly, the Supreme Court 7 Figure 1 is inspired by this visualization from Google Research. 8 The court fumbled in its interpretation of these statistics, concluding that “a correlation of 2% must be considered an unduly tenuous ‘fit.’” [Page 7] 10/30/20 U. Chi. L. Rev. Online *140 found that a pension plan cannot constitutionally charge women more, even though actuarially, women lived five years longer than men in the relevant population. “Even a true generalization about the class is an insufficient reason.” In a later case, the Supreme Court also found that a pension plan may not pay women less based on differences in predicted longevity. As Justice Thurgood Marshall wrote in concurrence, “[t]he use of sex-segregated actuarial tables to calculate retirement benefits violates Title VII whether or not the tables reflect an accurate prediction of the longevity of women",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03609,
+        -0.00923,
+        -0.02871,
+        0.0004,
+        -0.02959
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "“[t]he use of sex-segregated actuarial tables to calculate retirement benefits violates Title VII whether or not the tables reflect an accurate prediction of the longevity of women",
+      "overlap_with_next": "ria. History should teach greater humility.” Famously, Chief Justice John Roberts concluded, “[t]he way to stop discrimination on the basis of race is to stop discriminating on the",
+      "text": "“[t]he use of sex-segregated actuarial tables to calculate retirement benefits violates Title VII whether or not the tables reflect an accurate prediction of the longevity of women as a class.”9 Nor does it matter, under anticlassification principles, whether the goal is positive versus negative discrimination. In Parents Involved in Community Schools v. Seattle School District No. 1, the Supreme Court invalidated Seattle’s school-assignment algorithm that used race as a tiebreaker to determine who may be admitted to an oversubscribed school. When a school was not within 10 percent of the school district’s White/nonwhite racial balance, students were selected to bring the school into greater balance regardless of the direction of imbalance. Despite the seemingly benign goal of fostering integration, the Court rejected distinctions between types of classifications. An “emphasis on ‘benign racial classifications’ suggests . . . [the] ability to distinguish good from harmful governmental uses of racial criteria. History should teach greater humility.” Famously, Chief Justice John Roberts concluded, “[t]he way to stop discrimination on the basis of race is to stop discriminating on the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03722,
+        -0.01067,
+        -0.00452,
+        0.02037,
+        -0.02195
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "ria. History should teach greater humility.” Famously, Chief Justice John Roberts concluded, “[t]he way to stop discrimination on the basis of race is to stop discriminating on the",
+      "overlap_with_next": "idiscrimination law’s ban on making decisions because of a protected attribute. See David A. Strauss, The Law and Economics of Racial Discrimination in Employment: The Case for Num",
+      "text": "ria. History should teach greater humility.” Famously, Chief Justice John Roberts concluded, “[t]he way to stop discrimination on the basis of race is to stop discriminating on the basis of race.” Lastly, even the possibility of creating disparate impact may be insufficient for revising a promotion mechanism. In Ricci v. DeStefano, the Supreme Court found that New Haven had improperly discriminated (disparate treatment) by tossing the test results of a firefighting promotion test, even though using the test results would have resulted in no Black firefighters being promoted. New Haven had made an employment decision “because of race,” without a strong basis in evidence of disparate-impact liability, to which we return below. These cases illustrate antidiscrimination law’s sharp turn from antisubordination—the notion that the law should protect the 9 So-called “statistical discrimination,” using protected attributes to draw inferences about unobserved attributes (e.g., productivity), similarly violates antidiscrimination law’s ban on making decisions because of a protected attribute. See David A. Strauss, The Law and Economics of Racial Discrimination in Employment: The Case for Num",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00711,
+        0.00471,
+        0.01143,
+        0.03456,
+        -0.01844
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "idiscrimination law’s ban on making decisions because of a protected attribute. See David A. Strauss, The Law and Economics of Racial Discrimination in Employment: The Case for Num",
+      "overlap_with_next": "sely resembl[ing] the narrowly-tailored law school admissions practices upheld in Grutter.” Under this theory, there has been no classification when the protected attribute is one ",
+      "text": "idiscrimination law’s ban on making decisions because of a protected attribute. See David A. Strauss, The Law and Economics of Racial Discrimination in Employment: The Case for Numerical Standards, 79 Geo. L.J. 1619, 1623 (1991). Refusing to hire female violinists into an orchestra because ticket prices may increase due to discriminatory preferences by the audience is no defense to Title VII. [Page 8] 10/30/20 U. Chi. L. Rev. Online *141 disadvantaged—toward anticlassification. Under anticlassification, the government should stop classifying based on race or gender. Period. But these developments in equal-protection jurisprudence pose a basic challenge to algorithmic fairness, which overwhelmingly relies on formalizing, classifying, and weighing predictions based on protected attributes. B. Potential Defenses We consider three potential defenses of algorithmic fairness approaches. First, there is the argument that such approaches use race as “just one factor among all the observed variables . . . more closely resembl[ing] the narrowly-tailored law school admissions practices upheld in Grutter.” Under this theory, there has been no classification when the protected attribute is one ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04927,
+        0.01964,
+        -0.00156,
+        0.04603,
+        -0.02191
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "sely resembl[ing] the narrowly-tailored law school admissions practices upheld in Grutter.” Under this theory, there has been no classification when the protected attribute is one ",
+      "overlap_with_next": "ot simply as a factor in the model, but in more specialized ways (e.g., as part of a fairness constraint), making the one-factor-of-many defense hard to credit. Second, some schola",
+      "text": "sely resembl[ing] the narrowly-tailored law school admissions practices upheld in Grutter.” Under this theory, there has been no classification when the protected attribute is one of many features. The pension plans, for instance, may have been problematic because gender was the sole factor determining contribution rates. Yet under this interpretation, virtually any use of protected class attributes in the big data context, where protected attributes are inherently one of many features, might be permissible. It is highly unlikely that a court would accept this interpretation. In Gratz, the college also used race as only one factor in addition to high school GPA, standardized test scores, personal statement, high school quality and curriculum, residency status, alumni relationship, leadership activities, and athletics. The fact that race is one of many potential inputs provides no sense of its actual impact in machine learning. And indeed, bias mitigation often involves using the protected class variable not simply as a factor in the model, but in more specialized ways (e.g., as part of a fairness constraint), making the one-factor-of-many defense hard to credit. Second, some schola",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08433,
+        0.00106,
+        -0.02048,
+        0.02188,
+        -0.04198
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "ot simply as a factor in the model, but in more specialized ways (e.g., as part of a fairness constraint), making the one-factor-of-many defense hard to credit. Second, some schola",
+      "overlap_with_next": "o much less 10 These approaches are sometimes referred to as “disparate learning processes.” [Page 9] 10/30/20 U. Chi. L. Rev. Online *142 predictive for minorities than for non-mi",
+      "text": "ot simply as a factor in the model, but in more specialized ways (e.g., as part of a fairness constraint), making the one-factor-of-many defense hard to credit. Second, some scholars have proposed methods to “zero out” the effect of race, without using race per se in the prediction step.10 These approaches, known as “disparate learning processes” are more appealing from a legal perspective since they make the algorithm appear more race-neutral. Professor Cynthia Dwork and colleagues, however, powerfully argue that protected attributes should not be zeroed out because they may provide important contextual value. Consider a hypothetical technology company’s hiring algorithm, which predicts job performance based on candidates’ resumes and transcripts, including the number of elective computer science (CS) courses they have taken. Assume that minorities have taken far fewer elective CS courses in part because they have felt alienated in the curriculum, and as a result, the number of elective CS courses is also much less 10 These approaches are sometimes referred to as “disparate learning processes.” [Page 9] 10/30/20 U. Chi. L. Rev. Online *142 predictive for minorities than for non-mi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04949,
+        0.02467,
+        -0.0398,
+        0.04805,
+        -0.01445
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "o much less 10 These approaches are sometimes referred to as “disparate learning processes.” [Page 9] 10/30/20 U. Chi. L. Rev. Online *142 predictive for minorities than for non-mi",
+      "overlap_with_next": "ive CS courses taken and performance review as a software engineer. The right panel, however, illustrates separate models: one for individuals in the majority group (blue circles) ",
+      "text": "o much less 10 These approaches are sometimes referred to as “disparate learning processes.” [Page 9] 10/30/20 U. Chi. L. Rev. Online *142 predictive for minorities than for non-minorities. Training a model that interacted minority status with number of CS courses taken would lead to outcomes that are deemed “fairer” under many conceptions of fairness, while also yielding more accurate predictions. Zeroing out the effect of race would miss this important dynamic, as illustrated in Figure 2. More generally, scholars have shown that disparate learning processes can functionally result in disparate treatment and lead to suboptimal tradeoffs between fairness and accuracy. These results generally call into question whether such approaches could meet narrow tailoring. Figure 2: The Contextual Value of Protected Class Attributes. The left panel illustrates a model fitted to synthetic data when there is blindness to the protected class attribute, demonstrating a strong positive correlation between number of elective CS courses taken and performance review as a software engineer. The right panel, however, illustrates separate models: one for individuals in the majority group (blue circles) ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04605,
+        0.00781,
+        -0.06129,
+        0.03694,
+        -0.01609
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ive CS courses taken and performance review as a software engineer. The right panel, however, illustrates separate models: one for individuals in the majority group (blue circles) ",
+      "overlap_with_next": "achine learning model. The lines connect the “Pareto frontier,” where there is no way to improve accuracy without degrading fairness and vice versa. Any model that is not on the Pa",
+      "text": "ive CS courses taken and performance review as a software engineer. The right panel, however, illustrates separate models: one for individuals in the majority group (blue circles) and another for the minority group (orange squares). In the majority group, there is a strong positive correlation, but in the minority group, there is virtually no correlation. The magnitude of correlation differs significantly between majority and minority groups. High-performing individuals in the minority group take fewer elective CS courses than those in the majority group, so putting significant weight on “number of elective CS courses” would result in many high performing minority candidates not being hired. [Page 10] 10/30/20 U. Chi. L. Rev. Online *143 Figure 3: Pareto Frontier of the Accuracy-Fairness Trade-off. The x- axis presents fairness (by whatever measure) from low (left) to high (right) and the y-axis represents accuracy (by whatever measure) from low (bottom) to high (top). Each point indicates one potential machine learning model. The lines connect the “Pareto frontier,” where there is no way to improve accuracy without degrading fairness and vice versa. Any model that is not on the Pa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06416,
+        -0.00921,
+        -0.07085,
+        0.02357,
+        -0.00617
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "achine learning model. The lines connect the “Pareto frontier,” where there is no way to improve accuracy without degrading fairness and vice versa. Any model that is not on the Pa",
+      "overlap_with_next": "out sacrificing fairness or improve fairness without sacrificing accuracy. As illustrated by the CS courses example, blindness can leave us at an interior point like B, which is st",
+      "text": "achine learning model. The lines connect the “Pareto frontier,” where there is no way to improve accuracy without degrading fairness and vice versa. Any model that is not on the Pareto frontier could improve fairness with no loss in accuracy and is hence, arguably, not the least restrictive means. In the example above about CS courses, for some accuracy and fairness metrics, the model that takes into account whether the individual is in the majority or minority group would be closer to the Pareto frontier (e.g., at point A), whereas a blind model would be in the interior (e.g., at point B). To illustrate this potential trade-off,11 Figure 3 plots “fairness” (based on any one of many measures) on the x-axis against accuracy (which can also be measured in numerous ways) on the y-axis. Each point in this simplified plot illustrates how specific machine-learning models trade off fairness vs. accuracy, with the line representing the “Pareto frontier.” Any model in the interior space could improve accuracy without sacrificing fairness or improve fairness without sacrificing accuracy. As illustrated by the CS courses example, blindness can leave us at an interior point like B, which is st",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01601,
+        -0.03347,
+        -0.04725,
+        -0.00478,
+        -0.01295
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "out sacrificing fairness or improve fairness without sacrificing accuracy. As illustrated by the CS courses example, blindness can leave us at an interior point like B, which is st",
+      "overlap_with_next": " for instance, equalizes features across types of names, as names may encode race, without using protected attributes. Under a formalist approach, these approaches present lower le",
+      "text": "out sacrificing fairness or improve fairness without sacrificing accuracy. As illustrated by the CS courses example, blindness can leave us at an interior point like B, which is strictly dominated by a model that accounts for the protected class attribute like point A. Narrow tailoring should require that a policy navigate this Pareto 11 In practice, the shape of the Pareto frontier will differ depending on the dataset and specific metrics used for fairness and accuracy. The shape of the Pareto frontier in our graph was inspired in part by Figure 2 in Alexey Romanov et al., What’s in a Name? Reducing Bias in Bios Without Access to Protected Attributes, PROC. OF NAACL-HLT 4187 (2019). [Page 11] 10/30/20 U. Chi. L. Rev. Online *144 frontier, whereby any gain in accuracy would result in a loss in fairness or vice versa. Third, another class of approaches, responding more directly to anticlassification’s demands, employs proxies of the protected class variable to generate fairer outcomes. One clever approach, for instance, equalizes features across types of names, as names may encode race, without using protected attributes. Under a formalist approach, these approaches present lower le",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03124,
+        -0.02857,
+        -0.04374,
+        0.01306,
+        -0.03664
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": " for instance, equalizes features across types of names, as names may encode race, without using protected attributes. Under a formalist approach, these approaches present lower le",
+      "overlap_with_next": "med affirmative action, we argue that there is an alternative doctrinal path that would make algorithmic bias mitigation legally viable. Affirmative action was rooted in the belief",
+      "text": " for instance, equalizes features across types of names, as names may encode race, without using protected attributes. Under a formalist approach, these approaches present lower legal risk,12 but they also invite significant gaming. Moreover, if a court sees the proxy variables as simply substituting for the protected class and the approach as race- motivated, the court may still deem the approach affirmative action.13 In short, while legal constraints have sparked a series of machine learning solutions, there remains considerable risk that the express utilization of protected attributes—or proxies thereof—will trigger strict scrutiny and fail anticlassification.14 On the other hand, the machine-learning literature also teaches us that alternatives that downplay the use of protected attributes will rarely meet the Pareto frontier of the accuracy-fairness tradeoff: blindness is rarely the least restrictive means. II. The Proper State Interest: Discrimination or Diversity Even if algorithmic fairness is deemed affirmative action, we argue that there is an alternative doctrinal path that would make algorithmic bias mitigation legally viable. Affirmative action was rooted in the belief",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05101,
+        -0.04511,
+        -0.00377,
+        0.02558,
+        -0.03711
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "med affirmative action, we argue that there is an alternative doctrinal path that would make algorithmic bias mitigation legally viable. Affirmative action was rooted in the belief",
+      "overlap_with_next": " percent of their high school class, “cannot be understood apart from its basic purpose, which is to boost minority enrollment.”). 14 A recent proposed rule from the Department of ",
+      "text": "med affirmative action, we argue that there is an alternative doctrinal path that would make algorithmic bias mitigation legally viable. Affirmative action was rooted in the belief that facially neutral policies would be insufficient to address past and ongoing discrimination. In his 1965 commencement address at Howard University, President 12 In Rothe Development, Inc. v. U.S. Department of Defense, 836 F.3d 57 (D.C. Cir. 2016), the D.C. Circuit, for instance, subjected the Small Business Administration’s Section 8(a) government-contracting program for “socially disadvantaged” business only to rational basis review. Despite the fact that the implementing regulation designated five racial groups as presumptively socially disadvantaged, the court concluded there was no racial classification in the statute triggering strict scrutiny on a facial challenge. 13 See Fisher v. Univ. of Tex., 136 S. Ct. 2198, 2213 (2016) (noting that Texas’s Top 10 Percent Plan, which automatically admitted students in the top 10 percent of their high school class, “cannot be understood apart from its basic purpose, which is to boost minority enrollment.”). 14 A recent proposed rule from the Department of ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02414,
+        -0.02482,
+        0.01264,
+        -0.01047,
+        -0.00823
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": " percent of their high school class, “cannot be understood apart from its basic purpose, which is to boost minority enrollment.”). 14 A recent proposed rule from the Department of ",
+      "overlap_with_next": "Court, rejected the University of California’s remedial rationale for instituting affirmative action to ameliorate discrimination. After all, UC Davis Medical School, as a relative",
+      "text": " percent of their high school class, “cannot be understood apart from its basic purpose, which is to boost minority enrollment.”). 14 A recent proposed rule from the Department of Housing and Urban Development goes so far as to create a safe harbor for algorithms that do not make use of protected class variables. [Page 12] 10/30/20 U. Chi. L. Rev. Online *145 Lyndon B. Johnson delivered what has widely been lauded as “the intellectual framework for affirmative action”: “You do not take a person who, for years, has been hobbled by chains and liberate him, bring him up to the starting line of a race and then say, ‘You are free to compete with all the others,’ and still justly believe that you have been completely fair.” While Presidents Kennedy and Johnson mandated the first forms of affirmative action in federal contracting to ameliorate historical discrimination, higher education reached a fork in the road in Regents of the University of California v. Bakke. Justice Powell, announcing the judgment of the Court, rejected the University of California’s remedial rationale for instituting affirmative action to ameliorate discrimination. After all, UC Davis Medical School, as a relative",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02942,
+        -0.01632,
+        -0.01149,
+        -0.01809,
+        -0.00263
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "Court, rejected the University of California’s remedial rationale for instituting affirmative action to ameliorate discrimination. After all, UC Davis Medical School, as a relative",
+      "overlap_with_next": "ever, flips this perception on its head: diversity, construed under Bakke as demanding unquantifiable, individualized consideration,15 is, if anything, more restrictive than histor",
+      "text": "Court, rejected the University of California’s remedial rationale for instituting affirmative action to ameliorate discrimination. After all, UC Davis Medical School, as a relatively young institution, could not identify specific past discrimination it had engaged in. Absent such “identified discrimination,” general “societal discrimination” was “an amorphous concept of injury that may be ageless in its reach into the past.” Instead, Justice Powell turned to diversity as the legitimate compelling state interest. Conventionally, the diversity rationale is often seen as the Court’s unique permissiveness in higher education. In K-12 education, employment, and government contracting, race-conscious decision- making must be justified as a narrowly tailored remedy for historical discrimination that is traceable to the decision-making entity. Only in the context of higher education does the Court permit an alternative compelling state interest without evidence of past discrimination. The algorithmic context, however, flips this perception on its head: diversity, construed under Bakke as demanding unquantifiable, individualized consideration,15 is, if anything, more restrictive than histor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0386,
+        -0.03883,
+        -0.00508,
+        0.00857,
+        -0.01835
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "ever, flips this perception on its head: diversity, construed under Bakke as demanding unquantifiable, individualized consideration,15 is, if anything, more restrictive than histor",
+      "overlap_with_next": "uantify. Having a human in the loop would thus only be [Page 13] 10/30/20 U. Chi. L. Rev. Online *146 Grutter may imply a “right to a human decision.” Following the higher educatio",
+      "text": "ever, flips this perception on its head: diversity, construed under Bakke as demanding unquantifiable, individualized consideration,15 is, if anything, more restrictive than historical discrimination in the algorithmic context. First, the refusal under Gratz to formalize any express weight to race creates unique challenges in the algorithmic context, where any preference for minorities is inherently quantifiable. Second, if narrow tailoring to achieve diversity demands “individualized consideration,” algorithmic decision-making may not be possible at all.16 In the extreme, Gratz and 15 See Bakke, 438 U.S. at 319 n.53 (“So long as the university proceeds on an individualized, case-by-case basis, there is no warrant for judicial interference in the academic process.”). 16 Simply having a human in the loop is unlikely to solve this problem. The benefit of human decision-making over machine decision-making here is that the manner in which humans take into account different factors is opaque and difficult to quantify. Having a human in the loop would thus only be [Page 13] 10/30/20 U. Chi. L. Rev. Online *146 Grutter may imply a “right to a human decision.” Following the higher educatio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04511,
+        -0.00726,
+        -0.00434,
+        0.04453,
+        -0.04419
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "uantify. Having a human in the loop would thus only be [Page 13] 10/30/20 U. Chi. L. Rev. Online *146 Grutter may imply a “right to a human decision.” Following the higher educatio",
+      "overlap_with_next": " that does not “unnecessarily trammel” the rights of non-minorities and is temporary in duration. Emphasized in affirmative-action cases outside of education is the benefit of enco",
+      "text": "uantify. Having a human in the loop would thus only be [Page 13] 10/30/20 U. Chi. L. Rev. Online *146 Grutter may imply a “right to a human decision.” Following the higher education case law hence leads to fundamentally incoherent results in the algorithmic decision-making context. In contrast, the contractor cases provide a legal test that is not only compatible with, but helps to ground, algorithmic fairness. Although there have been significant challenges to these programs, the current case law permits government classifications by race to improve the share of contracts awarded to minorities under certain conditions. The critical limitation is that government must have played a role in generating outcome disparities and the program must be narrowly tailored to benefit victims of discrimination while minimizing adverse effects on others. Similarly, voluntary affirmative-action plans by employers rely on an empirical demonstration of “manifest imbalance” in the workforce, with a narrowly tailored program that does not “unnecessarily trammel” the rights of non-minorities and is temporary in duration. Emphasized in affirmative-action cases outside of education is the benefit of enco",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08471,
+        -0.00647,
+        0.01545,
+        -0.00096,
+        -0.01294
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": " that does not “unnecessarily trammel” the rights of non-minorities and is temporary in duration. Emphasized in affirmative-action cases outside of education is the benefit of enco",
+      "overlap_with_next": "ted Status Key to establishing a compelling interest in remedying historical discrimination is showing a “strong basis in evidence” that the race- conscious action (or the action b",
+      "text": " that does not “unnecessarily trammel” the rights of non-minorities and is temporary in duration. Emphasized in affirmative-action cases outside of education is the benefit of encouraging entities to adopt voluntary measures. In Johnson, the Court concluded that “voluntary employer action can play a crucial role in . . . eliminating the effects of discrimination in the workplace, and . . . Title VII should not be read to thwart such efforts.” The Court’s emphasis of “the value of voluntary efforts to further the objectives of the law” is especially pertinent in the algorithmic context, where there is significant legal uncertainty around the appropriate way to address algorithmic bias. Although presenting sufficient evidence of responsibility for historical discrimination can be challenging, as we describe next, connecting bias mitigation to evidence of discrimination enables algorithmic fairness. III. The Strong Basis in Evidence for Algorithmic Fairness A. The Evidentiary Basis for Action Based on Protected Status Key to establishing a compelling interest in remedying historical discrimination is showing a “strong basis in evidence” that the race- conscious action (or the action b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00748,
+        0.01189,
+        0.0071,
+        0.02585,
+        -0.0103
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ted Status Key to establishing a compelling interest in remedying historical discrimination is showing a “strong basis in evidence” that the race- conscious action (or the action b",
+      "overlap_with_next": "approach encourages entities to collect data on past discrimination, to empirically understand the effects of policies, and to formalize the scope of a remedial plan, making this a",
+      "text": "ted Status Key to establishing a compelling interest in remedying historical discrimination is showing a “strong basis in evidence” that the race- conscious action (or the action based on protected status) is necessary. In the contractor setting, governments must demonstrate a gap beneficial if they rebalanced the algorithmic predictions in their head on the basis of protected attributes—similar to college admissions. This might make it easier to have affirmative action informed by algorithmic predictions, but it would not enable algorithmic affirmative action, whereby there is rebalancing in the data or model itself. [Page 14] 10/30/20 U. Chi. L. Rev. Online *147 between the proportion of qualified, minority-owned businesses and the proportion of government contracts given to minority-owned businesses (i.e., “disparity studies”). These studies are also often coupled with qualitative evidence suggesting intentional discrimination and/or regression analyses aimed to rule out alternative explanations. This approach encourages entities to collect data on past discrimination, to empirically understand the effects of policies, and to formalize the scope of a remedial plan, making this a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04123,
+        -0.00087,
+        0.00941,
+        0.01452,
+        -0.01135
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "approach encourages entities to collect data on past discrimination, to empirically understand the effects of policies, and to formalize the scope of a remedial plan, making this a",
+      "overlap_with_next": "levant markets and qualified contractors. Government entities have often struggled to produce specific data on minority contractor availability in their jurisdiction and to adequat",
+      "text": "approach encourages entities to collect data on past discrimination, to empirically understand the effects of policies, and to formalize the scope of a remedial plan, making this approach better suited for the algorithmic context. As a result, government contracting is the rare domain where the Court has permitted different thresholds by racial group or differential treatment of minority contractors. For example, many government- contracting affirmative-action programs apply a price evaluation adjustment to bids of minority contractors, so that minority contractors can win contracts even with higher bids than non-minority contractors. Similarly, programs can create set-asides for disadvantaged contractors17 and set quantified objectives, such as having 5 percent of its contracts go to minority-owned businesses. This stands in sharp contrast to higher education, where such objectives are seen to violate Bakke. The challenge defendants face in these cases is providing sufficient empirical evidence of the relevant markets and qualified contractors. Government entities have often struggled to produce specific data on minority contractor availability in their jurisdiction and to adequat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06256,
+        -0.02385,
+        -0.00397,
+        0.01351,
+        0.0118
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "levant markets and qualified contractors. Government entities have often struggled to produce specific data on minority contractor availability in their jurisdiction and to adequat",
+      "overlap_with_next": " unconstitutional, it did so not 17 See, e.g., Small Business Act § 8(a), 15 U.S.C. § 637(a) (2018). This program was challenged in Rothe Development, Inc., 836 F.3d 57, but the D.",
+      "text": "levant markets and qualified contractors. Government entities have often struggled to produce specific data on minority contractor availability in their jurisdiction and to adequately distinguish between qualified and unqualified contractors, undermining the conclusions of their disparity studies. Unlike in the higher education context, where quotas and point systems are frowned upon, government-contractor cases have focused on whether the empirical evidence is (a) sufficient to show a need for remedial action and (b) whether the magnitude or form of the program is narrowly tailored based on the evidence of discrimination (e.g., whether the right demographic groups are targeted). General trends toward anticlassification have thus manifested themselves in the contracting context as higher evidentiary standards rather than prohibitions on specific types of programs. For example, although the Federal Circuit found the Department of Defense’s Section 1207 program, which featured a price evaluation adjustment, unconstitutional, it did so not 17 See, e.g., Small Business Act § 8(a), 15 U.S.C. § 637(a) (2018). This program was challenged in Rothe Development, Inc., 836 F.3d 57, but the D.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08667,
+        -0.00299,
+        -0.00239,
+        -0.006,
+        0.00904
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " unconstitutional, it did so not 17 See, e.g., Small Business Act § 8(a), 15 U.S.C. § 637(a) (2018). This program was challenged in Rothe Development, Inc., 836 F.3d 57, but the D.",
+      "overlap_with_next": " The critical question would not be whether admissions decisions are sufficiently “individualized,” but instead whether there is a strong basis in evidence that the University of M",
+      "text": " unconstitutional, it did so not 17 See, e.g., Small Business Act § 8(a), 15 U.S.C. § 637(a) (2018). This program was challenged in Rothe Development, Inc., 836 F.3d 57, but the D.C. Circuit upheld it by applying rational-basis scrutiny instead of strict scrutiny. The court reasoned that the provisions “do not on their face classify individuals by race.” [Page 15] 10/30/20 U. Chi. L. Rev. Online *148 on the grounds that using differing thresholds are impermissible, but on the grounds that the disparity studies were insufficiently robust.18 B. Application to Algorithmic Context The government-contracting line of affirmative-action cases—spanning from contractor to employment settings—provides a more coherent path forward for efforts to mitigate algorithmic bias. It provides a doctrinal grounding for technologists to develop techniques that quantify specific forms of historical discrimination and use those estimates to calibrate the extent of bias mitigation. Consider if this approach were adopted in Gratz. The critical question would not be whether admissions decisions are sufficiently “individualized,” but instead whether there is a strong basis in evidence that the University of M",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05792,
+        0.00558,
+        0.01401,
+        -0.00469,
+        -0.01342
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": " The critical question would not be whether admissions decisions are sufficiently “individualized,” but instead whether there is a strong basis in evidence that the University of M",
+      "overlap_with_next": "ssion?19 This approach has several other virtues in the algorithmic context. First, enabling the articulation of clear, quantifiable objectives allows technologists to take action ",
+      "text": " The critical question would not be whether admissions decisions are sufficiently “individualized,” but instead whether there is a strong basis in evidence that the University of Michigan’s past practices were discriminatory. The university might find, for instance, that legacy preferences (or its segregated past, or having had a prominent eugenicist as university president) caused minority applicants to be disadvantaged by an average of 20 points. If the practice of legacy preferences comes under increasing challenge, this might provide empirical grounding for the 20-point boost for minority applicants. (Harvard University’s admissions files, for instance, even suggest intentional discrimination when parental connections “signify lineage of more than usual weight.”) This approach incentivizes universities to ask the relevant empirical questions: what has been the impact of legacy preferences, and how much should we credit the claims that alumni would cease to volunteer and contribute absent a legacy admission?19 This approach has several other virtues in the algorithmic context. First, enabling the articulation of clear, quantifiable objectives allows technologists to take action ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04171,
+        -0.02164,
+        0.00099,
+        0.01377,
+        -0.03563
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "ssion?19 This approach has several other virtues in the algorithmic context. First, enabling the articulation of clear, quantifiable objectives allows technologists to take action ",
+      "overlap_with_next": "Admissions Office Strikes Back: The Process Is Fair, THE HARVARD CRIMSON (Nov. 26, 1990). [Page 16] 10/30/20 U. Chi. L. Rev. Online *149 in State v. Loomis, the Wisconsin Supreme C",
+      "text": "ssion?19 This approach has several other virtues in the algorithmic context. First, enabling the articulation of clear, quantifiable objectives allows technologists to take action to address bias in their tools. In most machine learning approaches, technologists have discretion to decide how much of a correction is desired, but little guidance for that decision. The contractor cases teach us that the correction should be calibrated to the magnitude of historical discrimination. For example, 18 In fact, the Federal Circuit specifically stated that their “holding [was] grounded in the particular items of evidence offered by DOD and relied on by the district court in this case, and should not be construed as stating blanket rules, for example about the reliability of disparity studies.” Rothe Dev. Corp., 545 F.3d at 1049. 19 This was the “business necessity” credited by the U.S. Department of Education's Office for Civil Rights when it investigated practices in the late 1980s and early 1990s. See, e.g., The Admissions Office Strikes Back: The Process Is Fair, THE HARVARD CRIMSON (Nov. 26, 1990). [Page 16] 10/30/20 U. Chi. L. Rev. Online *149 in State v. Loomis, the Wisconsin Supreme C",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03862,
+        -0.02338,
+        -0.00572,
+        0.01234,
+        -0.0149
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "Admissions Office Strikes Back: The Process Is Fair, THE HARVARD CRIMSON (Nov. 26, 1990). [Page 16] 10/30/20 U. Chi. L. Rev. Online *149 in State v. Loomis, the Wisconsin Supreme C",
+      "overlap_with_next": "avoring women. Quantifying this bias would be critical to understanding (a) whether separate models should be used and (b) how large the adjustment should be. Second, one of the ch",
+      "text": "Admissions Office Strikes Back: The Process Is Fair, THE HARVARD CRIMSON (Nov. 26, 1990). [Page 16] 10/30/20 U. Chi. L. Rev. Online *149 in State v. Loomis, the Wisconsin Supreme Court concluded that having separate risk assessment algorithms for men and women was permissible on due process grounds.20 The data showed a large gap between crime rates for men versus women, so using a single model would significantly overestimate the probability of recidivism for women and lower accuracy overall. Yet why does that gender disparity exist? Consider the possibility that courts have been historically biased in favor of (i.e., more lenient toward) women, resulting in fewer reconvictions given the same factual circumstances (e.g., physical altercations). If so, the gender difference in recidivism rates may reflect existing gender bias by courts and a single model might actually remedy the impact of such bias. Using a risk assessment tool that classifies on gender, in contrast, could simply encode preexisting bias favoring women. Quantifying this bias would be critical to understanding (a) whether separate models should be used and (b) how large the adjustment should be. Second, one of the ch",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05808,
+        -0.0055,
+        -0.06385,
+        0.01778,
+        -0.02322
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "avoring women. Quantifying this bias would be critical to understanding (a) whether separate models should be used and (b) how large the adjustment should be. Second, one of the ch",
+      "overlap_with_next": " identifying sources of historical bias is related to the emergence of causal-inference methods in algorithmic fairness, which seek to identify the causal effect of a protected cla",
+      "text": "avoring women. Quantifying this bias would be critical to understanding (a) whether separate models should be used and (b) how large the adjustment should be. Second, one of the challenges in the algorithmic-fairness literature has been the dizzying set of fairness definitions, which are sometimes mutually incompatible. Understanding the source of bias can clarify which definitions, if any, are most appropriate given the historical source of discrimination. In the CS courses example above, if we did not have any knowledge about the historical sources of discrimination, we might simply use different score thresholds for different groups as a way to address the hiring gaps. Knowing that “number of CS courses” is less predictive of success as a software engineer for certain groups because of the alienation or discrimination they experienced in those classes, however, allows for a more tailored approach of putting different weights on the “number of elective CS courses” variable for different groups.21 Third, identifying sources of historical bias is related to the emergence of causal-inference methods in algorithmic fairness, which seek to identify the causal effect of a protected cla",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05962,
+        -0.01328,
+        -0.04121,
+        0.02981,
+        -0.01692
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": " identifying sources of historical bias is related to the emergence of causal-inference methods in algorithmic fairness, which seek to identify the causal effect of a protected cla",
+      "overlap_with_next": "designing targeted interventions. IV. Limitations While there are many virtues to applying the logic of the contractor cases to the algorithmic-fairness context, we acknowledge tha",
+      "text": " identifying sources of historical bias is related to the emergence of causal-inference methods in algorithmic fairness, which seek to identify the causal effect of a protected class variable and reverse this effect. These methods have the virtue of being tied closely to the causal notion of antidiscrimination law. Although current methods do not make a distinction between the specific sources of racial disparities or the historical responsibility for those disparities, they are one step in 20 Note that the defendant did not bring an equal-protection claim, and the court gestured at the possibility that its decision might have differed if it evaluated the claim on equal-protection grounds. 21 We recognize that there is still a limitation to this approach, which is that the employer may bear no responsibility for the collegiate environment. We address those challenges below. [Page 17] 10/30/20 U. Chi. L. Rev. Online *150 the direction of identifying and attributing discrimination reflected in the data and designing targeted interventions. IV. Limitations While there are many virtues to applying the logic of the contractor cases to the algorithmic-fairness context, we acknowledge tha",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06016,
+        -0.00733,
+        -0.00205,
+        0.03185,
+        -0.03587
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "designing targeted interventions. IV. Limitations While there are many virtues to applying the logic of the contractor cases to the algorithmic-fairness context, we acknowledge tha",
+      "overlap_with_next": "storical bias, “unnecessarily trammel[ing] the rights of other[s].” Our proposed approach, however, likely achieves the opposite—the emphasis on correcting only for empirically ide",
+      "text": "designing targeted interventions. IV. Limitations While there are many virtues to applying the logic of the contractor cases to the algorithmic-fairness context, we acknowledge that there are key limitations. First, as is the case for all areas of affirmative action, the doctrine is unstable and subject to significant changes in constitutional jurisprudence. A turn toward strict anticlassification in the contracting area could render algorithmic fairness constitutionally suspect. Our basic claim is simply that, given the current constitutional doctrine, the contractor cases are much more appropriate for algorithmic affirmative action. As courts grapple with the profound questions of AI, they should look to the “strong basis in evidence” standard rather than fixating on “individualized” decision making. If anything, the algorithmic fairness literature teaches us the internal incoherence of the higher education affirmative-action jurisprudence.22 Second, one might argue that our approach overcorrects for historical bias, “unnecessarily trammel[ing] the rights of other[s].” Our proposed approach, however, likely achieves the opposite—the emphasis on correcting only for empirically ide",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04883,
+        -0.00833,
+        0.0374,
+        0.02641,
+        -0.01664
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "storical bias, “unnecessarily trammel[ing] the rights of other[s].” Our proposed approach, however, likely achieves the opposite—the emphasis on correcting only for empirically ide",
+      "overlap_with_next": "of inequities. This fear of scoping too far, “perhaps invalidat[ing], a whole range of tax, welfare, public service, regulatory, and licensing statutes,” undergirded Washington v. ",
+      "text": "storical bias, “unnecessarily trammel[ing] the rights of other[s].” Our proposed approach, however, likely achieves the opposite—the emphasis on correcting only for empirically identifiable historical bias that is traceable to the entity in question prevents such overstepping. While Loomis, for instance, permitted the use of separate algorithms by sex, the contractor approach would encourage a more nuanced consideration, whereby the algorithms should be corrected for differences in how courts treat defendants by sex. Algorithmic solutions should be institutionally tailored. Fortunately, recent work in criminal justice has attempted to isolate discretion at each stage and institution, providing an empirical basis for such institutional tailoring. Third, one of the more important objections is that the contractor approach underprotects the rights of minorities. A requirement to trace disparities to the entity deploying the algorithm may not capture the vast societal, governmental, and institutional sources of inequities. This fear of scoping too far, “perhaps invalidat[ing], a whole range of tax, welfare, public service, regulatory, and licensing statutes,” undergirded Washington v. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04907,
+        0.00232,
+        -0.02814,
+        0.04632,
+        -0.02616
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "of inequities. This fear of scoping too far, “perhaps invalidat[ing], a whole range of tax, welfare, public service, regulatory, and licensing statutes,” undergirded Washington v. ",
+      "overlap_with_next": "s of tracing historical responsibility. This limitation stems from our current antidiscrimination law, but there are some mitigating factors. A growing corpus of scholarship has sh",
+      "text": "of inequities. This fear of scoping too far, “perhaps invalidat[ing], a whole range of tax, welfare, public service, regulatory, and licensing statutes,” undergirded Washington v. Davis’s refusal to recognize constitutional disparate-impact claims. The contractor approach might insulate 22 This corroborates the points made by Ayres & Foster, Don’t Tell, Don’t Ask. [Page 18] 10/30/20 U. Chi. L. Rev. Online *151 entities that reorganize in a fast-moving field from responsibilities for algorithmic fairness. This is a valid concern and suggests that the case law might need to address when algorithmic outcomes can be attributed to formally distinct institutions.23 If an agency trains a hiring algorithm with data from a technology company, biases may stem from the company’s hiring practices. The agency would risk propagating those biases, but the agency would struggle to establish direct responsibility for the biases reflected in the data. In short, many biased actions might not be remedied due to the challenges of tracing historical responsibility. This limitation stems from our current antidiscrimination law, but there are some mitigating factors. A growing corpus of scholarship has sh",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0128,
+        0.00656,
+        -0.01364,
+        0.01408,
+        -0.02385
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "s of tracing historical responsibility. This limitation stems from our current antidiscrimination law, but there are some mitigating factors. A growing corpus of scholarship has sh",
+      "overlap_with_next": "he Court reasoned that since states can use their spending power to remedy private discrimination, if the agency could “identif[y] [the relevant] discrimination with the particular",
+      "text": "s of tracing historical responsibility. This limitation stems from our current antidiscrimination law, but there are some mitigating factors. A growing corpus of scholarship has shown the significant role government policy has played in creating racial disparities. For example, scholars have shown the ways in which New Deal policies acted as a form of White affirmative action and federal housing policies in the 1940s and 1950s further segregated Black and White Americans. Such a record of historical discrimination may fortify the rationale for government action. As to institutional reorganizations, labor law suggests that changes in entity structure should not absolve the new entity of past liabilities. In a merger or acquisition, for instance, the resulting entity can, in certain circumstances, face successor liability for discriminatory practices of the prior entities. Moreover, in the contractor affirmative-action context, the Court has suggested an expansive view of agency responsibility. In Croson, the Court reasoned that since states can use their spending power to remedy private discrimination, if the agency could “identif[y] [the relevant] discrimination with the particular",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06391,
+        -0.01723,
+        0.01449,
+        0.03104,
+        -0.01861
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "he Court reasoned that since states can use their spending power to remedy private discrimination, if the agency could “identif[y] [the relevant] discrimination with the particular",
+      "overlap_with_next": "m Parents Involved, in which the Court discussed the history of segregation in certain school districts, but found the connection was broken by Jefferson County reaching “unitary” ",
+      "text": "he Court reasoned that since states can use their spending power to remedy private discrimination, if the agency could “identif[y] [the relevant] discrimination with the particularity required by the Fourteenth Amendment,” then even if they were simply a “passive participant” in a discriminatory market, they could take action to remedy it. Fourth, another limitation lies in whether “historical” discrimination can capture the ongoing exercise of discretion in algorithmic design.24 23 Another example is when harm is generated by multiple institutions acting simultaneously. There, attribution may become difficult. 24 One might also worry whether historical discrimination scopes back too far. Is there something akin to a statute of limitations for historical discrimination? The strong-basis-in-evidence standard would suggest that you can go as far back as you have sufficient empirical evidence showing the connection between historical acts and present-day disparities. One additional caveat, however, comes from Parents Involved, in which the Court discussed the history of segregation in certain school districts, but found the connection was broken by Jefferson County reaching “unitary” ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00631,
+        0.00862,
+        0.00889,
+        0.03887,
+        0.00239
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "m Parents Involved, in which the Court discussed the history of segregation in certain school districts, but found the connection was broken by Jefferson County reaching “unitary” ",
+      "overlap_with_next": "as other scholars have pointed out, the case can be distinguished due to the specific reliance interests of firefighters who had spent significant time and money preparing for the ",
+      "text": "m Parents Involved, in which the Court discussed the history of segregation in certain school districts, but found the connection was broken by Jefferson County reaching “unitary” status after its [Page 19] 10/30/20 U. Chi. L. Rev. Online *152 If an entity cannot show evidence of historical discrimination related to its own actions, it may be barred from taking proactive action. While this is an issue in both the algorithmic and non-algorithmic contexts, it especially runs counter to good public policy in the algorithmic context, where developers can more readily measure and predict, prior to deployment, whether their algorithms will exhibit biases. The case law on proactively preventing discrimination is sparse. In Ricci v. DeStefano, the Court ruled that New Haven had engaged in disparate treatment when it discarded the results of a firefighter promotion test to avoid disparate-impact liability. Some interpret Ricci to mean that bias mitigation may not be conducted after deployment of an algorithm. But as other scholars have pointed out, the case can be distinguished due to the specific reliance interests of firefighters who had spent significant time and money preparing for the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00966,
+        -0.00456,
+        0.01566,
+        0.02115,
+        -0.01339
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "as other scholars have pointed out, the case can be distinguished due to the specific reliance interests of firefighters who had spent significant time and money preparing for the ",
+      "overlap_with_next": " individually identify whether they were harmed by the policy. Similarly, Ricci may be motivated by the racial resentment of White firefighters, the “visible victims” who had spent",
+      "text": "as other scholars have pointed out, the case can be distinguished due to the specific reliance interests of firefighters who had spent significant time and money preparing for the exam. These reliance interests are not necessarily relevant in the algorithmic context, and bias detection and mitigation may be much more fluid than a one-time test. In addition, the Court in Ricci did not find any issue with the test designer’s efforts to mitigate potential biases in the design of its test, including oversampling minorities in their job analyses. Disparate treatment may hence not categorically bar refining an algorithm pre- or post-deployment to address disparate impact. Last, another objection might be that “individualized consideration” stems not from anticlassification, but from a principle of antibalkanization, namely that the government should avoid increasing group resentment. By prohibiting transparency around affirmative action, Gratz and Grutter may have reduced racial resentment, as applicants cannot individually identify whether they were harmed by the policy. Similarly, Ricci may be motivated by the racial resentment of White firefighters, the “visible victims” who had spent",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05107,
+        -0.03699,
+        0.01136,
+        0.01934,
+        -0.01627
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": " individually identify whether they were harmed by the policy. Similarly, Ricci may be motivated by the racial resentment of White firefighters, the “visible victims” who had spent",
+      "overlap_with_next": "inty has led to a pernicious state of affairs: agencies and technologists are reluctant to assess and mitigate bias in algorithmic systems. We have attempted to sketch an alternati",
+      "text": " individually identify whether they were harmed by the policy. Similarly, Ricci may be motivated by the racial resentment of White firefighters, the “visible victims” who had spent months preparing for the exam. Antibalkanization could ultimately imply the right to a human decision when implementing affirmative action, gutting substantial potential gains—including an understanding of bias—from AI adoption. Antibalkanization, however, does not appear to explain the express use of quantitative affirmative- action targets in government contracting. V. Conclusion At a time when there are growing calls for action to address algorithmic bias, machine learning and antidiscrimination law appear desegregation decree was dissolved. This suggests a limitation based on the degree of empirical evidence and legal liability. [Page 20] 10/30/20 U. Chi. L. Rev. Online *153 to be at an impasse. The irony of modern antidiscrimination law is that it may prevent the active mitigation of algorithmic bias. Current legal uncertainty has led to a pernicious state of affairs: agencies and technologists are reluctant to assess and mitigate bias in algorithmic systems. We have attempted to sketch an alternati",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0204,
+        -0.00628,
+        0.00364,
+        -0.00086,
+        -0.03172
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "inty has led to a pernicious state of affairs: agencies and technologists are reluctant to assess and mitigate bias in algorithmic systems. We have attempted to sketch an alternati",
+      "overlap_with_next": "ights the internal incoherence of narrow tailoring in higher education: how should we ensure that a race-conscious plan is the least restrictive alternative without some formalizat",
+      "text": "inty has led to a pernicious state of affairs: agencies and technologists are reluctant to assess and mitigate bias in algorithmic systems. We have attempted to sketch an alternative path to break this impasse, and now conclude with three final thoughts. First, the lesson for the machine-learning community is that the future of algorithmic fairness lies in tying bias mitigation to historical discrimination that can be empirically documented and attributable to the deploying entity. This requires a closer collaboration with social scientists to understand institutional sources of bias and with lawyers to align solutions with legal precedent. If such work is not conducted, algorithmic fairness may reach a legal dead end. Second, algorithmic decision-making has broad lessons for the law as well. Recent results demonstrate that race- or gender-neutral approaches are less effective at promoting the state interests related to fairness and accuracy (i.e., not on the Pareto frontier).25 And machine learning highlights the internal incoherence of narrow tailoring in higher education: how should we ensure that a race-conscious plan is the least restrictive alternative without some formalizat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04911,
+        0.00056,
+        -0.00766,
+        0.00041,
+        -0.00917
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "ights the internal incoherence of narrow tailoring in higher education: how should we ensure that a race-conscious plan is the least restrictive alternative without some formalizat",
+      "overlap_with_next": "les more palatable in clinical diagnostic tools, but this has led to misattribution of health outcome differences to genetic rather than social sources. A similar logic has carried",
+      "text": "ights the internal incoherence of narrow tailoring in higher education: how should we ensure that a race-conscious plan is the least restrictive alternative without some formalization of the weight placed on race? While the government-contracting cases also present challenges, they do not present the same fundamental incoherence. Instead, they incentivize (a) collecting empirical evidence to assess past discrimination and (b) calibrating bias mitigation to that evidence. What might be a higher evidentiary burden in the non- algorithmic context can be a lighter one in the algorithmic context. Third, while we find the status quo of inaction due to legal uncertainty concerning, we also do not take lightly the use of protected-class variables. In medicine, for instance, there has been a long history of using race as a variable in ways that have likely amplified rather than mitigated bias, often based on egregious misconceptions about race. The idea that race has a genetic basis has made the use of race variables more palatable in clinical diagnostic tools, but this has led to misattribution of health outcome differences to genetic rather than social sources. A similar logic has carried",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05368,
+        -0.01333,
+        -0.01695,
+        0.02304,
+        -0.01269
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "les more palatable in clinical diagnostic tools, but this has led to misattribution of health outcome differences to genetic rather than social sources. A similar logic has carried",
+      "overlap_with_next": "er understanding of the mechanisms of discrimination, it may be easier to determine the basis, scope, and necessary tailoring for fairness as awareness. While not without limitatio",
+      "text": "les more palatable in clinical diagnostic tools, but this has led to misattribution of health outcome differences to genetic rather than social sources. A similar logic has carried over into the insurance context, where states do not uniformly prohibit the use of race in setting premiums, and to the calculation of economic loss in torts.26 25 Grutter, 539 U.S. at 339 (“Narrow tailoring does, however, require serious, good faith consideration of workable race-neutral alternatives”). 26 See McMillan v. City of New York, 253 F.R.D. 247 (E.D.N.Y. 2008); Martha Chamallas, Civil Rights in Ordinary Tort Cases: Race, Gender, and the Calculation of Economic Loss, 38 LOY. L.A. L. REV. 1435 (2005). [Page 21] 10/30/20 U. Chi. L. Rev. Online *154 The anticlassification approach posits that there is no cognizable distinction between benign and invidious government racial classifications.27 One virtue of the contractor jurisprudence is that it utilizes race-consciousness first to assess past discrimination; with a clearer understanding of the mechanisms of discrimination, it may be easier to determine the basis, scope, and necessary tailoring for fairness as awareness. While not without limitatio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08736,
+        -0.01009,
+        0.00913,
+        0.02818,
+        -0.006
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 51834,
+      "length": 834,
+      "overlap_with_previous": "er understanding of the mechanisms of discrimination, it may be easier to determine the basis, scope, and necessary tailoring for fairness as awareness. While not without limitatio",
+      "overlap_with_next": "",
+      "text": "er understanding of the mechanisms of discrimination, it may be easier to determine the basis, scope, and necessary tailoring for fairness as awareness. While not without limitations given current law, redirecting attention to the government-contracting line of affirmative-action cases thus may be a viable path for algorithmic innovation and fairness. 27 In Adarand Constructors, Inc. v. Peña, 515 U.S. 200, 225 (1995), the Court decided that all racial classifications are subject to strict scrutiny, regardless of whether they are “benign.” Although subsequent courts have interpreted this as meaning that there are no “benign” uses of racial classification, the Adarand Court was actually motivated not by the idea that there are no benign uses, but rather, that strict scrutiny is necessary to make this distinction in practice.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05011,
+        -0.02369,
+        0.00763,
+        0.06468,
+        -0.02878
+      ]
+    }
+  ]
+}

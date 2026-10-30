@@ -1,0 +1,232 @@
+{
+  "paper_id": "0f267225-e0bc-4cb8-ae6e-321aa4801533",
+  "filename": "062_Computer_Vision_Combining_CNN_and_Hybrid_Active_Contours_for_Head_and_Neck_Tumor_Segmentation_in_CT_and_PET_images.pdf",
+  "title": "Combining CNN and Hybrid Active Contours for Head and Neck Tumor Segmentation in CT and PET images",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 13,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "the MICCAI 2020 HECKTOR challenge with average Dice Similarity Coeﬃcient, precision, and recall of 0.752, 0.838, and 0.717, respectively. Keywords: Deep learning · Uncertainty · Ac",
+      "text": "[Page 1] Combining CNN and Hybrid Active Contours for Head and Neck Tumor Segmentation in CT and PET images Jun Ma1, Xiaoping Yang2∗ 1 Department of Mathematics, Nanjing University of Science and Technology junma@njust.edu.cn 2 Department of Mathematics, Nanjing University xpyang@nju.edu.cn (Corresponding author) Abstract. Automatic segmentation of head and neck tumors plays an important role in radiomics analysis. In this short paper, we propose an automatic segmentation method for head and neck tumors from PET and CT images based on the combination of convolutional neural net- works (CNNs) and hybrid active contours. Speciﬁcally, we ﬁrst introduce a multi-channel 3D U-Net to segment the tumor with the concatenated PET and CT images. Then, we estimate the segmentation uncertainty by model ensembles and deﬁne a segmentation quality score to select the cases with high uncertainties. Finally, we develop a hybrid active con- tour model to reﬁne the high uncertainty cases. Our method ranked sec- ond place in the MICCAI 2020 HECKTOR challenge with average Dice Similarity Coeﬃcient, precision, and recall of 0.752, 0.838, and 0.717, respectively. Keywords: Deep learning · Uncertainty · Ac",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01344,
+        -0.04624,
+        -0.02258,
+        -0.0032,
+        0.01802
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "the MICCAI 2020 HECKTOR challenge with average Dice Similarity Coeﬃcient, precision, and recall of 0.752, 0.838, and 0.717, respectively. Keywords: Deep learning · Uncertainty · Ac",
+      "overlap_with_next": "sed for joint PET and CT seg- mentation. Kumar et al. [8] proposed a co-learning CNN to improve the fusion of complementary information in multi-modality PET-CT, which includes two",
+      "text": "the MICCAI 2020 HECKTOR challenge with average Dice Similarity Coeﬃcient, precision, and recall of 0.752, 0.838, and 0.717, respectively. Keywords: Deep learning · Uncertainty · Active contours · Character- istic function. 1 Introduction Heak and neck cancers are one of the most common cancers [14]. Extracting quantitative image bio-markers from PET and CT images has shown tremen- dous potential to optimize patient care, such as predicting disease characteristics [9] [15]. However, it relies on an expensive and error-prone manual annotation process of Regions of Interest (ROI) to focus the analysis. The fully automatic segmentation methods for head and neck tumors in PET and CT images are highly demanded because they will enable the validation of radiomics models on very large cohorts and with optimal reproducibility. PET and CT modalities include complementary and synergistic information for tumor segmentation. Thus, the key is how to explore the complementary information. Several methods have been proposed for joint PET and CT seg- mentation. Kumar et al. [8] proposed a co-learning CNN to improve the fusion of complementary information in multi-modality PET-CT, which includes two",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03256,
+        -0.03727,
+        -0.03889,
+        0.00552,
+        0.01638
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "sed for joint PET and CT seg- mentation. Kumar et al. [8] proposed a co-learning CNN to improve the fusion of complementary information in multi-modality PET-CT, which includes two",
+      "overlap_with_next": "2 Fig. 1. Visual examples of PET and CT image and the corresponding ground truth. Active contours [7] [3] [4] have been one of the widely used segmentation methods before deep lear",
+      "text": "sed for joint PET and CT seg- mentation. Kumar et al. [8] proposed a co-learning CNN to improve the fusion of complementary information in multi-modality PET-CT, which includes two arXiv:2012.14207v1 [eess.IV] 28 Dec 2020 [Page 2] 2 J. Ma modality-speciﬁc encoders, a co-learning component, and a reconstruction com- ponent. Li et al. [11] proposed a deep learning based variational method for non-small cell lung cancer segmentation. Speciﬁcally, A 3D fully convolutional network (FCN) was traind on CT images to produce a probability. Then, A fuzzy variational model was then proposed to incorporate the probability map and the PET intensity image. A split Bregman algorithm was used to minimize the variational model. Recently, Andrearczyk et al. [1] used 2D and 3D V-Net to segment head and neck tumor from PET and CT images. Results showed that using the two modalities can obtain a statistically signiﬁcant improvement than using CT images or PET images only. CT PET CT PET Original Image Ground Truth Case 1 Case 2 Fig. 1. Visual examples of PET and CT image and the corresponding ground truth. Active contours [7] [3] [4] have been one of the widely used segmentation methods before deep lear",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0656,
+        -0.03161,
+        -0.0381,
+        0.00417,
+        0.00075
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "2 Fig. 1. Visual examples of PET and CT image and the corresponding ground truth. Active contours [7] [3] [4] have been one of the widely used segmentation methods before deep lear",
+      "overlap_with_next": "he segmentation uncertainty by model ensembles, and deﬁne a quality score to select the cases with high uncertainties. Finally, we develop a hybrid active contour model to reﬁne th",
+      "text": "2 Fig. 1. Visual examples of PET and CT image and the corresponding ground truth. Active contours [7] [3] [4] have been one of the widely used segmentation methods before deep learning ear. The basic idea is to formulate the image seg- mentation task as an energy functional minimization problem. According to used the information in the energy functional, active contours can be classiﬁed into three categories, including edge-based active contours [3] that rely on image gra- dient information, region-based active contours [10] that rely on image-intensity region descriptors, and hybrid active contours [18] [19] that use both image gra- dient and intensity information. In this short paper, we propose an automatic segmentation method for head and neck tumors from PET and CT images based on the combination of convolu- tional neural networks (CNNs) and hybrid active contours. Speciﬁcally, we ﬁrst introduce a multi-channel 3D U-Net to segment the tumor with the concatenated PET and CT images. Then, we estimate the segmentation uncertainty by model ensembles, and deﬁne a quality score to select the cases with high uncertainties. Finally, we develop a hybrid active contour model to reﬁne th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00428,
+        -0.02983,
+        -0.01281,
+        0.02269,
+        0.0147
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "he segmentation uncertainty by model ensembles, and deﬁne a quality score to select the cases with high uncertainties. Finally, we develop a hybrid active contour model to reﬁne th",
+      "overlap_with_next": "ith 1000 epochs. The training time costs about 4 days. 2.2 Uncertainty quantiﬁcation We train ﬁve U-Net models with ﬁve-fold cross validation. During testing, we infer the test cas",
+      "text": "he segmentation uncertainty by model ensembles, and deﬁne a quality score to select the cases with high uncertainties. Finally, we develop a hybrid active contour model to reﬁne the high uncertainty cases. [Page 3] Title Suppressed Due to Excessive Length 3 2 Method 2.1 CNN backbone Our network backbone is the typical 3D U-Net [5]. The number of features is 32 in the ﬁrst block. In each downsampling stage, the number of features is doubled. The implementation is based on nnU-Net [6]. In particular, the network input is conﬁgured with a batch size 2. The patch size is 128 × 128× 128. The optimizer is stochastic gradient descent with an initial learning rate (0.01) and a nesterov momentum (0.99). To avoid overﬁtting, standard data augmentation techniques are used during training, such as rotation, scaling, adding Gaussian Noise, gamma correction. The loss function is the sum between Dice loss and TopK loss [12]. We train the 3D U-Net with ﬁve-fold cross validation. Each fold is trained on a TITAN V100 GPU with 1000 epochs. The training time costs about 4 days. 2.2 Uncertainty quantiﬁcation We train ﬁve U-Net models with ﬁve-fold cross validation. During testing, we infer the test cas",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02154,
+        -0.02972,
+        -0.05235,
+        0.00359,
+        0.0119
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ith 1000 epochs. The training time costs about 4 days. 2.2 Uncertainty quantiﬁcation We train ﬁve U-Net models with ﬁve-fold cross validation. During testing, we infer the test cas",
+      "overlap_with_next": "ly, CT images can provide edge in- formations, and PET and network probabilities can provide location or region informations. We propose the following hybrid active contour model E",
+      "text": "ith 1000 epochs. The training time costs about 4 days. 2.2 Uncertainty quantiﬁcation We train ﬁve U-Net models with ﬁve-fold cross validation. During testing, we infer the test cases with the trained ﬁve models. Thus, each test case has ﬁve predictions. Let pi denote the predictions (Probability) of the i−th model, the ﬁnal segmentation S can be obtained by S = 15 5∑ i=1 pi. (1) Then, we compute the normalized surface Dice NSDi between each prediction and the ﬁnal segmentation. Details and the code are publicly available at http: //medicaldecathlon.com/files/Surface_distance_based_measures.ipynb. Finally, the uncertainty of the prediction is estimated by Unc = 1− 15 5∑ i=1 NSDi. (2) If one case have a uncertainty value over 0.2, it will be selected for the next reﬁnement. 2.3 Reﬁnement with Hybrid active contours This step aims to reﬁne the segmentation results of the cases with high uncer- tainties by exploiting the complementary information among CT images, PET images, and network probabilities. Basically, CT images can provide edge in- formations, and PET and network probabilities can provide location or region informations. We propose the following hybrid active contour model E",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03341,
+        -0.04523,
+        -0.05361,
+        0.03445,
+        0.01129
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ly, CT images can provide edge in- formations, and PET and network probabilities can provide location or region informations. We propose the following hybrid active contour model E",
+      "overlap_with_next": "HUM and CHUS). The test data comprise 53 cases from another center (CHUV). Each case comprises: CT, PET and GTVt (primary Gross Tumor Volume) in NIfTI format, as well as the boundi",
+      "text": "ly, CT images can provide edge in- formations, and PET and network probabilities can provide location or region informations. We propose the following hybrid active contour model E(u) =EPET (u) +ECT (u) +ECNN (u), (3) [Page 4] 4 J. Ma where EPET (u;f1,f 2) = ∫ Ω ∫ Ω K(x,y )|IPET (y)−f1(x)|2udx + ∫ Ω ∫ Ω K(x,y )|IPET (y)−f2(x)|2(1−u)dx, (4) ECT (u) = √π τ ∫ Ω √gCTuGτ∗ (√gCT (1−u))dx (5) and ECNN (u;c1,c 2) = ∫ Ω (PCNN−c1)2u + (PCNN−c2)2(1−u)dx. (6) I is the image intensity values,K(x,y ) is the Gaussian kernel function, andc1,c 2 are the average image intensities inside and outside the segmentation contour, respectively.Gτ is the Gaussian kernel, which is deﬁned by Gτ(x) = 14πτ exp(−|x|24τ ) (7) The hybrid active contour model is solved by the iterative convolution-thresholding method where the details can be found at [16,17,13]. 3 Experiments and results 3.1 Dataset We use the oﬃcial HECKTOR dataset [2] to evaluate the proposed method. The training data comprises 201 cases from four centers (CHGJ, CHMR, CHUM and CHUS). The test data comprise 53 cases from another center (CHUV). Each case comprises: CT, PET and GTVt (primary Gross Tumor Volume) in NIfTI format, as well as the boundi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02997,
+        -0.05425,
+        -0.01943,
+        0.0015,
+        0.00987
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "HUM and CHUS). The test data comprise 53 cases from another center (CHUV). Each case comprises: CT, PET and GTVt (primary Gross Tumor Volume) in NIfTI format, as well as the boundi",
+      "overlap_with_next": "e missed by the method. [Page 5] Title Suppressed Due to Excessive Length 5 T able 1. Quantitative results on the testing set. Participants DSC Precision Recall Rank andrei.iantsen",
+      "text": "HUM and CHUS). The test data comprise 53 cases from another center (CHUV). Each case comprises: CT, PET and GTVt (primary Gross Tumor Volume) in NIfTI format, as well as the bounding box location and patient information. We use the oﬃcial bounding box to crop all the images. We also resample the images to isotropic resolution 1mm× 1mm× 1mm. Speciﬁcally, We use third order spline interpolation and zero order nearest interpolation for the images and labels, respectively. Furthermore, we apply Z-score (mean subtraction and division by standard deviation) to separately normalize each PET and CT image. 3.2 Quantitative and qualitative results Table 1 and Figure 2 present the quantitative and qualitative results on the testing set, respectively. The proposed method achieved the 2nd place on the oﬃcial leaderboard, which is also very close to the 1st-place performance. The segmentation results have better precision but inferior recall, indicating that most of the segmentation results are right but some tumors are missed by the method. [Page 5] Title Suppressed Due to Excessive Length 5 T able 1. Quantitative results on the testing set. Participants DSC Precision Recall Rank andrei.iantsen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04868,
+        -0.06777,
+        -0.02463,
+        -0.00235,
+        0.01117
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "e missed by the method. [Page 5] Title Suppressed Due to Excessive Length 5 T able 1. Quantitative results on the testing set. Participants DSC Precision Recall Rank andrei.iantsen",
+      "overlap_with_next": "National Natural Science Foundation of China (No. 11531005, No. 11971229). The authors of this paper declare that the seg- mentation method they implemented for participation in th",
+      "text": "e missed by the method. [Page 5] Title Suppressed Due to Excessive Length 5 T able 1. Quantitative results on the testing set. Participants DSC Precision Recall Rank andrei.iantsen 0.759 0.833 0.740 1 junma (Ours) 0.752 0.838 0.717 2 badger 0.735 0.833 0.702 3 deepX 0.732 0.785 0.732 4 AIView sjtu 0.724 0.848 0.670 5 DCPT 0.705 0.765 0.705 6 CT PET CT PET Image Segmentation Fig. 2. Visual examples of segmentation results from testing set. 4 Conclusion In this paper, we proposed a fully automatic segmentation method for head and neck tumor segmentation in CT and PET images, which combines modern deep learning methods and traditional active contours. Experiments on oﬃcial HECK- TOR challenge dataset demonstrate the eﬀectiveness of the proposed method. The main limitation of our method is the low recall, indicating that some of the lesions are missed in the segmentation results. This would be our further work to enhance the results towards higher performance. Acknowledgement This project is supported by the National Natural Science Foundation of China (No. 11531005, No. 11971229). The authors of this paper declare that the seg- mentation method they implemented for participation in th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01433,
+        -0.05057,
+        -0.02346,
+        -0.01095,
+        0.00949
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "National Natural Science Foundation of China (No. 11531005, No. 11971229). The authors of this paper declare that the seg- mentation method they implemented for participation in th",
+      "overlap_with_next": "e contours. International jour- nal of computer vision 22(1), 61–79 (1997) 4. Chan, T.F., Vese, L.A.: Active contours without edges. IEEE Transactions on image processing 10(2), 26",
+      "text": "National Natural Science Foundation of China (No. 11531005, No. 11971229). The authors of this paper declare that the seg- mentation method they implemented for participation in the HECKTOR chal- lenge has not used any pre-trained models nor additional datasets other than those provided by the organizers. We also thanks the HECKTOR organizers for their public dataset and hosting the great challenge. [Page 6] 6 J. Ma References 1. Andrearczyk, V., Oreiller, V., Valli` eres, M., Castelli, J., Elhalawani, H., Jreige, M., Boughdad, S., Prior, J.O., Depeursinge, A.: Automatic segmentation of head and neck tumors and nodal metastases in pet-ct scans. In: Proceedings of Machine Learning Research (2020) 2. Andrearczyk, V., Oreiller, V., Valli` eres, M., Jreige, M., Prior, J.O., Depeursinge, A.: Overview of the hecktor challenge at miccai 2020: Automatic head and neck tumor segmentation in pet/ct. In: Lecture Notes in Computer Science (LNCS) Challenges (2021) 3. Caselles, V., Kimmel, R., Sapiro, G.: Geodesic active contours. International jour- nal of computer vision 22(1), 61–79 (1997) 4. Chan, T.F., Vese, L.A.: Active contours without edges. IEEE Transactions on image processing 10(2), 26",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03653,
+        -0.03459,
+        -0.02758,
+        0.01529,
+        -0.00739
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "e contours. International jour- nal of computer vision 22(1), 61–79 (1997) 4. Chan, T.F., Vese, L.A.: Active contours without edges. IEEE Transactions on image processing 10(2), 26",
+      "overlap_with_next": "phout, R.G., Granton, P., Zegers, C.M., Gillies, R., Boellard, R., Dekker, A., et al.: Radiomics: extracting more information from medical images using advanced feature analysis. E",
+      "text": "e contours. International jour- nal of computer vision 22(1), 61–79 (1997) 4. Chan, T.F., Vese, L.A.: Active contours without edges. IEEE Transactions on image processing 10(2), 266–277 (2001) 5. C ¸ i¸ cek,¨O., Abdulkadir, A., Lienkamp, S.S., Brox, T., Ronneberger, O.: 3d u-net: learning dense volumetric segmentation from sparse annotation. In: International conference on medical image computing and computer-assisted intervention. pp. 424–432 (2016) 6. Isensee, F., Jaeger, P.F., Kohl, S.A., Petersen, J., Maier-Hein, K.H.: nnu-net: a self-conﬁguring method for deep learning-based biomedical image segmentation. Nature Methods (2020) 7. Kass, M., Witkin, A., Terzopoulos, D.: Snakes: Active contour models. Interna- tional journal of computer vision 1(4), 321–331 (1988) 8. Kumar, A., Fulham, M., Feng, D., Kim, J.: Co-learning feature fusion maps from pet-ct images of lung cancer. IEEE Transactions on Medical Imaging 39(1), 204– 217 (2019) 9. Lambin, P., Rios-Velazquez, E., Leijenaar, R., Carvalho, S., Van Stiphout, R.G., Granton, P., Zegers, C.M., Gillies, R., Boellard, R., Dekker, A., et al.: Radiomics: extracting more information from medical images using advanced feature analysis. E",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02774,
+        -0.03374,
+        -0.03401,
+        0.00301,
+        -0.00528
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "phout, R.G., Granton, P., Zegers, C.M., Gillies, R., Boellard, R., Dekker, A., et al.: Radiomics: extracting more information from medical images using advanced feature analysis. E",
+      "overlap_with_next": " Khaouam, N., Nguyen-Tan, P.F., Wang, C.S., Sultanem, K., et al.: Radiomics strategies for risk assessment of tumour failure in head-and-neck cancer. Scientiﬁc reports 7(1), 1–14 (",
+      "text": "phout, R.G., Granton, P., Zegers, C.M., Gillies, R., Boellard, R., Dekker, A., et al.: Radiomics: extracting more information from medical images using advanced feature analysis. European journal of cancer 48(4), 441–446 (2012) 10. Li, C., Kao, C.Y., Gore, J.C., Ding, Z.: Minimization of region-scalable ﬁtting energy for image segmentation. IEEE transactions on image processing 17(10), 1940–1949 (2008) 11. Li, L., Zhao, X., Lu, W., Tan, S.: Deep learning for variational multimodality tumor segmentation in pet/ct. Neurocomputing 392, 277–295 (2020) 12. Ma, J.: Segmentation loss odyssey. arXiv preprint arXiv:2005.13449 (2020) 13. Ma, J., Wang, D., Wang, X.P., Yang, X.: A fast algorithm for geodesic ac- tive contours with applications to medical image segmentation. arXiv preprint arXiv:2007.00525 (2020) 14. Siegel, R.L., Miller, K.D., Jemal, A.: Cancer statistics, 2020. CA: A Cancer Journal for Clinicians 70(1), 7–30 (2020) 15. Vallieres, M., Kay-Rivest, E., Perrin, L.J., Liem, X., Furstoss, C., Aerts, H.J., Khaouam, N., Nguyen-Tan, P.F., Wang, C.S., Sultanem, K., et al.: Radiomics strategies for risk assessment of tumour failure in head-and-neck cancer. Scientiﬁc reports 7(1), 1–14 (",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06217,
+        -0.00171,
+        -0.05389,
+        0.0194,
+        -0.01053
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13189,
+      "length": 949,
+      "overlap_with_previous": " Khaouam, N., Nguyen-Tan, P.F., Wang, C.S., Sultanem, K., et al.: Radiomics strategies for risk assessment of tumour failure in head-and-neck cancer. Scientiﬁc reports 7(1), 1–14 (",
+      "overlap_with_next": "",
+      "text": " Khaouam, N., Nguyen-Tan, P.F., Wang, C.S., Sultanem, K., et al.: Radiomics strategies for risk assessment of tumour failure in head-and-neck cancer. Scientiﬁc reports 7(1), 1–14 (2017) 16. Wang, D., Li, H., Wei, X., Wang, X.P.: An eﬃcient iterative thresholding method for image segmentation. Journal of Computational Physics 350, 657–667 (2017) 17. Wang, D., Wang, X.P.: The iterative convolution-thresholding method (ictm) for image segmentation. arXiv preprint arXiv:1904.10917 (2019) [Page 7] Title Suppressed Due to Excessive Length 7 18. Zhang, W., Wang, X., Chen, J., You, W.: A new hybrid level set approach. IEEE Transactions on Image Processing 29, 7032–7044 (2020) 19. Zhang, Y., Matuszewski, B.J., Shark, L.K., Moore, C.J.: Medical image segmen- tation using new hybrid level-set method. In: 2008 ﬁfth international conference biomedical visualization: information visualization in medical and biomedical in- formatics. pp. 71–76 (2008)",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04443,
+        -0.0175,
+        -0.03045,
+        -0.01435,
+        -0.00698
+      ]
+    }
+  ]
+}

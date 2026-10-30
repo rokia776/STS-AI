@@ -1,0 +1,1354 @@
+{
+  "paper_id": "bb4e531e-2a52-41e2-ac2e-075aeff71b9a",
+  "filename": "016_NLP_ShapeGlot_Learning_Language_for_Shape_Differentiation.pdf",
+  "title": "ShapeGlot: Learning Language for Shape Differentiation",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 79,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "l listener interprets human-generated utterances for unseen (left- to-right): images of synthetic data, OOD object categories (here, lamps), and OOD object parts. Listener scores i",
+      "text": "[Page 1] ShapeGlot: Learning Language for Shape Differentiation Panos Achlioptas* Judy Fan Robert Hawkins Noah Goodman Leonidas Guibas Stanford University distractors target thin legs, no holes in backfive bars on back, skinny top irregular cube on two legs wide seat with solid back Pragmatic Neural Speaking (novel images) (real-world images) (novel 3D point-clouds) (unseen classes ) Attentive Neural Listening (novel images) the chair has lines all up the back (unseen object parts) rounded seat 0.00 0.10 0.90listener scores: 0.01 0.00 0.99 0.04 0.18 0.78 distractors target distractors target Figure 1: We introduce a large corpus of utterances that refer to the shape of objects and develop neural speakers and listeners with broad generalization capacity. Top row: A neural speaker generates utterances to distinguish a “target” from two “distractors” in unseen: images of synthetic data (left), out-of-distribution (OOD) real-world images (center), and 3D point-clouds of CAD models (right). Bottom row: A neural listener interprets human-generated utterances for unseen (left- to-right): images of synthetic data, OOD object categories (here, lamps), and OOD object parts. Listener scores i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03385,
+        -0.04603,
+        -0.04436,
+        -0.00905,
+        -0.00425
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "l listener interprets human-generated utterances for unseen (left- to-right): images of synthetic data, OOD object categories (here, lamps), and OOD object parts. Listener scores i",
+      "overlap_with_next": "bout a listener or not), and the neural ar- *Corresponding author: optas@cs.stanford.edu Project webpage: https://www.bit.ly/shapeglot chitecture (e.g. with or without attention). ",
+      "text": "l listener interprets human-generated utterances for unseen (left- to-right): images of synthetic data, OOD object categories (here, lamps), and OOD object parts. Listener scores indicate model interpretation about which object the utterance refers to. Words are color-coded according to the attention placed by the neural listener (warmer color indicates higher attention). Abstract In this work we explore how ﬁne-grained differ- ences between the shapes of common objects are expressed in language, grounded on images and 3D models of the objects. We ﬁrst build a large scale, carefully controlled dataset of human utterances that each refers to a 2D ren- dering of a 3D CAD model so as to distinguish it from a set of shape-wise similar alternatives. Using this dataset, we develop neural language understanding (listening) and production (speaking) models that vary in their grounding (pure 3D forms via point-clouds vs. rendered 2D images), the degree of pragmatic reasoning captured (e.g. speak- ers that reason about a listener or not), and the neural ar- *Corresponding author: optas@cs.stanford.edu Project webpage: https://www.bit.ly/shapeglot chitecture (e.g. with or without attention). ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0222,
+        -0.01288,
+        -0.01348,
+        -0.03368,
+        -0.01069
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "bout a listener or not), and the neural ar- *Corresponding author: optas@cs.stanford.edu Project webpage: https://www.bit.ly/shapeglot chitecture (e.g. with or without attention). ",
+      "overlap_with_next": "on . 1 arXiv:1905.02925v1 [cs.CL] 8 May 2019 [Page 2] 1. Introduction Objects are best understood in terms of their structure and function, both of which are built on a foundation ",
+      "text": "bout a listener or not), and the neural ar- *Corresponding author: optas@cs.stanford.edu Project webpage: https://www.bit.ly/shapeglot chitecture (e.g. with or without attention). We ﬁnd mod- els that perform well with both synthetic and human part- ners, and with held out utterances and objects. We also ﬁnd that these models are amenable to zero-shot transfer learning to novel object classes (e.g. transfer from train- ing on chairs to testing on lamps), as well as to real-world images drawn from furniture catalogs. Lesion studies indi- cate that the neural listeners depend heavily on part-related words and associate these words correctly withvisual parts of objects (without any explicit network training on object parts), and that transfer to novel classes is most successful when known part-words are available. This work illustrates a practical approach to language grounding, and provides a case study in the relationship between object shape and lin- guistic structure when it comes to object differentiation . 1 arXiv:1905.02925v1 [cs.CL] 8 May 2019 [Page 2] 1. Introduction Objects are best understood in terms of their structure and function, both of which are built on a foundation ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00728,
+        -0.01678,
+        -0.01822,
+        0.03117,
+        -0.0026
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "on . 1 arXiv:1905.02925v1 [cs.CL] 8 May 2019 [Page 2] 1. Introduction Objects are best understood in terms of their structure and function, both of which are built on a foundation ",
+      "overlap_with_next": "er similar objects (see Fig. 1). In this paper we explore this interplay between natu- ral, referential language, and the shape of common objects. While a great deal of recent work",
+      "text": "on . 1 arXiv:1905.02925v1 [cs.CL] 8 May 2019 [Page 2] 1. Introduction Objects are best understood in terms of their structure and function, both of which are built on a foundation of object parts and their relations [10, 9, 55, 8]. Natural lan- guages have been optimized across human history to solve the problem of efﬁciently communicating the aspects of the world most relevant to one’s current goals [22, 12]. As such, languages can provide an effective medium to describe the shapes and the parts of different objects, and to express object differences. For example, when we see a chair we can decompose it into semantically meaningful parts, like a back and a seat, and can combine words to create utterances that reﬂect their geometric and topologicalshape-properties e.g. ‘wide seat with a solid back. Moreover, given a speciﬁc communication context, we can craft references that are not merely true, but which are also relevant: i.e. we can refer to the lines found in a chair’s back to distinguish it among other similar objects (see Fig. 1). In this paper we explore this interplay between natu- ral, referential language, and the shape of common objects. While a great deal of recent work",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00914,
+        0.02927,
+        -0.01515,
+        0.00937,
+        -0.00826
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "er similar objects (see Fig. 1). In this paper we explore this interplay between natu- ral, referential language, and the shape of common objects. While a great deal of recent work",
+      "overlap_with_next": "he 3D form to construct a reference game task in which the referred ob- ject is similar shape-wise to the contrasting objects. The result of this effort is a new multimodal dataset",
+      "text": "er similar objects (see Fig. 1). In this paper we explore this interplay between natu- ral, referential language, and the shape of common objects. While a great deal of recent work has explored visually- grounded language understanding [20, 32, 52, 27, 26, 51], the resulting models have limited capacity to reﬂect the ge- ometry and topology (i.e. the shape) of the underlying ob- jects. This is because reference in previous studies was possible using properties like color, or properties regard- ing the object and it’s hosting environment (e.g. it’s abso- lute, or relative to other objects, location). Indeed, elicit- ing natural language that refers only to shape properties re- quires carefully controlling the objects, their presentation, and the linguistic task. To address such challenges, we use pure 3D representations of objects (CAD models), which allow for ﬂexible and controlled presentation (i.e. texture- less, uniform-color objects, viewed without obstruction in a ﬁxed pose). We further make use of the 3D form to construct a reference game task in which the referred ob- ject is similar shape-wise to the contrasting objects. The result of this effort is a new multimodal dataset",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04644,
+        0.01663,
+        -0.01451,
+        -0.0089,
+        -0.01782
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "he 3D form to construct a reference game task in which the referred ob- ject is similar shape-wise to the contrasting objects. The result of this effort is a new multimodal dataset",
+      "overlap_with_next": "hat reason about a listener or not) and the neural architec- ture (e.g. with or without word attention, and with context- free or context-aware object encoders). We evaluate these ",
+      "text": "he 3D form to construct a reference game task in which the referred ob- ject is similar shape-wise to the contrasting objects. The result of this effort is a new multimodal dataset, termed CiC (Chairs in Context), comprised of 4,511 unique chairs from ShapeNet [4] and 78,789 referential utterances. In CiC chairs are organized into 4,054 sets of size 3 (representing contrastive communication contexts) and each utterance is intended to distinguish a chair in context. The visual dif- ferences among the grouped objects require a deep under- standing of very ﬁne-grained shape properties (especially, for Hard contexts, see Section 2); the language that peo- ple use to do so is correspondingly complex, exhibiting rich compositionality. We use CiC to train and analyze a variety of modern neural language understanding (listening) and production (speaking) models. These models vary in their grounding (pure 3D forms via point-clouds vs. rendered 2D images), the degree of pragmatic reasoning captured (e.g. speakers that reason about a listener or not) and the neural architec- ture (e.g. with or without word attention, and with context- free or context-aware object encoders). We evaluate these ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02883,
+        -0.02032,
+        -0.04352,
+        0.03292,
+        0.00185
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "hat reason about a listener or not) and the neural architec- ture (e.g. with or without word attention, and with context- free or context-aware object encoders). We evaluate these ",
+      "overlap_with_next": "unication task, despite never being provided with an explicit decomposition of these objects into parts. Similarly, we show that transfer learning to novel object classes is most s",
+      "text": "hat reason about a listener or not) and the neural architec- ture (e.g. with or without word attention, and with context- free or context-aware object encoders). We evaluate these models on the original reference game task with both syn- thetic and human partners, and with held out utterances and objects, ﬁnding strong performance. Since language con- veys abstractions, such as object parts, that are shared be- tween object categories, we hypothesized that our models learn robust representations that are transferable to objects of unseen classes (e.g. training on chairs while testing on lamps). Indeed, we show that these models have strong gen- eralization capacity to novel object categories, as well as to real-world colored images drawn from furniture catalogs. Finally, we explore how our models are succeeding on these communication tasks. We demonstrate that the neu- ral listener learns to prioritize the same abstractions in ob- jects (i.e. properties of chair parts) that humans do in solv- ing the communication task, despite never being provided with an explicit decomposition of these objects into parts. Similarly, we show that transfer learning to novel object classes is most s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03332,
+        -0.00969,
+        -0.01426,
+        0.02477,
+        0.00288
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "unication task, despite never being provided with an explicit decomposition of these objects into parts. Similarly, we show that transfer learning to novel object classes is most s",
+      "overlap_with_next": "- vately highlighted for one player (the “speaker”) who was asked to send a message through a chat box such that their partner (the “listener”) could successfully select it from th",
+      "text": "unication task, despite never being provided with an explicit decomposition of these objects into parts. Similarly, we show that transfer learning to novel object classes is most successful when known part-related words are available. Last, we show that a neural speaker that is pragmatic—planing utterances in order to convey the right target object to an imagined listener —produces signiﬁ- cantly more informative utterances than a literal (listener- unaware) speaker, as measured by human performance in identifying the correct object. 2. Dataset and task hard context easy context CiC (Chairs in Context) consists of triplets of chairs coupled with referential utter- ances that aim to distinguish one chair (the “target”) from the remaining two (the “dis- tractors”). To obtain such utterances, we paired partic- ipants from Amazon’s Me- chanical Turk (AMT) to play an online reference game [16]. On each round of the game, the two players were shown the same triplet of chairs. The designated target chair was pri- vately highlighted for one player (the “speaker”) who was asked to send a message through a chat box such that their partner (the “listener”) could successfully select it from th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02711,
+        -0.00506,
+        -0.03996,
+        0.07018,
+        -0.01143
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "- vately highlighted for one player (the “speaker”) who was asked to send a message through a chat box such that their partner (the “listener”) could successfully select it from th",
+      "overlap_with_next": "rity of ﬁne-grained distinctions that were nec- essary in solving the communication task, we constructed two types of contexts: Hard contexts consisted of very similar shape-wise c",
+      "text": "- vately highlighted for one player (the “speaker”) who was asked to send a message through a chat box such that their partner (the “listener”) could successfully select it from the context. To ensure speakers used only shape-related infor- mation, we scrambled the positions of the chairs for each participant independently and used textureless, uniform- color renderings of pre-aligned 3D CAD models, taken from the same viewpoint. To ensure communicative inter- action was natural, no constraints were placed on the chat [Page 3] box: referring expressions from the speaker were occasion- ally followed by clariﬁcation questions from the listener or other discourse. A key decision in building our dataset concerned the construction of contexts that would reliably elicit diverse and potentially very ﬁne-grained contrastive language. To achieve diversity we considered all ∼7,000 chairs from ShapeNet. This object class is geometrically complex, highly diverse, and abundant in the real world. To control the granularity of ﬁne-grained distinctions that were nec- essary in solving the communication task, we constructed two types of contexts: Hard contexts consisted of very similar shape-wise c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02958,
+        -0.01266,
+        -0.0327,
+        0.00614,
+        -0.01195
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "rity of ﬁne-grained distinctions that were nec- essary in solving the communication task, we constructed two types of contexts: Hard contexts consisted of very similar shape-wise c",
+      "overlap_with_next": "lanced each com- munication context, by considering every chair of a given context as target, in at least four games. Before presenting our neural agents, we identify some distinct",
+      "text": "rity of ﬁne-grained distinctions that were nec- essary in solving the communication task, we constructed two types of contexts: Hard contexts consisted of very similar shape-wise chairs, and Easy contexts consisted of less similar chairs. To measure shape-similarity in an un- supervised manner, we used the latent space derived from an Point Cloud-AutoEncoder (PC-AE) [1]. We note, that point-clouds are an intrinsic representation of a 3D object, oblique to color or texture. After extracting a 3D point- cloud from the surface of each ShapeNet model we com- puted the underlying K-nearest-neighbor graph among all models according to their PC-AE embedding distances. For a chair with sufﬁciently high-in degree on this graph (cor- responding intuitively to a canonical chair) we contrasted it with four distractors: the two closest to it in latent-space, and two that were sufﬁciently far (see inset for a demon- stration and at the Appendix for additional details). Last, to reduce potential data biases we counterbalanced each com- munication context, by considering every chair of a given context as target, in at least four games. Before presenting our neural agents, we identify some distinct",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01663,
+        -0.01006,
+        -0.03821,
+        -0.02003,
+        -0.01276
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "lanced each com- munication context, by considering every chair of a given context as target, in at least four games. Before presenting our neural agents, we identify some distinct",
+      "overlap_with_next": "bution of our work. Below we conduct a detailed comparison between three distinct architectures, highlight the effect of different reg- ularization techniques, and investigate the ",
+      "text": "lanced each com- munication context, by considering every chair of a given context as target, in at least four games. Before presenting our neural agents, we identify some distinctive properties of our corpus. Human performance on the reference game was high, but listeners made sig- niﬁcantly more errors in the Hard triplets (accuracy 94.2% vs. 97.2%,z = 13.54,p < 0.001). Also, in Hard triplets longer utterances were used to describe the targets (on aver- age 8.4 words vs. 6.1, t =−35,p < 0.001). A wide spec- trum of descriptions was elicited, ranging from the more holistic/categorical (e.g. “the rocking chair”) common for Easy triplets, to more complex and ﬁne-grained language, (e.g. “thinner legs but without armrests”) common for Hard triplets. Interestingly, 78% of the utterances used at least one part-related word: “back”, “legs”, “seat,” “arms”, or closely related synonyms e.g. “armrests”. 3. Neural listeners Constructing neural listeners that reason effectively about shape properties is a key contribution of our work. Below we conduct a detailed comparison between three distinct architectures, highlight the effect of different reg- ularization techniques, and investigate the ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02913,
+        -0.00221,
+        -0.04335,
+        0.0199,
+        -0.02247
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "bution of our work. Below we conduct a detailed comparison between three distinct architectures, highlight the effect of different reg- ularization techniques, and investigate the ",
+      "overlap_with_next": " This is re- peated for each oi, sharing all network parameters across the objects. The resulting three scores are soft-max normal- ized and compared to the ground-truth indicator ",
+      "text": "bution of our work. Below we conduct a detailed comparison between three distinct architectures, highlight the effect of different reg- ularization techniques, and investigate the merits of dif- ferent representations of 3D objects for the listening task, namely, 2D rendered images and 3D surface point clouds. In what follows, we denote the three objects of a commu- nication context as O = {o1,o 2,o 3}, the corresponding word-tokenized utterance as U = u1,u 2,... and as t∈ O the designated target. Our proposed listener is inspired by [31]. It takes as in- put a (latent code) vector that captures shape information for each of the objects in O, and a (latent code) vector for each token of U, and outputs an object–utterance compati- bility scoreL(oi,U )∈ [0, 1] for each input object. At its core lies a multi-modal LSTM [17] that receives as input (“is grounded” with) the vector of a single object, processes the word-sequence U, and is read out by a ﬁnal MLP to yield a single number (the compatibility score). This is re- peated for each oi, sharing all network parameters across the objects. The resulting three scores are soft-max normal- ized and compared to the ground-truth indicator ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03024,
+        0.02437,
+        -0.04489,
+        -0.02228,
+        0.00204
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": " This is re- peated for each oi, sharing all network parameters across the objects. The resulting three scores are soft-max normal- ized and compared to the ground-truth indicator ",
+      "overlap_with_next": "ected (FC) layer with L2-norm weight regularization. The addition of these projection-like layers improves the training and con- vergence of our system. While there are many ways t",
+      "text": " This is re- peated for each oi, sharing all network parameters across the objects. The resulting three scores are soft-max normal- ized and compared to the ground-truth indicator vector of the target under the cross-entropy loss.* Object encoders We experimented with three object representations to capture the underlying shapes: (a) the bottleneck vector of a pretrained Point Cloud-AutoEncoder (PC-AE), (b) the embedding provided by a convolutional network operating on single-view images of non-textured 3D objects, or (c) a combination of (a) and (b). Speciﬁ- cally, for (a) we use the PC-AE architecture of [1] trained with single-class point clouds extracted from the surfaces of 3D CAD models, while for (b) we use the activations of the penultimate layer of a VGG-16 [38], pre-trained on Im- ageNet [7], and ﬁne-tuned on an 8-way classiﬁcation task with images of objects from ShapeNet. For each represen- tation we project the corresponding latent code vector to the input space of the LSTM using a fully connected (FC) layer with L2-norm weight regularization. The addition of these projection-like layers improves the training and con- vergence of our system. While there are many ways t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02154,
+        -0.02496,
+        -0.04523,
+        -0.02755,
+        0.00396
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "ected (FC) layer with L2-norm weight regularization. The addition of these projection-like layers improves the training and con- vergence of our system. While there are many ways t",
+      "overlap_with_next": "n Our proposed baseline listener architecture (Baseline, just described) ﬁrst scores each object separately then applies softmax normal- *Architecture details, hyper-parameter sear",
+      "text": "ected (FC) layer with L2-norm weight regularization. The addition of these projection-like layers improves the training and con- vergence of our system. While there are many ways to simultaneously incorpo- rate the two modalities in the LSTM, we found that the best performance resulted when we ground the LSTM with the image code, concatenate the LSTM’s ﬁnal output (after pro- cessingU) with the point cloud code, and feed the concate- nated result in a shallow MLP to produce the compatibil- ity score. We note that grounding the LSTM with point clouds and using images towards the end of the pipeline, resulted in a signiﬁcant performance drop ( ∼4.8% on av- erage). Also, proper regularization was critical: adding dropout at the input layer of the LSTM and L2 weight reg- ularization and dropout at and before the FC projecting lay- ers improved performance∼10%. The token codes of each sentence where initialized with the GloVe embedding [35] and ﬁne-tuned for the listening task. Incorporating context information Our proposed baseline listener architecture (Baseline, just described) ﬁrst scores each object separately then applies softmax normal- *Architecture details, hyper-parameter sear",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02576,
+        0.0002,
+        -0.03457,
+        -0.0033,
+        0.0116
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "n Our proposed baseline listener architecture (Baseline, just described) ﬁrst scores each object separately then applies softmax normal- *Architecture details, hyper-parameter sear",
+      "overlap_with_next": "enation and vj,vk the alterna- tive constrastive objects. Here, we use symmetric functions to induce that object-order is irrelevant for our task. The second alternative architectu",
+      "text": "n Our proposed baseline listener architecture (Baseline, just described) ﬁrst scores each object separately then applies softmax normal- *Architecture details, hyper-parameter search strategy, and optimal hyper-parameters for all experiments are described in the Appendix. [Page 4] ization to yield a score distribution over the three objects. We also consider two alternative architectures that explic- itly encode information about the entire context while scor- ing an object. The ﬁrst alternative ( Early-Context), is iden- tical to the proposed architecture, except for the codes used to ground the LSTM. Speciﬁcally, if vi is the image code vector of the i-th object ( oi ∈ O) resulting from VGG, instead of using vi as the grounding vector of oi, a shal- low convolutional network is introduced. This network, of which the output is the grounding code, receives the signal f (vj,vk)||g(vj,vk)||vi, where f,g are the symmetric (and norm-normalized), max-pool and mean-pool functions, || denotes feature-wise concatenation and vj,vk the alterna- tive constrastive objects. Here, we use symmetric functions to induce that object-order is irrelevant for our task. The second alternative architectu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02721,
+        -0.0154,
+        -0.06187,
+        0.04211,
+        0.02662
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "enation and vj,vk the alterna- tive constrastive objects. Here, we use symmetric functions to induce that object-order is irrelevant for our task. The second alternative architectu",
+      "overlap_with_next": "been pro- cessed (denoted ash). The relative importance of each word is ai = ∆ rTi × Watt× h, where Watt is a trainable diag- onal matrix. The ﬁnal output of the LSTM uses this at-",
+      "text": "enation and vj,vk the alterna- tive constrastive objects. Here, we use symmetric functions to induce that object-order is irrelevant for our task. The second alternative architecture ( Combined-Interpretation) ﬁrst feeds the image vectors for all three objects sequen- tially to the LSTM as inputs and then proceeds to process the tokens ofU once, to yield the three scores. Similarly to the Baseline architecture, point clouds are incorporated in both alternatives via a separate MLP after the LSTM. Word attention We hypothesized that a listener forced to prioritize a few words in each utterance would learn to prioritize words that express properties that distin- guish the target from the distractors (and, thus, perform bet- ter). To test this hypothesis, we augment the listener models with a standard bilinear attention mechanism [37]. Specif- ically, to estimate the “importance” of each text-token ui we compare the output of the LSTM at ui (denoted as ri) with the hidden state after the entire utterance has been pro- cessed (denoted ash). The relative importance of each word is ai = ∆ rTi × Watt× h, where Watt is a trainable diag- onal matrix. The ﬁnal output of the LSTM uses this at-",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01715,
+        0.00753,
+        -0.0125,
+        0.02937,
+        -0.01961
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "been pro- cessed (denoted ash). The relative importance of each word is ai = ∆ rTi × Watt× h, where Watt is a trainable diag- onal matrix. The ﬁnal output of the LSTM uses this at-",
+      "overlap_with_next": "ing purposes. Baseline listener accuracies are shown in Table 2.† Over- †In all results mean accuracies and standard errors across 5 random seeds are reported, to control for the d",
+      "text": "been pro- cessed (denoted ash). The relative importance of each word is ai = ∆ rTi × Watt× h, where Watt is a trainable diag- onal matrix. The ﬁnal output of the LSTM uses this at- tention to combine all latent states: ∑|U|i=1ri⊙ ˆai, where ˆai = exp(ai)∑|U | j exp(aj ) and⊙ is the point-wise product. 4. Listener experiments We begin our evaluation of the proposed listeners using two reference tasks based on different data splits. In the language generalization task, we test on target objects that were seen as targets in at least one context during training but ensure that all utterances in the test split are from un- seen speakers. In the more challenging object generaliza- tion task, we restrict the set of objects that appeared as tar- gets in the test set to be disjoint from those in training such that all speakers and objects in the test split are new. For each of these tasks, we evaluate choices of input modality and word attention, using [80%, 10%, 10%] of the data, for training, validating and testing purposes. Baseline listener accuracies are shown in Table 2.† Over- †In all results mean accuracies and standard errors across 5 random seeds are reported, to control for the d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02565,
+        0.00758,
+        -0.03422,
+        -0.01356,
+        -0.01222
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "ing purposes. Baseline listener accuracies are shown in Table 2.† Over- †In all results mean accuracies and standard errors across 5 random seeds are reported, to control for the d",
+      "overlap_with_next": "on 3 affect listener performance. We focus on the more challenging object generalization task, using listeners that include at- tention and both object modalities. We report the ﬁn",
+      "text": "ing purposes. Baseline listener accuracies are shown in Table 2.† Over- †In all results mean accuracies and standard errors across 5 random seeds are reported, to control for the data-split populations and the initial- all the model achieves good performance. As expected, all listeners have higher accuracy on the language generaliza- tion task ( 3.2% on average). The attention mechanism on words yields a mild performance boost, as long as images are part of the input. Interestingly, images provide a signiﬁ- cantly better input than point-clouds when only one modal- ity is used. This may be due to the higher-frequency content of images (we use point-clouds with only 2048 points), or the fact that VGG was pre-trained while the PC-AE was not. However, we ﬁnd signiﬁcant gains in accuracy ( 4.1% on average) from exploiting the two object representations simultaneously, implying a complementarity among them. Next, we evaluate how the different approaches in incor- porating context information described in Section 3 affect listener performance. We focus on the more challenging object generalization task, using listeners that include at- tention and both object modalities. We report the ﬁn",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0068,
+        -0.01506,
+        -0.06884,
+        -0.00827,
+        0.00492
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "on 3 affect listener performance. We focus on the more challenging object generalization task, using listeners that include at- tention and both object modalities. We report the ﬁn",
+      "overlap_with_next": "ence are most critical for our listener’s performance? To inspect the properties of words receiving the most attention, we ran a part-of-speech tagger on our corpus. We found that ",
+      "text": "on 3 affect listener performance. We focus on the more challenging object generalization task, using listeners that include at- tention and both object modalities. We report the ﬁndings in Table 1. We ﬁnd that the Baseline and Early-Context models perform best overall, outperforming the Combined- Interpretation model, which does not share weights across objects. This pattern held for both hard and easy trial types in our dataset. We further explored the small portion (∼14%) of our test set that use explicitly contrastive lan- guage: superlatives (“skinniest”) and comparatives (“skin- nier”). Somewhat surprisingly we ﬁnd that the Baseline architecture remains competitive against the architectures with more explicit context information. TheBaseline model thus achieves high performance and is the most ﬂexible (at test time it can be applied to arbitrary-sized contexts); we focus on this architecture in the explorations below. 4.1. Exploring learned representations Linguistic ablations Which aspects of a sentence are most critical for our listener’s performance? To inspect the properties of words receiving the most attention, we ran a part-of-speech tagger on our corpus. We found that ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00218,
+        -0.00194,
+        -0.04526,
+        0.0119,
+        0.01113
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "ence are most critical for our listener’s performance? To inspect the properties of words receiving the most attention, we ran a part-of-speech tagger on our corpus. We found that ",
+      "overlap_with_next": "se are low attention words (see Fig. 2B). Our word- attentive listener thus appears to rely on context-appropriate ization of the neural-network. [Page 5] Architecture Subpopulatio",
+      "text": "ence are most critical for our listener’s performance? To inspect the properties of words receiving the most attention, we ran a part-of-speech tagger on our corpus. We found that the highest attention weight is placed on nouns, controlling for the length of the utterance. However, adjectives that modify nouns received more attention in hard contexts (controlling for the average occurrence in each context), where nouns are often not sufﬁcient to disambiguate (see Fig. 2A). To more systematically evaluate the role of higher-attention to- kens in listener performance, we conducted an utterance le- sioning experiment. For each utterance in our dataset, we successively replaced words with the <UNK> token accord- ing to three schemes: (1) from highest attention to lowest, (2) from lowest attention to highest, and (3) in random or- der. We then fed these through an equivalent listener trained without attention. We found that up to 50% of words can be removed without much performance degradation, but only if these are low attention words (see Fig. 2B). Our word- attentive listener thus appears to rely on context-appropriate ization of the neural-network. [Page 5] Architecture Subpopulatio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01951,
+        -0.0101,
+        -0.01912,
+        0.01858,
+        -0.01235
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "se are low attention words (see Fig. 2B). Our word- attentive listener thus appears to rely on context-appropriate ization of the neural-network. [Page 5] Architecture Subpopulatio",
+      "overlap_with_next": " with/without word level attention, in two generalization tasks. content words to successfully disambiguate the referent. A B 0.4 0.6 0.8 0.00 0.25 0.50 0.75 1.00 % words lesioned ",
+      "text": "se are low attention words (see Fig. 2B). Our word- attentive listener thus appears to rely on context-appropriate ization of the neural-network. [Page 5] Architecture SubpopulationsOverall Hard Easy Sup-Comp Combined-Interpretation 75.9± 0.5% 67.4± 1.0% 83 .8± 0.6% 74 .4± 1.5% Early-Context 79.4± 0.8% 70.1± 1.3% 88 .1± 0.6% 75 .6± 2.2% Baseline 79.6± 0.8% 69.9± 1.3% 88.8± 0.4% 76.3± 1.3% Table 1: Comparing different ways to include context. The simplest Baseline model performs as well as more complex alternatives. Subpopulations are the subset of test data containing: hard trials (shape-wise similar distractors), easy trials, superlatives or comparatives. Input Modality Language Task Object Task No Attention Point Cloud 67.6± 0.3% 66 .4± 0.7% Image 81.2± 0.5% 77 .4± 0.7% Both 83.1± 0.4% 78 .9± 1.0% With Attention Point Cloud 67.4± 0.3% 65 .6± 1.4% Image 81.7± 0.5% 77 .6± 0.8% Both 83.7± 0.3% 79.6± 0.8% Table 2: Performance of the Baseline listener architec- ture using different object representations and with/without word level attention, in two generalization tasks. content words to successfully disambiguate the referent. A B 0.4 0.6 0.8 0.00 0.25 0.50 0.75 1.00 % words lesioned ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00187,
+        -0.0195,
+        -0.03575,
+        0.00011,
+        0.0039
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": " with/without word level attention, in two generalization tasks. content words to successfully disambiguate the referent. A B 0.4 0.6 0.8 0.00 0.25 0.50 0.75 1.00 % words lesioned ",
+      "overlap_with_next": "le [50] and (2) the corre- sponding utterance mentioned a single part (17% of our test set). We then created lesioned versions of all three objects on each trial by removing pixels",
+      "text": " with/without word level attention, in two generalization tasks. content words to successfully disambiguate the referent. A B 0.4 0.6 0.8 0.00 0.25 0.50 0.75 1.00 % words lesioned from utterance listener accuracy smallest to largest largest to smallest random part of speech normalized attention score easy hard 0.0 ADJ NOUN Figure 2: (A) The listener places more attention on adjec- tives in hard (orange) triplets than easy (blue) ones. The histogram’s heights depict mean attention scores normal- ized by the length of the underlying utterances; the error bars are bootstapped 95% conﬁdence intervals. (B) Lesion- ing highest attention words to lowest worsens performance more than lesioning random words or lesioning lowest at- tention words. Visual ablations To test the extent to which our listener is relying on the same semantic parts of the object as humans, we next conducted a lesion experiment on the visual input. We took the subset of our test set where (1) all chairs had complete part annotations available [50] and (2) the corre- sponding utterance mentioned a single part (17% of our test set). We then created lesioned versions of all three objects on each trial by removing pixels",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06289,
+        0.00089,
+        -0.02016,
+        -0.00809,
+        0.00116
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "le [50] and (2) the corre- sponding utterance mentioned a single part (17% of our test set). We then created lesioned versions of all three objects on each trial by removing pixels",
+      "overlap_with_next": "n about that part was both necessary and sufﬁcient for the perfor- mance of our listener model. Single Part Lesioned Single Part Present Mentioned Part 42.8%± 2.3 66.8%± 1.4 Random",
+      "text": "le [50] and (2) the corre- sponding utterance mentioned a single part (17% of our test set). We then created lesioned versions of all three objects on each trial by removing pixels of images (and/or points when point-clouds are used), corresponding to parts accord- ing to two schemes: removing a single part or keeping a sin- gle part. We did this either for the mentioned one, or another part, chosen at random. We report listener accuracies on these lesioned objects in Table 3. We found that removing random parts hurts the accuracy by 10.4% on average, but removing the mentioned part dropped accuracy more than three times as much, nearly to chance. Conversely, keeping only the mentioned part while lesioning the rest of the im- age merely drops accuracy by 10.6% while keeping a non- mentioned (random) part alone brings accuracy down close to chance. In other words, on trials when participants de- pended on information about a part to communicate the ob- ject to their partner, we found that visual information about that part was both necessary and sufﬁcient for the perfor- mance of our listener model. Single Part Lesioned Single Part Present Mentioned Part 42.8%± 2.3 66.8%± 1.4 Random",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03683,
+        0.03101,
+        -0.02987,
+        -0.00206,
+        0.01373
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "n about that part was both necessary and sufﬁcient for the perfor- mance of our listener model. Single Part Lesioned Single Part Present Mentioned Part 42.8%± 2.3 66.8%± 1.4 Random",
+      "overlap_with_next": " from a PC-AE. During training and after the objects are encoded, the re- maining input to the LSTM is the ‘current’ utterance token, [Page 6] while the output of the LSTM is compa",
+      "text": "n about that part was both necessary and sufﬁcient for the perfor- mance of our listener model. Single Part Lesioned Single Part Present Mentioned Part 42.8%± 2.3 66.8%± 1.4 Random Part 67.0%± 2.9 38.8%± 2.0 Table 3: Evaluating the part-awareness of neural listeners by lesioning object parts. Results shown are for image-only listeners, with average accuracy of 77.4% when intact ob- jects are used. Similar ﬁndings regarding point-cloud-based lesioning are provided in the Appendix. 5. Neural speakers Architecture We next explore models that learn to gen- erate an utterance that refers to the target and which distin- guishes it from the distractors. Similarly to a neural listener the heart of these models is an LSTM which encodes the ob- jects of a communication context, and then decodes an ut- terance. Speciﬁcally, for an image-based model, on the ﬁrst three time steps, the LSTM input is the VGG code of each object. Correspondingly, for a point-cloud-based model, the LSTM input is the object codes extracted from a PC-AE. During training and after the objects are encoded, the re- maining input to the LSTM is the ‘current’ utterance token, [Page 6] while the output of the LSTM is compa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01181,
+        0.01546,
+        -0.02145,
+        -0.00711,
+        -0.0044
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " from a PC-AE. During training and after the objects are encoded, the re- maining input to the LSTM is the ‘current’ utterance token, [Page 6] while the output of the LSTM is compa",
+      "overlap_with_next": "aware speakers that are provided the encoding of the target objectonly, and are otherwise identical to the above models. Motivated by the recursive social reasoning characteristic ",
+      "text": " from a PC-AE. During training and after the objects are encoded, the re- maining input to the LSTM is the ‘current’ utterance token, [Page 6] while the output of the LSTM is compared with the ‘next’ utterance token, under the cross-entropy loss [46]. The tar- get object is always presented last, eliminating the need to represent the index of the target separately. To ﬁnd the best model hyper-parameters (e.g.L2-weights, dropout-rate and # of LSTM neurons) and the optimal stopping epoch, we sample synthetic utterances from the model during train- ing and use a pretrained listener to select the result with the highest listener accuracy. We found this approach to produce models and parameters that yield better quality ut- terances than evaluating with listening-unaware metrics like BLEU [34]. Variations The above (literal) speakers can learn to gen- erate language that discriminates targets from distractors. To test the degree to which distractor objects are used for generation, we experiment with context-unaware speakers that are provided the encoding of the target objectonly, and are otherwise identical to the above models. Motivated by the recursive social reasoning characteristic ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03061,
+        -0.01705,
+        -0.0181,
+        -0.01371,
+        -0.01198
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "aware speakers that are provided the encoding of the target objectonly, and are otherwise identical to the above models. Motivated by the recursive social reasoning characteristic ",
+      "overlap_with_next": "yielding more discriminating utterances. ‡ To quanti- tatively evaluate the speakers we measure their success in reference games with two different kinds of partners: with an indep",
+      "text": "aware speakers that are provided the encoding of the target objectonly, and are otherwise identical to the above models. Motivated by the recursive social reasoning characteristic of human prag- matic language use (as formalized in the Rational Speech Act framework [13]), we create pragmatic speakers that choose utterances according to their capacity to be discrim- inative, as judged by a pretrained “internal” listener. In this case, we sample utterances from the ( literal) speakers, but score (i.e. re-rank) them with: β log(PL(t|U,O )) + (1−β)|U|α log(PS(U|O,t )), (1) where PL is the listener’s probability to predict the target (t) and PS is the likelihood of the literal speaker to gener- ate U. The parameter α controls a length-penalty term to discourage short sentences [48], while β controls the rela- tive importance of the speaker’s vs. the listener’s opinions. 6. Speaker experiments Qualitatively, our speakers produce good object descrip- tions, see Fig. 3 for examples, with the pragmatic speak- ers yielding more discriminating utterances. ‡ To quanti- tatively evaluate the speakers we measure their success in reference games with two different kinds of partners: with an indep",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04497,
+        0.00955,
+        -0.00109,
+        0.01554,
+        -0.00884
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "yielding more discriminating utterances. ‡ To quanti- tatively evaluate the speakers we measure their success in reference games with two different kinds of partners: with an indep",
+      "overlap_with_next": "alization test-split, annotated separately by each speaker model). The synthetic utterances used were the highest scoring ones (Eq. 1) for each model with optimal (per-validation)α",
+      "text": "yielding more discriminating utterances. ‡ To quanti- tatively evaluate the speakers we measure their success in reference games with two different kinds of partners: with an independently-trained listener model and with human listeners. To conduct a fair study when we used a neu- ral listener, we split the training data in half. The evalu- ating listener was trained using one half, while the scor- ing (or “internal”) listener used by the pragmatic speaker was trained on the remaining half. For our human evalu- ation, we used the literal and pragmatic variants to gener- ate referring expressions on the test set (we use all train- ing data to train the internal listeners here). We then showed these referring expressions to participants recruited ‡The project’s webpage contains additional qualitative results. on AMT and asked them to select the object from context that the speaker was referring to. We collected approxi- mately 2.2 responses for each triplet (we use 1200 unique triplets from the object-generalization test-split, annotated separately by each speaker model). The synthetic utterances used were the highest scoring ones (Eq. 1) for each model with optimal (per-validation)α",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0528,
+        0.00016,
+        -0.03418,
+        0.02079,
+        -0.00529
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "alization test-split, annotated separately by each speaker model). The synthetic utterances used were the highest scoring ones (Eq. 1) for each model with optimal (per-validation)α",
+      "overlap_with_next": "the evaluating listener, human listeners were 10.4 percentage points better at picking out the target on utterances produced by the pragmatic vs. literal speaker for the best-perfo",
+      "text": "alization test-split, annotated separately by each speaker model). The synthetic utterances used were the highest scoring ones (Eq. 1) for each model with optimal (per-validation)α and aβ = 1.0. We note that while the point-based speakers operate solely with point- cloud representations, we present their produced utterances to AMT participants accompanied by CAD rendered im- ages, to keep the human-side presentation identical across experiments. Table 4: Evaluating neural speakers operating with Point Cloud or Image object representations. Speaker Architecture Modality NeuralListener HumanListener Context Unaware Point Cloud Image 59.1± 2.0% 64.0± 1.7% - - Literal Point CloudImage 71.5±1.3%76.6± 1.0% 66.268.3 Pragmatic Point CloudImage 90.3±1.3%92.2±0.5% 69.478.7 We found (see Table 4) that ourpragmatic speakers per- form best with both synthetic and human partners. While their success with the synthetic listener model may be un- surprising, given the architectural similarity of the internal listener and the evaluating listener, human listeners were 10.4 percentage points better at picking out the target on utterances produced by the pragmatic vs. literal speaker for the best-perfo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.02124,
+        0.00794,
+        -0.00522,
+        -0.03073,
+        -0.01703
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "the evaluating listener, human listeners were 10.4 percentage points better at picking out the target on utterances produced by the pragmatic vs. literal speaker for the best-perfo",
+      "overlap_with_next": "e examine the degree to which our neural listeners and speakers learn representa- tions that are correspondingly robust: that capture associa- tions between the visual and the ling",
+      "text": "the evaluating listener, human listeners were 10.4 percentage points better at picking out the target on utterances produced by the pragmatic vs. literal speaker for the best-performing ( image-based) variant. We also found an asymmetry between the listening and speaking tasks: while context-unaware listeners achieved high per- formance, we found that context-unaware speakers fare sig- niﬁcantly worse than context-aware ones. Last, we note that both literal and pragmatic speakers produce succinct descriptions (average sentence length 4.21 vs. 4.97) but the pragmatic speakers use a much richer vocabulary ( 14% more unique nouns and 33% more unique adjectives, after controlling for average length discrepancy). 7. Out-of-distribution transfer learning Language is abstract and compositional. These prop- erties make language use generalizable to new situations (e.g. using concrete language in novel scientiﬁc domains) and robust to low-level perceptual variation (e.g. lighting). In our ﬁnal set of experiments we examine the degree to which our neural listeners and speakers learn representa- tions that are correspondingly robust: that capture associa- tions between the visual and the ling",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06486,
+        0.01334,
+        0.01106,
+        -0.0031,
+        -0.01374
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "e examine the degree to which our neural listeners and speakers learn representa- tions that are correspondingly robust: that capture associa- tions between the visual and the ling",
+      "overlap_with_next": "ose classiﬁcation scores are shown above each corresponding utterance. Understanding out-of-class reference To test the gener- alization of listeners to novel stimuli, we collected",
+      "text": "e examine the degree to which our neural listeners and speakers learn representa- tions that are correspondingly robust: that capture associa- tions between the visual and the linguistic domains permit generalization out of the training domain. [Page 7] the one with the circle on the bottom it has rollers on the feet the chair with the thin-est legs square back, straight legspragmatic speaker distractors 0.55 0.16 0.29 0.29 0.20 0.51 0.19 0.32 0.49 0.00 0.14 0.86 target literal speaker listener scores listener scores distractors target distractors target the one with the thick-est legs 0.05 0.85 0.10 thin-est seat 0.19 0.24 0.57 Figure 3: Pragmatic vs. literal speakers in unseen (‘hard’) contexts. The pragmatic generations successfully discern the target, even in cases where the literal ones fail. The two left-most examples are based on image-based speakers/listeners, the right-most with point-cloud-based. The utterances are color coded according to the attention placed by an evaluating neural listener whose classiﬁcation scores are shown above each corresponding utterance. Understanding out-of-class reference To test the gener- alization of listeners to novel stimuli, we collected",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08107,
+        -0.00314,
+        -0.01155,
+        -0.0066,
+        0.00048
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ose classiﬁcation scores are shown above each corresponding utterance. Understanding out-of-class reference To test the gener- alization of listeners to novel stimuli, we collected",
+      "overlap_with_next": "racy is well above chance in all transfer categories (56% on average). More- over, constraining the evaluation to utterances that contain only words that are in the CiC training vo",
+      "text": "ose classiﬁcation scores are shown above each corresponding utterance. Understanding out-of-class reference To test the gener- alization of listeners to novel stimuli, we collected refer- ring expressions in communication contexts made of ob- jects in ShapeNet drawn from new classes: beds, lamps, sofas and tables. These classes are distinct from chairs, but share some parts and properties, making transfer possible for a sufﬁciently compositional model. For each of these classes we created 200 contexts made of random triplets of objects; we collected 2 referring expressions for each target in each context (from participants on AMT). Exam- ples of visual stimuli and collected utterances are shown in Fig. 4 (bottom-row). To this data, we applied an (image- only, with/without-attention) listener trained on the CiC (i.e. chairs) data. We avoid using point-clouds since unlike VGG which was ﬁnetuned with multiple ShapeNet classes, the PC-AE was pre-trained on a single-class. As shown in Table 5, the average accuracy is well above chance in all transfer categories (56% on average). More- over, constraining the evaluation to utterances that contain only words that are in the CiC training vo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03899,
+        -0.01799,
+        -0.06461,
+        0.04528,
+        0.01411
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "racy is well above chance in all transfer categories (56% on average). More- over, constraining the evaluation to utterances that contain only words that are in the CiC training vo",
+      "overlap_with_next": "ining domains increases (compare sofas to lamps). Table 5: Transfer-learning of neural listeners in novel object classes, and in different subpopulations of utterances. The subpopu",
+      "text": "racy is well above chance in all transfer categories (56% on average). More- over, constraining the evaluation to utterances that contain only words that are in the CiC training vocabulary (75% of all utterances, column: known) only slightly improves the results. This is likely because utterances with unknown words still contain enough known vocabulary for the model to determine meaning. We further dissect the known popu- lation into utterances that contain part-related words ( with- part) and their complement ( without-part). For the train- ing domain of chairs without-part utterances yield slightly higher accuracy. However the useful subcategories that sup- port this performance (e.g. “recliner”) do not support trans- fer to new categories. Indeed, we observe that for transfer classes (except sofa) the listener performs better when part- related words are present. Furthermore, the performance gap between the two populations appears to become larger as the perceptual distance between the transfer and training domains increases (compare sofas to lamps). Table 5: Transfer-learning of neural listeners in novel object classes, and in different subpopulations of utterances. The subpopu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04835,
+        -0.00454,
+        -0.02817,
+        0.04398,
+        0.00263
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "ining domains increases (compare sofas to lamps). Table 5: Transfer-learning of neural listeners in novel object classes, and in different subpopulations of utterances. The subpopu",
+      "overlap_with_next": " data. We explored the ability of our models to transfer to real chair images (rather than the training images which were ren- dered without color or texture from CAD models) by cu",
+      "text": "ining domains increases (compare sofas to lamps). Table 5: Transfer-learning of neural listeners in novel object classes, and in different subpopulations of utterances. The subpopulations are: entire: all utterances, known: with all tokens in the chair training-vocabulary,with-part: subset of known that contain at least one part-related word, without- part subset of known and complement of with-part. For reference the test-chair statistics are shown (ﬁrst row), but are not included in the reported average (last row). The ac- curacies are averages of ﬁve listeners trained on different data splits. Further details are provided in the Appendix. Population Class entire known with part without part chair 77.4 77.8 77.0 80.5 bed 56.4 55.8 63.8 51.5 lamp 50.1 51.9 60.3 47.1 sofa 53.6 55.0 55.1 54.7 table 63.7 65.5 68.3 62.7 average 56.0 57.1 61.9 54.9 Describing real images Transfer from synthetic data to real data is often difﬁcult for modern machine learning models, that are attuned to subtle statistics of the data. We explored the ability of our models to transfer to real chair images (rather than the training images which were ren- dered without color or texture from CAD models) by cu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04325,
+        -0.01953,
+        -0.03798,
+        0.0127,
+        -0.00505
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " data. We explored the ability of our models to transfer to real chair images (rather than the training images which were ren- dered without color or texture from CAD models) by cu",
+      "overlap_with_next": "esh 0.01 0.02 0.97 Figure 4: Examples of out-of-distribution neural speaking and listening. Top row: model generations for real-world cat- alogue images. The speaker successfully d",
+      "text": " data. We explored the ability of our models to transfer to real chair images (rather than the training images which were ren- dered without color or texture from CAD models) by cu- rating a modest-sized (300) collection of chair images from online furniture catalogs. These images were taken from a similar view-point to that of the training renderings and have rich color and texture content. We applied the (image- only) pragmatic speaker to these images, after subtracting the average ImageNet RGB values (i.e. before passing the images to VGG). Examples of the speaker’s productions are shown in Figure 4. For each chair, we randomly selected [Page 8] distractors target gap between the back and the seat distractors target distractors target circular arm rests two legs connected the bed has a fancy metal headboard and two pillows 0.06 0.02 0.92 very narrow and tall rectangular table with four tapered legs 0.06 0.07 0.87 listener scores: targetdistractors targetdistractors targetdistractors this lamp is wire mesh 0.01 0.02 0.97 Figure 4: Examples of out-of-distribution neural speaking and listening. Top row: model generations for real-world cat- alogue images. The speaker successfully d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06798,
+        -0.03291,
+        -0.04784,
+        0.02312,
+        -0.00506
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "esh 0.01 0.02 0.97 Figure 4: Examples of out-of-distribution neural speaking and listening. Top row: model generations for real-world cat- alogue images. The speaker successfully d",
+      "overlap_with_next": ". Related work Image labeling and captioning Our work builds on recent progress in the development of vision models that in- volve some amount of language data, including object ca",
+      "text": "esh 0.01 0.02 0.97 Figure 4: Examples of out-of-distribution neural speaking and listening. Top row: model generations for real-world cat- alogue images. The speaker successfully describes ﬁne grained shape differences on images with rich color and texture content, not present in the training data. Bottom row: results of applying a word-attentive listener on renderings of CAD objects from unseen classes with human-produced utterances. The listener can detect the (often localized) visual cues that humans refer to, despite the large visual discrepancy of these objects from training-domain of chairs. (The utterances are color coded according to the listener’s attention.) two distractors and asked 2 AMT participants to guess the target given the utterance produced by our speaker. Hu- man listeners correctly guessed the target chair 70.1% of the time. Our speaker appears to transfer successfully to real images, which contain color, texture, pose variation, and likely other differences from our training data. 8. Related work Image labeling and captioning Our work builds on recent progress in the development of vision models that in- volve some amount of language data, including object ca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.048,
+        -0.00649,
+        -0.01672,
+        0.02148,
+        -0.01609
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": ". Related work Image labeling and captioning Our work builds on recent progress in the development of vision models that in- volve some amount of language data, including object ca",
+      "overlap_with_next": "ioral conse- quences of those inferences [36, 23, 5, 42]. Recently, these approaches have also been adopted as a benchmark for dis- criminative or context-aware NLP [33, 2, 40, 44,",
+      "text": ". Related work Image labeling and captioning Our work builds on recent progress in the development of vision models that in- volve some amount of language data, including object cate- gorization [38, 54] and image captioning [19, 45, 49]. Un- like object categorization, which pre-speciﬁes a ﬁxed set of class labels to which all images must project, our systems use open-ended, referential language. Similarly to other re- cent works in image captioning [29, 32, 52, 43, 27, 26, 51], instead of captioning a single image (or entity therein), in isolation, our systems learn how to communicate across di- verse communications contexts. Reference games In our work we use reference games [20] in order to operationalize the demand to be relevant in context. The basic arrangement of such games can be traced back to the language games explored by Wittgenstein [47] and Lewis [25]. For decades, such games have been a valuable tool in cognitive science to quantitatively measure inferences about language use and the behavioral conse- quences of those inferences [36, 23, 5, 42]. Recently, these approaches have also been adopted as a benchmark for dis- criminative or context-aware NLP [33, 2, 40, 44,",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04806,
+        0.00261,
+        -0.02439,
+        0.05211,
+        -0.01511
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "ioral conse- quences of those inferences [36, 23, 5, 42]. Recently, these approaches have also been adopted as a benchmark for dis- criminative or context-aware NLP [33, 2, 40, 44,",
+      "overlap_with_next": "is paper, we explored models of natural language grounded in the shape of common objects. The geome- try and topology of objects can be complex and the lan- guage we have for refer",
+      "text": "ioral conse- quences of those inferences [36, 23, 5, 42]. Recently, these approaches have also been adopted as a benchmark for dis- criminative or context-aware NLP [33, 2, 40, 44, 31, 6, 24]. Rational speech acts framework Our models draw on recent formalization of human language use in the Ra- tional Speech Acts (RSA) framework [13]. At the core of RSA is the Gricean proposal [15] that speakers are agents who select utterances that are parsimonious yet informative about the state of the world. RSA formalizes this notion of informativity as the expected reduction in the uncertainty of an (internally simulated) listener, as our pragmatic speaker does. The literal listener in RSA uses semantics that mea- sure compatibility between an utterance and a situation, as our baseline listener does. Previous work has shown that RSA models account for context sensitivity in speakers and listeners [14, 31, 53, 11]. Our results add evidence for the effectiveness of this approach in complex domains. 9. Conclusion In this paper, we explored models of natural language grounded in the shape of common objects. The geome- try and topology of objects can be complex and the lan- guage we have for refer",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01626,
+        0.04426,
+        0.01862,
+        0.02571,
+        -0.02712
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "is paper, we explored models of natural language grounded in the shape of common objects. The geome- try and topology of objects can be complex and the lan- guage we have for refer",
+      "overlap_with_next": "the transfer abilities of these models and how this depends on the compositional structure they have learned. Acknowledgements The authors wish to acknowledge the support of a Sony",
+      "text": "is paper, we explored models of natural language grounded in the shape of common objects. The geome- try and topology of objects can be complex and the lan- guage we have for referring to them is correspondingly ab- stract and compositional. This makes the shape of objects an ideal domain for exploring grounded language learning, while making language an especially intriguing source of evidence for shape variations. We introduced the Chairs-in- Context corpus of highly descriptive referring expressions for shapes in context. Using this data we explored a vari- ety of neural listener and speaker models, ﬁnding that the best variants exhibited strong performance. These models draw on both 2D and 3D object representations and appear [Page 9] to reﬂect human-like part decomposition, though they were never explicitly trained with object parts. Finally, we found that the learned models are surprisingly robust, transferring to real images and to new classes of objects. Future work will be required to understand the transfer abilities of these models and how this depends on the compositional structure they have learned. Acknowledgements The authors wish to acknowledge the support of a Sony",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02685,
+        0.02719,
+        -0.02467,
+        0.01678,
+        -0.00158
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "the transfer abilities of these models and how this depends on the compositional structure they have learned. Acknowledgements The authors wish to acknowledge the support of a Sony",
+      "overlap_with_next": " Clark and D. Wilkes-Gibbs. Referring as a collabora- tive process. Cognition, 22(1):1–39, 1986. 8 [6] R. Cohn-Gordon, N. Goodman, and C. Potts. Pragmatically informative image cap",
+      "text": "the transfer abilities of these models and how this depends on the compositional structure they have learned. Acknowledgements The authors wish to acknowledge the support of a Sony Stanford Graduate Fellowship, a NSF grant CHS-1528025, a Vannevar Bush Faculty Fellowship and gifts from Autodesk and Amazon Web Services for Ma- chine Learning Research. References [1] P. Achlioptas, O. Diamanti, I. Mitliagkas, and L. J. Guibas. Learning representations and generative models for 3d point clouds. Proceedings of the 35th International Conference on Machine Learning, 2018. 3, 11 [2] J. Andreas and D. Klein. Reasoning about pragmatics with neural listeners and speakers. CoRR, 2016. 8 [3] J. L. Ba, J. R. Kiros, and G. E. Hinton. Layer normalization. CoRR, abs/1607.06450, 2016. 11 [4] A. X. Chang, T. A. Funkhouser, L. J. Guibas, P. Hanrahan, Q. Huang, Z. Li, S. Savarese, M. Savva, S. Song, H. Su, J. Xiao, L. Yi, and F. Yu. Shapenet: An information-rich 3d model repository. CoRR, abs/1512.03012, 2015. 2, 11 [5] H. H. Clark and D. Wilkes-Gibbs. Referring as a collabora- tive process. Cognition, 22(1):1–39, 1986. 8 [6] R. Cohn-Gordon, N. Goodman, and C. Potts. Pragmatically informative image cap",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04911,
+        0.00702,
+        -0.03911,
+        0.01299,
+        -0.01905
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": " Clark and D. Wilkes-Gibbs. Referring as a collabora- tive process. Cognition, 22(1):1–39, 1986. 8 [6] R. Cohn-Gordon, N. Goodman, and C. Potts. Pragmatically informative image cap",
+      "overlap_with_next": "Mahowald, L. Bergen, S. Ratnasingam, M. Gibson, S. T. Piantadosi, and B. R. Conway. Color naming across languages reﬂects color use. Proceedings of the National Academy of Sciences",
+      "text": " Clark and D. Wilkes-Gibbs. Referring as a collabora- tive process. Cognition, 22(1):1–39, 1986. 8 [6] R. Cohn-Gordon, N. Goodman, and C. Potts. Pragmatically informative image captioning with character-level reference. CoRR, abs/1804.05417, 2018. 8 [7] J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li, and L. Fei- Fei. Imagenet: A large-scale hierarchical image database. In CVPR, 2009. 3 [8] A. Dubrovina, F. Xia, P. Achlioptas, M. Shalah, and G. J. Leonidas. Composite shape modeling via latent space fac- torization. CoRR, abs/1901.02968, 2019. 2 [9] P. F. Felzenszwalb, R. B. Girshick, D. McAllester, and D. Ra- manan. Object detection with discriminatively trained part- based models. TPAMI, 2010. 2 [10] A. M. Fischler and E. A. Robert. The representation and matching of pictorial structures. IEEE Trans. on Computers., 1973. 2 [11] D. Fried, J. Andreas, and D. Klein. Uniﬁed pragmatic models for generating and following instructions. CoRR, abs/1711.04987, 2017. 8 [12] E. Gibson, R. Futrell, J. Jara-Ettinger, K. Mahowald, L. Bergen, S. Ratnasingam, M. Gibson, S. T. Piantadosi, and B. R. Conway. Color naming across languages reﬂects color use. Proceedings of the National Academy of Sciences",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07347,
+        -0.02597,
+        -0.02687,
+        0.01914,
+        -0.01024
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "Mahowald, L. Bergen, S. Ratnasingam, M. Gibson, S. T. Piantadosi, and B. R. Conway. Color naming across languages reﬂects color use. Proceedings of the National Academy of Sciences",
+      "overlap_with_next": "Batch normalization: Accelerating deep network training by reducing internal covariate shift. In ICML, 2015. 11 [19] A. Karpathy and L. Fei-Fei. Deep visual-semantic align- ments f",
+      "text": "Mahowald, L. Bergen, S. Ratnasingam, M. Gibson, S. T. Piantadosi, and B. R. Conway. Color naming across languages reﬂects color use. Proceedings of the National Academy of Sciences, 114(40):10785–10790, 2017. 2 [13] N. D. Goodman and M. C. Frank. Pragmatic language in- terpretation as probabilistic inference. Trends in Cognitive Sciences, 20(11):818 – 829, 2016. 6, 8 [14] C. Graf, J. Degen, R. X. D. Hawkins, and N. D. Goodman. Animal, dog, or dalmatian? level of abstraction in nomi- nal referring expressions. In Proceedings of the 38th Annual Conference of the Cognitive Science Society, 2016. 8 [15] H. P. Grice. Logic and conversation. In P. Cole and J. Mor- gan, editors, Syntax and Semantics, pages 43–58. Academic Press, New York, 1975. 8 [16] R. X. D. Hawkins. Conducting real-time multiplayer exper- iments on the web. Behavior Research Methods, 47(4):966– 976, 2015. 2 [17] S. Hochreiter and J. Schmidhuber. Long short-term memory. Neural computation, 9(8):1735–1780, 1997. 3 [18] S. Ioffe and C. Szegedy. Batch normalization: Accelerating deep network training by reducing internal covariate shift. In ICML, 2015. 11 [19] A. Karpathy and L. Fei-Fei. Deep visual-semantic align- ments f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05642,
+        -0.02171,
+        -0.04366,
+        0.02052,
+        -0.04923
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "Batch normalization: Accelerating deep network training by reducing internal covariate shift. In ICML, 2015. 11 [19] A. Karpathy and L. Fei-Fei. Deep visual-semantic align- ments f",
+      "overlap_with_next": "on from referential games with symbolic and pixel input.CoRR, abs/1804.03984, 2018. 8 [25] D. Lewis. Convention: A philosophical study. Harvard Uni- versity Press, 1969. 8 [26] J. ",
+      "text": "Batch normalization: Accelerating deep network training by reducing internal covariate shift. In ICML, 2015. 11 [19] A. Karpathy and L. Fei-Fei. Deep visual-semantic align- ments for generating image descriptions. In Proceedings of the IEEE conference on computer vision and pattern recog- nition, pages 3128–3137, 2015. 8, 13 [20] S. Kazemzadeh, V . Ordonez, M. Mark, and B. L. Tamara. Referitgame: Referring to objects in photographs of natural scenes. In EMNLP, 2014. 2, 8 [21] D. P. Kingma and J. Ba. Adam: A method for stochastic optimization. CoRR, abs/1412.6980, 2014. 12 [22] S. Kirby, M. Tamariz, H. Cornish, and K. Smith. Compres- sion and communication in the cultural evolution of linguis- tic structure. Cognition, 141:87–102, 2015. 2 [23] R. M. Krauss and S. Weinheimer. Changes in reference phrases as a function of frequency of usage in social inter- action: A preliminary study. Psychonomic Science, 1964. 8 [24] A. Lazaridou, K. M. Hermann, K. Tuyls, and S. Clark. Emer- gence of linguistic communication from referential games with symbolic and pixel input.CoRR, abs/1804.03984, 2018. 8 [25] D. Lewis. Convention: A philosophical study. Harvard Uni- versity Press, 1969. 8 [26] J. ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06289,
+        -0.00205,
+        -0.04253,
+        0.01378,
+        -0.02015
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "on from referential games with symbolic and pixel input.CoRR, abs/1804.03984, 2018. 8 [25] D. Lewis. Convention: A philosophical study. Harvard Uni- versity Press, 1969. 8 [26] J. ",
+      "overlap_with_next": " A pragmatic neural model for grounded language understanding. CoRR, abs/1703.10186, 2017. 3, 8 [32] K. V . Nagaraja, I. V . Morariu, and D. S. Larry. Modeling context between obje",
+      "text": "on from referential games with symbolic and pixel input.CoRR, abs/1804.03984, 2018. 8 [25] D. Lewis. Convention: A philosophical study. Harvard Uni- versity Press, 1969. 8 [26] J. Lu, J. Yang, D. Batra, and D. Parikh. Neural baby talk. CVPR, 2018. 2, 8 [27] R. Luo and G. Shakhnarovich. Comprehension-guided refer- ring expressions. In Computer Vision and Pattern Recogni- tion (CVPR), volume 2, 2017. 2, 8 [28] A. L. Maas, A. Y . Hannun, and A. Y . Ng. Rectiﬁer non- linearities improve neural network acoustic models. In Pro- ceedings of the 30th International Conference on Machine Learning (ICML-13), 2013. 11 [29] J. Mao, J. Huang, A. Toshev, O. Camburu, A. Yuille, and M. Kevin. Generation and comprehension of unambiguous object descriptions. CoRR, abs/1511.02283, 2016. 8 [30] T. Miyato, D. M. Andrew, and G. Ian. Adversarial train- ing methods for semi-supervised text classiﬁcation. Interna- tional Conference on Learning, 2017. 11 [31] W. Monroe, R. X. Hawkins, N. D. Goodman, and C. Potts. Colors in context: A pragmatic neural model for grounded language understanding. CoRR, abs/1703.10186, 2017. 3, 8 [32] K. V . Nagaraja, I. V . Morariu, and D. S. Larry. Modeling context between obje",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03143,
+        0.01133,
+        -0.04136,
+        0.02744,
+        -0.03297
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": " A pragmatic neural model for grounded language understanding. CoRR, abs/1703.10186, 2017. 3, 8 [32] K. V . Nagaraja, I. V . Morariu, and D. S. Larry. Modeling context between obje",
+      "overlap_with_next": "cation task. Science, 1964. 8 [37] S. Shen and H. Lee. Neural attention models for sequence classiﬁcation: Analysis and application to key term extrac- tion and dialogue act detect",
+      "text": " A pragmatic neural model for grounded language understanding. CoRR, abs/1703.10186, 2017. 3, 8 [32] K. V . Nagaraja, I. V . Morariu, and D. S. Larry. Modeling context between objects for referring expression understand- ing. ECCV, 2016. 2, 8 [Page 10] [33] M. Paetzel, D. N. Racca, and D. DeVault. A multimodal corpus of rapid dialogue games. In Language Resources and Evaluation Conference (LREC), 2014. 8 [34] K. Papineni, S. Roukos, T. Ward, and W.-J. Zhu. Bleu: A method for automatic evaluation of machine translation. In Proceedings of the 40th Annual Meeting on Association for Computational Linguistics , ACL ’02, pages 311–318, Stroudsburg, PA, USA, 2002. Association for Computational Linguistics. 6 [35] J. Pennington, R. Socher, and C. Manning. Glove: Global vectors for word representation. In Proceedings of the 2014 conference on empirical methods in natural language pro- cessing (EMNLP), pages 1532–1543, 2014. 3 [36] S. Rosenberg and B. D. Cohen. Speakers’ and listeners’ pro- cesses in a word-communication task. Science, 1964. 8 [37] S. Shen and H. Lee. Neural attention models for sequence classiﬁcation: Analysis and application to key term extrac- tion and dialogue act detect",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03824,
+        0.00157,
+        -0.01187,
+        0.03018,
+        -0.0053
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": "cation task. Science, 1964. 8 [37] S. Shen and H. Lee. Neural attention models for sequence classiﬁcation: Analysis and application to key term extrac- tion and dialogue act detect",
+      "overlap_with_next": "ontext-aware captions from context-agnostic supervision. CoRR, abs/1701.02870, 2017. 8 [44] R. Vedantam, S. Bengio, K. Murphy, D. Parikh, and G. Chechik. Context-aware captions fro",
+      "text": "cation task. Science, 1964. 8 [37] S. Shen and H. Lee. Neural attention models for sequence classiﬁcation: Analysis and application to key term extrac- tion and dialogue act detection. CoRR, abs/1604.00077, 2016. 4 [38] K. Simonyan and A. Zisserman. Very deep convolutional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556, 2014. 3, 8 [39] N. Srivastava, G. Hinton, A. Krizhevsky, I. Sutskever, and R. Salakhutdinov. Dropout: A simple way to prevent neural networks from overﬁtting. J. Mach. Learn. Res., 15(1), 2014. 11 [40] J.-C. Su, C. Wu, H. Jiang, and S. Maji. Reasoning about ﬁne-grained attribute phrases using reference games. CoRR, abs/1708.08874, 2017. 8 [41] C. Szegedy, V . Vanhoucke, S. Ioffe, J. Shlens, and Z. Wojna. Rethinking the inception architecture for computer vision. CoRR, abs/1512.00567, 2015. 11 [42] K. van Deemter. Computational models of referring: a study in cognitive science. MIT Press, 2016. 8 [43] R. Vedanta, S. Bengio, K. Murphy, D. Parikh, and G. Chechik. Context-aware captions from context-agnostic supervision. CoRR, abs/1701.02870, 2017. 8 [44] R. Vedantam, S. Bengio, K. Murphy, D. Parikh, and G. Chechik. Context-aware captions fro",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04003,
+        -0.01189,
+        -0.00895,
+        0.03825,
+        -0.00062
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "ontext-aware captions from context-agnostic supervision. CoRR, abs/1701.02870, 2017. 8 [44] R. Vedantam, S. Bengio, K. Murphy, D. Parikh, and G. Chechik. Context-aware captions fro",
+      "overlap_with_next": " gap between human and machine translation. CoRR, abs/1609.08144, 2016. 6 [49] K. Xu, J. Ba, R. Kiros, K. Cho, A. Courville, R. Salakhutdi- nov, R. Zemel, and Y . Bengio. Show, att",
+      "text": "ontext-aware captions from context-agnostic supervision. CoRR, abs/1701.02870, 2017. 8 [44] R. Vedantam, S. Bengio, K. Murphy, D. Parikh, and G. Chechik. Context-aware captions from context-agnostic supervision. In Computer Vision and Pattern Recognition (CVPR), volume 3, 2017. 8 [45] O. Vinyals, A. Toshev, S. Bengio, and D. Erhan. Show and tell: A neural image caption generator. CoRR, abs/1411.4555, 2015. 8 [46] R. J. Williams and D. Zipser. A learning algorithm for con- tinually running fully recurrent neural networks. Neural Comput., 1989. 6 [47] L. Wittgenstein. Philosophical investigations. Macmillan, 1953. 8 [48] Y . Wu, M. Schuster, Z. Chen, Q. V . Le, M. Norouzi, W. Macherey, M. Krikun, Y . Cao, Q. Gao, K. Macherey, J. Klingner, A. Shah, M. Johnson, X. Liu, L. Kaiser, S. Gouws, Y . Kato, T. Kudo, H. Kazawa, K. Stevens, G. Kurian, N. Patil, W. Wang, C. Young, J. Smith, J. Riesa, A. Rudnick, O. Vinyals, G. S. Corrado, M. Hughes, and J. Dean. Google’s neural machine translation system: Bridg- ing the gap between human and machine translation. CoRR, abs/1609.08144, 2016. 6 [49] K. Xu, J. Ba, R. Kiros, K. Cho, A. Courville, R. Salakhutdi- nov, R. Zemel, and Y . Bengio. Show, att",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05154,
+        -0.00889,
+        0.01142,
+        0.02245,
+        0.00121
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": " gap between human and machine translation. CoRR, abs/1609.08144, 2016. 6 [49] K. Xu, J. Ba, R. Kiros, K. Cho, A. Courville, R. Salakhutdi- nov, R. Zemel, and Y . Bengio. Show, att",
+      "overlap_with_next": "ages 834–849. Springer, 2014. 8 [55] L. Zhu, Y . Chen, A. Yuille, and W. Freeman. Latent hierar- chical structural learning for object detection. CVPR, 2010. 2 [Page 11] A. Appendi",
+      "text": " gap between human and machine translation. CoRR, abs/1609.08144, 2016. 6 [49] K. Xu, J. Ba, R. Kiros, K. Cho, A. Courville, R. Salakhutdi- nov, R. Zemel, and Y . Bengio. Show, attend and tell: Neu- ral image caption generation with visual attention. CoRR, abs/1502.03044, 2016. 8 [50] L. Yi, H. Su, X. Guo, and L. J. Guibas. Syncspeccnn: Syn- chronized spectral CNN for 3d shape segmentation. CoRR, abs/1612.00606, 2016. 5 [51] L. Yu, Z. Lin, X. Shen, Y . Jimei, X. Lu, M. Bansal, and L. T. Berg. Mattnet: Modular attention network for referring ex- pression comprehension. CVPR, 2018. 2, 8 [52] L. Yu, P. Poirson, S. Yang, C. A. Berg, and L. T. Berg. Mod- eling context in referring expressions. ECCV, 2016. 2, 8 [53] L. Yu, H. Tan, M. Bansal, and T. L. Berg. A joint speaker- listener-reinforcer model for referring expressions. CoRR, abs/1612.09542, 2017. 8 [54] N. Zhang, J. Donahue, R. Girshick, and T. Darrell. Part- based r-cnns for ﬁne-grained category detection. In Eu- ropean conference on computer vision , pages 834–849. Springer, 2014. 8 [55] L. Zhu, Y . Chen, A. Yuille, and W. Freeman. Latent hierar- chical structural learning for object detection. CVPR, 2010. 2 [Page 11] A. Appendi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0482,
+        -0.00949,
+        -0.00739,
+        -0.00094,
+        0.00091
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": "ages 834–849. Springer, 2014. 8 [55] L. Zhu, Y . Chen, A. Yuille, and W. Freeman. Latent hierar- chical structural learning for object detection. CVPR, 2010. 2 [Page 11] A. Appendi",
+      "overlap_with_next": "t from it than the median of all pairwise distances, to form an Easy triplet. The above procedure gives rise to 2000 communication contexts when target vs. distractor infor- mation",
+      "text": "ages 834–849. Springer, 2014. 8 [55] L. Zhu, Y . Chen, A. Yuille, and W. Freeman. Latent hierar- chical structural learning for object detection. CVPR, 2010. 2 [Page 11] A. Appendix A.1. CiC details To build the triplets comprising the communication con- texts of CiC, we exploited the latent (bottleneck-derived) vector space of a Point-Cloud based AutoEncoder (PC-AE) [1], trained with chair-only objects of ShapeNet [4]. Con- cretely, we used a PC-AE with small bottleneck (64D) to promote meaningful euclidean distances and after embed- ding all∼ 7000 ShapeNet chairs in the resulting space, we computed their underlying 2-(euclidean)-nearest-neighbor graph. On this graph, we selected the 1K chairs with the highest in-degree to ‘seed’ the triplet generation. For each of the 1K (seed) chairs, we considered it together with its two nearest neighbors from the entire shape collection to form a Hard triplet. Also, we considered it together with the two chairs that were closest to it but which were also more distant from it than the median of all pairwise distances, to form an Easy triplet. The above procedure gives rise to 2000 communication contexts when target vs. distractor infor- mation",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04101,
+        -0.00336,
+        -0.03935,
+        0.00323,
+        0.02191
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "t from it than the median of all pairwise distances, to form an Easy triplet. The above procedure gives rise to 2000 communication contexts when target vs. distractor infor- mation",
+      "overlap_with_next": "rendered images of textureless 3D CAD models, taken from a single view-point. Concretely, we used images of the 8 largest object classes of Shape-Net (car, airplane, vessel, sofa, ",
+      "text": "t from it than the median of all pairwise distances, to form an Easy triplet. The above procedure gives rise to 2000 communication contexts when target vs. distractor infor- mation is ignored. However, to counterbalance the dataset while annotating these contexts in AMT, we ensured that each chair of a context was considered as a distractor and as a target, and that each resulting combination was anno- tated by at least 4 humans. Last, we note that when build- ing the Hard triplets, we applied a manually tuned distance- threshold, to reject triplets that contained objects that were ‘too’ close: we found that about∼ 3% of chairs had a geo- metric duplicate that could vary only wrt. its texture. A.2. Image and point-cloud pre-training For the listeners and speakers we trained a PC-AE un- der the Chamfer loss [1] with a 128D bottleneck and point clouds with 2048 points extracted from 3D CAD models, uniformly area-wise. We also ﬁne-tuned a VGG-16 pre- trained on ImageNet on a 8-way classiﬁcation, with 36,632 rendered images of textureless 3D CAD models, taken from a single view-point. Concretely, we used images of the 8 largest object classes of Shape-Net (car, airplane, vessel, sofa, ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00335,
+        -0.0255,
+        -0.04484,
+        -0.03421,
+        0.00103
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "rendered images of textureless 3D CAD models, taken from a single view-point. Concretely, we used images of the 8 largest object classes of Shape-Net (car, airplane, vessel, sofa, ",
+      "overlap_with_next": " training split with a special symbol mark- ing an unknown token ( <UNK>). Furthermore, we ignored the utterances comprised by more than 33 tokens (99th per- centile) and those for",
+      "text": "rendered images of textureless 3D CAD models, taken from a single view-point. Concretely, we used images of the 8 largest object classes of Shape-Net (car, airplane, vessel, sofa, chair, table, lamp, rifﬂe) and a uniformly random i.i.d. split of [90%, 5%, 5%] for train/test/val purposes. We ﬁne- tuned the network for 30 epochs. During the ﬁrst 15 epochs we optimized only the weights of the last (fc8) layer and during the last 15 epochs the weights of all layers. The at- tained test classiﬁcation accuracy was 96.9%. Last, to em- bed an image for the downstream listening/speaking tasks, we used the 4096D output activations of the penultimate (fc7) fully-connected layer. A.3. Pre-processing utterances We preprocessed the collected human utterances by i) lowercasing, ii) tokenizing by splitting off punctuation, iii) tokenizing by splitting superlative or comparative adjectives ending in -er, -est to their stem word, e.g. ‘thinner:’ → [‘thin’, ’er’] and, iv) replacing tokens that appear once or not at all in a training split with a special symbol mark- ing an unknown token ( <UNK>). Furthermore, we ignored the utterances comprised by more than 33 tokens (99th per- centile) and those for",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00827,
+        -0.03126,
+        -0.0164,
+        -0.01067,
+        0.00941
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": " training split with a special symbol mark- ing an unknown token ( <UNK>). Furthermore, we ignored the utterances comprised by more than 33 tokens (99th per- centile) and those for",
+      "overlap_with_next": "training. The PC-AE (128D) and VGG (4096D) latent vectors, that encoded each object, were passed as input to the LSTM when only one geometric modality was used. When the two modali",
+      "text": " training split with a special symbol mark- ing an unknown token ( <UNK>). Furthermore, we ignored the utterances comprised by more than 33 tokens (99th per- centile) and those for which the human listener in the un- derlying trial did not guess correctly the target. Last, we concatenated listener and speaker utterances from the same trial (in their order of formulation) by adding in the end of each but the last utterance a special symbol marking a dia- logue: (<DIA>), e.g. [‘the’, ‘thin’, ‘chair’, <DIA>, ‘yes’]. A.4. Listeners details For the listeners we used a uni-directional LSTM cell with 100 hidden units, the output of which was passed into a 3-layer MLP with [100, 50, 3] neurons that predicted the triplet’s classiﬁcation logits. To the output of each hidden layer of the MLP, batch normalization [18] and a ReLU [28] non-linearity was applied. The listeners’ word- embedding was initialized with a 100D GloVe embedding pre-trained on the 6B Wikipedia 2014 corpus, and which was further ﬁne-tuned during training. The PC-AE (128D) and VGG (4096D) latent vectors, that encoded each object, were passed as input to the LSTM when only one geometric modality was used. When the two modali",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02195,
+        -0.01441,
+        -0.0308,
+        -0.00567,
+        -0.00447
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "training. The PC-AE (128D) and VGG (4096D) latent vectors, that encoded each object, were passed as input to the LSTM when only one geometric modality was used. When the two modali",
+      "overlap_with_next": "0.0333 to the distractors (i.e. smoothing of 0.9). Discussion Label smoothing yielded a mild performance boost of∼ 2% across all ablated listener architectures, in accordance with ",
+      "text": "training. The PC-AE (128D) and VGG (4096D) latent vectors, that encoded each object, were passed as input to the LSTM when only one geometric modality was used. When the two modalities used together, the PC-AE codes were concatenated with the output of the LSTM, and the concatenated result was processed by the ﬁnal MLP. In either case, we ﬁrst re-embedded these geo- metric codes (100D) with 2 separate/single FC-ReLU layers (referred as ‘projection’ layers in the Main Paper Section 3). An overview of the proposed listener reﬂecting the overall design choices is given in Fig.5. We used dropout with 0.5 keep probability before the ‘projection’ layers with a drop- out mask that was the same for the objects of a given triplet. Separate dropout with 0.5 keep probability was applied in all input vectors of the LSTM (i.e. on the language tokens or the grounding geometric codes). Last, the ground-truth indicator vectors of each triplet were label-smoothed [41] by assigning 0.933 probability mass to the target and 0.0333 to the distractors (i.e. smoothing of 0.9). Discussion Label smoothing yielded a mild performance boost of∼ 2% across all ablated listener architectures, in accordance with ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06424,
+        -0.01228,
+        -0.0447,
+        -0.02533,
+        0.00668
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "0.0333 to the distractors (i.e. smoothing of 0.9). Discussion Label smoothing yielded a mild performance boost of∼ 2% across all ablated listener architectures, in accordance with ",
+      "overlap_with_next": "uds and linguistic utterances. XXXXXXXXXXXXXXHyperParameters Architecture Baseline Early-Context Combined-Interpretation Learning rate 0.0005 0.001 0.001 Label-smoothing 0.9 0.9 0.",
+      "text": "0.0333 to the distractors (i.e. smoothing of 0.9). Discussion Label smoothing yielded a mild performance boost of∼ 2% across all ablated listener architectures, in accordance with previous work [41]. We note that we did not manage to improve the best attained accuracies by ap- plying layer normalization [3] in the LSTM, or adversarial regularization [30] on the word-embedding. Dropout [39] was by far the most effective form of regularization for our listeners (∼[8-9]%), following byL2 weight-regularization of the projection layers (∼[2-3]%). Finally, using a sepa- rate MLP to process the PC-AE codes, was slightly better than feeding them directly in the LSTM (after the tokens of each utterance were processed). However, grounding the [Page 12] “five slats straight back top” image features GloVe embedding LSTMVGG five slats topstraight back WORD ATTN distractors target point-cloud features MLPFC FC word features PC - AE L(oi,u ) ∈ R1 Figure 5: Baseline listener architecture combining 2D images, 3D point-clouds and linguistic utterances. XXXXXXXXXXXXXXHyperParameters Architecture Baseline Early-Context Combined-Interpretation Learning rate 0.0005 0.001 0.001 Label-smoothing 0.9 0.9 0.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06278,
+        -0.00022,
+        -0.03511,
+        -0.01614,
+        0.00398
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": "uds and linguistic utterances. XXXXXXXXXXXXXXHyperParameters Architecture Baseline Early-Context Combined-Interpretation Learning rate 0.0005 0.001 0.001 Label-smoothing 0.9 0.9 0.",
+      "overlap_with_next": "ntial growth of this space, we search it into two phases. First, we optimized the learn- ing rate (in the regime of [0.0001, 0.0005, 0.001, 0.002, 0.004, 0.005]) in conjunction wit",
+      "text": "uds and linguistic utterances. XXXXXXXXXXXXXXHyperParameters Architecture Baseline Early-Context Combined-Interpretation Learning rate 0.0005 0.001 0.001 Label-smoothing 0.9 0.9 0.9 L2 regularization 0.3 0.05 0.09 LSTM-input-dropout 0.5 0.7 0.45 Table 6: Optimal hyper-parameters for ablated neural listener architectures, using both geometric modalities and word- attention and various degrees of context. Dropout numbers reﬂect the keep probability. LSTM with the PC-AE codes, and using the VGG codes in the end of the pipeline (either via pre-MLP concatenation or by feeding the latter in the LSTM) deteriorate signiﬁcantly all attained results. Context Ablations We ablated three architectures that used simultaneously images and point-clouds, word atten- tion and different degrees of context (See Main Paper Sec- tion 3). The optimal Hyper-Parameters (HP) for each archi- tecture are shown in Table 6. We did a grid search over the space of HP associated with each architecture separately. To circumvent the exponential growth of this space, we search it into two phases. First, we optimized the learn- ing rate (in the regime of [0.0001, 0.0005, 0.001, 0.002, 0.004, 0.005]) in conjunction wit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03705,
+        -0.00069,
+        -0.03862,
+        0.01978,
+        -0.0235
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "ntial growth of this space, we search it into two phases. First, we optimized the learn- ing rate (in the regime of [0.0001, 0.0005, 0.001, 0.002, 0.004, 0.005]) in conjunction wit",
+      "overlap_with_next": "an 8×3×1 kernel and stride 1. Training We trained the Baseline and the Combined- Interpretation for 500 epochs and the Early-Context for 350. This was sufﬁcient, as more training i",
+      "text": "ntial growth of this space, we search it into two phases. First, we optimized the learn- ing rate (in the regime of [0.0001, 0.0005, 0.001, 0.002, 0.004, 0.005]) in conjunction with the drop-out (keep prob- ability) applied at the LSTM’s input, in the range [0.4-0.7] with increments of 0.05. Given the acquired optimal val- ues, we searched for the optimal L2 weight-regularization (in the range of [0.005, 0.01, 0.05, 0.1, 0.3, 0.9]) applied at the two projection layers, and label-smoothing ([0.8, 0.9, 1.0]). For these experiments we used a single random seed to control for the data splits with the object-generalization task. We note that for the Early-Context listener, using a single 1D convolutional layer to extract the grounding vec- tor of each object, appeared to produce better results than using a single FC layer (or deeper alternatives). This sin- gle convolutional layer we used, converted the input sig- nal [f (vj,vk)||g(vj,vk)||vi]∈ R100×3 to a R100×1 LSTM- grounding vector for each objectvi, with an 8×3×1 kernel and stride 1. Training We trained the Baseline and the Combined- Interpretation for 500 epochs and the Early-Context for 350. This was sufﬁcient, as more training i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03484,
+        -0.01694,
+        -0.04317,
+        0.01039,
+        -0.00134
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "an 8×3×1 kernel and stride 1. Training We trained the Baseline and the Combined- Interpretation for 500 epochs and the Early-Context for 350. This was sufﬁcient, as more training i",
+      "overlap_with_next": "he ﬁrst stage, we searched models varying: a) the hidden neurons of the LSTM ( 100 or 200), b) the initial learning rate ([0.0005, 0.001, 0.003]), c) the drop- out keep probability",
+      "text": "an 8×3×1 kernel and stride 1. Training We trained the Baseline and the Combined- Interpretation for 500 epochs and the Early-Context for 350. This was sufﬁcient, as more training increased overﬁt- ting without improving the attained test/val accuracies. We halved the learning every 50 epochs, if the validation error was not improved in any of them. Namely, every 5 epochs we evaluated the model on the validation split in order to se- lect the epoch/weights with the best accuracy. Because the Combined-Interpretation is sensitive in the input order of the object codes, we randomly permute them during train- ing. We use the ADAM [21] ( β1 = 0.9) optimizer for all experiments. A.5. Speaker details Image-based speaker To ﬁnd good model parameters for an image-based speaker, we considered a hyper-parameter search on a literal variant. Similarly, to what we did in the [Page 13] ablations of listener variants we conducted a two-stage grid search given a single random seed and the object general- ization task. At the ﬁrst stage, we searched models varying: a) the hidden neurons of the LSTM ( 100 or 200), b) the initial learning rate ([0.0005, 0.001, 0.003]), c) the drop- out keep probability",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.01407,
+        -0.0274,
+        -0.03368,
+        0.00217,
+        -0.00944
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "he ﬁrst stage, we searched models varying: a) the hidden neurons of the LSTM ( 100 or 200), b) the initial learning rate ([0.0005, 0.001, 0.003]), c) the drop- out keep probability",
+      "overlap_with_next": "mage-based speaker. We found the same conﬁguration of parameters (Table 7) to be optimal for point-based models as well. Ex- ception to this was the the dropout applied to the PC-A",
+      "text": "he ﬁrst stage, we searched models varying: a) the hidden neurons of the LSTM ( 100 or 200), b) the initial learning rate ([0.0005, 0.001, 0.003]), c) the drop- out keep probability applied on the word-embeddings ([0.8, 0.9, 1.0]) and d) the dropout keep probability applied at the LSTM’s output ([0.8, 0.9, 1.0]). The two best performing models were further optimized by considering L2-weight regularization applied at the FC-projection layer (with val- ues in [0, 0.005, 0.01]) and the dropout keep-probability applied before the FC-projection layer ([0.5, 0.7, 0.9 1.0]). The resulting optimal parameters are reported in Table 7. Point-cloud-based speaker For the point-based speaker, we did a similar but more constrained hyper-parameter search as we did for the image-based speaker, by also con- sidering its literal variant. Here, we ﬁxed the drop-out ap- plied the word-embeddings and to the LSTM’s output (0.8 and 0.9 keep-probability respectively) and ablated the re- maining hyper-parameters as we did for the image-based speaker. We found the same conﬁguration of parameters (Table 7) to be optimal for point-based models as well. Ex- ception to this was the the dropout applied to the PC-A",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02182,
+        -0.00241,
+        -0.035,
+        -0.00125,
+        -0.00553
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 59340,
+      "length": 1200,
+      "overlap_with_previous": "mage-based speaker. We found the same conﬁguration of parameters (Table 7) to be optimal for point-based models as well. Ex- ception to this was the the dropout applied to the PC-A",
+      "overlap_with_next": " GloVe to provide our speakers pre-trained word embeddings, as in the listener, but found that it was sufﬁcient to train the word embedding from uniformly random initialized weight",
+      "text": "mage-based speaker. We found the same conﬁguration of parameters (Table 7) to be optimal for point-based models as well. Ex- ception to this was the the dropout applied to the PC-AE codes before the FC-projection (no dropout at all was best in this case). Also, the point-based speakers needed more training to converge than the image-based ones (maximally 400 epochs vs. 300). Model selection To do model selection for a training speaker, we used a pre-trained listener (with the same train/test/val splits) which evaluated the synthetic utterances produced by the speaker during training. To this purpose the speaker generated 1 utterance for each unique triplet in the validation set via greedy (arg-max) sampling every 10 epochs of training and the listener reported the accuracy of predicting the target given the synthetic utterance. In the end of training (300 epochs for image-based speakers vs. 400 for point-based ones), the epoch/model with the high- est accuracy was selected. Other details We initially used GloVe to provide our speakers pre-trained word embeddings, as in the listener, but found that it was sufﬁcient to train the word embedding from uniformly random initialized weight",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0008,
+        -0.02051,
+        -0.04663,
+        0.00573,
+        0.00882
+      ]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 59160,
+      "end_char": 60360,
+      "length": 1200,
+      "overlap_with_previous": " GloVe to provide our speakers pre-trained word embeddings, as in the listener, but found that it was sufﬁcient to train the word embedding from uniformly random initialized weight",
+      "overlap_with_next": "ner. While, this resulted in a ( literal) speaker model that could achieve higher neural-listener evaluation-accuracy than when either modality was used in isolation, we did not ob",
+      "text": " GloVe to provide our speakers pre-trained word embeddings, as in the listener, but found that it was sufﬁcient to train the word embedding from uniformly random initialized weights (we used the range [-0.1, 0.1]). We also initialized the bias terms of the linear word-encoding layer with the log probability of the frequency of each word in the training data [19], which pro- vided faster convergence. We train with SGD and ADAM (β1 = 0.9) and apply norm-wise gradient clipping with a cut-off threshold of 5.0. The training utterances have a max- imal length of 33 tokens (99th percentile of the dataset). For any speaker we sampled utterances of the maximum train- ing length. For the pragmatic speaker we sample and score 50 utterances per triplet at test time (following Eq. 1 of Main Paper). Point-cloud & image-based speaker In preliminary ex- periments, we attempted to incorporate both geometric modalities: point-clouds and images in a speaker net- work, similarly to what we did for the best-performing lis- tener. While, this resulted in a ( literal) speaker model that could achieve higher neural-listener evaluation-accuracy than when either modality was used in isolation, we did not ob",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03653,
+        -0.00242,
+        -0.01598,
+        -0.03961,
+        -0.01021
+      ]
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 60180,
+      "end_char": 61380,
+      "length": 1200,
+      "overlap_with_previous": "ner. While, this resulted in a ( literal) speaker model that could achieve higher neural-listener evaluation-accuracy than when either modality was used in isolation, we did not ob",
+      "overlap_with_next": "e that while the optimal speaker that used two modalities performed slightly better than the image-based speaker, per neural-listener evaluation, it did not improve the attained pe",
+      "text": "ner. While, this resulted in a ( literal) speaker model that could achieve higher neural-listener evaluation-accuracy than when either modality was used in isolation, we did not observe any improvement against the image-based speaker in AMT human-listener experiments. We attempted three ways of ‘mixing’ the two modalities in a speaker. Namely, for each object of a communication context: a) providing the LSTM with the concatenation of its projected VGG code and its projected PC-AE code, b) same as a) but instead of concatenation, using the sum op- erator, c) ﬁrst providing its PC-AE projected code followed at the next time step by its VGG one. We compared these approaches by using the optimal hyper-parameters for an image-based speaker and only vary the amount of dropout applied to the point-cloud before the projection layer ([1.0 0.8, 0.6] keep probability). In all cases, avoiding dropout was best. The ﬁnal results for a single random-seed and the object-generalization task are reported in Table 8. We note that while the optimal speaker that used two modalities performed slightly better than the image-based speaker, per neural-listener evaluation, it did not improve the attained pe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04237,
+        -0.01199,
+        -0.0286,
+        0.00218,
+        0.00861
+      ]
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 61200,
+      "end_char": 62400,
+      "length": 1200,
+      "overlap_with_previous": "e that while the optimal speaker that used two modalities performed slightly better than the image-based speaker, per neural-listener evaluation, it did not improve the attained pe",
+      "overlap_with_next": "nd that the Early-Context architecture does perform noticeably better on these utter- ances. However, given the low occurrence of such cases, the resulting effects were not signiﬁc",
+      "text": "e that while the optimal speaker that used two modalities performed slightly better than the image-based speaker, per neural-listener evaluation, it did not improve the attained performance in preliminary experiments with of human lis- teners in AMT. A.6. Further quantitative results A.6.1 Listeners: context incorporation In Table 9 we complement the results presented in the Main Paper at Table 1, by including two more sub-populations (’Negative’ and ’Split’). In Table 10, we repeat this study for listeners trained and tested on the language generaliza- tion task. ’Negative’ is a subpopulation of utterances that contain at least one word of negative content e.g. ’not’, ’but’ etc. and is comprised by ∼ 15.0% of all test utterances. ’Split’ is smaller subpopulation (∼ 3.2% of test data) that includes language the explicitly contrasts the target with the distractors e.g. ‘from the two that have thin legs, the one...’. We used an ad hoc set of search queries to ﬁnd such utter- ances among the test set and found that the Early-Context architecture does perform noticeably better on these utter- ances. However, given the low occurrence of such cases, the resulting effects were not signiﬁc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0191,
+        0.00427,
+        -0.01983,
+        0.02443,
+        0.00223
+      ]
+    },
+    {
+      "chunk_index": 61,
+      "start_char": 62220,
+      "end_char": 63420,
+      "length": 1200,
+      "overlap_with_previous": "nd that the Early-Context architecture does perform noticeably better on these utter- ances. However, given the low occurrence of such cases, the resulting effects were not signiﬁc",
+      "overlap_with_next": "he other in the LSTM. Concatenation naturally doubles the input-dimensions of the LSTM (Concat 200D). To keep them the same as with all other experiments (100D) we also tested redu",
+      "text": "nd that the Early-Context architecture does perform noticeably better on these utter- ances. However, given the low occurrence of such cases, the resulting effects were not signiﬁcant and we decided the gains of Early-Context architecture were not worth the in- crease in model complexity and rigidity with respect to con- [Page 14] LSTM Size Learning rate L2-reg. Word-Dropout Image-Dropout LSTM-out Dropout 200 0.003 0.005 0.8 0.5 0.9 Table 7: Optimal hyper parameters for literal image-based neural-speaker. The dropout numbers reﬂect keep probabilities and the Image-Dropout refers to the dropout applied at the VGG-image codes, before the FC-projection layer. Approach Listener’s Accuracy Concat (100D) 65.1± 0.51% Concat (200D) 78.2± 0.95% Sum 77.9± 0.38% Serial 79.0± 0.32% Table 8: Ablating approaches for incorporating simultane- ously point-clouds with images in a literal neural-speakers. Sum: Summing the two latent codes for each object. Con- cat: Concatenating the codes. Serial: Feeding them one af- ter the other in the LSTM. Concatenation naturally doubles the input-dimensions of the LSTM (Concat 200D). To keep them the same as with all other experiments (100D) we also tested redu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05991,
+        -0.01427,
+        -0.02695,
+        -0.00389,
+        -0.0282
+      ]
+    },
+    {
+      "chunk_index": 62,
+      "start_char": 63240,
+      "end_char": 64440,
+      "length": 1200,
+      "overlap_with_previous": "he other in the LSTM. Concatenation naturally doubles the input-dimensions of the LSTM (Concat 200D). To keep them the same as with all other experiments (100D) we also tested redu",
+      "overlap_with_next": "used our best-performing listener to simultaneously score and evaluate the utterances produced by the speakers for different values ofα (Fig. 6a). The best performing length penalt",
+      "text": "he other in the LSTM. Concatenation naturally doubles the input-dimensions of the LSTM (Concat 200D). To keep them the same as with all other experiments (100D) we also tested reducing the VGG/PC-AE projection layers to 50 di- mensions for each modality (Concat 100D). Results are av- erages of 5 samples of utterances for a ﬁxed test dataset. text size. A.6.2 Listeners: part-lesion We complement Table 3 of the Main Paper, with a similar study (Table 11) where we ablate our neural listeners with regards to their sensitivity in referential utterances based on object parts, when both geometric modalities are used. We have observed that the PC-AE attempts to reconstruct (de- code) noisy but complete models, even when the input is a partial, which could explain the gains seen in Table 11 compared to Table 3 when lesioning parts. A.6.3 Speakers: length penalty and listener awareness To ﬁnd the optimal length-penalty value ( α, Main Pa- per Eq.1) for image-based literal and a context-unaware speaker variants, we used our best-performing listener to simultaneously score and evaluate the utterances produced by the speakers for different values ofα (Fig. 6a). The best performing length penalt",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0416,
+        -0.00533,
+        -0.025,
+        -0.01555,
+        -0.01265
+      ]
+    },
+    {
+      "chunk_index": 63,
+      "start_char": 64260,
+      "end_char": 65460,
+      "length": 1200,
+      "overlap_with_previous": "used our best-performing listener to simultaneously score and evaluate the utterances produced by the speakers for different values ofα (Fig. 6a). The best performing length penalt",
+      "overlap_with_next": "nding out-of-class reference We complement the Table 5 with the standard-deviations of the underlying accuracies in Table 13. We also report simple statistics regarding the underly",
+      "text": "used our best-performing listener to simultaneously score and evaluate the utterances produced by the speakers for different values ofα (Fig. 6a). The best performing length penalty for a context-unaware speaker is 0.7, and for a literal 0.6. Given the optimal α values, for these models we show the effect of using different degrees of listener-awareness (β) in Fig. 6b. It is interesting to ob- serve that even the context-unaware speaker can generate utterances that an evaluating listener can ﬁnd them very dis- criminative, as long as is allows to rank them. In Fig. 7 we demonstrate the effect that the relative (training) size of the evaluating listener vs. the ’internal’ listener used by a pragmatic speaker has for the evaluating accuracy, for two values of β. In either case we observe a slow decline in evaluating accuracy as the training size for the evaluating listener increases (from 0.5 to 0.9) and conse- quently the training size for the ’internal’ listener decreases (from 0.5 to 0.1). A.6.4 Understanding out-of-class reference We complement the Table 5 with the standard-deviations of the underlying accuracies in Table 13. We also report simple statistics regarding the underly",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03236,
+        0.0026,
+        -0.02423,
+        -0.00273,
+        -0.0054
+      ]
+    },
+    {
+      "chunk_index": 64,
+      "start_char": 65280,
+      "end_char": 66480,
+      "length": 1200,
+      "overlap_with_previous": "nding out-of-class reference We complement the Table 5 with the standard-deviations of the underlying accuracies in Table 13. We also report simple statistics regarding the underly",
+      "overlap_with_next": " the most dissimilar category from chairs, 20 + 37 = 57% of the col- lected utterances are in the known population. [Page 15] Architecture SubpopulationsOverall Hard Easy Sup-Comp ",
+      "text": "nding out-of-class reference We complement the Table 5 with the standard-deviations of the underlying accuracies in Table 13. We also report simple statistics regarding the underlying transfer classes in Table 12. We note that the transfer learning accuracies ac- quired by listeners operating with both point-clouds and im- ages for these experiments were signiﬁcantly lower (∼ 7% on average). We hypothesize that this is due to the fact that our (chair-trained) listener models that utilize point-clouds, rely on a pre-trained single-class PC-AE, unlike the pre- trained VGG (image encoder) which was ﬁne-tuned with multiple ShapeNet classes. Also, for these experiments, [~1% ~7%] (depending on the transfer class) of the tokens were not in the chair-vocabulary, and we chose to ignore them i.e. treat them as white-space. Last, per Table 12 in all transfer classes the with-part population contains quite larger utterances than the without-part (9.3 vs. 5.5 on aver- age) and that even in the case of lamps, arguably the most dissimilar category from chairs, 20 + 37 = 57% of the col- lected utterances are in the known population. [Page 15] Architecture SubpopulationsOverall Hard Easy Sup-Comp ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0256,
+        -0.00443,
+        -0.04337,
+        0.01188,
+        0.00578
+      ]
+    },
+    {
+      "chunk_index": 65,
+      "start_char": 66300,
+      "end_char": 67500,
+      "length": 1200,
+      "overlap_with_previous": " the most dissimilar category from chairs, 20 + 37 = 57% of the col- lected utterances are in the known population. [Page 15] Architecture SubpopulationsOverall Hard Easy Sup-Comp ",
+      "overlap_with_next": "% 90.3± 0.3% 80 .8± 0.8% 80 .5± 1.0% 64 .6± 3.7% Table 10: Comparing the effect of context inspection for listening on various (test) subpopulations of the language general- izatio",
+      "text": " the most dissimilar category from chairs, 20 + 37 = 57% of the col- lected utterances are in the known population. [Page 15] Architecture SubpopulationsOverall Hard Easy Sup-Comp Negative Split Combined-Interpretation 75.9± 0.5% 67.4± 1.0% 83 .8± 0.6% 74 .4± 1.5% 77 .3± 1.5% 65 .8± 5.2% Early-Context 79.4± 0.8% 70.1± 1.3% 88 .1± 0.6% 75 .6± 2.2% 78.9± 1.4% 67.4± 3.6% Baseline 79.6± 0.8% 69.9± 1.3% 88.8± 0.4% 76.3± 1.3% 77 .5± 1.2% 62 .5± 3.7% Table 9: Comparing the effect of context inspection for listening on various (test) subpopulations of theobject generalization task. The listeners use images, point-clouds and word-attention. Reporting averages of ﬁve random seeds controlling the split populations and the network’s initialization. Architecture SubpopulationsOverall Hard Easy Sup-Comp Negative Split Combined-Interpretation 78.4± 0.2% 71.5± 0.6% 85 .2± 0.3% 75 .8± 0.9% 77 .6± 0.8% 61 .8± 3.0% Early-Context 84.4± 0.5% 78.5± 0.8% 90 .2± 0.7% 80.9± 0.6% 82.6± 1.1% 68.9± 2.3% Baseline 83.7± 0.2% 77.0± 0.8% 90.3± 0.3% 80 .8± 0.8% 80 .5± 1.0% 64 .6± 3.7% Table 10: Comparing the effect of context inspection for listening on various (test) subpopulations of the language general- izatio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05317,
+        -0.01138,
+        -0.02107,
+        -0.00412,
+        -0.00272
+      ]
+    },
+    {
+      "chunk_index": 66,
+      "start_char": 67320,
+      "end_char": 68520,
+      "length": 1200,
+      "overlap_with_previous": "% 90.3± 0.3% 80 .8± 0.8% 80 .5± 1.0% 64 .6± 3.7% Table 10: Comparing the effect of context inspection for listening on various (test) subpopulations of the language general- izatio",
+      "overlap_with_next": " Between parentheses is reported the percentage of the entire popu- lation that is captured by its speciﬁc sub-population. The average (last row) is wrt. the transfer classes only;",
+      "text": "% 90.3± 0.3% 80 .8± 0.8% 80 .5± 1.0% 64 .6± 3.7% Table 10: Comparing the effect of context inspection for listening on various (test) subpopulations of the language general- ization task. The listeners use images, point-clouds and word-attention. Reporting averages of ﬁve random seeds controlling the split populations and the network’s initialization. Single Part Lesioned Single Part Present Mentioned Part 44.9%± 1.2 67.2%± 1.1 Random Part 68.9%± 1.3 42.3%± 1.3 Table 11: Evaluating the part-awareness of neural listeners by lesioning object parts. Results shown are for listeners using both point-clouds and images, with average accuracy of 78.8% when intact objects are used. Population Class entire with part without part chair 7.1 8.0 (77%) 4.7 (21%) bed 6.4 7.0 (26%) 5.3 (48%) lamp 7.3 11.0 (20%) 5.9 (37%) sofa 10.1 11.0 (72%) 5.9 (15%) table 6.6 8.0 (40%) 4.9 (42%) average 7.6 9.3 (39.5%) 5.5 (35.5%) Table 12: Average length of utterances for various trans- fer classes (complementing Table 5, Main Paper). Between parentheses is reported the percentage of the entire popu- lation that is captured by its speciﬁc sub-population. The average (last row) is wrt. the transfer classes only;",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05217,
+        -0.01089,
+        -0.04049,
+        -0.0321,
+        -0.00421
+      ]
+    },
+    {
+      "chunk_index": 67,
+      "start_char": 68340,
+      "end_char": 69540,
+      "length": 1200,
+      "overlap_with_previous": " Between parentheses is reported the percentage of the entire popu- lation that is captured by its speciﬁc sub-population. The average (last row) is wrt. the transfer classes only;",
+      "overlap_with_next": "he utterances. Averages are with respect to 5 random seeds controlling the data splits and the initializations of the neural-networks. 0.5 0.6 0.7 0.8 0.90.5 0.6 0.7 0.8 0.9 Evalua",
+      "text": " Between parentheses is reported the percentage of the entire popu- lation that is captured by its speciﬁc sub-population. The average (last row) is wrt. the transfer classes only; the chair- category is displayed for reference. [Page 16] 0.0 0.2 0.4 0.6 0.8 1.0 α 62 64 66 68 70 72 74 76 78Listener’s Accuracy Literal Context Unaware (a) Effect of the length-penalty. 0.0 0.2 0.4 0.6 0.8 1.0 β 65 70 75 80 85 90 95 100Listener’s Accuracy Literal Context Unaware (b) Effect of increasing listener’s opinion (β). Figure 6: Left: Measuring the effect of using different length-penalty ( α) values to select the top-1 scoring utterance for context-unaware and pragmatic speakers for contexts of the object generalization validation split (left). Right, measuring the the effect of variousβ-values used in turning the context-unaware and literal speakers (β = 0.0) to pragmatic speakers, under the optimalα of the left ﬁgure. In both plots, the y-axis reﬂects the performance of a listener who is used to rank and evaluate the utterances. Averages are with respect to 5 random seeds controlling the data splits and the initializations of the neural-networks. 0.5 0.6 0.7 0.8 0.90.5 0.6 0.7 0.8 0.9 Evalua",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0788,
+        -0.01003,
+        -0.0139,
+        -0.0102,
+        -0.0228
+      ]
+    },
+    {
+      "chunk_index": 68,
+      "start_char": 69360,
+      "end_char": 70560,
+      "length": 1200,
+      "overlap_with_previous": "he utterances. Averages are with respect to 5 random seeds controlling the data splits and the initializations of the neural-networks. 0.5 0.6 0.7 0.8 0.90.5 0.6 0.7 0.8 0.9 Evalua",
+      "overlap_with_next": "ation Class bed chair lamp sofa table entire 56.4±2.0% 77.4±0.9% 50.1±1.3% 53.6±2.0% 63.7±1.2% known 55.8±1.5% 77.8±0.8% 51.9±1.8% 55.0±2.0% 65.5±0.9% with part 63.8±4.2% 77.0±0.8%",
+      "text": "he utterances. Averages are with respect to 5 random seeds controlling the data splits and the initializations of the neural-networks. 0.5 0.6 0.7 0.8 0.90.5 0.6 0.7 0.8 0.9 Evaluating-listener |data|-fraction 74 76 78 80 82 84 86Listener’s Accuracy Literal Context Unaware (a) Speakers using a modestβ = 0.5 value. 0.5 0.6 0.7 0.8 0.90.5 0.6 0.7 0.8 0.9 Evaluating-listener |data|-fraction 84 86 88 90 92Listener’s Accuracy Literal Context Unaware (b) Speakers using the most aggressiveβ = 1.0 value. Figure 7: Effect of partitioning the training data for the evaluating and ‘internal’ listeners. Here, we turn context-unaware and literal speakers into pragmatic ones under two β values. The x-axis shows the fraction (f) of the training data that was used to train the evaluating listener (the remaining 100−f % is used to train the internal listener) of the resulting pragmatic speaker. On the y-axis we display the performance of the evaluating listener for the top-scoring model-generated utterance. XXXXXXXXXXPopulation Class bed chair lamp sofa table entire 56.4±2.0% 77.4±0.9% 50.1±1.3% 53.6±2.0% 63.7±1.2% known 55.8±1.5% 77.8±0.8% 51.9±1.8% 55.0±2.0% 65.5±0.9% with part 63.8±4.2% 77.0±0.8%",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04991,
+        0.00601,
+        -0.01609,
+        -0.01242,
+        0.01695
+      ]
+    },
+    {
+      "chunk_index": 69,
+      "start_char": 70380,
+      "end_char": 71580,
+      "length": 1200,
+      "overlap_with_previous": "ation Class bed chair lamp sofa table entire 56.4±2.0% 77.4±0.9% 50.1±1.3% 53.6±2.0% 63.7±1.2% known 55.8±1.5% 77.8±0.8% 51.9±1.8% 55.0±2.0% 65.5±0.9% with part 63.8±4.2% 77.0±0.8%",
+      "overlap_with_next": "these results the Baseline listener is used and the attention-scores are extracted when the target object is grounding the LSTM. 0.01 0.00 0.99 adirondack chair <DIA> flat armshuma",
+      "text": "ation Class bed chair lamp sofa table entire 56.4±2.0% 77.4±0.9% 50.1±1.3% 53.6±2.0% 63.7±1.2% known 55.8±1.5% 77.8±0.8% 51.9±1.8% 55.0±2.0% 65.5±0.9% with part 63.8±4.2% 77.0±0.8% 60.3±4.4% 55.1±2.5% 68.3±2.6% without part 51.5±3.0% 80.5±1.2% 47.1±2.8% 54.7±5.5% 62.7±0.9% Table 13: Transfer-learning of neural listeners in novel object classes: average accuracies with standard deviations (comple- menting Table 13, Main Paper). The sub-populations denote entire: all collected utterances, known: utterances containing only chair-training-vocabulary words, with-part: subset of known, with utterances containing at least one part-related word, without-part subset of known and complement of with-part. For reference the test-chair statistics are shown (ﬁrst row) but not included in the reported average (last row). [Page 17] Figure 8: Examples of attention weights on human utterances . The listener’s LSTM appears to learn attention weights that emphasize the more informative words disambiguating the referent. For these results the Baseline listener is used and the attention-scores are extracted when the target object is grounding the LSTM. 0.01 0.00 0.99 adirondack chair <DIA> flat armshuma",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00762,
+        -0.01354,
+        -0.05274,
+        -0.01667,
+        0.01286
+      ]
+    },
+    {
+      "chunk_index": 70,
+      "start_char": 71400,
+      "end_char": 72600,
+      "length": 1200,
+      "overlap_with_previous": "these results the Baseline listener is used and the attention-scores are extracted when the target object is grounding the LSTM. 0.01 0.00 0.99 adirondack chair <DIA> flat armshuma",
+      "overlap_with_next": "orresponding to the referred semantic-part (right column). The corresponding utterance is shown left-most of each row. In these examples the listener assigns higher conﬁdence to th",
+      "text": "these results the Baseline listener is used and the attention-scores are extracted when the target object is grounding the LSTM. 0.01 0.00 0.99 adirondack chair <DIA> flat armshuman utterance listener scores 0.00 0.10 0.90 the chair has lines all up the back 0.29 0.02 0.69 fancy shape back with armrest back and seat have slats 0.01 0.07 0.92 listener scores listener scores listener scores 0.09 0.11 0.80 0.05 0.04 0.91 0.21 0.02 0.77 0.31 0.02 0.67 attention weightlow high the chair with many horizontal openings in the back the one that almost has a solid back chair has triangles on back support has four vertical spaces in the back and multiple pieces for the seat distractors target distractors target human utterance human utterance human utterance [Page 18] Figure 9: Examples of lesioning all but the mentioned part . Here, we show the response of a Baseline listener tested with visual representations of entire objects (left column, three chairs) vs. its response when it receives only the visual features corresponding to the referred semantic-part (right column). The corresponding utterance is shown left-most of each row. In these examples the listener assigns higher conﬁdence to th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03928,
+        0.00504,
+        -0.05193,
+        -0.00195,
+        0.01769
+      ]
+    },
+    {
+      "chunk_index": 71,
+      "start_char": 72420,
+      "end_char": 73620,
+      "length": 1200,
+      "overlap_with_previous": "orresponding to the referred semantic-part (right column). The corresponding utterance is shown left-most of each row. In these examples the listener assigns higher conﬁdence to th",
+      "overlap_with_next": "gspragmatic speaker distractors target literal speaker distractors target distractors target square arms with the tall-est back and seat no arm rests the one with high-est back ima",
+      "text": "orresponding to the referred semantic-part (right column). The corresponding utterance is shown left-most of each row. In these examples the listener assigns higher conﬁdence to the actual target when the isolated parts are considered instead of the entire objects, implying that further performance gains can occur with an explicit part-aware visual attention mechanism. solid, square backing <DIA> hole in back? <DIA> no distractors targetHuman Utterance 0.48listener scores 0.01 0.51 0.32 0.08 0.60 sleek rounded arms, expensive 0.30listener scores 0.11 0.59 0.14 0.05 0.81 0.04listener scores 0.84 0.12 0.07 0.30 0.63 the seat of the chair has a curve the one with the fattest legs 0.38listener scores 0.43 0.19 0.07 0.13 0.80 distractors target [Page 19] Figure 10: Pragmatic vs. literal speakers for two modalities . More examples of pragmatic vs. literal generations in Hard contexts. Tor-row includes examples from image-based speakers. Bottom-row from point-based ones. the one with the thick-est legs knobby legspragmatic speaker distractors target literal speaker distractors target distractors target square arms with the tall-est back and seat no arm rests the one with high-est back ima",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04647,
+        -0.00104,
+        -0.01932,
+        0.01308,
+        -0.01909
+      ]
+    },
+    {
+      "chunk_index": 72,
+      "start_char": 73440,
+      "end_char": 74640,
+      "length": 1200,
+      "overlap_with_previous": "gspragmatic speaker distractors target literal speaker distractors target distractors target square arms with the tall-est back and seat no arm rests the one with high-est back ima",
+      "overlap_with_next": "s shown under its context). the bed is square shaped and the headboard is the shape of a rectangle the bed has a fancy metal headboard and two pillows three legged lamp short squar",
+      "text": "gspragmatic speaker distractors target literal speaker distractors target distractors target square arms with the tall-est back and seat no arm rests the one with high-est back image-based speakers thin-est seat most square backpragmatic speaker distractors target literal speaker distractors target distractors target thick-est legs square rack at bottom of chair tall-est back has arms point-cloud based speakers [Page 20] (a) Model generations with real images. The top-scoring utterance of a pragmatic model is displayed under each context. no arms queen ann legs gap between the back and seat circular arm rests the only one with a slotted back two legs connected office chair with wheels four legs, tallest back wide seat with solid back distractors target distractors target distractors target (b) Human-utterance comprehension with unseen object classes. The human utterance is color-coded according to the attention placed by a chair-trained listener who also evaluates the object-utterance compatibility (scores shown under its context). the bed is square shaped and the headboard is the shape of a rectangle the bed has a fancy metal headboard and two pillows three legged lamp short squar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0537,
+        -0.02318,
+        -0.0149,
+        -0.01082,
+        -0.01546
+      ]
+    },
+    {
+      "chunk_index": 73,
+      "start_char": 74460,
+      "end_char": 75660,
+      "length": 1200,
+      "overlap_with_previous": "s shown under its context). the bed is square shaped and the headboard is the shape of a rectangle the bed has a fancy metal headboard and two pillows three legged lamp short squar",
+      "overlap_with_next": "ce is displayed above each utterance. While both speaker models produce similarly effective utterances in Easy contexts, the literal speaker fails to produce effective utterances i",
+      "text": "s shown under its context). the bed is square shaped and the headboard is the shape of a rectangle the bed has a fancy metal headboard and two pillows three legged lamp short square table with four square legs very narrow and tall rectangular table with four tapered legs the target has three sections for the back this sofa has rounded back and corners distractors target 0.04 0.06 0.90listener scores 0.02 0.04 0.94listener scores 0.06 0.07 0.87listener scores irregular cube on two legs 0.01 0.00 0.99listener scores distractors target listener scores listener scores listener scores listener scores 0.01 0.06 0.93 0.06 0.02 0.92 0.01 0.19 0.80 0.02 0.01 0.97 [Page 21] Figure 12: Effect of context on production : Synthetic utterances generated by a literal and pragmatic image-based speaker. The top and bottom rows show utterances produced for the same target in a Easy and Hard context, respectively. The Baseline (with point-clouds and images and attention) listener is used to predict the target and its conﬁdence is displayed above each utterance. While both speaker models produce similarly effective utterances in Easy contexts, the literal speaker fails to produce effective utterances i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02455,
+        0.02281,
+        -0.06029,
+        0.00272,
+        -0.00252
+      ]
+    },
+    {
+      "chunk_index": 74,
+      "start_char": 75480,
+      "end_char": 76680,
+      "length": 1200,
+      "overlap_with_previous": "ce is displayed above each utterance. While both speaker models produce similarly effective utterances in Easy contexts, the literal speaker fails to produce effective utterances i",
+      "overlap_with_next": "ure cases . Our top-performing listener model appears to struggle to interpret referential language that relies on metaphors, precisely counting parts, or (to a less degree) negati",
+      "text": "ce is displayed above each utterance. While both speaker models produce similarly effective utterances in Easy contexts, the literal speaker fails to produce effective utterances in Hard contexts. looks like a recliner pragmatic 0.09 0.01 0.90 0.01 0.00 0.99 0.61 0.03 0.36 0.06 0.07 0.87 target literal listener scores listener scores square chair with cushion downward sloping front of the arm rest the one with the thin est legs four legs 0.03 0.18 0.79 0.01 0.01 0.98 0.03 0.72 0.25 0.09 0.05 0.86 tallest back the one with the thickest legs the chair with the curved back holes in back 0.01 0.01 0.98 0.00 0.00 1.00 0.80 0.04 0.16 0.28 0.27 0.45 the chair with the vertical bars on the back five bars on back, skinny top the one with the thick est legs office chair 0.00 0.01 0.99 0.00 0.01 0.99 0.39 0.27 0.34 0.01 0.02 0.97 office chair no arm rest the one with the most square back target easy context hard context targettarget pragmatic literal listener scores listener scores [Page 22] (a) Neural-listener failure cases . Our top-performing listener model appears to struggle to interpret referential language that relies on metaphors, precisely counting parts, or (to a less degree) negati",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05102,
+        0.01893,
+        -0.01694,
+        -0.00336,
+        0.01501
+      ]
+    },
+    {
+      "chunk_index": 75,
+      "start_char": 76500,
+      "end_char": 77700,
+      "length": 1200,
+      "overlap_with_previous": "ure cases . Our top-performing listener model appears to struggle to interpret referential language that relies on metaphors, precisely counting parts, or (to a less degree) negati",
+      "overlap_with_next": "scores listener scores the one with the square base literally inaccurate but relatively true solid 0.05 0.09 0.86 0.02 0.06 0.92 no holes in back distractors target distractors tar",
+      "text": "ure cases . Our top-performing listener model appears to struggle to interpret referential language that relies on metaphors, precisely counting parts, or (to a less degree) negations. All examples are drawn from the test set and were correctly classiﬁed by human listeners in the original task. mickey mouse ears six bars on back open arms, no rails on back metaphors counting negation if it were a man’s suit it would have tails distractors target distractors target 0.63 0.02 0.35 0.57 0.13 0.30 0.39 0.27 0.34 0.48 0.13 0.39listener scores human utterance listener scores human utterance (b) Neural-speaker failure cases . Sometimes even the pragmatic speaker produces insufﬁciently speciﬁc utterances that mention only undiagnostic features, or produces utterances that are literally false of the target (e.g. there technically is a hole in the back) while still succeeding in distinguishing the objects. not specific enough the one with the thicker cushion pragmatic 0.32 0.21 0.47 0.22 0.48 0.30 literal listener scores listener scores the one with the square base literally inaccurate but relatively true solid 0.05 0.09 0.86 0.02 0.06 0.92 no holes in back distractors target distractors tar",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02809,
+        -0.01124,
+        0.00012,
+        0.01469,
+        0.02195
+      ]
+    },
+    {
+      "chunk_index": 76,
+      "start_char": 77520,
+      "end_char": 78720,
+      "length": 1200,
+      "overlap_with_previous": "scores listener scores the one with the square base literally inaccurate but relatively true solid 0.05 0.09 0.86 0.02 0.06 0.92 no holes in back distractors target distractors tar",
+      "overlap_with_next": "r dataset played exactly one game (81% of participants). The most distinctive words in each triplet type (as measured by point-wise mutual in- formation) are shown in Table 14). Yo",
+      "text": "scores listener scores the one with the square base literally inaccurate but relatively true solid 0.05 0.09 0.86 0.02 0.06 0.92 no holes in back distractors target distractors target [Page 23] A.7. Miscellaneous Easy word ofﬁce sofa regular folding wooden stool wheels metal normal rockingpmi -1.70 -0.94 -0.88 -0.84 -0.83 -0.79 -0.78 -0.71 -0.67 -0.66 Hard word alike identical thickness texture darker skinnier thicker perfect similar largerpmi 0.69 0.67 0.67 0.66 0.65 0.64 0.63 0.62 0.62 0.61 Table 14: Most distinctive words in each context type ac- cording to point-wise mutual information (excluding tokens that appeared fewer than 30 times in the dataset). Lower numbers are more distinctive of Easy and higher numbers are more distinctive of Hard. Each game consisted of 69 trials (unique triplets) and participants swapped speaker and listener roles with the conclusion of each trial. The game’s interface is depicted in Figure 14. Participants were allowed to play multiple games, but most participants in our dataset played exactly one game (81% of participants). The most distinctive words in each triplet type (as measured by point-wise mutual in- formation) are shown in Table 14). Yo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00627,
+        -0.00485,
+        -0.06362,
+        -0.01332,
+        0.02337
+      ]
+    },
+    {
+      "chunk_index": 77,
+      "start_char": 78540,
+      "end_char": 79662,
+      "length": 1122,
+      "overlap_with_previous": "r dataset played exactly one game (81% of participants). The most distinctive words in each triplet type (as measured by point-wise mutual in- formation) are shown in Table 14). Yo",
+      "overlap_with_next": "ds and its accuracy is measured on the original ( 10%) test split. Results are av- erages of 5 random seeds controlling the original data split and the neural-net’s initialization.",
+      "text": "r dataset played exactly one game (81% of participants). The most distinctive words in each triplet type (as measured by point-wise mutual in- formation) are shown in Table 14). You are the speaker. You the back rest and the bottom parts look the same You top part of the back is wider than in the seat Partnerok, got it send Figure 14: Reference game interface. Communication was natural without any system constraints being imposed. 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 Training-data fraction 66 68 70 72 74 76 78 80Listener’s Accuracy Figure 15: Listener’s accuracy for different sizes of training data, under the object generalization task. The original split includes [80%, 10%, 10%] for training/test/val purposes, thus the maximum size of training data is 0.8 of the entire dataset corresponding to the value (fraction) 1.0 in the x- axis. The listener model uses the Baseline architecture with word attention, images and point-clouds and its accuracy is measured on the original ( 10%) test split. Results are av- erages of 5 random seeds controlling the original data split and the neural-net’s initialization.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01719,
+        -0.02575,
+        -0.07442,
+        0.00387,
+        -0.00162
+      ]
+    },
+    {
+      "chunk_index": 78,
+      "start_char": 79560,
+      "end_char": 79662,
+      "length": 102,
+      "overlap_with_previous": " av- erages of 5 random seeds controlling the original data split and the neural-net’s initialization.",
+      "overlap_with_next": "",
+      "text": " av- erages of 5 random seeds controlling the original data split and the neural-net’s initialization.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        0.00509,
+        -0.03733,
+        -0.01258,
+        0.0174,
+        -0.01223
+      ]
+    }
+  ]
+}

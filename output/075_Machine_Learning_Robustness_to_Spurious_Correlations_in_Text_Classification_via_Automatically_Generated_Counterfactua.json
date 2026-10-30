@@ -1,0 +1,793 @@
+{
+  "paper_id": "158fd893-5f9e-4204-bfd3-9ff246e0a75c",
+  "filename": "075_Machine_Learning_Robustness_to_Spurious_Correlations_in_Text_Classification_via_Automatically_Generated_Counterfactua.pdf",
+  "title": "075_Machine_Learning_Robustness_to_Spurious_Correlations_in_Text_Classification_via_Automatically_Generated_Counterfactua.pdf",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 46,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "sal features using a statistical matching approach. Next, we generate counterfactual samples for the original training data by substituting causal features with their antonyms and ",
+      "text": "[Page 1] Robustness to Spurious Correlations in Text Classiﬁcation via Automatically Generated Counterfactuals Zhao Wang1 and Aron Culotta 2 1 Department of Computer Science, Illinois Institute of Technology, Chicago, IL 2 Department of Computer Science, Tulane University, New Orleans, LA zwang185@hawk.iit.edu, aculotta@tulane.edu Abstract Spurious correlations threaten the validity of statisti- cal classiﬁers. While model accuracy may appear high when the test data is from the same distribution as the training data, it can quickly degrade when the test dis- tribution changes. For example, it has been shown that classiﬁers perform poorly when humans make minor modiﬁcations to change the label of an example. One solution to increase model reliability and generalizabil- ity is to identify causal associations between features and classes. In this paper, we propose to train a robust text classiﬁer by augmenting the training data with au- tomatically generated counterfactual data. We ﬁrst iden- tify likely causal features using a statistical matching approach. Next, we generate counterfactual samples for the original training data by substituting causal features with their antonyms and ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07766,
+        -0.00947,
+        -0.00724,
+        0.01076,
+        0.00969
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "sal features using a statistical matching approach. Next, we generate counterfactual samples for the original training data by substituting causal features with their antonyms and ",
+      "overlap_with_next": "rious tasks, studies have shown that statistical models typically learn correlational associations between features and classes, and model validity and relia- bility are threatened",
+      "text": "sal features using a statistical matching approach. Next, we generate counterfactual samples for the original training data by substituting causal features with their antonyms and then assigning opposite labels to the counterfactual samples. Finally, we combine the original data and counterfactual data to train a robust classiﬁer. Experiments on two classiﬁcation tasks show that a traditional classiﬁer trained on the original data does very poorly on human-generated counterfactual samples (e.g., 10%-37% drop in accuracy). However, the classiﬁer trained on the combined data is more ro- bust and performs well on both the original test data and the counterfactual test data (e.g., 12%-25% increase in accuracy compared with the traditional classiﬁer). De- tailed analysis shows that the robust classiﬁer makes meaningful and trustworthy predictions by emphasizing causal features and de-emphasizing non-causal features. 1 Introduction Despite the remarkable performance machine learning mod- els have achieved in various tasks, studies have shown that statistical models typically learn correlational associations between features and classes, and model validity and relia- bility are threatened",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03062,
+        -0.00606,
+        -0.02971,
+        -0.00028,
+        -0.00351
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "rious tasks, studies have shown that statistical models typically learn correlational associations between features and classes, and model validity and relia- bility are threatened",
+      "overlap_with_next": "and suffer from algorithm fairness or trust issues. One solution to achieve robustness is to learn causal asso- ciations between features and classes. E.g., in the sentence “This w",
+      "text": "rious tasks, studies have shown that statistical models typically learn correlational associations between features and classes, and model validity and relia- bility are threatened by spurious correlations. Examples in- clude: a sentiment classiﬁer learns that “Spielberg” is corre- lated with positive movie reviews (Wang and Culotta 2020); a toxicity classiﬁer learns that “gay” is correlated with toxic comments (Wulczyn, Thain, and Dixon 2017); a medical system learns that the disease is associated with patient ID (Kaufman, Rosset, and Perlich 2011); an object detection Copyright © 2021, Association for the Advancement of Artiﬁcial Intelligence (www.aaai.org). All rights reserved. system recognizes a sheep based on the grass in the back- ground (Ghorbani, Abid, and Zou 2019). If these kinds of spurious correlations are built into the model during train- ing time, the model could fail when test data has a different distribution or even on samples with minor changes, and the predictions will be problematic and suffer from algorithm fairness or trust issues. One solution to achieve robustness is to learn causal asso- ciations between features and classes. E.g., in the sentence “This w",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06111,
+        0.00621,
+        0.0005,
+        0.01032,
+        -0.02185
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "and suffer from algorithm fairness or trust issues. One solution to achieve robustness is to learn causal asso- ciations between features and classes. E.g., in the sentence “This w",
+      "overlap_with_next": "s. Results show that the robust classiﬁer is less sensitive to spurious corre- lations. While these prior works show the potential of using human annotations to improve model robus",
+      "text": "and suffer from algorithm fairness or trust issues. One solution to achieve robustness is to learn causal asso- ciations between features and classes. E.g., in the sentence “This was a free book that sounded boring to me”, the word most responsible for the label being negative is “boring” in- stead of “free”. Identifying causal associations provides a way to build more robust and generalizable models. Recent works try to achieve robustness with the aid of human-in-the-loop systems. Srivastava, Hashimoto, and Liang (2020) present a framework to make models robust to spurious correlations by leveraging human common sense of causality. They augment training data with crowd-sourced annotations about reasoning of possible shifts in unmea- sured variables and ﬁnally conduct robust optimization to control worst-case loss. Similarly, Kaushik, Hovy, and Lip- ton (2020) ask humans to revise documents with minimal edits to change the class label, then augment the original training data with the counterfactual samples. Results show that the robust classiﬁer is less sensitive to spurious corre- lations. While these prior works show the potential of using human annotations to improve model robus",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06848,
+        -0.00168,
+        0.00035,
+        -0.0064,
+        0.00556
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "s. Results show that the robust classiﬁer is less sensitive to spurious corre- lations. While these prior works show the potential of using human annotations to improve model robus",
+      "overlap_with_next": "ta, which performs poorly on the counter- factual testing data (i.e., 10%-37% drop in accuracy). Then, we train a robust classiﬁer with the combination of orig- arXiv:2012.10040v1 ",
+      "text": "s. Results show that the robust classiﬁer is less sensitive to spurious corre- lations. While these prior works show the potential of using human annotations to improve model robustness, collecting such annotations can be costly. In this paper, we propose to train a robust classiﬁer with automatically generated counterfactual samples. Speciﬁ- cally, we ﬁrst identify likely causal features using the clos- est opposite matching approach and then generate counter- factual training samples by substituting causal features with their antonyms and assigning opposite labels to the newly generated samples. Finally, we combine the original training data with counterfactual data to train a more robust classiﬁer. We experiment with sentiment classiﬁcation tasks on two datasets (IMDB movie reviews and Amazon kindle re- views). For each dataset, we have the original training data and testing data, and additional human-generated counter- factual testing data. We ﬁrst train a traditional classiﬁer us- ing the original data, which performs poorly on the counter- factual testing data (i.e., 10%-37% drop in accuracy). Then, we train a robust classiﬁer with the combination of orig- arXiv:2012.10040v1 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05475,
+        -0.03587,
+        -0.01373,
+        0.01873,
+        0.01595
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ta, which performs poorly on the counter- factual testing data (i.e., 10%-37% drop in accuracy). Then, we train a robust classiﬁer with the combination of orig- arXiv:2012.10040v1 ",
+      "overlap_with_next": "s with underparam- eterized models and show that overparameterization encodes spurious correlations that do not hold in worst-group data. Kiritchenko and Mohammad (2018) showed tha",
+      "text": "ta, which performs poorly on the counter- factual testing data (i.e., 10%-37% drop in accuracy). Then, we train a robust classiﬁer with the combination of orig- arXiv:2012.10040v1 [cs.LG] 18 Dec 2020 [Page 2] inal training data and automatically-generated counterfac- tual training data, and it performs well on both the origi- nal testing data and the counterfactual testing data (i.e., 12% - 25% absolute improvement over the baseline). Addition- ally, we consider limited human supervision in the form of human-provided causal features, which we then use to gen- erate counterfactual training samples. We ﬁnd that a small number of causal features (e.g., 50) results in accuracy that is comparable to a model trained with 1.7K human-generated counterfactual training samples from previous work. 2 Related Work Spurious correlations are problematic and could be in- troduced in many ways. Sagawa et al. (2020) investigate how overparameterization exacerbates spurious correlations. They compare overparameterized models with underparam- eterized models and show that overparameterization encodes spurious correlations that do not hold in worst-group data. Kiritchenko and Mohammad (2018) showed tha",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0647,
+        -0.0149,
+        -0.03463,
+        -0.01029,
+        0.00646
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "s with underparam- eterized models and show that overparameterization encodes spurious correlations that do not hold in worst-group data. Kiritchenko and Mohammad (2018) showed tha",
+      "overlap_with_next": "rs in causal analyses to address issues of missing data and measurement error. Keith, Jensen, and O’Connor (2020) introduce methods to remove confounding from causal estimates. Pau",
+      "text": "s with underparam- eterized models and show that overparameterization encodes spurious correlations that do not hold in worst-group data. Kiritchenko and Mohammad (2018) showed that training data imbalances can lead to unintended bias and unfair ap- plications (e.g., bias towards gender, race). Besides that, data leakage (Roemmele, Bejan, and Gordon 2011) and distribu- tion shift between training data and testing data (Quionero- Candela et al. 2009) are particularly challenging and hard to detect as they introduce spurious correlations during model training and hurt model performance when deployed. An- other new type of threat is backdoor attack (Dai, Chen, and Li 2019), where an attacker intentionally poisons a model by injecting spurious correlations into training data and manip- ulating model performance by speciﬁc triggers. A growing line of research explores the challenges and beneﬁts of using causal inference to improve model robust- ness. Wood-Doughty, Shpitser, and Dredze (2018) uses text classiﬁers in causal analyses to address issues of missing data and measurement error. Keith, Jensen, and O’Connor (2020) introduce methods to remove confounding from causal estimates. Pau",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.082,
+        -0.00134,
+        -0.07132,
+        0.00722,
+        -0.01516
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "rs in causal analyses to address issues of missing data and measurement error. Keith, Jensen, and O’Connor (2020) introduce methods to remove confounding from causal estimates. Pau",
+      "overlap_with_next": "usal reasoning and counterfactual tasks. Zaidan and Eisner (2008) ask annotators to provide ratio- nales as hints to guide classiﬁers paying attention to relevant features. Lu et a",
+      "text": "rs in causal analyses to address issues of missing data and measurement error. Keith, Jensen, and O’Connor (2020) introduce methods to remove confounding from causal estimates. Paul (2017) proposes a propensity score matching method to learn meaningful causal associations between variables. Jia et al. (2019) consider label preserv- ing transformations to improve model robustness to adver- sarial perturbations with Interval Bound Propagation. Lan- deiro and Culotta (2018) address the issue of spurious corre- lations by doing back-door adjustment to control for known confounders. Wang and Culotta (2020) train a classiﬁer to distinguish between spurious features and genuine features, and gradually remove spurious features to improve worst- case accuracy of minority groups. Recent works investigate how additional human supervi- sion can reduce spurious correlations and improve model robustness. Roemmele, Bejan, and Gordon (2011) and Sap et al. (2018) show that humans achieve high performance on commonsense causal reasoning and counterfactual tasks. Zaidan and Eisner (2008) ask annotators to provide ratio- nales as hints to guide classiﬁers paying attention to relevant features. Lu et a",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.11115,
+        0.01568,
+        -0.01565,
+        0.015,
+        -0.00973
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "usal reasoning and counterfactual tasks. Zaidan and Eisner (2008) ask annotators to provide ratio- nales as hints to guide classiﬁers paying attention to relevant features. Lu et a",
+      "overlap_with_next": "features with antonyms, which signiﬁcantly reduces human effort. • We conduct experiments demonstrating the improved ro- bustness of the resulting classiﬁer to spurious features. •",
+      "text": "usal reasoning and counterfactual tasks. Zaidan and Eisner (2008) ask annotators to provide ratio- nales as hints to guide classiﬁers paying attention to relevant features. Lu et al. (2018) and Zmigrod et al. (2019) use coun- terfactual data augmentation to mitigate bias. Ribeiro et al. (2020) evaluate model robustness using generated counter- factuals that requires signiﬁcant human intervention (either by specifying substitution terms or generating templates and labeling examples). Garg et al. (2019) presume a predeﬁned set of 50 counterfactually fair tokens and augment the train- ing data with counterfactuals to improve toxicity classiﬁer fairness. While recent works have proposed the idea of generating and augmenting with counterfactuals for robust classiﬁca- tions, the main contributions of this paper are as follows: • We propose to discover likely causal features using statis- tical matching techniques. • Using these features, we automatically generate coun- terfactual samples by substituting causal features with antonyms, which signiﬁcantly reduces human effort. • We conduct experiments demonstrating the improved ro- bustness of the resulting classiﬁer to spurious features. •",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05768,
+        -0.00617,
+        -0.00346,
+        -0.00527,
+        -0.01322
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "features with antonyms, which signiﬁcantly reduces human effort. • We conduct experiments demonstrating the improved ro- bustness of the resulting classiﬁer to spurious features. •",
+      "overlap_with_next": ",θ ). We can examine the (partial) cor- relations between features and labels by model coefﬁcients. Spurious correlations are very common in statistical mod- els and they could mis",
+      "text": "features with antonyms, which signiﬁcantly reduces human effort. • We conduct experiments demonstrating the improved ro- bustness of the resulting classiﬁer to spurious features. • We conduct additional analyses to show how the robust classiﬁer increases the importance of causal features and decreases the importance of spurious features. 3 Problem and Motivation To train a classiﬁcation model, we ﬁt a function f (·) with a set of labeled data and learn a map between input fea- tures and output labels. We consider a binary text classiﬁ- cation task with the simple approach of logistic regression model1: f (x;θ) = 11+e−⟨x,θ⟩ using bag-of-words features. Speciﬁcally, each document is a sequence of words d = ⟨w1...w k⟩ that is transformed into a feature vector x via one-hot representationx =⟨x1...x V⟩ (V is the vocabulary size), and has a binary labely∈{− 1, 1}. The model is ﬁt on a set of labeled documentsD ={(d1,y 1)... (dn,yn)}, and parameters are estimated by minimizing the loss functionL: θ∗← arg minθL(D,θ ). We can examine the (partial) cor- relations between features and labels by model coefﬁcients. Spurious correlations are very common in statistical mod- els and they could mis",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05748,
+        -0.00945,
+        0.00126,
+        0.01337,
+        0.00953
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": ",θ ). We can examine the (partial) cor- relations between features and labels by model coefﬁcients. Spurious correlations are very common in statistical mod- els and they could mis",
+      "overlap_with_next": "deﬁnition of a causal feature as follows: termw is a causal feature in documentd if, all else being equal, one would expectw to be a determining factor in assigning a label to d. F",
+      "text": ",θ ). We can examine the (partial) cor- relations between features and labels by model coefﬁcients. Spurious correlations are very common in statistical mod- els and they could mislead classiﬁers. For example, in our experimental dataset of Amazon kindle reviews, the classi- ﬁer learns that “free” has a strong correlation with negative sentiment because “free” has a high frequency in negative book reviews (e.g., “This was a free book that sounded bor- ing to me”), and thus the classiﬁer makes errors when pre- dicting positive documents that contain “free”. Previous works have tried various methods to reduce spurious correlations (e.g., regularization, feature selection, back-door adjustment (Hoerl and Kennard 1970; Forman 2003; Landeiro and Culotta 2018)). However, a more direct solution is to learn meaningful causal associations between features and classes. While expressing causality in the con- text of text classiﬁcation can be challenging, we follow the previous work (Paul 2017) to operationalize the deﬁnition of a causal feature as follows: termw is a causal feature in documentd if, all else being equal, one would expectw to be a determining factor in assigning a label to d. F",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07829,
+        -0.00682,
+        0.00101,
+        0.00176,
+        0.02039
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "deﬁnition of a causal feature as follows: termw is a causal feature in documentd if, all else being equal, one would expectw to be a determining factor in assigning a label to d. F",
+      "overlap_with_next": "ounter- factual samples might work. Traditional classiﬁers trained on original data learns that “free” is correlated with the nega- tive class due to its high frequency in negative",
+      "text": "deﬁnition of a causal feature as follows: termw is a causal feature in documentd if, all else being equal, one would expectw to be a determining factor in assigning a label to d. For example, in the sentence “This was a free book that soundedboring to me”, “boring” is primarily responsible for the negative senti- ment. In contrast, the term “free” itself does not convey neg- 1Our approach is model agnostic. We focus on logistic regres- sion for interpretability and clarity. [Page 3] ative sentiment. We consider “boring” as a causal term and “free” as a non-causal term (term refers to word feature). Our approach in this paper is to ﬁrst identify such causal features and then use them to automatically generate coun- terfactual training samples. Speciﬁcally, for a sample (d,y ), we get the corresponding counterfactual sample (d′,y′) by (i) substituting causal terms in d with their antonyms to get d′, and (ii) assigning an opposite labely′ tod′. Let’s consider the previous example to see how augmenting with counter- factual samples might work. Traditional classiﬁers trained on original data learns that “free” is correlated with the nega- tive class due to its high frequency in negative",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04806,
+        -0.02075,
+        0.00669,
+        -0.02283,
+        0.0227
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "ounter- factual samples might work. Traditional classiﬁers trained on original data learns that “free” is correlated with the nega- tive class due to its high frequency in negative",
+      "overlap_with_next": " consider the counterfactual framework of causal infer- ence (Winship and Morgan 1999). If word w in document d were replaced with some other word w′, how likely is it that the lab",
+      "text": "ounter- factual samples might work. Traditional classiﬁers trained on original data learns that “free” is correlated with the nega- tive class due to its high frequency in negative book reviews. For every negative document containing “free”, we generate one corresponding counterfactual document. The counter- factual sample for “This was a free book that soundedboring to me”(neg) would be “This was a free book that soundedin- teresting to me”(pos). When augmenting the original train- ing data with counterfactual data, “free” would get equal fre- quency in both classes for the ideal case (i.e, if we could generate counterfactual samples for all documents contain- ing “free”). Thus, a classiﬁer ﬁt on the combined dataset should have a reduced coefﬁcient for “free” and increased coefﬁcients for “boring” and “interesting.” 4 Methods Our approach is a two-stage process: we ﬁrst identify likely causal features and then generate counterfactual train- ing data using causal features. To identify causal features, we consider the counterfactual framework of causal infer- ence (Winship and Morgan 1999). If word w in document d were replaced with some other word w′, how likely is it that the lab",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04106,
+        -0.01534,
+        -0.01448,
+        0.01705,
+        0.04759
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": " consider the counterfactual framework of causal infer- ence (Winship and Morgan 1999). If word w in document d were replaced with some other word w′, how likely is it that the lab",
+      "overlap_with_next": "oach to generate a small number of high- quality causal features. The full steps of our approach are as follows: 1. We ﬁrst train an initial classiﬁer and extract strongly cor- rel",
+      "text": " consider the counterfactual framework of causal infer- ence (Winship and Morgan 1999). If word w in document d were replaced with some other word w′, how likely is it that the label y would change? Since conducting ran- domized control trials to answer this question is infeasible, we instead use matching methods (Imbens 2004; King and Nielsen 2019). The intuition is as follows: if w is a reliable piece of evidence to determine the label of d, we should be able to ﬁnd a very similar documentd′ that (i) does not con- tain w, and (ii) has the opposite label of d. For example, (d,y ) = (“This was a free book that sounded boring to me”, neg) and (d′,y′) = (“This was a free book that sounded in- teresting to me”, pos) would be an ideal match where substi- tuting causal term “boring” with another term “interesting” ﬂips the label. While this is not a necessary condition of a causal feature (there may not be a good match in a limited training set), in the experiments below we ﬁnd this to be a fairly precise approach to generate a small number of high- quality causal features. The full steps of our approach are as follows: 1. We ﬁrst train an initial classiﬁer and extract strongly cor- rel",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04242,
+        0.01451,
+        0.00441,
+        0.00217,
+        0.00729
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "oach to generate a small number of high- quality causal features. The full steps of our approach are as follows: 1. We ﬁrst train an initial classiﬁer and extract strongly cor- rel",
+      "overlap_with_next": "reshold (0.95 is used below). 4. We use PyDictionary 2 to get antonyms for causal terms. 5. For each training sample, we generate its counterfactual sample by substituting causal t",
+      "text": "oach to generate a small number of high- quality causal features. The full steps of our approach are as follows: 1. We ﬁrst train an initial classiﬁer and extract strongly cor- related terms⟨t1...t k⟩ as candidate causal features. E.g., for logistic regression model, we would extract features with high magnitude coefﬁcients. For more complex mod- els, other transparency algorithms may be used (Martens and Provost 2014). 2. For each top term t and a set of documents con- taining t: Dt = ⟨d1...d n⟩, we search for a set of matched documentsD′t =⟨d′1...d ′n⟩ and getDmatch = {(d1,d′1,score 1)... (dn,d′n,score′n)}, where the score for each match is the context similarity of di andd′i. The matched documents have opposite labels. 3. Then for each term t and its corresponding matching set Dmatch, we pick the tuple (di,d′i,scorei) that has the highest similarity score as the closest opposite match . We then identify likely causal features by picking those whose closest opposite matches have scores greater than a threshold (0.95 is used below). 4. We use PyDictionary 2 to get antonyms for causal terms. 5. For each training sample, we generate its counterfactual sample by substituting causal t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05259,
+        -0.01203,
+        -0.01562,
+        0.03286,
+        0.00292
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "reshold (0.95 is used below). 4. We use PyDictionary 2 to get antonyms for causal terms. 5. For each training sample, we generate its counterfactual sample by substituting causal t",
+      "overlap_with_next": "ch approach to search ford′[ˆt′] that has highest semantic similarity to d[ˆt] among all pos- sible d∗[ˆt∗]: d′ ← arg maxd∗ sim(d[ˆt],d∗[ˆt∗]). For a term t, we get a set of corres",
+      "text": "reshold (0.95 is used below). 4. We use PyDictionary 2 to get antonyms for causal terms. 5. For each training sample, we generate its counterfactual sample by substituting causal terms with antonyms and assigning an opposite label to the counterfactual sample. 6. Finally, we train a robust classiﬁer using the combination of original training data and counterfactual data. We provide more details on these steps below. 4.1 Identifying Likely Causal Features We expect causal features to have at least some correlations with the target class, so we ﬁrst ﬁt an initial binary classiﬁer f (x;θ) on original training dataD ={(d1,y 1)... (dn,yn)} and extract top terms ⟨t1...t k⟩ that have relatively large magnitude coefﬁcients (e.g.,> 1 in experiments below). For a top term t and a document d containing t, we let d[ˆt] represent the context of removing t fromd. We search for another document d′ that (i) has t′ ∈ d′ and t /∈ d′, wheret′ is another top term, and (ii) d′ has the opposite la- bel withd. We use a best match approach to search ford′[ˆt′] that has highest semantic similarity to d[ˆt] among all pos- sible d∗[ˆt∗]: d′ ← arg maxd∗ sim(d[ˆt],d∗[ˆt∗]). For a term t, we get a set of corres",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04642,
+        -0.00684,
+        0.00059,
+        0.01174,
+        0.01415
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "ch approach to search ford′[ˆt′] that has highest semantic similarity to d[ˆt] among all pos- sible d∗[ˆt∗]: d′ ← arg maxd∗ sim(d[ˆt],d∗[ˆt∗]). For a term t, we get a set of corres",
+      "overlap_with_next": "e magnitude of coefﬁcients from the clas- siﬁer trained on original data. We can see that terms with very high closest opposite match scores are very likely to be causal. Note that",
+      "text": "ch approach to search ford′[ˆt′] that has highest semantic similarity to d[ˆt] among all pos- sible d∗[ˆt∗]: d′ ← arg maxd∗ sim(d[ˆt],d∗[ˆt∗]). For a term t, we get a set of corresponding matches as Dmatch = {(d1,d′1,score 1)... (dn,d′n,scoren)}, where the score for each match is the semantic similarity between d[ˆt] and d′[ˆt′]. Each context is represented by concatenating the last four layers of a pre-trained BERT model (i.e., recom- mended by (Devlin et al. 2019)). We then select the match (di,d′i,scorei) that has the highest score in Dmatch as the closest opposite match fort. Table 1 shows examples of the closest opposite matches. From the previous step, we get the closest opposite match for each top term. We then identify terms with closest oppo- site match scores greater than 0.95 as likely causal terms. To evaluate the quality of this approach, the left panel of Figure 1 shows terms annotated by a human as likely to be causal or not, plotted by both their closest opposite match scores as well as the magnitude of coefﬁcients from the clas- siﬁer trained on original data. We can see that terms with very high closest opposite match scores are very likely to be causal. Note that",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05305,
+        -0.01518,
+        -0.03944,
+        0.01069,
+        -0.01097
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "e magnitude of coefﬁcients from the clas- siﬁer trained on original data. We can see that terms with very high closest opposite match scores are very likely to be causal. Note that",
+      "overlap_with_next": "e Matches with Corresponding Context Similarity Scores Figure 1: The “closest opposite match” score provides a high-precision indicator of causal features (IMDB dataset). Causal Te",
+      "text": "e magnitude of coefﬁcients from the clas- siﬁer trained on original data. We can see that terms with very high closest opposite match scores are very likely to be causal. Note that this is not necessarily the case for terms with high coefﬁcients (y-axis). The high precision and low recall pattern is further supported by the right panel. 4.2 Selecting Antonyms for Causal Terms After identifying causal terms, we search for their antonyms using PyDictionary. This package provides simple inter- faces for getting meanings from WordNet and synonyms and 2https://github.com/geekpradd/PyDictionary [Page 4] Original sentence Matched sentence Context similarity This was an amazing book. This was a boring book 0.977 It was a boring read. The book was great and long. 0.998 This short story was a disappointment. This was a great short story. 0.992 This is one of the funniest movies I have seen. This is one of the worst movies I have ever seen. 0.980 Fantastic ﬁlm. Terrible ﬁlm. 1.00 Table 1: Examples of Closest Opposite Matches with Corresponding Context Similarity Scores Figure 1: The “closest opposite match” score provides a high-precision indicator of causal features (IMDB dataset). Causal Te",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05234,
+        -0.00568,
+        -0.02054,
+        0.03191,
+        0.00545
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "e Matches with Corresponding Context Similarity Scores Figure 1: The “closest opposite match” score provides a high-precision indicator of causal features (IMDB dataset). Causal Te",
+      "overlap_with_next": " two steps, we get at least one candidate antonym for each causal term t :{a1...a k},k ≥ 1. Table 2 shows examples of the antonyms we get for causal terms. 4.3 Generating Counterfa",
+      "text": "e Matches with Corresponding Context Similarity Scores Figure 1: The “closest opposite match” score provides a high-precision indicator of causal features (IMDB dataset). Causal Term Antonyms fantastic: 1.638 unimpressive: -0.462; inferior: -0.644 awesome: 1.202 unimpressive: -0.462 pleasant: 1.106 unpleasant: -0.333 dull: -1.881 lively: 0.302; colorful: 0.252 boring: -2.592 interesting: 0.734 Table 2: Discovered antonyms for causal terms and corre- sponding coefﬁcients from the initial classiﬁer. antonyms from synonym.com. To reduce the noise of the returned antonyms, we require the antonyms to have oppo- site coefﬁcients with the causal terms. Speciﬁcally, for each causal termt, we search for its antonyms by: • First, check the direct antonyms for t and save those that satisfy the coefﬁcient requirement as candidate antonyms. • If no satisfying antonym is found, we then get synonyms fort and iteratively search for each synonym’s antonyms, and save the satisﬁed antonyms as candidate antonyms. After these two steps, we get at least one candidate antonym for each causal term t :{a1...a k},k ≥ 1. Table 2 shows examples of the antonyms we get for causal terms. 4.3 Generating Counterfa",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03709,
+        0.00036,
+        -0.00887,
+        0.00039,
+        -0.00412
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": " two steps, we get at least one candidate antonym for each causal term t :{a1...a k},k ≥ 1. Table 2 shows examples of the antonyms we get for causal terms. 4.3 Generating Counterfa",
+      "overlap_with_next": "estigate how do causal terms affect the quantity and quality of automatically generated counterfactual samples. 5 Data We perform sentiment classiﬁcation experiments on the fol- lo",
+      "text": " two steps, we get at least one candidate antonym for each causal term t :{a1...a k},k ≥ 1. Table 2 shows examples of the antonyms we get for causal terms. 4.3 Generating Counterfactual Samples Next, for each training document d, we ﬁrst identify all the causal terms in d:⟨t1...t m⟩, and then substitute all causal terms with their corresponding antonyms. If a causal term has multiple candidate antonyms, we randomly pick one to substitute. We only generate counterfactuals for documents contain at least one causal term. Finally, we assign oppo- site labels to the generated samples. Table 5 shows examples of generated counterfactual sentences. While most substitu- tions result in reasonable sentences, future work may inves- tigate more sophisticated language models to ensure ﬂuency of the generated counterfactuals. 4.4 Training a Robust Text Classiﬁer We augment the original training data with the automati- cally generated counterfactual data to train a robust classi- ﬁer. We perform experiments below to investigate how do causal terms affect the quantity and quality of automatically generated counterfactual samples. 5 Data We perform sentiment classiﬁcation experiments on the fol- lo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01492,
+        0.00148,
+        0.00823,
+        0.00541,
+        0.00823
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "estigate how do causal terms affect the quantity and quality of automatically generated counterfactual samples. 5 Data We perform sentiment classiﬁcation experiments on the fol- lo",
+      "overlap_with_next": "eate a version of this dataset segmented into single sentences. To do so, we ﬁrst ﬁt a binary classiﬁer on the original data and identify strongly correlated terms as keywords. The",
+      "text": "estigate how do causal terms affect the quantity and quality of automatically generated counterfactual samples. 5 Data We perform sentiment classiﬁcation experiments on the fol- lowing two datasets. 3 Each dataset has human-generated counterfactual testing samples to provide benchmark perfor- mance for classiﬁer robustness. IMDB movie reviews: This dataset is sampled from the original IMDB dataset (Pang and Lee 2005) and the con- terfactual part is collected and published by Kaushik, Hovy, and Lipton (2020). They randomly sampled 2.5K reviews with balanced class distributions and partition them into 1707 training, 245 validation, and 488 testing samples. Then they instruct Amazon Mechanical Turk workers to revise each document with minimum changes towards a counter- factual label, and ﬁnally collected 2.5K counterfactually- manipulated samples. Each document of this dataset is a long paragraph. We are both interested in exploring classiﬁer performance for long texts and short texts. So, we additionally create a version of this dataset segmented into single sentences. To do so, we ﬁrst ﬁt a binary classiﬁer on the original data and identify strongly correlated terms as keywords. The",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07612,
+        -0.0534,
+        -0.00555,
+        0.00182,
+        0.00522
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "eate a version of this dataset segmented into single sentences. To do so, we ﬁrst ﬁt a binary classiﬁer on the original data and identify strongly correlated terms as keywords. The",
+      "overlap_with_next": " a rating ranges from 1-5 (He and McAuley 2016). We label reviews with ratings{4,5} as positive and reviews with ratings{1,2} as negative, and then process this dataset to be singl",
+      "text": "eate a version of this dataset segmented into single sentences. To do so, we ﬁrst ﬁt a binary classiﬁer on the original data and identify strongly correlated terms as keywords. Then we split each original document into single sentences and keep those con- taining at least one keyword. Sentence labels are inherited from the original document labels. To justify the validity of this approach, we randomly sampled 500 sentences and manually checked their labels. The inherited labels were cor- rect for 484 sentences (i.e., 96.8% accuracy). We differenti- ate the IMDB dataset with long texts as IMDB-L and short texts as IMDB-S. 3Code and data available at: https://github.com/tapilab/aaai- 2021-counterfactuals [Page 5] IMDB-L IMDB-S Kindle pos neg pos neg pos neg Train 856 851 4114 4059 5000 5000 Test 245 243 1144 1101 250 250 Top terms 231 198 194 Causal terms 282 285 264 Table 3: Dataset summary Amazon Kindle reviews (Kindle): This dataset contains book reviews from the Amazon Kindle Store and each re- view has a rating ranges from 1-5 (He and McAuley 2016). We label reviews with ratings{4,5} as positive and reviews with ratings{1,2} as negative, and then process this dataset to be singl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05499,
+        -0.01003,
+        -0.0012,
+        -0.02653,
+        0.01694
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " a rating ranges from 1-5 (He and McAuley 2016). We label reviews with ratings{4,5} as positive and reviews with ratings{1,2} as negative, and then process this dataset to be singl",
+      "overlap_with_next": "., 96% raw agreement by fraction of labels that agree). Table 3 shows the basic data statistics. For the top terms, we select them by thresholding on the magnitude of coefﬁ- cients",
+      "text": " a rating ranges from 1-5 (He and McAuley 2016). We label reviews with ratings{4,5} as positive and reviews with ratings{1,2} as negative, and then process this dataset to be single sentences following the approach used in IMDB. Human edited counterfactuals: For the IMDB dataset, we have the human-generated counterfactual training data and counterfactual testing data. For kindle dataset, we ran- domly select 500 samples as test data (comparable size with the test data from IMDB-L) and manually edit them to be counterfactual samples with the minimum edits. Ground truth causal terms: We manually annotated a set of ground truth causal terms for each dataset. Specif- ically, we asked two student annotators to label a term as causal if, all else being equal, this term is a determining fac- tor in assigning a label to a document. While there is some subjectivity in the annotation, we did a round of training to resolve disagreements prior to annotation and the ﬁnal agreement was generally high for this task (e.g., 96% raw agreement by fraction of labels that agree). Table 3 shows the basic data statistics. For the top terms, we select them by thresholding on the magnitude of coefﬁ- cients",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0602,
+        -0.03116,
+        -0.01188,
+        -0.00703,
+        0.02908
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "., 96% raw agreement by fraction of labels that agree). Table 3 shows the basic data statistics. For the top terms, we select them by thresholding on the magnitude of coefﬁ- cients",
+      "overlap_with_next": " evaluate their performance on the original test samples as well as counterfactual test samples. The training data compared below have increasing requirements for human supervision",
+      "text": "., 96% raw agreement by fraction of labels that agree). Table 3 shows the basic data statistics. For the top terms, we select them by thresholding on the magnitude of coefﬁ- cients. For IMDB-L, we use threshold 0.4, and for IMDB-S and Kindle, we use threshold 1.0. 6 Experiments and Discussion 6.1 Causal term identiﬁcation According to the left panel of Figure 1, we ﬁnd that the simi- larity scores of closest opposite matches seem to be a viable signal of true causal terms. The right panel shows the per- formance of identifying causal terms when thresholding on the closest opposite match scores. Using threshold 0.95, we identify 32 causal terms for IMDB-L and IMDB-S datasets, of which 27 are true causal terms (i.e., precision: 84%), and 23 causal terms for Kindle dataset, of which 19 are true causal terms (i.e., precision: 83%). 6.2 Robust classiﬁcation for counterfactual test data We ﬁt ﬁve binary LogisticRegression classiﬁers with differ- ent training data (using scikit-learn (Pedregosa et al. 2011)) and evaluate their performance on the original test samples as well as counterfactual test samples. The training data compared below have increasing requirements for human supervision",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05303,
+        -0.0194,
+        -0.026,
+        -0.01722,
+        -0.00016
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " evaluate their performance on the original test samples as well as counterfactual test samples. The training data compared below have increasing requirements for human supervision",
+      "overlap_with_next": "e augmented with coun- terfactual samples automatically generated using human annotated causal terms from the entire vocabulary (i.e., 282 for IMDB-L, 285 for IMDB-S, and 264 for K",
+      "text": " evaluate their performance on the original test samples as well as counterfactual test samples. The training data compared below have increasing requirements for human supervision. For the ﬁrst and second, only original training data is required. For the third and fourth, a human provides a list of causal terms, either by selecting from the list of top terms, or from the entire vocabulary. In the ﬁnal setting, humans manually annotate counterfactual training samples (equivalent to the approach of Kaushik, Hovy, and Lipton (2020)). Details of the ﬁve levels of human supervision are as follows: 1. Only original training samples. 2. The original training samples are augmented with auto- matically generated counterfactual training samples using predicted causal terms . 3. The original training samples are augmented with coun- terfactual samples automatically generated using human annotated causal terms from top words (i.e., 65 for IMDB-L, 80 for IMDB-S, and 76 for Kindle). 4. The original training samples are augmented with coun- terfactual samples automatically generated using human annotated causal terms from the entire vocabulary (i.e., 282 for IMDB-L, 285 for IMDB-S, and 264 for K",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03337,
+        -0.03791,
+        -0.01196,
+        0.00494,
+        0.01808
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "e augmented with coun- terfactual samples automatically generated using human annotated causal terms from the entire vocabulary (i.e., 282 for IMDB-L, 285 for IMDB-S, and 264 for K",
+      "overlap_with_next": " when we aug- ment the original training data with counterfactual data. Even with no additional human supervision, the approach that automatically identiﬁes causal terms outperform",
+      "text": "e augmented with coun- terfactual samples automatically generated using human annotated causal terms from the entire vocabulary (i.e., 282 for IMDB-L, 285 for IMDB-S, and 264 for Kindle). 5. The original training samples are augmented with human- generated counterfactual training samples. We train the classiﬁers using the ﬁve different training sets and compare their performances on the original test sam- ples and the human-generated counterfactual test samples. Table 4 shows the results. When the classiﬁer is trained on original training samples, it performs well on the original test data, but the accuracy de- grades quickly when tested on human-generated counterfac- tual data (e.g., 20.1% absolute decrease for IMDB-L, 10.6% decrease for IMDB-S, 37.4% decrease for Kindle). This in- dicates that spurious correlations learned in the original clas- siﬁer do not generalize well on the counterfactual test data. When evaluating on human-generated counterfactual test samples, the classiﬁer performance increases when we aug- ment the original training data with counterfactual data. Even with no additional human supervision, the approach that automatically identiﬁes causal terms outperform",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05397,
+        -0.02053,
+        -0.02357,
+        0.00181,
+        0.01572
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": " when we aug- ment the original training data with counterfactual data. Even with no additional human supervision, the approach that automatically identiﬁes causal terms outperform",
+      "overlap_with_next": "work models (LSTM with distributed word 4We lack human-generated counterfactual training samples for Kindle dataset, so we omit that result from Table 4. 5The Appendix is available",
+      "text": " when we aug- ment the original training data with counterfactual data. Even with no additional human supervision, the approach that automatically identiﬁes causal terms outperforms the original classiﬁer across all datasets (13%, 5.5%, 11% ab- solute improvement). Further improvements occur with ad- ditional human supervision in the form of causal terms. Us- ing all causal terms (less than 300 terms per dataset), the approach achieves comparable performance to the more ex- pensive baseline which requires humans to edit> 1K coun- terfactual samples.4 We also observe that model accuracy slightly decreases on the original test data. This is because the spurious correla- tions hold in the original test data, but the importance of such features is reduced in the models trained on counterfactual samples. This suggests a potential tradeoff between accuracy on a speciﬁc dataset and generalizability of the model. 6.3 Alternative experiments The Appendix5 provides additional results using more com- plex neural network models (LSTM with distributed word 4We lack human-generated counterfactual training samples for Kindle dataset, so we omit that result from Table 4. 5The Appendix is available",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03911,
+        -0.03659,
+        -0.03964,
+        0.00415,
+        0.00071
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "work models (LSTM with distributed word 4We lack human-generated counterfactual training samples for Kindle dataset, so we omit that result from Table 4. 5The Appendix is available",
+      "overlap_with_next": "ent approaches exhibit very similar trends with the cur- rent results using logistic regression. We have also run experiments to control for the training data size by downsampling ",
+      "text": "work models (LSTM with distributed word 4We lack human-generated counterfactual training samples for Kindle dataset, so we omit that result from Table 4. 5The Appendix is available in the Arxiv version of this paper. [Page 6] Training data: Testing data Original train samples + Counterfactual train samples IMDB-L IMDB-S Kindle Counterfactual training samples Causal terms Orig CTF Orig CTF Orig CTF not used not used .816 .615 .711 .605 .888 .514 auto-generated predicted from top words .742 .744 .685 .660 .866 .624 annotated from top words .760 .818 .679 .696 .882 .662 annotated from whole vocabulary .773 .857 .685 .726 .752 .720 human-generated not used .818 .869 .705 .762 n/a n/a Table 4: Classiﬁcation accuracy results. (CTF is human-generated counterfactual testing data.) Figure 2: Performance change with counterfactuals gener- ated using different numbers of annotated causal terms representations). The baseline classiﬁcation accuracy is quite similar (within .03), and the relative accuracy of the different approaches exhibit very similar trends with the cur- rent results using logistic regression. We have also run experiments to control for the training data size by downsampling ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05037,
+        -0.01045,
+        -0.06058,
+        -0.03093,
+        0.02285
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "ent approaches exhibit very similar trends with the cur- rent results using logistic regression. We have also run experiments to control for the training data size by downsampling ",
+      "overlap_with_next": "rfactuals depends on the causal terms used for antonym substitutions. We ob- serve that performance seems to plateau after about 100 causal terms, which suggests that we can get si",
+      "text": "ent approaches exhibit very similar trends with the cur- rent results using logistic regression. We have also run experiments to control for the training data size by downsampling the augmented training data to have the same size as original training data. Results show that there are only minor changes in accuracy (i.e.,< 0.04), and the overall trends match the current results (see Ap- pendix). Finally, as regularization terms may impact spurious fea- tures, we have also experimented with the L2 regularization term in logistic regression ({C = 0.01, 0.1, 1, 10, 100}), and there are only minor differences in accuracy on the counter- factual test data (see Appendix). 6.4 Performance change with different number of human annotated causal terms To further investigate how many human-provided causal terms are needed to improve robustness, Figure 2 shows the classiﬁcation performance with different numbers of causal terms used for generating counterfactual samples. The qual- ity of automatically generated counterfactuals depends on the causal terms used for antonym substitutions. We ob- serve that performance seems to plateau after about 100 causal terms, which suggests that we can get si",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08614,
+        0.0051,
+        -0.00206,
+        -0.00748,
+        -0.0232
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "rfactuals depends on the causal terms used for antonym substitutions. We ob- serve that performance seems to plateau after about 100 causal terms, which suggests that we can get si",
+      "overlap_with_next": "ee book that sounded interesting to me” with positive sentiment. So the counterfactual samples in- crease the frequency of “free” in positive class and thus mit- igate the spurious",
+      "text": "rfactuals depends on the causal terms used for antonym substitutions. We ob- serve that performance seems to plateau after about 100 causal terms, which suggests that we can get similar perfor- mance by annotating 100 causal terms, as opposed to creat- ing> 1K counterfactual training samples. The cause of the plateau is likely due to the infrequency of subsequent terms and the fact that such terms co-occur with other causal terms, so they do not result in many new counterfactual samples. 6.5 Coefﬁcient change for causal and non-causal terms To understand why training with counterfactual data im- proves classiﬁer robustness, Table 5 shows examples of the change in coefﬁcients from the original classiﬁer to the ro- bust classiﬁer for causal and non-causal terms. Take the word “free” for example, which has a coefﬁcient −1.41 in the original classiﬁer due to its high frequency in negative samples. When generating counterfactuals, we substitute “boring” with “interesting” and generate a sam- ple “This was a free book that sounded interesting to me” with positive sentiment. So the counterfactual samples in- crease the frequency of “free” in positive class and thus mit- igate the spurious",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02688,
+        -0.01373,
+        0.00246,
+        -0.00111,
+        0.01139
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "ee book that sounded interesting to me” with positive sentiment. So the counterfactual samples in- crease the frequency of “free” in positive class and thus mit- igate the spurious",
+      "overlap_with_next": "rm “movie” 6. The robust classiﬁer corrects this prediction by increasing the coefﬁcient of the causal term 6In the data, “ﬁlm” correlates with high ratings, while “movie” correlat",
+      "text": "ee book that sounded interesting to me” with positive sentiment. So the counterfactual samples in- crease the frequency of “free” in positive class and thus mit- igate the spurious correlation of “free” with negative class. The classiﬁer trained on a combination of original data and counterfactual data would learn a smaller magnitude coef- ﬁcient for “free”. Analogously, the approach increases the magnitude of causal terms such as “awesome” and “awful” by providing counterfactuals with opposite labels. 6.6 Error analysis Table 6 shows several test sentences that are misclassiﬁed by the original classiﬁer and later corrected by the robust clas- siﬁer. We can see again that the robust classiﬁer increases coefﬁcients of causal terms and decreases coefﬁcients of non-causal terms. For example, “Really good movie” is in- correctly predicted as negative by the original classiﬁer, be- cause the causal term “good” has a small positive coefﬁcient and the prediction is misled by the spuriously correlated negative term “movie” 6. The robust classiﬁer corrects this prediction by increasing the coefﬁcient of the causal term 6In the data, “ﬁlm” correlates with high ratings, while “movie” correlat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03191,
+        0.00216,
+        0.01635,
+        0.01392,
+        0.03508
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "rm “movie” 6. The robust classiﬁer corrects this prediction by increasing the coefﬁcient of the causal term 6In the data, “ﬁlm” correlates with high ratings, while “movie” correlat",
+      "overlap_with_next": "-0.874 story:-0.083 incredibly:0.029 interesting:1.012 Table 6: Explanation for robust classiﬁer corrected samples. Change per document Change per term causal non-causal causal non",
+      "text": "rm “movie” 6. The robust classiﬁer corrects this prediction by increasing the coefﬁcient of the causal term 6In the data, “ﬁlm” correlates with high ratings, while “movie” correlates with low ratings. [Page 7] Term Original coef Robust coef Original sentence Counterfactual sentence Non-causal terms movie -0.236 0.028 Terrible movie Fantastic movie free -1.41 -0.919 This was a free book that sounded boring to me. This was a free book that sounded interesting to me. Causal terms awesome 0.584 1.838 He was an awesome actor. He was an awful actor. terrible -1.283 -2.336 The whole movie consists of terrible dialogue. The whole movie consists of pleasant dialogue. Table 5: Coefﬁcient change of causal and non-causal terms. Corrected samples Original coef Robust coef Really good movie.(pos) good:0.231movie:-0.236 good:0.714movie:0.028 The dubbing was as good as I have seen.(pos) dubbing:-0.472 good:0.231 dubbing:-0.1 good:0.714 The story was incredibly interesting.(pos) story:-0.171 incredibly:-0.874 interesting:-0.874 story:-0.083 incredibly:0.029 interesting:1.012 Table 6: Explanation for robust classiﬁer corrected samples. Change per document Change per term causal non-causal causal non",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05224,
+        0.00111,
+        0.03929,
+        -0.01654,
+        0.0266
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "-0.874 story:-0.083 incredibly:0.029 interesting:1.012 Table 6: Explanation for robust classiﬁer corrected samples. Change per document Change per term causal non-causal causal non",
+      "overlap_with_next": " that document length is an important factor in determining whether increasing co- efﬁcients of causal terms has bigger impacts or decreasing coefﬁcients of non-causal terms has bi",
+      "text": "-0.874 story:-0.083 incredibly:0.029 interesting:1.012 Table 6: Explanation for robust classiﬁer corrected samples. Change per document Change per term causal non-causal causal non-causal IMDB-L 1.888 -0.734 0.327 -0.01 IMDB-S 0.435 -0.626 0.302 -0.042 Kindle 0.293 -0.772 0.315 -0.109 Table 7: Original versus robust classiﬁer coefﬁcient change for causal versus non-causal terms for corrected samples. “good” and decreasing the coefﬁcient of the non-causal term “movie.” We conduct a ﬁnal analysis to explore the impact of causal versus non-causal terms when correcting misclassi- ﬁcations. For each corrected sample, we compute separately the change in coefﬁcient magnitudes for causal and non- causal terms. We then aggregate across all corrected sam- ples to summarize the impact each type of correction has. As shown in Table 7, for IMDB-L, increasing coefﬁcients of causal terms is more important than decreasing coefﬁ- cients of non-causal terms, and the reverse is true for the other two datasets. This suggests that document length is an important factor in determining whether increasing co- efﬁcients of causal terms has bigger impacts or decreasing coefﬁcients of non-causal terms has bi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04694,
+        -0.01246,
+        0.01373,
+        -0.009,
+        0.01168
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": " that document length is an important factor in determining whether increasing co- efﬁcients of causal terms has bigger impacts or decreasing coefﬁcients of non-causal terms has bi",
+      "overlap_with_next": "ate extensions to increase the preci- sion and recall of causal term identiﬁcation to further reduce the reliance on human supervision. Additionally, it would be interesting to ext",
+      "text": " that document length is an important factor in determining whether increasing co- efﬁcients of causal terms has bigger impacts or decreasing coefﬁcients of non-causal terms has bigger impacts. Exam- ining the average coefﬁcient change of each term, the robust classiﬁer tends to make bigger increases for causal terms and smaller decreases for non-causal terms. However, the greater frequency of non-causal terms can lead to these changes to have a greater overall impact on classiﬁcation accuracy. 7 Conclusion and Future Work We have presented a framework to automatically generate counterfactual training samples from causal terms and then train a robust classiﬁer using the combination of original data and counterfactual data. Using this framework, we can easily improve classiﬁer robustness even with few causal terms. If enough causal terms are annotated (e.g., 100 in our experiments), it is possible to achieve performance com- parable to using human-generated counterfactuals. In future work, we will investigate extensions to increase the preci- sion and recall of causal term identiﬁcation to further reduce the reliance on human supervision. Additionally, it would be interesting to ext",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03618,
+        -0.0156,
+        -7e-05,
+        0.00316,
+        -0.0063
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "ate extensions to increase the preci- sion and recall of causal term identiﬁcation to further reduce the reliance on human supervision. Additionally, it would be interesting to ext",
+      "overlap_with_next": "Backdoor Attack Against LSTM-Based Text Classiﬁcation Systems. IEEE Access 7: 138872–138878. Devlin, J.; Chang, M.-W.; Lee, K.; and Toutanova, K. 2019. BERT: Pre-training of Deep B",
+      "text": "ate extensions to increase the preci- sion and recall of causal term identiﬁcation to further reduce the reliance on human supervision. Additionally, it would be interesting to extend this framework to other tasks such as topic classiﬁcation robustness. To do so, we would need to generalize the notion of “antonyms” to include terms that in- dicate a different topic (e.g., to convert a sports news story to a political news story, we might change the sentence “watch the game” to “watch the debate”). Then we could generate “counterfactuals” by substituting topic-related terms with terms that are not semantically related to the current topic (or related to other topics). Acknowledgments This research was funded in part by the National Science Foundation under grant #1618244. Zhao Wang was funded in part by a Dissertation Fellowship from the Computer Sci- ence department at Illinois Tech. We would also like to thank the anonymous reviewers for useful feedback. References Dai, J.; Chen, C.; and Li, Y . 2019. A Backdoor Attack Against LSTM-Based Text Classiﬁcation Systems. IEEE Access 7: 138872–138878. Devlin, J.; Chang, M.-W.; Lee, K.; and Toutanova, K. 2019. BERT: Pre-training of Deep B",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03006,
+        -0.00689,
+        -0.00465,
+        0.04228,
+        -0.01326
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "Backdoor Attack Against LSTM-Based Text Classiﬁcation Systems. IEEE Access 7: 138872–138878. Devlin, J.; Chang, M.-W.; Lee, K.; and Toutanova, K. 2019. BERT: Pre-training of Deep B",
+      "overlap_with_next": " Biased Estimation for Nonorthogonal Problems.Technomet- rics 12(1): 55–67. doi:10.1080/00401706.1970.10488634. Imbens, G. W. 2004. Nonparametric estimation of aver- age treatment ",
+      "text": "Backdoor Attack Against LSTM-Based Text Classiﬁcation Systems. IEEE Access 7: 138872–138878. Devlin, J.; Chang, M.-W.; Lee, K.; and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. In NAACL-HLT. Forman, G. 2003. An Extensive Empirical Study of Feature Selection Metrics for Text Classiﬁcation. J. Mach. Learn. Res. 3: 1289–1305. ISSN 1532-4435. Garg, S.; Perot, V .; Limtiaco, N.; Taly, A.; Chi, E. H.; and Beutel, A. 2019. Counterfactual Fairness in Text Classi- ﬁcation through Robustness. In Proceedings of the 2019 AAAI/ACM Conference on AI, Ethics, and Society, AIES’19. [Page 8] Ghorbani, A.; Abid, A.; and Zou, J. 2019. Interpretation of neural networks is fragile. In Proceedings of the AAAI Con- ference on Artiﬁcial Intelligence, volume 33, 3681–3688. He, R.; and McAuley, J. 2016. Ups and Downs.Proceedings of the 25th International Conference on World Wide Web - WWW’16 doi:10.1145/2872427.2883037. Hoerl, A. E.; and Kennard, R. W. 1970. Ridge Regression: Biased Estimation for Nonorthogonal Problems.Technomet- rics 12(1): 55–67. doi:10.1080/00401706.1970.10488634. Imbens, G. W. 2004. Nonparametric estimation of aver- age treatment ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06566,
+        -0.02304,
+        0.00575,
+        0.00752,
+        0.00134
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": " Biased Estimation for Nonorthogonal Problems.Technomet- rics 12(1): 55–67. doi:10.1080/00401706.1970.10488634. Imbens, G. W. 2004. Nonparametric estimation of aver- age treatment ",
+      "overlap_with_next": "ence on Learning Representations, ICLR’20. Keith, K.; Jensen, D.; and O’Connor, B. 2020. Text and Causal Inference: A Review of Using Text to Remove Con- founding from Causal Estim",
+      "text": " Biased Estimation for Nonorthogonal Problems.Technomet- rics 12(1): 55–67. doi:10.1080/00401706.1970.10488634. Imbens, G. W. 2004. Nonparametric estimation of aver- age treatment effects under exogeneity: A review. Review of Economics and statistics 86(1): 4–29. Jia, R.; Raghunathan, A.; G ¨oksel, K.; and Liang, P. 2019. Certiﬁed Robustness to Adversarial Word Substitutions. In Proceedings of the 2019 Conference on Empirical Meth- ods in Natural Language Processing and the 9th Interna- tional Joint Conference on Natural Language Processing (EMNLP-IJCNLP), 4129–4142. Hong Kong, China. Kaufman, S.; Rosset, S.; and Perlich, C. 2011. Leakage in Data Mining: Formulation, Detection, and Avoidance. In Proceedings of the 17th ACM SIGKDD International Con- ference on Knowledge Discovery and Data Mining , KDD ’11, 556–563. New York, NY , USA. ISBN 9781450308137. Kaushik, D.; Hovy, E.; and Lipton, Z. 2020. Learning The Difference That Makes A Difference With Counterfactually- Augmented Data. In International Conference on Learning Representations, ICLR’20. Keith, K.; Jensen, D.; and O’Connor, B. 2020. Text and Causal Inference: A Review of Using Text to Remove Con- founding from Causal Estim",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03078,
+        -0.00919,
+        -0.01555,
+        -0.00472,
+        -0.02131
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "ence on Learning Representations, ICLR’20. Keith, K.; Jensen, D.; and O’Connor, B. 2020. Text and Causal Inference: A Review of Using Text to Remove Con- founding from Causal Estim",
+      "overlap_with_next": " volume 12300, 189–202. Springer, Cham. doi:https://doi.org/10.1007/978- 3-030-62077-6 14. Martens, D.; and Provost, F. 2014. Explaining data-driven document classiﬁcations. Mis Qu",
+      "text": "ence on Learning Representations, ICLR’20. Keith, K.; Jensen, D.; and O’Connor, B. 2020. Text and Causal Inference: A Review of Using Text to Remove Con- founding from Causal Estimates. In Proceedings of the 58th Annual Meeting of the Association for Computational Lin- guistics, 5332–5344. Online: ACL. King, G.; and Nielsen, R. 2019. Why propensity scores should not be used for matching. Political Analysis 27(4): 435–454. Kiritchenko, S.; and Mohammad, S. 2018. Examining Gen- der and Race Bias in Two Hundred Sentiment Analysis Sys- tems. In Proceedings of the Seventh Joint Conference on Lexical and Computational Semantics, 43–53. New Orleans, Louisiana: ACL. doi:10.18653/v1/S18-2005. Landeiro, V .; and Culotta, A. 2018. Robust Text Classiﬁca- tion under Confounding Shift. Journal of Artiﬁcial Intelli- gence Research 63: 391–419. doi:10.1613/jair.1.11248. Lu, K.; Mardziel, P.; Wu, F.; Amancharla, P.; and Datta, A. 2018. Gender Bias in Neural Natural Language Pro- cessing. In Logic, Language, and Security , volume 12300, 189–202. Springer, Cham. doi:https://doi.org/10.1007/978- 3-030-62077-6 14. Martens, D.; and Provost, F. 2014. Explaining data-driven document classiﬁcations. Mis Qu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09454,
+        -0.00954,
+        -0.00056,
+        0.02523,
+        -0.01106
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": " volume 12300, 189–202. Springer, Cham. doi:https://doi.org/10.1007/978- 3-030-62077-6 14. Martens, D.; and Provost, F. 2014. Explaining data-driven document classiﬁcations. Mis Qu",
+      "overlap_with_next": "waighofer, A.; and Lawrence, N. D. 2009. Dataset Shift in Machine Learning. The MIT Press. ISBN 0262170051. Ribeiro, M. T.; Wu, T.; Guestrin, C.; and Singh, S. 2020. Beyond Accurac",
+      "text": " volume 12300, 189–202. Springer, Cham. doi:https://doi.org/10.1007/978- 3-030-62077-6 14. Martens, D.; and Provost, F. 2014. Explaining data-driven document classiﬁcations. Mis Quarterly 38(1): 73–100. Pang, B.; and Lee, L. 2005. Seeing stars: Exploiting class re- lationships for sentiment categorization with respect to rat- ing scales. In Proceedings of the 43rd annual meeting on association for computational linguistics, 115–124. ACL. Paul, M. J. 2017. Feature Selection as Causal Inference: Experiments with Text Classiﬁcation. In Proceedings of the 21st Conference on Computational Natural Language Learning (CoNLL 2017). Vancouver, Canada: ACL. Pedregosa, F.; Varoquaux, G.; Gramfort, A.; Michel, V .; Thirion, B.; Grisel, O.; Blondel, M.; Prettenhofer, P.; Weiss, R.; Dubourg, V .; Vanderplas, J.; Passos, A.; Cournapeau, D.; Brucher, M.; Perrot, M.; and Duchesnay, E. 2011. Scikit- learn: Machine Learning in Python. Journal of Machine Learning Research 12: 2825–2830. Quionero-Candela, J.; Sugiyama, M.; Schwaighofer, A.; and Lawrence, N. D. 2009. Dataset Shift in Machine Learning. The MIT Press. ISBN 0262170051. Ribeiro, M. T.; Wu, T.; Guestrin, C.; and Singh, S. 2020. Beyond Accurac",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08072,
+        -0.02843,
+        -0.01117,
+        0.01299,
+        -0.00999
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "waighofer, A.; and Lawrence, N. D. 2009. Dataset Shift in Machine Learning. The MIT Press. ISBN 0262170051. Ribeiro, M. T.; Wu, T.; Guestrin, C.; and Singh, S. 2020. Beyond Accurac",
+      "overlap_with_next": " Human Annotations. In III, H. D.; and Singh, A., eds., Proceedings of the 37th In- ternational Conference on Machine Learning , volume 119 of Proceedings of Machine Learning Resea",
+      "text": "waighofer, A.; and Lawrence, N. D. 2009. Dataset Shift in Machine Learning. The MIT Press. ISBN 0262170051. Ribeiro, M. T.; Wu, T.; Guestrin, C.; and Singh, S. 2020. Beyond Accuracy: Behavioral Testing of NLP Models with CheckList. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. ACL. Roemmele, M.; Bejan, C.; and Gordon, A. 2011. Choice of Plausible Alternatives: An Evaluation of Commonsense Causal Reasoning. In AAAI Spring Symp - Technical Report. Sagawa, S.; Raghunathan, A.; Koh, P. W.; and Liang, P. 2020. An Investigation of Why Overparameterization Ex- acerbates Spurious Correlations. In Proceedings of the 37th International Conference on Machine Learning,ICML 2020. Sap, M.; Bras, R. L.; Allaway, E.; Bhagavatula, C.; Lourie, N.; Rashkin, H.; Roof, B.; Smith, N. A.; and Choi, Y . 2018. ATOMIC: An Atlas of Machine Commonsense for If-Then Reasoning. ArXiv abs/1811.00146. Srivastava, M.; Hashimoto, T.; and Liang, P. 2020. Robust- ness to Spurious Correlations via Human Annotations. In III, H. D.; and Singh, A., eds., Proceedings of the 37th In- ternational Conference on Machine Learning , volume 119 of Proceedings of Machine Learning Resea",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06374,
+        -0.01816,
+        -0.01688,
+        0.02575,
+        -0.02558
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": " Human Annotations. In III, H. D.; and Singh, A., eds., Proceedings of the 37th In- ternational Conference on Machine Learning , volume 119 of Proceedings of Machine Learning Resea",
+      "overlap_with_next": " Proceedings of the Conference on Empirical Meth- ods in Natural Language Processing, EMNLP ’08. ACL. Zmigrod, R.; Mielke, S. J.; Wallach, H.; and Cotterell, R. 2019. Counterfactua",
+      "text": " Human Annotations. In III, H. D.; and Singh, A., eds., Proceedings of the 37th In- ternational Conference on Machine Learning , volume 119 of Proceedings of Machine Learning Research, 9109–9119. Wang, Z.; and Culotta, A. 2020. Identifying Spurious Cor- relations for Robust Text Classiﬁcation. In Findings of the Association for Computational Linguistics, EMNLP 2020. Winship, C.; and Morgan, S. L. 1999. The estimation of causal effects from observational data. Annual review of so- ciology 25(1): 659–706. Wood-Doughty, Z.; Shpitser, I.; and Dredze, M. 2018. Chal- lenges of Using Text Classiﬁers for Causal Inference. Pro- ceedings of the Conference on Empirical Methods in Natural Language Processing. EMNLP 2018: 4586–4598. Wulczyn, E.; Thain, N.; and Dixon, L. 2017. Ex Machina: Personal Attacks Seen at Scale. In Proceedings of the 26th International Conference on World Wide Web, WWW ’17. Zaidan, O. F.; and Eisner, J. 2008. Modeling Annotators: A Generative Approach to Learning from Annotator Ratio- nales. In Proceedings of the Conference on Empirical Meth- ods in Natural Language Processing, EMNLP ’08. ACL. Zmigrod, R.; Mielke, S. J.; Wallach, H.; and Cotterell, R. 2019. Counterfactua",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08233,
+        -0.0215,
+        -0.00658,
+        0.00822,
+        -0.02062
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": " Proceedings of the Conference on Empirical Meth- ods in Natural Language Processing, EMNLP ’08. ACL. Zmigrod, R.; Mielke, S. J.; Wallach, H.; and Cotterell, R. 2019. Counterfactua",
+      "overlap_with_next": "be due to the quality and amount of automatically generated counterfactuals; (ii) the relative accuracies of the ﬁve different approaches with LSTM exhibit very similar trends with",
+      "text": " Proceedings of the Conference on Empirical Meth- ods in Natural Language Processing, EMNLP ’08. ACL. Zmigrod, R.; Mielke, S. J.; Wallach, H.; and Cotterell, R. 2019. Counterfactual Data Augmentation for Mitigating Gender Stereotypes in Languages with Rich Morphology. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics. ACL. [Page 9] A Appendix We provide supplemental information in this section. A.1 Results using neural network models Besides the LogisticRegression classiﬁer, we also experiment with the LSTM binary classiﬁer that takes an embedding layer initialized from the pre-trained word2vec model as input, using the Adam optimizer, binary cross-entropy loss, a batch size of 32, and 10 epochs. Table 8 shows the results. Comparing results from Table 8 and Table 4: (i) the baseline accuracies for the three testing datasets are quite similar (within 0.05). One exception is that the Kindle counterfactual test set gains the most improvement (about 0.12), which might be due to the quality and amount of automatically generated counterfactuals; (ii) the relative accuracies of the ﬁve different approaches with LSTM exhibit very similar trends with",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0738,
+        -0.0327,
+        -0.02463,
+        -0.0295,
+        0.00405
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": "be due to the quality and amount of automatically generated counterfactuals; (ii) the relative accuracies of the ﬁve different approaches with LSTM exhibit very similar trends with",
+      "overlap_with_next": "cation accuracy results using LSTM. (CTF is human-generated counterfactual testing data.) A.2 Regularization To explore the impact of regularization on model robustness, we experim",
+      "text": "be due to the quality and amount of automatically generated counterfactuals; (ii) the relative accuracies of the ﬁve different approaches with LSTM exhibit very similar trends with results using LogisticRegression: augmenting with counterfactual data produced by increasing levels of human supervision help improve the model performance. While more sophisticated representations can improve overall results, we wanted to ﬁrst understand model behavior in a simple and interpretable setting and avoid possible overﬁtting with complex models. Training data: Testing data Original train samples + Counterfactual train samples IMDB-L IMDB-S Kindle Counterfactual training samples Causal terms Orig CTF Orig CTF Orig CTF not used not used .811 .700 .741 .656 .908 .642 auto-generated predicted from top words .691 .737 .728 .702 .896 .712 annotated from top words .721 .752 .715 .725 .894 .760 annotated from whole vocabulary .754 .803 .717 .751 .864 .840 human-generated not used .814 .867 .743 .785 n/a n/a Table 8: Classiﬁcation accuracy results using LSTM. (CTF is human-generated counterfactual testing data.) A.2 Regularization To explore the impact of regularization on model robustness, we experim",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03397,
+        -0.00152,
+        -0.04872,
+        -0.0093,
+        -0.00025
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": "cation accuracy results using LSTM. (CTF is human-generated counterfactual testing data.) A.2 Regularization To explore the impact of regularization on model robustness, we experim",
+      "overlap_with_next": " the size of training data In section 6.2, we conduct experiments to ﬁt binary classiﬁers using training data that have ﬁve levels of increasing requirements for human supervision.",
+      "text": "cation accuracy results using LSTM. (CTF is human-generated counterfactual testing data.) A.2 Regularization To explore the impact of regularization on model robustness, we experiment with L2 regularization (strength controlled by C) in LogisticRegression. Table 9 shows the performance of LogisticRegression classiﬁer ﬁtted on original training samples with the regularization strength varying by C=0.01, 0.1, 1, 10, 100. There’s only minor improvements (within 0.02) with a careful choice of regularization. Since many spurious features have very high correlations with the classes, regularization will not be able to reduce their impact sufﬁciently. Training data: Testing data Original train samples IMDB-L IMDB-S Kindle C Orig CTF Orig CTF Orig CTF 0.01 .795 .578 .689 .554 .826 .408 0.1 .811 .605 .722 .595 .884 .452 1 .816 .615 .711 .605 .888 .514 10 .809 .617 .668 .598 .856 .534 100 .797 .611 .643 .573 .846 .520 Table 9: LogisticRegression classiﬁer accuracy with L2 regularization controlled by C. A.3 Control the size of training data In section 6.2, we conduct experiments to ﬁt binary classiﬁers using training data that have ﬁve levels of increasing requirements for human supervision.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05712,
+        0.00759,
+        -0.03956,
+        -0.02942,
+        0.00636
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": " the size of training data In section 6.2, we conduct experiments to ﬁt binary classiﬁers using training data that have ﬁve levels of increasing requirements for human supervision.",
+      "overlap_with_next": "11 .605 .888 .514 auto-generated predicted from top words .648 .713 .670 .659 .816 .614 annotated from top words .689 .803 .644 .696 .812 .626 annotated from whole vocabulary .701 ",
+      "text": " the size of training data In section 6.2, we conduct experiments to ﬁt binary classiﬁers using training data that have ﬁve levels of increasing requirements for human supervision. The size of the training data is changing when the original training data is augmented with counterfactual data. To isolate the impact of training data size has on model performance, we run experiments to control for training data [Page 10] size by downsampling the augmented training data to have the same size as the original training data. Table 10 shows the classiﬁcation accuracy with controlled training data size. Comparing with results from Table 4, there are only minor changes in accuracy (within 0.04), and the overall trends match the other results (i.e., training with counterfactual data improves classiﬁer robustness). Training data: Testing data Original train samples + Counterfactual train samples IMDB-L IMDB-S Kindle Counterfactual training samples Causal terms Orig CTF Orig CTF Orig CTF not used not used .816 .615 .711 .605 .888 .514 auto-generated predicted from top words .648 .713 .670 .659 .816 .614 annotated from top words .689 .803 .644 .696 .812 .626 annotated from whole vocabulary .701 ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03703,
+        -0.0191,
+        -0.06747,
+        -0.01198,
+        -0.00588
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 46282,
+      "length": 382,
+      "overlap_with_previous": "11 .605 .888 .514 auto-generated predicted from top words .648 .713 .670 .659 .816 .614 annotated from top words .689 .803 .644 .696 .812 .626 annotated from whole vocabulary .701 ",
+      "overlap_with_next": "",
+      "text": "11 .605 .888 .514 auto-generated predicted from top words .648 .713 .670 .659 .816 .614 annotated from top words .689 .803 .644 .696 .812 .626 annotated from whole vocabulary .701 .787 .649 .685 .740 .706 human-generated not used .807 .848 .697 .732 n/a n/a Table 10: Classiﬁcation accuracy with controlled training data size. Training with counterfactual data improves performance.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01969,
+        0.00015,
+        -0.03451,
+        -4e-05,
+        -0.02434
+      ]
+    }
+  ]
+}

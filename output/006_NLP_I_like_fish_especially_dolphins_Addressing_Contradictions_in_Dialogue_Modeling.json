@@ -1,0 +1,997 @@
+{
+  "paper_id": "aa18c636-c10d-4310-82fe-1d763c0fc129",
+  "filename": "006_NLP_I_like_fish_especially_dolphins_Addressing_Contradictions_in_Dialogue_Modeling.pdf",
+  "title": "Addressing Contradictions in Dialogue Modeling",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 58,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": "ues than its unstructured counterpart. We also show that our best contradiction detection model corre- lates well with human judgements and further provide evidence for its usage i",
+      "text": "[Page 1] I like ﬁsh , especially dolphins :∗ Addressing Contradictions in Dialogue Modeling Yixin Nie1, Mary Williamson2, Mohit Bansal1, Douwe Kiela2, Jason Weston2 1UNC Chapel Hill 2Facebook AI Research Abstract To quantify how well natural language un- derstanding models can capture consistency in a general conversation, we introduce the DialoguE COntradiction DEtection task (DE- CODE) and a new conversational dataset con- taining both human-human and human-bot contradictory dialogues. We then compare a structured utterance-based approach of using pre-trained Transformer models for contradic- tion detection with the typical unstructured ap- proach. Results reveal that: (i) our newly col- lected dataset is notably more effective at pro- viding supervision for the dialogue contradic- tion detection task than existing NLI data in- cluding those aimed to cover the dialogue do- main; (ii) the structured utterance-based ap- proach is more robust and transferable on both analysis and out-of-distribution dialogues than its unstructured counterpart. We also show that our best contradiction detection model corre- lates well with human judgements and further provide evidence for its usage i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02932,
+        -0.06084,
+        -0.00212,
+        0.0142,
+        -0.00925
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": "ues than its unstructured counterpart. We also show that our best contradiction detection model corre- lates well with human judgements and further provide evidence for its usage i",
+      "overlap_with_next": "ess is indisputable, there is still a long way to go be- fore we arrive at human-like open-domain chatbots. For example, it has been shown that open-domain chatbots frequently gene",
+      "text": "ues than its unstructured counterpart. We also show that our best contradiction detection model corre- lates well with human judgements and further provide evidence for its usage in both auto- matically evaluating and improving the consis- tency of state-of-the-art generative chatbots. 1 Introduction Recent progress on neural approaches to natural language processing (Devlin et al., 2019; Brown et al., 2020), and the availability of large amounts of conversational data (Lowe et al., 2015; Smith et al., 2020a) have triggered a resurgent inter- est on building intelligent open-domain chatbots. Newly developed end-to-end neural bots (Zhang et al., 2020; Adiwardana et al., 2020; Roller et al., 2020) are claimed to be superior to their prede- cessors (Worsnick, 2018; Zhou et al., 2020) using various human evaluation techniques (See et al., 2019; Li et al., 2019b; Adiwardana et al., 2020) that aim to give a more accurate measure of what ∗* Dolphins are mammals, not ﬁsh. makes a good conversation. While the success is indisputable, there is still a long way to go be- fore we arrive at human-like open-domain chatbots. For example, it has been shown that open-domain chatbots frequently gene",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0395,
+        -0.04887,
+        -0.00284,
+        -0.00842,
+        0.00026
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "ess is indisputable, there is still a long way to go be- fore we arrive at human-like open-domain chatbots. For example, it has been shown that open-domain chatbots frequently gene",
+      "overlap_with_next": "ce, efforts on reducing contradicting or inconsistent conversa- tions by open-domain chatbots are imperative. Historically, modularizing dialogue systems, i.e., assigning an aspect",
+      "text": "ess is indisputable, there is still a long way to go be- fore we arrive at human-like open-domain chatbots. For example, it has been shown that open-domain chatbots frequently generate annoying errors (Adi- wardana et al., 2020; Roller et al., 2020) and a noto- rious one among these is the class of contradiction, or consistency, errors. When interacting with chatbots, people carry over many of the same expectations as when in- teracting with humans (Nass and Moon, 2000). Self-contradictions (see examples in Figure 1) by these bots are often jarring, immediately disrupt the conversational ﬂow, and help support arguments about whether generative models could ever really understand what they are saying at all (Marcus, 2018). From a listener’s perspective, such inconsis- tent bots fail to gain user trust and their long-term communication conﬁdence. From a speaker’s per- spective, it violates the maxim of quality in the Grice’s cooperative principle (Grice, 1975) —”Do not say what you believe to be false.” Hence, efforts on reducing contradicting or inconsistent conversa- tions by open-domain chatbots are imperative. Historically, modularizing dialogue systems, i.e., assigning an aspect",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03725,
+        -0.0385,
+        -0.03923,
+        0.02536,
+        0.00403
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "ce, efforts on reducing contradicting or inconsistent conversa- tions by open-domain chatbots are imperative. Historically, modularizing dialogue systems, i.e., assigning an aspect",
+      "overlap_with_next": "les demonstrating a state-of-the-art chatbot (B) (Roller et al., 2020) contra- dicting itself when talking to a human (A). tency (including persona, logic, causality, etc) in a gen",
+      "text": "ce, efforts on reducing contradicting or inconsistent conversa- tions by open-domain chatbots are imperative. Historically, modularizing dialogue systems, i.e., assigning an aspect of conversational modeling to a speciﬁc component and then integrating it back into the dialogue system, can often help improve overall system satisfaction (Fang et al., 2017; Chen et al., 2018). Prior works (Welleck et al., 2019) character- ized the modeling of persona-related consistency as a natural language inference (NLI) problem (Dagan et al., 2005; Bowman et al., 2015), constructed a dialog NLI dataset based on Persona-Chat (Zhang et al., 2018), but so far state-of-the-art chatbots (Roller et al., 2020) have not been able to make use of such techniques. Overall, the challenge re- mains that we are still unable to answer the simple yet important question—“how well can a natural language understanding module model the consis- arXiv:2012.13391v2 [cs.CL] 28 Dec 2020 [Page 2] Human BlenderBot 2.7B Figure 1: Two dialogue examples demonstrating a state-of-the-art chatbot (B) (Roller et al., 2020) contra- dicting itself when talking to a human (A). tency (including persona, logic, causality, etc) in a gen",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02761,
+        -0.0312,
+        -0.01108,
+        -0.00216,
+        -0.02822
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "les demonstrating a state-of-the-art chatbot (B) (Roller et al., 2020) contra- dicting itself when talking to a human (A). tency (including persona, logic, causality, etc) in a gen",
+      "overlap_with_next": "ions. In the unstruc- tured approach, a Transformer NLI model directly takes in the concatenation of all utterances of the in- put dialogue for prediction, following the paradigm o",
+      "text": "les demonstrating a state-of-the-art chatbot (B) (Roller et al., 2020) contra- dicting itself when talking to a human (A). tency (including persona, logic, causality, etc) in a general conversation?”. The lack of an ability to measure this obscures to what degree building new modules or techniques can in turn help prevent contradicting responses during generation. Seeking to answer this question, we introduce the DialoguE COntradiction DEtection task (DE- CODE)1 and collect a new conversational dataset containing human written dialogues where one of the speakers deliberately contradicts what they have previously said at a certain point during the conversation. We also collect an out-of-distribution (OOD) set of dialogues in human-bot interac- tive settings which contain human-labeled self- contradictions made by different chatbots. We then compare a set of state-of-the-art sys- tems, including a standard unstructured approach and a proposed structured approach for utilizing NLI models to detect contradictions. In the unstruc- tured approach, a Transformer NLI model directly takes in the concatenation of all utterances of the in- put dialogue for prediction, following the paradigm o",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02196,
+        -0.0427,
+        0.00045,
+        0.01984,
+        -0.00824
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "ions. In the unstruc- tured approach, a Transformer NLI model directly takes in the concatenation of all utterances of the in- put dialogue for prediction, following the paradigm o",
+      "overlap_with_next": "ture, especially for OOD sce- narios which are often the case when incorporating NLU modules into NLG systems, since intermedi- ate in-domain data are scarce. Finally, with such im",
+      "text": "ions. In the unstruc- tured approach, a Transformer NLI model directly takes in the concatenation of all utterances of the in- put dialogue for prediction, following the paradigm of NLU modeling. In the structured approach, ut- terances are paired separately before being fed into Transformer NLI models, explicitly taking account 1Our DECODE dataset is publicly available at https: //parl.ai/projects/contradiction. of the natural dialogue structure. Results reveal that: (1) our newly collected dataset is notably more effective at providing su- pervision for the contradiction detection task than existing NLI data including those aimed at covering the dialogue domain; (2) the structured utterance- based approach for dialogue consistency modeling is more robust in our analysis and more transfer- able to OOD human-bot conversation than the un- structured approach. This ﬁnding challenges the mainstream unstructured approach of simply apply- ing pre-trained Transformer models and expecting them to learn the structure, especially for OOD sce- narios which are often the case when incorporating NLU modules into NLG systems, since intermedi- ate in-domain data are scarce. Finally, with such im",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03798,
+        -0.00091,
+        0.00821,
+        0.01298,
+        -0.02631
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "ture, especially for OOD sce- narios which are often the case when incorporating NLU modules into NLG systems, since intermedi- ate in-domain data are scarce. Finally, with such im",
+      "overlap_with_next": "ariables (Ser- ban et al., 2017), topical attention (Dziri et al., 2019b), or even self-learned feature vectors (Zhang et al., 2019b). Some works have grounded gen- eration models ",
+      "text": "ture, especially for OOD sce- narios which are often the case when incorporating NLU modules into NLG systems, since intermedi- ate in-domain data are scarce. Finally, with such improvements on the contra- diction detection task, we show that our best re- sultant contradiction detector correlates well with human judgements and can be suitable for use as an automatic metric for checking dialogue consis- tency. We further provide evidence for its usage in improving the consistency of state-of-the-art gener- ative chatbots. 2 Related Work Several prior works on improving dialogue con- sistency have explored using direct modeling of the dialogue context in generation algorithms. The modeling can be implicit where the dialogue consistency-related information like style (Wang et al., 2017), topics, or personal facts are main- tained in distributed embeddings (Li et al., 2016; Zhang et al., 2019a), neural long-term memo- ries (Bang et al., 2015), hierarchical neural archi- tecture (Serban et al., 2016), latent variables (Ser- ban et al., 2017), topical attention (Dziri et al., 2019b), or even self-learned feature vectors (Zhang et al., 2019b). Some works have grounded gen- eration models ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02757,
+        -0.0342,
+        -0.02077,
+        0.00464,
+        -0.01437
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ariables (Ser- ban et al., 2017), topical attention (Dziri et al., 2019b), or even self-learned feature vectors (Zhang et al., 2019b). Some works have grounded gen- eration models ",
+      "overlap_with_next": "e dialogue NLI dataset and (Li et al., 2020) utilized it to try to reduce inconsistency in generative models via unlikelihood training in a preliminary study that reports perplexit",
+      "text": "ariables (Ser- ban et al., 2017), topical attention (Dziri et al., 2019b), or even self-learned feature vectors (Zhang et al., 2019b). Some works have grounded gen- eration models on explicit user input (Qian et al., 2018), or designated personas (Zhang et al., 2018). Although, improvements on automatic generation metrics were often shown on guided response gen- eration based on the consistency modeling, the is- sue of contradiction has never been resolved, nor have generally applicable methods to gauge the consistency improvements been developed. Fur- ther, simply scaling models has not made the prob- lem go away, as is evident in the largest chatbots trained such as BlenderBot with up to 9.4B param- eter Transformers (Roller et al., 2020). [Page 3] More similar to our work is utilizing NLI mod- els in dialogue consistency. Dziri et al. (2019a) attempted to use entailment models trained on syn- thetic datasets for dialogue topic coherence eval- uation. Particularly, Welleck et al. (2019) con- structed the dialogue NLI dataset and (Li et al., 2020) utilized it to try to reduce inconsistency in generative models via unlikelihood training in a preliminary study that reports perplexit",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03868,
+        -0.01841,
+        -0.00785,
+        -0.00209,
+        -0.02747
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": "e dialogue NLI dataset and (Li et al., 2020) utilized it to try to reduce inconsistency in generative models via unlikelihood training in a preliminary study that reports perplexit",
+      "overlap_with_next": " dialogue snippet. The output isy, indicating whether the last utteranceun contradicts any previously conversed information contained in the dialogue {u0,u 1,u 2,...,u n−1}, wherey",
+      "text": "e dialogue NLI dataset and (Li et al., 2020) utilized it to try to reduce inconsistency in generative models via unlikelihood training in a preliminary study that reports perplexity results, but did not measure actual generations or contra- diction rates. We note that the dialogue NLI dataset is only semi-automatically generated, with limited coverage of only persona-chat data (Zhang et al., 2018), whereas our DECODE is human-written and across diverse domains. Our task also involves logical and context-related reasoning beyond per- sonal facts, for example the dialogue at the bottom of Figure 1 shows a non-persona-related contradic- tion. We show in our experiments that transfer of DECODE is subsequently more robust than dia- logue NLI on both human-human and human-bot chats. 3 Task and Data 3.1 Dialogue Contradiction Detection We formalize dialogue contradiction detection as a supervised classiﬁcation task. The input of the task is a list of utterancesx ={u0,u 1,u 2,...,u n} representing a dialogue or a dialogue snippet. The output isy, indicating whether the last utteranceun contradicts any previously conversed information contained in the dialogue {u0,u 1,u 2,...,u n−1}, wherey",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04229,
+        -0.03513,
+        -0.00481,
+        0.02448,
+        -0.00599
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": " dialogue snippet. The output isy, indicating whether the last utteranceun contradicts any previously conversed information contained in the dialogue {u0,u 1,u 2,...,u n−1}, wherey",
+      "overlap_with_next": " two utterances such that the last utterance by the last speaker contra- dicts the dialogue history. We also ask annotators to mark all the utterances in the dialogue history that ",
+      "text": " dialogue snippet. The output isy, indicating whether the last utteranceun contradicts any previously conversed information contained in the dialogue {u0,u 1,u 2,...,u n−1}, wherey can be 0 or 1 corresponding to the non- contradiction and the contradiction label respec- tively. Preferably, the output should also include a set of indices I⊆{ 0, 1,...,n − 1} representing a subset of{u0,u 1,u 2,...,u n−1} which contain in- formation that is actually contradicted by the last utteranceun. The extra indices I output require models to pinpoint the evidence for the contradic- tion, providing an extra layer of explainability. 3.2 Data Collection Annotation Design Our goal is ﬁrst to collect training and evaluation data for this task. We thus collect dialogues in which the last utterance con- tradicts some previous utterances in the dialogue history. To obtain such dialogues, we give annota- tors dialogue snippets from pre-selected dialogue corpora, and then ask them to continue the con- versation by writing one or two utterances such that the last utterance by the last speaker contra- dicts the dialogue history. We also ask annotators to mark all the utterances in the dialogue history that ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07141,
+        -0.0185,
+        -0.0156,
+        0.03051,
+        -0.01055
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": " two utterances such that the last utterance by the last speaker contra- dicts the dialogue history. We also ask annotators to mark all the utterances in the dialogue history that ",
+      "overlap_with_next": " including 5 dialogues where 3 of them have an ending utterance that contradicts the dialogue history. The annotator needs to select the correct label (contradiction or non-contrad",
+      "text": " two utterances such that the last utterance by the last speaker contra- dicts the dialogue history. We also ask annotators to mark all the utterances in the dialogue history that are involved in the contradiction as supporting evidence. Figure 2 shows the annotation user in- terface. We ask annotators to write contradicting utterances based partly on existing dialogues rather than collecting new dialogue from scratch because the provided dialogues can often convey semantic- rich contexts from different domains and inspire annotators to write more diverse examples. We crowdsource the continuation and annotation data with Amazon Mechanical Turk and the collection is based on the ParlAI2 framework. Quality Control We apply the following mecha- nism to ensure the quality of collected data: • Onboarding Test: Every annotator needs to pass an onboarding test before they can actu- ally contribute dialogue examples. The test is the same dialogue contradiction detection task as in the actual collection procedure, including 5 dialogues where 3 of them have an ending utterance that contradicts the dialogue history. The annotator needs to select the correct label (contradiction or non-contrad",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05588,
+        -0.02411,
+        0.00568,
+        0.02431,
+        -0.01658
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": " including 5 dialogues where 3 of them have an ending utterance that contradicts the dialogue history. The annotator needs to select the correct label (contradiction or non-contrad",
+      "overlap_with_next": "ambiguity issues in some NLU tasks (Nie et al., 2020b). See the appendix for statistics about the data veriﬁcation. 3.3 Dataset We collected 17,713 human-written contradicting dial",
+      "text": " including 5 dialogues where 3 of them have an ending utterance that contradicts the dialogue history. The annotator needs to select the correct label (contradiction or non-contradiction) for all ﬁve dialogues to pass the test. This mechanism tests whether an annotator understands the task. • Maximum Annotation Count Limit : The maximum number of examples one annotator can create is 20. This mechanism helps further diversify the dialogue examples by reducing sim- ilar patterns that appear in one or a group of annotators (Geva et al., 2019). • Veriﬁcation: This subtask ensures that the dia- logue examples indeed contain an ending utter- ance that contradicts the dialogue history. We ask 3 additional annotators to verify some of the collected examples and select the ones where all three veriﬁers agreed on the contradiction label, and use these for our resulting validation and tests sets. This mechanism ensures that there is a clear, agreed-upon contradiction in the dialogue, preventing the subjectivity and ambiguity issues in some NLU tasks (Nie et al., 2020b). See the appendix for statistics about the data veriﬁcation. 3.3 Dataset We collected 17,713 human-written contradicting dial",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03994,
+        -0.0392,
+        0.01164,
+        0.02783,
+        -0.01951
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "ambiguity issues in some NLU tasks (Nie et al., 2020b). See the appendix for statistics about the data veriﬁcation. 3.3 Dataset We collected 17,713 human-written contradicting dial",
+      "overlap_with_next": "020a), and Con- vAI2 (Dinan et al., 2020), covering various con- versational topics. To facilitate the evaluation of consistency modeling on the dialogue contradic- tion detection ",
+      "text": "ambiguity issues in some NLU tasks (Nie et al., 2020b). See the appendix for statistics about the data veriﬁcation. 3.3 Dataset We collected 17,713 human-written contradicting dialogues in which 4,121 are veriﬁed by 3 anno- tators. The pre-selected dialogue source corpora 2https://parl.ai (Miller et al., 2017) [Page 4] Figure 2: The collection interface. The task preview box (top right) gives a short description of the task before the annotator will work on the writing. The collection consists of two steps. In Step 1 (on the left), the annotators are asked to write one or two utterances such that the last utterance will contradict some previous utterances in the conversation. In Step 2 (on the right), the annotators are asked to pick the utterances in the conversation that are involved in the contradiction. We use a casual term “message” instead of “utterance” in the instructions. are Wizard of Wikipedia (Dinan et al., 2018), EMPATHETIC DIALOGUES (Rashkin et al., 2019), Blended Skill Talk (Smith et al., 2020a), and Con- vAI2 (Dinan et al., 2020), covering various con- versational topics. To facilitate the evaluation of consistency modeling on the dialogue contradic- tion detection ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03386,
+        -0.04164,
+        -0.00223,
+        5e-05,
+        -0.01923
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "020a), and Con- vAI2 (Dinan et al., 2020), covering various con- versational topics. To facilitate the evaluation of consistency modeling on the dialogue contradic- tion detection ",
+      "overlap_with_next": "dels. The transformations are described below: 3We balance the labels in the dataset following the standard NLI evaluation (Bowman et al., 2015; Welleck et al., 2019). Train Dev Te",
+      "text": "020a), and Con- vAI2 (Dinan et al., 2020), covering various con- versational topics. To facilitate the evaluation of consistency modeling on the dialogue contradic- tion detection classiﬁcation task, we sample an equal number of non-contradicting dialogues ac- cording to the same dialogue length distribution as the contradicting ones from the same dialogue corpus.3 Then, we make the split such that the train split contains unveriﬁed examples, and dev and test splits only contain veriﬁed examples. Each split has balanced labels between contradiction and non-contradiction dialogues. Table 1 shows the breakdown of each of the dataset sources and data splits. Auxiliary (Checklist) Test Sets We further create two auxiliary checklist evaluation sets by trans- forming the contradiction examples in the original test in two ways such that the ground truth label is either invariant or expected to change. The two re- sultant sets serve as diagnostic tests on the behavior, generalization and transferability of our models. The transformations are described below: 3We balance the labels in the dataset following the standard NLI evaluation (Bowman et al., 2015; Welleck et al., 2019). Train Dev Te",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06225,
+        -0.03929,
+        -0.01805,
+        0.00791,
+        -0.01623
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "dels. The transformations are described below: 3We balance the labels in the dataset following the standard NLI evaluation (Bowman et al., 2015; Welleck et al., 2019). Train Dev Te",
+      "overlap_with_next": "ialogues in the dataset involved two speakers that takes turns in speaking. To maintain this structure, for each marked utterance we remove a pair of utterance that represents a tu",
+      "text": "dels. The transformations are described below: 3We balance the labels in the dataset following the standard NLI evaluation (Bowman et al., 2015; Welleck et al., 2019). Train Dev Test Wizard of Wikipedia 6,234 1,208 1,160 EMPATHETIC DIALOGUES 6,182 1,046 1,050 Blended Skill Talk 8,554 1,200 1,310 ConvAI2 6,214 572 696 Total 27,184 4,026 4,216 Table 1: Our DECODE Main Dataset source statistics. The labels in each split are balanced. There are a to- tal of 2,013 +2,108 contradicting examples in the dev and test sets which are the collected 4,121 veriﬁed ex- amples. The ﬁrst column indicates the source of the dialogue. • Add Two Turns (A2T)We insert a pair of ran- domly sampled utterances into the dialogue such that the inserted utterances are between the two original contradicting utterances. This gives a new contradicting dialogue with a longer dia- logue history. • Remove Contradicting Turns (RCT) We re- move all the turns (all pairs of utterances) 4 marked as supporting evidence for the contra- 4All the dialogues in the dataset involved two speakers that takes turns in speaking. To maintain this structure, for each marked utterance we remove a pair of utterance that represents a tu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05092,
+        -0.01953,
+        0.01,
+        0.00495,
+        -0.01818
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "ialogues in the dataset involved two speakers that takes turns in speaking. To maintain this structure, for each marked utterance we remove a pair of utterance that represents a tu",
+      "overlap_with_next": "utterance-level evidence annotations and therefore are not applicable for DNLI and other NLI data. Human-Bot Test Set Our main collected dataset involves human-written dialogues co",
+      "text": "ialogues in the dataset involved two speakers that takes turns in speaking. To maintain this structure, for each marked utterance we remove a pair of utterance that represents a turn of conversation. This also helps remove the information that was involved in the contradiction such that the resultant label should be “non-contradiction”. [Page 5] Count Label Main (Train) 27,184 balanced Main (Dev) 4,026 balanced Main (Test) 4,216 balanced Human-Bot (Test) 764 balanced A2T (Test) 2,079 contradiction RCT (Test) 2,011 non-contradiction Table 2: DECODE Dataset summary. The ﬁrst column presents the different dataset types. “Main” is the col- lected human-written dialogues. “balanced” indicates that the contradiction and non-contradiction labels in that part of the dataset are balanced. A2T and RCT are the auxiliary test sets described in Sec. 3.3. . diction in the dialogue except the last utterance. This results in a new non-contradiction dialogue. Notice that the two data transformations we used were based on utterance-level evidence annotations and therefore are not applicable for DNLI and other NLI data. Human-Bot Test Set Our main collected dataset involves human-written dialogues co",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03728,
+        -0.01307,
+        -0.02485,
+        0.02596,
+        -0.02699
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": "utterance-level evidence annotations and therefore are not applicable for DNLI and other NLI data. Human-Bot Test Set Our main collected dataset involves human-written dialogues co",
+      "overlap_with_next": "ift.io (Baumgartner et al., 2020) or ﬁne-tuned on the Blended Skill Talk (BST) dialogue tasks (Smith et al., 2020b) – that is, all the dialogue models that are compared in the stud",
+      "text": "utterance-level evidence annotations and therefore are not applicable for DNLI and other NLI data. Human-Bot Test Set Our main collected dataset involves human-written dialogues containing con- tradicting utterances based on human-human dia- logues from existing corpora. In practice, to evalu- ate the response quality of a machine rather than a human in terms of its consistent responses, we care about how well a contradiction detector can per- form in human-bot interactive conversations. To that end, we further collect human-bot dialogue data by employing workers on Amazon Mechan- ical Turk to interact with a diverse set of open- domain bots. These include Poly-encoder (Humeau et al., 2019) based retrieval models, generative models (Roller et al., 2020), unlikelihood trained models (Li et al., 2019a), retrieve-and-reﬁne mod- els (Weston et al., 2018; Roller et al., 2020), mod- els either pre-trained on a previously existing Red- dit dataset extracted and obtained by a third party that was hosted by pushshift.io (Baumgartner et al., 2020) or ﬁne-tuned on the Blended Skill Talk (BST) dialogue tasks (Smith et al., 2020b) – that is, all the dialogue models that are compared in the stud",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02002,
+        -0.06327,
+        -0.01735,
+        0.00964,
+        -0.03126
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "ift.io (Baumgartner et al., 2020) or ﬁne-tuned on the Blended Skill Talk (BST) dialogue tasks (Smith et al., 2020b) – that is, all the dialogue models that are compared in the stud",
+      "overlap_with_next": " with your life. Human-Bot: Human1: It’s a beautiful day. I’m going to take a walk later. Bot: What do you do for a living? Human1: I work in a doctor’s ofﬁce. How about yourself? ",
+      "text": "ift.io (Baumgartner et al., 2020) or ﬁne-tuned on the Blended Skill Talk (BST) dialogue tasks (Smith et al., 2020b) – that is, all the dialogue models that are compared in the study in (Roller et al., 2020). During the collection, if the bot generates an utterance that contradicts itself, we ask the worker to mark the utterance. In some of the dialogues, workers are explicitly instructed to goad the bots into making contradicting utterances. The ﬁnal human-bot test set we derive contains 764 dialogues, half of which ends with a contradicting utterance by the bot. All the dialogues in the set, Main (Human-Human) Human1: I recently had a long weekend with some old friends. It was fantastic. Human2: It must have been fun to catch up with them. Human1: it was. We’ve spent a lot of time together and apart now, so it was good to catchup. Human2: Well I hope you guys continue to stay in touch. Human1: Sometimes friends grow apart over time though. Human2: Yeah, that’s true. You should forget about them and go on with your life. Human-Bot: Human1: It’s a beautiful day. I’m going to take a walk later. Bot: What do you do for a living? Human1: I work in a doctor’s ofﬁce. How about yourself? ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02911,
+        -0.01736,
+        0.00139,
+        -0.01878,
+        -0.01426
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": " with your life. Human-Bot: Human1: It’s a beautiful day. I’m going to take a walk later. Bot: What do you do for a living? Human1: I work in a doctor’s ofﬁce. How about yourself? ",
+      "overlap_with_next": "gle bite Human2: Brussel sprouts and liver sounds delicious to me! Table 3: Dialogue examples for different dataset types. Underline indicates that the pair of utterances is ran- d",
+      "text": " with your life. Human-Bot: Human1: It’s a beautiful day. I’m going to take a walk later. Bot: What do you do for a living? Human1: I work in a doctor’s ofﬁce. How about yourself? Bot: I am a stay at home mom. Human1: That’s great! How many kids do you have? Bot: I don’t have any kids yet, but I plan on getting married soon. Add Two Turns (A2T): Human1: i hate when ash from my cigarette drops in my work pants Human2: oof that sucks really bad Human1: yeah, i haave to wait till i get home to get the stain off, it is really embarras- ing Human2: yea i can imagine it is Human1: Every time I look at it I remember the good times we had together. Human2: well thats nice Human1: I will have to wash the stain with soap and water. Human2: Ash stains on your pants is not a big deal though. Remove Contradicting Turns (RCT): Human1: I was disgusted when I noticed the food on the table Human2: What kind of food? Human1: It was brussel sprouts and Liver Human2: Oh, disgusting. Human1: I couldn’t even bear to take a single bite Human2: Brussel sprouts and liver sounds delicious to me! Table 3: Dialogue examples for different dataset types. Underline indicates that the pair of utterances is ran- d",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03011,
+        0.00638,
+        -0.00748,
+        0.029,
+        -0.0197
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "gle bite Human2: Brussel sprouts and liver sounds delicious to me! Table 3: Dialogue examples for different dataset types. Underline indicates that the pair of utterances is ran- d",
+      "overlap_with_next": "consistency task, we ﬁrst em- ploy some of the techniques used in NLI sequence- to-label modeling, where the input is a pair of tex- tual sequences and the output is a label. The b",
+      "text": "gle bite Human2: Brussel sprouts and liver sounds delicious to me! Table 3: Dialogue examples for different dataset types. Underline indicates that the pair of utterances is ran- domly added. Strikethrough text indicates that the pair of utterances is removed. Dialogue examples for Human-Human, Human-Bot, and A2T end with a con- tradicting utterance whereas the example for RCT has an ending utterance whereby the original contradicting pair of utterances in the dialogue history are removed. with either contradiction or non-contradiction la- bels, are veriﬁed by 3 additional annotators, beside the human who actually talked to the bot. The auxiliary and human-bot test sets are aimed to test models’ robustness and generalizability be- yond accuracy on the collected human-written test set (Ribeiro et al., 2020; Gardner et al., 2020), and give a more comprehensive analysis of the task. Ta- ble 2 summarizes the ﬁnal overall dataset. Table 3 gives one example for each dataset type. 4 Models To model the dialogue consistency task, we ﬁrst em- ploy some of the techniques used in NLI sequence- to-label modeling, where the input is a pair of tex- tual sequences and the output is a label. The b",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06737,
+        0.00076,
+        0.00253,
+        0.01094,
+        -0.01389
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "consistency task, we ﬁrst em- ploy some of the techniques used in NLI sequence- to-label modeling, where the input is a pair of tex- tual sequences and the output is a label. The b",
+      "overlap_with_next": ", a detector is asked to determine whether the last utterance of the di- alogue un contradicts the previous dialogue his- tory{u0,u 1,u 2,...,u n−1}. In what follows, we describe t",
+      "text": "consistency task, we ﬁrst em- ploy some of the techniques used in NLI sequence- to-label modeling, where the input is a pair of tex- tual sequences and the output is a label. The beneﬁt of such modeling is that we can directly make use of existing NLI datasets during training. However, unlike previous work (Welleck et al., 2019) that directly utilized NLI models giving a 3-way output among “entailment”, “contradiction”, and “neu- tral”, we modify the model with a 2-way output between “contradiction” and “non-contradiction” labels. This is because the task is, in its essence, [Page 6] centered around the detection of inconsistency. More formally, we denote the model as ˆypred = fθ(C,u ), where ˆypred is the prediction of the label y, i.e. whether the textual response u contradicts some textual context C, and whereθ are the param- eters of the model. We then explore two different approaches to utilizefθ for dialogue contradiction detection. 4.1 Dialogue Contradiction Detectors As described in subsection 3.1, a detector is asked to determine whether the last utterance of the di- alogue un contradicts the previous dialogue his- tory{u0,u 1,u 2,...,u n−1}. In what follows, we describe t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08131,
+        -0.02874,
+        0.01517,
+        0.03032,
+        0.00894
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": ", a detector is asked to determine whether the last utterance of the di- alogue un contradicts the previous dialogue his- tory{u0,u 1,u 2,...,u n−1}. In what follows, we describe t",
+      "overlap_with_next": " we ﬁrst choose all the utter- ances by the last speaker to form a set S. We then pair every utterance in the set with the last utter- ance and feed them one by one intofUBθ . The ",
+      "text": ", a detector is asked to determine whether the last utterance of the di- alogue un contradicts the previous dialogue his- tory{u0,u 1,u 2,...,u n−1}. In what follows, we describe two approaches that propose differingfθ for the detection prediction problem. Unstructured Approach. In this approach, we simply concatenate all the previous utterances in the dialogue history to form a single textual con- text. Then, we applyfθ to the context and the last utterance to infer the probability of contradiction. ˆypred =fθ([u0,u 1,u 2,...,u n−1],un) (1) When concatenating the utterances, we insert spe- cial tokens before each utterance to indicate the speaker of that utterance. This is aimed to provide a signal of the dialogue structure to the models. Still, this approach assumes that the model can use these features adequately to learn the underlying structure of the dialogue implicitly during training. Structured Utterance-based Approach. Since the reasoning crucially depends on the last utter- ance, in this method we ﬁrst choose all the utter- ances by the last speaker to form a set S. We then pair every utterance in the set with the last utter- ance and feed them one by one intofUBθ . The ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01614,
+        -0.01747,
+        0.00973,
+        0.02113,
+        0.00383
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": " we ﬁrst choose all the utter- ances by the last speaker to form a set S. We then pair every utterance in the set with the last utter- ance and feed them one by one intofUBθ . The ",
+      "overlap_with_next": "utterance- based approach explicitly adds an inductive struc- ture bias to learning and inference which we will see can aid its generalization capability. Thresholding. For both th",
+      "text": " we ﬁrst choose all the utter- ances by the last speaker to form a set S. We then pair every utterance in the set with the last utter- ance and feed them one by one intofUBθ . The ﬁnal contradiction probability is the maximum over all the outputs. ˆypred = max { fUBθ (ui,un) : ui∈ S} (2) Additionally, the utterance-based approach is able to give a set of utterances as supporting evidence for a contradiction decision by choosing the pairs having contradiction probability higher than a thresholdηe: I = { i :fUBθ (ui,un)>η e} (3) This not only gives explanations for its predic- tion but can also help diagnose the model itself, e.g. we can measure metrics of the model’s ability to provide these explanations by comparing them against gold supporting evidence annotations from DECODE. One downside of this modeling approach is that it will not be able to capture reasoning between speakers. A case for that would be a pronoun by one speaker might refer to something initiated by the other speaker. Nevertheless, the utterance- based approach explicitly adds an inductive struc- ture bias to learning and inference which we will see can aid its generalization capability. Thresholding. For both th",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00794,
+        0.00026,
+        -0.03006,
+        0.04321,
+        -0.0147
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "utterance- based approach explicitly adds an inductive struc- ture bias to learning and inference which we will see can aid its generalization capability. Thresholding. For both th",
+      "overlap_with_next": " (Nie et al., 2020a) 5, DNLI (Welleck et al., 2019), as well as our DECODE Main training set. We convert the 3-way labels of the examples in existing NLI datasets to 2-way6 andθ is",
+      "text": "utterance- based approach explicitly adds an inductive struc- ture bias to learning and inference which we will see can aid its generalization capability. Thresholding. For both the unstructured and utterance-based approaches, the detection of contra- diction is made by comparing ˆypred with a thresh- oldτ and by defaultτ is 0.5. 4.2 Experimental Setup We study four base pre-trained models variants forfθ: BERT (Devlin et al., 2019), Electra (Clark et al., 2019), RoBERTa (Liu et al., 2019), and BART (Lewis et al., 2020). They represent the start-of-the-art language representation models and have yielded successes in many NLU tasks. The in- put format offθ follows how these models handle sequence-pairs (C andu) classiﬁcation task with padding, separator and other special tokens such as position embeddings and segment features inserted at designated locations accordingly. We ﬁne-tune fθ on different combinations of NLI training data including SNLI (Bowman et al., 2015), MNLI (Williams et al., 2018), ANLI- R3 (Nie et al., 2020a) 5, DNLI (Welleck et al., 2019), as well as our DECODE Main training set. We convert the 3-way labels of the examples in existing NLI datasets to 2-way6 andθ is",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03617,
+        -0.00123,
+        0.00026,
+        0.03628,
+        -0.00266
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": " (Nie et al., 2020a) 5, DNLI (Welleck et al., 2019), as well as our DECODE Main training set. We convert the 3-way labels of the examples in existing NLI datasets to 2-way6 andθ is",
+      "overlap_with_next": ") Human-Bot SE (Precision / Recall / F1) Unstructured Approach RoBERTa All 97.46 - 77.09 - All - DNLI 97.44 - 73.17 - All - ANLI-R3 98.04 - 73.56 - All - DECODE 84.42 - 61.91 - DNL",
+      "text": " (Nie et al., 2020a) 5, DNLI (Welleck et al., 2019), as well as our DECODE Main training set. We convert the 3-way labels of the examples in existing NLI datasets to 2-way6 andθ is optimized using cross-entropy loss. When training fUBθ in the utterance-based approach using the DECODE training set, the input sequences are sampled utter- ance pairs from the DECODE dialogue. In other scenarios,fθ orfUBθ are trained with data treated as in normal NLI training. The models are evaluated on the test sets de- scribed in Sec. 3.3. For the utterance-based ap- proach, which additionally provides supporting evi- dence utterances (Equation 3), we report Precision, 5ANLI data is collected in three rounds resulting in three subsets (R1, R2, R3). We only used training data in R3 since it contains some dialogue-related examples. 6The 3-way “entailment” and “neutral” label is converted to “non-contradiction” while 3-way “contradiction” is kept the same. [Page 7] Pre-trained Model Training Data Main (Test) Main (Test-Strict) Human-Bot SE (Precision / Recall / F1) Unstructured Approach RoBERTa All 97.46 - 77.09 - All - DNLI 97.44 - 73.17 - All - ANLI-R3 98.04 - 73.56 - All - DECODE 84.42 - 61.91 - DNL",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04872,
+        -0.03416,
+        -0.03312,
+        0.00822,
+        -0.03504
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": ") Human-Bot SE (Precision / Recall / F1) Unstructured Approach RoBERTa All 97.46 - 77.09 - All - DNLI 97.44 - 73.17 - All - ANLI-R3 98.04 - 73.56 - All - DECODE 84.42 - 61.91 - DNL",
+      "overlap_with_next": "” denotes all the datasets with DNLI removed. “SE” stands for supporting evidence. The “Main (Test-Strict)” column indicates the performance where both the 2-way contradiction dete",
+      "text": ") Human-Bot SE (Precision / Recall / F1) Unstructured Approach RoBERTa All 97.46 - 77.09 - All - DNLI 97.44 - 73.17 - All - ANLI-R3 98.04 - 73.56 - All - DECODE 84.42 - 61.91 - DNLI 57.19 - 60.34 - ANLI-R3 82.21 - 59.69 - DECODE 96.85 - 70.03 - Utterance-based Approach RoBERTa SNLI + MNLI 77.40 47.70 73.17 63.3 / 84.6 / 72.4 All 94.19 80.08 83.64 85.9 / 91.2 / 88.5 All - DNLI 94.38 80.93 81.68 86.7 / 90.1 / 88.4 All - ANLI-R3 94.07 79.32 82.85 85.2 / 91.8 / 88.4 All - DECODE 86.67 66.95 77.36 78.0 / 83.4 / 80.6 DNLI 76.54 63.09 75.26 85.1 / 61.2 / 71.2 ANLI-R3 81.59 69.11 70.52 88.2 / 64.3 / 74.3 DECODE 93.19 80.86 84.69 87.9 / 87.2 / 87.5 BERT DECODE 88.88 74.14 75.52 84.9 / 83.7 / 84.3 Electra DECODE 93.17 81.19 80.76 87.9 / 87.1 / 87.5 BART DECODE 94.47 80.10 79.19 85.8 / 90.7 / 88.2 Majority - - 50.00 50.00 50.00 50.4 / 47.1 / 48.7 Table 4: Test performance of different models and approaches. “All” in the “Training Data” column stands for a combination of SNLI, MNLI, DNLI, ANLI-R3, DECODE. “All - DNLI” denotes all the datasets with DNLI removed. “SE” stands for supporting evidence. The “Main (Test-Strict)” column indicates the performance where both the 2-way contradiction dete",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0615,
+        -0.02369,
+        -0.02214,
+        -0.03186,
+        -0.04246
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": "” denotes all the datasets with DNLI removed. “SE” stands for supporting evidence. The “Main (Test-Strict)” column indicates the performance where both the 2-way contradiction dete",
+      "overlap_with_next": "ablations. The results are shown in Table 4. We now describe our key observations. DECODE is notably more effective than other existing NLI data in providing supervision for contra",
+      "text": "” denotes all the datasets with DNLI removed. “SE” stands for supporting evidence. The “Main (Test-Strict)” column indicates the performance where both the 2-way contradiction detection and the supporting evidence retrieval exactly match with the ground truth. Recall, and F1 on these evidence predictions. We also report a stricter score which evaluates whether both 2-way contradiction detection and supporting evidence retrieval exactly match with the ground truth on our DECODE Main test set. 5 Results and Analysis 5.1 Performance on Constructed Dataset We test different pre-trained models with both the unstructured and the structured utterance-based ap- proaches. We explicitly investigate the model per- formance when trained on DNLI or ANLI-R3 and compare it with DECODE because these are re- cently published NLI datasets that contain exam- ples in a dialogue setting. However, we do also provide results comparing to other NLI datasets as well as multi-tasking all datasets at once, in addi- tion to various ablations. The results are shown in Table 4. We now describe our key observations. DECODE is notably more effective than other existing NLI data in providing supervision for contra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02067,
+        -0.03806,
+        -0.00354,
+        0.01294,
+        -0.00104
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "ablations. The results are shown in Table 4. We now describe our key observations. DECODE is notably more effective than other existing NLI data in providing supervision for contra",
+      "overlap_with_next": "valuation sets. In particular, removing DECODE training data for unstructured RoBERTa causes a 15-point loss of accuracy on the human-bot data from (77.09% to 61.91%). Further, tra",
+      "text": "ablations. The results are shown in Table 4. We now describe our key observations. DECODE is notably more effective than other existing NLI data in providing supervision for contradiction detection in dialogue. We found that models trained on DECODE achieve higher ac- curacy than that of those trained on DNLI or ANLI- R3, on all evaluation sets in both the unstructured and utterance-based approach. On the DECODE Main test set, the utterance-based RoBERTa model trained (ﬁne-tuned) on DECODE achieves 93.19% accuracy, which is a 12-point jump from the same model training on ANLI-R3 and a 16-point jump from training on DNLI. The best model on human- bot data is utterance-based RoBERTa trained on DECODE with 84.69%, while the same model trained on DNLI can only get 75.26% accuracy, and ANLI-R3 is even worse with 70.52%. While training on “All” datasets (SNLI, MNLI, ANLI- R3, DNLI & DECODE) is effective, the removal of DECODE from the training data induces a con- sequential downgrade on the performance on all evaluation sets. In particular, removing DECODE training data for unstructured RoBERTa causes a 15-point loss of accuracy on the human-bot data from (77.09% to 61.91%). Further, tra",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02953,
+        -0.01408,
+        -0.018,
+        -0.00736,
+        -0.02454
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "valuation sets. In particular, removing DECODE training data for unstructured RoBERTa causes a 15-point loss of accuracy on the human-bot data from (77.09% to 61.91%). Further, tra",
+      "overlap_with_next": "ery different performance on OOD human-bot dia- logue. The last four rows of the table show the results of utterance-based RoBERTa, BERT, Elec- tra, and BART trained on DECODE. We ",
+      "text": "valuation sets. In particular, removing DECODE training data for unstructured RoBERTa causes a 15-point loss of accuracy on the human-bot data from (77.09% to 61.91%). Further, training on DE- CODE is also more helpful than DNLI or ANLI-R3 for supporting evidence retrieval. These ﬁndings indicate that existing NLI data has limited transfer- ability to the dialogue contradiction detection task despite their coverage of the dialogue domain in addition to other domains. Training on NLI data [Page 8] which does not cover examples with dialogue struc- tures, e.g., SNLI+MNLI is even worse, only achiev- ing 77.4% on DECODE Main (Test) vs. 93.19% for DECODE and cannot even reach the majority base- line on the “Main (Test-Strict)”. Hence overall, this empirically demonstrates that our DECODE data provides a valuable resource for modeling dialogue consistency and developing data-driven approaches for contradiction detection. Different pre-training models that perform sim- ilarly on the in-domain test set can have very different performance on OOD human-bot dia- logue. The last four rows of the table show the results of utterance-based RoBERTa, BERT, Elec- tra, and BART trained on DECODE. We ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04331,
+        -0.00492,
+        -0.02848,
+        -0.00533,
+        -0.01912
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "ery different performance on OOD human-bot dia- logue. The last four rows of the table show the results of utterance-based RoBERTa, BERT, Elec- tra, and BART trained on DECODE. We ",
+      "overlap_with_next": "s a higher accuracy than its corresponding utterance- based approach when other experiential setups are kept identical. Noticeably, unstructured RoBERTa trained on all NLI data got",
+      "text": "ery different performance on OOD human-bot dia- logue. The last four rows of the table show the results of utterance-based RoBERTa, BERT, Elec- tra, and BART trained on DECODE. We can see that RoBERTa, Electra, and BART got similar in- domain accuracy on DECODE, around 93%-94%. RoBERTa stands out when comparing their perfor- mance on the human-bot test set with the highest score of 84.69% across the column (compared to 75.52, 79.19 and 80.76 for the other methods) and with better performance on supporting evidence retrieval as well. We speculate that this is due to the fact that RoBERTa pre-training data has a broader coverage than Electra and BART. We hope future work on dialogue contradiction detec- tion could explore pre-training models on more dialogue-focused corpora. The unstructured approach gets higher accu- racy on the in-domain test set. A direct compar- ison between unstructured RoBERTa and utterance- based RoBERTa trained on DECODE reveals that the unstructured approach more often than not gets a higher accuracy than its corresponding utterance- based approach when other experiential setups are kept identical. Noticeably, unstructured RoBERTa trained on all NLI data got",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02484,
+        0.00332,
+        -0.01683,
+        0.00081,
+        -0.01295
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "s a higher accuracy than its corresponding utterance- based approach when other experiential setups are kept identical. Noticeably, unstructured RoBERTa trained on all NLI data got",
+      "overlap_with_next": "re-trained, DE- CODE ﬁne-tuned models on DECODE Main (Test), Human-bot, and auxiliary test sets. able to maintain satisfactory performance across all the sets whereas the unstructu",
+      "text": "s a higher accuracy than its corresponding utterance- based approach when other experiential setups are kept identical. Noticeably, unstructured RoBERTa trained on all NLI data got a 97.46% score, whereas utterance-based yielded 94.19%. This seemingly indicates that training an unstructured model is able to yield a good representation of the consis- tency of the dialogue. However, further analysis on the human-bot and auxiliary test sets shows that such high accuracy is an over-ampliﬁcation of the model’s real understanding ability, as we discuss next. The structured utterance-based approach is more robust, and more transferable. Figure 3 gives a comparison between utterance-based and unstructured RoBERTa on each of the evaluation sets. We can see that the utterance-based model is Utterance-based Unstructured 0.0 20.0 40.0 60.0 80.0 100.0Accuracy 93.2 96.8 84.7 70.0 91.5 97.5 78.4 34.4DECODE Main (Test) Human-Bot A2T RCT Figure 3: Comparison between utterance-based and unstructured approaches of RoBERTa pre-trained, DE- CODE ﬁne-tuned models on DECODE Main (Test), Human-bot, and auxiliary test sets. able to maintain satisfactory performance across all the sets whereas the unstructu",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04488,
+        0.00278,
+        -0.00401,
+        0.00765,
+        -0.03318
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "re-trained, DE- CODE ﬁne-tuned models on DECODE Main (Test), Human-bot, and auxiliary test sets. able to maintain satisfactory performance across all the sets whereas the unstructu",
+      "overlap_with_next": "will learn all the structure correctly on its own. In our setting that is not the case, and we provide a method that can rectify that failing. In general, there is still much room ",
+      "text": "re-trained, DE- CODE ﬁne-tuned models on DECODE Main (Test), Human-bot, and auxiliary test sets. able to maintain satisfactory performance across all the sets whereas the unstructured model under- performs at the human-bot and RCT auxiliary test sets with a 34.4% accuracy on RCT compared to 78.4% for utterance-based, in stark contrast to the high performance of the unstructured method on the in-domain DECODE Main test set. This result indicates the unstructured approach overﬁts on su- perﬁcial patterns in the DECODE Main training data which are still present due to RCT’s construc- tion process.7 The fact that the utterance-based ap- proach has good transferability to the OOD human- bot test set indicates that injecting the correct in- ductive structure bias is beneﬁcial for modeling dialogue consistency. We believe this is an interest- ing result generally for research using Transform- ers, where there is currently a belief amongst some practitioners that they can just use a standard Trans- former and it will learn all the structure correctly on its own. In our setting that is not the case, and we provide a method that can rectify that failing. In general, there is still much room ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01033,
+        0.01255,
+        -0.01338,
+        0.00534,
+        -0.00994
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": "will learn all the structure correctly on its own. In our setting that is not the case, and we provide a method that can rectify that failing. In general, there is still much room ",
+      "overlap_with_next": "ith intentionally balanced labels. This facilitates the comparison between models following a NLU evaluation perspective. In practice, we would like to evaluate how well a model ca",
+      "text": "will learn all the structure correctly on its own. In our setting that is not the case, and we provide a method that can rectify that failing. In general, there is still much room for improve- ment. The results in Table 4 also demonstrate that the modeling of dialogue consistency is a de- manding task. On the contradiction detection task, the best score achieved by the state-of-the-art pre- trained language models on DECODE (Test-Strict) is 80.86% and the best human-bot test score is 84.69%. Considering all the examples in the test sets are veriﬁed by at least 3 annotators, humans are able to swiftly identify such contradictions. This 7Overﬁtting on superﬁcial patterns is a typical issue and open problem in NLU modeling (Nie et al., 2020a). [Page 9] suggests there is a large ability gap between our best automatic detectors and humans. Closing this gap is an important challenge for the community. 5.2 Performance in an Interactive Setting The results discussed above evaluate models on constructed datasets with intentionally balanced labels. This facilitates the comparison between models following a NLU evaluation perspective. In practice, we would like to evaluate how well a model ca",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02369,
+        -0.02758,
+        -0.01547,
+        -0.00309,
+        0.00411
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "ith intentionally balanced labels. This facilitates the comparison between models following a NLU evaluation perspective. In practice, we would like to evaluate how well a model ca",
+      "overlap_with_next": " acceptable scores on both Recall and AUC. This indicates its potential us- age for strict blocking of inconsistent utterances of a generative model (bot). The table also draws the",
+      "text": "ith intentionally balanced labels. This facilitates the comparison between models following a NLU evaluation perspective. In practice, we would like to evaluate how well a model can detect contradicting utterances sampled naturally from interactive human-bot dialogue. To that end, we test our trained detection models on the raw interactive human-bot dialogue data8 hav- ing a total number of 764 dialogues consisting of 8,933 utterances. Since the contradiction task in naturally sampled dialogue can be extremely unbal- anced, the total number of contradicting utterances in the raw dialogue list is only 381 9. We apply our contradiction detectors on every bot-generated utterance and calculate the precision, recall, and F1 on contradiction detection. Since the scores might be subjective to the thresholdτ, we also evaluate the threshold-invariant Area Under the ROC Curve (AUC) (Bradley, 1997). As shown in Table 5, model precision on the task is not satisfactory (23.94 at best). However, the best model achieves acceptable scores on both Recall and AUC. This indicates its potential us- age for strict blocking of inconsistent utterances of a generative model (bot). The table also draws the",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0287,
+        -0.02913,
+        -0.00118,
+        0.00792,
+        -0.00476
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": " acceptable scores on both Recall and AUC. This indicates its potential us- age for strict blocking of inconsistent utterances of a generative model (bot). The table also draws the",
+      "overlap_with_next": "ues from which we con- structed the balanced human-bot test set. 9The majority baseline accuracy is 95.73%. Training Data Precision Recall F1 AUC Unstructured Approach All 15.89 60",
+      "text": " acceptable scores on both Recall and AUC. This indicates its potential us- age for strict blocking of inconsistent utterances of a generative model (bot). The table also draws the same conclusion as Table 4 that the structured utterance-based RoBERTa model trained using DE- CODE data is the best method for contradiction detection, comparing to training on other NLI data or using an unstructured approach. In the follow- ing sections we thus use that best method as our detector for further experiments. Model vs. Human Judgement To further under- stand the detector predictions and how well they might align with human judgements, we conduct the following experiment. We ﬁrst divide all the utterances into two categories based on whether they are generated by a human or a bot. Then, the bot-generated utterances that have been marked by annotators as contradicting utterances are cat- egorized into three sets based on the number of annotators that agree on the contradiction label. 8This is the same set of dialogues from which we con- structed the balanced human-bot test set. 9The majority baseline accuracy is 95.73%. Training Data Precision Recall F1 AUC Unstructured Approach All 15.89 60",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02688,
+        -0.03368,
+        -0.03041,
+        0.01935,
+        -0.00356
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "ues from which we con- structed the balanced human-bot test set. 9The majority baseline accuracy is 95.73%. Training Data Precision Recall F1 AUC Unstructured Approach All 15.89 60",
+      "overlap_with_next": "the contra- diction label. The x-axis indicates different approaches and the text in parentheses denotes the training data. By design, the more annotators that agree on the contrad",
+      "text": "ues from which we con- structed the balanced human-bot test set. 9The majority baseline accuracy is 95.73%. Training Data Precision Recall F1 AUC Unstructured Approach All 15.89 60.11 25.14 80.47 All - DECODE 15.63 57.74 24.60 71.82 DECODE 17.05 50.13 25.45 73.40 Utterance-based Approach All 23.35 71.65 35.23 84.96 All - DECODE 17.17 68.50 27.46 80.09 DNLI 16.32 65.09 26.09 79.29 ANLI-R3 22.52 41.73 29.26 76.36 DECODE 23.94 74.28 36.21 87.16 Table 5: RoBERTa performance on all the bot- generated utterances from the raw interactive human- bot dialogue. The thresholdτ for prediction is 0.5. Utterance-based (DECODE) Utterance-based (DNLI) Unstructured (DECODE) Fire Rate 5.5 17.9 14.0 22.9 29.4 21.7 44.3 44.8 31.7 46.3 48.9 39.7 74.3 65.1 50.1 Human Bot @1 @2 @3 Figure 4: The ﬁre rate of RoBERTa models with dif- ferent setups on utterances belonging to different cat- egories. “Human” and “Bot” stand for utterances by the human or the bot prospectively. “@ N” indicates the category whereN annotators agreed on the contra- diction label. The x-axis indicates different approaches and the text in parentheses denotes the training data. By design, the more annotators that agree on the contrad",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02967,
+        -0.00475,
+        -0.03646,
+        -0.02195,
+        -0.02766
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "the contra- diction label. The x-axis indicates different approaches and the text in parentheses denotes the training data. By design, the more annotators that agree on the contrad",
+      "overlap_with_next": "lity Figure 5: The comparison between the average contra- diction score by the detector (y-axis) and the human identiﬁed contradiction rate (x-axis) on the utterances by different ",
+      "text": "the contra- diction label. The x-axis indicates different approaches and the text in parentheses denotes the training data. By design, the more annotators that agree on the contradiction label, the more plausible that it is a contradiction. We examine detector model ﬁre rate on the utterances in the 5 different categories and results are shown in Figure 4. The ﬁre rate of utterance-based RoBERTa trained on DECODE on human utterances is 5.5% contrasting to the 74.3% on 3-agreed contradicting utterances, whereas the ﬁre rates of unstructured RoBERTa on different cat- egories are more clustered together. This ﬁnding demonstrates that all the models can discriminate between utterances with a distinct nature, and the model predictions are aligned with human judg- ments. Moreover, the ﬁre rate of a strong discrimi- native detector could be a useful quantity to stratify utterances. [Page 10] 0.04 0.06 0.08 0.1 0.12 Human Identified Contradiction Rate 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 Avg. Contradiction Probability Figure 5: The comparison between the average contra- diction score by the detector (y-axis) and the human identiﬁed contradiction rate (x-axis) on the utterances by different ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05767,
+        -0.03079,
+        -0.02319,
+        -0.01053,
+        -0.00401
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "lity Figure 5: The comparison between the average contra- diction score by the detector (y-axis) and the human identiﬁed contradiction rate (x-axis) on the utterances by different ",
+      "overlap_with_next": "are the same set of models described in subsec- tion 5.2 from which we collected our human-bot dialogue examples. The trend in Figure 5 reveals that the scores are positively corre",
+      "text": "lity Figure 5: The comparison between the average contra- diction score by the detector (y-axis) and the human identiﬁed contradiction rate (x-axis) on the utterances by different bots, averaged by type of bot. Each point in the plot is a bot which has conversed with humans and produced at least 180 utterances (with some iden- tiﬁed as contradictions) in our interactive settings. The regression line shown yields a Pearson correlation co- efﬁcient of 0.81. Using DECODE as an Automatic Metric The results presented above indicate that the prediction of the detector can easily differentiate between the quality of utterances by humans and the utterances by bots. We further investigate whether it can dif- ferentiate the quality of the utterances by different bots and be used as an automatic metric checking generation consistency. We compare the average contradiction score of the detector with the contra- diction rate by human judgements on the utterances generated by different classes of model (bots). The bots are the same set of models described in subsec- tion 5.2 from which we collected our human-bot dialogue examples. The trend in Figure 5 reveals that the scores are positively corre",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02238,
+        -0.06071,
+        -0.01064,
+        0.00674,
+        0.00759
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39960,
+      "length": 1200,
+      "overlap_with_previous": "are the same set of models described in subsec- tion 5.2 from which we collected our human-bot dialogue examples. The trend in Figure 5 reveals that the scores are positively corre",
+      "overlap_with_next": "ng Strategy Contradict% Contradict% Standard generation Beam Search 38.1% 38.3% Top-k (k = 40) 29.0% 31.8% Sample-and-Rank 29.6% 29.0% DECODE Re-ranking Beam Search 22.7% 32.0% Top",
+      "text": "are the same set of models described in subsec- tion 5.2 from which we collected our human-bot dialogue examples. The trend in Figure 5 reveals that the scores are positively correlated with human judgments, with a Pearson correlation coefﬁcient of 0.81. We would expect that improvement on the DECODE task will directly increase the correla- tion between the automatically produced detection score and human judgements, where use of such an automatic metric can ease the burden on laborious human evaluation of consistency. 5.3 Generation Re-ranking Given a contradiction detector, an obvious ques- tion other than using it as an automatic metric, is: can it be used to improve the consistency of di- alogue generation models? We consider a very simple way to do that in the state-of-the-art genera- tive model, BlenderBot (BST 2.7B) (Roller et al., 2020). During the decoding phase, for decod- ing methods that can output multiple hypotheses, we simply rerank the top scoring hypotheses us- Model + DECODE Human Decoding Strategy Contradict% Contradict% Standard generation Beam Search 38.1% 38.3% Top-k (k = 40) 29.0% 31.8% Sample-and-Rank 29.6% 29.0% DECODE Re-ranking Beam Search 22.7% 32.0% Top",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02412,
+        -0.04971,
+        -0.01232,
+        -0.00988,
+        0.01601
+      ]
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 39780,
+      "end_char": 40980,
+      "length": 1200,
+      "overlap_with_previous": "ng Strategy Contradict% Contradict% Standard generation Beam Search 38.1% 38.3% Top-k (k = 40) 29.0% 31.8% Sample-and-Rank 29.6% 29.0% DECODE Re-ranking Beam Search 22.7% 32.0% Top",
+      "overlap_with_next": "and 20 samples. We consider the same human-bot dia- logue logs as before, but only between Blenderbot BST 2.7B and humans, equally sampled between contradicting and non-contradicti",
+      "text": "ng Strategy Contradict% Contradict% Standard generation Beam Search 38.1% 38.3% Top-k (k = 40) 29.0% 31.8% Sample-and-Rank 29.6% 29.0% DECODE Re-ranking Beam Search 22.7% 32.0% Top-k (k = 40) 1.1% 25.6% Table 6: Generation Re-ranking using DECODE vs. standard methods, reporting the contradiction % as ﬂagged by our contradiction detection classiﬁer (i.e., an automatic metric, “DECODE Contradict%”) in ad- dition to human judgments (“Human Contradict%”). ing the contradiction detection classiﬁer. We use our best performing classiﬁer, our utterance-based RoBERTa model with DECODE ﬁne-tuning, and consider three methods of decoding: beam search, top-k sampling (Fan et al., 2018) and sample-and- rank (Adiwardana et al., 2020), and compare the standard and DECODE-reranked decoding meth- ods to each other. For beam search we use the best found parameters from (Roller et al., 2020) which are beam size 10, minimum beam length 20 and beam blocking of 3-grams. For top-k we use k = 40 . For Sample-and-Rank we use k=40 and 20 samples. We consider the same human-bot dia- logue logs as before, but only between Blenderbot BST 2.7B and humans, equally sampled between contradicting and non-contradicti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02779,
+        -0.05191,
+        -0.03462,
+        -0.039,
+        0.00881
+      ]
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 40800,
+      "end_char": 42000,
+      "length": 1200,
+      "overlap_with_previous": "and 20 samples. We consider the same human-bot dia- logue logs as before, but only between Blenderbot BST 2.7B and humans, equally sampled between contradicting and non-contradicti",
+      "overlap_with_next": "only a 1.1% contradiction ﬁring rate. We note we expect these numbers are over-optimisticly low because the metric itself is being used to search [Page 11] (re-rank) and evaluate i",
+      "text": "and 20 samples. We consider the same human-bot dia- logue logs as before, but only between Blenderbot BST 2.7B and humans, equally sampled between contradicting and non-contradicting utterances. Ta- ble 6 presents the results. Automatic metric using DECODE Using our same DECODE contradiction classiﬁer as the au- tomatic metric, as in Sec. 5.2. We observe that by re-ranking the beam of beam search (size 10) we can modestly improve the metric, but still 22.7% of the time the detector ﬂags generations as con- tradictions. Upon observation of the outputs, this appears to be because the beam of beam decod- ing tends to be not diverse enough (Vijayakumar et al., 2016), and when the top scoring utterance is ﬂagged as contradicting, many of the other utter- ances in the beam are similar responses with slight rephrases, and are ﬂagged contradicting as well. Top-k sampling fares much better, where reranking in our test can very often ﬁnd at least one from the k = 40 samples that does not ﬂag the classiﬁer, leaving only a 1.1% contradiction ﬁring rate. We note we expect these numbers are over-optimisticly low because the metric itself is being used to search [Page 11] (re-rank) and evaluate i",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00176,
+        -0.03296,
+        -0.00889,
+        -0.00596,
+        0.0083
+      ]
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 41820,
+      "end_char": 43020,
+      "length": 1200,
+      "overlap_with_previous": "only a 1.1% contradiction ﬁring rate. We note we expect these numbers are over-optimisticly low because the metric itself is being used to search [Page 11] (re-rank) and evaluate i",
+      "overlap_with_next": " Transformer NLI models to tackle the dialogue contradiction detection task. We show the superiority of such an approach when transferring to out-of-distribution dialogues com- par",
+      "text": "only a 1.1% contradiction ﬁring rate. We note we expect these numbers are over-optimisticly low because the metric itself is being used to search [Page 11] (re-rank) and evaluate in this case. Human Judgments The last column of Table 6 presents human judgments of the various model generations, judged using the same approach as before with three human veriﬁers, and reporting the percentage of contradictions. We observe sim- ilar results to the automatic metric ﬁndings: that DECODE re-ranking reduces the number of contra- dictions for both types of generation methods that we attempted to re-rank. 6 Conclusion We introduce the DialoguE COntradiction DEtec- tion task (DECODE) and a new conversational dataset containing both human-human and human- bot contradictory dialogues. Training models on DECODE achieves better performance than other existing NLI data by a large margin. We further pro- pose a structured utterance-based approach where each utterances are paired with other utterance be- fore being fed into Transformer NLI models to tackle the dialogue contradiction detection task. We show the superiority of such an approach when transferring to out-of-distribution dialogues com- par",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01872,
+        -0.03793,
+        -0.00156,
+        0.00063,
+        -0.00851
+      ]
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 42840,
+      "end_char": 44040,
+      "length": 1200,
+      "overlap_with_previous": " Transformer NLI models to tackle the dialogue contradiction detection task. We show the superiority of such an approach when transferring to out-of-distribution dialogues com- par",
+      "overlap_with_next": ". Going forward, we envision complemen- tary progress on both the modeling of NLU and NLG and the integration of the two. We hope our work could facilitate and provide guidelines f",
+      "text": " Transformer NLI models to tackle the dialogue contradiction detection task. We show the superiority of such an approach when transferring to out-of-distribution dialogues com- pared to a standard unstructured approach repre- sentative of mainstream NLU modeling. This is a valuable property since intermediate in-domain data are often scarce when integrating NLU module into NLG systems. We further show that our best contradiction detector correlates with human judge- ments, and provide evidence for its usage in both automatic checking and improving the consistency of state-of-the-art generative chatbots. While this paper deeply studies thecontradiction detection problem, we believe here we have only scratched the surface of the non-contradiction gen- eration problem, while obtaining promising ﬁrst results in that setting. Future work should address this further by studying and analysing the results of these techniques more deeply, as well as consid- ering other methods than simply rescoring during decoding. Going forward, we envision complemen- tary progress on both the modeling of NLU and NLG and the integration of the two. We hope our work could facilitate and provide guidelines f",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05386,
+        -0.03709,
+        0.01168,
+        0.03377,
+        -0.02839
+      ]
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 43860,
+      "end_char": 45060,
+      "length": 1200,
+      "overlap_with_previous": ". Going forward, we envision complemen- tary progress on both the modeling of NLU and NLG and the integration of the two. We hope our work could facilitate and provide guidelines f",
+      "overlap_with_next": ", and Christopher D. Manning. 2015. A large anno- tated corpus for learning natural language inference. In Proceedings of the 2015 Conference on Empiri- cal Methods in Natural Lang",
+      "text": ". Going forward, we envision complemen- tary progress on both the modeling of NLU and NLG and the integration of the two. We hope our work could facilitate and provide guidelines for future work on incorporating NLU modeling into dialogue systems. References Daniel Adiwardana, Minh-Thang Luong, David R So, Jamie Hall, Noah Fiedel, Romal Thoppilan, Zi Yang, Apoorv Kulshreshtha, Gaurav Nemade, Yifeng Lu, et al. 2020. Towards a human-like open-domain chatbot. arXiv preprint arXiv:2001.09977. Jeesoo Bang, Hyungjong Noh, Yonghee Kim, and Gary Geunbae Lee. 2015. Example-based chat- oriented dialogue system with personalized long- term memory. In 2015 International Conference on Big Data and Smart Computing (BigComp) , pages 238–243. IEEE. Jason Baumgartner, Savvas Zannettou, Brian Keegan, Megan Squire, and Jeremy Blackburn. 2020. The pushshift reddit dataset. In Proceedings of the Inter- national AAAI Conference on Web and Social Media, volume 14, pages 830–839. Samuel R. Bowman, Gabor Angeli, Christopher Potts, and Christopher D. Manning. 2015. A large anno- tated corpus for learning natural language inference. In Proceedings of the 2015 Conference on Empiri- cal Methods in Natural Lang",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05777,
+        -0.00782,
+        -0.00988,
+        0.00419,
+        -0.02346
+      ]
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 44880,
+      "end_char": 46080,
+      "length": 1200,
+      "overlap_with_previous": ", and Christopher D. Manning. 2015. A large anno- tated corpus for learning natural language inference. In Proceedings of the 2015 Conference on Empiri- cal Methods in Natural Lang",
+      "overlap_with_next": "ning text encoders as discriminators rather than genera- tors. In International Conference on Learning Rep- resentations. Ido Dagan, Oren Glickman, and Bernardo Magnini. 2005. The ",
+      "text": ", and Christopher D. Manning. 2015. A large anno- tated corpus for learning natural language inference. In Proceedings of the 2015 Conference on Empiri- cal Methods in Natural Language Processing, pages 632–642, Lisbon, Portugal. Association for Compu- tational Linguistics. Andrew P Bradley. 1997. The use of the area under the roc curve in the evaluation of machine learning algorithms. Pattern recognition, 30(7):1145–1159. Tom B Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. 2020. Language models are few-shot learners. arXiv preprint arXiv:2005.14165. Chun-Yen Chen, Dian Yu, Weiming Wen, Yi Mang Yang, Jiaping Zhang, Mingyang Zhou, Kevin Jesse, Austin Chau, Antara Bhowmick, Shreenath Iyer, et al. 2018. Gunrock: Building a human-like social bot by leveraging large scale real user data. Alexa Prize Proceedings. Kevin Clark, Minh-Thang Luong, Quoc V Le, and Christopher D Manning. 2019. Electra: Pre-training text encoders as discriminators rather than genera- tors. In International Conference on Learning Rep- resentations. Ido Dagan, Oren Glickman, and Bernardo Magnini. 2005. The ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05419,
+        0.01508,
+        -0.0209,
+        -0.01265,
+        -0.01642
+      ]
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 45900,
+      "end_char": 47100,
+      "length": 1200,
+      "overlap_with_previous": "ning text encoders as discriminators rather than genera- tors. In International Conference on Learning Rep- resentations. Ido Dagan, Oren Glickman, and Bernardo Magnini. 2005. The ",
+      "overlap_with_next": "n, Stephen Roller, Kurt Shuster, Angela Fan, Michael Auli, and Jason Weston. 2018. Wizard of wikipedia: Knowledge-powered conversational agents. In International Conference on Lear",
+      "text": "ning text encoders as discriminators rather than genera- tors. In International Conference on Learning Rep- resentations. Ido Dagan, Oren Glickman, and Bernardo Magnini. 2005. The pascal recognising textual entailment challenge. In Machine Learning Challenges Work- shop, pages 177–190. Springer. Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of deep bidirectional transformers for language under- standing. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers) , pages 4171–4186, Minneapolis, Minnesota. Associ- ation for Computational Linguistics. [Page 12] Emily Dinan, Varvara Logacheva, Valentin Malykh, Alexander Miller, Kurt Shuster, Jack Urbanek, Douwe Kiela, Arthur Szlam, Iulian Serban, Ryan Lowe, et al. 2020. The second conversational in- telligence challenge (convai2). In The NeurIPS’18 Competition, pages 187–208. Springer. Emily Dinan, Stephen Roller, Kurt Shuster, Angela Fan, Michael Auli, and Jason Weston. 2018. Wizard of wikipedia: Knowledge-powered conversational agents. In International Conference on Lear",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05641,
+        -0.02919,
+        0.0028,
+        0.02548,
+        -0.00975
+      ]
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 46920,
+      "end_char": 48120,
+      "length": 1200,
+      "overlap_with_previous": "n, Stephen Roller, Kurt Shuster, Angela Fan, Michael Auli, and Jason Weston. 2018. Wizard of wikipedia: Knowledge-powered conversational agents. In International Conference on Lear",
+      "overlap_with_next": " 1: Long Papers), pages 889–898, Melbourne, Australia. Association for Computational Linguistics. Hao Fang, Hao Cheng, Elizabeth Clark, Ariel Holtz- man, Maarten Sap, Mari Ostendor",
+      "text": "n, Stephen Roller, Kurt Shuster, Angela Fan, Michael Auli, and Jason Weston. 2018. Wizard of wikipedia: Knowledge-powered conversational agents. In International Conference on Learning Representations. Nouha Dziri, Ehsan Kamalloo, Kory Mathewson, and Osmar Zaiane. 2019a. Evaluating coherence in dia- logue systems using entailment. In Proceedings of the 2019 Conference of the North American Chap- ter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), pages 3806–3812, Minneapolis, Minnesota. Association for Computational Linguis- tics. Nouha Dziri, Ehsan Kamalloo, Kory Mathewson, and Osmar R Zaiane. 2019b. Augmenting neural re- sponse generation with context-aware topical atten- tion. In Proceedings of the First Workshop on NLP for Conversational AI, pages 18–31. Angela Fan, Mike Lewis, and Yann Dauphin. 2018. Hi- erarchical neural story generation. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 889–898, Melbourne, Australia. Association for Computational Linguistics. Hao Fang, Hao Cheng, Elizabeth Clark, Ariel Holtz- man, Maarten Sap, Mari Ostendor",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04519,
+        -0.01804,
+        0.00018,
+        0.03576,
+        -0.01874
+      ]
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 47940,
+      "end_char": 49140,
+      "length": 1200,
+      "overlap_with_previous": " 1: Long Papers), pages 889–898, Melbourne, Australia. Association for Computational Linguistics. Hao Fang, Hao Cheng, Elizabeth Clark, Ariel Holtz- man, Maarten Sap, Mari Ostendor",
+      "overlap_with_next": "gation of annotator bias in natural language under- standing datasets. In Proceedings of the 2019 Con- ference on Empirical Methods in Natural Language Processing and the 9th Inter",
+      "text": " 1: Long Papers), pages 889–898, Melbourne, Australia. Association for Computational Linguistics. Hao Fang, Hao Cheng, Elizabeth Clark, Ariel Holtz- man, Maarten Sap, Mari Ostendorf, Yejin Choi, and Noah A Smith. 2017. Sounding board–university of washington’s alexa prize submission. Alexa prize proceedings. Matt Gardner, Yoav Artzi, Victoria Basmov, Jonathan Berant, Ben Bogin, Sihao Chen, Pradeep Dasigi, Dheeru Dua, Yanai Elazar, Ananth Gottumukkala, Nitish Gupta, Hannaneh Hajishirzi, Gabriel Ilharco, Daniel Khashabi, Kevin Lin, Jiangming Liu, Nel- son F. Liu, Phoebe Mulcaire, Qiang Ning, Sameer Singh, Noah A. Smith, Sanjay Subramanian, Reut Tsarfaty, Eric Wallace, Ally Zhang, and Ben Zhou. 2020. Evaluating models’ local decision boundaries via contrast sets. In Findings of the Association for Computational Linguistics: EMNLP 2020, pages 1307–1323, Online. Association for Computational Linguistics. Mor Geva, Yoav Goldberg, and Jonathan Berant. 2019. Are we modeling the task or the annotator? an inves- tigation of annotator bias in natural language under- standing datasets. In Proceedings of the 2019 Con- ference on Empirical Methods in Natural Language Processing and the 9th Inter",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06712,
+        -0.02319,
+        -0.01294,
+        -0.0147,
+        -0.0132
+      ]
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 48960,
+      "end_char": 50160,
+      "length": 1200,
+      "overlap_with_previous": "gation of annotator bias in natural language under- standing datasets. In Proceedings of the 2019 Con- ference on Empirical Methods in Natural Language Processing and the 9th Inter",
+      "overlap_with_next": "ciation for Computational Linguistics. Jiwei Li, Michel Galley, Chris Brockett, Georgios Sp- ithourakis, Jianfeng Gao, and Bill Dolan. 2016. A persona-based neural conversation mod",
+      "text": "gation of annotator bias in natural language under- standing datasets. In Proceedings of the 2019 Con- ference on Empirical Methods in Natural Language Processing and the 9th International Joint Confer- ence on Natural Language Processing (EMNLP- IJCNLP), pages 1161–1166, Hong Kong, China. As- sociation for Computational Linguistics. Herbert P Grice. 1975. Logic and conversation. In Speech acts, pages 41–58. Brill. Samuel Humeau, Kurt Shuster, Marie-Anne Lachaux, and Jason Weston. 2019. Poly-encoders: Trans- former architectures and pre-training strategies for fast and accurate multi-sentence scoring. arXiv preprint arXiv:1905.01969. Mike Lewis, Yinhan Liu, Naman Goyal, Mar- jan Ghazvininejad, Abdelrahman Mohamed, Omer Levy, Veselin Stoyanov, and Luke Zettlemoyer. 2020. BART: Denoising sequence-to-sequence pre- training for natural language generation, translation, and comprehension. In Proceedings of the 58th An- nual Meeting of the Association for Computational Linguistics, pages 7871–7880, Online. Association for Computational Linguistics. Jiwei Li, Michel Galley, Chris Brockett, Georgios Sp- ithourakis, Jianfeng Gao, and Bill Dolan. 2016. A persona-based neural conversation mod",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02649,
+        0.00328,
+        -0.03034,
+        0.02529,
+        -0.01932
+      ]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 49980,
+      "end_char": 51180,
+      "length": 1200,
+      "overlap_with_previous": "ciation for Computational Linguistics. Jiwei Li, Michel Galley, Chris Brockett, Georgios Sp- ithourakis, Jianfeng Gao, and Bill Dolan. 2016. A persona-based neural conversation mod",
+      "overlap_with_next": "r. 2019b. Acute-eval: Improved dialogue evaluation with opti- mized questions and multi-turn comparisons. arXiv preprint arXiv:1909.03087. Yinhan Liu, Myle Ott, Naman Goyal, Jingfe",
+      "text": "ciation for Computational Linguistics. Jiwei Li, Michel Galley, Chris Brockett, Georgios Sp- ithourakis, Jianfeng Gao, and Bill Dolan. 2016. A persona-based neural conversation model. In Pro- ceedings of the 54th Annual Meeting of the Associa- tion for Computational Linguistics (Volume 1: Long Papers), pages 994–1003, Berlin, Germany. Associ- ation for Computational Linguistics. Margaret Li, Stephen Roller, Ilia Kulikov, Sean Welleck, Y-Lan Boureau, Kyunghyun Cho, and Ja- son Weston. 2019a. Don’t say that! making incon- sistent dialogue unlikely with unlikelihood training. arXiv preprint arXiv:1911.03860. Margaret Li, Stephen Roller, Ilia Kulikov, Sean Welleck, Y-Lan Boureau, Kyunghyun Cho, and Ja- son Weston. 2020. Don’t say that! making inconsis- tent dialogue unlikely with unlikelihood training. In Proceedings of the 58th Annual Meeting of the Asso- ciation for Computational Linguistics , pages 4715– 4728, Online. Association for Computational Lin- guistics. Margaret Li, Jason Weston, and Stephen Roller. 2019b. Acute-eval: Improved dialogue evaluation with opti- mized questions and multi-turn comparisons. arXiv preprint arXiv:1909.03087. Yinhan Liu, Myle Ott, Naman Goyal, Jingfe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04273,
+        -0.01801,
+        -0.01686,
+        -0.00783,
+        -0.00538
+      ]
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 51000,
+      "end_char": 52200,
+      "length": 1200,
+      "overlap_with_previous": "r. 2019b. Acute-eval: Improved dialogue evaluation with opti- mized questions and multi-turn comparisons. arXiv preprint arXiv:1909.03087. Yinhan Liu, Myle Ott, Naman Goyal, Jingfe",
+      "overlap_with_next": "5.06476. Clifford Nass and Youngme Moon. 2000. Machines and mindlessness: Social responses to computers. Journal of social issues, 56(1):81–103. Yixin Nie, Adina Williams, Emily Di",
+      "text": "r. 2019b. Acute-eval: Improved dialogue evaluation with opti- mized questions and multi-turn comparisons. arXiv preprint arXiv:1909.03087. Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Man- dar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019. Roberta: A robustly optimized bert pretraining ap- proach. arXiv preprint arXiv:1907.11692. Ryan Lowe, Nissan Pow, Iulian Serban, and Joelle Pineau. 2015. The Ubuntu dialogue corpus: A large dataset for research in unstructured multi-turn dia- logue systems. In Proceedings of the 16th Annual Meeting of the Special Interest Group on Discourse and Dialogue , pages 285–294, Prague, Czech Re- public. Association for Computational Linguistics. Gary Marcus. 2018. Deep learning: A critical ap- praisal. arXiv preprint arXiv:1801.00631. [Page 13] Alexander H Miller, Will Feng, Adam Fisch, Jiasen Lu, Dhruv Batra, Antoine Bordes, Devi Parikh, and Ja- son Weston. 2017. Parlai: A dialog research soft- ware platform. arXiv preprint arXiv:1705.06476. Clifford Nass and Youngme Moon. 2000. Machines and mindlessness: Social responses to computers. Journal of social issues, 56(1):81–103. Yixin Nie, Adina Williams, Emily Di",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03022,
+        -0.01763,
+        0.00875,
+        0.01318,
+        -0.01888
+      ]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 52020,
+      "end_char": 53220,
+      "length": 1200,
+      "overlap_with_previous": "5.06476. Clifford Nass and Youngme Moon. 2000. Machines and mindlessness: Social responses to computers. Journal of social issues, 56(1):81–103. Yixin Nie, Adina Williams, Emily Di",
+      "overlap_with_next": "lligence , pages 4279–4285. Hannah Rashkin, Eric Michael Smith, Margaret Li, and Y-Lan Boureau. 2019. Towards empathetic open- domain conversation models: A new benchmark and datas",
+      "text": "5.06476. Clifford Nass and Youngme Moon. 2000. Machines and mindlessness: Social responses to computers. Journal of social issues, 56(1):81–103. Yixin Nie, Adina Williams, Emily Dinan, Mohit Bansal, Jason Weston, and Douwe Kiela. 2020a. Ad- versarial NLI: A new benchmark for natural lan- guage understanding. In Proceedings of the 58th An- nual Meeting of the Association for Computational Linguistics, pages 4885–4901, Online. Association for Computational Linguistics. Yixin Nie, Xiang Zhou, and Mohit Bansal. 2020b. What can we learn from collective human opinions on natural language inference data? In Proceed- ings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP) , pages 9131–9143, Online. Association for Computational Linguistics. Qiao Qian, Minlie Huang, Haizhou Zhao, Jingfang Xu, and Xiaoyan Zhu. 2018. Assigning personal- ity/proﬁle to a chatting machine for coherent conver- sation generation. In Proceedings of the 27th Inter- national Joint Conference on Artiﬁcial Intelligence , pages 4279–4285. Hannah Rashkin, Eric Michael Smith, Margaret Li, and Y-Lan Boureau. 2019. Towards empathetic open- domain conversation models: A new benchmark and datas",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03408,
+        -0.00294,
+        -0.01757,
+        -0.01626,
+        -0.03687
+      ]
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 53040,
+      "end_char": 54240,
+      "length": 1200,
+      "overlap_with_previous": "lligence , pages 4279–4285. Hannah Rashkin, Eric Michael Smith, Margaret Li, and Y-Lan Boureau. 2019. Towards empathetic open- domain conversation models: A new benchmark and datas",
+      "overlap_with_next": " human judgments. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long ",
+      "text": "lligence , pages 4279–4285. Hannah Rashkin, Eric Michael Smith, Margaret Li, and Y-Lan Boureau. 2019. Towards empathetic open- domain conversation models: A new benchmark and dataset. In Proceedings of the 57th Annual Meet- ing of the Association for Computational Linguis- tics, pages 5370–5381, Florence, Italy. Association for Computational Linguistics. Marco Tulio Ribeiro, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. 2020. Beyond accuracy: Be- havioral testing of NLP models with CheckList. In Proceedings of the 58th Annual Meeting of the Asso- ciation for Computational Linguistics , pages 4902– 4912, Online. Association for Computational Lin- guistics. Stephen Roller, Emily Dinan, Naman Goyal, Da Ju, Mary Williamson, Yinhan Liu, Jing Xu, Myle Ott, Kurt Shuster, Eric M Smith, et al. 2020. Recipes for building an open-domain chatbot. arXiv preprint arXiv:2004.13637. Abigail See, Stephen Roller, Douwe Kiela, and Ja- son Weston. 2019. What makes a good conver- sation? how controllable attributes affect human judgments. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04572,
+        -0.04749,
+        0.00095,
+        0.01106,
+        0.00717
+      ]
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 54060,
+      "end_char": 55260,
+      "length": 1200,
+      "overlap_with_previous": " human judgments. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long ",
+      "overlap_with_next": "omputational Linguistics. Eric Michael Smith, Mary Williamson, Kurt Shuster, Jason Weston, and Y-Lan Boureau. 2020b. Can you put it all together: Evaluating conversational agents’ ",
+      "text": " human judgments. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers) , pages 1702–1723, Minneapolis, Minnesota. Associ- ation for Computational Linguistics. Iulian Vlad Serban, Alessandro Sordoni, Yoshua Ben- gio, Aaron C Courville, and Joelle Pineau. 2016. Building end-to-end dialogue systems using gener- ative hierarchical neural network models. In AAAI. Iulian Vlad Serban, Alessandro Sordoni, Ryan Lowe, Laurent Charlin, Joelle Pineau, Aaron C Courville, and Yoshua Bengio. 2017. A hierarchical latent variable encoder-decoder model for generating dia- logues. In AAAI. Eric Michael Smith, Mary Williamson, Kurt Shuster, Jason Weston, and Y-Lan Boureau. 2020a. Can you put it all together: Evaluating conversational agents’ ability to blend skills. In Proceedings of the 58th An- nual Meeting of the Association for Computational Linguistics, pages 2021–2030, Online. Association for Computational Linguistics. Eric Michael Smith, Mary Williamson, Kurt Shuster, Jason Weston, and Y-Lan Boureau. 2020b. Can you put it all together: Evaluating conversational agents’ ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00995,
+        0.0013,
+        -0.00542,
+        -0.00761,
+        0.02976
+      ]
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 55080,
+      "end_char": 56280,
+      "length": 1200,
+      "overlap_with_previous": "omputational Linguistics. Eric Michael Smith, Mary Williamson, Kurt Shuster, Jason Weston, and Y-Lan Boureau. 2020b. Can you put it all together: Evaluating conversational agents’ ",
+      "overlap_with_next": "iation for Computational Linguistics. Jason Weston, Emily Dinan, and Alexander H Miller. 2018. Retrieve and reﬁne: Improved sequence generation models for dialogue. arXiv preprint ",
+      "text": "omputational Linguistics. Eric Michael Smith, Mary Williamson, Kurt Shuster, Jason Weston, and Y-Lan Boureau. 2020b. Can you put it all together: Evaluating conversational agents’ ability to blend skills. arXiv preprint arXiv:2004.08449. Ashwin K Vijayakumar, Michael Cogswell, Ram- prasath R Selvaraju, Qing Sun, Stefan Lee, David Crandall, and Dhruv Batra. 2016. Diverse beam search: Decoding diverse solutions from neural se- quence models. arXiv preprint arXiv:1610.02424. Di Wang, Nebojsa Jojic, Chris Brockett, and Eric Ny- berg. 2017. Steering output style and topic in neu- ral response generation. In Proceedings of the 2017 Conference on Empirical Methods in Natural Lan- guage Processing, pages 2140–2150, Copenhagen, Denmark. Association for Computational Linguis- tics. Sean Welleck, Jason Weston, Arthur Szlam, and Kyunghyun Cho. 2019. Dialogue natural language inference. In Proceedings of the 57th Annual Meet- ing of the Association for Computational Linguistics, pages 3731–3741, Florence, Italy. Association for Computational Linguistics. Jason Weston, Emily Dinan, and Alexander H Miller. 2018. Retrieve and reﬁne: Improved sequence generation models for dialogue. arXiv preprint ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03157,
+        -0.01149,
+        -0.0042,
+        -0.00183,
+        0.00645
+      ]
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 56100,
+      "end_char": 57300,
+      "length": 1200,
+      "overlap_with_previous": "iation for Computational Linguistics. Jason Weston, Emily Dinan, and Alexander H Miller. 2018. Retrieve and reﬁne: Improved sequence generation models for dialogue. arXiv preprint ",
+      "overlap_with_next": "tics. Wei-Nan Zhang, Qingfu Zhu, Yifa Wang, Yanyan Zhao, and Ting Liu. 2019a. Neural personalized response generation as domain adaptation. World Wide Web, 22(4):1427–1446. Yizhe Z",
+      "text": "iation for Computational Linguistics. Jason Weston, Emily Dinan, and Alexander H Miller. 2018. Retrieve and reﬁne: Improved sequence generation models for dialogue. arXiv preprint arXiv:1808.04776. Adina Williams, Nikita Nangia, and Samuel Bowman. 2018. A broad-coverage challenge corpus for sen- tence understanding through inference. In Proceed- ings of the 2018 Conference of the North American Chapter of the Association for Computational Lin- guistics: Human Language Technologies, Volume 1 (Long Papers) , pages 1112–1122, New Orleans, Louisiana. Association for Computational Linguis- tics. S Worsnick. 2018. Mitsuku wins loebner prize 2018. Saizheng Zhang, Emily Dinan, Jack Urbanek, Arthur Szlam, Douwe Kiela, and Jason Weston. 2018. Per- sonalizing dialogue agents: I have a dog, do you [Page 14] have pets too? In Proceedings of the 56th An- nual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) , pages 2204– 2213, Melbourne, Australia. Association for Com- putational Linguistics. Wei-Nan Zhang, Qingfu Zhu, Yifa Wang, Yanyan Zhao, and Ting Liu. 2019a. Neural personalized response generation as domain adaptation. World Wide Web, 22(4):1427–1446. Yizhe Z",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03547,
+        -0.03106,
+        -0.01707,
+        -0.0068,
+        -0.02787
+      ]
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 57120,
+      "end_char": 58320,
+      "length": 1200,
+      "overlap_with_previous": "tics. Wei-Nan Zhang, Qingfu Zhu, Yifa Wang, Yanyan Zhao, and Ting Liu. 2019a. Neural personalized response generation as domain adaptation. World Wide Web, 22(4):1427–1446. Yizhe Z",
+      "overlap_with_next": " 497 7.87% 2 1,211 19.18% 3 6,214 65.28% Table 7: Veriﬁcation Statistics. The ﬁrst column indi- cates the number of veriﬁers that agreed upon the given contradictions. A Veriﬁcatio",
+      "text": "tics. Wei-Nan Zhang, Qingfu Zhu, Yifa Wang, Yanyan Zhao, and Ting Liu. 2019a. Neural personalized response generation as domain adaptation. World Wide Web, 22(4):1427–1446. Yizhe Zhang, Xiang Gao, Sungjin Lee, Chris Brockett, Michel Galley, Jianfeng Gao, and Bill Dolan. 2019b. Consistent dialogue generation with self-supervised feature learning. arXiv preprint arXiv:1903.05759. Yizhe Zhang, Siqi Sun, Michel Galley, Yen-Chun Chen, Chris Brockett, Xiang Gao, Jianfeng Gao, Jingjing Liu, and Bill Dolan. 2020. DIALOGPT : Large- scale generative pre-training for conversational re- sponse generation. In Proceedings of the 58th An- nual Meeting of the Association for Computational Linguistics: System Demonstrations , pages 270– 278, Online. Association for Computational Linguis- tics. Li Zhou, Jianfeng Gao, Di Li, and Heung-Yeung Shum. 2020. The design and implementation of xiaoice, an empathetic social chatbot. Computational Linguis- tics, 46(1):53–93. [Page 15] # of Veriﬁers Agreed Count Ratio (%) 0 484 7.67% 1 497 7.87% 2 1,211 19.18% 3 6,214 65.28% Table 7: Veriﬁcation Statistics. The ﬁrst column indi- cates the number of veriﬁers that agreed upon the given contradictions. A Veriﬁcatio",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03946,
+        0.00156,
+        0.00356,
+        0.00982,
+        -0.01984
+      ]
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 58140,
+      "end_char": 58637,
+      "length": 497,
+      "overlap_with_previous": " 497 7.87% 2 1,211 19.18% 3 6,214 65.28% Table 7: Veriﬁcation Statistics. The ﬁrst column indi- cates the number of veriﬁers that agreed upon the given contradictions. A Veriﬁcatio",
+      "overlap_with_next": "",
+      "text": " 497 7.87% 2 1,211 19.18% 3 6,214 65.28% Table 7: Veriﬁcation Statistics. The ﬁrst column indi- cates the number of veriﬁers that agreed upon the given contradictions. A Veriﬁcation Statistics For a subset of the contradicting dialogues in DECODE we asked three veriﬁers to determine whether the original writer indeed created a con- tradiction example. Table 7 shows the veriﬁcation statistics. Note that we only use examples on which all three veriﬁers agreed for DECODE (dev) and DECODE (Test).",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02158,
+        0.00819,
+        -0.00138,
+        -0.02175,
+        -0.00332
+      ]
+    }
+  ]
+}

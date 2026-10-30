@@ -1,0 +1,674 @@
+{
+  "paper_id": "3fe2c596-2016-4f88-a02b-5d9c532565ba",
+  "filename": "022_NLP_Towards_Recognizing_Phrase_Translation_Processes_Experiments_on_English-French.pdf",
+  "title": "Towards Recognizing Phrase Translation Processes: Experiments on English-French",
+  "chunk_size": 1200,
+  "chunk_overlap": 180,
+  "total_chunks": 39,
+  "embedding_model": "baai/bge-m3",
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1200,
+      "length": 1200,
+      "overlap_with_previous": "",
+      "overlap_with_next": " guidelines. Based on these annotated examples, we propose an automatic c lassiﬁcation of translation processes at subsentential level. Experiment al results show that we can disti",
+      "text": "[Page 1] arXiv:1904.12213v1 [cs.CL] 27 Apr 2019 Towards Recognizing Phrase Translation Processes: Experiments on English-French Y uming Zhai⋆, Pooyan Safari ⋆, Gabriel Illouz, Alexandre Allauzen, and Anne Vilnat LIMSI-CNRS, Univ. Paris-Sud, Univ. Paris-Saclay, France {firstname.lastname}@limsi.fr Abstract. When translating phrases (words or group of words), human tr ansla- tors, consciously or not, resort to different translation p rocesses apart from the literal translation, such as Idiom Equivalence, Generaliz ation, Particularization, Semantic Modulation, etc. Translators and linguists (such as Vinay and Darbel- net, Newmark, etc.) have proposed several typologies to characterize the different translation processes. However, to the best of our knowledg e, there has not been effort to automatically classify these ﬁne-grained transl ation processes. Recently, an English-French parallel corpus of TED Talks has been manu ally annotated with translation process categories, along with establish ed annotation guidelines. Based on these annotated examples, we propose an automatic c lassiﬁcation of translation processes at subsentential level. Experiment al results show that we can disti",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04705,
+        -0.00652,
+        -0.02285,
+        0.05598,
+        0.00379
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1020,
+      "end_char": 2220,
+      "length": 1200,
+      "overlap_with_previous": " guidelines. Based on these annotated examples, we propose an automatic c lassiﬁcation of translation processes at subsentential level. Experiment al results show that we can disti",
+      "overlap_with_next": "on-literal translation ex amples: the ﬁrst translation preserves exactly the meaning, where the ﬁxed expression à la hauteur de ‘to the height of’ has a ﬁgurative sense which means",
+      "text": " guidelines. Based on these annotated examples, we propose an automatic c lassiﬁcation of translation processes at subsentential level. Experiment al results show that we can distinguish non-literal translation from literal tran slation with an accuracy of 87.09%, and 55.20% for classifying among ﬁve non-literal tr anslation processes. This work demonstrates that it is possible to automatically classify translation processes. Even with a small amount of annotated examples, o ur experiments show the directions that we can follow in future work. One of o ur long term objectives is leveraging this automatic classiﬁcation to b etter control paraphrase extraction from bilingual parallel corpora. Keywords: Translation processes · Non-literal translation · Automatic classiﬁ- cation 1 Introduction Since 1958, translators and linguists have published work on translation processes [35,23,8,22]. They distinguish literal translations from other translat ion processes at subsentential level. Consider these two human non-literal translation ex amples: the ﬁrst translation preserves exactly the meaning, where the ﬁxed expression à la hauteur de ‘to the height of’ has a ﬁgurative sense which means",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.055,
+        -0.01871,
+        0.00688,
+        0.03878,
+        0.03472
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 2040,
+      "end_char": 3240,
+      "length": 1200,
+      "overlap_with_previous": "on-literal translation ex amples: the ﬁrst translation preserves exactly the meaning, where the ﬁxed expression à la hauteur de ‘to the height of’ has a ﬁgurative sense which means",
+      "overlap_with_next": "es have been leveraged for paraphrase e xtraction from bilingual parallel corpora [1,20]. The assumption is that two monolin gual segments are potential paraphrases if they share c",
+      "text": "on-literal translation ex amples: the ﬁrst translation preserves exactly the meaning, where the ﬁxed expression à la hauteur de ‘to the height of’ has a ﬁgurative sense which means capable of solving; while the second one is more complicated, there exists a textual inference between the s ource text and the translation. (1.EN) a solution that’s big enough to solve our problems (1.FR) une solution à la hauteur de nos problèmes (2.EN) and that scar has stayed with him for his entire life (2.FR) et que, toute sa vie, il a souffert de ce traumatisme (‘he has suffered from this traumatism’) Non-literal translations can bring difﬁculties for automa tic word alignment [11,10], or cause meaning changes in certain cases. However, to the best of our knowledge, there ⋆ Both authors contributed equally to this article. [Page 2] has not been effort to automatically classify these ﬁne-gra ined translation processes to beneﬁt downstream natural language processing tasks. For e xample, Machine Trans- lation (MT) techniques have been leveraged for paraphrase e xtraction from bilingual parallel corpora [1,20]. The assumption is that two monolin gual segments are potential paraphrases if they share c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03641,
+        0.01234,
+        -0.00183,
+        0.04634,
+        0.02256
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 3060,
+      "end_char": 4260,
+      "length": 1200,
+      "overlap_with_previous": "es have been leveraged for paraphrase e xtraction from bilingual parallel corpora [1,20]. The assumption is that two monolin gual segments are potential paraphrases if they share c",
+      "overlap_with_next": "f the existing differences between languages and cultures , non-literal translation pro- cesses are sometimes inevitable to produce correct and natu ral translations. The ﬁne- grai",
+      "text": "es have been leveraged for paraphrase e xtraction from bilingual parallel corpora [1,20]. The assumption is that two monolin gual segments are potential paraphrases if they share common translations in another language. Currently the largest paraphrase resource, PPDB (ParaPhrase DataBase) [12], has been built following this method. Nonetheless, Pavlick et al. [26] revealed that there exist other relations ( i.e. Entailment (in two directions), Exclusion, Other related a nd Independent )1 than strict equivalence (paraphrase) in PPDB. Non-literal pivot translations inside the parallel cor- pora could break the strict equivalence between the candida te paraphrases extracted, whereas they have not received enough attention during this corpora exploitation. From a linguistic point of view, apart from the word-for-wor d literal translation, different versions of human translations reﬂect the richne ss of human language expres- sions, where various translation processes could be employ ed. Furthermore, because of the existing differences between languages and cultures , non-literal translation pro- cesses are sometimes inevitable to produce correct and natu ral translations. The ﬁne- grai",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03825,
+        0.00066,
+        -0.00491,
+        0.02936,
+        -0.01425
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 4080,
+      "end_char": 5280,
+      "length": 1200,
+      "overlap_with_previous": "f the existing differences between languages and cultures , non-literal translation pro- cesses are sometimes inevitable to produce correct and natu ral translations. The ﬁne- grai",
+      "overlap_with_next": "esults show that we can distinguish non-literal translation processes from liter al translation with an accuracy of 87.09%, and 55.20% for classifying among non-literal multi -clas",
+      "text": "f the existing differences between languages and cultures , non-literal translation pro- cesses are sometimes inevitable to produce correct and natu ral translations. The ﬁne- grained phrase-level translation processes could help foreign language learners to better compare the language being learned with another language al ready mastered. Based on the theories developed in translation studies and t hrough manually anno- tating and analyzing an English-French parallel corpus, Zh ai et al. [37] have proposed a typology of translation processes adapted to their corpus. In this work our main contri- bution is proposing an automatic classiﬁcation of translat ion processes at subsentential level, based on these annotated examples. From the aspect of granularity and our goal of better controlling paraphrasing process or helping fore ign language learners, it is different from the task of ﬁltering semantically divergent parallel sentence pairs to im- prove the performance of MT systems [6,36,29]. Experimenta l results show that we can distinguish non-literal translation processes from liter al translation with an accuracy of 87.09%, and 55.20% for classifying among non-literal multi -clas",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0434,
+        -0.02653,
+        0.00194,
+        0.01582,
+        0.03641
+      ]
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 5100,
+      "end_char": 6300,
+      "length": 1200,
+      "overlap_with_previous": "esults show that we can distinguish non-literal translation processes from liter al translation with an accuracy of 87.09%, and 55.20% for classifying among non-literal multi -clas",
+      "overlap_with_next": "o Al- bir [22] proposed their own categorization based on studyin g the translation of cultural elements in the novel A Hundred Y ears of Solitude from Spanish to Arabic. 1 Exclusi",
+      "text": "esults show that we can distinguish non-literal translation processes from liter al translation with an accuracy of 87.09%, and 55.20% for classifying among non-literal multi -classes. In the present paper, after reviewing related work, we descr ibe the manual annota- tion and the data set. Exploited features and different neur al network architectures will be presented, followed by experimental results and error an alysis. Finally we conclude and present the perspectives of this work. 2 Related Work Translators and linguists have proposed several typologie s to characterize different translation processes. Vinay and Darbelnet [35] identiﬁed direct and oblique transla- tion processes, the latter being employed when a literal tra nslation is unacceptable, or when structural or conceptual asymmetries arising between the source language and the target language are non-negligible. Following studies inc lude, among others, the work of Newmark [23,24], Chuquet and Paillard [8]. More recently , Molina and Hurtado Al- bir [22] proposed their own categorization based on studyin g the translation of cultural elements in the novel A Hundred Y ears of Solitude from Spanish to Arabic. 1 Exclusi",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04686,
+        -0.03417,
+        -0.00195,
+        0.04358,
+        -0.00069
+      ]
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 6120,
+      "end_char": 7320,
+      "length": 1200,
+      "overlap_with_previous": "o Al- bir [22] proposed their own categorization based on studyin g the translation of cultural elements in the novel A Hundred Y ears of Solitude from Spanish to Arabic. 1 Exclusi",
+      "overlap_with_next": "ntic similarity between bili ngual sentences, Carl and Schaeffer [5] developed a metric of translation literal ity. We have drawn inspiration from these preceding work for our feat",
+      "text": "o Al- bir [22] proposed their own categorization based on studyin g the translation of cultural elements in the novel A Hundred Y ears of Solitude from Spanish to Arabic. 1 Exclusion: X is the contrary of Y; X is mutually exclusive wit h Y . Other related: X is related in some other way to Y . (e.g. country / patriotic ). Independent: X is not related to Y . 2 / 12 [Page 3] Non-literal translations or cross-language divergences have been studied to improve MT related techniques. In order to enable more accurate word -level alignment, Dorr et al. [11] proposed to transform English sentence structure to mo re closely resemble an- other language. A translation literalness measure was prop osed to select appropriate sentences or phrases for automatically constructing MT kno wledge [15]. Using a hi- erarchically aligned parallel treebank, Deng and Xue [10] s emi-automatically identify, categorize and quantify seven types of translation divergences between Chinese and En- glish.2 Based on the syntactic and semantic similarity between bili ngual sentences, Carl and Schaeffer [5] developed a metric of translation literal ity. We have drawn inspiration from these preceding work for our feat",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04917,
+        -0.01372,
+        -0.01769,
+        0.01241,
+        0.01002
+      ]
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 7140,
+      "end_char": 8340,
+      "length": 1200,
+      "overlap_with_previous": "ntic similarity between bili ngual sentences, Carl and Schaeffer [5] developed a metric of translation literal ity. We have drawn inspiration from these preceding work for our feat",
+      "overlap_with_next": " e whether to ﬁlter it out. Another task studying human translations concerns automat ic post-editing [7]. The aim is evaluating systems for automatically correcting tra nslation e",
+      "text": "ntic similarity between bili ngual sentences, Carl and Schaeffer [5] developed a metric of translation literal ity. We have drawn inspiration from these preceding work for our feature engineering. Recently, different models have been proposed to automatic ally detect translation divergence in parallel corpora, with the goal of automatica lly ﬁltering out divergent sentence pairs to improve MT systems’ performance. An SVM-b ased cross-lingual di- vergence detector was introduced [6], using word alignment s and sentence length fea- tures. Their following work [36] proposed a Deep Neural Netw ork-based approach. This system could be trained for any parallel corpus without any manual annotation. They conﬁrmed that these divergences are a source of perform ance degradation in neu- ral machine translation. Pham et al. [29] built cross-lingual sentence embeddings ac- cording to the word similarity with a neural architecture in an unsupervised way. They measure the semantic equivalence of a sentence pair to decid e whether to ﬁlter it out. Another task studying human translations concerns automat ic post-editing [7]. The aim is evaluating systems for automatically correcting tra nslation e",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06123,
+        -0.03601,
+        -0.0012,
+        0.0068,
+        0.01807
+      ]
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 8160,
+      "end_char": 9360,
+      "length": 1200,
+      "overlap_with_previous": " e whether to ﬁlter it out. Another task studying human translations concerns automat ic post-editing [7]. The aim is evaluating systems for automatically correcting tra nslation e",
+      "overlap_with_next": "ranslat ors at subsentential level, Zhai et al. [37] have annotated a trilingual parallel (English-French , English-Chinese) corpus of TED Talks 3 with translation processes. The c",
+      "text": " e whether to ﬁlter it out. Another task studying human translations concerns automat ic post-editing [7]. The aim is evaluating systems for automatically correcting tra nslation errors of an unknown “black box” MT engine, by learning from human revisions of tr anslations produced by the same engine. Evaluation metrics include TER [31], BLEU [ 25] and manual evalua- tion. The task that we propose here is different from these at tempts, which either ﬁlter semantically divergent sentence pairs to improve the perfo rmance of MT systems; or automatically correct machine translation errors to impro ve the translation quality. Our task of classifying translation processes (in two classes o r in multi-classes) at subsen- tential level is a stand-alone task. One of our long term obje ctives is leveraging this automatic classiﬁcation to better control phrase-level pa raphrase extraction from bilin- gual parallel corpora. 3 Manual Annotation and Data Description In order to model translation choices made by human translat ors at subsentential level, Zhai et al. [37] have annotated a trilingual parallel (English-French , English-Chinese) corpus of TED Talks 3 with translation processes. The c",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06732,
+        -0.04366,
+        -0.0128,
+        0.03362,
+        0.03658
+      ]
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 9180,
+      "end_char": 10380,
+      "length": 1200,
+      "overlap_with_previous": "ranslat ors at subsentential level, Zhai et al. [37] have annotated a trilingual parallel (English-French , English-Chinese) corpus of TED Talks 3 with translation processes. The c",
+      "overlap_with_next": "ategory to be automatically classiﬁed. 4 We combine Transposition and Mod+Trans in a category Contain_Transposition, where Modulation is considered as a neutral part. We will work ",
+      "text": "ranslat ors at subsentential level, Zhai et al. [37] have annotated a trilingual parallel (English-French , English-Chinese) corpus of TED Talks 3 with translation processes. The corpus is composed of trans crip- tions and human translations of oral presentations. The int er-annotator agreement (Co- hen’s Kappa) [9] for annotating the English-French and English-Chinese control corpus is 0.67 and 0.61, both around the substantial agreement thre shold. This indicates that the task of manual annotation is already complicated. Reade rs can ﬁnd more details of corpus construction in the article [37]. 2 Lexical encoding; difference in transitivity; absence of l anguage-speciﬁc function words; dif- ference in phrase types; difference in word order; dropped e lements; structural paraphrases. 3 https://www.ted.com/ 3 / 12 [Page 4] The automatic classiﬁcation is conducted on the English-Fr ench pair in this work. We present in the table 1 a brief deﬁnition, a typical example and the number of in- stances for each category to be automatically classiﬁed. 4 We combine Transposition and Mod+Trans in a category Contain_Transposition, where Modulation is considered as a neutral part. We will work ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08058,
+        -0.0277,
+        0.00396,
+        0.03908,
+        0.02374
+      ]
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 10200,
+      "end_char": 11400,
+      "length": 1200,
+      "overlap_with_previous": "ategory to be automatically classiﬁed. 4 We combine Transposition and Mod+Trans in a category Contain_Transposition, where Modulation is considered as a neutral part. We will work ",
+      "overlap_with_next": "form. (3771) certain kinds of → certains types de Equivalence Non-literal translation of proverbs or ﬁxed expressions; a word-for-word translation makes sense but the translator ex",
+      "text": "ategory to be automatically classiﬁed. 4 We combine Transposition and Mod+Trans in a category Contain_Transposition, where Modulation is considered as a neutral part. We will work on the classiﬁcation of the pai r English-Chinese once the annotation phase is ﬁnished. In this work, we conduct exp eriments in a simpliﬁed scenario, where we already know the boundaries of bilingual pairs, and we only predict the translation process. For example, given the pair deceptive → une illusion in a pair of bilingual sentences, the goal is to predict its label Contain_Transposition. Table 1: Deﬁnition, typical example and number of instances for each translation process to be automatically classiﬁed. The instances were m anually annotated in an English-French parallel corpus of TED Talks. We combine Transposition and Mod+Trans in a category Contain_Transposition for the automatic classiﬁcation. Translation Process Deﬁnition and typical example Literal Word-for-word translation, also concerns lexical units in multiword form. (3771) certain kinds of → certains types de Equivalence Non-literal translation of proverbs or ﬁxed expressions; a word-for-word translation makes sense but the translator ex",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06842,
+        -0.03057,
+        0.00288,
+        0.05655,
+        0.03632
+      ]
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 11220,
+      "end_char": 12420,
+      "length": 1200,
+      "overlap_with_previous": "form. (3771) certain kinds of → certains types de Equivalence Non-literal translation of proverbs or ﬁxed expressions; a word-for-word translation makes sense but the translator ex",
+      "overlap_with_next": "il a souffert de ce traumatisme (‘he hassuffered from this traumatism’) Transposition Change grammatical classes without changing the meaning. (289) unless something changes → à mo",
+      "text": "form. (3771) certain kinds of → certains types de Equivalence Non-literal translation of proverbs or ﬁxed expressions; a word-for-word translation makes sense but the translator expresses diffe rently, without changing the meaning and the grammatical classes. (289) back then → à l’époque (‘at that time’) Generalization Several source words or expressions could be translated int o a moregeneral target word or expression, the translator uses the l atter to translate. (86) as we sit here in ... → alors que nous sommes à ... (‘as we are at ... ’) Particularization The source word or expression could be translated into sever al target words or expressions with a more speciﬁc meaning, and the tra nslator chooses one of them according to the context. (215) the idea I want to put out is ... → l’idée que je veux diffuser c’est ... (‘theidea I want to spread is ... ’) Modulation Metonymical and grammatical modulation [8]; change the poi nt of view;the meaning could be changed. (195) that scar has stayed with him → il a souffert de ce traumatisme (‘he hassuffered from this traumatism’) Transposition Change grammatical classes without changing the meaning. (289) unless something changes → à mo",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00587,
+        0.02109,
+        0.01585,
+        0.01663,
+        -0.00322
+      ]
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 12240,
+      "end_char": 13440,
+      "length": 1200,
+      "overlap_with_previous": "il a souffert de ce traumatisme (‘he hassuffered from this traumatism’) Transposition Change grammatical classes without changing the meaning. (289) unless something changes → à mo",
+      "overlap_with_next": "scribe below the features exploited in this work. The ta g sets of English and French for part-of-speech (PoS) tagging, constituency par sing and dependency parsing have been conve",
+      "text": "il a souffert de ce traumatisme (‘he hassuffered from this traumatism’) Transposition Change grammatical classes without changing the meaning. (289) unless something changes → à moins qu’ un changement ait lieu (‘unlessa change occurs’) Mod+Trans Combine the transformations of Modulation and of Transposition, whichcould make the alignment difﬁcult. (53) this is a completely unsustainable pattern → il est absolument impossible de continuer sur cette tendance (‘it is completely impossible to continue on this trend’) 4 Note that there are other detailed annotation rules in the an notation guidelines. 4 / 12 [Page 5] 4 Automatic Classiﬁcation We have tried two approaches for the automatic classiﬁcatio n. Since the size of the cross validation data set is quite small, we ﬁrst compare dif ferent statistical machine learning techniques with feature engineering. We also buil d different neural network architectures which we explain below. 4.1 Feature Engineering with Statistical Machine Learning T echniques We describe below the features exploited in this work. The ta g sets of English and French for part-of-speech (PoS) tagging, constituency par sing and dependency parsing have been conve",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04846,
+        0.00336,
+        0.03998,
+        0.01972,
+        0.01228
+      ]
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 13260,
+      "end_char": 14460,
+      "length": 1200,
+      "overlap_with_previous": "scribe below the features exploited in this work. The ta g sets of English and French for part-of-speech (PoS) tagging, constituency par sing and dependency parsing have been conve",
+      "overlap_with_next": "s, the no n-terminal node tags for a pair of segments, the tag category ( e.g. verb → verb phrase) for a word translated by a segment or vice versa. 5) The dependency parsing is do",
+      "text": "scribe below the features exploited in this work. The ta g sets of English and French for part-of-speech (PoS) tagging, constituency par sing and dependency parsing have been converted into three compact and uniﬁed tag sets [2 8]. 1) The PoS tagging is done by Stanford CoreNLP [21] for the two languages. On source and target side, for each PoS tag, the number of its occ urrence is counted in a vector. We also calculate the cosine similarity between the se two vectors (on all words and only on content words). 5 2) We verify the pattern of PoS tag sequence changing accordi ng to a manual list, for example the pair methodologically → de façon méthodologique ‘methodologically’ corresponds to the pattern ADV → ADP NOUN ADJ . 3) The number of tokens in the two segments ( le, lf ), the ratio of these numbers (le/lf , lf /le), the distance Levenshtein [18] between the segments. 4) The constituency parsing is done by Bonsai [4] for French, by Stanford CoreNLP for English. We compare the PoS tags for a pair of words, the no n-terminal node tags for a pair of segments, the tag category ( e.g. verb → verb phrase) for a word translated by a segment or vice versa. 5) The dependency parsing is do",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00671,
+        -0.01259,
+        -0.02032,
+        0.01943,
+        0.00885
+      ]
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 14280,
+      "end_char": 15480,
+      "length": 1200,
+      "overlap_with_previous": "s, the no n-terminal node tags for a pair of segments, the tag category ( e.g. verb → verb phrase) for a word translated by a segment or vice versa. 5) The dependency parsing is do",
+      "overlap_with_next": "re calculated for lemmati zed segments.6 7) The resource ConceptNet [32] also provides assertions in triplet: a pair of words or expressions linked by a relation. In this multiling",
+      "text": "s, the no n-terminal node tags for a pair of segments, the tag category ( e.g. verb → verb phrase) for a word translated by a segment or vice versa. 5) The dependency parsing is done by Stanford CoreNLP for the two languages. Inside the segments, the number of occurrence of each depend ency relation is counted. Outside the segments, among the words linked at source and ta rget side, we ﬁlter those which are aligned in the sentence context. Then the number of occurrence of each de- pendency relation between the words in segments and these co ntext words is counted. 6) The cosine similarity is calculated between the embeddin gs from ConceptNet Numberbatch [32]. This resource is multilingual and the system based on ConceptNet took the ﬁrst place in the task “Multilingual and Cross-ling ual Semantic Word Sim- ilarity” of SemEval2017 [3,33]. Certain multi-word expres sions have their own em- beddings in this resource. Otherwise, we calculate the aver age of embeddings only on content words. The same features are calculated for lemmati zed segments.6 7) The resource ConceptNet [32] also provides assertions in triplet: a pair of words or expressions linked by a relation. In this multiling",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.04118,
+        -0.03339,
+        0.02055,
+        -0.00485,
+        -0.01059
+      ]
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 15300,
+      "end_char": 16500,
+      "length": 1200,
+      "overlap_with_previous": "re calculated for lemmati zed segments.6 7) The resource ConceptNet [32] also provides assertions in triplet: a pair of words or expressions linked by a relation. In this multiling",
+      "overlap_with_next": " directly linked in the resource, but they are both linked to illusoire ‘illusory’. Hence we consider that there exists a link of der ivation between them. For the three following ",
+      "text": "re calculated for lemmati zed segments.6 7) The resource ConceptNet [32] also provides assertions in triplet: a pair of words or expressions linked by a relation. In this multilingual resource, we verify if an English- French pair is directly linked; indirectly linked by another French segment or simply not linked.7 Three forms are tested: original form, lemmatized form and lemmatized ﬁltered form.8 5 The tags of content words include: ADJ, ADV , NOUN, PROPN, VERB. If a segment does not contain any content word, the original segment is used. 6 The lemmatization is done by Stanford CoreNLP and Tree Tagger[30] for English and French. 7 The EN-FR and FR-FR assertions are used in this work. 8 We ﬁlter the words in a manual list, for example the light verb s, determinants, pronouns, etc. 5 / 12 [Page 6] 8) On the lemmatized ﬁltered form, we calculate the percenta ge of tokens which are linked with a relation of derivation, based on the resour ce ConceptNet. For example deceptive and illusion ‘illusion’ are not directly linked in the resource, but they are both linked to illusoire ‘illusory’. Hence we consider that there exists a link of der ivation between them. For the three following ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05472,
+        0.0027,
+        0.02245,
+        -0.02503,
+        -0.01224
+      ]
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 16320,
+      "end_char": 17520,
+      "length": 1200,
+      "overlap_with_previous": " directly linked in the resource, but they are both linked to illusoire ‘illusory’. Hence we consider that there exists a link of der ivation between them. For the three following ",
+      "overlap_with_next": "posed by Koehn et al. [16] (equation 1), to calculate the direct lexical weighting, ea ch of the English words ei is generated by aligned foreign words fj with the word translation",
+      "text": " directly linked in the resource, but they are both linked to illusoire ‘illusory’. Hence we consider that there exists a link of der ivation between them. For the three following features, we have exploited the lexi cal translation probabil- ity table generated by the statistical word alignment tool Berkeley W ord Aligner [19], trained on an English-French parallel corpus composed of TE D Talks and a part of Paracrawl corpus (in total 1.8M parallel sentence pairs and 41M English tokens). 9 9) The entropy of the distributions of lexical translation p robabilities [13,5], calcu- lated according to this equation: H(X) = ∑i P (xi)I(xi) = − ∑i P (xi)logeP (xi). We calculate the average entropy on content words. A bigger e ntropy indicates that the words have more general meanings or they are polysemous. The same feature is calculated on the lemmatized content words. 10) The bidirectional lexical weighting on content words, b y supposing a n-m align- ment a between the segments ( ¯e and ¯f ). In the scheme proposed by Koehn et al. [16] (equation 1), to calculate the direct lexical weighting, ea ch of the English words ei is generated by aligned foreign words fj with the word translation",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03607,
+        -0.00173,
+        0.02853,
+        0.02207,
+        -0.01334
+      ]
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 17340,
+      "end_char": 18540,
+      "length": 1200,
+      "overlap_with_previous": "posed by Koehn et al. [16] (equation 1), to calculate the direct lexical weighting, ea ch of the English words ei is generated by aligned foreign words fj with the word translation",
+      "overlap_with_next": "arning classiﬁers.10 4.2 End-to-end Neural Network Architectures The source and target phrases are encoded using a bidirectio nal encoder with Gated Recurrent Unit (GRU) (size 10).",
+      "text": "posed by Koehn et al. [16] (equation 1), to calculate the direct lexical weighting, ea ch of the English words ei is generated by aligned foreign words fj with the word translation probability w(ei|fj). And similarly for the reverse lexical weighting lex( ¯f |¯e, a). The same feature is calcu- lated for lemmatized content words. This feature could reﬂe ct the alignment conﬁdence between a pair of segments. lex(¯e| ¯f , a) = length(¯e)∏ i=1 1 |{j|(i, j) ∈ a}| ∑ ∀(i,j)∈a w(ei|fj) (1) 11) The sum of lexical translation probability differences between the human trans- lation and the most probable translation according to the pr obability table. For each source word, we take the target word in human translation wit h the biggest probability. According to this method, we also count the unaligned words t o calculate a ratio on the total number of tokens on each side. These features are calcu lated in the two directions of translation. We use the toolkit Scikit-Learn [27] to train different statistical machine learning classiﬁers.10 4.2 End-to-end Neural Network Architectures The source and target phrases are encoded using a bidirectio nal encoder with Gated Recurrent Unit (GRU) (size 10).",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02771,
+        0.00158,
+        0.02442,
+        -0.00503,
+        0.00255
+      ]
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 18360,
+      "end_char": 19560,
+      "length": 1200,
+      "overlap_with_previous": "arning classiﬁers.10 4.2 End-to-end Neural Network Architectures The source and target phrases are encoded using a bidirectio nal encoder with Gated Recurrent Unit (GRU) (size 10).",
+      "overlap_with_next": "s fed into a fully-connected layer follow ed by a linear layer as the output. In the second architecture, the source and target ou tputs of the encoder layer are averaged over time",
+      "text": "arning classiﬁers.10 4.2 End-to-end Neural Network Architectures The source and target phrases are encoded using a bidirectio nal encoder with Gated Recurrent Unit (GRU) (size 10). The outputs of forward and backward recurrent net- works are concatenated to form the source and target phrase r epresentations (size 20). After the encoder layer we have tried two different architec tures. The ﬁrst one is to build an alignment matrix for the source-target phrases, us ing the dot product of the two representations, inspired by these two work [17,29]. Th en a Convolutional Neural 9 https://wit3.fbk.eu/, https://paracrawl.eu/index.html 10 The code and data set is publicly available at https://githu b.com/Y umingZHAI/ctp. 6 / 12 [Page 7] Network (CNN) classiﬁer is applied to this alignment matrix, which i s composed of one convolution layer followed by pooling. Since the shape of th e alignment matrix varies from one source-target pair to another, an adaptive pooling is used [14]. The output of the pooling layer is fed into a fully-connected layer follow ed by a linear layer as the output. In the second architecture, the source and target ou tputs of the encoder layer are averaged over time",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.00148,
+        -0.00494,
+        0.01205,
+        -0.0078,
+        -0.00342
+      ]
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 19380,
+      "end_char": 20580,
+      "length": 1200,
+      "overlap_with_previous": "s fed into a fully-connected layer follow ed by a linear layer as the output. In the second architecture, the source and target ou tputs of the encoder layer are averaged over time",
+      "overlap_with_next": "ed in 200 epochs, with a learning rate of 0.0001 using Adam optimizer and the minibatch size of 20. Dropout has been applied to all layers except the output and embedding layers. 5",
+      "text": "s fed into a fully-connected layer follow ed by a linear layer as the output. In the second architecture, the source and target ou tputs of the encoder layer are averaged over time steps to produce two ﬁxed-dimensiona l vectors, which are fur- ther concatenated (size 40) and fed into a Multi-layer Perceptron (MLP) classiﬁer. The hidden layer of MLP includes 10 hidden units with tanh non-linearity. The length of our phrases is usually short, especially for wo rd-for-word Literal instances. In order to build a more robust alignment matrix a nd to avoid the out-of- vocabulary problem, we ﬁnally choose to use character embed dings. As shown in ta- ble 2, for the embedding layer, we have tried respectively randomly initialized character embeddings (size 10), and training our own word embeddings using skipgram model of FastT ext[2] on a TED Talks corpus (around 3M tokens for both English an d French), with a word-embedding size of 100, minimum n-gram of 3, and maximum n-gram of 6. All the models have been trained in 200 epochs, with a learning rate of 0.0001 using Adam optimizer and the minibatch size of 20. Dropout has been applied to all layers except the output and embedding layers. 5",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.02252,
+        -0.02865,
+        -0.00777,
+        -0.0014,
+        0.00051
+      ]
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 20400,
+      "end_char": 21600,
+      "length": 1200,
+      "overlap_with_previous": "ed in 200 epochs, with a learning rate of 0.0001 using Adam optimizer and the minibatch size of 20. Dropout has been applied to all layers except the output and embedding layers. 5",
+      "overlap_with_next": "siﬁcation (balanced distribution) Architecture Accuracy F1 (L) F1 (NL) Randomly initialized character embedding CNN 59.99% 0.60 0.60 MLP 71.16% 0.71 0.71 Pre-trained fasttext word ",
+      "text": "ed in 200 epochs, with a learning rate of 0.0001 using Adam optimizer and the minibatch size of 20. Dropout has been applied to all layers except the output and embedding layers. 5 Experimental Results and Analysis The table 2 and 3 show the results of our classiﬁers using end- to-end neural network architectures, for binary classiﬁcation (balanced distri bution) and multi-class classiﬁ- cation. For the binary classiﬁcation, Non_literal (NL) class has in total 1127 instances, and 1127 Literal (L) instances are randomly chosen. Besides the preprocessi ng steps of lowercasing and correcting minor spelling errors, for th e neural classiﬁers, we also normalized the clitic forms to complete words ( e.g. ’re → are), and normalized digits to letter form ( e.g. 42 → four two). The architecture using word embeddings and MLP obtain better results and is faster than the other two archit ectures. However, the current data set is too small for neural architectures to produce sat isfactory results. Table 2: Binary classiﬁcation (balanced distribution) Architecture Accuracy F1 (L) F1 (NL) Randomly initialized character embedding CNN 59.99% 0.60 0.60 MLP 71.16% 0.71 0.71 Pre-trained fasttext word ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07585,
+        -0.014,
+        0.00646,
+        -0.00281,
+        0.00547
+      ]
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 21420,
+      "end_char": 22620,
+      "length": 1200,
+      "overlap_with_previous": "siﬁcation (balanced distribution) Architecture Accuracy F1 (L) F1 (NL) Randomly initialized character embedding CNN 59.99% 0.60 0.60 MLP 71.16% 0.71 0.71 Pre-trained fasttext word ",
+      "overlap_with_next": "s (3:1, 2:1, 1:1). The distribution 3:1 is the natural distribution in the data set . The instances of Literal have been extracted randomly for the last two distributions. - ﬁve cl",
+      "text": "siﬁcation (balanced distribution) Architecture Accuracy F1 (L) F1 (NL) Randomly initialized character embedding CNN 59.99% 0.60 0.60 MLP 71.16% 0.71 0.71 Pre-trained fasttext word embedding MLP 71.25% 0.71 0.71 Table 3: Multi-class classiﬁcation (ﬁve non-literal classes) Architecture Accuracy Micro-F1 Macro-F1 Randomly initialized character embedding CNN 34.08% 0.34 0.20 MLP 40.74% 0.41 0.34 Pre-trained fasttext word embedding MLP 43.22% 0.43 0.34 The number of all non-literal instances (1127) is only one th ird of Literal instances (3771). Considering this important difference, for the sta tistical machine learning clas- siﬁers, we ﬁrst evaluated them under these conﬁgurations: - six classes ( Literal, Equivalence, Generalization, Particularizatio n, Modulation, Contain_Transposition). We ﬁrst put all Literal instances. Then to have an approxi- mately balanced class distribution, we randomly take 200 in stances for Literal. 7 / 12 [Page 8] - two classes ( Literal and Non_literal), with three distributions (3:1, 2:1, 1:1). The distribution 3:1 is the natural distribution in the data set . The instances of Literal have been extracted randomly for the last two distributions. - ﬁve cl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06469,
+        -0.01967,
+        0.03655,
+        -0.02153,
+        0.00775
+      ]
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 22440,
+      "end_char": 23640,
+      "length": 1200,
+      "overlap_with_previous": "s (3:1, 2:1, 1:1). The distribution 3:1 is the natural distribution in the data set . The instances of Literal have been extracted randomly for the last two distributions. - ﬁve cl",
+      "overlap_with_next": "g the non- literal categories. Table 4: Classiﬁcation results under different conﬁgurati ons, using all features Distribution of classes Classiﬁer Accuracy Micro-F1 Macro-F1 Six cl",
+      "text": "s (3:1, 2:1, 1:1). The distribution 3:1 is the natural distribution in the data set . The instances of Literal have been extracted randomly for the last two distributions. - ﬁve classes (only non-literal categories). For each conﬁguration, we have tuned the hyperparameters of different classiﬁers. We evaluate them by ﬁve-fold cross-validation, 11 using the metrics such as the average accuracy of ﬁve folds, the micro average and macro average F1 -score [34]. The Dum- myClassiﬁer is used as a baseline, which generates random predictions by respecting the distribution of training classes. First, we attempted a direct classiﬁcation into six classes (see table 4). The best results by RandomF orestreﬂect the difﬁculty of the task in multi-classes. On the oth er hand, we observe the potential of our features on classifyin g the category Literal when the number of instances increases. As a result, we decide to d ivide the problem: conduct ﬁrst a binary classiﬁcation, and secondly a multi-class cla ssiﬁcation among the non- literal categories. Table 4: Classiﬁcation results under different conﬁgurati ons, using all features Distribution of classes Classiﬁer Accuracy Micro-F1 Macro-F1 Six cl",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07597,
+        -0.02198,
+        0.01117,
+        -0.00616,
+        0.00569
+      ]
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 23460,
+      "end_char": 24660,
+      "length": 1200,
+      "overlap_with_previous": "g the non- literal categories. Table 4: Classiﬁcation results under different conﬁgurati ons, using all features Distribution of classes Classiﬁer Accuracy Micro-F1 Macro-F1 Six cl",
+      "overlap_with_next": "al balanced distribu- tion by randomly choosing Literal instances (thus both class have 1127 instances), the average F1-score for the class Non_literal increases from 0.78 to 0.88.",
+      "text": "g the non- literal categories. Table 4: Classiﬁcation results under different conﬁgurati ons, using all features Distribution of classes Classiﬁer Accuracy Micro-F1 Macro-F1 Six classes six classes, with 3771 Literal Dummy 60.76% 0.61 0.15RandomForest 83.10% 0.83 0.44 six classes, with 200 Literal Dummy 18.92% 0.19 0.16RandomForest 57.04% 0.57 0.52 Two classes Literal (3) : Non_literal (1) Dummy 65.84% 0.66 0.52RandomForest 90.16% 0.90 0.86 Literal (2) : Non_literal (1) Dummy 56.43% 0.56 0.51RandomForest 88.85% 0.89 0.88 Literal (1) : Non_literal (1) Dummy 53.19% 0.53 0.53RandomForest 87.09% 0.87 0.87 Five classes Five non-literal classes Dummy 20.32% 0.20 0.18RandomForest 55.10% 0.55 0.47 For the binary classiﬁcation, the two best classiﬁers are RandomF orestand MLP. Furthermore, RandomF orest has better performance than the two combined by the method hard voting or soft voting. The table 4 presents the results under three different class distributions. From the natural distribution (3:1) t o our artiﬁcial balanced distribu- tion by randomly choosing Literal instances (thus both class have 1127 instances), the average F1-score for the class Non_literal increases from 0.78 to 0.88.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.08276,
+        -0.01373,
+        0.02019,
+        -0.05548,
+        -0.01026
+      ]
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 24480,
+      "end_char": 25680,
+      "length": 1200,
+      "overlap_with_previous": "al balanced distribu- tion by randomly choosing Literal instances (thus both class have 1127 instances), the average F1-score for the class Non_literal increases from 0.78 to 0.88.",
+      "overlap_with_next": "verage F1 0.51 0.25 0.56 0.36 0.68 The table 6 recapitulates the best performance on binary cla ssiﬁcation (balanced distribution) and on the classiﬁcation of ﬁve non-literal c las",
+      "text": "al balanced distribu- tion by randomly choosing Literal instances (thus both class have 1127 instances), the average F1-score for the class Non_literal increases from 0.78 to 0.88. We will continue to test this tendency when a larger data set is available. Tab le 4 also shows the results for the classiﬁcation into ﬁve non-literal classes using al l features, and the average F1- score for each non-literal category are shown in table 5. The category Generalization 11 StratiﬁedKFold is used for cross-validation, where the fol ds are made by preserving the per- centage of samples for each class. 8 / 12 [Page 9] has many fewer instances than the other categories, which ne ed to be augmented; there exist many confusions between Modulation and the other categories, which suggests rather a review of annotation guidelines. Table 5: Average F1-score for each non-literal class, using all features Category Equivalence Generalization Particularization Modulation Contain_Transposition Nb. instances 289 86 215 195 342 Average F1 0.51 0.25 0.56 0.36 0.68 The table 6 recapitulates the best performance on binary cla ssiﬁcation (balanced distribution) and on the classiﬁcation of ﬁve non-literal c las",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0752,
+        -0.04274,
+        0.01522,
+        -0.00832,
+        0.01033
+      ]
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 25500,
+      "end_char": 26700,
+      "length": 1200,
+      "overlap_with_previous": "verage F1 0.51 0.25 0.56 0.36 0.68 The table 6 recapitulates the best performance on binary cla ssiﬁcation (balanced distribution) and on the classiﬁcation of ﬁve non-literal c las",
+      "overlap_with_next": " the vector counting the occurrence of eac h tag. The features in ﬂoat form generally perform better than those in discrete form ( e.g. 0, 1, etc.). Concerning the classiﬁcation in",
+      "text": "verage F1 0.51 0.25 0.56 0.36 0.68 The table 6 recapitulates the best performance on binary cla ssiﬁcation (balanced distribution) and on the classiﬁcation of ﬁve non-literal c lasses, using the most helpful set of features. With the best performing classiﬁer RandomF orest, we have investigated the performance of features one by one and also grouped them: PoS_tagging (feature 1, 2), surface (feature 3), syntactic_analysis (feature 4, 5), external_resource (feature 6, 7, 8) and word_alignment (feature 9, 10, 11). For binary classiﬁcation, feature 10 (b idi- rectional lexical weighting) is most helpful, which genera tes average F1-score of 0.78 for Literal and 0.80 for Non_literal by itself. The group of features word_alignment contributes the most for the binary classiﬁcation. The comb ination of all features gen- erates the best results, which remain the same if we remove th e feature 4 (constituency parsing), 7 (how the pair is linked in the resource ConceptNet) and the features on PoS tagging apart from the vector counting the occurrence of eac h tag. The features in ﬂoat form generally perform better than those in discrete form ( e.g. 0, 1, etc.). Concerning the classiﬁcation in",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03613,
+        0.00601,
+        -0.02281,
+        -0.01727,
+        0.00882
+      ]
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 26520,
+      "end_char": 27720,
+      "length": 1200,
+      "overlap_with_previous": " the vector counting the occurrence of eac h tag. The features in ﬂoat form generally perform better than those in discrete form ( e.g. 0, 1, etc.). Concerning the classiﬁcation in",
+      "overlap_with_next": "nd Transposition (T), vs the other classes. The third conﬁguration is more int eresting, because the group of translation processes LET do not bring meaning changes, while the proc",
+      "text": " the vector counting the occurrence of eac h tag. The features in ﬂoat form generally perform better than those in discrete form ( e.g. 0, 1, etc.). Concerning the classiﬁcation into ﬁve non-literal classes, the combin ation of all features except the group external_resource leads to the best results, where the group PoS_tagging and syntactic_analysis contribute more than the group word_alignment and surface. The accuracy changes from 55.10% to 55.20% after feature ablati on (see table 4). Our error analysis shows that in binary classiﬁcation, it is difﬁcult to distinguish Literal and Equivalence; in multi-class classiﬁcation, the biggest confusion is be tween Equivalence and Contain_Transposition. Consequently, we conducted another three bi- nary classiﬁcation experiments (see table 7), where in all c onﬁgurations each class has 549 instances to make the results comparable: i) Literal vs Non_literal ii) Literal com- bined with Equivalence (E), vs the other classes iii) Literal combined with Equivalence and Transposition (T), vs the other classes. The third conﬁguration is more int eresting, because the group of translation processes LET do not bring meaning changes, while the proc",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.06802,
+        -0.04896,
+        -0.01318,
+        0.02222,
+        0.01282
+      ]
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 27540,
+      "end_char": 28740,
+      "length": 1200,
+      "overlap_with_previous": "nd Transposition (T), vs the other classes. The third conﬁguration is more int eresting, because the group of translation processes LET do not bring meaning changes, while the proc",
+      "overlap_with_next": "r feature ablation stud y average accuracy average F1-scores binary classiﬁcation (balanced distribution) 87.09% 0.87 (Literal) 0.88 (Non_literal) ﬁve non-literal classes 55.20% 0.",
+      "text": "nd Transposition (T), vs the other classes. The third conﬁguration is more int eresting, because the group of translation processes LET do not bring meaning changes, while the processes non-LET could. The results show that by including Transposition (change grammatical classes without changing the meaning), the per formance gets better than only grouping Literal and Equivalence, since we avoid the confusion between Equiv- alence and Transposition. The better results of binary classiﬁcation (L vs NL, LET vs non-LET) indicate that in future work we can develop cascadi ng classiﬁers, namely ﬁrst separating word-for-word literal translations, or th ose which do not cause meaning changes, then conducting a ﬁner-grained classiﬁcation amo ng the other categories. 6 Conclusion and Perspectives We have proposed a new Natural Language Processing task of au tomatically classify- ing translation processes at subsentential level, based on manually annotated examples 9 / 12 [Page 10] Table 6: Classiﬁcation results after feature ablation stud y average accuracy average F1-scores binary classiﬁcation (balanced distribution) 87.09% 0.87 (Literal) 0.88 (Non_literal) ﬁve non-literal classes 55.20% 0.",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09226,
+        -0.04643,
+        -0.01364,
+        0.03694,
+        0.04958
+      ]
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 28560,
+      "end_char": 29760,
+      "length": 1200,
+      "overlap_with_previous": "r feature ablation stud y average accuracy average F1-scores binary classiﬁcation (balanced distribution) 87.09% 0.87 (Literal) 0.88 (Non_literal) ﬁve non-literal classes 55.20% 0.",
+      "overlap_with_next": "than the baseline random classiﬁer. This task is complicated, and our exploratory work is restra ined by the limited amount of annotated examples. However, our work demonstrat es t",
+      "text": "r feature ablation stud y average accuracy average F1-scores binary classiﬁcation (balanced distribution) 87.09% 0.87 (Literal) 0.88 (Non_literal) ﬁve non-literal classes 55.20% 0.55 (micro average) 0.48 (macro average) Table 7: Classiﬁcation results after grouping classes, eve ry class has 549 instances Conﬁguration average accuracy average F1 (class1) average F1 (class2) Dummy 48.63% 0.49 0.49 L vs NL 85.24% 0.84 0.86 LE vs non-LE 75.32% 0.74 0.77 LET vs non-LET 79.42% 0.78 0.81 from a parallel English-French TED Talks corpus. To the best of our knowledge, these translation processes have not been explicitly exploited d uring paraphrase extraction from bilingual parallel corpora. With the best performing c lassiﬁer RandomF orestand feature engineering, our empirical results show a best accu racy of 87.09% for binary classiﬁcation (Literal vs Non_literal) and 55.20% for multi-class classiﬁcation ( Equiv- alence, Generalization, Particularization, Modulation, Contain_Transposition), which are much better than the baseline random classiﬁer. This task is complicated, and our exploratory work is restra ined by the limited amount of annotated examples. However, our work demonstrat es t",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07701,
+        -0.03934,
+        0.00021,
+        0.01144,
+        0.02785
+      ]
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 29580,
+      "end_char": 30780,
+      "length": 1200,
+      "overlap_with_previous": "than the baseline random classiﬁer. This task is complicated, and our exploratory work is restra ined by the limited amount of annotated examples. However, our work demonstrat es t",
+      "overlap_with_next": "h, C.: Paraphrasing with bili ngual parallel corpora. In: Proceed- ings of the 43rd Annual Meeting on Association for Computational Linguistics. pp. 597–604. Association for Comput",
+      "text": "than the baseline random classiﬁer. This task is complicated, and our exploratory work is restra ined by the limited amount of annotated examples. However, our work demonstrat es that automatically classifying translation processes seem possible, and the e xperiments show the direc- tions that we can follow in future work. There is much room to c onstitute an augmented and balanced data set, on which we will evaluate our classiﬁe r to observe the perfor- mance. The ﬁner error analysis of the classiﬁcation results is useful to help the research on corpus annotation and linguistic analysis. We will conti nue to improve the classiﬁer on English-French, by implementing other features for mult i-class classiﬁcation, and explore more neural architectures. We will also extend our w ork to English-Chinese translation pairs. One of our long term objectives is levera ging this automatic classiﬁ- cation to better control paraphrase extraction from biling ual parallel corpora. References 1. Bannard, C., Callison-Burch, C.: Paraphrasing with bili ngual parallel corpora. In: Proceed- ings of the 43rd Annual Meeting on Association for Computational Linguistics. pp. 597–604. Association for Comput",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07302,
+        -0.01555,
+        -0.00121,
+        0.05108,
+        0.03079
+      ]
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 30600,
+      "end_char": 31800,
+      "length": 1200,
+      "overlap_with_previous": "h, C.: Paraphrasing with bili ngual parallel corpora. In: Proceed- ings of the 43rd Annual Meeting on Association for Computational Linguistics. pp. 597–604. Association for Comput",
+      "overlap_with_next": "hinese In- formation Processing Society of China (2010) 5. Carl, M., Schaeffer, M.J.: Why translation is difﬁcult: A corpus-based study of non-literality in post-editing and from-s",
+      "text": "h, C.: Paraphrasing with bili ngual parallel corpora. In: Proceed- ings of the 43rd Annual Meeting on Association for Computational Linguistics. pp. 597–604. Association for Computational Linguistics (2005) 2. Bojanowski, P ., Grave, E., Joulin, A., Mikolov, T.: Enric hing word vectors with subword in- formation. Transactions of the Association for Computatio nal Linguistics 5, 135–146 (2017) 3. Camacho-Collados, J., Pilehvar, M.T., Collier, N., Navi gli, R.: Semeval-2017 task 2: Multi- lingual and cross-lingual semantic word similarity. In: Pr oceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017). pp. 15–26 . Association for Computa- tional Linguistics (2017). https://doi.org/10.18653/v1/S17-2002 4. Candito, M., Nivre, J., Denis, P ., Anguiano, E.H.: Benchm arking of statistical dependency parsers for french. In: Proceedings of the 23rd Internation al Conference on Computational 10 / 12 [Page 11] Linguistics: Posters. pp. 108–116. Association for Comput ational Linguistics, Chinese In- formation Processing Society of China (2010) 5. Carl, M., Schaeffer, M.J.: Why translation is difﬁcult: A corpus-based study of non-literality in post-editing and from-s",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.0501,
+        0.02739,
+        0.01129,
+        0.03587,
+        0.0066
+      ]
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 31620,
+      "end_char": 32820,
+      "length": 1200,
+      "overlap_with_previous": "hinese In- formation Processing Society of China (2010) 5. Carl, M., Schaeffer, M.J.: Why translation is difﬁcult: A corpus-based study of non-literality in post-editing and from-s",
+      "overlap_with_next": ". Deng, D., Xue, N.: Translation divergences in chinese–e nglish machine translation: An em- pirical investigation. Computational Linguistics 43(3), 521–565 (2017) 11. Dorr, B.J., ",
+      "text": "hinese In- formation Processing Society of China (2010) 5. Carl, M., Schaeffer, M.J.: Why translation is difﬁcult: A corpus-based study of non-literality in post-editing and from-scratch translation. HERMES-Jou rnal of Language and Communi- cation in Business (56), 43–57 (2017) 6. Carpuat, M., Vyas, Y ., Niu, X.: Detecting cross-lingual s emantic divergence for neural ma- chine translation. In: Proceedings of the First Workshop on Neural Machine Translation. pp. 69–79. Association for Computational Linguistics (2017) 7. Chatterjee, R., Negri, M., Rubino, R., Turchi, M.: Findin gs of the WMT 2018 Shared Task on Automatic Post-Editing. In: Proceedings of the Third Confe rence on Machine Translation. Association for Computational Linguistics, Belgium, Brus sels (October 2018) 8. Chuquet, H., Paillard, M.: Approche linguistique des pro blèmes de traduction anglais- français. Ophrys (1989) 9. Cohen, J.: A coefﬁcient of agreement for nominal scales. E ducational and Psychological Measurement 20, 37–46 (1960) 10. Deng, D., Xue, N.: Translation divergences in chinese–e nglish machine translation: An em- pirical investigation. Computational Linguistics 43(3), 521–565 (2017) 11. Dorr, B.J., ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03355,
+        0.00871,
+        -0.01215,
+        0.01834,
+        0.01141
+      ]
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 32640,
+      "end_char": 33840,
+      "length": 1200,
+      "overlap_with_previous": ". Deng, D., Xue, N.: Translation divergences in chinese–e nglish machine translation: An em- pirical investigation. Computational Linguistics 43(3), 521–565 (2017) 11. Dorr, B.J., ",
+      "overlap_with_next": "824 15. Imamura, K., Sumita, E., Matsumoto, Y .: Automatic const ruction of machine translation knowledge using translation literalness. In: Proceedings of the tenth conference on ",
+      "text": ". Deng, D., Xue, N.: Translation divergences in chinese–e nglish machine translation: An em- pirical investigation. Computational Linguistics 43(3), 521–565 (2017) 11. Dorr, B.J., Pearl, L., Hwa, R., Habash, N.: Duster: A meth od for unraveling cross-language divergences for statistical word-level alignment. In: Con ference of the Association for Ma- chine Translation in the Americas. pp. 31–43. Springer (200 2) 12. Ganitkevitch, J., V an Durme, B., Callison-Burch, C.: PP DB: The paraphrase database. In: Proceedings of the 2013 Conference of the North American Cha pter of the Association for Computational Linguistics: Human Language Technologies. pp. 758–764 (2013) 13. Gray, R.M.: Entropy and Information Theory. Springer-V erlag, Berlin, Heidelberg (1990) 14. He, K., Zhang, X., Ren, S., Sun, J.: Spatial pyramid pooli ng in deep convolutional networks for visual recognition. IEEE Transactions on Pattern Analy sis and Machine Intelligence 37(9), 1904–1916 (Sept 2015). https://doi.org/10.1109/TPAMI.2015.2389824 15. Imamura, K., Sumita, E., Matsumoto, Y .: Automatic const ruction of machine translation knowledge using translation literalness. In: Proceedings of the tenth conference on ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01339,
+        -0.04184,
+        -0.02625,
+        0.02198,
+        -0.00689
+      ]
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 33660,
+      "end_char": 34860,
+      "length": 1200,
+      "overlap_with_previous": "824 15. Imamura, K., Sumita, E., Matsumoto, Y .: Automatic const ruction of machine translation knowledge using translation literalness. In: Proceedings of the tenth conference on ",
+      "overlap_with_next": "et physics doklady 10(8), 707–710 (1966) 19. Liang, P ., Taskar, B., Klein, D.: Alignment by agreement . In: Proceedings of the main con- ference on Human Language Technology Confe",
+      "text": "824 15. Imamura, K., Sumita, E., Matsumoto, Y .: Automatic const ruction of machine translation knowledge using translation literalness. In: Proceedings of the tenth conference on European chapter of the Association for Computational Linguistics- V olume 1. pp. 155–162. Associa- tion for Computational Linguistics (2003) 16. Koehn, P ., Och, F.J., Marcu, D.: Statistical phrase-bas ed translation. In: Proceedings of the 2003 Conference of the North American Chapter of the Associa tion for Computational Lin- guistics on Human Language Technology-V olume 1. pp. 48–54. Association for Computa- tional Linguistics (2003) 17. Legrand, J., Auli, M., Collobert, R.: Neural Network-ba sed Word Alignment through Score Aggregation. In: Proceedings of the First Conference on Mac hine Translation, WMT 2016, colocated with ACL 2016, August 11-12, Berlin, Germany. pp. 66–73. The Association for Computer Linguistics (2016) 18. Levenshtein, V .I.: Binary codes capable of correcting d eletions, insertions, and reversals. Soviet physics doklady 10(8), 707–710 (1966) 19. Liang, P ., Taskar, B., Klein, D.: Alignment by agreement . In: Proceedings of the main con- ference on Human Language Technology Confe",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01275,
+        -0.01758,
+        -0.01327,
+        0.01613,
+        0.01307
+      ]
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 34680,
+      "end_char": 35880,
+      "length": 1200,
+      "overlap_with_previous": "et physics doklady 10(8), 707–710 (1966) 19. Liang, P ., Taskar, B., Klein, D.: Alignment by agreement . In: Proceedings of the main con- ference on Human Language Technology Confe",
+      "overlap_with_next": "33ar 23. Newmark, P .: Approaches to Translation (Language Teach ing Methodology Senes). Oxford: Pergamon Press (1981) 24. Newmark, P .: A textbook of translation, vol. 66. Prentic",
+      "text": "et physics doklady 10(8), 707–710 (1966) 19. Liang, P ., Taskar, B., Klein, D.: Alignment by agreement . In: Proceedings of the main con- ference on Human Language Technology Conference of the Nort h American Chapter of the Association of Computational Linguistics. pp. 104–111. As sociation for Computational Lin- guistics (2006) 20. Mallinson, J., Sennrich, R., Lapata, M.: Paraphrasing r evisited with neural machine transla- tion. In: Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics: V olume 1, Long Papers. vol. 1, pp. 881–893 (2017) 21. Manning, C.D., Surdeanu, M., Bauer, J., Finkel, J., Beth ard, S.J., McClosky, D.: The Stanford CoreNLP natural language processing toolkit. In: Associat ion for Computational Linguistics (ACL) System Demonstrations. pp. 55–60 (2014) 11 / 12 [Page 12] 22. Molina, L., Hurtado Albir, A.: Translation Techniques R evisited: A Dynamic and Function- alist Approach. Meta 47(4), 498–512 (2002). https://doi.org/10.7202/008033ar 23. Newmark, P .: Approaches to Translation (Language Teach ing Methodology Senes). Oxford: Pergamon Press (1981) 24. Newmark, P .: A textbook of translation, vol. 66. Prentic",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.01124,
+        0.01305,
+        -0.00936,
+        0.00712,
+        -0.00893
+      ]
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 35700,
+      "end_char": 36900,
+      "length": 1200,
+      "overlap_with_previous": "33ar 23. Newmark, P .: Approaches to Translation (Language Teach ing Methodology Senes). Oxford: Pergamon Press (1981) 24. Newmark, P .: A textbook of translation, vol. 66. Prentic",
+      "overlap_with_next": "Brucher, M., Perrot, M., Duchesnay, E.: Scikit-learn: Machine learning in Python. Journal of Machine Learning Research 12, 2825–2830 (2011) 28. Petrov, S., Das, D., McDonald, R.T.:",
+      "text": "33ar 23. Newmark, P .: Approaches to Translation (Language Teach ing Methodology Senes). Oxford: Pergamon Press (1981) 24. Newmark, P .: A textbook of translation, vol. 66. Prentic e Hall New Y ork (1988) 25. Papineni, K., Roukos, S., Ward, T., Zhu, W.J.: Bleu: a met hod for automatic evaluation of machine translation. In: Proceedings of the 40th annual mee ting on association for computa- tional linguistics. pp. 311–318. Association for Computat ional Linguistics (2002) 26. Pavlick, E., Bos, J., Nissim, M., Beller, C., V an Durme, B ., Callison-Burch, C.: Adding semantics to data-driven paraphrasing. In: Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th Inte rnational Joint Conference on Natural Language Processing (V olume 1: Long Papers). vol. 1, pp. 1512–1522 (2015) 27. Pedregosa, F., V aroquaux, G., Gramfort, A., Michel, V ., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P ., Weiss, R., Dubourg, V ., V anderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., Duchesnay, E.: Scikit-learn: Machine learning in Python. Journal of Machine Learning Research 12, 2825–2830 (2011) 28. Petrov, S., Das, D., McDonald, R.T.:",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.03076,
+        -0.003,
+        -0.02807,
+        0.01581,
+        -0.00451
+      ]
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 36720,
+      "end_char": 37920,
+      "length": 1200,
+      "overlap_with_previous": "Brucher, M., Perrot, M., Duchesnay, E.: Scikit-learn: Machine learning in Python. Journal of Machine Learning Research 12, 2825–2830 (2011) 28. Petrov, S., Das, D., McDonald, R.T.:",
+      "overlap_with_next": "t rate with targeted human annotation. In: Proceedings of ass ociation for machine translation in the Americas. vol. 200 (2006) 32. Speer, R., Chin, J., Havasi, C.: Conceptnet 5.5:",
+      "text": "Brucher, M., Perrot, M., Duchesnay, E.: Scikit-learn: Machine learning in Python. Journal of Machine Learning Research 12, 2825–2830 (2011) 28. Petrov, S., Das, D., McDonald, R.T.: A universal part-of -speech tagset. In: Calzolari, N., Choukri, K., Declerck, T., Dogan, M.U., Maegaard, B., Maria ni, J., Odijk, J., Piperidis, S. (eds.) Proceedings of the Eighth International Conference on Language Resources and Eval- uation, LREC 2012, Istanbul, Turkey, May 23-25, 2012. pp. 2089–2096. European Language Resources Association (ELRA) (2012) 29. Pham, M.Q., Crego, J., Senellart, J., Yvon, F.: Fixing tr anslation divergences in parallel cor- pora for neural mt. In: Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing. pp. 2967–2973 (2018) 30. Schmid, H.: Improvements In Part-of-Speech Tagging Wit h an Application To German. In: Proceedings of the ACL SIGDA T-Workshop. pp. 47–50 (1995) 31. Snover, M., Dorr, B., Schwartz, R., Micciulla, L., Makho ul, J.: A study of translation edit rate with targeted human annotation. In: Proceedings of ass ociation for machine translation in the Americas. vol. 200 (2006) 32. Speer, R., Chin, J., Havasi, C.: Conceptnet 5.5:",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.05358,
+        -0.02926,
+        -0.01042,
+        0.02289,
+        0.00197
+      ]
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 37740,
+      "end_char": 38940,
+      "length": 1200,
+      "overlap_with_previous": "t rate with targeted human annotation. In: Proceedings of ass ociation for machine translation in the Americas. vol. 200 (2006) 32. Speer, R., Chin, J., Havasi, C.: Conceptnet 5.5:",
+      "overlap_with_next": "èque de stylistique comparée, Didier (19 58) 36. Vyas, Y ., Niu, X., Carpuat, M.: Identifying Semantic Div ergences in Parallel Text without Annotations. In: Walker, M.A., Ji, H., ",
+      "text": "t rate with targeted human annotation. In: Proceedings of ass ociation for machine translation in the Americas. vol. 200 (2006) 32. Speer, R., Chin, J., Havasi, C.: Conceptnet 5.5: An open m ultilingual graph of general knowl- edge. In: Thirty-First AAAI Conference on Artiﬁcial Intell igence. pp. 4444–4451 (2017) 33. Speer, R., Lowry-Duda, J.: Conceptnet at semeval-2017 t ask 2: Extending word embeddings with multilingual relational knowledge. In: Bethard, S., C arpuat, M., Apidianaki, M., Mo- hammad, S.M., Cer, D.M., Jurgens, D. (eds.) Proceedings of the 11th International Workshop on Semantic Evaluation, SemEval@ACL 2017, V ancouver, Cana da, August 3-4, 2017. pp. 85–89. Association for Computational Linguistics (2017) 34. Tsoumakas, G., Katakis, I., Vlahavas, I.: Random k-labe lsets for multilabel classiﬁcation. IEEE Transactions on Knowledge and Data Engineering 23(7), 1079–1089 (2011) 35. Vinay, J.P ., Darbelnet, J.: Stylistique comparée du fra nçais et de l’anglais: méthode de tra- duction. Bibliothèque de stylistique comparée, Didier (19 58) 36. Vyas, Y ., Niu, X., Carpuat, M.: Identifying Semantic Div ergences in Parallel Text without Annotations. In: Walker, M.A., Ji, H., ",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.09028,
+        -0.02814,
+        -0.00024,
+        0.02992,
+        0.01771
+      ]
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 38760,
+      "end_char": 39470,
+      "length": 710,
+      "overlap_with_previous": "èque de stylistique comparée, Didier (19 58) 36. Vyas, Y ., Niu, X., Carpuat, M.: Identifying Semantic Div ergences in Parallel Text without Annotations. In: Walker, M.A., Ji, H., ",
+      "overlap_with_next": "",
+      "text": "èque de stylistique comparée, Didier (19 58) 36. Vyas, Y ., Niu, X., Carpuat, M.: Identifying Semantic Div ergences in Parallel Text without Annotations. In: Walker, M.A., Ji, H., Stent, A. (eds.) Proc eedings of the 2018 Conference of the North American Chapter of the Association for Computa tional Linguistics: Human Language Technologies, NAACL-HLT 2018, New Orleans, Louisiana, USA, June 1-6, 2018, V olume 1 (Long Papers). pp. 1503–1515. Association for Computational Linguistics (2018) 37. Zhai, Y ., Max, A., Vilnat, A.: Construction of a multilin gual corpus annotated with transla- tion relations. In: First Workshop on Linguistic Resources for Natural Language Processing. pp. 102–111 (2018) 12 / 12",
+      "embedding_dim": 1024,
+      "embedding_preview": [
+        -0.07891,
+        -0.00741,
+        0.00181,
+        0.03189,
+        -0.02214
+      ]
+    }
+  ]
+}
