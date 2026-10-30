@@ -356,8 +356,4 @@ To tune retrieval, change `SCORE_MARGIN` or `MIN_SCORE`, rerun the evaluation, a
 - **A library-wide question fails on citation:** set `"require_citation": false` for that question and leave out `expected_papers`.
 - **Request errors:** the summary lists each error with its kind. Raise `--timeout` for slow questions, and check that the server is running at `--api-url`.
 
-## 11. What to say about the architecture in a presentation
 
-> "I wanted a GraphRAG system that is simple to run and mostly free. Papers, chunks, entities and relations live in a single SQLite file. Entities and papers form a graph through an edges table, and I traverse it with SQL joins to find related papers that share methods and datasets. Chunks are embedded with BAAI/bge-m3 and searched by cosine similarity, with a similarity cutoff so only relevant evidence reaches the model. The LLM answers from the retrieved excerpts plus the graph context and cites its sources. Older conversation turns are summarized into a running memory while the latest messages stay verbatim, and I measure the whole pipeline with an evaluation script covering retrieval accuracy, citations, refusal on unanswerable questions and an LLM judge that flags unsupported claims."
-
-Be transparent that SQLite is not a dedicated graph database. If multi-hop graph reasoning becomes the main requirement, Neo4j is the more natural engine; for this project, explicit edges plus SQL joins are the graph layer.
