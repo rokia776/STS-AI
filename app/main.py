@@ -11,6 +11,7 @@ app = FastAPI(
 
 app.include_router(question_router)
 
+
 @app.get("/")
 def root():
     logger.info("Root endpoint was accessed")
