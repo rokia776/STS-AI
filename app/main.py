@@ -1,7 +1,6 @@
 from fastapi import FastAPI
-
 from app.core.logging_config import setup_logging
-
+from app.api.v1.question import router as question_router
 logger = setup_logging()
 
 app = FastAPI(
@@ -10,6 +9,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
+app.include_router(question_router)
 
 @app.get("/")
 def root():
