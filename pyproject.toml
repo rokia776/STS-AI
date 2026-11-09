@@ -1,28 +1,23 @@
 [project]
 name = "llm-qa"
 version = "0.1.0"
-description = "Add your description here"
+description = "LLM Question Answering API"
 readme = "README.md"
-authors = [
-    { name = "rokia776", email = "rookaislam81@gmail.com" }
-]
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.162.2",
-    "huggingface-hub>=2.4.0",
     "pydantic-settings>=2.16.2",
-    "python-dotenv>=1.2.4",
-    "pyyaml>=6.0.3",
+    "sentencepiece>=0.2.3",
+    "torch>=2.15.0",
+    "transformers>=5.22.2",
     "uvicorn>=0.54.0",
 ]
-
-
-[build-system]
-requires = ["uv_build>=0.13.3,<0.14.0"]
-build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
     "httpx>=0.28.1",
     "pytest>=9.2.0",
 ]
+
+[tool.uv]
+package = false
