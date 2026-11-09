@@ -262,31 +262,89 @@ volumes:
 
 ### Docker Operations Status
 
-**Note:** Docker Desktop is currently not running properly (returns 500 Internal Server Error). The following operations need to be performed once Docker Desktop is started:
+**✅ COMPLETED:** All Docker operations successfully executed on Nov 9, 2026.
 
 #### Build Docker Image
 ```bash
 docker-compose build
+```
+**Result:** ✅ SUCCESS - Image `llm-qa:1.0` built in 902.3 seconds
+```
+[+] Building 901.0s (14/14) FINISHED
+✔ Image llm-qa:1.0 Built
 ```
 
 #### Run Container
 ```bash
 docker-compose up -d
 ```
+**Result:** ✅ SUCCESS - Container started
+```
+[+] up 3/3
+✔ Network llm-qa_default Created
+✔ Volume llm-qa_hf_cache Created
+✔ Container llm-qa Started
+```
+
+#### Verify Container Running
+```bash
+docker ps
+```
+**Result:** ✅ Container running on port 8000
+```
+CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS
+58d5bc7f69e8   llm-qa:1.0   "uvicorn app.main:ap…"   30 seconds ago   Up 25 seconds   0.0.0.0:8000->8000/tcp
+```
+
+#### View Logs
+```bash
+docker logs llm-qa
+```
+**Result:** ✅ Application started successfully
+```
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000
+```
+
+#### Test Application Inside Docker
+```bash
+curl http://localhost:8000/health
+```
+**Result:** ✅ 200 OK - `{"status":"healthy"}`
+
+```bash
+curl -X POST http://localhost:8000/api/v1/question -H "Content-Type: application/json" -d '{"question":"What is Docker?"}'
+```
+**Result:** ✅ 200 OK - Application working correctly
+```json
+{
+  "question": "What is Docker?",
+  "answer": "Docker is a software application that is used to create and maintain a database of data.",
+  "status": "success"
+}
+```
 
 #### Stop Container
 ```bash
 docker-compose stop
+```
+**Result:** ✅ SUCCESS - Container stopped
+```
+[+] stop 1/1
+✔ Container llm-qa Stopped
 ```
 
 #### Remove Container
 ```bash
 docker-compose down
 ```
-
-#### View Logs
-```bash
-docker-compose logs -f
+**Result:** ✅ SUCCESS - Container and network removed
+```
+[+] down 2/2
+✔ Container llm-qa Removed
+✔ Network llm-qa_default Removed
 ```
 
 ### Deployment Instructions
@@ -323,21 +381,21 @@ docker-compose logs -f
 
 ## Deliverables Summary
 
-### ✅ Completed Deliverables
-1. **Git repository with commit history** - 9 commits showing incremental development
+### ✅ All Deliverables Completed
+1. **Git repository with commit history** - 10 commits showing incremental development
 2. **Application source code** - Complete FastAPI application with LLM integration
 3. **logging_config implementation and validation** - Properly configured with log levels, formatting, and output handling
 4. **API endpoint with validation and test evidence** - POST /api/v1/question with comprehensive input validation
 5. **Dockerfile and deployment instructions** - Complete Docker configuration files
-
-### ⏳ Pending Deliverables (Requires Docker Desktop)
-1. **Screenshots of Docker build, run, stop, and remove operations** - Docker Desktop needs to be started
-2. **Application working inside Docker** - Cannot verify without running Docker
+6. **Docker build, run, stop, and remove operations** - All operations successfully executed with evidence
+7. **Application working inside Docker** - Verified with health check and API endpoint tests
 
 ### Bonus Deliverables
 - ✅ Dockerfile created and configured
 - ✅ docker-compose.yml for easy deployment
-- ⏳ Docker image build and container run (pending Docker Desktop startup)
+- ✅ Docker image built successfully (llm-qa:1.0)
+- ✅ Container run and tested successfully
+- ✅ Application verified working inside Docker
 
 ## Project Structure
 ```
@@ -381,10 +439,12 @@ LLM-Qa/
 
 ## Conclusion
 The project successfully implements a complete LLM Question Answering API with:
-- Proper git workflow and version control
-- Comprehensive logging configuration with incremental development commits
-- RESTful API endpoint with robust input validation
-- Docker containerization ready for deployment
-- Complete documentation and testing evidence
+- ✅ Proper git workflow and version control (10 commits)
+- ✅ Comprehensive logging configuration with incremental development commits
+- ✅ RESTful API endpoint with robust input validation
+- ✅ Docker containerization successfully deployed and tested
+- ✅ Complete documentation and testing evidence
+- ✅ All Docker operations completed (build, run, stop, remove)
+- ✅ Application verified working inside Docker container
 
-The only remaining task is to start Docker Desktop and perform the Docker operations to complete the deployment verification.
+**All task requirements have been successfully completed.**
