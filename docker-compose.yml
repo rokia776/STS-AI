@@ -7,7 +7,7 @@ services:
       - "8000:8000"
     environment:
       - FLAN_MODEL=google/flan-t5-small
-      - FLAN_MAX_NEW_TOKENS=128
+      - FLAN_MAX_NEW_TOKENS=256
     volumes:
       - ./logs:/app/logs
       - hf_cache:/app/hf_cache
