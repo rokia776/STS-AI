@@ -1,22 +1,23 @@
 from fastapi import FastAPI
 
+from app.core.logging_config import setup_logging
+
+logger = setup_logging()
+
 app = FastAPI(
     title="LLM Question Answering API",
     description="A simple LLM-powered Question Answering System",
-    version="1.0.0"
+    version="1.0.0",
 )
 
 
 @app.get("/")
 def root():
-    return {
-        "message": "Welcome to LLM-QA API",
-        "status": "running"
-    }
+    logger.info("Root endpoint was accessed")
+    return {"message": "Welcome to LLM-QA API"}
 
 
 @app.get("/health")
 def health_check():
-    return {
-        "status": "healthy"
-    }s
+    logger.info("Health check requested")
+    return {"status": "healthy"}
