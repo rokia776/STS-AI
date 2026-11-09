@@ -32,6 +32,25 @@ def ask_question(payload: QuestionRequest):
     )
 
 
+@router.post("/ask", response_model=QuestionResponse)
+def ask(payload: QuestionRequest):
+    global question_count
+    logger.info("Ask endpoint called (length=%d)", len(payload.question))
+
+    try:
+        answer = ask_llm(payload.question)
+    except LLMServiceError as exc:
+        raise HTTPException(status_code=exc.status_code, detail=exc.message)
+
+    question_count += 1
+    logger.info("Ask endpoint answered successfully (total=%d)", question_count)
+    return QuestionResponse(
+        question=payload.question,
+        answer=answer,
+        status="success",
+    )
+
+
 @router.get("/stats")
 def get_stats():
     logger.info("Stats endpoint was accessed")
