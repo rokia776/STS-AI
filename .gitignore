@@ -1,8 +1,9 @@
 .venv/
-pycache/
-.py[cod]
+__pycache__/
+*.py[cod]
 .env
-logs/.log
+logs/*.log
+!logs/.gitkeep
 .pytest_cache/
 .coverage
 .vscode/
