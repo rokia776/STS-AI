@@ -8,6 +8,7 @@ dependencies = [
     "asyncpg>=0.29.0",
     "fastapi>=0.162.2",
     "pydantic-settings>=2.16.2",
+    "redis>=5.0.0",
     "sentencepiece>=0.2.3",
     "torch>=2.15.0",
     "transformers>=5.22.2",

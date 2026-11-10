@@ -6,6 +6,7 @@ from app.schemas.question import QuestionRequest
 from app.schemas.response import QuestionResponse
 from app.services.llm_service import LLMServiceError, ask_llm
 from app.models.question import save_question, get_all_questions
+from app.core.redis_cache import cache_get, cache_set
 
 logger = logging.getLogger("llm_qa")
 
@@ -19,6 +20,17 @@ async def ask_question(payload: QuestionRequest):
     global question_count
     logger.info("Question received (length=%d)", len(payload.question))
 
+    # Check cache first
+    cache_key = f"question:{payload.question}"
+    cached_answer = await cache_get(cache_key)
+    if cached_answer:
+        logger.info("Answer retrieved from cache")
+        return QuestionResponse(
+            question=payload.question,
+            answer=cached_answer,
+            status="success (cached)",
+        )
+
     try:
         answer = ask_llm(payload.question)
     except LLMServiceError as exc:
@@ -29,6 +41,9 @@ async def ask_question(payload: QuestionRequest):
 
     # Save to database
     await save_question(payload.question, answer, "success")
+
+    # Cache the answer for 1 hour
+    await cache_set(cache_key, answer, expire_seconds=3600)
 
     return QuestionResponse(
         question=payload.question,
@@ -42,6 +57,17 @@ async def ask(payload: QuestionRequest):
     global question_count
     logger.info("Ask endpoint called (length=%d)", len(payload.question))
 
+    # Check cache first
+    cache_key = f"question:{payload.question}"
+    cached_answer = await cache_get(cache_key)
+    if cached_answer:
+        logger.info("Answer retrieved from cache")
+        return QuestionResponse(
+            question=payload.question,
+            answer=cached_answer,
+            status="success (cached)",
+        )
+
     try:
         answer = ask_llm(payload.question)
     except LLMServiceError as exc:
@@ -52,6 +78,9 @@ async def ask(payload: QuestionRequest):
 
     # Save to database
     await save_question(payload.question, answer, "success")
+
+    # Cache the answer for 1 hour
+    await cache_set(cache_key, answer, expire_seconds=3600)
 
     return QuestionResponse(
         question=payload.question,

@@ -9,9 +9,11 @@ WORKDIR /app
 # Install dependencies (CPU-only torch keeps the image small)
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 RUN pip install --no-cache-dir \
+    asyncpg \
     fastapi \
     "uvicorn[standard]" \
     pydantic-settings \
+    redis \
     transformers \
     sentencepiece
 
