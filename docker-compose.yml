@@ -8,9 +8,21 @@ services:
     environment:
       - FLAN_MODEL=google/flan-t5-small
       - FLAN_MAX_NEW_TOKENS=256
+      - REDIS_URL=redis://redis:6379/0
     volumes:
       - ./logs:/app/logs
       - hf_cache:/app/hf_cache
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
 
 volumes:
   hf_cache:
+  redis_data:

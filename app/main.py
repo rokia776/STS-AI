@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.core.logging_config import setup_logging
 from app.api.v1.question import router as question_router
+from app.core.redis_cache import get_redis_client, close_redis
 logger = setup_logging()
 
 app = FastAPI(
@@ -10,6 +11,20 @@ app = FastAPI(
 )
 
 app.include_router(question_router)
+
+
+@app.on_event("startup")
+async def startup_event():
+    """Initialize Redis connection."""
+    await get_redis_client()
+    logger.info("Application startup complete")
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Close Redis connection."""
+    await close_redis()
+    logger.info("Application shutdown complete")
 
 
 @app.get("/")
