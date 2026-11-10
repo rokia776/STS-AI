@@ -1,0 +1,10 @@
+FROM redis:7-alpine
+
+# Copy custom redis configuration if needed
+# COPY redis.conf /usr/local/etc/redis/redis.conf
+
+# Expose Redis default port
+EXPOSE 6379
+
+# Run Redis server
+CMD ["redis-server"]
