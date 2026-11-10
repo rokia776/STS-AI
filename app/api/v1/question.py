@@ -5,6 +5,7 @@ from fastapi import APIRouter, HTTPException
 from app.schemas.question import QuestionRequest
 from app.schemas.response import QuestionResponse
 from app.services.llm_service import LLMServiceError, ask_llm
+from app.models.question import save_question, get_all_questions
 
 logger = logging.getLogger("llm_qa")
 
@@ -14,7 +15,7 @@ question_count = 0
 
 
 @router.post("/question", response_model=QuestionResponse)
-def ask_question(payload: QuestionRequest):
+async def ask_question(payload: QuestionRequest):
     global question_count
     logger.info("Question received (length=%d)", len(payload.question))
 
@@ -25,6 +26,10 @@ def ask_question(payload: QuestionRequest):
 
     question_count += 1
     logger.info("Question answered successfully (total=%d)", question_count)
+
+    # Save to database
+    await save_question(payload.question, answer, "success")
+
     return QuestionResponse(
         question=payload.question,
         answer=answer,
@@ -33,7 +38,7 @@ def ask_question(payload: QuestionRequest):
 
 
 @router.post("/ask", response_model=QuestionResponse)
-def ask(payload: QuestionRequest):
+async def ask(payload: QuestionRequest):
     global question_count
     logger.info("Ask endpoint called (length=%d)", len(payload.question))
 
@@ -44,6 +49,10 @@ def ask(payload: QuestionRequest):
 
     question_count += 1
     logger.info("Ask endpoint answered successfully (total=%d)", question_count)
+
+    # Save to database
+    await save_question(payload.question, answer, "success")
+
     return QuestionResponse(
         question=payload.question,
         answer=answer,
@@ -58,4 +67,15 @@ def get_stats():
         "total_questions_processed": question_count,
         "api_version": "1.0.0",
         "status": "operational"
+    }
+
+
+@router.get("/questions")
+async def get_questions(limit: int = 100):
+    """Get all questions from the database."""
+    logger.info("Get questions endpoint called")
+    questions = await get_all_questions(limit)
+    return {
+        "count": len(questions),
+        "questions": questions
     }

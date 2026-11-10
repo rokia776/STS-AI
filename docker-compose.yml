@@ -8,9 +8,25 @@ services:
     environment:
       - FLAN_MODEL=google/flan-t5-small
       - FLAN_MAX_NEW_TOKENS=256
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/llm_qa
     volumes:
       - ./logs:/app/logs
       - hf_cache:/app/hf_cache
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=llm_qa
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
   hf_cache:
+  postgres_data:

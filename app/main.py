@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from app.core.logging_config import setup_logging
 from app.api.v1.question import router as question_router
+from app.core.database import get_pool, close_pool
+from app.models.question import create_questions_table
 logger = setup_logging()
 
 app = FastAPI(
@@ -10,6 +12,21 @@ app = FastAPI(
 )
 
 app.include_router(question_router)
+
+
+@app.on_event("startup")
+async def startup_event():
+    """Initialize database connection pool and create tables."""
+    await get_pool()
+    await create_questions_table()
+    logger.info("Application startup complete")
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Close database connection pool."""
+    await close_pool()
+    logger.info("Application shutdown complete")
 
 
 @app.get("/")
