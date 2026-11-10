@@ -1,25 +1,22 @@
 [project]
 name = "llm-qa"
-version = "0.1.0"
-description = "LLM Question Answering API"
-readme = "README.md"
+version = "1.0.0"
 requires-python = ">=3.11"
 dependencies = [
-    "asyncpg>=0.29.0",
-    "fastapi>=0.162.2",
-    "pydantic-settings>=2.16.2",
-    "redis>=5.0.0",
-    "sentencepiece>=0.2.3",
-    "torch>=2.15.0",
-    "transformers>=5.22.2",
-    "uvicorn>=0.54.0",
+    "asyncpg",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic-settings",
+    "redis",
+    "transformers",
+    "sentencepiece",
+    "torch",
 ]
 
-[dependency-groups]
-dev = [
-    "httpx>=0.28.1",
-    "pytest>=9.2.0",
-]
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
 
-[tool.uv]
-package = false
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
