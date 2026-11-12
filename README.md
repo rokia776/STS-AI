@@ -1,401 +1,408 @@
-# Task LLM-Qa : API Development, Git Workflow & Docker Deployment
+# LLM-QA: Question Answering API with Redis Caching
 
-## Part 1: Git & Logging Configuration
+A production-ready FastAPI application that answers questions using an LLM, with PostgreSQL persistence and Redis caching for optimal performance.
 
-### Git Repository Status
-The project has a complete git repository with the following commit history:
+## Architecture
 
+The application consists of three services orchestrated by Docker Compose:
+
+- **Backend (FastAPI)**: Handles HTTP requests, generates answers using FLAN-T5 model, manages caching logic
+- **PostgreSQL**: Stores Q&A history with UUID primary keys and indexed timestamps
+- **Redis**: Provides in-memory caching with 1-hour TTL to reduce LLM calls
+
+### Technology Stack
+
+- **Python 3.11** with FastAPI
+- **PostgreSQL 15** for persistent storage
+- **Redis 7** for caching
+- **SQLAlchemy** (via asyncpg) for database operations
+- **Docker & Docker Compose** for containerization
+- **GitHub Actions** for CI/CD
+
+### Database Schema
+
+The `questions` table stores Q&A pairs with the following design:
+
+```sql
+CREATE TABLE questions (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    question TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    status VARCHAR(50) DEFAULT 'success',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_questions_created_at ON questions(created_at DESC);
 ```
-b126dcc (HEAD -> master) Add /api/v1/stats endpoint with question counter
-196dc1d Update report with Docker operations completion evidence
-afdf08b Add Docker configuration files for deployment
-2e359d2 Switch to local flan-t5 model and remove unused dependencies
-531da30 Add POST /api/v1/question endpoint with input validation
-b569b7a Add package init files, schemas, and fix root endpoint
-adb795d Add DEBUG level for file handler and fix RotatingFileHandler filename
-8c56e12 Add rotating file and console logging handlers
-c3868cd Improve logging format and timestamp
-5074e58 Add basic logging configuration
-6f51f96 Initial project setup with uv and FastAPI
+
+**Design Decisions:**
+
+- **UUID primary key**: Prevents ID enumeration attacks and supports distributed systems
+- **Single table for Q&A**: Simple one-to-one relationship doesn't justify separate tables
+- **Index on created_at**: Enables efficient sorting for history retrieval
+- **Original question storage**: Preserves exact user input for accuracy
+
+## How Caching Works
+
+The application implements a cache-aside pattern:
+
+1. **User submits a question**
+2. **Check Redis** for cached answer using key `question:{question_text}`
+3. **Cache HIT**: Return cached answer immediately (no LLM call, no DB write)
+4. **Cache MISS**: 
+   - Generate answer using FLAN-T5 model
+   - Save Q&A to PostgreSQL
+   - Cache answer in Redis with 1-hour TTL
+   - Return answer to user
+
+**Duplicate Question Strategy**: The application creates a new PostgreSQL record for each submission to track usage history, but returns cached answers when available. This balances analytics needs with performance.
+
+## Environment Variables
+
+Configure these in `.env` or docker-compose.yml:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `FLAN_MODEL` | `google/flan-t5-small` | Hugging Face model to use |
+| `FLAN_MAX_NEW_TOKENS` | `256` | Maximum tokens for answer generation |
+| `DATABASE_URL` | `postgresql://postgres:postgres@postgres:5432/llm_qa` | PostgreSQL connection string |
+| `REDIS_URL` | `redis://redis:6379/0` | Redis connection string |
+
+## Running the Project
+
+### Prerequisites
+
+- Docker and Docker Compose installed
+- Git
+
+### Using Docker Compose (Recommended)
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd LLM-Qa
+   ```
+
+2. **Start all services**
+   ```bash
+   docker-compose up -d
+   ```
+
+   This will:
+   - Build the backend image (multi-stage build)
+   - Start PostgreSQL with health checks
+   - Start Redis with health checks
+   - Start backend after dependencies are healthy
+
+3. **Verify the application**
+   ```bash
+   curl http://localhost:8000/health
+   ```
+
+4. **Test the API**
+   ```bash
+   curl -X POST http://localhost:8000/api/v1/question \
+     -H "Content-Type: application/json" \
+     -d '{"question":"What is Docker?"}'
+   ```
+
+5. **View logs**
+   ```bash
+   docker-compose logs -f llm-qa
+   ```
+
+6. **Stop services**
+   ```bash
+   docker-compose down
+   ```
+
+### Data Persistence
+
+PostgreSQL and Redis use named volumes for persistence:
+- `postgres_data`: Database data survives container restarts
+- `redis_data`: Redis cache data survives container restarts
+- `hf_cache`: Hugging Face model cache to avoid re-downloading
+
+## Docker Implementation Details
+
+### Multi-Stage Build
+
+The Dockerfile uses two stages:
+
+**Build Stage:**
+- Installs uv package manager
+- Copies dependency files and installs packages
+- Builds the application
+- Includes compilers and dev dependencies
+
+**Runtime Stage:**
+- Starts from fresh python:3.11-slim image
+- Creates non-root user `appuser`
+- Copies only necessary artifacts from builder
+- Runs application as non-root user
+- Smaller image size, improved security
+
+### Non-Root User
+
+The container runs as `appuser` for security:
+- Prevents privilege escalation attacks
+- Limits damage if container is compromised
+- Follows security best practices
+
+### Health Checks
+
+PostgreSQL and Redis include health checks:
+- PostgreSQL: Uses `pg_isready` to verify database is accepting connections
+- Redis: Uses `redis-cli ping` to verify server is responding
+- Backend waits for healthy dependencies before starting
+
+### Container Networking
+
+Services communicate using Docker Compose network:
+- Backend connects to `postgres:5432` (not localhost)
+- Backend connects to `redis:6379` (not localhost)
+- PostgreSQL and Redis ports are NOT published to host (security)
+- Only backend port 8000 is exposed
+
+## GitHub Actions CI/CD
+
+### Workflow Overview
+
+The `.github/workflows/docker-build-push.yml` workflow:
+
+1. **Triggers** on push to `main` or `feature/docker-improvements` branches
+2. **Checks out** the repository code
+3. **Sets up** Docker Buildx for multi-platform builds
+4. **Authenticates** with Docker Hub using secrets
+5. **Extracts metadata** for image tagging (branch name, commit SHA, latest)
+6. **Builds and pushes** the Docker image to Docker Hub
+7. **Uses GitHub Actions cache** to speed up builds
+
+### Required GitHub Secrets
+
+Configure these in your repository settings:
+
+- `DOCKERHUB_USERNAME`: Your Docker Hub username
+- `DOCKERHUB_TOKEN`: Docker Hub access token (create in Docker Hub account settings)
+
+### Image Tags
+
+Images are tagged as:
+- `<username>/llm-qa:main` or `:<branch-name>` for branch builds
+- `<username>/llm-qa:<branch>-<commit-sha>` for specific commits
+- `<username>/llm-qa:latest` for main branch
+
+### Pulling and Running the Published Image
+
+After the workflow runs, pull and run:
+
+```bash
+docker pull YOUR_USERNAME/llm-qa:latest
+
+docker run -p 8000:8000 \
+  -e DATABASE_URL=postgresql://user:pass@host:5432/db \
+  -e REDIS_URL=redis://host:6379/0 \
+  YOUR_USERNAME/llm-qa:latest
 ```
 
-### Logging Configuration Implementation
-**File:** `app/core/logging_config.py`
+Note: For full functionality, run with Docker Compose to include PostgreSQL and Redis.
 
-The logging configuration includes:
-- **Log Levels:** DEBUG for file handler, INFO for console handler
-- **Formatting:** `%(asctime)s | %(name)s | %(levelname)s | %(message)s` with timestamp format `%Y-%m-%d %H:%M:%S`
-- **Output Handling:** 
-  - Console handler (StreamHandler) for INFO level logs
-  - Rotating file handler (RotatingFileHandler) for DEBUG level logs
-  - File rotation: max 200KB per file, 3 backup files
-  - Logs stored in `logs/app.log`
+## API Endpoints
 
-### Git Commits for Logging Configuration (Incremental Development)
-1. **5074e58** - "Add basic logging configuration"
-2. **c3868cd** - "Improve logging format and timestamp"
-3. **8c56e12** - "Add rotating file and console logging handlers"
-4. **adb795d** - "Add DEBUG level for file handler and fix RotatingFileHandler filename"
+### POST /api/v1/question
 
-### Logging Validation
-Logs are being generated correctly as demonstrated in `logs/app.log`:
-- Timestamps are properly formatted
-- Log levels (INFO, ERROR, WARNING) are correctly applied
-- Multiple log entries show successful logging of API requests and responses
-- File rotation is configured (though not yet triggered due to file size)
+Submit a question and get an answer.
 
-## Part 2: API Development & Validation
-
-### API Endpoint Implementation
-**File:** `app/api/v1/question.py`
-
-**Endpoints:**
-
-#### 1. POST /api/v1/question
-**Features:**
-- Accepts JSON payload with `question` field
-- Returns structured response with question, answer, and status
-- Error handling with appropriate HTTP status codes
-- Integration with LLM service for question answering
-- Tracks total questions processed
-
-#### 2. GET /api/v1/stats
-**Features:**
-- Returns system statistics
-- Shows total questions processed
-- Displays API version
-- Shows operational status
-
-### Input Validation
-**File:** `app/schemas/question.py`
-
-**Validation Rules:**
-- Minimum length: 3 characters
-- Maximum length: 1000 characters
-- Cannot be empty or whitespace only
-- Custom field validator to strip whitespace and validate
-
-### API Testing Results
-
-#### Valid Request
-```powershell
-Invoke-WebRequest -Uri "http://localhost:8000/api/v1/question" -Method POST -ContentType "application/json" -Body '{"question":"What is FastAPI?"}'
+**Request:**
+```json
+{
+  "question": "What is FastAPI?"
+}
 ```
-**Response:** 200 OK
+
+**Response (Cache MISS):**
 ```json
 {
   "question": "What is FastAPI?",
-  "answer": "FastAPI () is a standardized protocol for the use of a single cellular network.",
+  "answer": "FastAPI is a modern web framework...",
   "status": "success"
 }
 ```
 
-#### Invalid Request - Too Short
-```powershell
-Invoke-WebRequest -Uri "http://localhost:8000/api/v1/question" -Method POST -ContentType "application/json" -Body '{"question":"ab"}'
-```
-**Response:** 422 Unprocessable Entity
+**Response (Cache HIT):**
 ```json
 {
-  "detail": [
-    {
-      "type": "string_too_short",
-      "loc": ["body", "question"],
-      "msg": "String should have at least 3 characters",
-      "input": "ab",
-      "ctx": {"min_length": 3}
-    }
-  ]
+  "question": "What is FastAPI?",
+  "answer": "FastAPI is a modern web framework...",
+  "status": "success (cached)"
 }
 ```
 
-#### Invalid Request - Whitespace Only
-```powershell
-Invoke-WebRequest -Uri "http://localhost:8000/api/v1/question" -Method POST -ContentType "application/json" -Body '{"question":"   "}'
-```
-**Response:** 422 Unprocessable Entity
+### GET /api/v1/stats
+
+Get system statistics.
+
+**Response:**
 ```json
 {
-  "detail": [
-    {
-      "type": "value_error",
-      "loc": ["body", "question"],
-      "msg": "Value error, Question must not be empty or whitespace only",
-      "input": " ",
-      "ctx": {"error": {}}
-    }
-  ]
-}
-```
-
-#### Invalid Request - Empty String
-```powershell
-Invoke-WebRequest -Uri "http://localhost:8000/api/v1/question" -Method POST -ContentType "application/json" -Body '{"question":""}'
-```
-**Response:** 422 Unprocessable Entity
-```json
-{
-  "detail": [
-    {
-      "type": "string_too_short",
-      "loc": ["body", "question"],
-      "msg": "String should have at least 3 characters",
-      "input": "",
-      "ctx": {"min_length": 3}
-    }
-  ]
-}
-```
-
-### API Documentation
-The API includes automatic Swagger UI documentation available at:
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
-
-### Stats Endpoint Test
-
-#### Get Statistics
-```powershell
-Invoke-WebRequest -Uri "http://localhost:8000/api/v1/stats"
-```
-**Response:** 200 OK
-```json
-{
-  "total_questions_processed": 1,
+  "total_questions_processed": 42,
   "api_version": "1.0.0",
   "status": "operational"
 }
 ```
 
-## Part 4: Docker Deployment
+### GET /api/v1/questions
 
-### Docker Configuration Files
+Get question history.
 
-**Dockerfile:**
-```dockerfile
-FROM python:3.11-slim
+**Query Parameters:**
+- `limit` (default: 100) - Maximum number of questions to return
 
-WORKDIR /app
-
-COPY pyproject.toml uv.lock ./
-RUN pip install uv && uv sync --frozen
-
-COPY app ./app
-
-ENV FLAN_MODEL=google/flan-t5-small
-ENV FLAN_MAX_NEW_TOKENS=128
-
-EXPOSE 8000
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-**docker-compose.yml:**
-```yaml
-services:
-  llm-qa:
-    build: .
-    image: llm-qa:1.0
-    container_name: llm-qa
-    ports:
-      - "8000:8000"
-    environment:
-      - FLAN_MODEL=google/flan-t5-small
-      - FLAN_MAX_NEW_TOKENS=128
-    volumes:
-      - ./logs:/app/logs
-      - hf_cache:/app/hf_cache
-
-volumes:
-  hf_cache:
-```
-
-### Docker Operations Status
-
-**✅ COMPLETED:** All Docker operations successfully executed on Nov 9, 2026.
-
-#### Build Docker Image
-```bash
-docker-compose build
-```
-**Result:** ✅ SUCCESS - Image `llm-qa:1.0` built in 902.3 seconds
-```
-[+] Building 901.0s (14/14) FINISHED
-✔ Image llm-qa:1.0 Built
-```
-
-#### Run Container
-```bash
-docker-compose up -d
-```
-**Result:** ✅ SUCCESS - Container started
-```
-[+] up 3/3
-✔ Network llm-qa_default Created
-✔ Volume llm-qa_hf_cache Created
-✔ Container llm-qa Started
-```
-
-#### Verify Container Running
-```bash
-docker ps
-```
-**Result:** ✅ Container running on port 8000
-```
-CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS
-58d5bc7f69e8   llm-qa:1.0   "uvicorn app.main:ap…"   30 seconds ago   Up 25 seconds   0.0.0.0:8000->8000/tcp
-```
-
-#### View Logs
-```bash
-docker logs llm-qa
-```
-**Result:** ✅ Application started successfully
-```
-INFO:     Started server process [1]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8000
-```
-
-#### Test Application Inside Docker
-```bash
-curl http://localhost:8000/health
-```
-**Result:** ✅ 200 OK - `{"status":"healthy"}`
-
-```bash
-curl -X POST http://localhost:8000/api/v1/question -H "Content-Type: application/json" -d '{"question":"What is Docker?"}'
-```
-**Result:** ✅ 200 OK - Application working correctly
+**Response:**
 ```json
 {
-  "question": "What is Docker?",
-  "answer": "Docker is a software application that is used to create and maintain a database of data.",
-  "status": "success"
+  "count": 10,
+  "questions": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "question": "What is Docker?",
+      "answer": "Docker is a containerization platform...",
+      "status": "success",
+      "created_at": "2026-11-12T12:00:00"
+    }
+  ]
 }
 ```
 
-#### Stop Container
+## Testing the API
+
+### Test Cache Hit/Miss
+
+1. **First request (MISS):**
+   ```bash
+   curl -X POST http://localhost:8000/api/v1/question \
+     -H "Content-Type: application/json" \
+     -d '{"question":"What is Redis?"}'
+   ```
+   Response status: `"success"`
+
+2. **Second request (HIT):**
+   ```bash
+   curl -X POST http://localhost:8000/api/v1/question \
+     -H "Content-Type: application/json" \
+     -d '{"question":"What is Redis?"}'
+   ```
+   Response status: `"success (cached)"`
+
+3. **Wait 1 hour (TTL expires)**
+4. **Third request (MISS again):**
+   Response status: `"success"`
+
+### Test Database Persistence
+
 ```bash
-docker-compose stop
-```
-**Result:** ✅ SUCCESS - Container stopped
-```
-[+] stop 1/1
-✔ Container llm-qa Stopped
+# Submit a question
+curl -X POST http://localhost:8000/api/v1/question \
+  -H "Content-Type: application/json" \
+  -d '{"question":"Test persistence"}'
+
+# Retrieve history
+curl http://localhost:8000/api/v1/questions
 ```
 
-#### Remove Container
+### Test Container Restart Persistence
+
 ```bash
-docker-compose down
+# Submit a question
+curl -X POST http://localhost:8000/api/v1/question \
+  -H "Content-Type: application/json" \
+  -d '{"question":"Test restart"}'
+
+# Restart containers
+docker-compose restart
+
+# Verify data persists
+curl http://localhost:8000/api/v1/questions
 ```
-**Result:** ✅ SUCCESS - Container and network removed
-```
-[+] down 2/2
-✔ Container llm-qa Removed
-✔ Network llm-qa_default Removed
-```
-
-### Deployment Instructions
-
-1. **Start Docker Desktop** (currently not running)
-2. **Build the Docker image:**
-   ```bash
-   docker-compose build
-   ```
-3. **Run the container:**
-   ```bash
-   docker-compose up -d
-   ```
-4. **Verify the application is running:**
-   ```bash
-   curl http://localhost:8000/health
-   ```
-5. **Test the API endpoint:**
-   ```bash
-   curl -X POST http://localhost:8000/api/v1/question -H "Content-Type: application/json" -d '{"question":"What is Docker?"}'
-   ```
-6. **View logs:**
-   ```bash
-   docker-compose logs -f
-   ```
-7. **Stop the container:**
-   ```bash
-   docker-compose stop
-   ```
-8. **Remove the container:**
-   ```bash
-   docker-compose down
-   ```
-
-## Deliverables Summary
-
-### ✅ All Deliverables Completed
-1. **Git repository with commit history** - 12 commits showing incremental development
-2. **Application source code** - Complete FastAPI application with LLM integration
-3. **logging_config implementation and validation** - Properly configured with log levels, formatting, and output handling
-4. **API endpoint with validation and test evidence** - POST /api/v1/question and GET /api/v1/stats with comprehensive input validation
-5. **Dockerfile and deployment instructions** - Complete Docker configuration files
-6. **Docker build, run, stop, and remove operations** - All operations successfully executed with evidence
-7. **Application working inside Docker** - Verified with health check and API endpoint tests
-
-### Bonus Deliverables
-- ✅ Dockerfile created and configured
-- ✅ docker-compose.yml for easy deployment
-- ✅ Docker image built successfully (llm-qa:1.0)
-- ✅ Container run and tested successfully
-- ✅ Application verified working inside Docker
 
 ## Project Structure
+
 ```
 LLM-Qa/
-├── .dockerignore
-├── .env
-├── .git/
-├── .gitignore
-├── .python-version
-├── .venv/
-├── Dockerfile
-├── README.md
+├── .github/
+│   └── workflows/
+│       └── docker-build-push.yml    # CI/CD workflow
 ├── app/
-│   ├── __init__.py
 │   ├── api/
-│   │   ├── __init__.py
 │   │   └── v1/
-│   │       ├── __init__.py
-│   │       └── question.py
+│   │       └── question.py           # API endpoints
 │   ├── core/
-│   │   ├── __init__.py
-│   │   ├── config.py
-│   │   └── logging_config.py
-│   ├── main.py
+│   │   ├── config.py                 # Configuration
+│   │   ├── database.py               # PostgreSQL connection
+│   │   ├── logging_config.py         # Logging setup
+│   │   └── redis_cache.py            # Redis operations
+│   ├── main.py                       # FastAPI app
+│   ├── models/
+│   │   └── question.py               # Database models
 │   ├── schemas/
-│   │   ├── __init__.py
-│   │   ├── question.py
-│   │   └── response.py
+│   │   ├── question.py               # Request schemas
+│   │   └── response.py               # Response schemas
 │   └── services/
-│       ├── __init__.py
-│       └── llm_service.py
-├── docker-compose.yml
-├── docs/
-├── frontend/
+│       ├── flan_backend.py           # FLAN-T5 integration
+│       └── llm_service.py            # LLM service
 ├── logs/
-│   └── app.log
-├── pyproject.toml
-├── tests/
-└── uv.lock
+│   └── app.log                       # Application logs
+├── Dockerfile                        # Multi-stage build
+├── docker-compose.yml                # Service orchestration
+├── pyproject.toml                    # Dependencies
+└── uv.lock                           # Locked dependencies
 ```
 
-## Conclusion
-The project successfully implements a complete LLM Question Answering API with:
-- ✅ Proper git workflow and version control (12 commits)
-- ✅ Comprehensive logging configuration with incremental development commits
-- ✅ RESTful API endpoints with robust input validation (POST /api/v1/question, GET /api/v1/stats)
-- ✅ Docker containerization successfully deployed and tested
-- ✅ Complete documentation and testing evidence
-- ✅ All Docker operations completed (build, run, stop, remove)
-- ✅ Application verified working inside Docker container
-- ✅ Additional stats endpoint for system monitoring
+## Bonus Challenges (Optional)
 
-**All task requirements have been successfully completed.**
+These features can be added for extra credit:
+
+- [ ] Background worker for async Q&A generation
+- [ ] Scheduler for deleting old records
+- [ ] Redis as message broker for background jobs
+- [ ] Endpoint to clear Redis cache
+- [ ] Automated tests for cache hits/misses
+- [ ] CI test job before Docker image publishing
+- [ ] Semantic caching for similar questions
+
+## Troubleshooting
+
+### Container won't start
+
+Check health checks:
+```bash
+docker-compose ps
+docker-compose logs postgres
+docker-compose logs redis
+```
+
+### Redis connection errors
+
+The API handles Redis failures gracefully and falls back to PostgreSQL. Check Redis logs:
+```bash
+docker-compose logs redis
+```
+
+### Database connection errors
+
+Verify PostgreSQL is healthy:
+```bash
+docker-compose exec postgres pg_isready -U postgres -d llm_qa
+```
+
+### Permission errors with volumes
+
+The non-root user should have correct permissions. If issues occur:
+```bash
+docker-compose down -v
+docker-compose up -d
+```
+
+## License
+
+MIT

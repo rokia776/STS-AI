@@ -9,16 +9,26 @@ async def create_questions_table():
     """Create the questions table if it doesn't exist."""
     conn = await get_connection()
     try:
+        # Enable UUID extension
+        await conn.execute("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"")
+        
         await conn.execute("""
             CREATE TABLE IF NOT EXISTS questions (
-                id SERIAL PRIMARY KEY,
+                id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                 question TEXT NOT NULL,
                 answer TEXT NOT NULL,
                 status VARCHAR(50) DEFAULT 'success',
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         """)
-        logger.info("Questions table created or already exists")
+        
+        # Create index on created_at for efficient history retrieval
+        await conn.execute("""
+            CREATE INDEX IF NOT EXISTS idx_questions_created_at 
+            ON questions(created_at DESC)
+        """)
+        
+        logger.info("Questions table created or already exists with UUID primary key and index")
     finally:
         await release_connection(conn)
 
